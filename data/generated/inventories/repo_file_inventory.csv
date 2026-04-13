@@ -1,10 +1,11 @@
 relative_path,area,extension,size_bytes
 .gitignore,root,,54
-CHANGELOG.md,root,.md,499
+CHANGELOG.md,root,.md,1248
+CITATION.cff,root,.cff,841
 FILE_INDEX.md,root,.md,4136
 FINAL_REPORT.md,root,.md,7292
 NOVELTY_AND_LIMITS.md,root,.md,2191
-README.md,root,.md,6272
+README.md,root,.md,9775
 RESEARCH_MAP.md,root,.md,3378
 ROADMAP.md,root,.md,1108
 STATUS.md,root,.md,3050
@@ -18,7 +19,7 @@ archive/raw-imports/sds_cross_domain_analysis.md,archive,.md,31141
 archive/raw-imports/sds_dual_reservoir_controller.md,archive,.md,2883
 archive/raw-imports/topological_adam_rge_qec_fermat_prime_2026.txt,archive,.txt,17567
 data/generated/inventories/discovery_inventory.csv,data,.csv,3402
-data/generated/inventories/repo_file_inventory.csv,data,.csv,7803
+data/generated/inventories/repo_file_inventory.csv,data,.csv,7973
 data/generated/validations/claim_registry.csv,data,.csv,9658
 data/generated/validations/operator_examples.json,data,.json,4214
 data/generated/validations/system_summary.json,data,.json,211
@@ -74,6 +75,8 @@ docs/qec/qec-foundations.md,docs,.md,3153
 docs/qec/qec-in-ocp.md,docs,.md,3547
 docs/references/citable-expansion-directions.md,docs,.md,2775
 docs/references/core-references.md,docs,.md,2239
+docs/releases/README.md,docs,.md,196
+docs/releases/v1.0.0.md,docs,.md,6945
 docs/theorem-candidates/backup-theorems.md,docs,.md,2007
 docs/theorem-candidates/capacity-theorems.md,docs,.md,2614
 docs/theorem-candidates/central-theorem.md,docs,.md,2009

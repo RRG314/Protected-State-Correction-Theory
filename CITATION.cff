@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: Protected-State Correction Theory
+message: If you use this repository, please cite the repository itself and the specific theorem, no-go result, or application note relevant to your use.
+type: software
+authors:
+  - family-names: Reid
+    given-names: Steven
+    email: sreid1118@gmail.com
+repository-code: https://github.com/RRG314/Protected-State-Correction-Theory
+abstract: >-
+  Research program repository for protected-state correction theory, the Orthogonal
+  Correction Principle, exact and asymptotic correction branches, no-go results,
+  operator constructions, physics extensions, and a static scientific workbench.
+keywords:
+  - protected-state correction
+  - orthogonal correction principle
+  - quantum error correction
+  - operator theory
+  - divergence cleaning
+  - scientific computing
+version: 1.0.0
