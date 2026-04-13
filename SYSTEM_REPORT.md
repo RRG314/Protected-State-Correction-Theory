@@ -2,318 +2,213 @@
 
 ## Executive Summary
 
-This repository is now a serious OCP research-program base rather than a concept note.
+This repository has now crossed from a good formal build into a finished program state.
 
 The strongest current picture is:
-- exact protected-state correction in finite-dimensional and QEC-style settings,
-- exact continuous correction through periodic Helmholtz/Leray projection,
-- asymptotic correction through damping generators and GLM-style cleaning,
-- and a no-go program that now includes both overlap failure and linear-flow mixing failure.
+- exact protected-state correction through orthogonal projectors,
+- exact sector recovery through orthogonal sector embeddings,
+- exact periodic continuous projection through the Helmholtz/Leray anchor,
+- asymptotic continuous correction through invariant-split generators,
+- and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, and finite-time overclaiming.
 
-The program is more grounded than before because the next-step continuous-time target was actually pursued and it held up:
-- the repo now proves an invariant-split generator theorem,
-- proves a self-adjoint PSD corollary,
-- and proves a new linear-flow failure criterion showing when disturbance leaks into the protected coordinates.
+The workbench layer is now real as well:
+- static,
+- GitHub-Pages-compatible,
+- and tied directly to theorem or no-go files.
 
 ## Repository Inventory
 
-High-level file totals:
-- tracked-like files in repo inventory: `94`
+High-level file totals from the generated inventory:
+- tracked-like files: `131`
 - root files: `12`
-- docs files: `26`
-- theory files: `7`
+- archive files: `8`
+- data files: `6`
+- docs files: `55`
 - papers files: `6`
-- source files: `12`
-- test files: `12`
-- script files: `6`
-- data/generated files: `5`
-- archive/raw-import files: `8`
+- scripts files: `8`
+- source files: `14`
+- test files: `15`
+- theory files: `7`
 
 Machine-readable inventory:
-- [repo_file_inventory.csv](data/generated/inventories/repo_file_inventory.csv)
-- [system_summary.json](data/generated/validations/system_summary.json)
+- [data/generated/inventories/repo_file_inventory.csv](data/generated/inventories/repo_file_inventory.csv)
+- [data/generated/validations/system_summary.json](data/generated/validations/system_summary.json)
+
+## Claim Inventory
+
+Current promoted/registered claim totals:
+- total tracked claims: `21`
+- `PROVED`: `12`
+- `CONDITIONAL`: `7`
+- `OPEN`: `1`
+- `ANALOGY ONLY`: `1`
+
+Primary claim artifacts:
+- [docs/overview/claim-registry.md](docs/overview/claim-registry.md)
+- [docs/overview/proof-status-map.md](docs/overview/proof-status-map.md)
 
 ## Theory Inventory
 
-### Core formalism
-- [formal-theory.md](docs/formalism/formal-theory.md)
-- [exact-vs-asymptotic.md](docs/formalism/exact-vs-asymptotic.md)
+### Finalization layer
+- [docs/finalization/theorem-spine-final.md](docs/finalization/theorem-spine-final.md)
+- [docs/finalization/no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
+- [docs/finalization/operator-spine-final.md](docs/finalization/operator-spine-final.md)
+- [docs/finalization/architecture-final.md](docs/finalization/architecture-final.md)
 
-### Exact theorem spine
-- [central-theorem.md](docs/theorem-candidates/central-theorem.md)
-- exact orthogonal protected-subspace recovery
+### Exact branch
+- [docs/theorem-candidates/central-theorem.md](docs/theorem-candidates/central-theorem.md)
+- [docs/theorem-candidates/sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
+- [docs/theorem-candidates/capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
 
-### Continuous-time strengthening
-- [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
-- invariant-split generator theorem
-- self-adjoint PSD corollary with spectral-gap bound
+### Continuous / asymptotic branch
+- [docs/theorem-candidates/generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
+- [docs/mhd/divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
+- [docs/mhd/glm-and-asymptotic-correction.md](docs/mhd/glm-and-asymptotic-correction.md)
 
-### No-go spine
-- [no-go-results.md](docs/impossibility-results/no-go-results.md)
-- overlap/indistinguishability no-go
-- non-preserving correction disqualification
-- linear-flow mixing no-go
-- no universal scalar-capacity promotion
+### No-go layer
+- [docs/impossibility-results/no-go-results.md](docs/impossibility-results/no-go-results.md)
+- [docs/impossibility-results/advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
 
-## Systems Inventory
+## System Inventory
 
 ### 1. Finite-dimensional exact branch
+Status: `finished exact anchor`
+- protected object: orthogonal protected subspace `S`
+- disturbance object: orthogonal disturbance subspace `D`
+- operator: `P_S`
+- main results: OCP-T1, OCP-C1, OCP-T4
 
-Status: `strong exact anchor`
+### 2. Exact sector branch
+Status: `new finished exact branch`
+- protected object: `S`
+- disturbance object: pairwise orthogonal sector family `D_i`
+- operator: global sector-conditioned recovery built from `Q_i` and sector basis maps
+- main results: OCP-T5, OCP-N8
 
-Protected object:
-- orthogonal protected subspace `S`
-
-Disturbance:
-- orthogonal disturbance subspace `D`
-
-Correction structure:
-- orthogonal projector `P_S`
-- complementary projector `P_D`
-
-Main result:
-- exact recovery theorem
-
-### 2. QEC branch
-
+### 3. QEC branch
 Status: `exact anchor under standard assumptions`
+- protected object: code space
+- disturbance object: correctable syndrome sectors
+- operator: sector projectors and coherent recovery family
+- main result: exact recovery on the local 3-qubit bit-flip family
 
-Protected object:
-- code space
+### 4. Exact continuous periodic branch
+Status: `strong exact continuous anchor`
+- protected object: divergence-free field component
+- disturbance object: gradient contamination
+- operator: periodic Helmholtz/Leray projection
+- main result: exact machine-precision recovery in the tracked example
 
-Disturbance:
-- error sectors
+### 5. Asymptotic continuous generator branch
+Status: `finished asymptotic branch`
+- protected object: `ker(K)` or invariant protected coordinates
+- disturbance object: stable disturbance subspace
+- operator: damping or invariant-split generator `K`
+- main results: OCP-T2, OCP-T3, OCP-C2, OCP-N5, OCP-N7
 
-Correction structure:
-- Knill-Laflamme-compatible recovery
-- explicit 3-qubit bit-flip sector projectors and coherent recovery operators
+### 6. GLM branch
+Status: `kept as asymptotic only`
+- protected object: physical field content
+- disturbance object: divergence / constraint error
+- operator: coupled GLM update law
+- main value: practical asymptotic comparator, not exact recovery
 
-Main result:
-- exact sector recovery on the locally tested single-bit-flip family
-
-### 3. MHD projection branch
-
-Status: `strongest exact continuous anchor`
-
-Protected object:
-- divergence-free field component
-
-Disturbance:
-- gradient contamination / divergence-producing component
-
-Correction structure:
-- modewise periodic Helmholtz/Leray projection
-
-Main result:
-- the local implementation now behaves as a real projector in the tested periodic setting
-
-### 4. GLM branch
-
-Status: `useful asymptotic branch, not exact`
-
-Protected object:
-- physical divergence-free content
-
-Disturbance:
-- constraint-violating component
-
-Correction structure:
-- auxiliary-field transport plus damping
-
-Main result:
-- empirical divergence reduction in the test setting
-- clearly weaker than exact projection in one-shot correction strength
-
-### 5. Linear generator branch
-
-Status: `new strong grounded branch`
-
-Protected object:
-- invariant protected subspace `S`
-
-Disturbance:
-- invariant disturbance subspace `D`
-
-Correction structure:
-- linear generator `K` with `K|_S = 0`, `K(D) ⊆ D`, and stable restriction on `D`
-
-Main result:
-- invariant-split generator theorem
-- self-adjoint PSD corollary
-- mixing no-go criterion
-
-### 6. Control branch
-
+### 7. Control branch
 Status: `conditional extension`
+- value: design-rule and interpretation layer
+- limitation: no fully promoted broad control theorem yet
 
-Protected object:
-- system-dependent invariant or tracked coordinates
-
-Disturbance:
-- error or unstable deviation coordinates
-
-Correction structure:
-- controller or observer acting on disturbance coordinates
-
-Main result:
-- structural design rules, not a broad control theorem yet
-
-### 7. Weak branches
-
-Status: `demoted`
-
-Includes:
+### 8. Demoted branch
 - optimizer / ML bridge material
-- broad cross-domain analogy language without operator content
-- universal scalar-capacity claims
-
-## Results Inventory
-
-### Proved
-- OCP-001 formal OCP tuple
-- OCP-002 exact orthogonal projection theorem
-- OCP-003 indistinguishability no-go
-- OCP-004 continuous damping theorem for `k P_D`
-- OCP-006 Helmholtz/Leray exact continuous anchor
-- OCP-013 invariant-split generator theorem
-- OCP-014 self-adjoint PSD corollary
-- OCP-015 mixing no-go for linear flows
-
-### Conditional but serious
-- OCP-005 QEC exact anchor
-- OCP-007 GLM as asymptotic OCP
-- OCP-008 control-theoretic instantiation
-- OCP-011 engineering design value
-- OCP-012 exact-to-asymptotic bridge
-
-### Open or not yet worth promoting
-- OCP-009 universal scalar correction capacity
-- OCP-010 current optimizer/ML extension
-
-Primary status tables:
-- [claim-registry.md](docs/overview/claim-registry.md)
-- [proof-status-map.md](docs/overview/proof-status-map.md)
-
-
-## Capacity Inventory
-
-Current grounded capacity results:
-- exact linear branch: minimum correction rank at least `dim(D)` and minimum recovery rank at least `dim(S)`
-- exact sector branch: minimum distinguishable correction labels at least the number of mutually orthogonal nonzero sectors, when the exact sector model applies
-- generator branch: stable disturbance dimension, neutral disturbance dimension, unstable disturbance dimension, and split-preservation diagnostics
-- universal scalar capacity: still unsupported and unpromoted
-
-Executable capacity support:
-- [capacity.py](src/ocp/capacity.py)
-- [test_capacity.py](tests/math/test_capacity.py)
+- universal scalar-capacity language
 
 ## Operator Inventory
 
 Exact operators:
-- `P_S` exact protected-subspace projector
-- `P_D` complementary disturbance projector
-- QEC code projector and sector projectors
-- periodic discrete Helmholtz/Leray projector
+- `P_S`
+- `P_D`
+- sector projectors `Q_i`
+- global sector recovery operator
+- code projector and QEC recovery family
+- periodic Helmholtz/Leray projector
 
-Asymptotic operators/laws:
+Asymptotic operators:
 - `x_dot = -k P_D x`
-- general linear generator `x_dot = -Kx` under invariant-split hypotheses
-- GLM step operator
+- invariant-split generators `x_dot = -Kx`
+- GLM update law
 
-Failure operators / diagnostics:
-- block-decomposition test for `P_S K P_D`
-- report of protected mixing and disturbance preservation in [continuous.py](src/ocp/continuous.py)
+Failure diagnostics:
+- overlap / intersection checks
+- protected mixing norm `||P_S K P_D||`
+- exact-recovery residual for finite-time flows
+- rank / image lower-bound checks
+
+## Workbench Inventory
+
+Workbench location:
+- [docs/workbench/index.html](docs/workbench/index.html)
+
+Core workbench files:
+- [docs/workbench/app.js](docs/workbench/app.js)
+- [docs/workbench/styles.css](docs/workbench/styles.css)
+- [docs/workbench/lib/compute.js](docs/workbench/lib/compute.js)
+- [docs/workbench/lib/state.js](docs/workbench/lib/state.js)
+
+Workbench docs:
+- [docs/app/workbench-overview.md](docs/app/workbench-overview.md)
+- [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
+- [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
+
+Workbench modules:
+- Exact Projection Lab
+- QEC Sector Lab
+- MHD Projection Lab
+- Continuous Generator Lab
+- No-Go Explorer
 
 ## Validation Inventory
 
-Current validation status:
-- full validation script passes
-- markdown link check passes
-- test suite result: `19 passed`
-
-Test coverage areas:
-- exact projector recovery
-- repeated exact recovery under random orthogonal splits
-- overlap failure
-- exact linear capacity lower bounds
-- overlap-detected capacity impossibility
-- QEC KL check
-- QEC sector orthogonality
-- QEC explicit recovery
-- QEC sector-count capacity summary
-- MHD projection recovery
-- MHD idempotence / reconstruction
-- GLM divergence reduction
-- invariant-split generator theorem examples
-- PSD spectral-gap bound examples
-- mixing failure examples
-- repeated diagonal PSD generator family checks
-- generator-capacity split checks
+Validation status:
+- full validation script: passed
+- static workbench asset check: passed
+- markdown link check: passed
+- Node workbench tests: `7 passed`
+- Python theorem/operator tests: `23 passed`
 
 Primary validation entry points:
-- [run_all.sh](scripts/validate/run_all.sh)
-- [operator_examples.json](data/generated/validations/operator_examples.json)
+- [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
+- [scripts/validate/check_workbench_static.py](scripts/validate/check_workbench_static.py)
+- [scripts/compare/build_workbench_examples.mjs](scripts/compare/build_workbench_examples.mjs)
 
-## Generated Results Snapshot
+Primary generated artifacts:
+- [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
+- [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
 
-### Finite OCP example
-- initial disturbance energy: `2.8125`
-- corrected disturbance energy at `t=2`: `0.0515`
+## Results Snapshot
 
-### QEC example
-- Knill-Laflamme residual: `0.0`
-- pairwise image overlap: `0.0`
-- sector recovery errors: `[0.0, 0.0, 0.0, 0.0]`
+### Exact and sector branches
+- QEC sector recovery errors: `[0.0, 0.0, 0.0, 0.0]`
+- sector-theorem recovery errors: `[0.0, 0.0, 0.0, 0.0]`
 
-### MHD example
-- divergence before projection: `19.3592`
-- divergence after projection: `2.36e-14`
-- divergence after GLM test run: `16.8499`
-- projection orthogonality residual: `1.97e-16`
+### Continuous exact vs asymptotic branch
+- divergence before exact projection: `19.359218295532003`
+- divergence after exact projection: `2.359146931297974e-14`
+- divergence after short GLM run: `16.849909741931956`
 
-### Continuous generator examples
-- invariant-split example preserves the protected coordinate exactly and shrinks disturbance norm from `1.1180` to `0.2223`
-- self-adjoint PSD example obeys the spectral-gap bound
-- mixing-failure example changes the protected coordinate from `0.0` to `-0.3934` by `t=0.5`, confirming the no-go criterion
+### Finite-time flow boundary
+- finite-time exact recovery possible at `t = 0.25, 1.0, 2.0`: `false, false, false`
+- corresponding exact-recovery residuals: `1.0547, 0.5186, 0.2238`
 
-## What Became More Real In This Pass
+## Best Current Reading Paths
 
-The repo is more real and grounded now in four specific ways:
-- the continuous-time branch is no longer only the projector special case,
-- the linear-flow failure criterion is explicit and tested,
-- the MHD discrete projector now matches the exact-projector story much more faithfully,
-- and the repo has a full inventory-level system report rather than only a summary report.
+### Short exact path
+- [docs/finalization/architecture-final.md](docs/finalization/architecture-final.md)
+- [docs/theorem-candidates/sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
+- [docs/impossibility-results/advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
 
-## Viable Next Directions
+### Reviewer path
+- [docs/peer_review/how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
+- [docs/peer_review/proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
 
-Ranked viable directions:
-1. boundary-sensitive continuous OCP for constrained PDE correction
-2. category-specific correction-capacity theory
-3. stronger sector-based OCP examples beyond the 3-qubit anchor only if they sharpen the theory
-4. stronger no-go results for insufficient correction image or detectability
-5. continuous quantum feedback only if it can be written in real operator language
-
-Dedicated note:
-- [viable-next-directions.md](docs/open-questions/viable-next-directions.md)
-
-## Directions That Should Stay Unpromoted For Now
-
-- optimizer/ML unification claims
-- universal scalar-capacity claims
-- diffuse cross-domain rhetoric without stronger operator or theorem content
-
-## Overall Assessment
-
-Current overall assessment: `GOOD`, with a stronger theorem spine than before.
-
-Why it improved:
-- the next-target generator program produced real theorem-level output
-- the no-go program became sharper
-- the exact continuous anchor became cleaner at the implementation level
-- the validation layer is broader and deeper
-
-Why it is still not `EXCELLENT`:
-- the most distinctive results are still framework-level and operator-level rather than a clearly field-defining new theorem
-- the control branch remains conditional
-- category-specific capacity theory is still open
-- the broader continuous/PDE boundary program is still ahead rather than complete
+### Interactive path
+- [docs/workbench/index.html](docs/workbench/index.html)

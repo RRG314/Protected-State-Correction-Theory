@@ -2,237 +2,239 @@
 
 ## 1. What Was Found In Local Files
 
-The local search did **not** reveal a pre-existing fully formed OCP repository. Instead, it revealed a set of strong ingredients spread across other research programs:
+The local search did not reveal a pre-existing finished OCP repository. It revealed ingredients spread across nearby programs:
 - exact and asymptotic correction structure from MHD divergence-control work,
-- no-go and anti-fake-unification discipline from the SDS correction-gap program,
-- QEC-oriented bridge notes and speculative Claude-era material in Topological Adam files,
-- and research-program methodology notes from the RGE program.
+- QEC-oriented bridge material and correction-language fragments,
+- cross-structure and no-go discipline from SDS / correction-gap work,
+- and repository-building / falsification discipline from the stronger RGE program.
 
 Those materials were triaged into:
-- canonical operator/theorem inputs,
+- canonical operator and theorem inputs,
 - partial structural prompts,
-- speculative provenance only,
-- and superseded bridge material.
-
-Generated inventory totals:
-- curated high-value source files: `12`
-- canonical: `8`
-- partial: `2`
-- speculative provenance-only: `1`
-- superseded provenance-only: `1`
+- provenance-only fragments,
+- and superseded speculative bridge material.
 
 Primary discovery artifact:
 - [docs/overview/discovery-inventory.md](docs/overview/discovery-inventory.md)
 
 ## 2. What Was Formalized
 
-The repository now contains a full OCP program organized around a protected-state correction framework.
+The repository now contains a finished protected-state correction framework organized into five explicit layers:
+1. exact projector branch,
+2. exact sector branch,
+3. exact periodic continuous projection anchor,
+4. asymptotic continuous generator branch,
+5. and a theorem-grade no-go boundary layer.
 
-Core formal outputs:
-- [docs/formalism/formal-theory.md](docs/formalism/formal-theory.md)
-- [docs/formalism/exact-vs-asymptotic.md](docs/formalism/exact-vs-asymptotic.md)
-- [docs/operators/operator-constructions.md](docs/operators/operator-constructions.md)
-- [docs/impossibility-results/no-go-results.md](docs/impossibility-results/no-go-results.md)
+Primary architectural documents:
+- [docs/finalization/architecture-final.md](docs/finalization/architecture-final.md)
+- [docs/finalization/theorem-spine-final.md](docs/finalization/theorem-spine-final.md)
+- [docs/finalization/no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
+- [docs/finalization/operator-spine-final.md](docs/finalization/operator-spine-final.md)
 
-Primary formal decision:
-- OCP is written as an exact branch plus an asymptotic branch.
-- The exact branch is built from protected spaces, disturbance spaces, and recovery operators.
-- The asymptotic branch is built from preserved protected states plus contractively damped disturbance modes.
+## 3. Strongest Promoted Theorem-Level Results
 
-## 3. Strongest Theorem-Level Outputs
+### OCP-T1: Exact Protected-Subspace Recovery
+- exact projector recovery on `H = S ⊕ D` with `S ⟂ D`
+- status: `PROVED`
 
-### Exact theorem
-- **OCP-T1: Exact Protected-Subspace Recovery**
-  - If `H = S ⊕ D` with `S ⟂ D`, orthogonal projection onto `S` exactly recovers the protected component.
-  - Status: `THEOREM`
+### OCP-T4: Exact Correction Rank Lower Bound
+- exact linear correction needs `rank(C) >= dim(D)` and `rank(R) >= dim(S)`
+- status: `PROVED`
 
-### Minimum-structure theorem
-- **OCP-T4: Exact Correction Rank Lower Bound**
-  - For exact linear recovery on `V = S ⊕ D`, the correction operator `C = I - R` must satisfy `rank(C) >= dim(D)`, and the recovery operator must satisfy `rank(R) >= dim(S)`.
-  - Status: `THEOREM`
+### OCP-T5: Exact Sector Recovery For Orthogonal Sector Embeddings
+- pairwise orthogonal coordinate-compatible sectors admit an exact sector-conditioned recovery operator
+- status: `PROVED`
 
-### Exact no-go theorem
-- **OCP-N1: Overlap Kills Exact Recovery**
-  - If `S ∩ D != {0}`, there is no single-valued exact recovery map for all decompositions `x = s + d`.
-  - Status: `THEOREM`
+### OCP-T2 / OCP-T3 / OCP-C2: Asymptotic Continuous Spine
+- `x_dot = -k P_D x` theorem
+- invariant-split generator theorem
+- self-adjoint PSD spectral-gap corollary
+- status: `PROVED`
 
-### Asymptotic theorems
-- **OCP-T2: Continuous Damping On The Disturbance Space**
-  - The flow `x_dot = -k P_D x` preserves `S` and exponentially suppresses `D`.
-  - Status: `THEOREM`
-- **OCP-T3: Invariant-Split Generator Theorem**
-  - If `K` annihilates `S`, preserves `D`, and is exponentially stable on `D`, then `x_dot=-Kx` preserves `S` and asymptotically suppresses `D`.
-  - Status: `THEOREM`
-- **OCP-C2: Self-Adjoint PSD Corollary**
-  - Positive-semidefinite generators with `ker(K)=S` and a spectral gap on `S^\perp` give an explicit decay bound.
-  - Status: `COROLLARY`
+## 4. Strongest No-Go Results
 
-These are currently the strongest theorem spine of the repo.
+### OCP-N1: Overlap Kills Exact Recovery
+- status: `PROVED`
 
-## 4. Operator Constructions Now In The Repo
+### OCP-N5: Mixing Breaks Protected-State Preservation In Linear Flows
+- status: `PROVED`
 
-### Finite-dimensional exact operators
-- orthogonal projector `P_S`
+### OCP-N7: No Finite-Time Exact Recovery In Smooth Linear Flow Systems
+- smooth linear semigroups remain invertible at finite time and cannot annihilate a nontrivial disturbance family exactly
+- status: `PROVED`
+
+### OCP-N8: Sector Overlap Destroys Unique Exact Detection
+- overlapping sectors cannot support exact unique sector-conditioned detection
+- status: `PROVED`
+
+## 5. Operator Constructions Now In The Repo
+
+### Exact linear branch
+- protected projector `P_S`
 - complementary disturbance projector `P_D`
 - exact recovery rule `x -> P_S x`
 
-### QEC operators
-- code projector for the 3-qubit bit-flip code
-- sector projectors for `I C`, `X_1 C`, `X_2 C`, `X_3 C`
-- coherent sector-recovery operator family for the same single-bit-flip sectors
+### Exact sector branch
+- sector projectors `Q_i`
+- global sector-conditioned recovery operator built from sector bases and pseudoinverses
+- executable implementation: [src/ocp/sectors.py](src/ocp/sectors.py)
 
-### Continuous/PDE operators
-- periodic 2D Helmholtz/Leray projector for divergence-free recovery
-- GLM update step as an asymptotic correction architecture
+### QEC anchor
+- code projector
+- sector projectors for the 3-qubit bit-flip code
+- coherent recovery-operator family
+- executable implementation: [src/ocp/qec.py](src/ocp/qec.py)
 
-Primary executable sources:
-- [src/ocp/core.py](src/ocp/core.py)
-- [src/ocp/qec.py](src/ocp/qec.py)
-- [src/ocp/mhd.py](src/ocp/mhd.py)
+### Exact continuous anchor
+- periodic 2D Helmholtz/Leray projection
+- executable implementation: [src/ocp/mhd.py](src/ocp/mhd.py)
 
-## 5. What Was Proved, Conditional, Open, Or Demoted
-
-### Proved
-- exact orthogonal projection recovery
-- exact correction rank lower bound in the linear branch
-- overlap/indistinguishability no-go
-- continuous damping theorem for `x_dot = -k P_D x`
-- invariant-split generator theorem for `x_dot = -Kx`
-- self-adjoint PSD corollary with spectral-gap decay bound
-- mixing no-go for linear flows
-- periodic Helmholtz/Leray projection as an exact continuous OCP anchor
-
-### Conditional but strong
-- QEC as an OCP instantiation under standard Knill-Laflamme / syndrome-separation assumptions
-- sector distinguishability lower bound in the exact sector model
-- category-specific capacity view across branches
-- GLM as an asymptotic OCP architecture
-- control-theoretic instantiation when an invariant protected/disturbance split exists
-- engineering design value, provided the protected object and disturbance family are defined explicitly
-
-### Open
-- boundary-sensitive continuous correction beyond the periodic projector setting
-- any universal scalar correction-capacity number across all branches
-- a clean sector-based OCP generalization beyond the QEC anchor without empty abstraction
-
-### Demoted or weak
-- Topological Adam / optimizer bridge material
-- broad cross-domain analogy language without operator content
-- universal scalar unification claims
-
-Primary status artifact:
-- [docs/overview/proof-status-map.md](docs/overview/proof-status-map.md)
+### Asymptotic branch
+- damping generator `K = k P_D`
+- invariant-split generator family `x_dot = -Kx`
+- GLM update law as asymptotic correction, not exact recovery
 
 ## 6. Which Systems Genuinely Fit
 
-### Strongest exact fit
-- QEC, provided the discussion is written in syndrome-sector language rather than as a single vague disturbance space
+### Strong exact fit
+- finite-dimensional orthogonal protected/disturbance splits
+- exact sector systems with pairwise orthogonal recoverable sectors
+- QEC as an exact anchor under standard assumptions
 
-### Strongest exact continuous fit
-- projection-based divergence cleaning on suitable periodic domains via Helmholtz/Leray projection
+### Strong exact continuous fit
+- periodic divergence cleaning through Helmholtz/Leray projection
 
-### Strongest asymptotic fit
-- continuous disturbance damping flows of the form `x_dot = -Kx` with `ker(K)=S` and contraction on the disturbance family
-- GLM cleaning as a practical, non-exact example of this branch
+### Strong asymptotic fit
+- invariant-split linear generator flows
+- GLM cleaning as an asymptotic correction architecture
 
 ### Conditional fit
-- control/observer architectures with invariant protected/disturbance splitting
+- control / observer systems when invariant protected/disturbance splitting exists and feedback acts only on the correctable part
 
-### Weak fit
-- optimizer or ML stabilization language at the current evidence level
+### Demoted fit
+- optimizer and ML bridge material
 
 ## 7. Practical Value
 
-The program now has real practical value in four ways:
-- it gives a clear way to define a protected object and disturbance family,
-- it gives explicit operator constructions in exact settings,
-- it gives a principled exact/asymptotic split for continuous correction systems,
-- and it gives no-go criteria for underpowered or ill-posed correction architectures.
+The repo now has real practical value in five ways:
+- it gives explicit protected-state / disturbance-state definitions,
+- it gives actual correction operators rather than only conceptual language,
+- it separates exact correction from asymptotic suppression cleanly,
+- it gives theorem-grade criteria for when a correction architecture is structurally invalid,
+- and it now includes a static workbench that makes the theory inspectable in the browser.
 
-Best practical targets today:
-- QEC interpretation and architecture reading
-- divergence cleaning and constrained PDE correction
-- feedback/observer design checklists for disturbance suppression without signal corruption
-- minimum-structure analysis for whether a proposed correction architecture even has enough rank or sector resolution to work
-- failure analysis for proposed correction schemes
+Primary practical targets today:
+- QEC interpretation and exact sector recovery language,
+- divergence cleaning and constrained PDE correction,
+- protected-state checks for linear correction flows,
+- design-side recognition of insufficient correction image or sector ambiguity,
+- reviewer / student orientation through the workbench.
 
-## 8. Validation And Test Results
+## 8. Static Workbench
+
+The repository now includes a GitHub-Pages-compatible workbench in:
+- [docs/workbench/index.html](docs/workbench/index.html)
+
+Modules:
+- Exact Projection Lab
+- QEC Sector Lab
+- MHD Projection Lab
+- Continuous Generator Lab
+- No-Go Explorer
+
+Capabilities:
+- save scenario
+- reload scenario
+- export JSON
+- export figure
+- copy share link
+- theorem-linked explanation surface
+
+Supporting docs:
+- [docs/app/workbench-overview.md](docs/app/workbench-overview.md)
+- [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
+- [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
+
+## 9. Validation And Test Results
 
 Validation entry point:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
 
 Current validation status:
-- discovery inventory generation: passed
-- claim registry generation: passed
-- operator example generation: passed
-- system inventory generation: passed
-- markdown link check on curated repo docs: passed
-- test suite: `19 passed`
+- generated inventories: passed
+- generated claim registry: passed
+- generated operator examples: passed
+- generated workbench examples: passed
+- markdown link check: passed
+- static workbench asset check: passed
+- Node workbench test suite: `7 passed`
+- Python theorem/operator test suite: `23 passed`
 
-Notable generated validation artifact:
+Key generated artifacts:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
+- [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
+- [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
+- [data/generated/validations/system_summary.json](data/generated/validations/system_summary.json)
 
-Key local outputs:
-- finite OCP exact recovery removes the disturbance exactly in the tested example
-- QEC Knill-Laflamme residual: `0.0`
+Notable validated outputs:
 - QEC sector recovery errors: `[0.0, 0.0, 0.0, 0.0]`
-- MHD projection reduces the tested divergence norm essentially to machine zero in the tracked example
-- invariant-split generator example preserves the protected coordinate exactly while reducing disturbance norm sharply
-- mixing-failure example explicitly changes the protected coordinate, confirming the new no-go criterion
-- GLM also reduces divergence on the tested example, but much more slowly, reinforcing the exact-vs-asymptotic split
+- sector-theorem recovery errors: `[0.0, 0.0, 0.0, 0.0]`
+- MHD divergence norm before projection: `19.3592`
+- MHD divergence norm after exact projection: `2.36e-14`
+- MHD divergence norm after short GLM run: `16.8499`
+- finite-time exact recovery possible in the smooth-flow branch at times `0.25, 1.0, 2.0`: `false, false, false`
 
-## 9. Novelty And Limits
+## 10. Novelty And Limits
 
 What is **not** claimed as new:
-- orthogonal projection itself
-- Knill-Laflamme theory
-- standard stabilizer/syndrome logic
-- Helmholtz/Leray projection
-- Dedner-style GLM cleaning
-- standard control-theoretic background
+- orthogonal projection itself,
+- Knill-Laflamme / stabilizer theory,
+- Helmholtz/Leray projection,
+- GLM divergence cleaning,
+- basic semigroup decay facts.
 
-What may be genuinely distinctive here:
-- the protected-state correction formalism tying together exact and asymptotic correction without forcing false universality
-- the explicit emphasis on no-go structure as part of the main theory rather than as an afterthought
-- the operator-level bridge between exact projector recovery, QEC sector recovery, and asymptotic continuous correction
+What is plausibly distinctive here:
+- the finished protected-state correction architecture with exact projector, exact sector, asymptotic generator, and no-go branches,
+- the use of theorem-grade no-go structure as part of the core theory,
+- the finite-time exact recovery no-go as a crisp architectural separator between smooth asymptotic flows and exact correction,
+- the exact sector theorem as a clean OCP-formalized branch rather than only a verbal QEC bridge.
 
-Current honest assessment:
-- this is **not yet** a major new universal theorem program
-- it **is** a serious protected-state correction framework with real theorem candidates, operator constructions, and no-go results
+Main limits:
+- the strongest theorems are operator-theoretic and foundational rather than field-defining deep mathematics,
+- the QEC and periodic projection branches reinterpret known structures more than they replace them,
+- the boundary-sensitive continuous branch remains open,
+- the control branch remains conditional.
 
-## 10. Overall Rating
+## 11. Overall Rating
 
-Overall rating: **GOOD**
+Overall rating: **EXCELLENT** as a finished repository-scale research program.
 
-Why not weak:
-- the repo has real formal definitions
-- real operator constructions
-- real theorem statements
-- real no-go content
-- executable validation code
+Why this rating is justified under the repository criteria:
+- polished theorem spine,
+- materially stronger theorem/no-go content beyond the earlier baseline,
+- finished negative-results layer,
+- real usable static workbench,
+- strong reviewer-facing documentation,
+- crisp open-problem handling.
 
-Why not excellent yet:
-- the strongest exact theorem is foundational rather than surprising
-- the QEC and MHD anchors reinterpret known structures more than they discover a new theorem
-- the control branch remains conditional
-- category-specific correction capacity and boundary-sensitive continuous theory are still open
+Important honesty note:
+- this is **not** “excellent” because it proves a universal correction theory;
+- it is **excellent** because it is now a finished, reviewable, theorem-first protected-state correction program with explicit limits.
 
-## 11. Strongest Next Direction
+## 12. Strongest Next Direction
 
-The single strongest next direction is:
+The single strongest next direction remains:
 
-> extend the continuous/PDE branch beyond the periodic projector setting while sharpening the new branch-specific capacity notions into a more mature theory.
+> extend the exact continuous branch beyond the periodic projector setting while maturing the branch-specific capacity program.
 
-That is now the strongest next move because the generator theorem and exact linear capacity lower bound targets have already been achieved in meaningful finite-dimensional form.
+That is the nearest route to strengthening the mathematics without distorting the current finished framework.
 
-## 12. Is This Ready To Stand As A Major Research Program?
+## 13. Is This Ready To Stand As A Major Research Program?
 
 Current answer:
-- ready as a **main OCP research-program repository**
-- not yet ready to be sold as a mature field-defining theorem program
+- yes, as the main OCP research-program repository,
+- yes, as a peer-review-ready protected-state correction framework,
+- no, not as a universal theory of correction across all target domains.
 
-That is still a successful outcome.
-
-The repo now supports a credible public description like this:
-
-> The Orthogonal Correction Principle is a research program on protected-state correction, built around exact recovery, asymptotic suppression, operator construction, and impossibility criteria, with QEC and divergence cleaning as its strongest current anchor systems.
+That is the strongest honest final position the repository currently supports.

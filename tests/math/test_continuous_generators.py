@@ -76,3 +76,11 @@ def test_multiple_diagonal_psd_generators_contract_disturbance() -> None:
         xt = flow.flow(x0, 1.2)
         assert np.isclose(xt[0], x0[0])
         assert flow.disturbance_norm(xt) <= flow.disturbance_norm(x0)
+
+
+def test_smooth_linear_flow_cannot_exactly_recover_nontrivial_disturbance_in_finite_time() -> None:
+    generator = np.diag([0.0, 1.0, 2.0])
+    flow = LinearOCPFlow(generator, PROTECTED_BASIS_1D, DISTURBANCE_BASIS_2D)
+    for time in (0.2, 1.0, 3.0):
+        assert not flow.finite_time_exact_recovery_possible(time)
+        assert flow.exact_recovery_residual(time) > 1e-3

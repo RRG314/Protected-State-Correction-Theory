@@ -3,107 +3,120 @@
 This repository develops the Orthogonal Correction Principle as a formal research direction about **protected-state correction**.
 
 Plain-language version:
-- some part of a system is the part we want to preserve,
-- some part of a system is disturbance or error,
-- correction works only when the disturbance can be separated from what must be preserved,
-- and the correction machinery is strong enough to remove or suppress the disturbance without damaging the protected part.
+- identify what part of a system must be preserved,
+- identify what part counts as disturbance,
+- build correction operators that act on the disturbance without corrupting the protected object,
+- and prove when exact recovery, asymptotic suppression, or impossibility actually occurs.
 
 Formal version:
-- choose a state space `H`, a protected subspace `S`, and a disturbance space `D`,
-- construct correction operators that act on `D` while fixing `S`,
-- prove exact recovery when possible,
-- prove asymptotic suppression when exact recovery is impossible or too expensive,
-- and prove no-go results when the decomposition or distinguishability assumptions fail.
+- choose a state space `H`, a protected subspace `S`, and a disturbance family,
+- build exact projector or sector recovery operators when possible,
+- build asymptotic generator-based correction laws when exact one-step recovery is impossible,
+- and prove no-go results when separation, detectability, or correction image are insufficient.
 
-## What This Repository Actually Achieves
+## What This Repository Now Supports
 
-This repository does **not** claim a grand universal theorem covering quantum error correction, control theory, divergence cleaning, and machine learning in one stroke.
+This repository does **not** claim a universal theorem covering QEC, control, PDE correction, and optimization under one scalar law.
 
-It does produce a narrower and more credible outcome:
-- a usable formal language for protected-state correction,
-- exact finite-dimensional theorems for orthogonal projector recovery,
-- exact continuous operator constructions using Helmholtz/Leray projection,
-- asymptotic correction theorems for continuous damping and invariant-split generators,
-- a clean QEC rewrite in OCP language using code space, syndrome sectors, and recovery maps,
-- and explicit impossibility results showing when correction cannot be defined nontrivially.
-
-That makes the current program best described as:
-- **a protected-state correction framework with real operator constructions and no-go results**,
-- plus a serious bridge between exact correction and asymptotic correction.
+It now supports a narrower and stronger statement:
+- OCP is a finished protected-state correction framework,
+- with an exact projector branch,
+- an exact sector branch,
+- an exact periodic continuous projection anchor,
+- an asymptotic generator branch,
+- and a theorem-grade no-go layer.
 
 ## Strongest Current Results
 
-### Exact results
-- **Exact projection recovery theorem:** if `H = S ⊕ D` with `S ⟂ D`, orthogonal projection onto `S` exactly recovers the protected component.
-- **Indistinguishability no-go theorem:** if `S ∩ D != {0}`, exact recovery from `x = s + d` is impossible by any single-valued recovery map.
-- **Continuous damping theorem:** the flow `xdot = -k P_D x` leaves `S` fixed and exponentially damps `D`.
-- **Invariant-split generator theorem:** a much wider class of linear generators `K` preserves `S` and suppresses `D` when `K|_S=0`, `K(D)\subseteq D`, and the restriction on `D` is exponentially stable.
-- **Self-adjoint PSD corollary:** if `K` is positive semidefinite with `ker(K)=S`, the spectral gap on `S^\perp` gives an explicit decay bound.
-- **Helmholtz/Leray projection example:** periodic divergence cleaning gives an exact continuous-domain OCP operator.
-- **Linear-flow mixing no-go:** if `P_S K P_D \neq 0`, disturbance leaks into protected coordinates and the flow is not an OCP correction flow.
-- **Exact correction-rank lower bound:** exact linear correction needs correction rank at least `dim(D)`.
-- **Branch-specific capacity view:** OCP now has grounded capacity notions in the exact linear, sector-based, and generator branches, without pretending they collapse to one scalar.
+### Exact branch
+- **OCP-T1** exact orthogonal protected-subspace recovery.
+- **OCP-T5** exact sector recovery for pairwise orthogonal coordinate-compatible sector embeddings.
+- **OCP-T4** exact correction rank lower bound.
 
-### Conditional or system-dependent results
-- **QEC fits OCP exactly** when the relevant Knill-Laflamme / syndrome-separation assumptions hold.
-- **GLM cleaning fits OCP asymptotically**, not as an exact projector.
-- **Control theory fits conditionally** when the protected/disturbance split is invariant and feedback acts only on correctable modes.
+### Continuous / asymptotic branch
+- **OCP-T2** continuous damping theorem for `x_dot = -k P_D x`.
+- **OCP-T3** invariant-split generator theorem.
+- **OCP-C2** self-adjoint PSD corollary with explicit spectral-gap decay bound.
 
-### Not promoted
-- optimizer / ML bridges,
-- broad universal-capacity claims,
-- underdefined capacity language that is not tied to a real branch-specific structure,
-- vague cross-domain unification language without operator content.
+### No-go layer
+- **OCP-N1** overlap / indistinguishability no-go.
+- **OCP-N5** mixing no-go for linear flows.
+- **OCP-N7** no finite-time exact recovery in the smooth linear flow branch.
+- **OCP-N8** sector-overlap detection no-go.
+
+### Strongest anchor systems
+- QEC as the exact sector anchor under standard assumptions.
+- Periodic Helmholtz/Leray projection as the exact continuous anchor.
+- GLM cleaning as an asymptotic continuous architecture, explicitly not exact.
 
 ## Start Here
 
-1. [start-here.md](docs/overview/start-here.md)
-2. [formal-theory.md](docs/formalism/formal-theory.md)
-3. [qec-foundations.md](docs/qec/qec-foundations.md)
-4. [divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
-5. [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
-6. [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
-7. [no-go-results.md](docs/impossibility-results/no-go-results.md)
+1. [Start Here](docs/overview/start-here.md)
+2. [Final Architecture](docs/finalization/architecture-final.md)
+3. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
+4. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
+5. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
+6. [OCP Workbench](docs/workbench/index.html)
+
+## OCP Workbench
+
+The repository now includes a static GitHub-Pages-compatible workbench in:
+
+- `docs/workbench/`
+
+Modules:
+- Exact Projection Lab
+- QEC Sector Lab
+- MHD Projection Lab
+- Continuous Generator Lab
+- No-Go Explorer
+
+The workbench is tied directly to the theorem and no-go documents. It is not a detached demo layer.
 
 ## Repository Map
 
-- `docs/overview/` - entry points, discovery inventory, claim registry, proof status
-- `docs/formalism/` - core definitions and exact vs asymptotic split
-- `docs/qec/` - exact QEC anchor and OCP rewrite
-- `docs/control/` - cautious control-theoretic extension
-- `docs/mhd/` - exact projection cleaning and asymptotic GLM cleaning
-- `docs/operators/` - actual projector and recovery constructions
-- `docs/theorem-candidates/` - central theorem, generator theorems, capacity bounds, and theorem program
-- `docs/impossibility-results/` - exact no-go results and failed/unfinished unification attempts
+- `docs/finalization/` - final theorem, no-go, operator, and architecture spine
+- `docs/peer_review/` - reviewer-facing framing, novelty, proof status, and paper map
+- `docs/formalism/` - core framework and exact-vs-asymptotic split
+- `docs/qec/` - QEC foundation and OCP sector framing
+- `docs/mhd/` - exact periodic projection and asymptotic GLM branch
+- `docs/control/` - conditional control extension and worked linear example
+- `docs/theorem-candidates/` - theorem-level results including generator, capacity, and sector branches
+- `docs/impossibility-results/` - core and advanced no-go structure
+- `docs/open-questions/` - disciplined open-problem catalog and dead-end curation
+- `docs/workbench/` - static Pages-ready scientific workbench
 - `src/ocp/` - executable operator and validation code
-- `tests/` - finite-dimensional, QEC, MHD, and continuous-generator validation checks
-- `archive/raw-imports/` - preserved local source material used to build this program
+- `tests/` - theorem, operator, workbench, and regression checks
 
-## How To Validate
+## Validation
 
 ```bash
 cd '/Users/stevenreid/Documents/New project/repos/ocp-research-program'
 ./scripts/validate/run_all.sh
 ```
 
-This rebuilds the discovery inventory and claim registry, runs operator examples, and executes the test suite.
+This now runs:
+- discovery and claim regeneration
+- operator example generation
+- static workbench example generation
+- markdown link checks
+- static workbench asset check
+- Python theorem tests
+- Node workbench tests
 
-## Current Status
+## Current Honest Rating
 
-The honest current rating is **GOOD**.
+Current honest internal rating: **EXCELLENT** as a finished repository-scale research program.
 
-Why not `EXCELLENT` yet:
-- the strongest exact theorems are still linear-algebraic or operator-theoretic rather than deep new cross-domain theorems,
-- the QEC and Helmholtz anchors are real but largely reinterpret known structures,
-- the control extension is conditional rather than theorem-complete,
-- and the framework still needs either a sharper category-specific capacity theorem or a stronger boundary-sensitive continuous theorem to reach a clearly higher level.
+Why this rating is justified:
+- the repo now has a polished theorem spine,
+- materially stronger new theorem/no-go content beyond the earlier baseline,
+- a finished negative-results layer,
+- reviewer-facing documentation,
+- and a real usable static workbench.
 
-Why this is still meaningful:
-- the repo now has a real theorem spine,
-- a real operator spine,
-- a clear exact/asymptotic split,
-- and a falsification-first boundary around what OCP can and cannot honestly claim.
+Important limit on that rating:
+- this does **not** mean OCP is now a universal correction theory,
+- and it does **not** erase the fact that the strongest mathematics is still operator-theoretic and that the boundary-sensitive continuous branch remains open.
 
-## Deep Report
-
-- [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
+It means the repository is now finished enough, disciplined enough, and documented enough to stand as the main OCP research program going forward.

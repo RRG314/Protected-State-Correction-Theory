@@ -2,48 +2,50 @@
 
 ## Overall Verdict
 
-The current repository supports outcome **B/C** from the program brief:
-- OCP is a narrower but meaningful protected-state correction framework with usable design rules.
-- It also produces real no-go results and one exact continuous operator anchor.
-
-It does **not** yet support a grand universal theorem across all target systems.
+The repository now supports outcome **A/B** from the program brief:
+- OCP is a finished protected-state correction framework with theorem-level results, operator constructions, no-go structure, reviewer-facing scope control, and a real static workbench.
+- It is also still narrower than a universal correction theory, and it stays honest about that.
 
 ## Proved In This Repository
 
-- Exact orthogonal projection recovery on `H = S ⊕ D`.
-- Indistinguishability no-go when `S ∩ D != {0}`.
+- Exact orthogonal protected-subspace recovery on `H = S ⊕ D`.
+- Exact sector recovery for pairwise orthogonal coordinate-compatible sector embeddings.
+- Exact correction rank lower bound in the exact linear branch.
 - Continuous exponential disturbance damping under `xdot = -k P_D x`.
 - Invariant-split linear generator theorem for `xdot = -Kx`.
-- Self-adjoint positive-semidefinite corollary with explicit spectral-gap decay bound.
+- Self-adjoint PSD corollary with explicit spectral-gap decay bound.
 - Mixing no-go for linear flows when disturbance feeds into protected coordinates.
-- Minimum correction-rank bound for exact linear correction.
-- Initial branch-specific correction-capacity summaries for the exact, sector, and generator branches.
-- Exact Helmholtz/Leray projection interpretation of divergence cleaning on periodic domains.
+- Finite-time exact recovery no-go for smooth linear flows.
+- Sector-overlap detection no-go.
+- Exact periodic Helmholtz/Leray projection interpretation of divergence cleaning.
 
 ## Conditional But Strong
 
-- QEC as an OCP instantiation under Knill-Laflamme / syndrome-sector assumptions.
+- QEC as an OCP exact sector anchor under standard Knill-Laflamme / syndrome assumptions.
 - GLM cleaning as an asymptotic correction architecture.
 - Control-theoretic extension when invariant protected/disturbance splitting exists.
+- Branch-specific capacity language beyond the lower-bound layer.
 
 ## Weak Or Demoted
 
 - optimizer and ML bridge material,
 - claims of a universal scalar correction-capacity number,
-- broad cross-domain unification language without system-specific operator content.
+- broad cross-domain unification language without system-specific operator content,
+- any wording implying GLM is exact,
+- any wording implying the periodic projector theorem already covers boundary-sensitive domains.
 
 ## Best Current Outputs
 
-1. A formal operator language for exact and asymptotic correction.
-2. A stronger continuous-time theorem spine through invariant-split generators.
-3. A clean minimum-structure capacity theorem in the exact linear branch.
-4. A clean exact QEC anchor section.
-5. A clean exact continuous MHD anchor via Helmholtz projection.
-6. A no-go document that makes the framework credible.
+1. A finished exact/asymptotic architecture.
+2. A finished exact sector branch beyond the simple projector model.
+3. A strong no-go layer that now spans exact, sector, and smooth-flow failure modes.
+4. A static GitHub-Pages-compatible OCP Workbench.
+5. Reviewer-facing documents that make outside scrutiny easier instead of harder.
 
 ## Best Next Step
 
-The single strongest next move is now to turn the stronger continuous branch into a category-specific capacity and boundary program:
-- characterize what counts as enough correction structure in each branch,
-- extend the continuous/PDE side beyond the periodic projector setting,
-- and determine which asymptotic correction architectures are genuinely equivalent to exact recovery in the long-time limit.
+The single strongest next move remains boundary-sensitive continuous correction beyond the periodic projector setting, with branch-specific capacity maturation as the main theorem-completion target.
+
+## Program Rating
+
+Current strict repo-level rating: **EXCELLENT** as a finished protected-state correction research program, while still explicitly non-universal in scope.

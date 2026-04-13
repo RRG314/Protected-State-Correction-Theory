@@ -27,7 +27,18 @@
       0.0,
       0.0,
       0.0
-    ]
+    ],
+    "sector_theorem": {
+      "pairwise_orthogonal": true,
+      "max_pairwise_overlap": 0.0,
+      "exact_recovery_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recovery_operator_fro_norm": 2.8284271247461903
+    }
   },
   "mhd": {
     "before_l2_divergence": 19.359218295532003,
@@ -96,6 +107,23 @@
         0.6065306597126334
       ],
       "protected_preserved": false
+    },
+    "finite_time_exact_recovery_no_go": {
+      "times": [
+        0.25,
+        1.0,
+        2.0
+      ],
+      "exact_recovery_possible": [
+        false,
+        false,
+        false
+      ],
+      "exact_recovery_residuals": [
+        1.0547012060846042,
+        0.5185863178210479,
+        0.2237596463491998
+      ]
     }
   },
   "capacity": {

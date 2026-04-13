@@ -1,0 +1,5 @@
+{
+  "name": "ocp-workbench",
+  "private": true,
+  "type": "module"
+}

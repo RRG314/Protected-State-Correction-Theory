@@ -114,3 +114,23 @@ class LinearOCPFlow:
         if report.disturbance_decay_margin <= 0:
             return float('inf')
         return float(np.exp(-report.disturbance_decay_margin * time) * self.disturbance_norm(x))
+
+    def exact_recovery_residual(self, time: float) -> float:
+        flow = self.flow_operator(time)
+        ss, sd, ds, dd = block_decomposition(flow, self.protected_basis, self.disturbance_basis)
+        identity = np.eye(ss.shape[0])
+        return float(
+            max(
+                np.linalg.norm(ss - identity),
+                np.linalg.norm(sd),
+                np.linalg.norm(ds),
+                np.linalg.norm(dd),
+            )
+        )
+
+    def finite_time_exact_recovery_possible(self, time: float) -> bool:
+        if time <= 0:
+            return False
+        if self._q_d.shape[1] == 0:
+            return True
+        return self.exact_recovery_residual(time) < self.tol

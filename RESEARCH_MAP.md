@@ -1,45 +1,54 @@
 # Research Map
 
-## 1. Foundations
+## 1. Finished Framework Layer
+- [architecture-final.md](docs/finalization/architecture-final.md)
+- [theorem-spine-final.md](docs/finalization/theorem-spine-final.md)
+- [no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
+- [operator-spine-final.md](docs/finalization/operator-spine-final.md)
+
+## 2. Core Formalism
 - [plain-language-overview.md](docs/foundations/plain-language-overview.md)
 - [formal-theory.md](docs/formalism/formal-theory.md)
 - [exact-vs-asymptotic.md](docs/formalism/exact-vs-asymptotic.md)
 
-## 2. Exact Anchor Systems
+## 3. Exact Anchor Systems
 - [qec-foundations.md](docs/qec/qec-foundations.md)
 - [qec-in-ocp.md](docs/qec/qec-in-ocp.md)
+- [sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
 - [divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
 
-## 3. Asymptotic / Continuous Correction
+## 4. Asymptotic / Continuous Correction
+- [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
 - [glm-and-asymptotic-correction.md](docs/mhd/glm-and-asymptotic-correction.md)
 - [control-extension.md](docs/control/control-extension.md)
 - [worked-linear-example.md](docs/control/worked-linear-example.md)
 
-## 4. Operator Layer
-- [operator-constructions.md](docs/operators/operator-constructions.md)
-- `src/ocp/core.py`
-- `src/ocp/qec.py`
-- `src/ocp/mhd.py`
-- `src/ocp/continuous.py`
-
-## 5. Theorem Program
-- [central-theorem.md](docs/theorem-candidates/central-theorem.md)
-- [backup-theorems.md](docs/theorem-candidates/backup-theorems.md)
-- [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
+## 5. Minimum-Structure And Capacity Layer
 - [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
+- [capacity-maturation.md](docs/theory/advanced-directions/capacity-maturation.md)
+
+## 6. No-Go Boundary Layer
 - [no-go-results.md](docs/impossibility-results/no-go-results.md)
+- [advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
+- [dead-ends-and-do-not-promote.md](docs/open-questions/dead-ends-and-do-not-promote.md)
 
-## 6. Practical Use And Positioning
-- [practical-use-cases.md](docs/applications/practical-use-cases.md)
-- [what-ocp-would-be.md](docs/positioning/what-ocp-would-be.md)
-- [NOVELTY_AND_LIMITS.md](NOVELTY_AND_LIMITS.md)
+## 7. Reviewer / Program Surface
+- [what-this-theory-is.md](docs/peer_review/what-this-theory-is.md)
+- [proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
+- [novelty-and-limits-for-reviewers.md](docs/peer_review/novelty-and-limits-for-reviewers.md)
+- [how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
+- [paper-outline.md](docs/peer_review/paper-outline.md)
 
-## 7. Provenance And Validation
+## 8. Workbench
+- [workbench-overview.md](docs/app/workbench-overview.md)
+- [module-theory-map.md](docs/app/module-theory-map.md)
+- [github-pages-deploy.md](docs/app/github-pages-deploy.md)
+- [workbench/index.html](docs/workbench/index.html)
+
+## 9. Provenance And Validation
 - [discovery-inventory.md](docs/overview/discovery-inventory.md)
 - [claim-registry.md](docs/overview/claim-registry.md)
 - [proof-status-map.md](docs/overview/proof-status-map.md)
 - [source-map.md](docs/internal-provenance/source-map.md)
-
-## 8. Next Directions
-- [viable-next-directions.md](docs/open-questions/viable-next-directions.md)
 - [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
+- [FINAL_REPORT.md](FINAL_REPORT.md)

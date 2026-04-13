@@ -15,6 +15,7 @@ from ocp.qec import (
 from ocp.mhd import divergence_2d, helmholtz_project_2d, glm_step_2d, orthogonality_residual_2d
 from ocp.continuous import LinearOCPFlow
 from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity
+from ocp.sectors import global_sector_recovery_operator, sector_recovery_report
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
 OUT = ROOT / 'data/generated/validations/operator_examples.json'
@@ -41,11 +42,22 @@ recovery_errors = []
 for idx, error in enumerate(errors):
     recovered = coherent_recovery_map(error @ logical_state, recovery_ops)
     recovery_errors.append(float(np.linalg.norm(recovered - logical_state)))
+
+protected_sector_basis = np.column_stack(codewords)
+qec_sector_bases = [np.column_stack([error @ v for v in codewords]) for error in errors]
+sector_recovery = global_sector_recovery_operator(protected_sector_basis, qec_sector_bases)
+sector_report = sector_recovery_report(protected_sector_basis, qec_sector_bases)
 qec_report = {
     'holds': kl.holds,
     'max_residual': kl.max_residual,
     'pairwise_image_overlap': kl.pairwise_image_overlap,
     'sector_recovery_errors': recovery_errors,
+    'sector_theorem': {
+        'pairwise_orthogonal': sector_report.pairwise_orthogonal,
+        'max_pairwise_overlap': sector_report.max_pairwise_overlap,
+        'exact_recovery_errors': sector_report.exact_recovery_errors,
+        'recovery_operator_fro_norm': float(np.linalg.norm(sector_recovery)),
+    },
 }
 
 nx = ny = 48
@@ -151,6 +163,19 @@ generator_report = {
         'x0': mix_x0.tolist(),
         'xt_t0_5': np.asarray(mix_xt).tolist(),
         'protected_preserved': bool(mix_flow.preserves_protected_component(mix_x0, 0.5)),
+    },
+    'finite_time_exact_recovery_no_go': {
+        'times': [0.25, 1.0, 2.0],
+        'exact_recovery_possible': [
+            bool(block_flow.finite_time_exact_recovery_possible(0.25)),
+            bool(block_flow.finite_time_exact_recovery_possible(1.0)),
+            bool(block_flow.finite_time_exact_recovery_possible(2.0)),
+        ],
+        'exact_recovery_residuals': [
+            float(block_flow.exact_recovery_residual(0.25)),
+            float(block_flow.exact_recovery_residual(1.0)),
+            float(block_flow.exact_recovery_residual(2.0)),
+        ],
     },
 }
 
