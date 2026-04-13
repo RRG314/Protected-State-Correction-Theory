@@ -11,6 +11,7 @@ if command -v node >/dev/null 2>&1; then
   node --test tests/consistency/workbench_static.test.mjs
 fi
 python3 scripts/validate/check_links.py
+python3 scripts/validate/check_naming.py
 python3 scripts/validate/check_workbench_static.py
 if command -v uv >/dev/null 2>&1; then
   PYTHONPATH=src uv run --with pytest python -m pytest -q

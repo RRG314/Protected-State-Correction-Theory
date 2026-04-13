@@ -1,23 +1,27 @@
-# Candidate Paper Outline
+# Paper Outline
 
-## Working title
-Orthogonal Correction Principle: Exact Projection, Exact Sector Recovery, Asymptotic Generator Correction, and No-Go Structure
+## Working Title
 
-## Section map
-1. Introduction and scope discipline
+Protected-State Correction Theory: Exact Projection, Exact Sector Recovery, Asymptotic Generator Correction, Physics Extensions, and No-Go Structure
+
+## Candidate Section Map
+1. Introduction and scope control
 2. Formal protected-state correction framework
 3. Exact projector branch
 4. Exact sector branch and QEC anchor
 5. Exact continuous projector anchor via periodic Helmholtz/Leray projection
 6. Asymptotic generator branch
-7. No-go and impossibility structure
-8. Practical operator-design implications
-9. Limits, boundaries, and open problems
+7. No-go structure: overlap, mixing, finite-time failure, and sector ambiguity
+8. Physics extension: Maxwell / gauge projection, constraint damping, and continuous QEC as kept or conditional lanes
+9. Rejected bridges and bounded-domain limits
+10. Practical use cases and design criteria
+11. Open problems and boundary of the current theory
 
-## Main theorem candidates for a paper version
-- exact sector recovery theorem
-- invariant-split generator theorem
-- finite-time exact recovery no-go
+## Honest Positioning
+Do not sell the paper as a universal theory paper.
 
-## Main caution for paper assembly
-Do not sell the paper as a universal theory paper. Sell it as a protected-state correction framework with exact, sector, asymptotic, and no-go branches.
+Sell it as:
+- a theorem-first protected-state correction framework,
+- with a clean exact-versus-asymptotic architecture,
+- a serious no-go layer,
+- and a disciplined physics extension that keeps only the operator-level bridges that survive scrutiny.

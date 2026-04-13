@@ -1,14 +1,14 @@
 {
-  "tracked_like_file_count": 131,
+  "tracked_like_file_count": 145,
   "counts_by_area": {
     "root": 12,
     "archive": 8,
     "data": 6,
-    "docs": 55,
+    "docs": 64,
     "papers": 6,
-    "scripts": 8,
-    "src": 14,
-    "tests": 15,
+    "scripts": 9,
+    "src": 16,
+    "tests": 17,
     "theory": 7
   }
 }

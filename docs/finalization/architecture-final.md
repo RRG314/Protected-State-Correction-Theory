@@ -100,8 +100,21 @@ The final architecture deliberately does **not** claim:
 - full theorem-complete boundary-sensitive PDE theory,
 - or a universal scalar capacity invariant.
 
+## 7. Physics Extension
+
+The strongest honest physics extension now sits alongside, not above, the main theory.
+
+Kept physics lanes:
+- Maxwell / Coulomb-gauge projection as an exact projector-compatible extension,
+- numerical-relativity constraint damping as a conditional asymptotic extension,
+- continuous quantum error correction as a conditional future bridge.
+
+Rejected or demoted physics lanes:
+- naive bounded-domain reuse of the periodic projector,
+- generic constrained Hamiltonian systems without an explicit correction operator.
+
 ## Final Architectural Outcome
 
 The strongest honest global statement is now:
 
-> OCP is a finished protected-state correction framework with an exact projector branch, an exact sector branch, an exact periodic continuous anchor, an asymptotic generator branch, and a strong no-go layer.
+> Protected-State Correction Theory is a finished framework with an exact projector branch, an exact sector branch, an exact periodic continuous anchor, an asymptotic generator branch, a strong no-go layer, and a disciplined physics extension.

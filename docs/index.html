@@ -4,27 +4,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <title>OCP Research Program</title>
+    <title>Protected-State Correction Theory</title>
     <style>
-      body{margin:0;font-family:Georgia,serif;background:#f5f1e8;color:#1c1d21}
-      main{max-width:900px;margin:0 auto;padding:56px 20px 72px}
-      h1{font-size:clamp(2.4rem,5vw,4rem);line-height:.96;margin:.3rem 0 1rem}
-      p{font:1.06rem/1.55 system-ui,sans-serif;color:#4f534d;max-width:58rem}
-      .kicker{font:700 .8rem/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8b5a2b}
-      .links{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
-      a{display:inline-block;padding:.9rem 1.1rem;border-radius:999px;text-decoration:none;color:#1c1d21;background:#fffaf3;border:1px solid rgba(28,29,33,.12);font:600 1rem/1.1 system-ui,sans-serif}
+      :root{--bg:#f4efe7;--ink:#1c1d21;--muted:#575b57;--line:rgba(28,29,33,.12);--accent:#8d5428;--panel:rgba(255,251,245,.95);--shadow:0 24px 70px rgba(33,18,10,.08)}
+      *{box-sizing:border-box}body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,rgba(255,255,255,.8),transparent 24%),linear-gradient(180deg,#fff8ef 0%,var(--bg) 38%,#ece3d6 100%)}
+      main{max-width:1180px;margin:0 auto;padding:24px}
+      .hero{display:grid;grid-template-columns:1.35fr minmax(18rem,24rem);gap:1rem;background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(244,237,226,.92));border-radius:28px;border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow);padding:clamp(1.3rem,2.6vw,2rem)}
+      .kicker{display:inline-flex;gap:.6rem;align-items:center;font:700 .78rem/1 system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+      .kicker::before{content:"";width:2.2rem;height:1px;background:var(--accent)}
+      h1,h2{font-family:Georgia,serif;letter-spacing:-.03em;margin:0}h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:.95;margin-top:.8rem}p{color:var(--muted);line-height:1.55;font-size:1.02rem}
+      .deck{max-width:56rem}.meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}.pill{display:inline-flex;align-items:center;padding:.38rem .74rem;border-radius:999px;background:rgba(141,84,40,.12);color:#693717;font:700 .82rem/1 system-ui,sans-serif}
+      .panel{background:var(--panel);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow);border-radius:24px;padding:1rem}.panel h2{font-size:1.25rem}.actions,.grid{display:grid;gap:.8rem}.actions a,.card a{display:inline-flex;padding:.9rem 1.1rem;border-radius:999px;text-decoration:none;color:var(--ink);background:#fffaf3;border:1px solid var(--line);font-weight:700}.grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1rem}.card{background:var(--panel);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow);border-radius:24px;padding:1rem;display:grid;gap:.45rem}.card strong{font-size:1.03rem}.card p{margin:0}
+      @media (max-width:960px){.hero,.grid{grid-template-columns:1fr}}
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <main>
-      <div class="kicker">Orthogonal Correction Principle</div>
-      <h1>Protected-state correction, exact branches, asymptotic branches, and no-go structure.</h1>
-      <p>This Pages entry point is intentionally simple. Use the workbench for the static interactive layer, or go straight to the repository documents for the finished theorem spine, no-go spine, operator layer, and reviewer-facing scope notes.</p>
-      <div class="links">
-        <a href="./workbench/">Open OCP Workbench</a>
-        <a href="./overview/start-here.md">Start Here</a>
-        <a href="./peer_review/how-to-read-this-repo.md">How To Read This Repo</a>
-      </div>
+      <section class="hero">
+        <div>
+          <div class="kicker">Protected-State Correction Theory</div>
+          <h1>Exact correction, asymptotic correction, and explicit failure boundaries.</h1>
+          <p class="deck">This Pages entry point is theory-first. The repository keeps the Orthogonal Correction Principle as its core internal principle name, but presents the public-facing structure around protected-state correction, reviewer-readable scope, and a physics extension that is kept only where the operator structure survives.</p>
+          <div class="meta">
+            <span class="pill">Exact projector branch</span>
+            <span class="pill">Exact sector branch</span>
+            <span class="pill">Asymptotic generator branch</span>
+            <span class="pill">Physics extension</span>
+          </div>
+        </div>
+        <div class="panel actions">
+          <h2>Start here</h2>
+          <a href="./workbench/">Open Protected-State Correction Workbench</a>
+          <a href="./overview/start-here.md">Read the guided entry point</a>
+          <a href="./peer_review/how-to-read-this-repo.md">See how to review the repo</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <strong>Exact and asymptotic architecture</strong>
+          <p>The central split is not quantum versus classical. It is exact correction versus asymptotic correction.</p>
+          <a href="./finalization/architecture-final.md">Open architecture</a>
+        </article>
+        <article class="card">
+          <strong>Physics lane</strong>
+          <p>The strongest kept physics bridges are QEC, projection-compatible constraint correction, and asymptotic damping systems.</p>
+          <a href="./physics/physics-system-matrix.md">Open physics matrix</a>
+        </article>
+        <article class="card">
+          <strong>Citable expansion routes</strong>
+          <p>The repository now includes direct outside literature links for the best viable extension paths.</p>
+          <a href="./references/citable-expansion-directions.md">Open citable directions</a>
+        </article>
+      </section>
     </main>
   </body>
 </html>

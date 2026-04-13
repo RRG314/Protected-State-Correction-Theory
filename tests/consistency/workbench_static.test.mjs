@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   analyzeContinuousGenerator,
   analyzeExactProjection,
+  analyzeGaugeProjection,
   analyzeMhdProjection,
   analyzeNoGo,
   analyzeQecSector,
@@ -41,6 +42,20 @@ test('mhd projection outperforms short GLM run on the periodic example', () => {
   assert.ok(result.afterExactNorm < result.afterGlmNorm);
 });
 
+test('gauge projection shares the exact-versus-asymptotic split on the compatible example', () => {
+  const result = analyzeGaugeProjection({
+    gridSize: 12,
+    contamination: 0.22,
+    glmSteps: 8,
+    poissonIterations: 320,
+    dt: 0.05,
+    ch: 1,
+    cp: 1,
+  });
+  assert.ok(result.afterExactGaugeNorm < result.beforeGaugeNorm);
+  assert.ok(result.afterExactGaugeNorm < result.afterGlmGaugeNorm);
+});
+
 test('continuous generator lab detects finite-time exact recovery failure', () => {
   const result = analyzeContinuousGenerator({
     matrix: [[0, 0, 0], [0, 1, 1], [0, 0, 1.5]],
@@ -56,6 +71,12 @@ test('no-go explorer surfaces the finite-time flow boundary', () => {
   const result = analyzeNoGo({ example: 'finite-time' });
   assert.equal(result.status, 'PROVED NO-GO');
   assert.equal(result.details.finiteTimeExactRecoveryPossible, false);
+});
+
+test('no-go explorer surfaces the bounded-domain projector transplant failure', () => {
+  const result = analyzeNoGo({ example: 'boundary' });
+  assert.equal(result.status, 'COUNTEREXAMPLE / REJECTED BRIDGE');
+  assert.ok(result.details.projectedBoundaryNormalRms > 1e-2);
 });
 
 test('state share encoding round-trips', () => {

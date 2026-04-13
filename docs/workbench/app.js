@@ -1,11 +1,12 @@
 import {
+  analyzeBoundaryProjectionLimit,
   analyzeContinuousGenerator,
   analyzeExactProjection,
+  analyzeGaugeProjection,
   analyzeMhdProjection,
   analyzeNoGo,
   analyzeQecSector,
   clamp,
-  formatMatrix,
   formatVector,
 } from './lib/compute.js';
 import {
@@ -22,81 +23,155 @@ const LAB_META = {
   exact: {
     label: 'Exact Projection Lab',
     short: 'Orthogonal exact recovery and overlap failure.',
+    branch: 'Exact branch',
+    fit: 'Exact fit',
     status: 'PROVED / NO-GO',
+    lane: 'Finite-dimensional anchor',
+    protected: 'Protected subspace S',
+    disturbance: 'Orthogonal disturbance direction D',
+    correction: 'Orthogonal projector P_S',
     plain:
-      'This module shows the cleanest exact branch of OCP. When the disturbance is truly orthogonal to the protected direction, projection recovers the protected component exactly. As soon as overlap is introduced, the same projector leaks disturbance into the recovered result.',
+      'This is the smallest exact correction model in the repo. When the disturbance is truly orthogonal to the protected direction, projection recovers the protected component exactly. When overlap is introduced, the same operator becomes a clean counterexample.',
     technical:
-      'Implements the finite-dimensional projector model H = S ⊕ D with recovery R = P_S. The overlap slider moves the example outside the admissible OCP hypotheses and turns the module into a counterexample illustrating OCP-T1 versus OCP-N1.',
-    use: 'Use this to see the exact theorem and its failure mode in the smallest possible setting.',
-    avoid: 'Do not treat a non-orthogonal case as an exact OCP system. The module shows why that would overclaim.',
+      'Implements the finite-dimensional direct-sum model H = S ⊕ D with recovery R = P_S. The angle control lets the example move outside the admissible OCP hypotheses and turns the module into a witness for OCP-T1 versus OCP-N1.',
+    use: 'Use this to understand the clean exact theorem and the sharp overlap failure in the simplest possible setting.',
+    avoid: 'Do not treat non-orthogonal cases as exact protected-state correction systems.',
     refs: [
-      { title: 'Central theorem', href: '../theorem-candidates/central-theorem.md', note: 'OCP-T1 exact protected-subspace recovery' },
-      { title: 'No-go results', href: '../impossibility-results/no-go-results.md', note: 'OCP-N1 overlap / indistinguishability' },
-      { title: 'Operator constructions', href: '../operators/operator-constructions.md', note: 'Projector and complementary disturbance operator' },
+      { title: 'Central theorem', href: '../theorem-candidates/central-theorem.md', note: 'Exact projector recovery' },
+      { title: 'No-go spine', href: '../impossibility-results/no-go-results.md', note: 'Overlap / indistinguishability no-go' },
+      { title: 'Operator spine', href: '../finalization/operator-spine-final.md', note: 'Projector-based correction language' },
+    ],
+    literature: [
+      { title: 'Chorin projection-method anchor', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Classical exact projection in PDE settings' },
     ],
   },
   qec: {
     label: 'QEC Sector Lab',
     short: '3-qubit bit-flip code in exact sector language.',
+    branch: 'Exact sector branch',
+    fit: 'Exact fit / standard-anchor reinterpretation',
     status: 'PROVED / CONDITIONAL ANCHOR',
+    lane: 'Quantum information anchor',
+    protected: 'Code space / logical state',
+    disturbance: 'Correctable syndrome sectors',
+    correction: 'Sector projectors and recovery family',
     plain:
-      'This module treats QEC as the exact sector branch of OCP. The code space is the protected object, each bit-flip sector is a disturbance sector, and recovery works because the sectors stay distinguishable and can be mapped back without damaging the logical state.',
+      'This module treats QEC as the exact sector branch. The code space is what must be preserved, each bit-flip sector is a disturbance sector, and recovery works because the sectors stay distinguishable and can be mapped back without changing the logical information.',
     technical:
-      'Implements the 3-qubit bit-flip sector model using orthogonal sector bases and a sector-conditioned recovery operator. The exact statement is branch-specific: OCP is interpreting standard QEC structure, not replacing it.',
-    use: 'Use this to see the strongest exact anchor system beyond the simple projector case.',
-    avoid: 'Do not read this as a new QEC theorem. The novelty is the finished OCP framing, not the underlying code theory.',
+      'Implements the 3-qubit bit-flip sector model using orthogonal sector bases and a sector-conditioned recovery operator. The exact statement here is branch-specific: the repo is re-framing standard QEC structure, not replacing it.',
+    use: 'Use this when you want the strongest exact anchor beyond the simple projector model.',
+    avoid: 'Do not read this as a new QEC theorem. The value here is the protected-state correction framing.',
     refs: [
-      { title: 'QEC in OCP language', href: '../qec/qec-in-ocp.md', note: 'Protected space, sectors, and recovery map' },
-      { title: 'Sector recovery theorem', href: '../theorem-candidates/sector-recovery-theorems.md', note: 'Exact orthogonal sector recovery and sector-overlap no-go' },
-      { title: 'QEC foundations', href: '../qec/qec-foundations.md', note: 'Knill-Laflamme anchor and syndrome structure' },
+      { title: 'QEC in protected-state language', href: '../qec/qec-in-ocp.md', note: 'Protected space, sectors, and recovery' },
+      { title: 'Sector recovery theorem', href: '../theorem-candidates/sector-recovery-theorems.md', note: 'Exact orthogonal sector recovery' },
+      { title: 'QEC foundations', href: '../qec/qec-foundations.md', note: 'Knill-Laflamme and syndrome structure' },
+    ],
+    literature: [
+      { title: 'Knill-Laflamme foundation', href: 'https://arxiv.org/abs/quant-ph/9604034', note: 'Foundational exact correction anchor' },
+      { title: 'Continuous-QEC bridge', href: 'https://doi.org/10.1103/PhysRevA.65.042301', note: 'Useful next-step literature' },
     ],
   },
   mhd: {
     label: 'MHD Projection Lab',
     short: 'Exact periodic projection versus GLM damping.',
+    branch: 'Exact and asymptotic comparison',
+    fit: 'Exact fit + asymptotic comparator',
     status: 'PROVED / CONDITIONAL',
+    lane: 'Fluid / MHD physics',
+    protected: 'Divergence-free field component',
+    disturbance: 'Gradient contamination / divergence error',
+    correction: 'Helmholtz/Leray projector versus GLM cleaning',
     plain:
-      'This module contrasts the exact and asymptotic continuous branches. Exact projection removes the divergence-producing component in one shot for the periodic model, while GLM reduces it gradually instead of annihilating it exactly.',
+      'This module is the clearest continuous-system split in the repo. Exact projection removes the divergence-producing component in one shot for the periodic model, while GLM only reduces it gradually.',
     technical:
-      'Builds a periodic discrete field of the form B = B_phys + grad(phi), then compares a numerical Helmholtz-style projection with a GLM-style damping update. The exact branch is projection-based; the GLM branch is asymptotic and should not be promoted as exact.',
-    use: 'Use this when you want the clearest continuous-system difference between exact and asymptotic correction.',
-    avoid: 'Do not read the GLM side as an exact projector or assume the periodic result automatically extends to boundary-sensitive domains.',
+      'Builds a periodic field B = B_phys + grad(phi), applies the exact discrete Helmholtz-style projector, and compares it to a short GLM evolution. The exact branch is projection-based; the GLM branch is asymptotic and should not be promoted as exact.',
+    use: 'Use this when you want the cleanest continuous exact-versus-asymptotic comparison.',
+    avoid: 'Do not read the GLM side as an exact projector or assume the periodic result automatically extends to bounded domains.',
     refs: [
-      { title: 'Divergence cleaning in OCP', href: '../mhd/divergence-cleaning-in-ocp.md', note: 'Exact Leray / Helmholtz anchor' },
-      { title: 'GLM and asymptotic correction', href: '../mhd/glm-and-asymptotic-correction.md', note: 'Asymptotic branch and limitation notes' },
-      { title: 'Exact vs asymptotic', href: '../formalism/exact-vs-asymptotic.md', note: 'Why the split matters' },
+      { title: 'Divergence cleaning in protected-state language', href: '../mhd/divergence-cleaning-in-ocp.md', note: 'Exact Leray / Helmholtz anchor' },
+      { title: 'GLM and asymptotic correction', href: '../mhd/glm-and-asymptotic-correction.md', note: 'Asymptotic branch and limits' },
+      { title: 'Exact vs asymptotic split', href: '../formalism/exact-vs-asymptotic.md', note: 'Why the distinction matters' },
+    ],
+    literature: [
+      { title: 'Dedner et al. on hyperbolic divergence cleaning', href: 'https://doi.org/10.1006/jcph.2001.6961', note: 'Asymptotic cleaning anchor' },
+      { title: 'Evans-Hawley constrained transport', href: 'https://www.sciencedirect.com/science/article/pii/0021999188901209', note: 'Constraint-preserving MHD direction' },
+    ],
+  },
+  gauge: {
+    label: 'Gauge Projection Lab',
+    short: 'Transverse projection for Maxwell / Coulomb-gauge structure.',
+    branch: 'Exact physics extension',
+    fit: 'Exact fit on projection-compatible domains',
+    status: 'KEPT PHYSICS EXTENSION',
+    lane: 'Maxwell / gauge physics',
+    protected: 'Transverse field or vector-potential component',
+    disturbance: 'Longitudinal / pure-gradient component',
+    correction: 'Transverse projector P_perp',
+    plain:
+      'This module shows the strongest additional physics bridge kept in the repo. It uses the same exact projector logic as the MHD periodic branch, but interprets the protected object as the transverse piece of a Maxwell-side field or vector potential.',
+    technical:
+      'Computationally this reuses the projection-compatible exact branch. The physics content is the Coulomb-gauge or transverse projection interpretation. It is a real operator-level fit, but not a new theorem beyond the existing exact projection spine.',
+    use: 'Use this to see where the theory really reaches into additional physics without forcing a new universal claim.',
+    avoid: 'Do not sell this as a new Maxwell theorem. It is a principled physics extension of the exact projector branch.',
+    refs: [
+      { title: 'Maxwell / Coulomb-gauge note', href: '../physics/maxwell-coulomb-gauge.md', note: 'Fit verdict and scope' },
+      { title: 'Physics system matrix', href: '../physics/physics-system-matrix.md', note: 'Where this bridge sits' },
+      { title: 'Kept vs rejected physics bridges', href: '../physics/kept-vs-rejected-physics-bridges.md', note: 'Why this one survives' },
+    ],
+    literature: [
+      { title: 'Constraint-preserving Maxwell FEM', href: 'https://doi.org/10.1016/j.jcp.2019.109340', note: 'Operator-level Maxwell direction' },
+      { title: 'Maxwell-case constraint remedy', href: 'https://arxiv.org/abs/gr-qc/0404036', note: 'Constraint-preserving evolution context' },
     ],
   },
   continuous: {
     label: 'Continuous Generator Lab',
     short: 'Invariant-split flows, spectral damping, and mixing failure.',
+    branch: 'Asymptotic generator branch',
+    fit: 'Asymptotic fit',
     status: 'PROVED / NO-GO',
+    lane: 'Generator classification',
+    protected: 'ker(K) or invariant protected coordinates',
+    disturbance: 'Stable disturbance subspace',
+    correction: 'Damping or invariant-split generator K',
     plain:
       'This module shows the strongest asymptotic theorem spine in the repo. Some generators preserve the protected coordinates and damp the disturbance coordinates. Others look stable overall but fail because they mix disturbance back into the protected part.',
     technical:
-      'Computes the kernel-based protected space, an orthogonal disturbance complement, an RK4 flow path, the mixing norm ||P_S K P_D||, and the finite-time exact-recovery residual. This is where the repo now draws a hard line between asymptotic correction and exact one-shot recovery.',
-    use: 'Use this to test whether a linear correction generator actually qualifies as an OCP correction flow.',
-    avoid: 'Do not treat every dissipative matrix as an OCP flow. Protected-state preservation is a separate condition from decay.',
+      'Computes the kernel-based protected space, an orthogonal disturbance complement, an RK4 flow path, the mixing norm ||P_S K P_D||, and the finite-time exact-recovery residual. This is where the theory draws the hard line between asymptotic correction and exact one-shot recovery.',
+    use: 'Use this to test whether a linear correction generator actually qualifies as a protected-state correction flow.',
+    avoid: 'Do not treat every dissipative matrix as a valid correction flow. Decay alone is not enough.',
     refs: [
-      { title: 'Generator theorems', href: '../theorem-candidates/generator-theorems.md', note: 'OCP-T3 and the PSD corollary' },
-      { title: 'Advanced no-go results', href: '../impossibility-results/advanced-no-go-results.md', note: 'Finite-time exact recovery failure and stronger boundaries' },
+      { title: 'Generator theorems', href: '../theorem-candidates/generator-theorems.md', note: 'Invariant-split and PSD results' },
+      { title: 'Advanced no-go results', href: '../impossibility-results/advanced-no-go-results.md', note: 'Finite-time exact-recovery boundary' },
       { title: 'Worked linear example', href: '../control/worked-linear-example.md', note: 'Clean invariant-split control picture' },
+    ],
+    literature: [
+      { title: 'Constraint damping in Z4 / harmonic gauge', href: 'https://arxiv.org/abs/gr-qc/0504114', note: 'Strong asymptotic physics lane' },
+      { title: 'Continuous QEC / feedback', href: 'https://doi.org/10.1103/PhysRevA.65.042301', note: 'Potential future bridge' },
     ],
   },
   nogo: {
     label: 'No-Go Explorer',
     short: 'Failure modes the theory can actually rule out.',
+    branch: 'No-go boundary layer',
+    fit: 'Structural rejection layer',
     status: 'PROVED BOUNDARY LAYER',
+    lane: 'Failure diagnostics',
+    protected: 'Whatever the candidate architecture claims to preserve',
+    disturbance: 'Ambiguous, overlapping, or unreachable disturbance families',
+    correction: 'Counterexample, obstruction, or impossibility witness',
     plain:
       'The negative-results layer is part of the theory, not an appendix. These examples show when exact recovery is impossible, when sector detection collapses, when correction image is too small, and when smooth flows cannot do exact one-shot recovery.',
     technical:
-      'Each preset is wired to a specific theorem or theorem-grade obstruction in the repo. The point is to make failure structural and inspectable rather than rhetorical.',
+      'Each preset is wired to a specific theorem, counterexample, or theorem-grade obstruction in the repository. The point is to make failure structural and inspectable rather than rhetorical.',
     use: 'Use this to understand what the framework excludes and why those exclusions matter.',
-    avoid: 'Do not hide these cases or treat them as edge trivia. The no-go layer is one of the strongest outputs of the repository.',
+    avoid: 'Do not hide these cases. The no-go layer is one of the strongest outputs of the repo.',
     refs: [
-      { title: 'No-go results', href: '../impossibility-results/no-go-results.md', note: 'Core impossibility spine' },
-      { title: 'Advanced no-go results', href: '../impossibility-results/advanced-no-go-results.md', note: 'Stronger flow and sector boundaries' },
-      { title: 'Dead ends and do not promote', href: '../open-questions/dead-ends-and-do-not-promote.md', note: 'Explicit negative curation' },
+      { title: 'No-go spine', href: '../finalization/no-go-spine-final.md', note: 'Finalized impossibility layer' },
+      { title: 'Advanced no-go results', href: '../impossibility-results/advanced-no-go-results.md', note: 'Sharper flow and sector boundaries' },
+      { title: 'Kept vs rejected physics bridges', href: '../physics/kept-vs-rejected-physics-bridges.md', note: 'Physics-side demotions and rejections' },
+    ],
+    literature: [
+      { title: 'Constraint-preserving vs damped systems', href: 'https://doi.org/10.1088/1361-6382/ac88af', note: 'Useful scope-control anchor' },
     ],
   },
 };
@@ -156,6 +231,8 @@ function analyzeActiveLab() {
       return analyzeQecSector(state.labs.qec);
     case 'mhd':
       return analyzeMhdProjection(state.labs.mhd);
+    case 'gauge':
+      return analyzeGaugeProjection(state.labs.gauge);
     case 'continuous':
       return analyzeContinuousGenerator(state.labs.continuous);
     case 'nogo':
@@ -184,83 +261,92 @@ function render() {
   const meta = LAB_META[state.activeLab];
   app.innerHTML = `
     <div class="site-shell">
-      <header class="masthead">
-        <div class="masthead-inner">
-          <div>
-            <span class="kicker">Protected-State Correction</span>
-            <h1>OCP Workbench</h1>
-            <p class="deck">A static scientific workbench for exact projection, exact sector recovery, continuous asymptotic correction, and theorem-grade failure modes. Every module is tied to a proved result, a conditional branch, or a no-go statement in the repository.</p>
+      <header class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="kicker">Protected-State Correction Theory</span>
+            <h1>Protected-State Correction Workbench</h1>
+            <p class="deck">A static scientific workbench for exact projection, sector recovery, continuous asymptotic correction, and theorem-grade failure modes. The workbench uses the Orthogonal Correction Principle as the core internal principle name, but keeps the public-facing structure theory-first and proof-linked.</p>
+            <div class="hero-meta-row">
+              <span class="fit-pill">${meta.branch}</span>
+              <span class="status-pill">${meta.status}</span>
+              <span class="fit-pill subtle">Physics lane: ${meta.lane}</span>
+            </div>
           </div>
-          <div class="toolbar">
-            <button id="mode-toggle">${state.mode === 'plain' ? 'Switch to Technical Mode' : 'Switch to Plain-Language Mode'}</button>
-            <select id="saved-scenarios">
-              <option value="">Saved scenarios</option>
-              ${Object.keys(savedScenarios).sort().map((key) => `<option value="${key}">${key}</option>`).join('')}
-            </select>
-            <button id="load-scenario">Load</button>
-            <button id="save-scenario">Save</button>
-            <button id="share-link">Copy Share Link</button>
-            <button id="export-json">Export JSON</button>
-            <button id="export-figure" class="primary">Export Figure</button>
+          <div class="hero-actions card-surface">
+            <div class="action-group">
+              <span class="action-label">Mode</span>
+              <button id="mode-toggle" class="ghost-button">${state.mode === 'plain' ? 'Switch to Technical Mode' : 'Switch to Plain-Language Mode'}</button>
+            </div>
+            <div class="action-group">
+              <span class="action-label">Scenarios</span>
+              <div class="action-row">
+                <select id="saved-scenarios">
+                  <option value="">Saved scenarios</option>
+                  ${Object.keys(savedScenarios).sort().map((key) => `<option value="${key}">${key}</option>`).join('')}
+                </select>
+                <button id="load-scenario">Load</button>
+                <button id="save-scenario">Save</button>
+              </div>
+            </div>
+            <div class="action-group">
+              <span class="action-label">Export</span>
+              <div class="action-row compact">
+                <button id="share-link">Copy Share Link</button>
+                <button id="export-json">Export JSON</button>
+                <button id="export-figure" class="primary">Export Figure</button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
+
+      <section class="module-section">
+        <div class="section-heading">
+          <h2>Choose a theorem-linked module</h2>
+          <p>Each module is kept only if it corresponds to a proved result, a conditional but citable branch, or a sharp rejected bridge.</p>
+        </div>
+        <div class="module-grid">
+          ${renderModuleCards()}
+        </div>
+      </section>
+
+      <section class="summary-section">
+        <div class="summary-grid">
+          ${renderSummaryCards(meta)}
+        </div>
+      </section>
+
       <main class="workspace">
-        <aside class="rail">
-          <div class="context-block">
-            <h3>Modules</h3>
-            <p>${state.mode === 'plain' ? 'Each lab isolates one operator pattern or one failure pattern, so the theory stays inspectable instead of drifting into analogy.' : 'The workbench mirrors the repo architecture: exact branch, sector branch, continuous/asymptotic branch, and explicit no-go layer.'}</p>
-          </div>
-          <nav class="lab-nav">
-            ${Object.entries(LAB_META).map(([key, entry]) => `
-              <button class="${key === state.activeLab ? 'active' : ''}" data-lab="${key}">
-                <strong>${entry.label}</strong>
-                <span>${entry.short}</span>
-              </button>
-            `).join('')}
-          </nav>
-          <div class="callout ${meta.status.includes('NO-GO') ? 'warn' : 'good'}">
-            <div class="status-pill">${meta.status}</div>
-            <p>${state.mode === 'plain' ? meta.use : meta.avoid}</p>
-          </div>
-        </aside>
-        <section class="canvas-panel">
-          <div class="panel-head">
-            <div class="status-pill">${meta.status}</div>
-            <h2>${meta.label}</h2>
-            <p>${state.mode === 'plain' ? meta.plain : meta.technical}</p>
-          </div>
-          <div class="lab-layout">
-            <div class="config-pane">${renderConfigPane()}</div>
-            <div class="visual-pane">
-              <div class="visual-stage">${renderVisualStage()}</div>
-              <div class="metric-strip">${renderMetrics()}</div>
+        <section class="lab-shell card-surface">
+          <div class="lab-header">
+            <div>
+              <span class="fit-pill">${meta.fit}</span>
+              <h2>${meta.label}</h2>
+              <p>${state.mode === 'plain' ? meta.plain : meta.technical}</p>
             </div>
+          </div>
+          <div class="lab-body">
+            <aside class="config-pane">
+              <div class="pane-heading">
+                <h3>Configuration</h3>
+                <p>Adjust the example and inspect how the operator or no-go behaves.</p>
+              </div>
+              ${renderConfigPane()}
+            </aside>
+            <section class="results-pane">
+              <div class="results-stage">
+                ${renderVisualStage()}
+              </div>
+              <div class="metric-grid">
+                ${renderMetrics()}
+              </div>
+            </section>
           </div>
         </section>
-        <aside class="context-panel">
-          <div class="context-block">
-            <h3>Interpretation</h3>
-            <p>${state.mode === 'plain' ? meta.plain : meta.technical}</p>
-          </div>
-          <div class="context-block">
-            <h4>When To Use This</h4>
-            <p>${meta.use}</p>
-          </div>
-          <div class="context-block">
-            <h4>When Not To Use This</h4>
-            <p>${meta.avoid}</p>
-          </div>
-          <div class="context-block">
-            <h4>Theory And Proof Map</h4>
-            <div class="ref-list">
-              ${meta.refs.map((ref) => `<a href="${ref.href}"><strong>${ref.title}</strong><small>${ref.note}</small></a>`).join('')}
-            </div>
-          </div>
-          <div class="context-block">
-            <h4>Current Output</h4>
-            ${renderNarrativeSummary()}
-          </div>
+
+        <aside class="context-rail">
+          ${renderContextCards(meta)}
         </aside>
       </main>
     </div>
@@ -268,6 +354,77 @@ function render() {
 
   attachEvents();
   hydrateCanvases();
+}
+
+function renderModuleCards() {
+  return Object.entries(LAB_META)
+    .map(
+      ([key, entry]) => `
+        <button class="module-card ${key === state.activeLab ? 'active' : ''}" data-lab="${key}">
+          <span class="module-kicker">${entry.branch}</span>
+          <strong>${entry.label}</strong>
+          <p>${entry.short}</p>
+          <div class="module-meta">
+            <span>${entry.fit}</span>
+            <span>${entry.lane}</span>
+          </div>
+        </button>
+      `
+    )
+    .join('');
+}
+
+function renderSummaryCards(meta) {
+  return [
+    summaryCard('Protected object', meta.protected),
+    summaryCard('Disturbance family', meta.disturbance),
+    summaryCard('Correction architecture', meta.correction),
+    summaryCard('Public reading', meta.fit),
+  ].join('');
+}
+
+function renderContextCards(meta) {
+  return `
+    <div class="context-card card-surface">
+      <h3>Fit verdict</h3>
+      <p>${meta.fit}</p>
+      <ul>
+        <li><strong>Branch:</strong> ${meta.branch}</li>
+        <li><strong>Status:</strong> ${meta.status}</li>
+        <li><strong>Lane:</strong> ${meta.lane}</li>
+      </ul>
+    </div>
+    <div class="context-card card-surface">
+      <h3>Interpretation</h3>
+      <p>${state.mode === 'plain' ? meta.plain : meta.technical}</p>
+    </div>
+    <div class="context-card card-surface">
+      <h3>When to use this</h3>
+      <p>${meta.use}</p>
+      <h4>When not to use it</h4>
+      <p>${meta.avoid}</p>
+    </div>
+    <div class="context-card card-surface">
+      <h3>Theory links</h3>
+      <div class="ref-list">
+        ${meta.refs.map((ref) => `<a href="${ref.href}"><strong>${ref.title}</strong><small>${ref.note}</small></a>`).join('')}
+      </div>
+    </div>
+    <div class="context-card card-surface">
+      <h3>Outside research</h3>
+      <div class="ref-list">
+        ${meta.literature.map((ref) => `<a href="${ref.href}" target="_blank" rel="noreferrer"><strong>${ref.title}</strong><small>${ref.note}</small></a>`).join('')}
+      </div>
+    </div>
+    <div class="context-card card-surface">
+      <h3>Current output</h3>
+      ${renderNarrativeSummary()}
+    </div>
+  `;
+}
+
+function summaryCard(label, value) {
+  return `<article class="summary-card card-surface"><span>${label}</span><strong>${value}</strong></article>`;
 }
 
 function renderConfigPane() {
@@ -278,8 +435,8 @@ function renderConfigPane() {
         ${rangeField('disturbanceMagnitude', 'Disturbance magnitude', state.labs.exact.disturbanceMagnitude, 0, 2.5, 0.05)}
         ${rangeField('angleDeg', 'Disturbance angle (degrees)', state.labs.exact.angleDeg, 15, 90, 1)}
         <div class="callout ${latestAnalysis.admissible ? 'good' : 'warn'}">
-          <strong>${latestAnalysis.admissible ? 'Exact theorem applies.' : 'This is a deliberate no-go case.'}</strong>
-          <p>${latestAnalysis.admissible ? 'Protected and disturbance directions are orthogonal, so exact projector recovery is justified.' : 'The disturbance now leaks into the protected direction, so the projector no longer returns the original protected component exactly.'}</p>
+          <strong>${latestAnalysis.admissible ? 'Exact theorem applies.' : 'No-go witness active.'}</strong>
+          <p>${latestAnalysis.admissible ? 'Protected and disturbance directions are orthogonal, so exact projector recovery is justified.' : 'The disturbance now overlaps the protected direction, so the same projector leaks contamination into the recovered state.'}</p>
         </div>
       `;
     case 'qec':
@@ -296,8 +453,8 @@ function renderConfigPane() {
           </select>
         </div>
         <div class="callout good">
-          <strong>Exact sector recovery in action.</strong>
-          <p>The disturbed logical state lives in one orthogonal sector and the selected recovery maps it back to the code space without changing the logical coefficients.</p>
+          <strong>Exact sector recovery.</strong>
+          <p>The disturbed logical state stays inside one orthogonal sector and the selected recovery maps it back to the code space without changing the logical coefficients.</p>
         </div>
       `;
     case 'mhd':
@@ -308,7 +465,18 @@ function renderConfigPane() {
         ${rangeField('dt', 'GLM timestep', state.labs.mhd.dt, 0.01, 0.1, 0.01)}
         <div class="callout ${latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'good' : 'warn'}">
           <strong>Exact versus asymptotic branch check.</strong>
-          <p>Exact projection should drive the divergence much closer to zero than a short GLM run. If that stops being true, the example is no longer representing the repo’s strongest exact/asymptotic split clearly enough.</p>
+          <p>Exact projection should drive divergence much closer to zero than a short GLM run. If that stops being true, the example is no longer representing the repo’s strongest exact-versus-asymptotic split cleanly enough.</p>
+        </div>
+      `;
+    case 'gauge':
+      return `
+        ${rangeField('contamination', 'Longitudinal contamination strength', state.labs.gauge.contamination, 0.02, 0.6, 0.01)}
+        ${rangeField('glmSteps', 'Damping steps', state.labs.gauge.glmSteps, 1, 20, 1)}
+        ${rangeField('poissonIterations', 'Projection iterations', state.labs.gauge.poissonIterations, 80, 500, 20)}
+        ${rangeField('dt', 'Damping timestep', state.labs.gauge.dt, 0.01, 0.1, 0.01)}
+        <div class="callout good">
+          <strong>Exact physics extension.</strong>
+          <p>This module keeps the same exact projector logic as the periodic branch but changes the interpretation: the protected object is now the transverse component, and the disturbance is the longitudinal gauge piece.</p>
         </div>
       `;
     case 'continuous':
@@ -333,7 +501,7 @@ function renderConfigPane() {
         ${rangeField('steps', 'RK4 steps', state.labs.continuous.steps, 80, 500, 20)}
         <div class="callout ${latestAnalysis.mixingNorm < 1e-8 ? 'good' : 'warn'}">
           <strong>${latestAnalysis.mixingNorm < 1e-8 ? 'Protected coordinates are preserved.' : 'Mixing failure detected.'}</strong>
-          <p>${latestAnalysis.mixingNorm < 1e-8 ? 'This generator respects the protected/disturbance split and belongs to the asymptotic correction branch.' : 'This generator may damp disturbance overall, but it also injects disturbance into the protected coordinates, so it fails the OCP criterion.'}</p>
+          <p>${latestAnalysis.mixingNorm < 1e-8 ? 'This generator respects the protected/disturbance split and belongs to the asymptotic correction branch.' : 'This generator may damp disturbance overall, but it also injects disturbance into the protected coordinates, so it fails the protected-state correction criterion.'}</p>
         </div>
       `;
     case 'nogo':
@@ -347,11 +515,12 @@ function renderConfigPane() {
             <option value="sector-overlap" ${state.labs.nogo.example === 'sector-overlap' ? 'selected' : ''}>Sector overlap</option>
             <option value="mixing" ${state.labs.nogo.example === 'mixing' ? 'selected' : ''}>Mixing failure</option>
             <option value="rank" ${state.labs.nogo.example === 'rank' ? 'selected' : ''}>Insufficient correction image</option>
+            <option value="boundary" ${state.labs.nogo.example === 'boundary' ? 'selected' : ''}>Bounded-domain projector transplant</option>
           </select>
         </div>
         <div class="callout warn">
-          <strong>Negative results are part of the finished theory.</strong>
-          <p>This module exists to keep the repo honest. Each example corresponds to a claim the theory can actually reject, not just a vague warning.</p>
+          <strong>Negative results are part of the theory.</strong>
+          <p>This explorer keeps the repo honest. Each example corresponds to a theorem, a counterexample, or an explicit rejection decision.</p>
         </div>
       `;
   }
@@ -377,6 +546,8 @@ function renderVisualStage() {
       return renderQecStage();
     case 'mhd':
       return renderMhdStage();
+    case 'gauge':
+      return renderGaugeStage();
     case 'continuous':
       return renderContinuousStage();
     case 'nogo':
@@ -388,7 +559,7 @@ function renderVisualStage() {
 function renderExactStage() {
   const a = latestAnalysis;
   return `
-    <div class="visual-grid double">
+    <div class="figure-grid double">
       <div class="figure" data-exportable="true">
         <h4>2D decomposition</h4>
         ${vectorPlotSvg(a)}
@@ -410,7 +581,7 @@ function renderExactStage() {
 function renderQecStage() {
   const a = latestAnalysis;
   return `
-    <div class="visual-grid double">
+    <div class="figure-grid double">
       <div class="figure" data-exportable="true">
         <h4>Amplitude comparison</h4>
         ${barChartSvg([
@@ -418,7 +589,7 @@ function renderQecStage() {
           { label: `Disturbed (${a.selectedLabel})`, values: a.disturbed },
           { label: 'Recovered', values: a.recovered },
         ])}
-        <small>The recovery should return the logical amplitudes exactly for the selected single-bit-flip sector.</small>
+        <small>The selected recovery should return the logical amplitudes exactly for the chosen bit-flip sector.</small>
       </div>
       <div class="figure">
         <h4>Sector overlap matrix</h4>
@@ -431,12 +602,12 @@ function renderQecStage() {
 
 function renderMhdStage() {
   return `
-    <div class="visual-grid triple">
+    <div class="figure-grid triple">
       <div class="figure"><h4>Before projection</h4><canvas id="heat-before" width="240" height="240" data-exportable="true"></canvas><small>Divergence field before correction.</small></div>
       <div class="figure"><h4>After exact projection</h4><canvas id="heat-exact" width="240" height="240"></canvas><small>Exact periodic projection branch.</small></div>
       <div class="figure"><h4>After GLM steps</h4><canvas id="heat-glm" width="240" height="240"></canvas><small>Asymptotic reduction after the selected number of GLM steps.</small></div>
     </div>
-    <div class="visual-grid double" style="margin-top:1rem;">
+    <div class="figure-grid double top-gap">
       <div class="figure" data-exportable="true">
         <h4>GLM divergence history</h4>
         ${lineChartSvg(latestAnalysis.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'L2 divergence')}
@@ -455,10 +626,36 @@ function renderMhdStage() {
   `;
 }
 
+function renderGaugeStage() {
+  return `
+    <div class="figure-grid triple">
+      <div class="figure"><h4>Before transverse projection</h4><canvas id="gauge-before" width="240" height="240" data-exportable="true"></canvas><small>Longitudinal contamination before correction.</small></div>
+      <div class="figure"><h4>After exact transverse projection</h4><canvas id="gauge-exact" width="240" height="240"></canvas><small>Exact projection-compatible branch.</small></div>
+      <div class="figure"><h4>After damped cleanup</h4><canvas id="gauge-glm" width="240" height="240"></canvas><small>Asymptotic reduction used only as a comparator.</small></div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure" data-exportable="true">
+        <h4>Longitudinal-mode history</h4>
+        ${lineChartSvg(latestAnalysis.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'Residual longitudinal norm')}
+        <small>The exact projector is what gives the clean physics fit here; damping is only a secondary comparator.</small>
+      </div>
+      <div class="figure">
+        <h4>Physics reading</h4>
+        <div class="value-grid">
+          <div><small>Before</small><code>${latestAnalysis.beforeGaugeNorm.toExponential(3)}</code></div>
+          <div><small>After exact projection</small><code>${latestAnalysis.afterExactGaugeNorm.toExponential(3)}</code></div>
+          <div><small>After damping</small><code>${latestAnalysis.afterGlmGaugeNorm.toExponential(3)}</code></div>
+          <div><small>Interpretation</small><code>Transverse part recovered exactly on the compatible projection branch.</code></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderContinuousStage() {
   const a = latestAnalysis;
   return `
-    <div class="visual-grid double">
+    <div class="figure-grid double">
       <div class="figure" data-exportable="true">
         <h4>Disturbance norm over time</h4>
         ${lineChartSvg(a.disturbanceNorms.map((value, index) => ({ x: index, y: value })), 'Step', '||P_D x||')}
@@ -484,7 +681,12 @@ function renderNoGoStage() {
       <h4>${a.title}</h4>
       <p>${a.summary}</p>
       <div class="value-grid">
-        ${Object.entries(a.details).map(([key, value]) => `<div><small>${key}</small><code>${typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value)}</code></div>`).join('')}
+        ${Object.entries(a.details)
+          .map(
+            ([key, value]) =>
+              `<div><small>${key}</small><code>${typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value)}</code></div>`
+          )
+          .join('')}
       </div>
     </div>
   `;
@@ -496,20 +698,27 @@ function renderMetrics() {
       return [
         metric('Basis overlap', latestAnalysis.overlap.toFixed(3), latestAnalysis.admissible ? 'good' : 'bad'),
         metric('Recovery error', latestAnalysis.exactError.toExponential(2), latestAnalysis.exactError < 1e-8 ? 'good' : 'bad'),
-        metric('Mode', latestAnalysis.admissible ? 'Exact branch' : 'No-go case'),
+        metric('Branch', latestAnalysis.admissible ? 'Exact theorem' : 'No-go case'),
       ].join('');
     case 'qec':
       return [
         metric('Selected sector', latestAnalysis.selectedLabel),
         metric('Recovery error', latestAnalysis.recoveryError.toExponential(2), latestAnalysis.recoveryError < 1e-9 ? 'good' : 'bad'),
-        metric('Max off-sector overlap', Math.max(...latestAnalysis.sectorOverlap.flat().filter((value) => value < 1)).toExponential(2), 'good'),
+        metric('Off-sector overlap', Math.max(...latestAnalysis.sectorOverlap.flat().filter((value) => value < 1)).toExponential(2), 'good'),
       ].join('');
     case 'mhd':
       return [
         metric('Before', latestAnalysis.beforeNorm.toExponential(2)),
         metric('After exact', latestAnalysis.afterExactNorm.toExponential(2), 'good'),
         metric('After GLM', latestAnalysis.afterGlmNorm.toExponential(2), latestAnalysis.afterGlmNorm < latestAnalysis.beforeNorm ? 'good' : 'bad'),
-        metric('Exact vs GLM', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'Exact stronger' : 'Check example', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'good' : 'bad'),
+        metric('Reading', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'Exact branch wins' : 'Recheck example', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'good' : 'bad'),
+      ].join('');
+    case 'gauge':
+      return [
+        metric('Before', latestAnalysis.beforeGaugeNorm.toExponential(2)),
+        metric('After exact', latestAnalysis.afterExactGaugeNorm.toExponential(2), 'good'),
+        metric('After damping', latestAnalysis.afterGlmGaugeNorm.toExponential(2), latestAnalysis.afterGlmGaugeNorm < latestAnalysis.beforeGaugeNorm ? 'good' : 'bad'),
+        metric('Verdict', 'Exact physics extension', 'good'),
       ].join('');
     case 'continuous':
       return [
@@ -519,21 +728,20 @@ function renderMetrics() {
       ].join('');
     case 'nogo':
     default:
-      return [
-        metric('Status', latestAnalysis.status, 'bad'),
-        metric('Scope', 'Structural boundary'),
-      ].join('');
+      return [metric('Status', latestAnalysis.status, 'bad'), metric('Scope', 'Structural boundary')].join('');
   }
 }
 
 function renderNarrativeSummary() {
   switch (state.activeLab) {
     case 'exact':
-      return `<p>${latestAnalysis.admissible ? 'The protected and disturbance directions are orthogonal, so projection returns the protected component exactly.' : 'The disturbance direction overlaps the protected direction, so the same projection now carries contamination into the recovered state.'}</p>`;
+      return `<p>${latestAnalysis.admissible ? 'The disturbance is orthogonal, so projection returns the protected component exactly.' : 'The disturbance overlaps the protected direction, so exact recovery fails in the way the theorem spine predicts.'}</p>`;
     case 'qec':
-      return `<p>The selected sector ${latestAnalysis.selectedLabel} is recovered with error ${latestAnalysis.recoveryError.toExponential(2)}. In this branch, exactness comes from sector distinguishability rather than one global projector on physical Hilbert space.</p>`;
+      return `<p>The selected sector ${latestAnalysis.selectedLabel} is recovered with error ${latestAnalysis.recoveryError.toExponential(2)}. In this branch, exactness comes from sector distinguishability rather than one global projector on the entire physical Hilbert space.</p>`;
     case 'mhd':
-      return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}, while GLM reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} after ${state.labs.mhd.glmSteps} steps. This is the exact versus asymptotic split in numerical form.</p>`;
+      return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}, while GLM reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} after ${state.labs.mhd.glmSteps} steps. This is the exact-versus-asymptotic split in numerical form.</p>`;
+    case 'gauge':
+      return `<p>The exact transverse projection drops the longitudinal residual from ${latestAnalysis.beforeGaugeNorm.toExponential(2)} to ${latestAnalysis.afterExactGaugeNorm.toExponential(2)}. This bridge is kept because it uses a real operator, not just an analogy.</p>`;
     case 'continuous':
       return `<p>The generator produces protected drift ${latestAnalysis.protectedDrift.toExponential(2)} and mixing norm ${latestAnalysis.mixingNorm.toExponential(2)}. Finite-time exact recovery remains ${latestAnalysis.finiteTimeExactRecoveryPossible ? 'apparently possible' : 'ruled out'} for this smooth flow model.</p>`;
     case 'nogo':
@@ -547,7 +755,7 @@ function formatFactor(value) {
 }
 
 function metric(label, value, tone = '') {
-  return `<div class="metric ${tone}"><strong>${value}</strong><span>${label}</span></div>`;
+  return `<article class="metric-card card-surface ${tone}"><strong>${value}</strong><span>${label}</span></article>`;
 }
 
 function attachEvents() {
@@ -635,7 +843,7 @@ async function copyShareLink() {
 
 function exportJson() {
   const payload = exportScenarioPayload(state, latestAnalysis);
-  downloadText(`ocp-${state.activeLab}-scenario.json`, JSON.stringify(payload, null, 2), 'application/json');
+  downloadText(`protected-state-correction-${state.activeLab}-scenario.json`, JSON.stringify(payload, null, 2), 'application/json');
 }
 
 function exportFigure() {
@@ -643,7 +851,7 @@ function exportFigure() {
   if (!exportable) return;
   if (exportable.tagName.toLowerCase() === 'canvas') {
     const link = document.createElement('a');
-    link.download = `ocp-${state.activeLab}-figure.png`;
+    link.download = `protected-state-correction-${state.activeLab}-figure.png`;
     link.href = exportable.toDataURL('image/png');
     link.click();
     return;
@@ -653,7 +861,7 @@ function exportFigure() {
   const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
-  link.download = `ocp-${state.activeLab}-figure.svg`;
+  link.download = `protected-state-correction-${state.activeLab}-figure.svg`;
   link.href = url;
   link.click();
   URL.revokeObjectURL(url);
@@ -686,6 +894,11 @@ function hydrateCanvases() {
     drawHeatmap('heat-exact', latestAnalysis.afterExactDiv);
     drawHeatmap('heat-glm', latestAnalysis.afterGlmDiv);
   }
+  if (state.activeLab === 'gauge') {
+    drawHeatmap('gauge-before', latestAnalysis.beforeDiv);
+    drawHeatmap('gauge-exact', latestAnalysis.afterExactDiv);
+    drawHeatmap('gauge-glm', latestAnalysis.afterGlmDiv);
+  }
   if (state.activeLab === 'qec') {
     const mount = document.getElementById('qec-overlap-table');
     if (mount) mount.innerHTML = matrixTable(latestAnalysis.sectorOverlap, latestAnalysis.sectorLabels);
@@ -704,13 +917,17 @@ function vectorPlotSvg(analysis) {
   return `
     <svg viewBox="0 0 ${size} ${size}" aria-label="Exact projection plot">
       <defs>
-        ${['#1f4b99', '#9c5b2a', '#1c1d21', '#a63229'].map((color) => `
+        ${['#1f4b99', '#9c5b2a', '#1c1d21', '#a63229']
+          .map(
+            (color) => `
           <marker id="arrow-${color.replace('#', '')}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="${color}" />
           </marker>
-        `).join('')}
+        `
+          )
+          .join('')}
       </defs>
-      <rect width="${size}" height="${size}" rx="18" fill="rgba(255,255,255,0.65)" />
+      <rect width="${size}" height="${size}" rx="18" fill="rgba(255,255,255,0.78)" />
       <line x1="0" y1="${half}" x2="${size}" y2="${half}" stroke="rgba(28,29,33,0.15)" />
       <line x1="${half}" y1="0" x2="${half}" y2="${size}" stroke="rgba(28,29,33,0.15)" />
       ${makeArrow(analysis.s, '#1f4b99', 4)}
@@ -748,7 +965,7 @@ function barChartSvg(series) {
   });
   return `
     <svg viewBox="0 0 ${width} ${height}" aria-label="QEC amplitude comparison">
-      <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.65)" />
+      <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.78)" />
       <line x1="20" y1="200" x2="${width - 16}" y2="200" stroke="rgba(28,29,33,0.2)" />
       ${bars.join('')}
       ${labels.join('')}
@@ -774,7 +991,7 @@ function lineChartSvg(points, xLabel, yLabel) {
   const path = points.map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.x)} ${yScale(point.y)}`).join(' ');
   return `
     <svg viewBox="0 0 ${width} ${height}" aria-label="Line chart">
-      <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.65)" />
+      <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.78)" />
       <line x1="${left}" y1="${height - bottom}" x2="${width - right}" y2="${height - bottom}" stroke="rgba(28,29,33,0.18)" />
       <line x1="${left}" y1="${top}" x2="${left}" y2="${height - bottom}" stroke="rgba(28,29,33,0.18)" />
       <path d="${path}" fill="none" stroke="#9c5b2a" stroke-width="3" stroke-linecap="round" />
@@ -809,12 +1026,17 @@ function drawHeatmap(id, field) {
 
 function matrixTable(matrix, labels) {
   return `
-    <table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+    <table class="matrix-table">
       <thead>
-        <tr><th></th>${labels.map((label) => `<th style="padding:0.35rem; text-align:right; color:#5d625e;">${label}</th>`).join('')}</tr>
+        <tr><th></th>${labels.map((label) => `<th>${label}</th>`).join('')}</tr>
       </thead>
       <tbody>
-        ${matrix.map((row, i) => `<tr><th style="padding:0.35rem; text-align:left; color:#5d625e;">${labels[i]}</th>${row.map((value) => `<td style="padding:0.35rem; text-align:right;">${value.toFixed(3)}</td>`).join('')}</tr>`).join('')}
+        ${matrix
+          .map(
+            (row, i) =>
+              `<tr><th>${labels[i]}</th>${row.map((value) => `<td>${value.toFixed(3)}</td>`).join('')}</tr>`
+          )
+          .join('')}
       </tbody>
     </table>
   `;

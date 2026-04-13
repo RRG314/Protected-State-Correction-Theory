@@ -14,6 +14,7 @@
 - [no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
 - [operator-spine-final.md](docs/finalization/operator-spine-final.md)
 - [architecture-final.md](docs/finalization/architecture-final.md)
+- [naming-and-terminology.md](docs/finalization/naming-and-terminology.md)
 
 ## Core Docs
 - [formal-theory.md](docs/formalism/formal-theory.md)
@@ -34,8 +35,18 @@
 - [what-this-theory-is.md](docs/peer_review/what-this-theory-is.md)
 - [proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
 - [novelty-and-limits-for-reviewers.md](docs/peer_review/novelty-and-limits-for-reviewers.md)
+- [physics-scope-and-limits.md](docs/peer_review/physics-scope-and-limits.md)
 - [how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
 - [paper-outline.md](docs/peer_review/paper-outline.md)
+
+## Physics Extension
+- [physics-system-matrix.md](docs/physics/physics-system-matrix.md)
+- [maxwell-coulomb-gauge.md](docs/physics/maxwell-coulomb-gauge.md)
+- [numerical-relativity-constraint-damping.md](docs/physics/numerical-relativity-constraint-damping.md)
+- [continuous-quantum-error-correction.md](docs/physics/continuous-quantum-error-correction.md)
+- [bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
+- [kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
+- [citable-expansion-directions.md](docs/references/citable-expansion-directions.md)
 
 ## Workbench
 - [index.html](docs/workbench/index.html)
@@ -54,9 +65,11 @@
 - [mhd.py](src/ocp/mhd.py)
 - [continuous.py](src/ocp/continuous.py)
 - [capacity.py](src/ocp/capacity.py)
+- [physics.py](src/ocp/physics.py)
 
 ## Validation
 - [run_all.sh](scripts/validate/run_all.sh)
+- [check_naming.py](scripts/validate/check_naming.py)
 - [check_workbench_static.py](scripts/validate/check_workbench_static.py)
 - [build_workbench_examples.mjs](scripts/compare/build_workbench_examples.mjs)
 - [discovery_inventory.csv](data/generated/inventories/discovery_inventory.csv)

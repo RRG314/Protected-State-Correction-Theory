@@ -18,6 +18,8 @@ The repository now supports outcome **A/B** from the program brief:
 - Finite-time exact recovery no-go for smooth linear flows.
 - Sector-overlap detection no-go.
 - Exact periodic Helmholtz/Leray projection interpretation of divergence cleaning.
+- Naive periodic-projector transplantation to a bounded-domain protected class is rejected by explicit counterexample.
+- Maxwell / Coulomb-gauge projection is kept as a corollary-level exact physics extension of the projector branch.
 
 ## Conditional But Strong
 
@@ -25,6 +27,8 @@ The repository now supports outcome **A/B** from the program brief:
 - GLM cleaning as an asymptotic correction architecture.
 - Control-theoretic extension when invariant protected/disturbance splitting exists.
 - Branch-specific capacity language beyond the lower-bound layer.
+- Numerical-relativity constraint damping as a conditional asymptotic physics extension.
+- Continuous quantum error correction as a conditional bridge.
 
 ## Weak Or Demoted
 
@@ -39,13 +43,14 @@ The repository now supports outcome **A/B** from the program brief:
 1. A finished exact/asymptotic architecture.
 2. A finished exact sector branch beyond the simple projector model.
 3. A strong no-go layer that now spans exact, sector, and smooth-flow failure modes.
-4. A static GitHub-Pages-compatible OCP Workbench.
-5. Reviewer-facing documents that make outside scrutiny easier instead of harder.
+4. A static GitHub-Pages-compatible Protected-State Correction Workbench.
+5. A real physics-extension layer with kept and rejected bridges documented explicitly.
+6. Reviewer-facing documents that make outside scrutiny easier instead of harder.
 
 ## Best Next Step
 
-The single strongest next move remains boundary-sensitive continuous correction beyond the periodic projector setting, with branch-specific capacity maturation as the main theorem-completion target.
+The single strongest next move remains boundary-sensitive continuous correction beyond the rejected naive projector transplant, with branch-specific capacity maturation as the main theorem-completion target.
 
 ## Program Rating
 
-Current strict repo-level rating: **EXCELLENT** as a finished protected-state correction research program, while still explicitly non-universal in scope.
+Current strict repo-level rating: **EXCELLENT** as a finished protected-state correction research program with a real but delimited physics extension, while still explicitly non-universal in scope.

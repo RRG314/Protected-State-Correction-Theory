@@ -2,32 +2,28 @@
 
 ## Executive Summary
 
-This repository has now crossed from a good formal build into a finished program state.
+The repository now stands as a finished theory-first program with a real physics extension.
 
 The strongest current picture is:
 - exact protected-state correction through orthogonal projectors,
 - exact sector recovery through orthogonal sector embeddings,
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
 - asymptotic continuous correction through invariant-split generators,
-- and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, and finite-time overclaiming.
-
-The workbench layer is now real as well:
-- static,
-- GitHub-Pages-compatible,
-- and tied directly to theorem or no-go files.
+- a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
+- and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
 
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `131`
+- tracked-like files: `143`
 - root files: `12`
 - archive files: `8`
 - data files: `6`
-- docs files: `55`
+- docs files: `64`
 - papers files: `6`
-- scripts files: `8`
-- source files: `14`
-- test files: `15`
+- scripts files: `9`
+- source files: `15`
+- test files: `16`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -36,12 +32,12 @@ Machine-readable inventory:
 
 ## Claim Inventory
 
-Current promoted/registered claim totals:
-- total tracked claims: `21`
-- `PROVED`: `12`
-- `CONDITIONAL`: `7`
-- `OPEN`: `1`
-- `ANALOGY ONLY`: `1`
+Current registered claim totals from the regenerated claim registry:
+- total tracked claims: `26`
+- `PROVED`: multiple core theorem and no-go claims, including the new physics-side corollary fit and the bounded-domain rejection
+- `CONDITIONAL`: kept QEC/control/physics bridges that still need sharper operator theorems
+- `DISPROVED`: bounded-domain naive projector transplant claim
+- `ANALOGY ONLY`: generic constrained-Hamiltonian automatic-fit claim and the demoted optimizer/ML bridge
 
 Primary claim artifacts:
 - [docs/overview/claim-registry.md](docs/overview/claim-registry.md)
@@ -54,6 +50,7 @@ Primary claim artifacts:
 - [docs/finalization/no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
 - [docs/finalization/operator-spine-final.md](docs/finalization/operator-spine-final.md)
 - [docs/finalization/architecture-final.md](docs/finalization/architecture-final.md)
+- [docs/finalization/naming-and-terminology.md](docs/finalization/naming-and-terminology.md)
 
 ### Exact branch
 - [docs/theorem-candidates/central-theorem.md](docs/theorem-candidates/central-theorem.md)
@@ -64,6 +61,14 @@ Primary claim artifacts:
 - [docs/theorem-candidates/generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
 - [docs/mhd/divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
 - [docs/mhd/glm-and-asymptotic-correction.md](docs/mhd/glm-and-asymptotic-correction.md)
+
+### Physics extension
+- [docs/physics/physics-system-matrix.md](docs/physics/physics-system-matrix.md)
+- [docs/physics/maxwell-coulomb-gauge.md](docs/physics/maxwell-coulomb-gauge.md)
+- [docs/physics/numerical-relativity-constraint-damping.md](docs/physics/numerical-relativity-constraint-damping.md)
+- [docs/physics/continuous-quantum-error-correction.md](docs/physics/continuous-quantum-error-correction.md)
+- [docs/physics/bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
+- [docs/physics/kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
 
 ### No-go layer
 - [docs/impossibility-results/no-go-results.md](docs/impossibility-results/no-go-results.md)
@@ -79,7 +84,7 @@ Status: `finished exact anchor`
 - main results: OCP-T1, OCP-C1, OCP-T4
 
 ### 2. Exact sector branch
-Status: `new finished exact branch`
+Status: `finished exact branch`
 - protected object: `S`
 - disturbance object: pairwise orthogonal sector family `D_i`
 - operator: global sector-conditioned recovery built from `Q_i` and sector basis maps
@@ -90,37 +95,54 @@ Status: `exact anchor under standard assumptions`
 - protected object: code space
 - disturbance object: correctable syndrome sectors
 - operator: sector projectors and coherent recovery family
-- main result: exact recovery on the local 3-qubit bit-flip family
+- main value: exact anchor, not a claimed replacement for standard QEC theory
 
 ### 4. Exact continuous periodic branch
 Status: `strong exact continuous anchor`
 - protected object: divergence-free field component
 - disturbance object: gradient contamination
 - operator: periodic Helmholtz/Leray projection
-- main result: exact machine-precision recovery in the tracked example
+- main result: machine-precision divergence suppression in the tracked example
 
-### 5. Asymptotic continuous generator branch
+### 5. Maxwell / gauge projection branch
+Status: `kept exact physics extension`
+- protected object: transverse field or vector-potential component
+- disturbance object: longitudinal / pure-gradient component
+- operator: transverse projector
+- main value: real physics-side extension of the exact projector branch
+
+### 6. Asymptotic continuous generator branch
 Status: `finished asymptotic branch`
 - protected object: `ker(K)` or invariant protected coordinates
 - disturbance object: stable disturbance subspace
 - operator: damping or invariant-split generator `K`
 - main results: OCP-T2, OCP-T3, OCP-C2, OCP-N5, OCP-N7
 
-### 6. GLM branch
+### 7. GLM branch
 Status: `kept as asymptotic only`
 - protected object: physical field content
 - disturbance object: divergence / constraint error
 - operator: coupled GLM update law
 - main value: practical asymptotic comparator, not exact recovery
 
-### 7. Control branch
-Status: `conditional extension`
-- value: design-rule and interpretation layer
-- limitation: no fully promoted broad control theorem yet
+### 8. Numerical-relativity constraint-damping branch
+Status: `conditional asymptotic physics extension`
+- protected object: constraint-satisfying solution sector
+- disturbance object: constraint-violating modes
+- operator: constraint-damping evolution terms
+- main value: strong citable asymptotic direction beyond the current MHD anchor
 
-### 8. Demoted branch
-- optimizer / ML bridge material
-- universal scalar-capacity language
+### 9. Continuous-QEC branch
+Status: `conditional bridge`
+- protected object: code sector / logical information
+- disturbance object: monitored error channels and syndrome drift
+- operator: continuous measurement plus feedback or engineered dissipation
+- main value: strongest citable bridge between exact QEC and continuous correction
+
+### 10. Rejected branch
+- naive periodic-projector reuse for bounded-domain exact correction
+- generic constrained Hamiltonian automatic-fit language
+- optimizer / ML bridge material as a main theory lane
 
 ## Operator Inventory
 
@@ -131,17 +153,20 @@ Exact operators:
 - global sector recovery operator
 - code projector and QEC recovery family
 - periodic Helmholtz/Leray projector
+- transverse projector interpretation in the Maxwell/gauge extension
 
 Asymptotic operators:
 - `x_dot = -k P_D x`
 - invariant-split generators `x_dot = -Kx`
 - GLM update law
+- constraint-damping evolution architecture as a conditional physics-side fit
 
 Failure diagnostics:
 - overlap / intersection checks
 - protected mixing norm `||P_S K P_D||`
 - exact-recovery residual for finite-time flows
 - rank / image lower-bound checks
+- bounded-domain boundary-trace failure under naive periodic-projector reuse
 
 ## Workbench Inventory
 
@@ -163,6 +188,7 @@ Workbench modules:
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
 
@@ -172,17 +198,20 @@ Validation status:
 - full validation script: passed
 - static workbench asset check: passed
 - markdown link check: passed
-- Node workbench tests: `7 passed`
-- Python theorem/operator tests: `23 passed`
+- naming consistency check: passed
+- Node workbench tests: `9 passed`
+- Python theorem/operator/example tests: `24 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
 - [scripts/validate/check_workbench_static.py](scripts/validate/check_workbench_static.py)
+- [scripts/validate/check_naming.py](scripts/validate/check_naming.py)
 - [scripts/compare/build_workbench_examples.mjs](scripts/compare/build_workbench_examples.mjs)
 
 Primary generated artifacts:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
 - [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
+- [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
 
 ## Results Snapshot
 
@@ -190,25 +219,36 @@ Primary generated artifacts:
 - QEC sector recovery errors: `[0.0, 0.0, 0.0, 0.0]`
 - sector-theorem recovery errors: `[0.0, 0.0, 0.0, 0.0]`
 
-### Continuous exact vs asymptotic branch
+### Continuous exact versus asymptotic branch
 - divergence before exact projection: `19.359218295532003`
 - divergence after exact projection: `2.359146931297974e-14`
 - divergence after short GLM run: `16.849909741931956`
 
-### Finite-time flow boundary
-- finite-time exact recovery possible at `t = 0.25, 1.0, 2.0`: `false, false, false`
-- corresponding exact-recovery residuals: `1.0547, 0.5186, 0.2238`
+### New physics-side rejection result
+- bounded-domain pre-projection divergence RMS: `7.188908004215289`
+- bounded-domain post-projection divergence RMS: `5.4533400392382e-15`
+- bounded-domain physical boundary-normal RMS: `2.304408101585748e-32`
+- bounded-domain projected boundary-normal RMS: `0.031097335905001126`
+
+### Workbench extension snapshot
+- gauge module before norm: `14.103454585100657`
+- gauge module after exact projection norm: `1.147354786301552e-13`
+- gauge module after damped cleanup norm: `8.623534119392536`
 
 ## Best Current Reading Paths
 
-### Short exact path
+### Fast reviewer path
 - [docs/finalization/architecture-final.md](docs/finalization/architecture-final.md)
-- [docs/theorem-candidates/sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
-- [docs/impossibility-results/advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
+- [docs/finalization/no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
+- [docs/physics/physics-system-matrix.md](docs/physics/physics-system-matrix.md)
+- [docs/peer_review/physics-scope-and-limits.md](docs/peer_review/physics-scope-and-limits.md)
 
-### Reviewer path
-- [docs/peer_review/how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
-- [docs/peer_review/proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
+### Exact / physics path
+- [docs/theorem-candidates/sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
+- [docs/mhd/divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
+- [docs/physics/maxwell-coulomb-gauge.md](docs/physics/maxwell-coulomb-gauge.md)
+- [docs/physics/bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
 
 ### Interactive path
 - [docs/workbench/index.html](docs/workbench/index.html)
+- [docs/references/citable-expansion-directions.md](docs/references/citable-expansion-directions.md)

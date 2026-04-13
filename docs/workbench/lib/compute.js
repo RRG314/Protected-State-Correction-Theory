@@ -499,6 +499,88 @@ export function analyzeMhdProjection(config) {
   };
 }
 
+export function analyzeGaugeProjection(config) {
+  const base = analyzeMhdProjection(config);
+  return {
+    ...base,
+    beforeGaugeNorm: base.beforeNorm,
+    afterExactGaugeNorm: base.afterExactNorm,
+    afterGlmGaugeNorm: base.afterGlmNorm,
+  };
+}
+
+function boundaryNormalRms(Bx, By) {
+  const edgeValues = [
+    ...Bx[0],
+    ...Bx[Bx.length - 1],
+    ...By.map((row) => row[0]),
+    ...By.map((row) => row[row.length - 1]),
+  ];
+  const meanSquare = edgeValues.reduce((sum, value) => sum + value * value, 0) / edgeValues.length;
+  return Math.sqrt(meanSquare);
+}
+
+function makeBoundedDomainField(n) {
+  const h = 1 / (n - 1);
+  const x = Array.from({ length: n }, (_, i) => i * h);
+  const y = Array.from({ length: n }, (_, i) => i * h);
+  const psi = zeros2(n, n);
+  const phi = zeros2(n, n);
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      psi[i][j] = Math.sin(Math.PI * x[i]) ** 2 * Math.sin(Math.PI * y[j]) ** 2;
+      phi[i][j] = x[i] * (1 - x[i]) * Math.sin(Math.PI * y[j]);
+    }
+  }
+  const dpsix = gradientAxis(psi, h, 0);
+  const dpsiy = gradientAxis(psi, h, 1);
+  const gradx = gradientAxis(phi, h, 0);
+  const grady = gradientAxis(phi, h, 1);
+  const BxPhys = dpsiy.map((row) => row.map((value) => -value));
+  const ByPhys = dpsix;
+  return {
+    h,
+    Bx: addField(BxPhys, gradx),
+    By: addField(ByPhys, grady),
+    BxPhys,
+    ByPhys,
+  };
+}
+
+function gradientAxis(field, h, axis) {
+  const rows = field.length;
+  const cols = field[0].length;
+  return field.map((row, i) =>
+    row.map((_, j) => {
+      if (axis === 0) {
+        if (i === 0) return (field[i + 1][j] - field[i][j]) / h;
+        if (i === rows - 1) return (field[i][j] - field[i - 1][j]) / h;
+        return (field[i + 1][j] - field[i - 1][j]) / (2 * h);
+      }
+      if (j === 0) return (field[i][j + 1] - field[i][j]) / h;
+      if (j === cols - 1) return (field[i][j] - field[i][j - 1]) / h;
+      return (field[i][j + 1] - field[i][j - 1]) / (2 * h);
+    })
+  );
+}
+
+export function analyzeBoundaryProjectionLimit(config = {}) {
+  const n = Number(config.gridSize ?? 32);
+  const { h, Bx, By, BxPhys, ByPhys } = makeBoundedDomainField(n);
+  const beforeDiv = divergence2d(Bx, By, h);
+  const projection = helmholtzProject2d(Bx, By, h, Number(config.poissonIterations ?? 320));
+  const afterDiv = divergence2d(projection.BxProj, projection.ByProj, h);
+  return {
+    beforeDiv,
+    afterDiv,
+    beforeNorm: l2NormField(beforeDiv),
+    afterNorm: l2NormField(afterDiv),
+    physicalBoundaryNormalRms: boundaryNormalRms(BxPhys, ByPhys),
+    projectedBoundaryNormalRms: boundaryNormalRms(projection.BxProj, projection.ByProj),
+    transplantFails: boundaryNormalRms(projection.BxProj, projection.ByProj) > 1e-2,
+  };
+}
+
 function rungeKutta4(K, x0, totalTime, steps = 240) {
   const dt = totalTime / steps;
   let x = x0.slice();
@@ -566,6 +648,20 @@ export function analyzeContinuousGenerator(config) {
 
 export function analyzeNoGo(config) {
   switch (config.example) {
+    case 'boundary': {
+      const result = analyzeBoundaryProjectionLimit({ gridSize: 32, poissonIterations: 320 });
+      return {
+        title: 'Bounded-domain projection transplant failure',
+        status: 'COUNTEREXAMPLE / REJECTED BRIDGE',
+        summary: 'The periodic exact projector still removes divergence, but it does not preserve the bounded-domain protected class because the projected field picks up nonzero boundary-normal trace.',
+        details: {
+          beforeDivNorm: result.beforeNorm,
+          afterDivNorm: result.afterNorm,
+          physicalBoundaryNormalRms: result.physicalBoundaryNormalRms,
+          projectedBoundaryNormalRms: result.projectedBoundaryNormalRms,
+        },
+      };
+    }
     case 'overlap': {
       const x = [1, 0];
       return {

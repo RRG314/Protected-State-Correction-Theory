@@ -1,15 +1,16 @@
-# OCP Workbench Overview
+# Protected-State Correction Workbench Overview
 
 ## What It Is
 
-The OCP Workbench is a static scientific tool that makes the repository's strongest results inspectable in the browser.
+The Protected-State Correction Workbench is a static scientific tool that makes the repository's strongest exact, asymptotic, and no-go results inspectable in the browser.
 
-It is not a detached demo. Each module corresponds to a theorem, a conditional branch, or a no-go result already documented in the repository.
+It is not a detached demo layer. Every module is linked to a theorem, a conditional branch, or an explicit rejected bridge in the repository.
 
 ## Modules
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
 
@@ -17,16 +18,20 @@ It is not a detached demo. Each module corresponds to a theorem, a conditional b
 - inspect exact projector recovery and overlap failure
 - inspect exact sector recovery on the 3-qubit bit-flip anchor
 - compare exact periodic projection versus GLM asymptotic reduction
+- inspect a kept Maxwell / gauge projection extension
 - inspect generator kernels, mixing, and finite-time exact-recovery failure
-- save scenarios, reload them, export JSON, and share scenario links
+- inspect rejected bridges such as the bounded-domain projector transplant
+- save scenarios, reload them, export JSON, export figures, and share state links
 
 ## What It Is For
 - reviewer orientation
 - theorem illustration
-- teaching the exact vs asymptotic split
+- teaching the exact-versus-asymptotic split
+- making the physics extension legible without overclaiming it
 - quick structural checks before reading the longer proofs
 
 ## What It Is Not For
-- claiming new numerical evidence beyond the repository's actual theorems
 - replacing the proofs
-- pretending the illustrative modules prove more than the repo does
+- claiming new physics theorems that are not in the repo
+- hiding conditional status behind polished visuals
+- turning analogy-only directions into promoted modules

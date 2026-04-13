@@ -46,6 +46,12 @@
     "after_glm_l2_divergence": 16.849909741931956,
     "projection_orthogonality_residual": 1.9737298215558337e-16
   },
+  "bounded_domain_projection_limit": {
+    "before_l2_divergence": 7.188908004215289,
+    "after_periodic_projection_l2_divergence": 5.4533400392382e-15,
+    "physical_boundary_normal_rms": 2.304408101585748e-32,
+    "projected_boundary_normal_rms": 0.031097335905001126
+  },
   "continuous_generators": {
     "invariant_split_example": {
       "report": {

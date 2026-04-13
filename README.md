@@ -1,6 +1,8 @@
-# Orthogonal Correction Principle (OCP) Research Program
+# Protected-State Correction Theory
 
-This repository develops the Orthogonal Correction Principle as a formal research direction about **protected-state correction**.
+Core principle: **Orthogonal Correction Principle (OCP)**.
+
+This repository develops protected-state correction as a formal research direction with an exact branch, an asymptotic branch, a strong no-go layer, and a physics extension that is kept only where the operator structure survives honest testing.
 
 Plain-language version:
 - identify what part of a system must be preserved,
@@ -19,12 +21,13 @@ Formal version:
 This repository does **not** claim a universal theorem covering QEC, control, PDE correction, and optimization under one scalar law.
 
 It now supports a narrower and stronger statement:
-- OCP is a finished protected-state correction framework,
+- protected-state correction is a finished theorem-first framework,
 - with an exact projector branch,
 - an exact sector branch,
 - an exact periodic continuous projection anchor,
 - an asymptotic generator branch,
-- and a theorem-grade no-go layer.
+- a theorem-grade no-go layer,
+- and a physics extension that is real but not universal.
 
 ## Strongest Current Results
 
@@ -56,9 +59,11 @@ It now supports a narrower and stronger statement:
 3. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
 4. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
 5. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
-6. [OCP Workbench](docs/workbench/index.html)
+6. [Protected-State Correction Workbench](docs/workbench/index.html)
+7. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+8. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
-## OCP Workbench
+## Protected-State Correction Workbench
 
 The repository now includes a static GitHub-Pages-compatible workbench in:
 
@@ -68,10 +73,23 @@ Modules:
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
 
 The workbench is tied directly to the theorem and no-go documents. It is not a detached demo layer.
+
+## Physics Extension
+
+The strongest kept physics lanes are:
+- QEC as the exact sector anchor,
+- periodic Helmholtz/Leray projection as the exact continuous anchor,
+- Maxwell / Coulomb-gauge projection as a kept exact extension of the projector branch,
+- GLM divergence cleaning as an asymptotic comparator,
+- numerical-relativity constraint damping as a conditional asymptotic extension,
+- continuous quantum error correction as a conditional future bridge.
+
+The repo also preserves explicit rejections, including the failure of naive periodic-projector transplantation to bounded-domain problems.
 
 ## Repository Map
 
@@ -80,6 +98,7 @@ The workbench is tied directly to the theorem and no-go documents. It is not a d
 - `docs/formalism/` - core framework and exact-vs-asymptotic split
 - `docs/qec/` - QEC foundation and OCP sector framing
 - `docs/mhd/` - exact periodic projection and asymptotic GLM branch
+- `docs/physics/` - kept and rejected physics bridges, including the citable extension matrix
 - `docs/control/` - conditional control extension and worked linear example
 - `docs/theorem-candidates/` - theorem-level results including generator, capacity, and sector branches
 - `docs/impossibility-results/` - core and advanced no-go structure
@@ -106,7 +125,7 @@ This now runs:
 
 ## Current Honest Rating
 
-Current honest internal rating: **EXCELLENT** as a finished repository-scale research program.
+Current honest internal rating before the new physics audit was **EXCELLENT** as a finished repository-scale research program.
 
 Why this rating is justified:
 - the repo now has a polished theorem spine,
@@ -119,4 +138,7 @@ Important limit on that rating:
 - this does **not** mean OCP is now a universal correction theory,
 - and it does **not** erase the fact that the strongest mathematics is still operator-theoretic and that the boundary-sensitive continuous branch remains open.
 
-It means the repository is now finished enough, disciplined enough, and documented enough to stand as the main OCP research program going forward.
+The current public-facing title is theory-first on purpose:
+- main title: **Protected-State Correction Theory**
+- core internal principle: **Orthogonal Correction Principle (OCP)**
+- physics lane: **Physics Extension of Protected-State Correction Theory**

@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import {
   analyzeContinuousGenerator,
   analyzeExactProjection,
+  analyzeGaugeProjection,
   analyzeMhdProjection,
   analyzeNoGo,
   analyzeQecSector,
@@ -17,8 +18,10 @@ const examples = {
   exact: analyzeExactProjection(DEFAULT_STATE.labs.exact),
   qec: analyzeQecSector(DEFAULT_STATE.labs.qec),
   mhd: analyzeMhdProjection(DEFAULT_STATE.labs.mhd),
+  gauge: analyzeGaugeProjection(DEFAULT_STATE.labs.gauge ?? DEFAULT_STATE.labs.mhd),
   continuous: analyzeContinuousGenerator(DEFAULT_STATE.labs.continuous),
   nogo: analyzeNoGo(DEFAULT_STATE.labs.nogo),
+  boundaryNoGo: analyzeNoGo({ example: 'boundary' }),
 };
 
 writeFileSync(OUT, JSON.stringify(examples, null, 2));

@@ -45,9 +45,13 @@ It prevents the framework from collapsing into the tautology that “good correc
 
 ## Open Boundary, Not Yet Theorem
 
-### OCP-N9: Boundary-Sensitive Exact Projection Not Promoted
-- The periodic projector theorem does not automatically extend to non-periodic boundary settings.
-- The repo records this explicitly rather than stretching the exact continuous claim beyond its proof support.
+### OCP-N9: Naive Periodic Projector Transplant Fails On Bounded-Domain Problems
+- The periodic projector can remove divergence while still failing the bounded protected class because the boundary-normal trace is not preserved.
+- This rejects the simplest projector-transplant overclaim directly.
+
+### Remaining open boundary issue
+- The repo still does not claim a finished exact bounded-domain theorem.
+- What is rejected is the naive unchanged transplant, not bounded-domain exact correction in general.
 
 ## Why The No-Go Spine Is Strong
 

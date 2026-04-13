@@ -21,6 +21,15 @@ export const DEFAULT_STATE = {
       ch: 1,
       cp: 1,
     },
+    gauge: {
+      gridSize: 14,
+      contamination: 0.18,
+      glmSteps: 8,
+      poissonIterations: 320,
+      dt: 0.05,
+      ch: 1,
+      cp: 1,
+    },
     continuous: {
       preset: 'invariant',
       matrix: [

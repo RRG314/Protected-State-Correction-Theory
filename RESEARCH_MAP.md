@@ -36,19 +36,30 @@
 - [what-this-theory-is.md](docs/peer_review/what-this-theory-is.md)
 - [proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
 - [novelty-and-limits-for-reviewers.md](docs/peer_review/novelty-and-limits-for-reviewers.md)
+- [physics-scope-and-limits.md](docs/peer_review/physics-scope-and-limits.md)
 - [how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
 - [paper-outline.md](docs/peer_review/paper-outline.md)
 
-## 8. Workbench
+## 8. Physics Extension
+- [physics-system-matrix.md](docs/physics/physics-system-matrix.md)
+- [maxwell-coulomb-gauge.md](docs/physics/maxwell-coulomb-gauge.md)
+- [numerical-relativity-constraint-damping.md](docs/physics/numerical-relativity-constraint-damping.md)
+- [continuous-quantum-error-correction.md](docs/physics/continuous-quantum-error-correction.md)
+- [bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
+- [kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
+
+## 9. Workbench
 - [workbench-overview.md](docs/app/workbench-overview.md)
 - [module-theory-map.md](docs/app/module-theory-map.md)
 - [github-pages-deploy.md](docs/app/github-pages-deploy.md)
 - [workbench/index.html](docs/workbench/index.html)
 
-## 9. Provenance And Validation
+## 10. Provenance, References, And Validation
 - [discovery-inventory.md](docs/overview/discovery-inventory.md)
 - [claim-registry.md](docs/overview/claim-registry.md)
 - [proof-status-map.md](docs/overview/proof-status-map.md)
+- [citable-expansion-directions.md](docs/references/citable-expansion-directions.md)
+- [core-references.md](docs/references/core-references.md)
 - [source-map.md](docs/internal-provenance/source-map.md)
 - [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
 - [FINAL_REPORT.md](FINAL_REPORT.md)

@@ -9,6 +9,7 @@ from .mhd import helmholtz_project_2d, divergence_2d, glm_step_2d
 from .continuous import LinearOCPFlow, LinearGeneratorReport, block_decomposition, matrix_exponential
 from .capacity import ExactLinearCapacity, GeneratorCapacity, QECSectorCapacity, exact_linear_capacity, generator_capacity, qec_sector_capacity
 from .sectors import SectorRecoveryReport, global_sector_recovery_operator, pairwise_sector_overlap_matrix, sector_projector, sector_recovery_operator, sector_recovery_report
+from .physics import BoundaryProjectionReport, bounded_domain_projection_counterexample
 
 __all__ = [
     "FiniteOCPSystem",
@@ -37,4 +38,6 @@ __all__ = [
     "sector_projector",
     "sector_recovery_operator",
     "sector_recovery_report",
+    "BoundaryProjectionReport",
+    "bounded_domain_projection_counterexample",
 ]

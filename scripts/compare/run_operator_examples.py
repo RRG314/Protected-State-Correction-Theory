@@ -15,6 +15,7 @@ from ocp.qec import (
 from ocp.mhd import divergence_2d, helmholtz_project_2d, glm_step_2d, orthogonality_residual_2d
 from ocp.continuous import LinearOCPFlow
 from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity
+from ocp.physics import bounded_domain_projection_counterexample
 from ocp.sectors import global_sector_recovery_operator, sector_recovery_report
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
@@ -90,6 +91,8 @@ mhd_report = {
     'after_glm_l2_divergence': after_glm,
     'projection_orthogonality_residual': orthogonality_residual_2d(Bx, By, dx, dy),
 }
+
+boundary_report = bounded_domain_projection_counterexample(32)
 
 
 block_generator = np.array([
@@ -180,5 +183,12 @@ generator_report = {
 }
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
-OUT.write_text(json.dumps({'finite_ocp': finite_report, 'qec': qec_report, 'mhd': mhd_report, 'continuous_generators': generator_report, 'capacity': capacity_report}, indent=2))
+OUT.write_text(json.dumps({
+    'finite_ocp': finite_report,
+    'qec': qec_report,
+    'mhd': mhd_report,
+    'bounded_domain_projection_limit': boundary_report.__dict__,
+    'continuous_generators': generator_report,
+    'capacity': capacity_report,
+}, indent=2))
 print(f'wrote {OUT}')

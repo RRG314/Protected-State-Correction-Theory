@@ -54,7 +54,8 @@ The following stay out of the final positive theorem spine:
 - any full control-theory theorem beyond the invariant-split branch,
 - any claim that GLM is exact,
 - any optimizer/ML theorem,
-- any boundary-sensitive exact PDE theorem.
+- any boundary-sensitive exact PDE theorem,
+- and any attempt to count the Maxwell / gauge extension as a new theorem rather than a corollary-level physics fit of the exact projector branch.
 
 ## Finished Assessment
 

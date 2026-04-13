@@ -14,20 +14,25 @@
 - OCP-N6 rank-deficient exact correction obstruction
 - OCP-N7 finite-time exact recovery no-go for smooth linear flows
 - OCP-N8 sector-overlap detection no-go
+- OCP-N9 naive periodic-projector transplant failure on the bounded-domain protected class
 
 ## Conditional But Kept
 - QEC as an OCP exact anchor under standard QEC assumptions
 - GLM as an asymptotic OCP architecture
 - control/observer fit under invariant-split assumptions
 - branch-specific capacity language beyond lower bounds
+- Maxwell / Coulomb-gauge projection as a corollary-level physics extension of the exact projector branch
+- numerical-relativity constraint damping as a conditional asymptotic physics extension
+- continuous quantum error correction as a conditional bridge
 
 ## Not Promoted
 - universal scalar capacity
 - optimizer/ML bridge claims
+- generic constrained Hamiltonian systems as an automatic OCP branch
 - boundary-sensitive exact continuous theorem
 
 ## What An Outside Reviewer Should Check First
 1. theorem assumptions match the promoted claims
 2. the exact/asymptotic split is enforced consistently
-3. the QEC and MHD branches are not overstated beyond reinterpretation plus operator construction
+3. the QEC, MHD, and kept physics extensions are not overstated beyond reinterpretation plus operator construction
 4. the negative results are genuinely part of the main theory rather than decorative caution
