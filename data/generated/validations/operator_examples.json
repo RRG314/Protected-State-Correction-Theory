@@ -31,8 +31,71 @@
   },
   "mhd": {
     "before_l2_divergence": 19.359218295532003,
-    "after_projection_l2_divergence": 0.23430486524231636,
+    "after_projection_l2_divergence": 2.359146931297974e-14,
     "after_glm_l2_divergence": 16.849909741931956,
-    "projection_orthogonality_residual": 0.00022271969339104913
+    "projection_orthogonality_residual": 1.9737298215558337e-16
+  },
+  "continuous_generators": {
+    "invariant_split_example": {
+      "report": {
+        "annihilates_protected": true,
+        "preserves_disturbance": true,
+        "protected_mixing_norm": 0.0,
+        "disturbance_from_protected_norm": 0.0,
+        "disturbance_decay_margin": 1.0
+      },
+      "x0": [
+        2.0,
+        -1.0,
+        0.5
+      ],
+      "xt_t2": [
+        2.0,
+        -0.22088349810536145,
+        0.024893534183931972
+      ],
+      "protected_preserved": true,
+      "disturbance_norm_before": 1.118033988749895,
+      "disturbance_norm_after": 0.22228182062289262
+    },
+    "self_adjoint_psd_example": {
+      "report": {
+        "annihilates_protected": true,
+        "preserves_disturbance": true,
+        "protected_mixing_norm": 0.0,
+        "disturbance_from_protected_norm": 0.0,
+        "disturbance_decay_margin": 0.75
+      },
+      "x0": [
+        3.0,
+        -4.0,
+        1.0
+      ],
+      "xt_t1_5": [
+        3.0,
+        -1.298609869433399,
+        0.049787068367863944
+      ],
+      "disturbance_norm_after": 1.2995639057647361,
+      "spectral_bound_t1_5": 1.3385764145358656
+    },
+    "mixing_failure_example": {
+      "report": {
+        "annihilates_protected": true,
+        "preserves_disturbance": false,
+        "protected_mixing_norm": 1.0,
+        "disturbance_from_protected_norm": 0.0,
+        "disturbance_decay_margin": 1.0
+      },
+      "x0": [
+        0.0,
+        1.0
+      ],
+      "xt_t0_5": [
+        -0.3934693402873666,
+        0.6065306597126334
+      ],
+      "protected_preserved": false
+    }
   }
 }

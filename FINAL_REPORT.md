@@ -51,10 +51,16 @@ Primary formal decision:
   - If `S ∩ D != {0}`, there is no single-valued exact recovery map for all decompositions `x = s + d`.
   - Status: `THEOREM`
 
-### Asymptotic theorem
+### Asymptotic theorems
 - **OCP-T2: Continuous Damping On The Disturbance Space**
   - The flow `x_dot = -k P_D x` preserves `S` and exponentially suppresses `D`.
   - Status: `THEOREM`
+- **OCP-T3: Invariant-Split Generator Theorem**
+  - If `K` annihilates `S`, preserves `D`, and is exponentially stable on `D`, then `x_dot=-Kx` preserves `S` and asymptotically suppresses `D`.
+  - Status: `THEOREM`
+- **OCP-C2: Self-Adjoint PSD Corollary**
+  - Positive-semidefinite generators with `ker(K)=S` and a spectral gap on `S^\perp` give an explicit decay bound.
+  - Status: `COROLLARY`
 
 These are currently the strongest theorem spine of the repo.
 
@@ -85,6 +91,9 @@ Primary executable sources:
 - exact orthogonal projection recovery
 - overlap/indistinguishability no-go
 - continuous damping theorem for `x_dot = -k P_D x`
+- invariant-split generator theorem for `x_dot = -Kx`
+- self-adjoint PSD corollary with spectral-gap decay bound
+- mixing no-go for linear flows
 - periodic Helmholtz/Leray projection as an exact continuous OCP anchor
 
 ### Conditional but strong
@@ -94,7 +103,7 @@ Primary executable sources:
 - engineering design value, provided the protected object and disturbance family are defined explicitly
 
 ### Open
-- a broader generator theorem beyond the simple projector case
+- boundary-sensitive continuous correction beyond the periodic projector setting
 - any universal scalar correction-capacity number across all branches
 - a clean sector-based OCP generalization beyond the QEC anchor without empty abstraction
 
@@ -147,8 +156,9 @@ Current validation status:
 - discovery inventory generation: passed
 - claim registry generation: passed
 - operator example generation: passed
+- system inventory generation: passed
 - markdown link check on curated repo docs: passed
-- test suite: `7 passed`
+- test suite: `14 passed`
 
 Notable generated validation artifact:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -157,7 +167,9 @@ Key local outputs:
 - finite OCP exact recovery removes the disturbance exactly in the tested example
 - QEC Knill-Laflamme residual: `0.0`
 - QEC sector recovery errors: `[0.0, 0.0, 0.0, 0.0]`
-- MHD projection reduces the tested divergence norm strongly
+- MHD projection reduces the tested divergence norm essentially to machine zero in the tracked example
+- invariant-split generator example preserves the protected coordinate exactly while reducing disturbance norm sharply
+- mixing-failure example explicitly changes the protected coordinate, confirming the new no-go criterion
 - GLM also reduces divergence on the tested example, but much more slowly, reinforcing the exact-vs-asymptotic split
 
 ## 9. Novelty And Limits
@@ -194,15 +206,15 @@ Why not excellent yet:
 - the strongest exact theorem is foundational rather than surprising
 - the QEC and MHD anchors reinterpret known structures more than they discover a new theorem
 - the control branch remains conditional
-- the broader exact-to-asymptotic bridge still needs a stronger generator theorem
+- category-specific correction capacity and boundary-sensitive continuous theory are still open
 
 ## 11. Strongest Next Direction
 
 The single strongest next direction is:
 
-> characterize a broader class of continuous correction generators `K` for which `ker(K)=S`, the protected branch remains uncorrupted, and the disturbance family is contractively suppressed.
+> formalize category-specific correction-capacity notions and extend the continuous/PDE branch beyond the periodic projector setting.
 
-If that is done cleanly, the repository moves from a good framework with anchors and no-go results toward a stronger theorem program.
+That is now the strongest next move because the generator theorem target has already been achieved in a meaningful finite-dimensional form.
 
 ## 12. Is This Ready To Stand As A Major Research Program?
 

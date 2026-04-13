@@ -40,3 +40,22 @@ def test_helmholtz_projection_recovers_divergence_free_component() -> None:
     assert np.allclose(bx_proj, bx_phys, atol=5e-3)
     assert np.allclose(by_proj, by_phys, atol=5e-3)
     assert orthogonality_residual_2d(bx, by, dx, dy) < 1e-5
+
+
+def test_helmholtz_projection_is_idempotent_and_reconstructs_input() -> None:
+    nx = ny = 32
+    dx = dy = 1.0 / nx
+    x = np.linspace(0.0, 1.0, nx, endpoint=False)
+    y = np.linspace(0.0, 1.0, ny, endpoint=False)
+    X, Y = np.meshgrid(x, y, indexing="ij")
+
+    bx = np.sin(2.0 * np.pi * X) + 0.2 * np.cos(2.0 * np.pi * Y)
+    by = np.cos(2.0 * np.pi * Y) + 0.1 * np.sin(4.0 * np.pi * X)
+
+    bx_proj, by_proj, gx, gy = helmholtz_project_2d(bx, by, dx, dy)
+    bx_proj2, by_proj2, _, _ = helmholtz_project_2d(bx_proj, by_proj, dx, dy)
+
+    assert np.allclose(bx_proj + gx, bx, atol=1e-8)
+    assert np.allclose(by_proj + gy, by, atol=1e-8)
+    assert np.allclose(bx_proj2, bx_proj, atol=1e-8)
+    assert np.allclose(by_proj2, by_proj, atol=1e-8)

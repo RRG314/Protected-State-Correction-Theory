@@ -35,3 +35,16 @@ def test_overlapping_subspaces_raise_value_error() -> None:
             protected_basis=np.array([[1.0], [0.0]]),
             disturbance_basis=np.array([[1.0], [1.0]]),
         )
+
+
+def test_random_orthogonal_splits_recover_exactly_across_multiple_instances() -> None:
+    rng = np.random.default_rng(7)
+    for _ in range(8):
+        q, _ = np.linalg.qr(rng.normal(size=(4, 4)))
+        protected = q[:, :2]
+        disturbance = q[:, 2:]
+        system = FiniteOCPSystem(protected_basis=protected, disturbance_basis=disturbance)
+        x = rng.normal(size=4)
+        s, _ = system.decompose(x)
+        recovered = system.exact_recover(x)
+        assert np.allclose(recovered, s)

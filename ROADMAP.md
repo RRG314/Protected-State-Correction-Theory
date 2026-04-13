@@ -1,9 +1,9 @@
 # Roadmap
 
 ## Immediate
-1. Strengthen the continuous-time theorem beyond the simple projector generator.
-2. Add a worked finite-dimensional disturbance-decoupling control example.
-3. Expand the QEC section from the 3-qubit bit-flip example toward a cleaner 5-qubit code treatment.
+1. Formalize category-specific correction-capacity notions for the exact, sector-based, generator, and PDE branches.
+2. Extend the continuous/PDE branch beyond periodic projection into boundary-sensitive settings.
+3. Decide whether a second QEC anchor sharpens the formalism enough to justify the added complexity.
 
 ## Near-Term
 1. Formalize category-specific correction-capacity notions rather than chasing a single scalar capacity.

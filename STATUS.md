@@ -13,6 +13,9 @@ It does **not** yet support a grand universal theorem across all target systems.
 - Exact orthogonal projection recovery on `H = S ⊕ D`.
 - Indistinguishability no-go when `S ∩ D != {0}`.
 - Continuous exponential disturbance damping under `xdot = -k P_D x`.
+- Invariant-split linear generator theorem for `xdot = -Kx`.
+- Self-adjoint positive-semidefinite corollary with explicit spectral-gap decay bound.
+- Mixing no-go for linear flows when disturbance feeds into protected coordinates.
 - Exact Helmholtz/Leray projection interpretation of divergence cleaning on periodic domains.
 
 ## Conditional But Strong
@@ -30,13 +33,14 @@ It does **not** yet support a grand universal theorem across all target systems.
 ## Best Current Outputs
 
 1. A formal operator language for exact and asymptotic correction.
-2. A clean exact QEC anchor section.
-3. A clean exact continuous MHD anchor via Helmholtz projection.
-4. A no-go document that makes the framework credible.
+2. A stronger continuous-time theorem spine through invariant-split generators.
+3. A clean exact QEC anchor section.
+4. A clean exact continuous MHD anchor via Helmholtz projection.
+5. A no-go document that makes the framework credible.
 
 ## Best Next Step
 
-The single strongest next move is to strengthen the continuous-time theorem program beyond the projector case:
-- characterize a wider class of correction generators `K` with `ker(K)=S`,
-- prove when they preserve `S` and contract `D`,
-- and identify which continuous correction architectures are genuinely equivalent to projector recovery in the long-time limit.
+The single strongest next move is now to turn the stronger continuous branch into a category-specific capacity and boundary program:
+- characterize what counts as enough correction structure in each branch,
+- extend the continuous/PDE side beyond the periodic projector setting,
+- and determine which asymptotic correction architectures are genuinely equivalent to exact recovery in the long-time limit.

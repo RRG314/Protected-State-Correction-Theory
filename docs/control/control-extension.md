@@ -78,3 +78,7 @@ Even without a deep new control theorem, OCP gives a useful design checklist:
 - and reject architectures that “correct” by also damaging the protected dynamics.
 
 That is a real engineering use, even if the branch remains theorem-light for now.
+
+## 7. Worked Example
+
+A concrete finite-dimensional example now lives in [worked-linear-example.md](worked-linear-example.md). It realizes the conditional control picture in the cleanest invariant-split setting.

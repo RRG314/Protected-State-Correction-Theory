@@ -39,10 +39,25 @@ def gradient_2d(phi: Array, dx: float, dy: float) -> tuple[Array, Array]:
 
 
 def helmholtz_project_2d(Bx: Array, By: Array, dx: float, dy: float) -> tuple[Array, Array, Array, Array]:
-    divB = divergence_2d(Bx, By, dx, dy)
-    phi = _solve_poisson_fft(divB, dx, dy)
-    gx, gy = gradient_2d(phi, dx, dy)
-    return Bx - gx, By - gy, gx, gy
+    bx_hat = np.fft.fftn(Bx)
+    by_hat = np.fft.fftn(By)
+    dx_symbol, dy_symbol = _central_diff_symbols(Bx.shape, dx, dy)
+    dx_symbol = np.broadcast_to(dx_symbol, Bx.shape)
+    dy_symbol = np.broadcast_to(dy_symbol, By.shape)
+    norm2 = (dx_symbol.conj() * dx_symbol + dy_symbol.conj() * dy_symbol).real
+    div_hat = dx_symbol * bx_hat + dy_symbol * by_hat
+
+    grad_x_hat = np.zeros_like(bx_hat)
+    grad_y_hat = np.zeros_like(by_hat)
+    mask = norm2 > 0.0
+    grad_x_hat[mask] = dx_symbol.conj()[mask] * div_hat[mask] / norm2[mask]
+    grad_y_hat[mask] = dy_symbol.conj()[mask] * div_hat[mask] / norm2[mask]
+
+    bx_proj = np.fft.ifftn(bx_hat - grad_x_hat).real
+    by_proj = np.fft.ifftn(by_hat - grad_y_hat).real
+    gx = np.fft.ifftn(grad_x_hat).real
+    gy = np.fft.ifftn(grad_y_hat).real
+    return bx_proj, by_proj, gx, gy
 
 
 def l2_inner_2d(ax: Array, ay: Array, bx: Array, by: Array) -> float:

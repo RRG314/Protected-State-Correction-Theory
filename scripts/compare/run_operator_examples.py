@@ -13,6 +13,7 @@ from ocp.qec import (
     knill_laflamme_report,
 )
 from ocp.mhd import divergence_2d, helmholtz_project_2d, glm_step_2d, orthogonality_residual_2d
+from ocp.continuous import LinearOCPFlow
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
 OUT = ROOT / 'data/generated/validations/operator_examples.json'
@@ -77,6 +78,73 @@ mhd_report = {
     'projection_orthogonality_residual': orthogonality_residual_2d(Bx, By, dx, dy),
 }
 
+
+block_generator = np.array([
+    [0.0, 0.0, 0.0],
+    [0.0, 1.0, 1.0],
+    [0.0, 0.0, 1.5],
+])
+ps_basis = np.array([[1.0], [0.0], [0.0]])
+pd_basis = np.array([[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]])
+block_flow = LinearOCPFlow(block_generator, ps_basis, pd_basis)
+block_x0 = np.array([2.0, -1.0, 0.5])
+block_xt = block_flow.flow(block_x0, 2.0)
+
+psd_generator = np.diag([0.0, 0.75, 2.0])
+psd_flow = LinearOCPFlow(psd_generator, ps_basis, pd_basis)
+psd_x0 = np.array([3.0, -4.0, 1.0])
+psd_xt = psd_flow.flow(psd_x0, 1.5)
+
+mix_generator = np.array([
+    [0.0, 1.0],
+    [0.0, 1.0],
+])
+mix_flow = LinearOCPFlow(mix_generator, np.array([[1.0], [0.0]]), np.array([[0.0], [1.0]]))
+mix_x0 = np.array([0.0, 1.0])
+mix_xt = mix_flow.flow(mix_x0, 0.5)
+
+generator_report = {
+    'invariant_split_example': {
+        'report': {
+            'annihilates_protected': bool(block_flow.report().annihilates_protected),
+            'preserves_disturbance': bool(block_flow.report().preserves_disturbance),
+            'protected_mixing_norm': float(block_flow.report().protected_mixing_norm),
+            'disturbance_from_protected_norm': float(block_flow.report().disturbance_from_protected_norm),
+            'disturbance_decay_margin': float(block_flow.report().disturbance_decay_margin),
+        },
+        'x0': block_x0.tolist(),
+        'xt_t2': np.asarray(block_xt).tolist(),
+        'protected_preserved': bool(block_flow.preserves_protected_component(block_x0, 2.0)),
+        'disturbance_norm_before': block_flow.disturbance_norm(block_x0),
+        'disturbance_norm_after': block_flow.disturbance_norm(block_xt),
+    },
+    'self_adjoint_psd_example': {
+        'report': {
+            'annihilates_protected': bool(psd_flow.report().annihilates_protected),
+            'preserves_disturbance': bool(psd_flow.report().preserves_disturbance),
+            'protected_mixing_norm': float(psd_flow.report().protected_mixing_norm),
+            'disturbance_from_protected_norm': float(psd_flow.report().disturbance_from_protected_norm),
+            'disturbance_decay_margin': float(psd_flow.report().disturbance_decay_margin),
+        },
+        'x0': psd_x0.tolist(),
+        'xt_t1_5': np.asarray(psd_xt).tolist(),
+        'disturbance_norm_after': psd_flow.disturbance_norm(psd_xt),
+        'spectral_bound_t1_5': psd_flow.asymptotic_bound(psd_x0, 1.5),
+    },
+    'mixing_failure_example': {
+        'report': {
+            'annihilates_protected': bool(mix_flow.report().annihilates_protected),
+            'preserves_disturbance': bool(mix_flow.report().preserves_disturbance),
+            'protected_mixing_norm': float(mix_flow.report().protected_mixing_norm),
+            'disturbance_from_protected_norm': float(mix_flow.report().disturbance_from_protected_norm),
+            'disturbance_decay_margin': float(mix_flow.report().disturbance_decay_margin),
+        },
+        'x0': mix_x0.tolist(),
+        'xt_t0_5': np.asarray(mix_xt).tolist(),
+        'protected_preserved': bool(mix_flow.preserves_protected_component(mix_x0, 0.5)),
+    },
+}
+
 OUT.parent.mkdir(parents=True, exist_ok=True)
-OUT.write_text(json.dumps({'finite_ocp': finite_report, 'qec': qec_report, 'mhd': mhd_report}, indent=2))
+OUT.write_text(json.dumps({'finite_ocp': finite_report, 'qec': qec_report, 'mhd': mhd_report, 'continuous_generators': generator_report}, indent=2))
 print(f'wrote {OUT}')

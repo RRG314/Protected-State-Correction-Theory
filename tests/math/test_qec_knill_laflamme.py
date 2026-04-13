@@ -5,6 +5,7 @@ import numpy as np
 from ocp.qec import (
     bitflip_three_qubit_code,
     bitflip_three_qubit_recovery_operators,
+    code_projector,
     coherent_recovery_map,
     knill_laflamme_report,
 )
@@ -27,3 +28,14 @@ def test_three_qubit_recovery_operators_recover_each_single_bitflip_sector() -> 
         disturbed = error @ logical_state
         recovered = coherent_recovery_map(disturbed, recovery_operators)
         assert np.allclose(recovered, logical_state)
+
+
+def test_qec_error_sectors_are_pairwise_orthogonal() -> None:
+    codewords, sector_projectors, _ = bitflip_three_qubit_recovery_operators()
+    code_proj = code_projector(codewords)
+    assert np.allclose(code_proj @ sector_projectors[1], 0.0)
+    for i, proj_i in enumerate(sector_projectors):
+        for j, proj_j in enumerate(sector_projectors):
+            if i == j:
+                continue
+            assert np.allclose(proj_i @ proj_j, 0.0)

@@ -88,6 +88,28 @@ Why not:
 
 This no-go result is important because it protects the repo from inflated unification claims.
 
+
+## No-Go OCP-N5: Mixing Into The Protected Coordinates Breaks OCP Correction
+
+Let `H = S ⊕ D` and let `P_S` be the projector onto `S`. Consider the linear flow
+
+```text
+x_dot = -Kx.
+```
+
+If `P_S K P_D` is nonzero, then there exists `d in D` such that the protected component changes immediately:
+
+```text
+rac{d}{dt} P_S x(t)ig|_{t=0} = - P_S K d 
+eq 0.
+```
+
+Therefore the flow does **not** preserve the protected component for all disturbed initial states, and it cannot serve as an OCP correction flow that leaves `S` fixed pointwise.
+
+### Why This Matters
+
+This is a useful practical failure test. It rejects correction architectures that appear stabilizing overall but only by leaking disturbance into the protected coordinates.
+
 ## Why The No-Go Program Matters
 
 The best current use of OCP may be partly negative:

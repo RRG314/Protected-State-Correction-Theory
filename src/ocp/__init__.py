@@ -6,6 +6,7 @@ from .qec import (
     knill_laflamme_report,
 )
 from .mhd import helmholtz_project_2d, divergence_2d, glm_step_2d
+from .continuous import LinearOCPFlow, LinearGeneratorReport, block_decomposition, matrix_exponential
 
 __all__ = [
     "FiniteOCPSystem",
@@ -18,4 +19,8 @@ __all__ = [
     "helmholtz_project_2d",
     "divergence_2d",
     "glm_step_2d",
+    "LinearOCPFlow",
+    "LinearGeneratorReport",
+    "block_decomposition",
+    "matrix_exponential",
 ]

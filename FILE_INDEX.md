@@ -7,6 +7,7 @@
 - [NOVELTY_AND_LIMITS.md](NOVELTY_AND_LIMITS.md)
 - [ROADMAP.md](ROADMAP.md)
 - [FINAL_REPORT.md](FINAL_REPORT.md)
+- [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
 
 ## Core Docs
 - [formal-theory.md](docs/formalism/formal-theory.md)
@@ -16,12 +17,14 @@
 - [control-extension.md](docs/control/control-extension.md)
 - [operator-constructions.md](docs/operators/operator-constructions.md)
 - [central-theorem.md](docs/theorem-candidates/central-theorem.md)
+- [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
 - [no-go-results.md](docs/impossibility-results/no-go-results.md)
 
 ## Code
 - [core.py](src/ocp/core.py)
 - [qec.py](src/ocp/qec.py)
 - [mhd.py](src/ocp/mhd.py)
+- [continuous.py](src/ocp/continuous.py)
 
 ## Validation
 - [run_all.sh](scripts/validate/run_all.sh)
@@ -34,3 +37,5 @@
 - [claim-registry.md](docs/overview/claim-registry.md)
 - [proof-status-map.md](docs/overview/proof-status-map.md)
 - [FINAL_REPORT.md](FINAL_REPORT.md)
+- [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
+- [viable-next-directions.md](docs/open-questions/viable-next-directions.md)
