@@ -2,11 +2,14 @@ cff-version: 1.2.0
 title: Protected-State Correction Theory
 message: If you use this repository, please cite the repository itself and the specific theorem, no-go result, or application note relevant to your use.
 type: software
+license: MIT
 authors:
   - family-names: Reid
     given-names: Steven
     email: sreid1118@gmail.com
+    orcid: https://orcid.org/0009-0003-9132-3410
 repository-code: https://github.com/RRG314/Protected-State-Correction-Theory
+url: https://github.com/RRG314/Protected-State-Correction-Theory
 abstract: >-
   Research program repository for protected-state correction theory, the Orthogonal
   Correction Principle, exact and asymptotic correction branches, no-go results,

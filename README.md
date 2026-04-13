@@ -112,6 +112,24 @@ Use it as a physics comparison layer:
 Use it as a research starting point:
 - follow the citable reference map and the open-problem catalog to connect the current framework to stronger outside literatures without blurring the limits of the present repo.
 
+## How To Cite This Work
+
+If you are citing the repository as a whole, use the repository citation metadata and include the release or access context when possible.
+
+Citation files:
+- [CITATION.cff](CITATION.cff)
+- [How to Cite This Work](docs/references/how-to-cite-this-work.md)
+- [Reference Library (BibTeX)](docs/references/protected-state-correction.bib)
+
+If you are citing a specific result, it is best to:
+- cite the repository itself,
+- name the exact theorem, no-go result, or application document you are using,
+- and cite the outside anchor paper that supports the surrounding standard literature.
+
+Author metadata:
+- Steven Reid
+- ORCID: [0009-0003-9132-3410](https://orcid.org/0009-0003-9132-3410)
+
 ## Contributing
 
 This repository is open to contribution, but it is curated around proof status, falsification, and scope control.

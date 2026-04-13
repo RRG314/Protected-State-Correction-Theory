@@ -2,36 +2,51 @@
 
 This repository is not a literature survey, but these references anchor the strongest exact ingredients and the strongest citable extension directions.
 
+A reusable BibTeX library for the repository and the main outside anchors is available in:
+
+- [protected-state-correction.bib](./protected-state-correction.bib)
+
+## How to use these references
+
+- cite the repository itself for the overall framework
+- cite the specific theorem or application document you are using
+- cite the outside anchor paper that carries the standard background for that branch
+
+For the repository citation itself, use:
+
+- [how-to-cite-this-work.md](./how-to-cite-this-work.md)
+- [CITATION.cff](../../CITATION.cff)
+
 ## Quantum Error Correction
 
-- [Knill and Laflamme, "A theory of quantum error-correcting codes"](https://arxiv.org/abs/quant-ph/9604034)
-- Nielsen and Chuang, *Quantum Computation and Quantum Information*
-- Standard stabilizer references associated with the Gottesman framework
+- Knill, E. and Laflamme, R. (1997). *Theory of Quantum Error-Correcting Codes*. *Physical Review A* 55(2), 900--911. DOI: [10.1103/PhysRevA.55.900](https://doi.org/10.1103/PhysRevA.55.900)
+- Gottesman, D. (1997). *Stabilizer Codes and Quantum Error Correction*. PhD thesis, California Institute of Technology. arXiv: [quant-ph/9705052](https://arxiv.org/abs/quant-ph/9705052)
 
 ## Continuous Quantum Error Correction
 
-- [Ahn, Doherty, and Landahl, "Continuous quantum error correction via quantum feedback control"](https://doi.org/10.1103/PhysRevA.65.042301)
+- Ahn, C., Doherty, A. C., and Landahl, A. J. (2002). *Continuous Quantum Error Correction via Quantum Feedback Control*. *Physical Review A* 65, 042301. DOI: [10.1103/PhysRevA.65.042301](https://doi.org/10.1103/PhysRevA.65.042301)
 
-## Projection And Functional Analysis
+## Projection and Functional Analysis
 
-- [Chorin, "Numerical solution of the Navier-Stokes equations"](https://doi.org/10.1090/S0025-5718-1968-0242392-2)
-- Standard Hodge / Helmholtz / Leray decomposition references from PDE and functional-analysis texts
+- Chorin, A. J. (1968). *Numerical Solution of the Navier--Stokes Equations*. *Mathematics of Computation* 22(104), 745--762. DOI: [10.1090/S0025-5718-1968-0242392-2](https://doi.org/10.1090/S0025-5718-1968-0242392-2)
+- Brown, D. L., Cortez, R., and Minion, M. L. (2001). *Accurate Projection Methods for the Incompressible Navier--Stokes Equations*. *Journal of Computational Physics* 168(2), 464--499. DOI: [10.1006/jcph.2001.6715](https://doi.org/10.1006/jcph.2001.6715)
+- Guermond, J.-L., Minev, P., and Shen, J. (2006). *An Overview of Projection Methods for Incompressible Flows*. *Computer Methods in Applied Mechanics and Engineering* 195(44--47), 6011--6045. DOI: [10.1016/j.cma.2005.10.010](https://doi.org/10.1016/j.cma.2005.10.010)
 
-## MHD And Constraint Cleaning
+## MHD and Constraint Cleaning
 
-- [Dedner et al., "Hyperbolic divergence cleaning for the MHD equations"](https://doi.org/10.1006/jcph.2001.6961)
-- [Evans and Hawley, "Simulation of magnetohydrodynamic flows: A constrained transport method"](https://www.sciencedirect.com/science/article/pii/0021999188901209)
+- Dedner, A., Kemm, F., Kr{"o}ner, D., Munz, C.-D., Schnitzer, T., and Wesenberg, M. (2002). *Hyperbolic Divergence Cleaning for the MHD Equations*. *Journal of Computational Physics* 175(2), 645--673. DOI: [10.1006/jcph.2001.6961](https://doi.org/10.1006/jcph.2001.6961)
+- Evans, C. R. and Hawley, J. F. (1988). *Simulation of Magnetohydrodynamic Flows: A Constrained Transport Method*. *The Astrophysical Journal* 332, 659--677.
 
-## Maxwell And Constraint Preservation
+## Maxwell and Constraint Preservation
 
-- [Calabrese, "A remedy for constraint growth in numerical relativity: the Maxwell case"](https://arxiv.org/abs/gr-qc/0404036)
-- [Berchenko-Kogan and Stern, "Constraint-preserving hybrid finite element methods for Maxwell's equations"](https://doi.org/10.1016/j.jcp.2019.109340)
+- Calabrese, G. (2004). *A Remedy for Constraint Growth in Numerical Relativity: The Maxwell Case*. arXiv: [gr-qc/0404036](https://arxiv.org/abs/gr-qc/0404036)
+- Berchenko-Kogan, Y. and Stern, A. (2020). *Constraint-Preserving Hybrid Finite Element Methods for Maxwell's Equations*. *Journal of Computational Physics* 401, 109340. DOI: [10.1016/j.jcp.2019.109340](https://doi.org/10.1016/j.jcp.2019.109340)
 
 ## Numerical-Relativity Constraint Damping
 
-- [Gundlach et al., "Constraint damping in the Z4 formulation and harmonic gauge"](https://arxiv.org/abs/gr-qc/0504114)
-- [Weyhausen, Bernuzzi, and Hilditch, "Constraint damping for the Z4c formulation of general relativity"](https://doi.org/10.1103/PhysRevD.85.024038)
-- [Abalos, "On constraint preservation and strong hyperbolicity"](https://doi.org/10.1088/1361-6382/ac88af)
+- Gundlach, C., Martin-Garcia, J. M., Calabrese, G., and Hinder, I. (2005). *Constraint Damping in the Z4 Formulation and Harmonic Gauge*. *Classical and Quantum Gravity* 22(17), 3767--3774. DOI: [10.1088/0264-9381/22/17/025](https://doi.org/10.1088/0264-9381/22/17/025)
+- Weyhausen, A., Bernuzzi, S., and Hilditch, D. (2012). *Constraint Damping for the Z4c Formulation of General Relativity*. *Physical Review D* 85, 024038. DOI: [10.1103/PhysRevD.85.024038](https://doi.org/10.1103/PhysRevD.85.024038)
+- Abalos, J. F. (2021). *On Constraint Preservation and Strong Hyperbolicity*. arXiv: [2111.06295](https://arxiv.org/abs/2111.06295)
 
 ## Internal Provenance
 
