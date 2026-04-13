@@ -111,6 +111,27 @@ Use it as a physics comparison layer:
 Use it as a research starting point:
 - follow the citable reference map and the open-problem catalog to connect the current framework to stronger outside literatures without blurring the limits of the present repo.
 
+## Contributing
+
+This repository is open to contribution, but it is curated around proof status, falsification, and scope control.
+
+The best contributions usually do one of these well:
+- sharpen a theorem, proof, lemma, or no-go statement
+- improve a kept physics or application lane without forcing it broader
+- improve the workbench so it reflects the math more faithfully
+- strengthen validation, reproducibility, or reviewer-facing documentation
+
+Start here if you want to help:
+
+1. [CONTRIBUTING.md](CONTRIBUTING.md)
+2. [Contributing Paths](docs/overview/contributing-paths.md)
+3. [Start Here](docs/overview/start-here.md)
+
+Community files:
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [Support](SUPPORT.md)
+
 ## Protected-State Correction Workbench
 
 The repository now includes a static GitHub-Pages-compatible workbench in:

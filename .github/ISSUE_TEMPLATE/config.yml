@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the contributing guide
+    url: https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/CONTRIBUTING.md
+    about: Start here before proposing a theorem, bridge, workbench, or documentation change.
+  - name: Read the repo entry guide
+    url: https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/docs/overview/start-here.md
+    about: Use the reading path if you are unsure where a question or proposal belongs.

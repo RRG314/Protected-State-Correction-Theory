@@ -26,3 +26,12 @@ If you want the shortest serious path through the repository, read in this order
 - [SYSTEM_REPORT.md](../../SYSTEM_REPORT.md)
 - [FINAL_REPORT.md](../../FINAL_REPORT.md)
 - [how-to-read-this-repo.md](../peer_review/how-to-read-this-repo.md)
+
+## If You Want To Contribute
+
+Read these before opening an issue or pull request:
+
+1. [CONTRIBUTING.md](../../CONTRIBUTING.md)
+2. [contributing-paths.md](contributing-paths.md)
+3. [proof-status-map.md](proof-status-map.md)
+4. [dead-ends-and-do-not-promote.md](../open-questions/dead-ends-and-do-not-promote.md)
