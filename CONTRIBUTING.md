@@ -117,6 +117,12 @@ uv sync
 
 If you are only working on documentation or the static workbench, a full Python environment may not be necessary, but please still run the validation script before you submit.
 
+## Licensing
+
+This repository is released under the [MIT License](LICENSE).
+
+Unless explicitly stated otherwise, contributions submitted to this repository are understood to be offered under that same license.
+
 ## Validation
 
 Run the full validation suite before opening a pull request:

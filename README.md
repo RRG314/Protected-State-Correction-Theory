@@ -4,6 +4,7 @@
 [![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
 [![Scope](https://img.shields.io/badge/Scope-Exact%20%7C%20Asymptotic%20%7C%20No--Go-1f6feb)](https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/docs/finalization/architecture-final.md)
 [![Physics Extension](https://img.shields.io/badge/Physics-QEC%20%7C%20Projection%20%7C%20Damping-5c6ac4)](https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/docs/physics/physics-system-matrix.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-2f855a.svg)](LICENSE)
 
 Core principle: **Orthogonal Correction Principle (OCP)**.
 
@@ -131,6 +132,7 @@ Community files:
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Security Policy](SECURITY.md)
 - [Support](SUPPORT.md)
+- [MIT License](LICENSE)
 
 ## Protected-State Correction Workbench
 

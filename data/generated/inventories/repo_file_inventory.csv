@@ -8,11 +8,12 @@ relative_path,area,extension,size_bytes
 CHANGELOG.md,root,.md,1248
 CITATION.cff,root,.cff,841
 CODE_OF_CONDUCT.md,root,.md,1565
-CONTRIBUTING.md,root,.md,6752
+CONTRIBUTING.md,root,.md,6963
 FILE_INDEX.md,root,.md,4728
 FINAL_REPORT.md,root,.md,8315
+LICENSE,root,,1068
 NOVELTY_AND_LIMITS.md,root,.md,2191
-README.md,root,.md,10883
+README.md,root,.md,10988
 RESEARCH_MAP.md,root,.md,3947
 ROADMAP.md,root,.md,1108
 SECURITY.md,root,.md,868
@@ -28,10 +29,10 @@ archive/raw-imports/sds_cross_domain_analysis.md,archive,.md,31141
 archive/raw-imports/sds_dual_reservoir_controller.md,archive,.md,2883
 archive/raw-imports/topological_adam_rge_qec_fermat_prime_2026.txt,archive,.txt,17567
 data/generated/inventories/discovery_inventory.csv,data,.csv,3402
-data/generated/inventories/repo_file_inventory.csv,data,.csv,9969
+data/generated/inventories/repo_file_inventory.csv,data,.csv,10424
 data/generated/validations/claim_registry.csv,data,.csv,11139
 data/generated/validations/operator_examples.json,data,.json,4997
-data/generated/validations/system_summary.json,data,.json,211
+data/generated/validations/system_summary.json,data,.json,229
 data/generated/validations/workbench_examples.json,data,.json,226002
 docs/.nojekyll,docs,,0
 docs/app/github-pages-deploy.md,docs,.md,872
