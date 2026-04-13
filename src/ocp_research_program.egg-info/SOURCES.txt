@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/ocp/__init__.py
+src/ocp/core.py
+src/ocp/mhd.py
+src/ocp/qec.py
+src/ocp_research_program.egg-info/PKG-INFO
+src/ocp_research_program.egg-info/SOURCES.txt
+src/ocp_research_program.egg-info/dependency_links.txt
+src/ocp_research_program.egg-info/requires.txt
+src/ocp_research_program.egg-info/top_level.txt

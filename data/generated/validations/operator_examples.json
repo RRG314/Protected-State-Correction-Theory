@@ -1,0 +1,38 @@
+{
+  "finite_ocp": {
+    "x0": [
+      2.0,
+      -1.5,
+      0.75
+    ],
+    "exact_recovery": [
+      2.0,
+      0.0,
+      0.0
+    ],
+    "continuous_correction_t2": [
+      2.0,
+      -0.20300292485491905,
+      0.10150146242745953
+    ],
+    "initial_disturbance_energy": 2.8125000000000004,
+    "corrected_disturbance_energy": 0.051512734374564884
+  },
+  "qec": {
+    "holds": true,
+    "max_residual": 0.0,
+    "pairwise_image_overlap": 0.0,
+    "sector_recovery_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "mhd": {
+    "before_l2_divergence": 19.359218295532003,
+    "after_projection_l2_divergence": 0.23430486524231636,
+    "after_glm_l2_divergence": 16.849909741931956,
+    "projection_orthogonality_residual": 0.00022271969339104913
+  }
+}
