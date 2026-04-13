@@ -13,6 +13,7 @@ The strongest physics content is concentrated in:
 
 ### Strong exact fit
 - periodic Helmholtz/Leray projection
+- periodic incompressible velocity projection
 - Maxwell / Coulomb-gauge transverse projection on compatible domains
 - QEC sector recovery as the exact discrete anchor
 
@@ -36,6 +37,7 @@ The added value is the protected-state correction architecture that keeps exact,
 
 The repository rejects or demotes:
 - naive periodic-projector reuse on bounded-domain problems,
+- divergence-only bounded recovery as an exact CFD correction architecture,
 - generic constrained Hamiltonian systems without an explicit correction operator,
 - and broad physics-forward naming that outruns the actual theorem spine.
 

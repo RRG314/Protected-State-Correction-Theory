@@ -48,13 +48,22 @@
 - [bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
 - [kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
 
-## 9. Workbench
+## 9. CFD Extension
+- [cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
+- [incompressible-projection.md](docs/cfd/incompressible-projection.md)
+- [helmholtz-hodge-velocity-projection.md](docs/cfd/helmholtz-hodge-velocity-projection.md)
+- [bounded-vs-periodic-projection.md](docs/cfd/bounded-vs-periodic-projection.md)
+- [cfd-vs-mhd-correction-comparison.md](docs/cfd/cfd-vs-mhd-correction-comparison.md)
+- [kept-vs-rejected-cfd-bridges.md](docs/cfd/kept-vs-rejected-cfd-bridges.md)
+- [cfd-projection-results.md](docs/theorem-candidates/cfd-projection-results.md)
+
+## 10. Workbench
 - [workbench-overview.md](docs/app/workbench-overview.md)
 - [module-theory-map.md](docs/app/module-theory-map.md)
 - [github-pages-deploy.md](docs/app/github-pages-deploy.md)
 - [workbench/index.html](docs/workbench/index.html)
 
-## 10. Provenance, References, And Validation
+## 11. Provenance, References, And Validation
 - [discovery-inventory.md](docs/overview/discovery-inventory.md)
 - [claim-registry.md](docs/overview/claim-registry.md)
 - [proof-status-map.md](docs/overview/proof-status-map.md)

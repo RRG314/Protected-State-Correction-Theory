@@ -10,6 +10,7 @@ It is not a detached demo layer. Every module is linked to a theorem, a conditio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- CFD Projection Lab
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
@@ -18,6 +19,7 @@ It is not a detached demo layer. Every module is linked to a theorem, a conditio
 - inspect exact projector recovery and overlap failure
 - inspect exact sector recovery on the 3-qubit bit-flip anchor
 - compare exact periodic projection versus GLM asymptotic reduction
+- inspect periodic incompressible velocity projection versus bounded-domain limits
 - inspect a kept Maxwell / gauge projection extension
 - inspect generator kernels, mixing, and finite-time exact-recovery failure
 - inspect rejected bridges such as the bounded-domain projector transplant

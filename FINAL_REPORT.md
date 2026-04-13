@@ -20,6 +20,8 @@ This pass added four major upgrades:
 3. a stronger physics-side counterexample for bounded-domain projector transplantation
 4. a redesigned static workbench with clearer card-based hierarchy, improved naming, and a kept Maxwell/gauge module
 
+The current extension pass also added a narrow CFD lane centered on incompressible projection methods, bounded-domain projection limits, and a new divergence-only bounded no-go.
+
 ## 3. Strongest Current Theory After The Physics Audit
 
 The promoted theorem spine remains:
@@ -61,6 +63,16 @@ That result materially sharpens the scope of the exact continuous branch.
 - naive periodic-projector reuse on bounded-domain problems
 - status: `DISPROVED`
 - reason: explicit counterexample shows divergence can be removed while the bounded protected class still fails because boundary-normal structure is not preserved
+
+### Kept narrow CFD extension
+- periodic incompressible velocity projection
+- status: `PROVED`
+- reason: it is the same exact projector class as the periodic Helmholtz/Leray branch, now written explicitly in incompressible CFD language
+
+### New CFD-facing no-go
+- divergence-only bounded recovery
+- status: `PROVED`
+- reason: distinct bounded incompressible protected states can share the same divergence data, so divergence alone cannot determine an exact recovery map on the protected class
 
 ### Rejected for now
 - generic constrained Hamiltonian systems as an automatic OCP branch
@@ -108,6 +120,8 @@ Most useful current outside anchors:
 - Knill and Laflamme for exact QEC
 - Ahn, Doherty, and Landahl for continuous QEC
 - Chorin for projection methods
+- Brown, Cortez, and Minion for projection-method accuracy and boundary behavior
+- Guermond, Minev, and Shen for projection-method scope and formulation
 - Dedner et al. for GLM/hyperbolic cleaning
 - Calabrese / Berchenko-Kogan and Stern / Abalos for Maxwell and constraint-preserving systems
 - Gundlach et al. and Weyhausen et al. for numerical-relativity constraint damping
@@ -162,6 +176,8 @@ Important limit on that rating:
 - and it is not a claim that the whole program is now broadly proved across physics domains
 
 It is **excellent as a finished theorem-first research repository with a real but carefully delimited physics extension**.
+
+The new CFD lane does not change that overall rating upward. It strengthens the repository by making one more application slice more real and by adding a sharper negative result at the same time.
 
 ## 11. Strongest Next Directions
 

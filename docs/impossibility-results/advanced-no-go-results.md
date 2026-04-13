@@ -119,6 +119,46 @@ Status:
 - `DISPROVED` for the naive transplant claim,
 - bounded-domain exact correction itself remains `OPEN`.
 
+## No-Go OCP-N10: Divergence-Only Recovery Cannot Exactly Recover A Nontrivial Bounded Protected Class
+
+Let `S_bc` be a bounded incompressible protected class containing two distinct states `u_1`, `u_2` with the same divergence data, and suppose a candidate correction architecture factors only through the divergence scalar field:
+
+```text
+R(u) = F(div u).
+```
+
+Then `R` cannot be an exact recovery operator on `S_bc`.
+
+### Proof
+
+Because `u_1` and `u_2` have the same divergence data,
+
+```text
+div u_1 = div u_2.
+```
+
+So the divergence-only architecture gives
+
+```text
+R(u_1) = F(div u_1) = F(div u_2) = R(u_2).
+```
+
+But exact recovery would require
+
+```text
+R(u_1) = u_1,
+R(u_2) = u_2.
+```
+
+Since `u_1 ≠ u_2`, this is impossible.
+
+### Consequence
+
+This result sharpens the CFD boundary:
+- removing divergence alone is not enough when the protected class contains richer velocity information,
+- bounded-domain exact correction must encode more than a scalar constraint residual,
+- and exact pressure projection on bounded domains must be understood through the full domain-compatible Hodge projector, not through a divergence-only heuristic.
+
 ## Why These Results Matter
 
 These advanced no-go results improve the program materially because they prevent three common forms of overreach:

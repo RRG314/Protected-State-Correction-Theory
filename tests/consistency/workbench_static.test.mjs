@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  analyzeCfdProjection,
   analyzeContinuousGenerator,
   analyzeExactProjection,
   analyzeGaugeProjection,
@@ -56,6 +57,21 @@ test('gauge projection shares the exact-versus-asymptotic split on the compatibl
   assert.ok(result.afterExactGaugeNorm < result.afterGlmGaugeNorm);
 });
 
+test('cfd projection keeps the periodic exact branch and bounded-domain limitation visible', () => {
+  const result = analyzeCfdProjection({
+    periodicGridSize: 12,
+    boundedGridSize: 18,
+    contamination: 0.22,
+    poissonIterations: 320,
+  });
+  assert.ok(result.periodicAfterNorm < result.periodicBeforeNorm);
+  assert.ok(result.periodicRecoveryError < 1e-8);
+  assert.ok(result.boundedProjectedBoundaryNormalRms > 1e-2);
+  assert.equal(result.boundedTransplantFails, true);
+  assert.ok(result.divergenceOnlyWitness.firstStateDivergenceRms < 1e-10);
+  assert.ok(result.divergenceOnlyWitness.stateSeparationRms > 0.1);
+});
+
 test('continuous generator lab detects finite-time exact recovery failure', () => {
   const result = analyzeContinuousGenerator({
     matrix: [[0, 0, 0], [0, 1, 1], [0, 0, 1.5]],
@@ -77,6 +93,13 @@ test('no-go explorer surfaces the bounded-domain projector transplant failure', 
   const result = analyzeNoGo({ example: 'boundary' });
   assert.equal(result.status, 'COUNTEREXAMPLE / REJECTED BRIDGE');
   assert.ok(result.details.projectedBoundaryNormalRms > 1e-2);
+});
+
+test('no-go explorer surfaces the divergence-only bounded recovery failure', () => {
+  const result = analyzeNoGo({ example: 'divergence-only' });
+  assert.equal(result.status, 'PROVED NO-GO');
+  assert.ok(result.details.firstStateDivergenceRms < 1e-10);
+  assert.ok(result.details.stateSeparationRms > 0.1);
 });
 
 test('state share encoding round-trips', () => {

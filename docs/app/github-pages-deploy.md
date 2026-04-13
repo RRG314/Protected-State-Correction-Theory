@@ -36,3 +36,4 @@ This now checks:
 - static workbench module tests
 - generated validation artifacts
 - markdown links
+- CFD projection module outputs and saved-state plumbing through the Node workbench suite

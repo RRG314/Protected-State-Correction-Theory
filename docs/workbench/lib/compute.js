@@ -509,6 +509,37 @@ export function analyzeGaugeProjection(config) {
   };
 }
 
+function boundedDivergence2d(Bx, By, h) {
+  const dBx = gradientAxis(Bx, h, 0);
+  const dBy = gradientAxis(By, h, 1);
+  return dBx.map((row, i) => row.map((value, j) => value + dBy[i][j]));
+}
+
+function makeBoundedDivergenceFreePair(n) {
+  const h = 1 / (n - 1);
+  const x = Array.from({ length: n }, (_, i) => i * h);
+  const y = Array.from({ length: n }, (_, i) => i * h);
+  const psi1 = zeros2(n, n);
+  const psi2 = zeros2(n, n);
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      psi1[i][j] = Math.sin(Math.PI * x[i]) ** 2 * Math.sin(Math.PI * y[j]) ** 2;
+      psi2[i][j] = Math.sin(2 * Math.PI * x[i]) ** 2 * Math.sin(Math.PI * y[j]) ** 2;
+    }
+  }
+  const dpsi1x = gradientAxis(psi1, h, 0);
+  const dpsi1y = gradientAxis(psi1, h, 1);
+  const dpsi2x = gradientAxis(psi2, h, 0);
+  const dpsi2y = gradientAxis(psi2, h, 1);
+  return {
+    h,
+    u1x: dpsi1y.map((row) => row.map((value) => -value)),
+    u1y: dpsi1x,
+    u2x: dpsi2y.map((row) => row.map((value) => -value)),
+    u2y: dpsi2x,
+  };
+}
+
 function boundaryNormalRms(Bx, By) {
   const edgeValues = [
     ...Bx[0],
@@ -581,6 +612,62 @@ export function analyzeBoundaryProjectionLimit(config = {}) {
   };
 }
 
+export function analyzeCfdProjection(config) {
+  const periodicGrid = Number(config.periodicGridSize);
+  const boundedGrid = Number(config.boundedGridSize);
+  const contamination = Number(config.contamination);
+  const { h, Bx, By, BxPhys, ByPhys } = makeField(periodicGrid, contamination);
+  const beforePeriodicDiv = divergence2d(Bx, By, h);
+  const projection = helmholtzProject2d(Bx, By, h);
+  const afterPeriodicDiv = divergence2d(projection.BxProj, projection.ByProj, h);
+  const periodicRecoveryError = Math.sqrt(
+    projection.BxProj.flat().reduce((sum, value, idx) => {
+      const i = Math.floor(idx / periodicGrid);
+      const j = idx % periodicGrid;
+      return sum + (value - BxPhys[i][j]) ** 2 + (projection.ByProj[i][j] - ByPhys[i][j]) ** 2;
+    }, 0) / (periodicGrid * periodicGrid)
+  );
+  const projection2 = helmholtzProject2d(projection.BxProj, projection.ByProj, h);
+  const periodicIdempotenceError = Math.sqrt(
+    projection2.BxProj.flat().reduce((sum, value, idx) => {
+      const i = Math.floor(idx / periodicGrid);
+      const j = idx % periodicGrid;
+      return sum + (value - projection.BxProj[i][j]) ** 2 + (projection2.ByProj[i][j] - projection.ByProj[i][j]) ** 2;
+    }, 0) / (periodicGrid * periodicGrid)
+  );
+
+  const bounded = analyzeBoundaryProjectionLimit({ gridSize: boundedGrid, poissonIterations: config.poissonIterations });
+  const boundedPair = makeBoundedDivergenceFreePair(boundedGrid);
+  const divergenceOnlyWitness = {
+    firstStateDivergenceRms: l2NormField(boundedDivergence2d(boundedPair.u1x, boundedPair.u1y, boundedPair.h)),
+    secondStateDivergenceRms: l2NormField(boundedDivergence2d(boundedPair.u2x, boundedPair.u2y, boundedPair.h)),
+    stateSeparationRms: Math.sqrt(
+      boundedPair.u1x.flat().reduce((sum, value, idx) => {
+        const i = Math.floor(idx / boundedGrid);
+        const j = idx % boundedGrid;
+        return sum + (value - boundedPair.u2x[i][j]) ** 2 + (boundedPair.u1y[i][j] - boundedPair.u2y[i][j]) ** 2;
+      }, 0) / (boundedGrid * boundedGrid)
+    ),
+  };
+
+  return {
+    periodicBeforeDiv: beforePeriodicDiv,
+    periodicAfterDiv: afterPeriodicDiv,
+    periodicBeforeNorm: l2NormField(beforePeriodicDiv),
+    periodicAfterNorm: l2NormField(afterPeriodicDiv),
+    periodicRecoveryError,
+    periodicIdempotenceError,
+    boundedBeforeDiv: bounded.beforeDiv,
+    boundedAfterDiv: bounded.afterDiv,
+    boundedBeforeNorm: bounded.beforeNorm,
+    boundedAfterNorm: bounded.afterNorm,
+    boundedPhysicalBoundaryNormalRms: bounded.physicalBoundaryNormalRms,
+    boundedProjectedBoundaryNormalRms: bounded.projectedBoundaryNormalRms,
+    boundedTransplantFails: bounded.transplantFails,
+    divergenceOnlyWitness,
+  };
+}
+
 function rungeKutta4(K, x0, totalTime, steps = 240) {
   const dt = totalTime / steps;
   let x = x0.slice();
@@ -648,6 +735,24 @@ export function analyzeContinuousGenerator(config) {
 
 export function analyzeNoGo(config) {
   switch (config.example) {
+    case 'divergence-only': {
+      const witness = analyzeCfdProjection({
+        periodicGridSize: 12,
+        boundedGridSize: 18,
+        contamination: 0.22,
+        poissonIterations: 320,
+      }).divergenceOnlyWitness;
+      return {
+        title: 'Divergence-only bounded recovery failure',
+        status: 'PROVED NO-GO',
+        summary: 'Distinct bounded incompressible states can share the same divergence data, so a recovery map that only sees div u cannot recover the full protected class exactly.',
+        details: {
+          firstStateDivergenceRms: witness.firstStateDivergenceRms,
+          secondStateDivergenceRms: witness.secondStateDivergenceRms,
+          stateSeparationRms: witness.stateSeparationRms,
+        },
+      };
+    }
     case 'boundary': {
       const result = analyzeBoundaryProjectionLimit({ gridSize: 32, poissonIterations: 320 });
       return {

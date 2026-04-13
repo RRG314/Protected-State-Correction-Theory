@@ -21,6 +21,12 @@ export const DEFAULT_STATE = {
       ch: 1,
       cp: 1,
     },
+    cfd: {
+      periodicGridSize: 14,
+      boundedGridSize: 18,
+      contamination: 0.22,
+      poissonIterations: 320,
+    },
     gauge: {
       gridSize: 14,
       contamination: 0.18,

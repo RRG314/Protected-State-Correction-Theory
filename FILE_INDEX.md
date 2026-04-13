@@ -48,6 +48,15 @@
 - [kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
 - [citable-expansion-directions.md](docs/references/citable-expansion-directions.md)
 
+## CFD Extension
+- [cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
+- [incompressible-projection.md](docs/cfd/incompressible-projection.md)
+- [helmholtz-hodge-velocity-projection.md](docs/cfd/helmholtz-hodge-velocity-projection.md)
+- [bounded-vs-periodic-projection.md](docs/cfd/bounded-vs-periodic-projection.md)
+- [cfd-vs-mhd-correction-comparison.md](docs/cfd/cfd-vs-mhd-correction-comparison.md)
+- [kept-vs-rejected-cfd-bridges.md](docs/cfd/kept-vs-rejected-cfd-bridges.md)
+- [cfd-projection-results.md](docs/theorem-candidates/cfd-projection-results.md)
+
 ## Workbench
 - [index.html](docs/workbench/index.html)
 - [app.js](docs/workbench/app.js)
@@ -66,6 +75,7 @@
 - [continuous.py](src/ocp/continuous.py)
 - [capacity.py](src/ocp/capacity.py)
 - [physics.py](src/ocp/physics.py)
+- [cfd.py](src/ocp/cfd.py)
 
 ## Validation
 - [run_all.sh](scripts/validate/run_all.sh)

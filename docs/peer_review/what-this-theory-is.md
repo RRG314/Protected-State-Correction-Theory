@@ -12,9 +12,11 @@ Its core internal principle name is **Orthogonal Correction Principle (OCP)**, b
 - exact projector recovery on orthogonal direct-sum splits
 - exact sector recovery for pairwise orthogonal compatible sector embeddings
 - continuous asymptotic correction for invariant-split generator flows
+- periodic incompressible velocity projection as a clean exact CFD corollary of the projector branch
 - spectral-gap decay bounds in the PSD case
 - overlap, mixing, sector ambiguity, rank, and finite-time no-go results
 - a bounded-domain counterexample showing that naive periodic-projector transplantation is not an exact physical correction operator for the bounded problem
+- a bounded incompressible no-go showing that divergence-only recovery cannot exactly determine a nontrivial protected velocity class
 
 ## What Is Reinterpretation Of Known Structures
 - Knill-Laflamme and standard QEC structure are not claimed as new

@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+  analyzeCfdProjection,
   analyzeContinuousGenerator,
   analyzeExactProjection,
   analyzeGaugeProjection,
@@ -18,6 +19,7 @@ const examples = {
   exact: analyzeExactProjection(DEFAULT_STATE.labs.exact),
   qec: analyzeQecSector(DEFAULT_STATE.labs.qec),
   mhd: analyzeMhdProjection(DEFAULT_STATE.labs.mhd),
+  cfd: analyzeCfdProjection(DEFAULT_STATE.labs.cfd),
   gauge: analyzeGaugeProjection(DEFAULT_STATE.labs.gauge ?? DEFAULT_STATE.labs.mhd),
   continuous: analyzeContinuousGenerator(DEFAULT_STATE.labs.continuous),
   nogo: analyzeNoGo(DEFAULT_STATE.labs.nogo),

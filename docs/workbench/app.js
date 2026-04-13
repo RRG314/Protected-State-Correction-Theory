@@ -1,4 +1,5 @@
 import {
+  analyzeCfdProjection,
   analyzeBoundaryProjectionLimit,
   analyzeContinuousGenerator,
   analyzeExactProjection,
@@ -95,6 +96,33 @@ const LAB_META = {
     literature: [
       { title: 'Dedner et al. on hyperbolic divergence cleaning', href: 'https://doi.org/10.1006/jcph.2001.6961', note: 'Asymptotic cleaning anchor' },
       { title: 'Evans-Hawley constrained transport', href: 'https://www.sciencedirect.com/science/article/pii/0021999188901209', note: 'Constraint-preserving MHD direction' },
+    ],
+  },
+  cfd: {
+    label: 'CFD Projection Lab',
+    short: 'Periodic incompressible projection and bounded-domain limits.',
+    branch: 'CFD extension',
+    fit: 'Exact fit on the periodic branch / conditional bounded-domain extension',
+    status: 'KEPT CFD EXTENSION / NO-GO LIMIT',
+    lane: 'Incompressible CFD',
+    protected: 'Divergence-free velocity field',
+    disturbance: 'Non-solenoidal velocity contamination',
+    correction: 'Pressure projection / Helmholtz-Hodge projector',
+    plain:
+      'This module is the narrow CFD lane that genuinely fits the theory. On the periodic branch, projection recovers the divergence-free velocity exactly. On bounded domains, the same idea becomes conditional because boundary data are part of the protected object and naive projector reuse can fail.',
+    technical:
+      'Computes a periodic velocity decomposition u = u_df + grad(phi), applies the exact projector, and then compares that exact branch to a bounded-domain counterexample and a divergence-only no-go witness. The point is to separate real projector fits from boundary-insensitive overreach.',
+    use: 'Use this to understand where incompressible projection methods genuinely fit the protected-state correction framework and where the fit becomes conditional or fails.',
+    avoid: 'Do not read this as a theorem about all CFD solvers. It is a narrow statement about projection-compatible incompressible correction architectures.',
+    refs: [
+      { title: 'Incompressible projection in protected-state language', href: '../cfd/incompressible-projection.md', note: 'Main CFD entry point' },
+      { title: 'Bounded versus periodic projection', href: '../cfd/bounded-vs-periodic-projection.md', note: 'Boundary-sensitive scope control' },
+      { title: 'CFD projection results', href: '../theorem-candidates/cfd-projection-results.md', note: 'Corollary and no-go layer' },
+    ],
+    literature: [
+      { title: 'Chorin projection-method foundation', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Classical incompressible projection anchor' },
+      { title: 'Brown-Cortez-Minion on accurate projection methods', href: 'https://www.sciencedirect.com/science/article/pii/S0021999101967154', note: 'Boundary and pressure-correction context' },
+      { title: 'Guermond-Minev-Shen overview', href: 'https://doi.org/10.1016/j.cma.2005.10.010', note: 'Broader projection-method literature' },
     ],
   },
   gauge: {
@@ -231,6 +259,8 @@ function analyzeActiveLab() {
       return analyzeQecSector(state.labs.qec);
     case 'mhd':
       return analyzeMhdProjection(state.labs.mhd);
+    case 'cfd':
+      return analyzeCfdProjection(state.labs.cfd);
     case 'gauge':
       return analyzeGaugeProjection(state.labs.gauge);
     case 'continuous':
@@ -468,6 +498,17 @@ function renderConfigPane() {
           <p>Exact projection should drive divergence much closer to zero than a short GLM run. If that stops being true, the example is no longer representing the repo’s strongest exact-versus-asymptotic split cleanly enough.</p>
         </div>
       `;
+    case 'cfd':
+      return `
+        ${rangeField('contamination', 'Velocity contamination strength', state.labs.cfd.contamination, 0.02, 0.6, 0.01)}
+        ${rangeField('periodicGridSize', 'Periodic grid size', state.labs.cfd.periodicGridSize, 10, 24, 2)}
+        ${rangeField('boundedGridSize', 'Bounded grid size', state.labs.cfd.boundedGridSize, 12, 28, 2)}
+        ${rangeField('poissonIterations', 'Reference projection iterations', state.labs.cfd.poissonIterations, 80, 500, 20)}
+        <div class="callout ${latestAnalysis.boundedTransplantFails ? 'warn' : 'good'}">
+          <strong>${latestAnalysis.boundedTransplantFails ? 'Boundary-sensitive limit detected.' : 'Recheck bounded example.'}</strong>
+          <p>The periodic branch should remain exact, but the bounded-domain transplant should keep its boundary-normal mismatch. That split is what makes the CFD extension honest instead of overly broad.</p>
+        </div>
+      `;
     case 'gauge':
       return `
         ${rangeField('contamination', 'Longitudinal contamination strength', state.labs.gauge.contamination, 0.02, 0.6, 0.01)}
@@ -515,6 +556,7 @@ function renderConfigPane() {
             <option value="sector-overlap" ${state.labs.nogo.example === 'sector-overlap' ? 'selected' : ''}>Sector overlap</option>
             <option value="mixing" ${state.labs.nogo.example === 'mixing' ? 'selected' : ''}>Mixing failure</option>
             <option value="rank" ${state.labs.nogo.example === 'rank' ? 'selected' : ''}>Insufficient correction image</option>
+            <option value="divergence-only" ${state.labs.nogo.example === 'divergence-only' ? 'selected' : ''}>Divergence-only bounded recovery</option>
             <option value="boundary" ${state.labs.nogo.example === 'boundary' ? 'selected' : ''}>Bounded-domain projector transplant</option>
           </select>
         </div>
@@ -546,6 +588,8 @@ function renderVisualStage() {
       return renderQecStage();
     case 'mhd':
       return renderMhdStage();
+    case 'cfd':
+      return renderCfdStage();
     case 'gauge':
       return renderGaugeStage();
     case 'continuous':
@@ -652,6 +696,39 @@ function renderGaugeStage() {
   `;
 }
 
+function renderCfdStage() {
+  return `
+    <div class="figure-grid double">
+      <div class="figure"><h4>Periodic branch before projection</h4><canvas id="cfd-periodic-before" width="240" height="240" data-exportable="true"></canvas><small>Divergence of the contaminated velocity field on the periodic branch.</small></div>
+      <div class="figure"><h4>Periodic branch after projection</h4><canvas id="cfd-periodic-after" width="240" height="240"></canvas><small>Exact incompressible projection recovers the protected velocity component.</small></div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure"><h4>Bounded-domain before transplant</h4><canvas id="cfd-bounded-before" width="240" height="240"></canvas><small>The bounded-domain field carries divergence contamination before the periodic projector is misapplied.</small></div>
+      <div class="figure"><h4>Bounded-domain after periodic transplant</h4><canvas id="cfd-bounded-after" width="240" height="240"></canvas><small>Divergence is reduced, but the bounded protected class still fails because the boundary-normal trace is wrong.</small></div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Periodic exactness check</h4>
+        <div class="value-grid">
+          <div><small>Before divergence</small><code>${latestAnalysis.periodicBeforeNorm.toExponential(3)}</code></div>
+          <div><small>After projection</small><code>${latestAnalysis.periodicAfterNorm.toExponential(3)}</code></div>
+          <div><small>Recovery error</small><code>${latestAnalysis.periodicRecoveryError.toExponential(3)}</code></div>
+          <div><small>Idempotence error</small><code>${latestAnalysis.periodicIdempotenceError.toExponential(3)}</code></div>
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Bounded-domain limitation check</h4>
+        <div class="value-grid">
+          <div><small>Physical boundary-normal RMS</small><code>${latestAnalysis.boundedPhysicalBoundaryNormalRms.toExponential(3)}</code></div>
+          <div><small>Projected boundary-normal RMS</small><code>${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(3)}</code></div>
+          <div><small>Divergence-only witness 1</small><code>${latestAnalysis.divergenceOnlyWitness.firstStateDivergenceRms.toExponential(3)}</code></div>
+          <div><small>Divergence-only witness separation</small><code>${latestAnalysis.divergenceOnlyWitness.stateSeparationRms.toExponential(3)}</code></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderContinuousStage() {
   const a = latestAnalysis;
   return `
@@ -713,6 +790,13 @@ function renderMetrics() {
         metric('After GLM', latestAnalysis.afterGlmNorm.toExponential(2), latestAnalysis.afterGlmNorm < latestAnalysis.beforeNorm ? 'good' : 'bad'),
         metric('Reading', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'Exact branch wins' : 'Recheck example', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'good' : 'bad'),
       ].join('');
+    case 'cfd':
+      return [
+        metric('Periodic after projection', latestAnalysis.periodicAfterNorm.toExponential(2), 'good'),
+        metric('Periodic recovery error', latestAnalysis.periodicRecoveryError.toExponential(2), latestAnalysis.periodicRecoveryError < 1e-8 ? 'good' : 'bad'),
+        metric('Bounded boundary mismatch', latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(2), latestAnalysis.boundedTransplantFails ? 'bad' : 'good'),
+        metric('Verdict', latestAnalysis.boundedTransplantFails ? 'Narrow CFD fit only' : 'Recheck bounded example', latestAnalysis.boundedTransplantFails ? 'good' : 'bad'),
+      ].join('');
     case 'gauge':
       return [
         metric('Before', latestAnalysis.beforeGaugeNorm.toExponential(2)),
@@ -740,6 +824,8 @@ function renderNarrativeSummary() {
       return `<p>The selected sector ${latestAnalysis.selectedLabel} is recovered with error ${latestAnalysis.recoveryError.toExponential(2)}. In this branch, exactness comes from sector distinguishability rather than one global projector on the entire physical Hilbert space.</p>`;
     case 'mhd':
       return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}, while GLM reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} after ${state.labs.mhd.glmSteps} steps. This is the exact-versus-asymptotic split in numerical form.</p>`;
+    case 'cfd':
+      return `<p>The periodic incompressible projection drops the divergence norm from ${latestAnalysis.periodicBeforeNorm.toExponential(2)} to ${latestAnalysis.periodicAfterNorm.toExponential(2)} with recovery error ${latestAnalysis.periodicRecoveryError.toExponential(2)}. The bounded-domain transplant still leaves a boundary-normal mismatch of ${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(2)}, so the honest CFD fit remains narrow and boundary-sensitive.</p>`;
     case 'gauge':
       return `<p>The exact transverse projection drops the longitudinal residual from ${latestAnalysis.beforeGaugeNorm.toExponential(2)} to ${latestAnalysis.afterExactGaugeNorm.toExponential(2)}. This bridge is kept because it uses a real operator, not just an analogy.</p>`;
     case 'continuous':
@@ -893,6 +979,12 @@ function hydrateCanvases() {
     drawHeatmap('heat-before', latestAnalysis.beforeDiv);
     drawHeatmap('heat-exact', latestAnalysis.afterExactDiv);
     drawHeatmap('heat-glm', latestAnalysis.afterGlmDiv);
+  }
+  if (state.activeLab === 'cfd') {
+    drawHeatmap('cfd-periodic-before', latestAnalysis.periodicBeforeDiv);
+    drawHeatmap('cfd-periodic-after', latestAnalysis.periodicAfterDiv);
+    drawHeatmap('cfd-bounded-before', latestAnalysis.boundedBeforeDiv);
+    drawHeatmap('cfd-bounded-after', latestAnalysis.boundedAfterDiv);
   }
   if (state.activeLab === 'gauge') {
     drawHeatmap('gauge-before', latestAnalysis.beforeDiv);

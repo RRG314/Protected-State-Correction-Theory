@@ -18,7 +18,9 @@ The repository now supports outcome **A/B** from the program brief:
 - Finite-time exact recovery no-go for smooth linear flows.
 - Sector-overlap detection no-go.
 - Exact periodic Helmholtz/Leray projection interpretation of divergence cleaning.
+- Exact periodic incompressible velocity projection as a kept CFD corollary of the same projector branch.
 - Naive periodic-projector transplantation to a bounded-domain protected class is rejected by explicit counterexample.
+- Divergence-only bounded recovery is impossible on a nontrivial bounded incompressible protected class.
 - Maxwell / Coulomb-gauge projection is kept as a corollary-level exact physics extension of the projector branch.
 
 ## Conditional But Strong
@@ -45,7 +47,8 @@ The repository now supports outcome **A/B** from the program brief:
 3. A strong no-go layer that now spans exact, sector, and smooth-flow failure modes.
 4. A static GitHub-Pages-compatible Protected-State Correction Workbench.
 5. A real physics-extension layer with kept and rejected bridges documented explicitly.
-6. Reviewer-facing documents that make outside scrutiny easier instead of harder.
+6. A narrow CFD extension that survives as a real operator-level lane rather than a loose analogy.
+7. Reviewer-facing documents that make outside scrutiny easier instead of harder.
 
 ## Best Next Step
 

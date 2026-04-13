@@ -8,6 +8,7 @@ The strongest current picture is:
 - exact protected-state correction through orthogonal projectors,
 - exact sector recovery through orthogonal sector embeddings,
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
+- exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
@@ -70,6 +71,15 @@ Primary claim artifacts:
 - [docs/physics/bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
 - [docs/physics/kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
 
+### CFD extension
+- [docs/cfd/cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
+- [docs/cfd/incompressible-projection.md](docs/cfd/incompressible-projection.md)
+- [docs/cfd/helmholtz-hodge-velocity-projection.md](docs/cfd/helmholtz-hodge-velocity-projection.md)
+- [docs/cfd/bounded-vs-periodic-projection.md](docs/cfd/bounded-vs-periodic-projection.md)
+- [docs/cfd/cfd-vs-mhd-correction-comparison.md](docs/cfd/cfd-vs-mhd-correction-comparison.md)
+- [docs/cfd/kept-vs-rejected-cfd-bridges.md](docs/cfd/kept-vs-rejected-cfd-bridges.md)
+- [docs/theorem-candidates/cfd-projection-results.md](docs/theorem-candidates/cfd-projection-results.md)
+
 ### No-go layer
 - [docs/impossibility-results/no-go-results.md](docs/impossibility-results/no-go-results.md)
 - [docs/impossibility-results/advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
@@ -110,6 +120,13 @@ Status: `kept exact physics extension`
 - disturbance object: longitudinal / pure-gradient component
 - operator: transverse projector
 - main value: real physics-side extension of the exact projector branch
+
+### 5b. Incompressible CFD projection branch
+Status: `kept narrow CFD extension`
+- protected object: divergence-free velocity field
+- disturbance object: non-solenoidal velocity contamination
+- operator: pressure projection / Hodge projector
+- main value: strongest honest CFD lane for the exact projector branch
 
 ### 6. Asymptotic continuous generator branch
 Status: `finished asymptotic branch`
@@ -167,6 +184,7 @@ Failure diagnostics:
 - exact-recovery residual for finite-time flows
 - rank / image lower-bound checks
 - bounded-domain boundary-trace failure under naive periodic-projector reuse
+- divergence-only indistinguishability on bounded incompressible protected classes
 
 ## Workbench Inventory
 
@@ -188,6 +206,7 @@ Workbench modules:
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- CFD Projection Lab
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer

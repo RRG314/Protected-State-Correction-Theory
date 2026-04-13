@@ -3,6 +3,9 @@
 ## 1. Boundary-Sensitive Exact Continuous Correction
 This remains the single strongest next problem because it is the nearest route to materially extending the exact continuous branch without changing the theory's character.
 
+CFD consequence:
+- the right next question is not “all of CFD.” It is whether a domain-compatible Hodge projector theorem can be made explicit for bounded incompressible classes with real boundary data.
+
 ## 2. Mature Branch-Specific Capacity Theory
 This is the main theorem-completion problem. The repository now has real lower bounds and structural summaries, but it is not yet a finished capacity program.
 

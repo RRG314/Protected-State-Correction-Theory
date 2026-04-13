@@ -12,6 +12,8 @@ This file lists outside research that can be cited directly when expanding the r
 
 ## 3. Projection Methods And Constraint Projection
 - [Chorin, "Numerical solution of the Navier-Stokes equations"](https://doi.org/10.1090/S0025-5718-1968-0242392-2)
+- [Brown, Cortez, and Minion, "Accurate Projection Methods for the Incompressible Navier-Stokes Equations"](https://www.sciencedirect.com/science/article/pii/S0021999101967154)
+- [Guermond, Minev, and Shen, "An overview of projection methods for incompressible flows"](https://doi.org/10.1016/j.cma.2005.10.010)
 - Why it matters here: this is a classical projection-method anchor for exact constrained recovery in PDE settings.
 
 ## 4. MHD Divergence Cleaning

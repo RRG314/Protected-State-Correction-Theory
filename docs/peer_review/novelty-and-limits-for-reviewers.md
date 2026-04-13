@@ -12,7 +12,7 @@
 - the finished protected-state correction architecture with exact, sector, asymptotic, and no-go layers
 - the strong use of no-go results as part of the core theory rather than a side appendix
 - the finite-time exact-recovery no-go as a sharp separator between exact correction and smooth linear asymptotic correction
-- the sector theorem and the boundary-transplant rejection as scope-policing results inside the same framework
+- the sector theorem, the CFD-facing divergence-only bounded no-go, and the boundary-transplant rejection as scope-policing results inside the same framework
 
 ## Main Limits
 - the strongest mathematics remains operator-theoretic and architectural rather than deep domain-specific physics mathematics

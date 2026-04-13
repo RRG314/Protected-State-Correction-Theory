@@ -46,6 +46,26 @@
     "after_glm_l2_divergence": 16.849909741931956,
     "projection_orthogonality_residual": 1.9737298215558337e-16
   },
+  "cfd": {
+    "periodic": {
+      "before_l2_divergence": 19.359218295532003,
+      "after_projection_l2_divergence": 2.413565793840428e-14,
+      "recovery_l2_error": 1.1728238791187685e-15,
+      "idempotence_l2_error": 1.2146786327972174e-15,
+      "orthogonality_residual": 0.0
+    },
+    "bounded_transplant": {
+      "before_l2_divergence": 7.188908004215289,
+      "after_periodic_projection_l2_divergence": 5.4533400392382e-15,
+      "physical_boundary_normal_rms": 2.304408101585748e-32,
+      "projected_boundary_normal_rms": 0.031097335905001126
+    },
+    "divergence_only_no_go_witness": {
+      "first_state_divergence_rms": 2.072555745700146e-15,
+      "second_state_divergence_rms": 3.790140252378315e-15,
+      "state_separation_rms": 3.0742715535244023
+    }
+  },
   "bounded_domain_projection_limit": {
     "before_l2_divergence": 7.188908004215289,
     "after_periodic_projection_l2_divergence": 5.4533400392382e-15,

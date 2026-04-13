@@ -10,6 +10,14 @@ from .continuous import LinearOCPFlow, LinearGeneratorReport, block_decompositio
 from .capacity import ExactLinearCapacity, GeneratorCapacity, QECSectorCapacity, exact_linear_capacity, generator_capacity, qec_sector_capacity
 from .sectors import SectorRecoveryReport, global_sector_recovery_operator, pairwise_sector_overlap_matrix, sector_projector, sector_recovery_operator, sector_recovery_report
 from .physics import BoundaryProjectionReport, bounded_domain_projection_counterexample
+from .cfd import (
+    CfdProjectionSummary,
+    DivergenceOnlyNoGoWitness,
+    PeriodicIncompressibleProjectionReport,
+    cfd_projection_summary,
+    divergence_only_bounded_no_go_witness,
+    periodic_incompressible_projection_report,
+)
 
 __all__ = [
     "FiniteOCPSystem",
@@ -40,4 +48,10 @@ __all__ = [
     "sector_recovery_report",
     "BoundaryProjectionReport",
     "bounded_domain_projection_counterexample",
+    "CfdProjectionSummary",
+    "DivergenceOnlyNoGoWitness",
+    "PeriodicIncompressibleProjectionReport",
+    "cfd_projection_summary",
+    "divergence_only_bounded_no_go_witness",
+    "periodic_incompressible_projection_report",
 ]

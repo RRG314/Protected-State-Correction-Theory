@@ -105,6 +105,7 @@ The final architecture deliberately does **not** claim:
 The strongest honest physics extension now sits alongside, not above, the main theory.
 
 Kept physics lanes:
+- periodic incompressible projection as a kept CFD extension of the exact continuous branch,
 - Maxwell / Coulomb-gauge projection as an exact projector-compatible extension,
 - numerical-relativity constraint damping as a conditional asymptotic extension,
 - continuous quantum error correction as a conditional future bridge.

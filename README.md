@@ -72,6 +72,7 @@ It now supports a narrower and stronger statement:
 ### Strongest anchor systems
 - QEC as the exact sector anchor under standard assumptions.
 - Periodic Helmholtz/Leray projection as the exact continuous anchor.
+- Periodic incompressible velocity projection as a kept CFD corollary of the exact continuous branch.
 - GLM cleaning as an asymptotic continuous architecture, explicitly not exact.
 
 ## What Is Inside
@@ -93,7 +94,8 @@ The repository is organized so readers can enter from different angles:
 6. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
 7. [Protected-State Correction Workbench](docs/workbench/index.html)
 8. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-9. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+9. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+10. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -130,6 +132,7 @@ The workbench is tied directly to the theorem and no-go documents. It is not a d
 The strongest kept physics lanes are:
 - QEC as the exact sector anchor,
 - periodic Helmholtz/Leray projection as the exact continuous anchor,
+- periodic incompressible projection as a kept CFD extension of the same exact projector branch,
 - Maxwell / Coulomb-gauge projection as a kept exact extension of the projector branch,
 - GLM divergence cleaning as an asymptotic comparator,
 - numerical-relativity constraint damping as a conditional asymptotic extension,
@@ -144,6 +147,7 @@ The repo also preserves explicit rejections, including the failure of naive peri
 - `docs/formalism/` - core framework and exact-vs-asymptotic split
 - `docs/qec/` - QEC foundation and OCP sector framing
 - `docs/mhd/` - exact periodic projection and asymptotic GLM branch
+- `docs/cfd/` - incompressible projection, bounded-domain scope control, and kept versus rejected CFD bridges
 - `docs/physics/` - kept and rejected physics bridges, including the citable extension matrix
 - `docs/control/` - conditional control extension and worked linear example
 - `docs/theorem-candidates/` - theorem-level results including generator, capacity, and sector branches
