@@ -46,6 +46,11 @@ Primary formal decision:
   - If `H = S ⊕ D` with `S ⟂ D`, orthogonal projection onto `S` exactly recovers the protected component.
   - Status: `THEOREM`
 
+### Minimum-structure theorem
+- **OCP-T4: Exact Correction Rank Lower Bound**
+  - For exact linear recovery on `V = S ⊕ D`, the correction operator `C = I - R` must satisfy `rank(C) >= dim(D)`, and the recovery operator must satisfy `rank(R) >= dim(S)`.
+  - Status: `THEOREM`
+
 ### Exact no-go theorem
 - **OCP-N1: Overlap Kills Exact Recovery**
   - If `S ∩ D != {0}`, there is no single-valued exact recovery map for all decompositions `x = s + d`.
@@ -89,6 +94,7 @@ Primary executable sources:
 
 ### Proved
 - exact orthogonal projection recovery
+- exact correction rank lower bound in the linear branch
 - overlap/indistinguishability no-go
 - continuous damping theorem for `x_dot = -k P_D x`
 - invariant-split generator theorem for `x_dot = -Kx`
@@ -98,6 +104,8 @@ Primary executable sources:
 
 ### Conditional but strong
 - QEC as an OCP instantiation under standard Knill-Laflamme / syndrome-separation assumptions
+- sector distinguishability lower bound in the exact sector model
+- category-specific capacity view across branches
 - GLM as an asymptotic OCP architecture
 - control-theoretic instantiation when an invariant protected/disturbance split exists
 - engineering design value, provided the protected object and disturbance family are defined explicitly
@@ -145,6 +153,7 @@ Best practical targets today:
 - QEC interpretation and architecture reading
 - divergence cleaning and constrained PDE correction
 - feedback/observer design checklists for disturbance suppression without signal corruption
+- minimum-structure analysis for whether a proposed correction architecture even has enough rank or sector resolution to work
 - failure analysis for proposed correction schemes
 
 ## 8. Validation And Test Results
@@ -158,7 +167,7 @@ Current validation status:
 - operator example generation: passed
 - system inventory generation: passed
 - markdown link check on curated repo docs: passed
-- test suite: `14 passed`
+- test suite: `19 passed`
 
 Notable generated validation artifact:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -212,9 +221,9 @@ Why not excellent yet:
 
 The single strongest next direction is:
 
-> formalize category-specific correction-capacity notions and extend the continuous/PDE branch beyond the periodic projector setting.
+> extend the continuous/PDE branch beyond the periodic projector setting while sharpening the new branch-specific capacity notions into a more mature theory.
 
-That is now the strongest next move because the generator theorem target has already been achieved in a meaningful finite-dimensional form.
+That is now the strongest next move because the generator theorem and exact linear capacity lower bound targets have already been achieved in meaningful finite-dimensional form.
 
 ## 12. Is This Ready To Stand As A Major Research Program?
 

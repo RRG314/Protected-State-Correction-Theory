@@ -16,6 +16,8 @@ It does **not** yet support a grand universal theorem across all target systems.
 - Invariant-split linear generator theorem for `xdot = -Kx`.
 - Self-adjoint positive-semidefinite corollary with explicit spectral-gap decay bound.
 - Mixing no-go for linear flows when disturbance feeds into protected coordinates.
+- Minimum correction-rank bound for exact linear correction.
+- Initial branch-specific correction-capacity summaries for the exact, sector, and generator branches.
 - Exact Helmholtz/Leray projection interpretation of divergence cleaning on periodic domains.
 
 ## Conditional But Strong
@@ -34,9 +36,10 @@ It does **not** yet support a grand universal theorem across all target systems.
 
 1. A formal operator language for exact and asymptotic correction.
 2. A stronger continuous-time theorem spine through invariant-split generators.
-3. A clean exact QEC anchor section.
-4. A clean exact continuous MHD anchor via Helmholtz projection.
-5. A no-go document that makes the framework credible.
+3. A clean minimum-structure capacity theorem in the exact linear branch.
+4. A clean exact QEC anchor section.
+5. A clean exact continuous MHD anchor via Helmholtz projection.
+6. A no-go document that makes the framework credible.
 
 ## Best Next Step
 

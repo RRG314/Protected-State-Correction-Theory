@@ -26,6 +26,7 @@
 - [central-theorem.md](docs/theorem-candidates/central-theorem.md)
 - [backup-theorems.md](docs/theorem-candidates/backup-theorems.md)
 - [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
+- [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
 - [no-go-results.md](docs/impossibility-results/no-go-results.md)
 
 ## 6. Practical Use And Positioning

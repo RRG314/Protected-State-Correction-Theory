@@ -41,6 +41,8 @@ That makes the current program best described as:
 - **Self-adjoint PSD corollary:** if `K` is positive semidefinite with `ker(K)=S`, the spectral gap on `S^\perp` gives an explicit decay bound.
 - **Helmholtz/Leray projection example:** periodic divergence cleaning gives an exact continuous-domain OCP operator.
 - **Linear-flow mixing no-go:** if `P_S K P_D \neq 0`, disturbance leaks into protected coordinates and the flow is not an OCP correction flow.
+- **Exact correction-rank lower bound:** exact linear correction needs correction rank at least `dim(D)`.
+- **Branch-specific capacity view:** OCP now has grounded capacity notions in the exact linear, sector-based, and generator branches, without pretending they collapse to one scalar.
 
 ### Conditional or system-dependent results
 - **QEC fits OCP exactly** when the relevant Knill-Laflamme / syndrome-separation assumptions hold.
@@ -50,6 +52,7 @@ That makes the current program best described as:
 ### Not promoted
 - optimizer / ML bridges,
 - broad universal-capacity claims,
+- underdefined capacity language that is not tied to a real branch-specific structure,
 - vague cross-domain unification language without operator content.
 
 ## Start Here
@@ -59,7 +62,8 @@ That makes the current program best described as:
 3. [qec-foundations.md](docs/qec/qec-foundations.md)
 4. [divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
 5. [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
-6. [no-go-results.md](docs/impossibility-results/no-go-results.md)
+6. [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
+7. [no-go-results.md](docs/impossibility-results/no-go-results.md)
 
 ## Repository Map
 
@@ -69,7 +73,7 @@ That makes the current program best described as:
 - `docs/control/` - cautious control-theoretic extension
 - `docs/mhd/` - exact projection cleaning and asymptotic GLM cleaning
 - `docs/operators/` - actual projector and recovery constructions
-- `docs/theorem-candidates/` - central theorem, continuous generator theorems, and theorem program
+- `docs/theorem-candidates/` - central theorem, generator theorems, capacity bounds, and theorem program
 - `docs/impossibility-results/` - exact no-go results and failed/unfinished unification attempts
 - `src/ocp/` - executable operator and validation code
 - `tests/` - finite-dimensional, QEC, MHD, and continuous-generator validation checks

@@ -14,6 +14,7 @@ from ocp.qec import (
 )
 from ocp.mhd import divergence_2d, helmholtz_project_2d, glm_step_2d, orthogonality_residual_2d
 from ocp.continuous import LinearOCPFlow
+from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
 OUT = ROOT / 'data/generated/validations/operator_examples.json'
@@ -103,6 +104,14 @@ mix_flow = LinearOCPFlow(mix_generator, np.array([[1.0], [0.0]]), np.array([[0.0
 mix_x0 = np.array([0.0, 1.0])
 mix_xt = mix_flow.flow(mix_x0, 0.5)
 
+
+capacity_report = {
+    'exact_linear': exact_linear_capacity(system.protected_basis, system.disturbance_basis).__dict__,
+    'qec': qec_sector_capacity(codewords, errors).__dict__,
+    'generator_invariant_split': generator_capacity(block_generator, ps_basis, pd_basis).__dict__,
+    'generator_mixing_failure': generator_capacity(mix_generator, np.array([[1.0], [0.0]]), np.array([[0.0], [1.0]])).__dict__,
+}
+
 generator_report = {
     'invariant_split_example': {
         'report': {
@@ -146,5 +155,5 @@ generator_report = {
 }
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
-OUT.write_text(json.dumps({'finite_ocp': finite_report, 'qec': qec_report, 'mhd': mhd_report, 'continuous_generators': generator_report}, indent=2))
+OUT.write_text(json.dumps({'finite_ocp': finite_report, 'qec': qec_report, 'mhd': mhd_report, 'continuous_generators': generator_report, 'capacity': capacity_report}, indent=2))
 print(f'wrote {OUT}')

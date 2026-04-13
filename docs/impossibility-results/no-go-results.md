@@ -100,8 +100,7 @@ x_dot = -Kx.
 If `P_S K P_D` is nonzero, then there exists `d in D` such that the protected component changes immediately:
 
 ```text
-rac{d}{dt} P_S x(t)ig|_{t=0} = - P_S K d 
-eq 0.
+(d/dt) P_S x(t)|_{t=0} = - P_S K d != 0.
 ```
 
 Therefore the flow does **not** preserve the protected component for all disturbed initial states, and it cannot serve as an OCP correction flow that leaves `S` fixed pointwise.
@@ -109,6 +108,19 @@ Therefore the flow does **not** preserve the protected component for all disturb
 ### Why This Matters
 
 This is a useful practical failure test. It rejects correction architectures that appear stabilizing overall but only by leaking disturbance into the protected coordinates.
+
+
+## No-Go OCP-N6: Rank-Deficient Exact Correction Cannot Cover The Disturbance Space
+
+Let `V = S ⊕ D` and suppose a linear exact recovery architecture exists with correction operator `C = I - R`.
+
+Then `rank(C) >= dim(D)`.
+
+Therefore, if a proposed exact correction architecture has a correction operator with rank strictly smaller than `dim(D)`, it cannot correct the full disturbance space exactly.
+
+### Why This Matters
+
+This is the simplest rigorous minimum-correction-structure bound currently in the repository. It turns vague talk about “insufficient correction machinery” into a concrete linear-algebra obstruction.
 
 ## Why The No-Go Program Matters
 

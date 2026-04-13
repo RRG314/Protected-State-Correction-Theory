@@ -7,6 +7,7 @@ from .qec import (
 )
 from .mhd import helmholtz_project_2d, divergence_2d, glm_step_2d
 from .continuous import LinearOCPFlow, LinearGeneratorReport, block_decomposition, matrix_exponential
+from .capacity import ExactLinearCapacity, GeneratorCapacity, QECSectorCapacity, exact_linear_capacity, generator_capacity, qec_sector_capacity
 
 __all__ = [
     "FiniteOCPSystem",
@@ -23,4 +24,10 @@ __all__ = [
     "LinearGeneratorReport",
     "block_decomposition",
     "matrix_exponential",
+    "ExactLinearCapacity",
+    "GeneratorCapacity",
+    "QECSectorCapacity",
+    "exact_linear_capacity",
+    "generator_capacity",
+    "qec_sector_capacity",
 ]

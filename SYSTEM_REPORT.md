@@ -18,13 +18,13 @@ The program is more grounded than before because the next-step continuous-time t
 ## Repository Inventory
 
 High-level file totals:
-- tracked-like files in repo inventory: `89`
+- tracked-like files in repo inventory: `94`
 - root files: `12`
-- docs files: `25`
+- docs files: `26`
 - theory files: `7`
 - papers files: `6`
-- source files: `10`
-- test files: `10`
+- source files: `12`
+- test files: `12`
 - script files: `6`
 - data/generated files: `5`
 - archive/raw-import files: `8`
@@ -194,6 +194,19 @@ Primary status tables:
 - [claim-registry.md](docs/overview/claim-registry.md)
 - [proof-status-map.md](docs/overview/proof-status-map.md)
 
+
+## Capacity Inventory
+
+Current grounded capacity results:
+- exact linear branch: minimum correction rank at least `dim(D)` and minimum recovery rank at least `dim(S)`
+- exact sector branch: minimum distinguishable correction labels at least the number of mutually orthogonal nonzero sectors, when the exact sector model applies
+- generator branch: stable disturbance dimension, neutral disturbance dimension, unstable disturbance dimension, and split-preservation diagnostics
+- universal scalar capacity: still unsupported and unpromoted
+
+Executable capacity support:
+- [capacity.py](src/ocp/capacity.py)
+- [test_capacity.py](tests/math/test_capacity.py)
+
 ## Operator Inventory
 
 Exact operators:
@@ -216,15 +229,18 @@ Failure operators / diagnostics:
 Current validation status:
 - full validation script passes
 - markdown link check passes
-- test suite result: `14 passed`
+- test suite result: `19 passed`
 
 Test coverage areas:
 - exact projector recovery
 - repeated exact recovery under random orthogonal splits
 - overlap failure
+- exact linear capacity lower bounds
+- overlap-detected capacity impossibility
 - QEC KL check
 - QEC sector orthogonality
 - QEC explicit recovery
+- QEC sector-count capacity summary
 - MHD projection recovery
 - MHD idempotence / reconstruction
 - GLM divergence reduction
@@ -232,6 +248,7 @@ Test coverage areas:
 - PSD spectral-gap bound examples
 - mixing failure examples
 - repeated diagonal PSD generator family checks
+- generator-capacity split checks
 
 Primary validation entry points:
 - [run_all.sh](scripts/validate/run_all.sh)

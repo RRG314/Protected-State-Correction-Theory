@@ -7,9 +7,10 @@ If you want the shortest credible path through the repository, read in this orde
 3. [formal-theory.md](../formalism/formal-theory.md)
 4. [central-theorem.md](../theorem-candidates/central-theorem.md)
 5. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
-6. [qec-in-ocp.md](../qec/qec-in-ocp.md)
-7. [divergence-cleaning-in-ocp.md](../mhd/divergence-cleaning-in-ocp.md)
-8. [no-go-results.md](../impossibility-results/no-go-results.md)
+6. [capacity-theorems.md](../theorem-candidates/capacity-theorems.md)
+7. [qec-in-ocp.md](../qec/qec-in-ocp.md)
+8. [divergence-cleaning-in-ocp.md](../mhd/divergence-cleaning-in-ocp.md)
+9. [no-go-results.md](../impossibility-results/no-go-results.md)
 8. [practical-use-cases.md](../applications/practical-use-cases.md)
 
 ## Reading Strategy

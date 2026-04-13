@@ -97,5 +97,41 @@
       ],
       "protected_preserved": false
     }
+  },
+  "capacity": {
+    "exact_linear": {
+      "protected_dim": 1,
+      "disturbance_dim": 2,
+      "ambient_span_dim": 3,
+      "intersection_dim": 0,
+      "exact_recovery_possible": true,
+      "min_recovery_rank": 1,
+      "min_correction_rank": 2
+    },
+    "qec": {
+      "sector_count": 4,
+      "pairwise_orthogonal": true,
+      "minimum_syndrome_outcomes": 4
+    },
+    "generator_invariant_split": {
+      "protected_dim": 1,
+      "disturbance_dim": 2,
+      "stable_disturbance_dim": 2,
+      "neutral_disturbance_dim": 0,
+      "unstable_disturbance_dim": 0,
+      "split_preserving": true,
+      "protected_mixing_norm": 0.0,
+      "disturbance_from_protected_norm": 0.0
+    },
+    "generator_mixing_failure": {
+      "protected_dim": 1,
+      "disturbance_dim": 1,
+      "stable_disturbance_dim": 1,
+      "neutral_disturbance_dim": 0,
+      "unstable_disturbance_dim": 0,
+      "split_preserving": false,
+      "protected_mixing_norm": 1.0,
+      "disturbance_from_protected_norm": 0.0
+    }
   }
 }

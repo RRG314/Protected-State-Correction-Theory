@@ -18,6 +18,7 @@
 - [operator-constructions.md](docs/operators/operator-constructions.md)
 - [central-theorem.md](docs/theorem-candidates/central-theorem.md)
 - [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
+- [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
 - [no-go-results.md](docs/impossibility-results/no-go-results.md)
 
 ## Code
