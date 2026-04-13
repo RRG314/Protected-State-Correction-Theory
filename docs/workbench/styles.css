@@ -360,6 +360,60 @@ button.ghost-button {
   padding: 1rem 1.1rem 1.2rem;
 }
 
+.stage-toolbar {
+  padding: 0.95rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.stage-toolbar.passive {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.toolbar-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.toolbar-copy strong {
+  font-size: 1.02rem;
+}
+
+.toolbar-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.48;
+}
+
+.toolbar-actions,
+.timeline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.timeline-block {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.timeline-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timeline-slider {
+  width: 100%;
+}
+
 .results-stage {
   display: grid;
   gap: 1rem;
@@ -526,6 +580,7 @@ button.ghost-button {
   .hero-grid,
   .workspace,
   .lab-body,
+  .stage-toolbar,
   .figure-grid.triple,
   .metric-grid,
   .summary-grid,
@@ -535,7 +590,9 @@ button.ghost-button {
 
   .hero-grid,
   .workspace,
-  .lab-body {
+  .lab-body,
+  .stage-toolbar,
+  .stage-toolbar.passive {
     grid-template-columns: 1fr;
   }
 
@@ -558,7 +615,10 @@ button.ghost-button {
 
   .action-row,
   .hero-meta-row,
-  .section-heading {
+  .section-heading,
+  .timeline-topline,
+  .toolbar-actions,
+  .timeline-actions {
     align-items: stretch;
   }
 

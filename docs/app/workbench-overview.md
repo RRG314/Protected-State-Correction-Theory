@@ -23,12 +23,15 @@ It is not a detached demo layer. Every module is linked to a theorem, a conditio
 - inspect a kept Maxwell / gauge projection extension
 - inspect generator kernels, mixing, and finite-time exact-recovery failure
 - inspect rejected bridges such as the bounded-domain projector transplant
+- scrub time-history branches frame by frame in the MHD, gauge, and continuous-generator modules
+- reset the current lab or the full workbench state without leaving the page
 - save scenarios, reload them, export JSON, export figures, and share state links
 
 ## What It Is For
 - reviewer orientation
 - theorem illustration
 - teaching the exact-versus-asymptotic split
+- making time-dependent correction behavior visible instead of burying it in endpoint-only summaries
 - making the physics extension legible without overclaiming it
 - quick structural checks before reading the longer proofs
 

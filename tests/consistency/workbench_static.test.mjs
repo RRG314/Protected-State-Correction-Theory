@@ -33,6 +33,7 @@ test('mhd projection outperforms short GLM run on the periodic example', () => {
     gridSize: 12,
     contamination: 0.22,
     glmSteps: 8,
+    frame: 3,
     poissonIterations: 320,
     dt: 0.05,
     ch: 1,
@@ -41,6 +42,8 @@ test('mhd projection outperforms short GLM run on the periodic example', () => {
   assert.ok(result.afterExactNorm < result.beforeNorm);
   assert.ok(result.afterGlmNorm < result.beforeNorm);
   assert.ok(result.afterExactNorm < result.afterGlmNorm);
+  assert.equal(result.selectedFrame, 3);
+  assert.equal(result.selectedGlmNorm, result.glmHistory[3]);
 });
 
 test('gauge projection shares the exact-versus-asymptotic split on the compatible example', () => {
@@ -78,9 +81,13 @@ test('continuous generator lab detects finite-time exact recovery failure', () =
     x0: [2, -1, 0.5],
     time: 2,
     steps: 260,
+    frame: 65,
   });
   assert.equal(result.finiteTimeExactRecoveryPossible, false);
   assert.ok(result.exactRecoveryResidual > 0.05);
+  assert.equal(result.selectedFrame, 65);
+  assert.ok(result.selectedTime > 0.4 && result.selectedTime < 0.6);
+  assert.equal(result.selectedState.length, 3);
 });
 
 test('no-go explorer surfaces the finite-time flow boundary', () => {

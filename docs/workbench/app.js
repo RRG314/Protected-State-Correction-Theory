@@ -230,9 +230,13 @@ const CONTINUOUS_PRESETS = {
   },
 };
 
+const LAB_DEFAULTS = cloneState(DEFAULT_STATE.labs);
+
 let state = initialState();
 let latestAnalysis = analyzeActiveLab();
 let savedScenarios = loadSavedScenarios();
+let playbackTimer = null;
+let playbackLab = null;
 
 function initialState() {
   const fromHash = decodeShareState(window.location.hash);
@@ -282,11 +286,16 @@ function applyContinuousPreset(name) {
   state.labs.continuous.preset = name;
   state.labs.continuous.matrix = preset.matrix.map((row) => row.slice());
   state.labs.continuous.x0 = preset.x0.slice();
+  state.labs.continuous.frame = state.labs.continuous.steps;
 }
 
 function render() {
+  normalizeInteractiveState();
   latestAnalysis = analyzeActiveLab();
   syncHash();
+  if (playbackTimer && playbackLab !== state.activeLab) {
+    stopPlayback();
+  }
   const app = document.getElementById('app');
   const meta = LAB_META[state.activeLab];
   app.innerHTML = `
@@ -327,6 +336,13 @@ function render() {
                 <button id="export-figure" class="primary">Export Figure</button>
               </div>
             </div>
+            <div class="action-group">
+              <span class="action-label">Reset</span>
+              <div class="action-row compact">
+                <button id="reset-current">Reset Current Lab</button>
+                <button id="reset-all">Reset All Labs</button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -365,6 +381,7 @@ function render() {
               ${renderConfigPane()}
             </aside>
             <section class="results-pane">
+              ${renderStageToolbar()}
               <div class="results-stage">
                 ${renderVisualStage()}
               </div>
@@ -384,6 +401,156 @@ function render() {
 
   attachEvents();
   hydrateCanvases();
+}
+
+function normalizeInteractiveState() {
+  normalizePlaybackFrame('mhd');
+  normalizePlaybackFrame('gauge');
+  normalizePlaybackFrame('continuous');
+}
+
+function normalizePlaybackFrame(lab) {
+  if (lab === 'mhd' || lab === 'gauge') {
+    const current = state.labs[lab];
+    current.frame = clamp(Number(current.frame ?? current.glmSteps), 0, Number(current.glmSteps));
+    return;
+  }
+  if (lab === 'continuous') {
+    const current = state.labs.continuous;
+    current.frame = clamp(Number(current.frame ?? current.steps), 0, Number(current.steps));
+  }
+}
+
+function getPlaybackConfig(lab = state.activeLab) {
+  if (lab === 'mhd') {
+    const cfg = state.labs.mhd;
+    return {
+      lab,
+      path: 'labs.mhd.frame',
+      min: 0,
+      max: Number(cfg.glmSteps),
+      value: Number(cfg.frame),
+      intervalMs: 280,
+      title: 'GLM time history',
+      description: 'Scrub the asymptotic cleaner frame by frame. The exact projector remains fixed so you can compare one-shot removal against gradual reduction.',
+      currentText: `Frame ${Number(cfg.frame)} of ${Number(cfg.glmSteps)}`,
+    };
+  }
+  if (lab === 'gauge') {
+    const cfg = state.labs.gauge;
+    return {
+      lab,
+      path: 'labs.gauge.frame',
+      min: 0,
+      max: Number(cfg.glmSteps),
+      value: Number(cfg.frame),
+      intervalMs: 280,
+      title: 'Damped cleanup history',
+      description: 'Scrub the damping branch over time and compare it against the exact transverse projector.',
+      currentText: `Frame ${Number(cfg.frame)} of ${Number(cfg.glmSteps)}`,
+    };
+  }
+  if (lab === 'continuous') {
+    const cfg = state.labs.continuous;
+    return {
+      lab,
+      path: 'labs.continuous.frame',
+      min: 0,
+      max: Number(cfg.steps),
+      value: Number(cfg.frame),
+      intervalMs: 140,
+      title: 'Generator flow history',
+      description: 'Step through the continuous correction flow to inspect drift, damping, and mixing over time rather than only at the endpoint.',
+      currentText: `Step ${Number(cfg.frame)} of ${Number(cfg.steps)}`,
+    };
+  }
+  return null;
+}
+
+function isPlaybackActive() {
+  return Boolean(playbackTimer && playbackLab === state.activeLab);
+}
+
+function stopPlayback() {
+  if (playbackTimer) {
+    window.clearInterval(playbackTimer);
+    playbackTimer = null;
+    playbackLab = null;
+  }
+}
+
+function setStatePath(path, value) {
+  const parts = path.split('.');
+  let target = state;
+  for (let i = 0; i < parts.length - 1; i += 1) target = target[parts[i]];
+  target[parts[parts.length - 1]] = value;
+  state = sanitizeState(state);
+  normalizeInteractiveState();
+}
+
+function stepPlayback(delta) {
+  const playback = getPlaybackConfig();
+  if (!playback) return;
+  const next = clamp(playback.value + delta, playback.min, playback.max);
+  setStatePath(playback.path, next);
+  if (next >= playback.max && delta > 0) {
+    stopPlayback();
+  }
+  render();
+}
+
+function togglePlayback() {
+  const playback = getPlaybackConfig();
+  if (!playback) return;
+  if (isPlaybackActive()) {
+    stopPlayback();
+    render();
+    return;
+  }
+  if (playback.value >= playback.max) {
+    setStatePath(playback.path, 0);
+  }
+  playbackLab = state.activeLab;
+  playbackTimer = window.setInterval(() => {
+    const current = getPlaybackConfig(playbackLab);
+    if (!current) {
+      stopPlayback();
+      return;
+    }
+    const next = current.value + 1;
+    if (next > current.max) {
+      stopPlayback();
+      render();
+      return;
+    }
+    setStatePath(current.path, next);
+    render();
+  }, playback.intervalMs);
+  render();
+}
+
+function resetCurrentLab() {
+  stopPlayback();
+  state.labs[state.activeLab] = cloneState(LAB_DEFAULTS[state.activeLab]);
+  render();
+}
+
+function resetAllLabs() {
+  stopPlayback();
+  const mode = state.mode;
+  const activeLab = state.activeLab;
+  state = cloneState(DEFAULT_STATE);
+  state.mode = mode;
+  state.activeLab = activeLab;
+  render();
+}
+
+function resetPlaybackView() {
+  const playback = getPlaybackConfig();
+  if (!playback) return;
+  stopPlayback();
+  setStatePath(playback.path, 0);
+  render();
 }
 
 function renderModuleCards() {
@@ -411,6 +578,54 @@ function renderSummaryCards(meta) {
     summaryCard('Correction architecture', meta.correction),
     summaryCard('Public reading', meta.fit),
   ].join('');
+}
+
+function renderStageToolbar() {
+  const playback = getPlaybackConfig();
+  if (!playback) {
+    return `
+      <div class="stage-toolbar card-surface passive">
+        <div class="toolbar-copy">
+          <span class="action-label">Interaction</span>
+          <strong>Static theorem witness</strong>
+          <p>This module updates immediately when its inputs change, but it does not have a time-history branch to scrub through.</p>
+        </div>
+        <div class="toolbar-actions">
+          <button id="reset-current-view">Reset Current Lab</button>
+        </div>
+      </div>
+    `;
+  }
+  return `
+    <div class="stage-toolbar card-surface">
+      <div class="toolbar-copy">
+        <span class="action-label">Time and History</span>
+        <strong>${playback.title}</strong>
+        <p>${playback.description}</p>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-topline">
+          <span>${playback.currentText}</span>
+          <span>${isPlaybackActive() ? 'Playing' : 'Paused'}</span>
+        </div>
+        <input
+          class="timeline-slider"
+          type="range"
+          min="${playback.min}"
+          max="${playback.max}"
+          step="1"
+          value="${playback.value}"
+          data-path="${playback.path}"
+        />
+        <div class="timeline-actions">
+          <button data-playback-step="-1">Step Back</button>
+          <button id="playback-toggle" class="primary">${isPlaybackActive() ? 'Pause' : 'Play'}</button>
+          <button data-playback-step="1">Step Forward</button>
+          <button id="reset-playback-view">Reset View</button>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderContextCards(meta) {
@@ -645,25 +860,28 @@ function renderQecStage() {
 }
 
 function renderMhdStage() {
+  const a = latestAnalysis;
   return `
     <div class="figure-grid triple">
       <div class="figure"><h4>Before projection</h4><canvas id="heat-before" width="240" height="240" data-exportable="true"></canvas><small>Divergence field before correction.</small></div>
       <div class="figure"><h4>After exact projection</h4><canvas id="heat-exact" width="240" height="240"></canvas><small>Exact periodic projection branch.</small></div>
-      <div class="figure"><h4>After GLM steps</h4><canvas id="heat-glm" width="240" height="240"></canvas><small>Asymptotic reduction after the selected number of GLM steps.</small></div>
+      <div class="figure"><h4>GLM frame ${a.selectedFrame}</h4><canvas id="heat-glm" width="240" height="240"></canvas><small>Asymptotic reduction at the selected frame. The final frame remains available in the history chart and summary below.</small></div>
     </div>
     <div class="figure-grid double top-gap">
       <div class="figure" data-exportable="true">
         <h4>GLM divergence history</h4>
-        ${lineChartSvg(latestAnalysis.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'L2 divergence')}
+        ${lineChartSvg(a.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'L2 divergence', a.selectedFrame)}
         <small>GLM reduces the constraint violation, but the exact projector removes it much more sharply.</small>
       </div>
       <div class="figure">
         <h4>Norm comparison</h4>
         <div class="value-grid">
-          <div><small>Before</small><code>${latestAnalysis.beforeNorm.toExponential(3)}</code></div>
-          <div><small>After exact projection</small><code>${latestAnalysis.afterExactNorm.toExponential(3)}</code></div>
-          <div><small>After GLM</small><code>${latestAnalysis.afterGlmNorm.toExponential(3)}</code></div>
-          <div><small>Exact improvement factor</small><code>${formatFactor(latestAnalysis.exactImprovementFactor)}</code></div>
+          <div><small>Before</small><code>${a.beforeNorm.toExponential(3)}</code></div>
+          <div><small>After exact projection</small><code>${a.afterExactNorm.toExponential(3)}</code></div>
+          <div><small>Selected GLM frame</small><code>${a.selectedGlmNorm.toExponential(3)}</code></div>
+          <div><small>Final GLM frame</small><code>${a.afterGlmNorm.toExponential(3)}</code></div>
+          <div><small>Exact improvement factor</small><code>${formatFactor(a.exactImprovementFactor)}</code></div>
+          <div><small>Current frame</small><code>${a.selectedFrame} / ${state.labs.mhd.glmSteps}</code></div>
         </div>
       </div>
     </div>
@@ -671,25 +889,28 @@ function renderMhdStage() {
 }
 
 function renderGaugeStage() {
+  const a = latestAnalysis;
   return `
     <div class="figure-grid triple">
       <div class="figure"><h4>Before transverse projection</h4><canvas id="gauge-before" width="240" height="240" data-exportable="true"></canvas><small>Longitudinal contamination before correction.</small></div>
       <div class="figure"><h4>After exact transverse projection</h4><canvas id="gauge-exact" width="240" height="240"></canvas><small>Exact projection-compatible branch.</small></div>
-      <div class="figure"><h4>After damped cleanup</h4><canvas id="gauge-glm" width="240" height="240"></canvas><small>Asymptotic reduction used only as a comparator.</small></div>
+      <div class="figure"><h4>Damping frame ${a.selectedFrame}</h4><canvas id="gauge-glm" width="240" height="240"></canvas><small>Asymptotic cleanup at the selected frame. This branch is intentionally slower than the exact projection branch.</small></div>
     </div>
     <div class="figure-grid double top-gap">
       <div class="figure" data-exportable="true">
         <h4>Longitudinal-mode history</h4>
-        ${lineChartSvg(latestAnalysis.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'Residual longitudinal norm')}
+        ${lineChartSvg(a.glmHistory.map((value, index) => ({ x: index, y: value })), 'Step', 'Residual longitudinal norm', a.selectedFrame)}
         <small>The exact projector is what gives the clean physics fit here; damping is only a secondary comparator.</small>
       </div>
       <div class="figure">
         <h4>Physics reading</h4>
         <div class="value-grid">
-          <div><small>Before</small><code>${latestAnalysis.beforeGaugeNorm.toExponential(3)}</code></div>
-          <div><small>After exact projection</small><code>${latestAnalysis.afterExactGaugeNorm.toExponential(3)}</code></div>
-          <div><small>After damping</small><code>${latestAnalysis.afterGlmGaugeNorm.toExponential(3)}</code></div>
+          <div><small>Before</small><code>${a.beforeGaugeNorm.toExponential(3)}</code></div>
+          <div><small>After exact projection</small><code>${a.afterExactGaugeNorm.toExponential(3)}</code></div>
+          <div><small>Selected damping frame</small><code>${a.selectedGlmNorm.toExponential(3)}</code></div>
+          <div><small>Final damping frame</small><code>${a.afterGlmGaugeNorm.toExponential(3)}</code></div>
           <div><small>Interpretation</small><code>Transverse part recovered exactly on the compatible projection branch.</code></div>
+          <div><small>Current frame</small><code>${a.selectedFrame} / ${state.labs.gauge.glmSteps}</code></div>
         </div>
       </div>
     </div>
@@ -735,14 +956,16 @@ function renderContinuousStage() {
     <div class="figure-grid double">
       <div class="figure" data-exportable="true">
         <h4>Disturbance norm over time</h4>
-        ${lineChartSvg(a.disturbanceNorms.map((value, index) => ({ x: index, y: value })), 'Step', '||P_D x||')}
+        ${lineChartSvg(a.disturbanceNorms.map((value, index) => ({ x: index, y: value })), 'Step', '||P_D x||', a.selectedFrame)}
         <small>Decay alone is not enough. The protected component must also stay fixed.</small>
       </div>
       <div class="figure">
-        <h4>Kernel / split diagnostics</h4>
+        <h4>Selected flow state</h4>
         <div class="value-grid">
           <div><small>ker(K) basis</small><code>${a.kernelBasis.length ? a.kernelBasis.map((row) => formatVector(row)).join('\n') : '[]'}</code></div>
           <div><small>Disturbance complement</small><code>${a.disturbanceBasis.length ? a.disturbanceBasis.map((row) => formatVector(row)).join('\n') : '[]'}</code></div>
+          <div><small>Selected time</small><code>${a.selectedTime.toFixed(3)}</code></div>
+          <div><small>Selected state</small><code>${formatVector(a.selectedState)}</code></div>
           <div><small>Final state</small><code>${formatVector(a.xt)}</code></div>
           <div><small>Mixing norm</small><code>${a.mixingNorm.toExponential(3)}</code></div>
         </div>
@@ -787,8 +1010,8 @@ function renderMetrics() {
       return [
         metric('Before', latestAnalysis.beforeNorm.toExponential(2)),
         metric('After exact', latestAnalysis.afterExactNorm.toExponential(2), 'good'),
-        metric('After GLM', latestAnalysis.afterGlmNorm.toExponential(2), latestAnalysis.afterGlmNorm < latestAnalysis.beforeNorm ? 'good' : 'bad'),
-        metric('Reading', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'Exact branch wins' : 'Recheck example', latestAnalysis.afterExactNorm < latestAnalysis.afterGlmNorm ? 'good' : 'bad'),
+        metric(`GLM frame ${latestAnalysis.selectedFrame}`, latestAnalysis.selectedGlmNorm.toExponential(2), latestAnalysis.selectedGlmNorm < latestAnalysis.beforeNorm ? 'good' : 'bad'),
+        metric('Reading', latestAnalysis.afterExactNorm < latestAnalysis.selectedGlmNorm ? 'Exact branch wins' : 'Recheck example', latestAnalysis.afterExactNorm < latestAnalysis.selectedGlmNorm ? 'good' : 'bad'),
       ].join('');
     case 'cfd':
       return [
@@ -801,11 +1024,12 @@ function renderMetrics() {
       return [
         metric('Before', latestAnalysis.beforeGaugeNorm.toExponential(2)),
         metric('After exact', latestAnalysis.afterExactGaugeNorm.toExponential(2), 'good'),
-        metric('After damping', latestAnalysis.afterGlmGaugeNorm.toExponential(2), latestAnalysis.afterGlmGaugeNorm < latestAnalysis.beforeGaugeNorm ? 'good' : 'bad'),
+        metric(`Frame ${latestAnalysis.selectedFrame}`, latestAnalysis.selectedGlmNorm.toExponential(2), latestAnalysis.selectedGlmNorm < latestAnalysis.beforeGaugeNorm ? 'good' : 'bad'),
         metric('Verdict', 'Exact physics extension', 'good'),
       ].join('');
     case 'continuous':
       return [
+        metric('Selected time', latestAnalysis.selectedTime.toFixed(2)),
         metric('Protected drift', latestAnalysis.protectedDrift.toExponential(2), latestAnalysis.protectedDrift < 1e-4 ? 'good' : 'bad'),
         metric('Mixing norm', latestAnalysis.mixingNorm.toExponential(2), latestAnalysis.mixingNorm < 1e-6 ? 'good' : 'bad'),
         metric('Finite-time exact recovery', latestAnalysis.finiteTimeExactRecoveryPossible ? 'Apparent yes' : 'No', latestAnalysis.finiteTimeExactRecoveryPossible ? 'bad' : 'good'),
@@ -823,13 +1047,13 @@ function renderNarrativeSummary() {
     case 'qec':
       return `<p>The selected sector ${latestAnalysis.selectedLabel} is recovered with error ${latestAnalysis.recoveryError.toExponential(2)}. In this branch, exactness comes from sector distinguishability rather than one global projector on the entire physical Hilbert space.</p>`;
     case 'mhd':
-      return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}, while GLM reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} after ${state.labs.mhd.glmSteps} steps. This is the exact-versus-asymptotic split in numerical form.</p>`;
+      return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}. At the currently selected GLM frame ${latestAnalysis.selectedFrame}, the asymptotic branch sits at ${latestAnalysis.selectedGlmNorm.toExponential(2)} and only reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} at the final frame. This is the exact-versus-asymptotic split in numerical form.</p>`;
     case 'cfd':
       return `<p>The periodic incompressible projection drops the divergence norm from ${latestAnalysis.periodicBeforeNorm.toExponential(2)} to ${latestAnalysis.periodicAfterNorm.toExponential(2)} with recovery error ${latestAnalysis.periodicRecoveryError.toExponential(2)}. The bounded-domain transplant still leaves a boundary-normal mismatch of ${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(2)}, so the honest CFD fit remains narrow and boundary-sensitive.</p>`;
     case 'gauge':
-      return `<p>The exact transverse projection drops the longitudinal residual from ${latestAnalysis.beforeGaugeNorm.toExponential(2)} to ${latestAnalysis.afterExactGaugeNorm.toExponential(2)}. This bridge is kept because it uses a real operator, not just an analogy.</p>`;
+      return `<p>The exact transverse projection drops the longitudinal residual from ${latestAnalysis.beforeGaugeNorm.toExponential(2)} to ${latestAnalysis.afterExactGaugeNorm.toExponential(2)}. At the currently selected damping frame ${latestAnalysis.selectedFrame}, the comparator branch sits at ${latestAnalysis.selectedGlmNorm.toExponential(2)}. This bridge is kept because it uses a real operator, not just an analogy.</p>`;
     case 'continuous':
-      return `<p>The generator produces protected drift ${latestAnalysis.protectedDrift.toExponential(2)} and mixing norm ${latestAnalysis.mixingNorm.toExponential(2)}. Finite-time exact recovery remains ${latestAnalysis.finiteTimeExactRecoveryPossible ? 'apparently possible' : 'ruled out'} for this smooth flow model.</p>`;
+      return `<p>At the selected time ${latestAnalysis.selectedTime.toFixed(2)}, the flow state is ${formatVector(latestAnalysis.selectedState)}. The full generator still produces protected drift ${latestAnalysis.protectedDrift.toExponential(2)} and mixing norm ${latestAnalysis.mixingNorm.toExponential(2)}, so finite-time exact recovery remains ${latestAnalysis.finiteTimeExactRecoveryPossible ? 'apparently possible' : 'ruled out'} for this smooth flow model.</p>`;
     case 'nogo':
     default:
       return `<p>${latestAnalysis.summary}</p>`;
@@ -891,15 +1115,32 @@ function attachEvents() {
   document.getElementById('share-link').addEventListener('click', copyShareLink);
   document.getElementById('export-json').addEventListener('click', exportJson);
   document.getElementById('export-figure').addEventListener('click', exportFigure);
+  document.getElementById('reset-current').addEventListener('click', resetCurrentLab);
+  document.getElementById('reset-all').addEventListener('click', resetAllLabs);
+
+  const resetCurrentView = document.getElementById('reset-current-view');
+  if (resetCurrentView) {
+    resetCurrentView.addEventListener('click', resetCurrentLab);
+  }
+
+  const playbackToggle = document.getElementById('playback-toggle');
+  if (playbackToggle) {
+    playbackToggle.addEventListener('click', togglePlayback);
+  }
+
+  const resetPlayback = document.getElementById('reset-playback-view');
+  if (resetPlayback) {
+    resetPlayback.addEventListener('click', resetPlaybackView);
+  }
+
+  document.querySelectorAll('[data-playback-step]').forEach((button) => {
+    button.addEventListener('click', () => stepPlayback(Number(button.dataset.playbackStep)));
+  });
 }
 
 function updateStatePath(path, rawValue) {
-  const parts = path.split('.');
-  let target = state;
-  for (let i = 0; i < parts.length - 1; i += 1) target = target[parts[i]];
-  const key = parts[parts.length - 1];
-  target[key] = Number.isNaN(Number(rawValue)) || rawValue === '' ? rawValue : Number(rawValue);
-  state = sanitizeState(state);
+  const value = Number.isNaN(Number(rawValue)) || rawValue === '' ? rawValue : Number(rawValue);
+  setStatePath(path, value);
   render();
 }
 
@@ -978,7 +1219,7 @@ function hydrateCanvases() {
   if (state.activeLab === 'mhd') {
     drawHeatmap('heat-before', latestAnalysis.beforeDiv);
     drawHeatmap('heat-exact', latestAnalysis.afterExactDiv);
-    drawHeatmap('heat-glm', latestAnalysis.afterGlmDiv);
+    drawHeatmap('heat-glm', latestAnalysis.selectedGlmDiv);
   }
   if (state.activeLab === 'cfd') {
     drawHeatmap('cfd-periodic-before', latestAnalysis.periodicBeforeDiv);
@@ -989,7 +1230,7 @@ function hydrateCanvases() {
   if (state.activeLab === 'gauge') {
     drawHeatmap('gauge-before', latestAnalysis.beforeDiv);
     drawHeatmap('gauge-exact', latestAnalysis.afterExactDiv);
-    drawHeatmap('gauge-glm', latestAnalysis.afterGlmDiv);
+    drawHeatmap('gauge-glm', latestAnalysis.selectedGlmDiv);
   }
   if (state.activeLab === 'qec') {
     const mount = document.getElementById('qec-overlap-table');
@@ -1065,7 +1306,7 @@ function barChartSvg(series) {
   `;
 }
 
-function lineChartSvg(points, xLabel, yLabel) {
+function lineChartSvg(points, xLabel, yLabel, markerX = null) {
   const width = 540;
   const height = 260;
   const left = 48;
@@ -1081,12 +1322,26 @@ function lineChartSvg(points, xLabel, yLabel) {
   const xScale = (value) => left + ((value - xMin) / Math.max(xMax - xMin, 1e-9)) * (width - left - right);
   const yScale = (value) => height - bottom - ((value - yMin) / Math.max(yMax - yMin, 1e-9)) * (height - top - bottom);
   const path = points.map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.x)} ${yScale(point.y)}`).join(' ');
+  const marker = markerX === null
+    ? ''
+    : (() => {
+        const chosen = points.reduce((best, point) =>
+          Math.abs(point.x - markerX) < Math.abs(best.x - markerX) ? point : best
+        );
+        const x = xScale(chosen.x);
+        const y = yScale(chosen.y);
+        return `
+          <line x1="${x}" y1="${top}" x2="${x}" y2="${height - bottom}" stroke="rgba(28,29,33,0.18)" stroke-dasharray="5 5" />
+          <circle cx="${x}" cy="${y}" r="5" fill="#1c1d21" stroke="#fffdf8" stroke-width="2" />
+        `;
+      })();
   return `
     <svg viewBox="0 0 ${width} ${height}" aria-label="Line chart">
       <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.78)" />
       <line x1="${left}" y1="${height - bottom}" x2="${width - right}" y2="${height - bottom}" stroke="rgba(28,29,33,0.18)" />
       <line x1="${left}" y1="${top}" x2="${left}" y2="${height - bottom}" stroke="rgba(28,29,33,0.18)" />
       <path d="${path}" fill="none" stroke="#9c5b2a" stroke-width="3" stroke-linecap="round" />
+      ${marker}
       <text x="${width / 2}" y="${height - 10}" text-anchor="middle" font-size="12" fill="#5d625e">${xLabel}</text>
       <text x="16" y="${height / 2}" transform="rotate(-90 16 ${height / 2})" text-anchor="middle" font-size="12" fill="#5d625e">${yLabel}</text>
     </svg>

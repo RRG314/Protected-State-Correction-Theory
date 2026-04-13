@@ -470,6 +470,7 @@ export function analyzeMhdProjection(config) {
   const n = Number(config.gridSize);
   const contamination = Number(config.contamination);
   const glmSteps = Number(config.glmSteps);
+  const selectedFrame = clamp(Number(config.frame ?? glmSteps), 0, glmSteps);
   const { h, Bx, By } = makeField(n, contamination);
   const beforeDiv = divergence2d(Bx, By, h);
   const projection = helmholtzProject2d(Bx, By, h, Number(config.poissonIterations));
@@ -478,22 +479,29 @@ export function analyzeMhdProjection(config) {
   let BxGlm = cloneMatrix(Bx);
   let ByGlm = cloneMatrix(By);
   const glmHistory = [l2NormField(beforeDiv)];
+  const glmFrames = [beforeDiv];
   for (let step = 0; step < glmSteps; step += 1) {
     const next = glmStep2d(BxGlm, ByGlm, psi, h, Number(config.dt), Number(config.ch), Number(config.cp));
     BxGlm = next.Bx;
     ByGlm = next.By;
     psi = next.psi;
-    glmHistory.push(l2NormField(divergence2d(BxGlm, ByGlm, h)));
+    const currentDiv = divergence2d(BxGlm, ByGlm, h);
+    glmHistory.push(l2NormField(currentDiv));
+    glmFrames.push(currentDiv);
   }
   const afterGlmDiv = divergence2d(BxGlm, ByGlm, h);
   return {
     beforeDiv,
     afterExactDiv,
     afterGlmDiv,
+    glmFrames,
     beforeNorm: l2NormField(beforeDiv),
     afterExactNorm: l2NormField(afterExactDiv),
     afterGlmNorm: l2NormField(afterGlmDiv),
     glmHistory,
+    selectedFrame,
+    selectedGlmDiv: glmFrames[selectedFrame],
+    selectedGlmNorm: glmHistory[selectedFrame],
     exactImprovementFactor: l2NormField(beforeDiv) / Math.max(l2NormField(afterExactDiv), 1e-12),
     glmImprovementFactor: l2NormField(beforeDiv) / Math.max(l2NormField(afterGlmDiv), 1e-12),
   };
@@ -700,15 +708,17 @@ function flowMatrix(K, totalTime) {
 export function analyzeContinuousGenerator(config) {
   const K = config.matrix;
   const x0 = config.x0;
+  const totalTime = Number(config.time);
+  const steps = Number(config.steps);
   const kernelBasis = nullSpace(K);
   const disturbanceBasis = orthogonalComplement(kernelBasis, K.length);
   const pS = projectorFromBasis(kernelBasis, K.length);
   const pD = projectorFromBasis(disturbanceBasis, K.length);
-  const path = rungeKutta4(K, x0, Number(config.time), Number(config.steps));
+  const path = rungeKutta4(K, x0, totalTime, steps);
   const xt = path[path.length - 1];
   const protectedDrift = norm(subVec(matVec(pS, xt), matVec(pS, x0)));
   const disturbanceNorms = path.map((point) => norm(matVec(pD, point)));
-  const flow = flowMatrix(K, Number(config.time));
+  const flow = flowMatrix(K, totalTime);
   const exactResidualMatrix = (() => {
     const ss = matMul(matMul(pS, flow), pS);
     const sd = matMul(matMul(pS, flow), pD);
@@ -718,6 +728,9 @@ export function analyzeContinuousGenerator(config) {
     return [frobeniusNorm(subMat(ss, pSOnly)), frobeniusNorm(sd), frobeniusNorm(ds), frobeniusNorm(dd)];
   })();
   const mixingNorm = frobeniusNorm(matMul(matMul(pS, K), pD));
+  const selectedFrame = clamp(Number(config.frame ?? steps), 0, steps);
+  const selectedState = path[selectedFrame];
+  const selectedTime = (selectedFrame / Math.max(steps, 1)) * totalTime;
   return {
     kernelBasis,
     disturbanceBasis,
@@ -727,6 +740,9 @@ export function analyzeContinuousGenerator(config) {
     disturbanceNorms,
     path,
     xt,
+    selectedFrame,
+    selectedState,
+    selectedTime,
     mixingNorm,
     exactRecoveryResidual: Math.max(...exactResidualMatrix),
     finiteTimeExactRecoveryPossible: disturbanceBasis.length === 0 ? true : Math.max(...exactResidualMatrix) < 1e-6,

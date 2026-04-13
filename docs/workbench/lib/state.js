@@ -16,6 +16,7 @@ export const DEFAULT_STATE = {
       gridSize: 14,
       contamination: 0.22,
       glmSteps: 8,
+      frame: 8,
       poissonIterations: 320,
       dt: 0.05,
       ch: 1,
@@ -31,6 +32,7 @@ export const DEFAULT_STATE = {
       gridSize: 14,
       contamination: 0.18,
       glmSteps: 8,
+      frame: 8,
       poissonIterations: 320,
       dt: 0.05,
       ch: 1,
@@ -46,6 +48,7 @@ export const DEFAULT_STATE = {
       x0: [2, -1, 0.5],
       time: 2,
       steps: 280,
+      frame: 280,
     },
     nogo: {
       example: 'finite-time',
