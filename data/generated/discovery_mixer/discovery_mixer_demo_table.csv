@@ -1,0 +1,6 @@
+demo,family,regime,exact,unsupported,root_cause,chosen_fix,after_regime
+periodic_user_builder,periodic,impossible,False,False,The cutoff misses part of the protected support.,Raise cutoff to 4,exact
+control_history_builder,control,impossible,False,False,The finite history is too short for the requested target.,Increase horizon to 3,exact
+weaker_stronger_split,periodic,impossible,False,False,The cutoff misses part of the protected support.,Raise cutoff to 4,exact
+custom_matrix_builder,linear,impossible,False,False,Current record row space is insufficient.,Add 1 candidate row,exact
+random_discovery_case,linear,impossible,False,False,Current record row space is insufficient.,Add 1 candidate row,exact

@@ -17,6 +17,7 @@ The strongest current picture is:
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - a Structural Discovery subsystem that can diagnose failure, propose a supported repair, and validate before/after regime changes on multiple families,
+- a Discovery Mixer / Structural Composition Lab that can compose supported families, parse controlled custom linear input, run constrained random search, and test supported fixes on user-built systems,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - a visible branch-audit and open-problem program layer,
@@ -25,15 +26,16 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `304`
+- tracked-like files: `334`
+- GitHub/community files: `5`
 - root files: `19`
 - archive files: `8`
-- data files: `24`
-- docs files: `138`
+- data files: `26`
+- docs files: `155`
 - papers files: `6`
-- scripts files: `20`
-- source files: `36`
-- test files: `41`
+- scripts files: `21`
+- source files: `39`
+- test files: `48`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -93,6 +95,23 @@ Primary claim artifacts:
 - [docs/theorem-candidates/constrained-observation-theorems.md](docs/theorem-candidates/constrained-observation-theorems.md)
 - [docs/theorem-candidates/pvrt-theorem-spine.md](docs/theorem-candidates/pvrt-theorem-spine.md)
 - [docs/impossibility-results/constrained-observation-no-go.md](docs/impossibility-results/constrained-observation-no-go.md)
+
+### Discovery Mixer subsystem
+- [docs/discovery-mixer/overview.md](docs/discovery-mixer/overview.md)
+- [docs/discovery-mixer/supported-scope.md](docs/discovery-mixer/supported-scope.md)
+- [docs/discovery-mixer/structured-mixer-guide.md](docs/discovery-mixer/structured-mixer-guide.md)
+- [docs/discovery-mixer/custom-input-guide.md](docs/discovery-mixer/custom-input-guide.md)
+- [docs/discovery-mixer/random-exploration-guide.md](docs/discovery-mixer/random-exploration-guide.md)
+- [docs/discovery-mixer/building-block-reference.md](docs/discovery-mixer/building-block-reference.md)
+- [docs/discovery-mixer/compatibility-rules.md](docs/discovery-mixer/compatibility-rules.md)
+- [docs/discovery-mixer/diagnostics-guide.md](docs/discovery-mixer/diagnostics-guide.md)
+- [docs/discovery-mixer/augmentation-guide.md](docs/discovery-mixer/augmentation-guide.md)
+- [docs/discovery-mixer/demo-walkthroughs.md](docs/discovery-mixer/demo-walkthroughs.md)
+- [docs/discovery-mixer/export-guide.md](docs/discovery-mixer/export-guide.md)
+- [docs/discovery-mixer/limitations.md](docs/discovery-mixer/limitations.md)
+- [docs/discovery-mixer/developer-reference.md](docs/discovery-mixer/developer-reference.md)
+- [docs/discovery-mixer/validation.md](docs/discovery-mixer/validation.md)
+- [docs/discovery-mixer/final-report.md](docs/discovery-mixer/final-report.md)
 
 ### CFD extension
 - [docs/cfd/cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
@@ -211,7 +230,14 @@ Status: `active theorem-linked engineering subsystem`
 - operator: diagnosis plus validated augmentation / redesign recommendation
 - main value: turn the strongest recoverability and design results into an end-to-end failure-to-repair workflow
 
-### 12. Rejected branch
+### 12. Discovery Mixer / Structural Composition Lab
+Status: `active theorem-linked composition-and-discovery subsystem`
+- protected object: branch-specific protected variable or protected functional selected by the user
+- disturbance object: hidden support, nullspace ambiguity, short history, architecture mismatch, or unsupported symbolic reduction
+- operator: typed composition engine plus supported family analyzers and augmentation logic
+- main value: let users build supported systems directly, diagnose structural failure, test supported fixes, and export evidence without pretending to solve arbitrary symbolic mathematics
+
+### 13. Rejected branch
 - naive periodic-projector reuse for bounded-domain exact correction
 - generic constrained Hamiltonian automatic-fit language
 - optimizer / ML bridge material as a main theory lane
@@ -263,10 +289,12 @@ Workbench docs:
 - [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
 - [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
 - [docs/app/structural-discovery-studio.md](docs/app/structural-discovery-studio.md)
+- [docs/app/discovery-mixer-structural-composition-lab.md](docs/app/discovery-mixer-structural-composition-lab.md)
 - [docs/app/benchmark-validation-console.md](docs/app/benchmark-validation-console.md)
 
 Workbench modules:
 - Structural Discovery Studio
+- Discovery Mixer / Structural Composition Lab
 - Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
@@ -313,9 +341,10 @@ Validation status:
 - naming consistency check: passed
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Structural Discovery Studio: passed
+- real browser smoke of the Discovery Mixer: passed
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
-- Node workbench tests: `21 passed`
-- Python theorem/operator/example tests: `101 passed`
+- Node workbench tests: `26 passed`
+- Python theorem/operator/example tests: `110 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)

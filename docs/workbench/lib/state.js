@@ -90,6 +90,45 @@ export const DEFAULT_STATE = {
       suite: 'all',
       selectedDemo: 'periodic_modal_repair',
     },
+    mixer: {
+      mode: 'structured',
+      family: 'linear',
+      demoKey: 'periodic_builder',
+      structuredDelta: 1,
+      structuredLinearProtected: 'x3',
+      structuredLinearMeasurements: {
+        measure_x1: true,
+        measure_x2_plus_x3: true,
+        measure_x2: false,
+        measure_x3: false,
+        measure_x1_plus_x2: false,
+      },
+      structuredPeriodicProtected: 'full_weighted_sum',
+      structuredPeriodicObservation: 'cutoff_vorticity',
+      structuredPeriodicCutoff: 3,
+      structuredControlProfile: 'three_active',
+      structuredControlFunctional: 'second_moment',
+      structuredControlHorizon: 2,
+      structuredBoundaryArchitecture: 'periodic_transplant',
+      structuredBoundaryProtected: 'bounded_velocity_class',
+      structuredBoundaryGridSize: 17,
+      customFamily: 'linear',
+      customDelta: 1,
+      customLinearDimension: 3,
+      customLinearObservationText: 'x1\nx2 + x3',
+      customLinearProtectedText: 'x3',
+      customLinearCandidateText: 'x2\nx3\nx1 + x2',
+      customPeriodicFunctionalText: 'a1 + a2 + a4',
+      customPeriodicObservation: 'cutoff_vorticity',
+      customPeriodicCutoff: 2,
+      customControlSensorProfileText: '1,0.4,0.2,0',
+      customControlTargetText: 'x3',
+      customControlHorizon: 2,
+      randomFamily: 'linear',
+      randomSeed: 37,
+      randomObjective: 'failure',
+      randomTrials: 16,
+    },
   },
 };
 
@@ -182,6 +221,9 @@ export function scenarioEvidenceLevel(state, analysis) {
   if (activeLab === 'benchmark') {
     return 'validated workbench benchmark and regression surface';
   }
+  if (activeLab === 'mixer') {
+    return analysis?.theoremStatus ?? 'typed composition and discovery surface';
+  }
   return analysis?.theoremStatus ?? 'workbench output';
 }
 
@@ -229,6 +271,11 @@ export function exportScenarioReport(state, analysis) {
         `- narrative: ${analysis.comparison.narrative}`,
       ].join('\n')
     : '- no before/after comparison available for the current state';
+  const objectLines = Array.isArray(analysis?.objects)
+    ? analysis.objects
+        .map((item) => `- ${item.objectType}: ${item.label} (${item.supportStatus ?? item.theoremStatus ?? 'status not set'})`)
+        .join('\n')
+    : '';
   return [
     `# ${title}`,
     '',
@@ -264,6 +311,10 @@ export function exportScenarioReport(state, analysis) {
     '## Recommendations',
     '',
     recommendations || '- no additional recommendation list for the current lab',
+    '',
+    activeLab === 'mixer' ? '## Typed Objects' : null,
+    '',
+    activeLab === 'mixer' ? objectLines || '- no typed object inventory available' : null,
     '',
     '## Before / After',
     '',
@@ -312,6 +363,13 @@ export function exportScenarioCsv(state, analysis) {
       [row.demo, row.family, row.beforeRegime, row.afterRegime, row.metricName, row.metricBefore, row.metricAfter, row.fixTitle]
         .map((value) => `"${String(value).replaceAll('"', '""')}"`)
         .join(',')
+    );
+    return [header.join(','), ...body].join('\n');
+  }
+  if (activeLab === 'mixer' && Array.isArray(analysis?.exportRows) && analysis.exportRows.length) {
+    const header = Object.keys(analysis.exportRows[0]);
+    const body = analysis.exportRows.map((row) =>
+      header.map((key) => `"${String(row[key] ?? '').replaceAll('"', '""')}"`).join(',')
     );
     return [header.join(','), ...body].join('\n');
   }

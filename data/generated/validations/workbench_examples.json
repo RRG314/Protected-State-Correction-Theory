@@ -1241,6 +1241,953 @@
       }
     ]
   },
+  "mixerStructuredLinear": {
+    "title": "Structured restricted-linear composition",
+    "mode": "structured",
+    "family": "linear",
+    "familyLabel": "Restricted-linear family",
+    "validity": "supported",
+    "regime": "impossible",
+    "status": "Impossible",
+    "exact": false,
+    "approximate": false,
+    "asymptotic": false,
+    "impossible": true,
+    "unsupported": false,
+    "theoremStatus": "theorem-backed restricted-linear result",
+    "supportScope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
+    "protectedLabel": "1 protected row(s)",
+    "observationLabel": "2 observation row(s)",
+    "architectureLabel": "restricted-linear exact recovery / augmentation search",
+    "targetSplitSummary": "coordinate x1",
+    "rootCause": "Current record row space is insufficient.",
+    "missingStructure": "Add rows until the protected rows lie in the record row space.",
+    "objects": [
+      {
+        "objectId": "state-space",
+        "label": "3-dimensional state space",
+        "objectType": "state_space",
+        "family": "linear",
+        "domain": "—",
+        "codomain": "R^3",
+        "dimension": "3",
+        "basis": "x1, x2, x3",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "shared dimension",
+          "declared coordinate basis"
+        ],
+        "notes": [
+          "admissible family is the coefficient box [-1,1]^n"
+        ]
+      },
+      {
+        "objectId": "record-map",
+        "label": "Observation / record map",
+        "objectType": "record_map",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^2",
+        "dimension": "2x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "row width must equal state dimension"
+        ],
+        "notes": [
+          "2 active observation row(s)"
+        ]
+      },
+      {
+        "objectId": "protected-target",
+        "label": "Protected target",
+        "objectType": "protected_variable",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^1",
+        "dimension": "1x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "target rows must share state dimension"
+        ],
+        "notes": [
+          "1 protected row(s)"
+        ]
+      },
+      {
+        "objectId": "candidate-augmentations",
+        "label": "Candidate augmentation library",
+        "objectType": "augmentation_candidate",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^3",
+        "dimension": "3x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "candidate rows must share state dimension"
+        ],
+        "notes": [
+          "searched only inside the provided candidate library"
+        ]
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "code": "rowspace-deficiency",
+        "title": "Record map does not separate the protected target",
+        "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
+        "theoremStatus": "theorem-backed restricted-linear result"
+      },
+      {
+        "severity": "warning",
+        "code": "collision-gap",
+        "title": "A protected collision gap survives at zero noise",
+        "detail": "The current κ(0) witness is 2.000e+0.",
+        "theoremStatus": "theorem-backed restricted-linear result"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "Add 1 candidate row",
+        "actionKind": "add_measurement",
+        "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
+        "theoremStatus": "theorem-backed restricted-linear result",
+        "minimal": true,
+        "availableInStudio": true,
+        "patch": {
+          "mode": "structured",
+          "family": "linear",
+          "structuredLinearProtected": "x3",
+          "structuredLinearMeasurements": {
+            "measure_x1": true,
+            "measure_x2": true,
+            "measure_x3": false,
+            "measure_x2_plus_x3": true,
+            "measure_x1_plus_x2": false
+          },
+          "structuredDelta": 1
+        }
+      },
+      {
+        "title": "Weaken target to coordinate x1",
+        "actionKind": "weaken_target",
+        "rationale": "The current record already supports this weaker basis target exactly.",
+        "theoremStatus": "theorem-backed restricted-linear result",
+        "minimal": false,
+        "availableInStudio": false
+      }
+    ],
+    "chosenRecommendation": {
+      "title": "Add 1 candidate row",
+      "actionKind": "add_measurement",
+      "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
+      "theoremStatus": "theorem-backed restricted-linear result",
+      "minimal": true,
+      "availableInStudio": true,
+      "patch": {
+        "mode": "structured",
+        "family": "linear",
+        "structuredLinearProtected": "x3",
+        "structuredLinearMeasurements": {
+          "measure_x1": true,
+          "measure_x2": true,
+          "measure_x3": false,
+          "measure_x2_plus_x3": true,
+          "measure_x1_plus_x2": false
+        },
+        "structuredDelta": 1
+      }
+    },
+    "comparison": {
+      "beforeRegime": "impossible",
+      "afterRegime": "exact",
+      "keyMetricName": "κ(0)",
+      "keyMetricBefore": 2,
+      "keyMetricAfter": 0,
+      "narrative": "Adding the proposed rows removes the protected collision gap by repairing the row-space deficiency.",
+      "changed": true
+    },
+    "theoremLinks": [
+      "../theorem-candidates/constrained-observation-theorems.md",
+      "../theorem-candidates/capacity-theorems.md"
+    ],
+    "supportedCalculations": [
+      "rank checks",
+      "row-space residual",
+      "collision-gap analysis",
+      "candidate-library minimal augmentation search",
+      "weaker basis-target scan"
+    ],
+    "rawDetails": {
+      "observationMatrix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "protectedMatrix": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidateRows": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "rankObservation": 2,
+      "rankProtected": 1,
+      "rowResiduals": [
+        0.7071067811865476
+      ],
+      "collisionGap": 2,
+      "selectedDelta": 1,
+      "minimalAddedRows": 1,
+      "candidateExactSets": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "weakerBasisTargets": [
+        "coordinate x1"
+      ]
+    },
+    "exportRows": [
+      {
+        "family": "linear",
+        "regime": "impossible",
+        "rankObservation": 2,
+        "rankProtected": 1,
+        "rowspaceResidual": 0.7071067811865476,
+        "collisionGap": 2,
+        "minimalAddedRows": 1
+      }
+    ]
+  },
+  "mixerPeriodicDemo": {
+    "title": "Structured periodic composition",
+    "mode": "structured",
+    "family": "periodic",
+    "familyLabel": "Periodic modal family",
+    "validity": "supported",
+    "regime": "impossible",
+    "status": "Impossible",
+    "exact": false,
+    "approximate": false,
+    "asymptotic": false,
+    "impossible": true,
+    "unsupported": false,
+    "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+    "supportScope": "Periodic modal family on the supported finite four-mode benchmark.",
+    "protectedLabel": "full weighted modal sum",
+    "observationLabel": "cutoff vorticity coordinates (cutoff 3)",
+    "architectureLabel": "Increase retained record complexity",
+    "targetSplitSummary": "leading modal coefficient, first two modal coefficients, low-mode weighted sum, band-limited contrast functional",
+    "rootCause": "The retained cutoff misses part of the protected modal support.",
+    "missingStructure": "Raise the cutoff from 3 to at least 4.",
+    "objects": [
+      {
+        "objectId": "periodic-family",
+        "label": "Periodic modal family",
+        "objectType": "admissible_family",
+        "family": "periodic",
+        "domain": "modal coefficients",
+        "codomain": "periodic record",
+        "dimension": "four-mode basis",
+        "basis": "a1..a4",
+        "linearStatus": "linear",
+        "supportStatus": "Family-specific periodic threshold result with repeated falsification",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../cfd/incompressible-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "supported periodic basis"
+        ],
+        "notes": [
+          "family-specific threshold law"
+        ]
+      },
+      {
+        "objectId": "periodic-target",
+        "label": "full weighted modal sum",
+        "objectType": "protected_variable",
+        "family": "periodic",
+        "domain": "modal coefficients",
+        "codomain": "protected value",
+        "dimension": "family-specific",
+        "basis": "a1..a4",
+        "linearStatus": "linear",
+        "supportStatus": "Family-specific periodic threshold result with repeated falsification",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../cfd/incompressible-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "protected support must fit retained support"
+        ],
+        "notes": []
+      },
+      {
+        "objectId": "periodic-record",
+        "label": "cutoff vorticity coordinates (cutoff 3)",
+        "objectType": "record_map",
+        "family": "periodic",
+        "domain": "modal coefficients",
+        "codomain": "record space",
+        "dimension": "family-specific",
+        "basis": "cutoff / vorticity",
+        "linearStatus": "linear",
+        "supportStatus": "Family-specific periodic threshold result with repeated falsification",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../cfd/incompressible-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "supported periodic record choices"
+        ],
+        "notes": []
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "code": "structured-periodic-0",
+        "title": "Periodic support check",
+        "detail": "Protected-support cutoff law",
+        "theoremStatus": "Family-specific periodic threshold result with repeated falsification"
+      },
+      {
+        "severity": "warning",
+        "code": "structured-periodic-1",
+        "title": "Derived diagnosis",
+        "detail": "The retained cutoff misses part of the protected modal support.",
+        "theoremStatus": "Family-specific periodic threshold result with repeated falsification"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "raise-periodic-cutoff",
+        "title": "Raise cutoff to 4",
+        "actionKind": "add_mode",
+        "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+        "rationale": "The current retained support misses part of the protected target; exact recovery begins at the first cutoff containing the whole protected support.",
+        "minimal": true,
+        "expectedRegime": "exact",
+        "patch": {
+          "mode": "structured",
+          "family": "periodic",
+          "structuredPeriodicProtected": "full_weighted_sum",
+          "structuredPeriodicObservation": "cutoff_vorticity",
+          "structuredPeriodicCutoff": 4,
+          "structuredDelta": 2
+        },
+        "availableInStudio": true
+      },
+      {
+        "id": "weaken-periodic-mode_1_coefficient",
+        "title": "Weaken target to leading modal coefficient",
+        "actionKind": "weaken_target",
+        "theoremStatus": "Family-specific periodic support threshold result",
+        "rationale": "This weaker target already lives on the currently visible modal support.",
+        "minimal": false,
+        "expectedRegime": "exact",
+        "patch": {
+          "mode": "structured",
+          "family": "periodic",
+          "structuredPeriodicProtected": "full_weighted_sum",
+          "structuredPeriodicObservation": "cutoff_vorticity",
+          "structuredPeriodicCutoff": 3,
+          "structuredDelta": 2
+        },
+        "availableInStudio": true
+      },
+      {
+        "id": "weaken-periodic-modes_1_2_coefficients",
+        "title": "Weaken target to first two modal coefficients",
+        "actionKind": "weaken_target",
+        "theoremStatus": "Family-specific periodic support threshold result",
+        "rationale": "This weaker target already lives on the currently visible modal support.",
+        "minimal": false,
+        "expectedRegime": "exact",
+        "patch": {
+          "mode": "structured",
+          "family": "periodic",
+          "structuredPeriodicProtected": "full_weighted_sum",
+          "structuredPeriodicObservation": "cutoff_vorticity",
+          "structuredPeriodicCutoff": 3,
+          "structuredDelta": 2
+        },
+        "availableInStudio": true
+      },
+      {
+        "id": "weaken-periodic-low_mode_sum",
+        "title": "Weaken target to low-mode weighted sum",
+        "actionKind": "weaken_target",
+        "theoremStatus": "Family-specific periodic support threshold result",
+        "rationale": "This weaker target already lives on the currently visible modal support.",
+        "minimal": false,
+        "expectedRegime": "exact",
+        "patch": {
+          "mode": "structured",
+          "family": "periodic",
+          "structuredPeriodicProtected": "full_weighted_sum",
+          "structuredPeriodicObservation": "cutoff_vorticity",
+          "structuredPeriodicCutoff": 3,
+          "structuredDelta": 2
+        },
+        "availableInStudio": true
+      },
+      {
+        "id": "weaken-periodic-bandlimited_contrast",
+        "title": "Weaken target to band-limited contrast functional",
+        "actionKind": "weaken_target",
+        "theoremStatus": "Family-specific periodic support threshold result",
+        "rationale": "This weaker target already lives on the currently visible modal support.",
+        "minimal": false,
+        "expectedRegime": "exact",
+        "patch": {
+          "mode": "structured",
+          "family": "periodic",
+          "structuredPeriodicProtected": "full_weighted_sum",
+          "structuredPeriodicObservation": "cutoff_vorticity",
+          "structuredPeriodicCutoff": 3,
+          "structuredDelta": 2
+        },
+        "availableInStudio": true
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "raise-periodic-cutoff",
+      "title": "Raise cutoff to 4",
+      "actionKind": "add_mode",
+      "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+      "rationale": "The current retained support misses part of the protected target; exact recovery begins at the first cutoff containing the whole protected support.",
+      "minimal": true,
+      "expectedRegime": "exact",
+      "patch": {
+        "mode": "structured",
+        "family": "periodic",
+        "structuredPeriodicProtected": "full_weighted_sum",
+        "structuredPeriodicObservation": "cutoff_vorticity",
+        "structuredPeriodicCutoff": 4,
+        "structuredDelta": 2
+      },
+      "availableInStudio": true
+    },
+    "comparison": {
+      "beforeRegime": "impossible",
+      "afterRegime": "exact",
+      "regimeChanged": true,
+      "keyMetricName": "κ(0)",
+      "keyMetricBefore": 0.5,
+      "keyMetricAfter": 0,
+      "exactAfter": true,
+      "asymptoticAfter": false,
+      "impossibleAfter": false,
+      "narrative": "The proposed augmentation adds the missing structure identified by the current failure analysis and changes the recoverability verdict."
+    },
+    "theoremLinks": [
+      "../theorem-candidates/constrained-observation-theorems.md",
+      "../cfd/incompressible-projection.md"
+    ],
+    "supportedCalculations": [
+      "threshold detection",
+      "same-record weaker-target detection",
+      "before/after cutoff comparison"
+    ],
+    "rawDetails": {
+      "predictedMinCutoff": 4,
+      "kappa0": 0.5,
+      "selectedDelta": 2
+    },
+    "exportRows": [
+      {
+        "family": "periodic",
+        "predictedMinCutoff": 4,
+        "kappa0": 0.5,
+        "selectedDelta": 2
+      }
+    ]
+  },
+  "mixerCustomLinear": {
+    "title": "Custom restricted-linear composition",
+    "mode": "custom",
+    "family": "linear",
+    "familyLabel": "Restricted-linear family",
+    "validity": "supported",
+    "regime": "impossible",
+    "status": "Impossible",
+    "exact": false,
+    "approximate": false,
+    "asymptotic": false,
+    "impossible": true,
+    "unsupported": false,
+    "theoremStatus": "theorem-backed restricted-linear result",
+    "supportScope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
+    "protectedLabel": "1 protected row(s)",
+    "observationLabel": "2 observation row(s)",
+    "architectureLabel": "restricted-linear exact recovery / augmentation search",
+    "targetSplitSummary": "coordinate x1",
+    "rootCause": "Current record row space is insufficient.",
+    "missingStructure": "Add rows until the protected rows lie in the record row space.",
+    "objects": [
+      {
+        "objectId": "state-space",
+        "label": "3-dimensional state space",
+        "objectType": "state_space",
+        "family": "linear",
+        "domain": "—",
+        "codomain": "R^3",
+        "dimension": "3",
+        "basis": "x1, x2, x3",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "shared dimension",
+          "declared coordinate basis"
+        ],
+        "notes": [
+          "admissible family is the coefficient box [-1,1]^n"
+        ]
+      },
+      {
+        "objectId": "record-map",
+        "label": "Observation / record map",
+        "objectType": "record_map",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^2",
+        "dimension": "2x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "row width must equal state dimension"
+        ],
+        "notes": [
+          "2 active observation row(s)"
+        ]
+      },
+      {
+        "objectId": "protected-target",
+        "label": "Protected target",
+        "objectType": "protected_variable",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^1",
+        "dimension": "1x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "target rows must share state dimension"
+        ],
+        "notes": [
+          "1 protected row(s)"
+        ]
+      },
+      {
+        "objectId": "candidate-augmentations",
+        "label": "Candidate augmentation library",
+        "objectType": "augmentation_candidate",
+        "family": "linear",
+        "domain": "R^3",
+        "codomain": "R^3",
+        "dimension": "3x3",
+        "basis": "row representation",
+        "linearStatus": "linear",
+        "supportStatus": "theorem-backed restricted-linear result",
+        "theoremLinks": [
+          "../theorem-candidates/constrained-observation-theorems.md",
+          "../theorem-candidates/capacity-theorems.md"
+        ],
+        "compatibilityRequirements": [
+          "candidate rows must share state dimension"
+        ],
+        "notes": [
+          "searched only inside the provided candidate library"
+        ]
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "code": "rowspace-deficiency",
+        "title": "Record map does not separate the protected target",
+        "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
+        "theoremStatus": "theorem-backed restricted-linear result"
+      },
+      {
+        "severity": "warning",
+        "code": "collision-gap",
+        "title": "A protected collision gap survives at zero noise",
+        "detail": "The current κ(0) witness is 2.000e+0.",
+        "theoremStatus": "theorem-backed restricted-linear result"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "Add 1 candidate row",
+        "actionKind": "add_measurement",
+        "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
+        "theoremStatus": "theorem-backed restricted-linear result",
+        "minimal": true,
+        "availableInStudio": true,
+        "patch": {
+          "mode": "custom",
+          "customFamily": "linear",
+          "customLinearObservationText": "1,0,0\n0,1,1\n0,1,0"
+        }
+      },
+      {
+        "title": "Weaken target to coordinate x1",
+        "actionKind": "weaken_target",
+        "rationale": "The current record already supports this weaker basis target exactly.",
+        "theoremStatus": "theorem-backed restricted-linear result",
+        "minimal": false,
+        "availableInStudio": false
+      }
+    ],
+    "chosenRecommendation": {
+      "title": "Add 1 candidate row",
+      "actionKind": "add_measurement",
+      "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
+      "theoremStatus": "theorem-backed restricted-linear result",
+      "minimal": true,
+      "availableInStudio": true,
+      "patch": {
+        "mode": "custom",
+        "customFamily": "linear",
+        "customLinearObservationText": "1,0,0\n0,1,1\n0,1,0"
+      }
+    },
+    "comparison": {
+      "beforeRegime": "impossible",
+      "afterRegime": "exact",
+      "keyMetricName": "κ(0)",
+      "keyMetricBefore": 2,
+      "keyMetricAfter": 0,
+      "narrative": "Adding the proposed rows removes the protected collision gap by repairing the row-space deficiency.",
+      "changed": true
+    },
+    "theoremLinks": [
+      "../theorem-candidates/constrained-observation-theorems.md",
+      "../theorem-candidates/capacity-theorems.md"
+    ],
+    "supportedCalculations": [
+      "rank checks",
+      "row-space residual",
+      "collision-gap analysis",
+      "candidate-library minimal augmentation search",
+      "weaker basis-target scan"
+    ],
+    "rawDetails": {
+      "observationMatrix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "protectedMatrix": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidateRows": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "rankObservation": 2,
+      "rankProtected": 1,
+      "rowResiduals": [
+        0.7071067811865476
+      ],
+      "collisionGap": 2,
+      "selectedDelta": 1,
+      "minimalAddedRows": 1,
+      "candidateExactSets": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "weakerBasisTargets": [
+        "coordinate x1"
+      ]
+    },
+    "exportRows": [
+      {
+        "family": "linear",
+        "regime": "impossible",
+        "rankObservation": 2,
+        "rankProtected": 1,
+        "rowspaceResidual": 0.7071067811865476,
+        "collisionGap": 2,
+        "minimalAddedRows": 1
+      }
+    ]
+  },
+  "mixerBoundary": {
+    "title": "Structured bounded-domain composition",
+    "mode": "structured",
+    "family": "boundary",
+    "familyLabel": "Bounded-domain architecture benchmark",
+    "validity": "supported",
+    "regime": "impossible",
+    "status": "Impossible",
+    "exact": false,
+    "approximate": false,
+    "asymptotic": false,
+    "impossible": true,
+    "unsupported": false,
+    "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+    "supportScope": "Restricted bounded-domain family with compatible Hodge replacement.",
+    "protectedLabel": "bounded velocity class with boundary compatibility",
+    "observationLabel": "periodic transplant",
+    "architectureLabel": "periodic transplant",
+    "targetSplitSummary": "bulk divergence certificate only",
+    "rootCause": "The transplanted periodic projector is incompatible with the bounded protected class.",
+    "missingStructure": "Use the boundary-compatible finite-mode Hodge family.",
+    "objects": [
+      {
+        "objectId": "boundary-family",
+        "label": "Bounded finite-mode Hodge family",
+        "objectType": "admissible_family",
+        "family": "boundary",
+        "domain": "field coefficients",
+        "codomain": "bounded velocity class",
+        "dimension": "17",
+        "basis": "boundary-compatible finite-mode basis",
+        "linearStatus": "linear",
+        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "theoremLinks": [
+          "../theorem-candidates/bounded-domain-hodge-theorems.md",
+          "../cfd/bounded-vs-periodic-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "bounded domain",
+          "compatible trace basis"
+        ],
+        "notes": []
+      },
+      {
+        "objectId": "boundary-record",
+        "label": "periodic transplant",
+        "objectType": "correction_operator",
+        "family": "boundary",
+        "domain": "bounded velocity class",
+        "codomain": "bounded velocity class",
+        "dimension": "family-specific",
+        "basis": "projector architecture",
+        "linearStatus": "linear",
+        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "theoremLinks": [
+          "../theorem-candidates/bounded-domain-hodge-theorems.md",
+          "../cfd/bounded-vs-periodic-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "projector must respect boundary conditions"
+        ],
+        "notes": []
+      },
+      {
+        "objectId": "boundary-target",
+        "label": "bounded velocity class with boundary compatibility",
+        "objectType": "protected_variable",
+        "family": "boundary",
+        "domain": "bounded velocity class",
+        "codomain": "certificate",
+        "dimension": "family-specific",
+        "basis": "bounded basis",
+        "linearStatus": "linear",
+        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "theoremLinks": [
+          "../theorem-candidates/bounded-domain-hodge-theorems.md",
+          "../cfd/bounded-vs-periodic-projection.md"
+        ],
+        "compatibilityRequirements": [
+          "target must declare whether boundary compatibility matters"
+        ],
+        "notes": []
+      }
+    ],
+    "diagnostics": [
+      {
+        "severity": "error",
+        "code": "boundary-compatibility",
+        "title": "Boundary compatibility check",
+        "detail": "The current projector architecture is incompatible with the bounded protected target.",
+        "theoremStatus": "restricted exact bounded-domain result plus counterexample layer"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "Switch to boundary-compatible Hodge projector",
+        "actionKind": "switch_architecture",
+        "rationale": "The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.",
+        "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "minimal": true,
+        "availableInStudio": true,
+        "patch": {
+          "mode": "structured",
+          "family": "boundary",
+          "structuredBoundaryArchitecture": "boundary_compatible_hodge",
+          "structuredBoundaryProtected": "bounded_velocity_class",
+          "structuredBoundaryGridSize": 17,
+          "structuredDelta": 1
+        }
+      },
+      {
+        "title": "Weaken target to divergence certificate",
+        "actionKind": "weaken_target",
+        "rationale": "The transplanted architecture can support a weaker bulk divergence certificate even though it fails on the strong bounded class.",
+        "theoremStatus": "family-specific weaker-target split",
+        "minimal": false,
+        "availableInStudio": true,
+        "patch": {
+          "mode": "structured",
+          "family": "boundary",
+          "structuredBoundaryArchitecture": "periodic_transplant",
+          "structuredBoundaryProtected": "divergence_certificate",
+          "structuredBoundaryGridSize": 17,
+          "structuredDelta": 1
+        }
+      }
+    ],
+    "chosenRecommendation": {
+      "title": "Switch to boundary-compatible Hodge projector",
+      "actionKind": "switch_architecture",
+      "rationale": "The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.",
+      "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+      "minimal": true,
+      "availableInStudio": true,
+      "patch": {
+        "mode": "structured",
+        "family": "boundary",
+        "structuredBoundaryArchitecture": "boundary_compatible_hodge",
+        "structuredBoundaryProtected": "bounded_velocity_class",
+        "structuredBoundaryGridSize": 17,
+        "structuredDelta": 1
+      }
+    },
+    "comparison": {
+      "beforeRegime": "impossible",
+      "afterRegime": "exact",
+      "keyMetricName": "boundary mismatch",
+      "keyMetricBefore": 0.09676346425415672,
+      "keyMetricAfter": 5.172e-15,
+      "narrative": "Switching to the compatible Hodge architecture removes the boundary mismatch on the restricted admissible family.",
+      "changed": true
+    },
+    "theoremLinks": [
+      "../theorem-candidates/bounded-domain-hodge-theorems.md",
+      "../cfd/bounded-vs-periodic-projection.md"
+    ],
+    "supportedCalculations": [
+      "boundary compatibility check",
+      "architecture swap guidance",
+      "weaker-target alternative"
+    ],
+    "rawDetails": {
+      "boundaryMismatch": 0.09676346425415672,
+      "selectedDelta": 1
+    },
+    "exportRows": [
+      {
+        "family": "boundary",
+        "regime": "impossible",
+        "boundaryMismatch": 0.09676346425415672
+      }
+    ]
+  },
   "exact": {
     "protectedBasis": [
       [

@@ -267,6 +267,55 @@ button.ghost-button {
   gap: 0.85rem;
 }
 
+.workspace-shell {
+  display: grid;
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr) minmax(18rem, 24rem);
+  gap: 1rem;
+  align-items: start;
+}
+
+.navigator-rail,
+.context-rail {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.workspace-column {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.nav-section {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pane-heading.compact {
+  gap: 0.24rem;
+}
+
+.pane-heading.compact p {
+  font-size: 0.94rem;
+}
+
+.quickstart-stack,
+.module-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quickstart-stack .quickstart-card,
+.module-stack .module-card {
+  min-height: auto;
+}
+
 .summary-card {
   padding: 1rem 1.1rem;
   display: grid;
@@ -284,13 +333,6 @@ button.ghost-button {
 .summary-card strong {
   font-size: 1.02rem;
   line-height: 1.35;
-}
-
-.workspace {
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(19rem, 26rem);
-  gap: 1rem;
-  align-items: start;
 }
 
 .lab-shell {
@@ -509,6 +551,10 @@ button.ghost-button {
   display: grid;
   gap: 0.95rem;
   align-content: start;
+}
+
+.context-rail .context-card {
+  box-shadow: none;
 }
 
 .context-card {
@@ -809,6 +855,78 @@ button.ghost-button {
   line-height: 1.4;
 }
 
+.object-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.object-card,
+.diagnostic-card,
+.detail-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.78);
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.object-meta {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.detail-list {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.detail-list li {
+  color: var(--muted);
+  line-height: 1.42;
+}
+
+.diagnostic-list,
+.detail-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.diagnostic-card.success {
+  border-color: rgba(53, 108, 74, 0.22);
+  background: rgba(53, 108, 74, 0.08);
+}
+
+.diagnostic-card.warning,
+.diagnostic-card.error {
+  border-color: rgba(166, 50, 41, 0.22);
+  background: rgba(166, 50, 41, 0.08);
+}
+
+.diagnostic-card.info {
+  border-color: rgba(28, 29, 33, 0.14);
+}
+
+.diagnostic-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+}
+
+.detail-card code,
+.callout code {
+  display: block;
+  white-space: pre-wrap;
+  background: rgba(28,29,33,0.05);
+  padding: 0.72rem;
+  border-radius: 14px;
+  line-height: 1.42;
+}
+
 .matrix-table {
   width: 100%;
   border-collapse: collapse;
@@ -828,7 +946,7 @@ button.ghost-button {
 
 @media (max-width: 1260px) {
   .hero-grid,
-  .workspace,
+  .workspace-shell,
   .lab-body,
   .stage-toolbar,
   .figure-grid.triple,
@@ -836,16 +954,24 @@ button.ghost-button {
   .summary-grid,
   .module-grid,
   .quickstart-grid,
-  .benchmark-module-grid {
+  .benchmark-module-grid,
+  .object-grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .hero-grid,
-  .workspace,
+  .workspace-shell,
   .lab-body,
   .stage-toolbar,
   .stage-toolbar.passive {
     grid-template-columns: 1fr;
+  }
+
+  .navigator-rail,
+  .context-rail {
+    position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .config-pane {
@@ -864,7 +990,8 @@ button.ghost-button {
   .metric-grid,
   .value-grid,
   .before-after-grid,
-  .benchmark-module-grid {
+  .benchmark-module-grid,
+  .object-grid {
     grid-template-columns: 1fr;
   }
 

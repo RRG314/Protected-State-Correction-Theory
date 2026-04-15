@@ -138,3 +138,16 @@ This file turns each major branch into an explicit research program. Each branch
   broader demo families, recommendation-ranking stress tests, brute-force verification of proposed repairs on small families, and browser-vs-script consistency checks.
 - Validation path:
   generated demo artifacts, recommendation application tests, browser smoke on before/after regime changes, and theorem/provenance label checks.
+
+## 11. Discovery Mixer / Structural Composition Lab
+
+- Serious open question:
+  how far can typed composition, controlled custom input, and constrained random search be extended before the subsystem stops being theorem-linked and becomes an unreliable symbolic sandbox?
+- Theorem target:
+  not a standalone broad theorem; the best target is a clean extension of theorem-backed typed augmentation and compatibility logic to more supported families without weakening the current evidence discipline.
+- No-go target:
+  explicit unsupported-case criteria showing when custom input cannot be reduced to any validated family and therefore must be rejected rather than heuristically approximated.
+- Computational attack plan:
+  typed-composition fuzzing, custom-input rejection stress tests, seeded counterexample search, and before/after consistency checks between browser results and offline reports.
+- Validation path:
+  parser tests, typed-rule tests, random-seed reproducibility, demo regressions, export consistency, and browser smoke on the advanced mixer flows.

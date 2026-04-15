@@ -1,0 +1,1139 @@
+{
+  "summary": {
+    "demo_count": 5,
+    "exact_after_count": 5,
+    "unsupported_count": 0
+  },
+  "demos": {
+    "periodic_user_builder": {
+      "title": "Structured periodic composition",
+      "mode": "structured",
+      "family": "periodic",
+      "family_label": "Periodic four-mode modal family",
+      "validity": "supported",
+      "regime": "impossible",
+      "exact": false,
+      "approximate": false,
+      "asymptotic": false,
+      "impossible": true,
+      "unsupported": false,
+      "theorem_status": "family-specific periodic threshold result",
+      "support_scope": "Periodic four-mode family with linear modal functionals.",
+      "protected_label": "full weighted modal sum",
+      "observation_label": "cutoff vorticity",
+      "architecture_label": "periodic modal threshold analysis",
+      "target_split_summary": "The visible-support truncation is recoverable under the same record.",
+      "root_cause": "The cutoff misses part of the protected support.",
+      "missing_structure": "Raise the cutoff to at least 4.",
+      "objects": [
+        {
+          "object_id": "periodic-basis",
+          "label": "Periodic four-mode basis",
+          "object_type": "state_space",
+          "family": "periodic",
+          "domain": "\u2014",
+          "codomain": "R^4",
+          "dimension": "4",
+          "basis": "a1..a4",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "modal basis fixed to a1..a4"
+          ],
+          "notes": [
+            "supported periodic toy family"
+          ]
+        },
+        {
+          "object_id": "periodic-record",
+          "label": "cutoff vorticity",
+          "object_type": "record_map",
+          "family": "periodic",
+          "domain": "R^4",
+          "codomain": "record space",
+          "dimension": "family-specific",
+          "basis": "modal/vorticity",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "record must be one of the supported periodic choices"
+          ],
+          "notes": [
+            "cutoff=3"
+          ]
+        },
+        {
+          "object_id": "periodic-target",
+          "label": "Custom modal functional",
+          "object_type": "protected_variable",
+          "family": "periodic",
+          "domain": "R^4",
+          "codomain": "R",
+          "dimension": "1x4",
+          "basis": "a1..a4",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "functional must be linear in a1..a4"
+          ],
+          "notes": [
+            "1*a1 + 1*a2 + 1*a3 + 1*a4"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "code": "periodic-support-check",
+          "title": "Protected support versus retained support",
+          "detail": "The cutoff misses part of the protected support.",
+          "theorem_status": "family-specific periodic threshold result"
+        }
+      ],
+      "recommendations": [
+        {
+          "action_id": "raise-periodic-cutoff",
+          "title": "Raise cutoff to 4",
+          "action_kind": "add_mode",
+          "rationale": "The protected functional has hidden support above the retained cutoff, so exact recovery begins at the first cutoff containing every active protected mode.",
+          "theorem_status": "family-specific periodic threshold result",
+          "estimated_cost": 1.0,
+          "cost_unit": "modes",
+          "expected_regime": "exact",
+          "patch": {
+            "periodicCutoff": 4
+          }
+        },
+        {
+          "action_id": "weaken-periodic-target",
+          "title": "Weaken target to visible support only",
+          "action_kind": "weaken_target",
+          "rationale": "The visible part of the functional already lies on the retained support, so weakening the target is an honest same-record alternative.",
+          "theorem_status": "family-specific periodic threshold result",
+          "estimated_cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "patch": {
+            "periodicFunctionalText": "1*a1 + 1*a2 + 1*a3"
+          }
+        }
+      ],
+      "chosen_recommendation": {
+        "action_id": "raise-periodic-cutoff",
+        "title": "Raise cutoff to 4",
+        "action_kind": "add_mode",
+        "rationale": "The protected functional has hidden support above the retained cutoff, so exact recovery begins at the first cutoff containing every active protected mode.",
+        "theorem_status": "family-specific periodic threshold result",
+        "estimated_cost": 1.0,
+        "cost_unit": "modes",
+        "expected_regime": "exact",
+        "patch": {
+          "periodicCutoff": 4
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "key_metric": "\u03ba(0)",
+        "before_value": 2.0,
+        "after_value": 0.0,
+        "changed": true,
+        "narrative": "Increasing the cutoff removes every hidden protected coefficient from the zero-noise collision set."
+      },
+      "theorem_links": [
+        "docs/theorem-candidates/constrained-observation-theorems.md",
+        "docs/cfd/incompressible-projection.md"
+      ],
+      "supported_calculations": [
+        "support analysis",
+        "exact/impossible cutoff logic",
+        "same-record weaker-target detection"
+      ],
+      "raw_details": {
+        "coefficients": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "visible_coefficients": [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "hidden_l1": 1.0,
+        "kappa0": 2.0,
+        "predicted_min_cutoff": 4,
+        "selected_delta": 2.0
+      },
+      "export_rows": [
+        {
+          "family": "periodic",
+          "regime": "impossible",
+          "observation": "cutoff_vorticity",
+          "cutoff": 3,
+          "kappa0": 2.0,
+          "predicted_min_cutoff": 4
+        }
+      ]
+    },
+    "control_history_builder": {
+      "title": "Structured control/history composition",
+      "mode": "structured",
+      "family": "control",
+      "family_label": "Diagonal finite-history family",
+      "validity": "supported",
+      "regime": "impossible",
+      "exact": false,
+      "approximate": false,
+      "asymptotic": false,
+      "impossible": true,
+      "unsupported": false,
+      "theorem_status": "family-specific diagonal/history threshold result",
+      "support_scope": "Diagonal finite-history family with moment, coordinate, or linear-function targets.",
+      "protected_label": "second sensor moment functional",
+      "observation_label": "2-step history",
+      "architecture_label": "finite-history exact recovery",
+      "target_split_summary": "No weaker moment target was automatically certified.",
+      "root_cause": "The finite history is too short for the requested target.",
+      "missing_structure": "Increase the horizon or weaken the target.",
+      "objects": [
+        {
+          "object_id": "control-family",
+          "label": "Diagonal finite-history family",
+          "object_type": "admissible_family",
+          "family": "control",
+          "domain": "state coefficients",
+          "codomain": "R^3",
+          "dimension": "3",
+          "basis": "diagonal eigenbasis",
+          "linear_status": "linear",
+          "support_status": "family-specific diagonal/history threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theory/advanced-directions/constrained-observation-results-report.md"
+          ],
+          "compatibility_requirements": [
+            "distinct active eigenvalues",
+            "declared sensor profile"
+          ],
+          "notes": [
+            "sensor profile: [1.0, 0.4, 0.2]"
+          ]
+        },
+        {
+          "object_id": "control-record",
+          "label": "2-step history",
+          "object_type": "record_map",
+          "family": "control",
+          "domain": "R^3",
+          "codomain": "R^2",
+          "dimension": "2x3",
+          "basis": "history rows",
+          "linear_status": "linear",
+          "support_status": "family-specific diagonal/history threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theory/advanced-directions/constrained-observation-results-report.md"
+          ],
+          "compatibility_requirements": [
+            "finite horizon"
+          ],
+          "notes": [
+            "static finite-history reconstruction"
+          ]
+        },
+        {
+          "object_id": "control-target",
+          "label": "moment(2)",
+          "object_type": "protected_variable",
+          "family": "control",
+          "domain": "R^3",
+          "codomain": "R",
+          "dimension": "1x3",
+          "basis": "diagonal-function weights",
+          "linear_status": "linear",
+          "support_status": "family-specific diagonal/history threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theory/advanced-directions/constrained-observation-results-report.md"
+          ],
+          "compatibility_requirements": [
+            "target must be diagonal-function reducible"
+          ],
+          "notes": [
+            "moment(2)"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "code": "history-threshold",
+          "title": "Finite-history sufficiency check",
+          "detail": "The record horizon is too short for the requested target on the active diagonal family.",
+          "theorem_status": "family-specific diagonal/history threshold result"
+        }
+      ],
+      "recommendations": [
+        {
+          "action_id": "extend-history",
+          "title": "Increase horizon to 3",
+          "action_kind": "add_history",
+          "rationale": "The current horizon is too short to interpolate the requested protected functional from the diagonal history record.",
+          "theorem_status": "family-specific diagonal/history threshold result",
+          "estimated_cost": 1.0,
+          "cost_unit": "steps",
+          "expected_regime": "exact",
+          "patch": {
+            "controlHorizon": 3
+          }
+        }
+      ],
+      "chosen_recommendation": {
+        "action_id": "extend-history",
+        "title": "Increase horizon to 3",
+        "action_kind": "add_history",
+        "rationale": "The current horizon is too short to interpolate the requested protected functional from the diagonal history record.",
+        "theorem_status": "family-specific diagonal/history threshold result",
+        "estimated_cost": 1.0,
+        "cost_unit": "steps",
+        "expected_regime": "exact",
+        "patch": {
+          "controlHorizon": 3
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "key_metric": "\u03ba(0)",
+        "before_value": 0.07400000000000001,
+        "after_value": 0.0,
+        "changed": true,
+        "narrative": "Extending the history horizon provides enough independent rows to interpolate the protected functional exactly."
+      },
+      "theorem_links": [
+        "docs/theorem-candidates/constrained-observation-theorems.md",
+        "docs/theory/advanced-directions/constrained-observation-results-report.md"
+      ],
+      "supported_calculations": [
+        "history-threshold detection",
+        "collision-gap analysis",
+        "diagonal interpolation weights",
+        "weaker moment scan"
+      ],
+      "raw_details": {
+        "sensor_weights": [
+          1.0,
+          0.4,
+          0.2
+        ],
+        "protected_weights": [
+          0.9025,
+          0.6400000000000001,
+          0.42250000000000004
+        ],
+        "collision_gap": 0.07400000000000001,
+        "rowspace_residual": 0.02590518155451836,
+        "predicted_min_horizon": 3,
+        "interpolation_weights": [
+          2.1955555555555266,
+          2.544444444444526,
+          -4.111111111111163
+        ],
+        "selected_delta": 0.5
+      },
+      "export_rows": [
+        {
+          "family": "control",
+          "regime": "impossible",
+          "horizon": 2,
+          "predicted_min_horizon": 3,
+          "collision_gap": 0.07400000000000001,
+          "rowspace_residual": 0.02590518155451836
+        }
+      ]
+    },
+    "weaker_stronger_split": {
+      "title": "Custom periodic modal composition",
+      "mode": "custom",
+      "family": "periodic",
+      "family_label": "Periodic four-mode modal family",
+      "validity": "supported",
+      "regime": "impossible",
+      "exact": false,
+      "approximate": false,
+      "asymptotic": false,
+      "impossible": true,
+      "unsupported": false,
+      "theorem_status": "family-specific periodic threshold result",
+      "support_scope": "Periodic four-mode family with linear modal functionals.",
+      "protected_label": "1*a1 + 1*a2 + 1*a4",
+      "observation_label": "cutoff vorticity",
+      "architecture_label": "periodic modal threshold analysis",
+      "target_split_summary": "The visible-support truncation is recoverable under the same record.",
+      "root_cause": "The cutoff misses part of the protected support.",
+      "missing_structure": "Raise the cutoff to at least 4.",
+      "objects": [
+        {
+          "object_id": "periodic-basis",
+          "label": "Periodic four-mode basis",
+          "object_type": "state_space",
+          "family": "periodic",
+          "domain": "\u2014",
+          "codomain": "R^4",
+          "dimension": "4",
+          "basis": "a1..a4",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "modal basis fixed to a1..a4"
+          ],
+          "notes": [
+            "supported periodic toy family"
+          ]
+        },
+        {
+          "object_id": "periodic-record",
+          "label": "cutoff vorticity",
+          "object_type": "record_map",
+          "family": "periodic",
+          "domain": "R^4",
+          "codomain": "record space",
+          "dimension": "family-specific",
+          "basis": "modal/vorticity",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "record must be one of the supported periodic choices"
+          ],
+          "notes": [
+            "cutoff=2"
+          ]
+        },
+        {
+          "object_id": "periodic-target",
+          "label": "Custom modal functional",
+          "object_type": "protected_variable",
+          "family": "periodic",
+          "domain": "R^4",
+          "codomain": "R",
+          "dimension": "1x4",
+          "basis": "a1..a4",
+          "linear_status": "linear",
+          "support_status": "family-specific periodic threshold result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/cfd/incompressible-projection.md"
+          ],
+          "compatibility_requirements": [
+            "functional must be linear in a1..a4"
+          ],
+          "notes": [
+            "1*a1 + 1*a2 + 1*a4"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "code": "periodic-support-check",
+          "title": "Protected support versus retained support",
+          "detail": "The cutoff misses part of the protected support.",
+          "theorem_status": "family-specific periodic threshold result"
+        }
+      ],
+      "recommendations": [
+        {
+          "action_id": "raise-periodic-cutoff",
+          "title": "Raise cutoff to 4",
+          "action_kind": "add_mode",
+          "rationale": "The protected functional has hidden support above the retained cutoff, so exact recovery begins at the first cutoff containing every active protected mode.",
+          "theorem_status": "family-specific periodic threshold result",
+          "estimated_cost": 2.0,
+          "cost_unit": "modes",
+          "expected_regime": "exact",
+          "patch": {
+            "periodicCutoff": 4
+          }
+        },
+        {
+          "action_id": "weaken-periodic-target",
+          "title": "Weaken target to visible support only",
+          "action_kind": "weaken_target",
+          "rationale": "The visible part of the functional already lies on the retained support, so weakening the target is an honest same-record alternative.",
+          "theorem_status": "family-specific periodic threshold result",
+          "estimated_cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "patch": {
+            "periodicFunctionalText": "1*a1 + 1*a2"
+          }
+        }
+      ],
+      "chosen_recommendation": {
+        "action_id": "raise-periodic-cutoff",
+        "title": "Raise cutoff to 4",
+        "action_kind": "add_mode",
+        "rationale": "The protected functional has hidden support above the retained cutoff, so exact recovery begins at the first cutoff containing every active protected mode.",
+        "theorem_status": "family-specific periodic threshold result",
+        "estimated_cost": 2.0,
+        "cost_unit": "modes",
+        "expected_regime": "exact",
+        "patch": {
+          "periodicCutoff": 4
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "key_metric": "\u03ba(0)",
+        "before_value": 2.0,
+        "after_value": 0.0,
+        "changed": true,
+        "narrative": "Increasing the cutoff removes every hidden protected coefficient from the zero-noise collision set."
+      },
+      "theorem_links": [
+        "docs/theorem-candidates/constrained-observation-theorems.md",
+        "docs/cfd/incompressible-projection.md"
+      ],
+      "supported_calculations": [
+        "support analysis",
+        "exact/impossible cutoff logic",
+        "same-record weaker-target detection"
+      ],
+      "raw_details": {
+        "coefficients": [
+          1.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "visible_coefficients": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "hidden_l1": 1.0,
+        "kappa0": 2.0,
+        "predicted_min_cutoff": 4,
+        "selected_delta": 2.0
+      },
+      "export_rows": [
+        {
+          "family": "periodic",
+          "regime": "impossible",
+          "observation": "cutoff_vorticity",
+          "cutoff": 2,
+          "kappa0": 2.0,
+          "predicted_min_cutoff": 4
+        }
+      ]
+    },
+    "custom_matrix_builder": {
+      "title": "Custom restricted-linear composition",
+      "mode": "custom",
+      "family": "linear",
+      "family_label": "Restricted-linear family",
+      "validity": "supported",
+      "regime": "impossible",
+      "exact": false,
+      "approximate": false,
+      "asymptotic": false,
+      "impossible": true,
+      "unsupported": false,
+      "theorem_status": "theorem-backed restricted-linear result",
+      "support_scope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
+      "protected_label": "1 protected row(s)",
+      "observation_label": "2 observation row(s)",
+      "architecture_label": "restricted-linear exact recovery / augmentation search",
+      "target_split_summary": "coordinate x1",
+      "root_cause": "Current record row space is insufficient.",
+      "missing_structure": "Add rows until the protected rows lie in the record row space.",
+      "objects": [
+        {
+          "object_id": "state-space",
+          "label": "3-dimensional state space",
+          "object_type": "state_space",
+          "family": "Restricted-linear family",
+          "domain": "\u2014",
+          "codomain": "R^3",
+          "dimension": "3",
+          "basis": "x1, x2, x3",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "shared dimension",
+            "declared coordinate basis"
+          ],
+          "notes": [
+            "admissible family is the coefficient box [-1,1]^n"
+          ]
+        },
+        {
+          "object_id": "record-map",
+          "label": "Observation / record map",
+          "object_type": "record_map",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^2",
+          "dimension": "2x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "row width must equal state dimension"
+          ],
+          "notes": [
+            "2 active observation row(s)"
+          ]
+        },
+        {
+          "object_id": "protected-target",
+          "label": "Protected target",
+          "object_type": "protected_variable",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^1",
+          "dimension": "1x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "target rows must share state dimension"
+          ],
+          "notes": [
+            "1 protected row(s)"
+          ]
+        },
+        {
+          "object_id": "candidate-augmentations",
+          "label": "Candidate augmentation library",
+          "object_type": "augmentation_candidate",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^3",
+          "dimension": "3x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "candidate rows must share state dimension"
+          ],
+          "notes": [
+            "searched only inside the provided candidate library"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "code": "rowspace-deficiency",
+          "title": "Record map does not separate the protected target",
+          "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
+          "theorem_status": "theorem-backed restricted-linear result"
+        },
+        {
+          "severity": "warning",
+          "code": "collision-gap",
+          "title": "A protected collision gap survives at zero noise",
+          "detail": "The current \u03ba(0) witness is 2.000e+00, so exact recovery is blocked until the row-space deficiency is removed.",
+          "theorem_status": "theorem-backed restricted-linear result"
+        }
+      ],
+      "recommendations": [
+        {
+          "action_id": "augment-linear-record",
+          "title": "Add 1 candidate row",
+          "action_kind": "add_measurement",
+          "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
+          "theorem_status": "theorem-backed restricted-linear result",
+          "estimated_cost": 1.0,
+          "cost_unit": "rows",
+          "expected_regime": "exact",
+          "patch": {
+            "candidateIndices": [
+              0
+            ]
+          }
+        },
+        {
+          "action_id": "weaken-target-linear",
+          "title": "Weaken target to coordinate x1",
+          "action_kind": "weaken_target",
+          "rationale": "The current record already supports this weaker basis target exactly, so target weakening is a real structural option.",
+          "theorem_status": "theorem-backed restricted-linear result",
+          "estimated_cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "patch": {
+            "protectedRows": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ],
+      "chosen_recommendation": {
+        "action_id": "augment-linear-record",
+        "title": "Add 1 candidate row",
+        "action_kind": "add_measurement",
+        "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
+        "theorem_status": "theorem-backed restricted-linear result",
+        "estimated_cost": 1.0,
+        "cost_unit": "rows",
+        "expected_regime": "exact",
+        "patch": {
+          "candidateIndices": [
+            0
+          ]
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "key_metric": "\u03ba(0)",
+        "before_value": 2.0,
+        "after_value": 0.0,
+        "changed": true,
+        "narrative": "The added rows eliminate the protected collision gap by lifting the protected rows into the record row space."
+      },
+      "theorem_links": [
+        "docs/theorem-candidates/constrained-observation-theorems.md",
+        "docs/theorem-candidates/capacity-theorems.md"
+      ],
+      "supported_calculations": [
+        "rank checks",
+        "row-space residual",
+        "collision-gap analysis",
+        "candidate-library minimal augmentation search",
+        "weaker basis-target scan"
+      ],
+      "raw_details": {
+        "observation_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "protected_matrix": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "candidate_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rank_observation": 2,
+        "rank_protected": 1,
+        "rowspace_residual": 0.7071067811865476,
+        "collision_gap": 2.0,
+        "selected_delta": 1.0,
+        "selected_upper_bound": null,
+        "minimal_added_rows": 1,
+        "candidate_exact_sets": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "weaker_basis_targets": [
+          "coordinate x1"
+        ]
+      },
+      "export_rows": [
+        {
+          "family": "linear",
+          "regime": "impossible",
+          "rank_observation": 2,
+          "rank_protected": 1,
+          "rowspace_residual": 0.7071067811865476,
+          "collision_gap": 2.0,
+          "minimal_added_rows": 1
+        }
+      ]
+    },
+    "random_discovery_case": {
+      "title": "Structured restricted-linear composition",
+      "mode": "structured",
+      "family": "linear",
+      "family_label": "Restricted-linear family",
+      "validity": "supported",
+      "regime": "impossible",
+      "exact": false,
+      "approximate": false,
+      "asymptotic": false,
+      "impossible": true,
+      "unsupported": false,
+      "theorem_status": "theorem-backed restricted-linear result",
+      "support_scope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
+      "protected_label": "coordinate x3",
+      "observation_label": "1 observation row(s)",
+      "architecture_label": "restricted-linear exact recovery / augmentation search",
+      "target_split_summary": "coordinate x2",
+      "root_cause": "Current record row space is insufficient.",
+      "missing_structure": "Add rows until the protected rows lie in the record row space.",
+      "objects": [
+        {
+          "object_id": "state-space",
+          "label": "3-dimensional state space",
+          "object_type": "state_space",
+          "family": "Restricted-linear family",
+          "domain": "\u2014",
+          "codomain": "R^3",
+          "dimension": "3",
+          "basis": "x1, x2, x3",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "shared dimension",
+            "declared coordinate basis"
+          ],
+          "notes": [
+            "admissible family is the coefficient box [-1,1]^n"
+          ]
+        },
+        {
+          "object_id": "record-map",
+          "label": "Observation / record map",
+          "object_type": "record_map",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^1",
+          "dimension": "1x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "row width must equal state dimension"
+          ],
+          "notes": [
+            "1 active observation row(s)"
+          ]
+        },
+        {
+          "object_id": "protected-target",
+          "label": "Protected target",
+          "object_type": "protected_variable",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^1",
+          "dimension": "1x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "target rows must share state dimension"
+          ],
+          "notes": [
+            "1 protected row(s)"
+          ]
+        },
+        {
+          "object_id": "candidate-augmentations",
+          "label": "Candidate augmentation library",
+          "object_type": "augmentation_candidate",
+          "family": "Restricted-linear family",
+          "domain": "R^3",
+          "codomain": "R^4",
+          "dimension": "4x3",
+          "basis": "row representation",
+          "linear_status": "linear",
+          "support_status": "theorem-backed restricted-linear result",
+          "theorem_links": [
+            "docs/theorem-candidates/constrained-observation-theorems.md",
+            "docs/theorem-candidates/capacity-theorems.md"
+          ],
+          "compatibility_requirements": [
+            "candidate rows must share state dimension"
+          ],
+          "notes": [
+            "searched only inside the provided candidate library"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "severity": "error",
+          "code": "rowspace-deficiency",
+          "title": "Record map does not separate the protected target",
+          "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
+          "theorem_status": "theorem-backed restricted-linear result"
+        },
+        {
+          "severity": "warning",
+          "code": "collision-gap",
+          "title": "A protected collision gap survives at zero noise",
+          "detail": "The current \u03ba(0) witness is 2.000e+00, so exact recovery is blocked until the row-space deficiency is removed.",
+          "theorem_status": "theorem-backed restricted-linear result"
+        }
+      ],
+      "recommendations": [
+        {
+          "action_id": "augment-linear-record",
+          "title": "Add 1 candidate row",
+          "action_kind": "add_measurement",
+          "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
+          "theorem_status": "theorem-backed restricted-linear result",
+          "estimated_cost": 1.0,
+          "cost_unit": "rows",
+          "expected_regime": "exact",
+          "patch": {
+            "candidateIndices": [
+              1
+            ]
+          }
+        },
+        {
+          "action_id": "weaken-target-linear",
+          "title": "Weaken target to coordinate x2",
+          "action_kind": "weaken_target",
+          "rationale": "The current record already supports this weaker basis target exactly, so target weakening is a real structural option.",
+          "theorem_status": "theorem-backed restricted-linear result",
+          "estimated_cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "patch": {
+            "protectedRows": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      ],
+      "chosen_recommendation": {
+        "action_id": "augment-linear-record",
+        "title": "Add 1 candidate row",
+        "action_kind": "add_measurement",
+        "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
+        "theorem_status": "theorem-backed restricted-linear result",
+        "estimated_cost": 1.0,
+        "cost_unit": "rows",
+        "expected_regime": "exact",
+        "patch": {
+          "candidateIndices": [
+            1
+          ]
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "key_metric": "\u03ba(0)",
+        "before_value": 2.0,
+        "after_value": 0.0,
+        "changed": true,
+        "narrative": "The added rows eliminate the protected collision gap by lifting the protected rows into the record row space."
+      },
+      "theorem_links": [
+        "docs/theorem-candidates/constrained-observation-theorems.md",
+        "docs/theorem-candidates/capacity-theorems.md"
+      ],
+      "supported_calculations": [
+        "rank checks",
+        "row-space residual",
+        "collision-gap analysis",
+        "candidate-library minimal augmentation search",
+        "weaker basis-target scan"
+      ],
+      "raw_details": {
+        "observation_matrix": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "protected_matrix": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "candidate_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rank_observation": 1,
+        "rank_protected": 1,
+        "rowspace_residual": 1.0,
+        "collision_gap": 2.0,
+        "selected_delta": 1.0,
+        "selected_upper_bound": null,
+        "minimal_added_rows": 1,
+        "candidate_exact_sets": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "weaker_basis_targets": [
+          "coordinate x2"
+        ]
+      },
+      "export_rows": [
+        {
+          "family": "linear",
+          "regime": "impossible",
+          "rank_observation": 1,
+          "rank_protected": 1,
+          "rowspace_residual": 1.0,
+          "collision_gap": 2.0,
+          "minimal_added_rows": 1
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "demo": "periodic_user_builder",
+      "family": "periodic",
+      "regime": "impossible",
+      "exact": false,
+      "unsupported": false,
+      "root_cause": "The cutoff misses part of the protected support.",
+      "chosen_fix": "Raise cutoff to 4",
+      "after_regime": "exact"
+    },
+    {
+      "demo": "control_history_builder",
+      "family": "control",
+      "regime": "impossible",
+      "exact": false,
+      "unsupported": false,
+      "root_cause": "The finite history is too short for the requested target.",
+      "chosen_fix": "Increase horizon to 3",
+      "after_regime": "exact"
+    },
+    {
+      "demo": "weaker_stronger_split",
+      "family": "periodic",
+      "regime": "impossible",
+      "exact": false,
+      "unsupported": false,
+      "root_cause": "The cutoff misses part of the protected support.",
+      "chosen_fix": "Raise cutoff to 4",
+      "after_regime": "exact"
+    },
+    {
+      "demo": "custom_matrix_builder",
+      "family": "linear",
+      "regime": "impossible",
+      "exact": false,
+      "unsupported": false,
+      "root_cause": "Current record row space is insufficient.",
+      "chosen_fix": "Add 1 candidate row",
+      "after_regime": "exact"
+    },
+    {
+      "demo": "random_discovery_case",
+      "family": "linear",
+      "regime": "impossible",
+      "exact": false,
+      "unsupported": false,
+      "root_cause": "Current record row space is insufficient.",
+      "chosen_fix": "Add 1 candidate row",
+      "after_regime": "exact"
+    }
+  ]
+}

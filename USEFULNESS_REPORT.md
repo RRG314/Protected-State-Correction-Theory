@@ -49,6 +49,7 @@ The repository now includes reusable templates for:
 4. templates were added so users can start from tested patterns instead of reverse-engineering the repo
 5. user-entry paths now route readers by goal rather than only by theorem family
 6. a Benchmark / Validation Console now lets users sanity-check demos, module health, and reproducibility exports before trusting a workflow
+7. a Discovery Mixer now lets users compose supported families directly, validate compatibility, enter controlled custom linear or modal objects, and test supported repairs
 
 ## 4. What Is Still Mostly Explanatory
 
@@ -66,6 +67,7 @@ They are useful, but they are not themselves design tools.
 3. periodic cutoff / functional-support threshold sweeps
 4. explicit no-go witness generation
 5. benchmarked before/after validation snapshots with exportable evidence
+6. typed composition and controlled custom-input analysis inside supported theorem and benchmark families
 
 ## 6. Strongest Research Directions To Keep Pushing
 

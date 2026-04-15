@@ -116,6 +116,14 @@ Its honest status is:
 - useful subsystem because it turns proof status and failure analysis into concrete repair workflows
 - not a new theorem program by itself
 
+Discovery Mixer should be treated the same way.
+
+Its honest status is:
+- theorem-linked composition and diagnostics layer
+- useful because it makes supported families composable and testable
+- not a broad symbolic-math theory candidate
+- only as strong as the underlying supported family reductions and validations
+
 ## Best Next Upgrade Path
 
 The strongest next path is:

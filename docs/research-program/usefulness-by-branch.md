@@ -95,6 +95,22 @@ Best outputs:
 - before/after regime comparisons
 - reusable demo scenarios and generated artifacts
 
+## Discovery Mixer / Structural Composition Lab
+
+What it helps with:
+- compose supported families, targets, records, and architectures instead of only replaying fixed demos
+- test whether a proposed composition is even structurally coherent before trusting downstream results
+- compare stronger and weaker targets under the same record
+- discover the smallest supported augmentation that repairs a user-built configuration
+- explore supported custom matrix and symbolic-linear input without pretending to support arbitrary symbolic physics
+
+Best outputs:
+- typed object inventory
+- compatibility and support diagnostics
+- theorem-backed or family-backed augmentation suggestions
+- reproducible random discovery cases
+- before/after repair evidence on user-built compositions
+
 ## Practical Workbench / Studio Layer
 
 What it helps with:

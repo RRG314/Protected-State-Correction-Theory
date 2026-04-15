@@ -24,6 +24,7 @@ This pass added major upgrades across the repo:
 7. a visible research-program layer with branch audit, ranked roadmap, open-problem program, theory-candidate assessment, and usefulness-by-branch notes
 8. a restricted bounded-domain exact theorem on the boundary-compatible finite-mode Hodge family
 9. a restricted-linear minimal augmentation theorem that turns design advice into an exact count
+10. a Discovery Mixer / Structural Composition Lab that turns those theorem-backed and family-backed branches into a typed composition, diagnostics, and repair surface
 
 The current extension pass also added:
 
@@ -142,6 +143,7 @@ The workbench was redesigned and renamed to:
 
 Current modules:
 - Structural Discovery Studio
+- Discovery Mixer / Structural Composition Lab
 - Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
@@ -162,6 +164,7 @@ Usability changes:
 - added reusable templates and user-facing paths so the repo can be used to build and diagnose systems, not only read about them
 - added exportable share-link, JSON, CSV, report, and figure outputs for workbench scenarios
 - added a Benchmark / Validation Console that turns built-in demos and module health into an in-workbench trust surface
+- added a typed Discovery Mixer so users can build supported compositions directly, enter controlled custom matrices or symbolic-linear functionals, run constrained random exploration, and test supported fixes without leaving the workbench
 
 ## 7. Outside Literature Layer
 
@@ -191,14 +194,16 @@ Current validation status:
 - generated recoverability examples: passed
 - generated design examples: passed
 - generated workbench examples: passed
+- generated discovery-mixer examples: passed
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Structural Discovery Studio: passed
+- real browser smoke of the Discovery Mixer: passed
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
-- Node workbench test suite: `21 passed`
-- Python theorem/operator/example test suite: `101 passed`
+- Node workbench test suite: `26 passed`
+- Python theorem/operator/example test suite: `110 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -209,6 +214,8 @@ Generated artifacts of note:
 - [data/generated/design/design_template_examples.json](data/generated/design/design_template_examples.json)
 - [data/generated/structural_discovery/structural_discovery_summary.json](data/generated/structural_discovery/structural_discovery_summary.json)
 - [data/generated/structural_discovery/structural_discovery_demo_table.csv](data/generated/structural_discovery/structural_discovery_demo_table.csv)
+- [data/generated/discovery_mixer/discovery_mixer_summary.json](data/generated/discovery_mixer/discovery_mixer_summary.json)
+- [data/generated/discovery_mixer/discovery_mixer_demo_table.csv](data/generated/discovery_mixer/discovery_mixer_demo_table.csv)
 
 ## 9. Final Naming Decision
 

@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
 CSV_PATH = ROOT / 'data/generated/inventories/repo_file_inventory.csv'
 JSON_PATH = ROOT / 'data/generated/validations/system_summary.json'
-SKIP_PREFIXES = {'.git', '.venv', '.pytest_cache'}
+SKIP_PREFIXES = {'.git', '.venv', '.pytest_cache', '.playwright-cli'}
 
 rows = []
 counts: dict[str, int] = {}

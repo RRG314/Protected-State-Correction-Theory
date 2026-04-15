@@ -9,6 +9,7 @@ The Protected-State Correction Workbench is a static, theorem-linked research an
 - explicit no-go inspection
 - constrained-observation recoverability
 - structural failure diagnosis
+- typed structural composition
 - minimal supported augmentation
 - before/after validation
 - benchmark-driven reproducibility
@@ -21,6 +22,7 @@ Each module is kept only if it corresponds to a proved theorem, a sharp no-go, a
 The workbench now has a task-first front door:
 
 - discover missing structure
+- compose a supported system
 - test recoverability
 - compare exact versus asymptotic correction
 - inspect no-go boundaries
@@ -32,6 +34,7 @@ This is meant to reduce friction for serious non-expert users without hiding the
 ## Modules
 
 - Structural Discovery Studio
+- Discovery Mixer / Structural Composition Lab
 - Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
@@ -56,6 +59,23 @@ It now supports:
 - before/after comparisons tied to theorem, no-go, or family-specific status
 - JSON, CSV, figure, report, and share-link export
 
+## Discovery Mixer / Structural Composition Lab
+
+This is the advanced composition-and-diagnostics surface.
+
+It now supports:
+
+- structured composition across restricted-linear, periodic modal, diagonal/history, and bounded-domain benchmark families
+- controlled custom matrix and symbolic-linear input inside supported classes only
+- immediate compatibility diagnostics on typed objects
+- structural verdicts for exact, approximate, asymptotic, impossible, and unsupported cases
+- missing-structure detection and ranked augmentation or redesign cards
+- seeded constrained random exploration with replayable cases
+- before/after repair comparison and exportable evidence
+
+The mixer is intentionally narrow.
+Its value comes from making supported families composable without pretending to solve arbitrary symbolic problems.
+
 ## Benchmark / Validation Console
 
 This is the trust surface for the workbench.
@@ -71,6 +91,7 @@ It exposes:
 ## What The Workbench Can Do
 
 - classify a setup as exact, approximate, asymptotic, or impossible
+- classify a composition as exact, approximate, asymptotic, impossible, or unsupported
 - identify structural blockers
 - identify weaker targets that already survive
 - compute theorem-backed minimal augmentation counts where available

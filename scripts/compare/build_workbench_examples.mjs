@@ -11,6 +11,7 @@ import {
   analyzeQecSector,
   analyzeRecoverability,
 } from '../../docs/workbench/lib/compute.js';
+import { analyzeDiscoveryMixer } from '../../docs/workbench/lib/discoveryMixer.js';
 import { DEFAULT_STATE } from '../../docs/workbench/lib/state.js';
 
 const ROOT = '/Users/stevenreid/Documents/New project/repos/ocp-research-program';
@@ -57,6 +58,32 @@ const examples = {
     boundaryProtected: 'bounded_velocity_class',
     boundaryGridSize: 17,
     boundaryDelta: 0.2,
+  }),
+  mixerStructuredLinear: analyzeDiscoveryMixer({
+    ...DEFAULT_STATE.labs.mixer,
+    mode: 'structured',
+    family: 'linear',
+  }),
+  mixerPeriodicDemo: analyzeDiscoveryMixer({
+    ...DEFAULT_STATE.labs.mixer,
+    mode: 'demo',
+    demoKey: 'periodic_builder',
+  }),
+  mixerCustomLinear: analyzeDiscoveryMixer({
+    ...DEFAULT_STATE.labs.mixer,
+    mode: 'custom',
+    customFamily: 'linear',
+    customLinearDimension: 3,
+    customLinearObservationText: 'x1\nx2 + x3',
+    customLinearProtectedText: 'x3',
+    customLinearCandidateText: 'x2\nx3\nx1 + x2',
+  }),
+  mixerBoundary: analyzeDiscoveryMixer({
+    ...DEFAULT_STATE.labs.mixer,
+    mode: 'structured',
+    family: 'boundary',
+    structuredBoundaryArchitecture: 'periodic_transplant',
+    structuredBoundaryProtected: 'bounded_velocity_class',
   }),
   exact: analyzeExactProjection(DEFAULT_STATE.labs.exact),
   qec: analyzeQecSector(DEFAULT_STATE.labs.qec),

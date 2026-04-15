@@ -98,21 +98,24 @@ The repository is organized so readers can enter from different angles:
 9. [Protected-State Correction Workbench](docs/workbench/index.html)
 10. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
 11. [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
-12. [Template Index](docs/templates/README.md)
-13. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-14. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
-15. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
-16. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-17. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-18. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-19. [Structural Discovery Overview](docs/structural-discovery/overview.md)
-20. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
-21. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
-22. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
-23. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-24. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-25. [Open-Problem Program](docs/research-program/open-problem-program.md)
-26. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+12. [Discovery Mixer Overview](docs/discovery-mixer/overview.md)
+13. [Discovery Mixer Supported Scope](docs/discovery-mixer/supported-scope.md)
+14. [Discovery Mixer Demo Walkthroughs](docs/discovery-mixer/demo-walkthroughs.md)
+15. [Template Index](docs/templates/README.md)
+16. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+17. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
+18. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
+19. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
+20. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+21. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+22. [Structural Discovery Overview](docs/structural-discovery/overview.md)
+23. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
+24. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
+25. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
+26. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+27. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+28. [Open-Problem Program](docs/research-program/open-problem-program.md)
+29. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -129,6 +132,12 @@ Use it as a design system:
 Use it as a structural-discovery engine:
 - start from a failing setup, let the studio identify the structural blocker, inspect theorem-backed or family-backed fix cards, apply a supported fix, and compare before versus after.
 - use the bounded-domain architecture path to distinguish a wrong projector transplant from a real restricted bounded exact family.
+
+Use it as a composable discovery mixer:
+- assemble supported state families, targets, records, and architectures in the Discovery Mixer / Structural Composition Lab.
+- test whether the composition is coherent before trusting any result.
+- enter supported custom matrices or symbolic linear functionals and get explicit exact / impossible / unsupported outcomes.
+- run seeded constrained searches to discover threshold cases, hidden obstructions, and repairable failures without leaving the validated family classes.
 
 Use it as a benchmark and reproducibility console:
 - replay validated demo repairs, inspect module-health rows, and export JSON, CSV, figures, and human-readable report snapshots from the workbench itself.
@@ -187,6 +196,7 @@ The repository now includes a static GitHub-Pages-compatible workbench in:
 
 Modules:
 - Structural Discovery Studio
+- Discovery Mixer / Structural Composition Lab
 - Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab

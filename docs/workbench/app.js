@@ -14,6 +14,11 @@ import {
   formatVector,
 } from './lib/compute.js';
 import {
+  DISCOVERY_MIXER_DEMOS,
+  DISCOVERY_MIXER_LIBRARY,
+  analyzeDiscoveryMixer,
+} from './lib/discoveryMixer.js';
+import {
   DEFAULT_STATE,
   STORAGE_KEY,
   cloneState,
@@ -79,6 +84,34 @@ const LAB_META = {
       { title: 'Functional observability and subspace reconstruction', href: 'https://doi.org/10.1103/PhysRevResearch.4.043195', note: 'Benchmark anchoring on protected-function recovery' },
       { title: 'Chorin projection-method foundation', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Classical benchmark anchor for constrained projection' },
       { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum-side recoverability anchor' },
+    ],
+  },
+  mixer: {
+    label: 'Discovery Mixer / Structural Composition Lab',
+    short: 'Compose supported systems, detect conflicts, and test structural fixes before and after augmentation.',
+    branch: 'Advanced composition lab',
+    fit: 'Typed composition / theorem-backed where supported / explicit unsupported boundary',
+    status: 'ADVANCED TOOL SURFACE',
+    lane: 'Composable discovery and redesign',
+    protected: 'Typed protected target chosen on a supported family',
+    disturbance: 'Ambiguity, hidden support, rank deficiency, short history, or boundary mismatch',
+    correction: 'Composition rules, diagnostics, augmentation search, and family-bounded redesign',
+    plain:
+      'This advanced lab lets you assemble supported systems out of typed building blocks, test whether the composition is coherent, see what blocks exact recovery, and compare the original design to the smallest supported fix.',
+    technical:
+      'Implements a typed discovery-mixer layer over the restricted-linear, periodic modal, diagonal/history, and bounded-domain benchmark families. The lab checks domain and basis compatibility, parses supported custom input, runs family-specific exactness and no-go diagnostics, proposes minimal supported augmentations, and keeps unsupported symbolic input explicit instead of pretending to solve it.',
+    use: 'Use this when you want to build or stress-test a supported system family directly, enter custom linear or modal objects, or run seeded random exploration inside the engine’s validated structural rules.',
+    avoid: 'Do not treat this as a general symbolic solver. It only accepts custom input that can be reduced into the supported typed families.',
+    refs: [
+      { title: 'Discovery Mixer overview', href: '../discovery-mixer/overview.md', note: 'Scope, modes, and supported families' },
+      { title: 'Discovery Mixer supported scope', href: '../discovery-mixer/supported-scope.md', note: 'What custom input is actually supported' },
+      { title: 'Discovery Mixer diagnostics guide', href: '../discovery-mixer/diagnostics-guide.md', note: 'How compatibility and failure messages are produced' },
+      { title: 'Discovery Mixer developer guide', href: '../discovery-mixer/developer-reference.md', note: 'Typed object model and engine wiring' },
+    ],
+    literature: [
+      { title: 'MathWorks on observability and state estimation workflows', href: 'https://www.mathworks.com/help/control/ug/observer-design-for-a-mass-spring-damper-system.html', note: 'Control-tool interface pattern anchor' },
+      { title: 'Best practices for scientific computing', href: 'https://doi.org/10.1371/journal.pbio.1001745', note: 'Reproducibility and validation discipline' },
+      { title: 'Functional observability and subspace reconstruction', href: 'https://doi.org/10.1103/PhysRevResearch.4.043195', note: 'Protected-functional benchmark anchor' },
     ],
   },
   exact: {
@@ -392,6 +425,12 @@ const QUICKSTARTS = [
     body: 'Start from a reusable restricted-linear recovery problem with exact minimal augmentation logic.',
     action: { type: 'preset', preset: 'linear_measurement_repair' },
   },
+  {
+    id: 'compose-system',
+    title: 'Compose a supported system',
+    body: 'Open the Discovery Mixer to assemble a typed system family, test compatibility, and search for the smallest supported fix.',
+    action: { type: 'lab', lab: 'mixer' },
+  },
 ];
 
 const LAB_DEFAULTS = cloneState(DEFAULT_STATE.labs);
@@ -421,6 +460,8 @@ function saveScenariosStore() {
 
 function analyzeActiveLab() {
   switch (state.activeLab) {
+    case 'mixer':
+      return analyzeDiscoveryMixer(state.labs.mixer);
     case 'recoverability':
       return analyzeRecoverability(state.labs.recoverability);
     case 'benchmark':
@@ -495,6 +536,30 @@ function applyStructuralRecommendation(index) {
   render();
 }
 
+function applyMixerDemo(key) {
+  const demo = DISCOVERY_MIXER_DEMOS[key];
+  if (!demo) return;
+  state.activeLab = 'mixer';
+  state.labs.mixer = {
+    ...cloneState(DEFAULT_STATE.labs.mixer),
+    mode: demo.mode,
+    family: demo.family,
+    ...cloneState(demo.patch),
+  };
+  render();
+}
+
+function applyMixerRecommendation(index) {
+  const recommendation = latestAnalysis?.recommendations?.[Number(index)];
+  if (!recommendation || !recommendation.availableInStudio || !recommendation.patch) return;
+  state.activeLab = 'mixer';
+  state.labs.mixer = {
+    ...cloneState(state.labs.mixer),
+    ...cloneState(recommendation.patch),
+  };
+  render();
+}
+
 function render() {
   normalizeInteractiveState();
   latestAnalysis = analyzeActiveLab();
@@ -511,11 +576,11 @@ function render() {
           <div class="hero-copy">
             <span class="kicker">Protected-State Correction Theory</span>
             <h1>Protected-State Correction Workbench</h1>
-            <p class="deck">A structural-discovery and recoverability engineering workbench for exact projection, asymptotic redesign, threshold diagnosis, minimal augmentation, and theorem-grade failure analysis. The interface is designed to help a serious user decide what is protected, what is missing, and what change actually repairs the architecture.</p>
+            <p class="deck">A theorem-linked structural-discovery, recoverability, and composition workbench for exact projection, asymptotic redesign, threshold diagnosis, minimal augmentation, bounded-domain architecture checks, and typed system assembly. The interface is organized as a real workspace: choose the branch, configure the family, inspect the evidence, and compare the fix before you trust it.</p>
             <div class="hero-meta-row">
               <span class="fit-pill">${meta.branch}</span>
               <span class="status-pill">${meta.status}</span>
-              <span class="fit-pill subtle">Physics lane: ${meta.lane}</span>
+              <span class="fit-pill subtle">Current lane: ${meta.lane}</span>
             </div>
           </div>
           <div class="hero-actions card-surface">
@@ -555,33 +620,35 @@ function render() {
         </div>
       </header>
 
-      <section class="quickstart-section">
-        <div class="section-heading">
-          <h2>Start from the problem you actually have</h2>
-          <p>Use the workbench like an engineering decision tool: choose the kind of failure or question first, then jump into the right theorem-linked surface.</p>
-        </div>
-        <div class="quickstart-grid">
-          ${renderQuickStarts()}
-        </div>
-      </section>
+      <main class="workspace-shell">
+        <aside class="navigator-rail card-surface">
+          <div class="nav-section">
+            <div class="pane-heading compact">
+              <h3>Start Here</h3>
+              <p>Pick the question you actually have first, then drop into the right branch surface.</p>
+            </div>
+            <div class="quickstart-stack">
+              ${renderQuickStarts()}
+            </div>
+          </div>
+          <div class="nav-section">
+            <div class="pane-heading compact">
+              <h3>Module Navigator</h3>
+              <p>Every lab here is either theorem-backed, family-validated, or an explicit no-go / benchmark layer.</p>
+            </div>
+            <div class="module-stack">
+              ${renderModuleCards()}
+            </div>
+          </div>
+        </aside>
 
-      <section class="module-section">
-        <div class="section-heading">
-          <h2>Choose a theorem-linked module</h2>
-          <p>Each module is kept only if it corresponds to a proved result, a validated family-specific branch, a sharp no-go, or a real benchmark surface.</p>
-        </div>
-        <div class="module-grid">
-          ${renderModuleCards()}
-        </div>
-      </section>
+        <section class="workspace-column">
+          <section class="summary-section">
+            <div class="summary-grid">
+              ${renderSummaryCards(meta)}
+            </div>
+          </section>
 
-      <section class="summary-section">
-        <div class="summary-grid">
-          ${renderSummaryCards(meta)}
-        </div>
-      </section>
-
-      <main class="workspace">
         <section class="lab-shell card-surface">
           <div class="lab-header">
             <div>
@@ -608,6 +675,7 @@ function render() {
               </div>
             </section>
           </div>
+        </section>
         </section>
 
         <aside class="context-rail">
@@ -961,8 +1029,215 @@ function renderRecoverabilityLinearControls() {
   `;
 }
 
+function renderMixerLinearMeasurementToggles() {
+  const template = LINEAR_TEMPLATE_LIBRARY.sensor_basis;
+  return `
+    <div class="field">
+      <label>Active observation rows</label>
+      <div class="toggle-stack">
+        ${template.candidates
+          .map((candidate) =>
+            checkboxField(
+              `mixer-${candidate.id}`,
+              candidate.label,
+              `labs.mixer.structuredLinearMeasurements.${candidate.id}`,
+              Boolean(state.labs.mixer.structuredLinearMeasurements?.[candidate.id]),
+              'Toggle this record row into the current structured composition.'
+            )
+          )
+          .join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderMixerConfigPane() {
+  const mixer = state.labs.mixer;
+  return `
+    <div class="field">
+      <label>Discovery Mixer demos</label>
+      <div class="action-row wrap-row">
+        ${Object.entries(DISCOVERY_MIXER_DEMOS)
+          .map(([key, demo]) => `<button type="button" class="ghost-button" data-mixer-demo="${key}">${demo.label}</button>`)
+          .join('')}
+      </div>
+      <small class="field-note">Each demo starts from a supported composition and either finds a structural failure or validates a real repair path.</small>
+    </div>
+    <div class="field">
+      <label for="mixer-mode">Mixer mode</label>
+      <select id="mixer-mode" data-path="labs.mixer.mode">
+        <option value="structured" ${mixer.mode === 'structured' ? 'selected' : ''}>structured mixer</option>
+        <option value="custom" ${mixer.mode === 'custom' ? 'selected' : ''}>controlled custom input</option>
+        <option value="random" ${mixer.mode === 'random' ? 'selected' : ''}>random exploration</option>
+        <option value="demo" ${mixer.mode === 'demo' ? 'selected' : ''}>demo mode</option>
+      </select>
+    </div>
+    ${mixer.mode === 'demo' ? `
+      <div class="field">
+        <label for="mixer-demo-key">Demo scenario</label>
+        <select id="mixer-demo-key" data-path="labs.mixer.demoKey">
+          ${Object.entries(DISCOVERY_MIXER_DEMOS).map(([key, demo]) => `<option value="${key}" ${mixer.demoKey === key ? 'selected' : ''}>${demo.label}</option>`).join('')}
+        </select>
+      </div>
+    ` : ''}
+    ${mixer.mode === 'structured' ? `
+      <div class="field">
+        <label for="mixer-family">Structured family</label>
+        <select id="mixer-family" data-path="labs.mixer.family">
+          ${Object.entries(DISCOVERY_MIXER_LIBRARY.structuredFamilies).map(([key, meta]) => `<option value="${key}" ${mixer.family === key ? 'selected' : ''}>${meta.label}</option>`).join('')}
+        </select>
+        <small class="field-note">${DISCOVERY_MIXER_LIBRARY.structuredFamilies[mixer.family]?.note ?? ''}</small>
+      </div>
+      ${mixer.family === 'linear' ? `
+        <div class="field">
+          <label for="mixer-structured-linear-protected">Protected target</label>
+          <select id="mixer-structured-linear-protected" data-path="labs.mixer.structuredLinearProtected">
+            ${Object.entries(LINEAR_TEMPLATE_LIBRARY.sensor_basis.protectedOptions).map(([key, option]) => `<option value="${key}" ${mixer.structuredLinearProtected === key ? 'selected' : ''}>${option.label}</option>`).join('')}
+          </select>
+        </div>
+        ${renderMixerLinearMeasurementToggles()}
+      ` : ''}
+      ${mixer.family === 'periodic' ? `
+        <div class="field">
+          <label for="mixer-structured-periodic-protected">Protected target</label>
+          <select id="mixer-structured-periodic-protected" data-path="labs.mixer.structuredPeriodicProtected">
+            <option value="mode_1_coefficient" ${mixer.structuredPeriodicProtected === 'mode_1_coefficient' ? 'selected' : ''}>leading modal coefficient</option>
+            <option value="modes_1_2_coefficients" ${mixer.structuredPeriodicProtected === 'modes_1_2_coefficients' ? 'selected' : ''}>first two modal coefficients</option>
+            <option value="low_mode_sum" ${mixer.structuredPeriodicProtected === 'low_mode_sum' ? 'selected' : ''}>low-mode weighted sum</option>
+            <option value="bandlimited_contrast" ${mixer.structuredPeriodicProtected === 'bandlimited_contrast' ? 'selected' : ''}>band-limited contrast functional</option>
+            <option value="full_weighted_sum" ${mixer.structuredPeriodicProtected === 'full_weighted_sum' ? 'selected' : ''}>full weighted modal sum</option>
+            <option value="full_modal_coefficients" ${mixer.structuredPeriodicProtected === 'full_modal_coefficients' ? 'selected' : ''}>full four-mode coefficient vector</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mixer-structured-periodic-observation">Observation map</label>
+          <select id="mixer-structured-periodic-observation" data-path="labs.mixer.structuredPeriodicObservation">
+            <option value="full_vorticity" ${mixer.structuredPeriodicObservation === 'full_vorticity' ? 'selected' : ''}>full vorticity</option>
+            <option value="cutoff_vorticity" ${mixer.structuredPeriodicObservation === 'cutoff_vorticity' ? 'selected' : ''}>spectral cutoff vorticity</option>
+            <option value="divergence_only" ${mixer.structuredPeriodicObservation === 'divergence_only' ? 'selected' : ''}>divergence only</option>
+          </select>
+        </div>
+        ${rangeField('structuredPeriodicCutoff', 'Retained cutoff', mixer.structuredPeriodicCutoff, 1, 4, 1, 'labs.mixer')}
+      ` : ''}
+      ${mixer.family === 'control' ? `
+        <div class="field">
+          <label for="mixer-structured-control-profile">Sensor profile</label>
+          <select id="mixer-structured-control-profile" data-path="labs.mixer.structuredControlProfile">
+            <option value="three_active" ${mixer.structuredControlProfile === 'three_active' ? 'selected' : ''}>three active sensors</option>
+            <option value="two_active" ${mixer.structuredControlProfile === 'two_active' ? 'selected' : ''}>two active sensors</option>
+            <option value="protected_hidden" ${mixer.structuredControlProfile === 'protected_hidden' ? 'selected' : ''}>protected direction hidden</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mixer-structured-control-functional">Protected target</label>
+          <select id="mixer-structured-control-functional" data-path="labs.mixer.structuredControlFunctional">
+            <option value="sensor_sum" ${mixer.structuredControlFunctional === 'sensor_sum' ? 'selected' : ''}>sensor sum</option>
+            <option value="first_moment" ${mixer.structuredControlFunctional === 'first_moment' ? 'selected' : ''}>first moment</option>
+            <option value="second_moment" ${mixer.structuredControlFunctional === 'second_moment' ? 'selected' : ''}>second moment</option>
+            <option value="protected_coordinate" ${mixer.structuredControlFunctional === 'protected_coordinate' ? 'selected' : ''}>protected coordinate</option>
+          </select>
+        </div>
+        ${rangeField('structuredControlHorizon', 'History horizon', mixer.structuredControlHorizon, 1, 4, 1, 'labs.mixer')}
+      ` : ''}
+      ${mixer.family === 'boundary' ? `
+        <div class="field">
+          <label for="mixer-structured-boundary-architecture">Architecture</label>
+          <select id="mixer-structured-boundary-architecture" data-path="labs.mixer.structuredBoundaryArchitecture">
+            <option value="periodic_transplant" ${mixer.structuredBoundaryArchitecture === 'periodic_transplant' ? 'selected' : ''}>periodic projector transplant</option>
+            <option value="boundary_compatible_hodge" ${mixer.structuredBoundaryArchitecture === 'boundary_compatible_hodge' ? 'selected' : ''}>boundary-compatible Hodge projector</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mixer-structured-boundary-protected">Protected target</label>
+          <select id="mixer-structured-boundary-protected" data-path="labs.mixer.structuredBoundaryProtected">
+            <option value="bounded_velocity_class" ${mixer.structuredBoundaryProtected === 'bounded_velocity_class' ? 'selected' : ''}>bounded velocity class</option>
+            <option value="divergence_certificate" ${mixer.structuredBoundaryProtected === 'divergence_certificate' ? 'selected' : ''}>divergence certificate</option>
+          </select>
+        </div>
+        ${rangeField('structuredBoundaryGridSize', 'Benchmark grid size', mixer.structuredBoundaryGridSize, 9, 25, 2, 'labs.mixer')}
+      ` : ''}
+      ${rangeField('structuredDelta', 'Selected δ', mixer.structuredDelta, 0, 2.5, 0.05, 'labs.mixer')}
+    ` : ''}
+    ${mixer.mode === 'custom' ? `
+      <div class="field">
+        <label for="mixer-custom-family">Custom family</label>
+        <select id="mixer-custom-family" data-path="labs.mixer.customFamily">
+          ${Object.entries(DISCOVERY_MIXER_LIBRARY.customFamilies).map(([key, note]) => `<option value="${key}" ${mixer.customFamily === key ? 'selected' : ''}>${key}</option>`).join('')}
+        </select>
+        <small class="field-note">${DISCOVERY_MIXER_LIBRARY.customFamilies[mixer.customFamily]}</small>
+      </div>
+      ${mixer.customFamily === 'linear' ? `
+        ${rangeField('customLinearDimension', 'State dimension', mixer.customLinearDimension, 2, 6, 1, 'labs.mixer')}
+        <div class="field">
+          <label for="mixer-custom-linear-observation">Observation rows</label>
+          <textarea id="mixer-custom-linear-observation" data-path="labs.mixer.customLinearObservationText" rows="5">${mixer.customLinearObservationText}</textarea>
+          <small class="field-note">Use numeric rows or linear expressions in x1..xn. One row per line.</small>
+        </div>
+        <div class="field">
+          <label for="mixer-custom-linear-protected">Protected rows / functional</label>
+          <textarea id="mixer-custom-linear-protected" data-path="labs.mixer.customLinearProtectedText" rows="3">${mixer.customLinearProtectedText}</textarea>
+        </div>
+        <div class="field">
+          <label for="mixer-custom-linear-candidates">Candidate augmentation rows</label>
+          <textarea id="mixer-custom-linear-candidates" data-path="labs.mixer.customLinearCandidateText" rows="4">${mixer.customLinearCandidateText}</textarea>
+        </div>
+      ` : ''}
+      ${mixer.customFamily === 'periodic' ? `
+        <div class="field">
+          <label for="mixer-custom-periodic-functional">Protected modal functional</label>
+          <textarea id="mixer-custom-periodic-functional" data-path="labs.mixer.customPeriodicFunctionalText" rows="3">${mixer.customPeriodicFunctionalText}</textarea>
+          <small class="field-note">Supported variables: a1..a4. Only linear functionals are accepted.</small>
+        </div>
+        <div class="field">
+          <label for="mixer-custom-periodic-observation">Observation map</label>
+          <select id="mixer-custom-periodic-observation" data-path="labs.mixer.customPeriodicObservation">
+            <option value="full_vorticity" ${mixer.customPeriodicObservation === 'full_vorticity' ? 'selected' : ''}>full vorticity</option>
+            <option value="cutoff_vorticity" ${mixer.customPeriodicObservation === 'cutoff_vorticity' ? 'selected' : ''}>spectral cutoff vorticity</option>
+            <option value="divergence_only" ${mixer.customPeriodicObservation === 'divergence_only' ? 'selected' : ''}>divergence only</option>
+          </select>
+        </div>
+        ${rangeField('customPeriodicCutoff', 'Retained cutoff', mixer.customPeriodicCutoff, 1, 4, 1, 'labs.mixer')}
+      ` : ''}
+      ${mixer.customFamily === 'control' ? `
+        <div class="field">
+          <label for="mixer-custom-control-profile">Sensor profile</label>
+          <textarea id="mixer-custom-control-profile" data-path="labs.mixer.customControlSensorProfileText" rows="2">${mixer.customControlSensorProfileText}</textarea>
+          <small class="field-note">Comma-separated sensor weights on the diagonal benchmark family.</small>
+        </div>
+        <div class="field">
+          <label for="mixer-custom-control-target">Protected target</label>
+          <textarea id="mixer-custom-control-target" data-path="labs.mixer.customControlTargetText" rows="2">${mixer.customControlTargetText}</textarea>
+          <small class="field-note">Supported forms: moment(k), xi, or a linear functional in x1..xn.</small>
+        </div>
+        ${rangeField('customControlHorizon', 'History horizon', mixer.customControlHorizon, 1, 4, 1, 'labs.mixer')}
+      ` : ''}
+      ${rangeField('customDelta', 'Selected δ', mixer.customDelta, 0, 2.5, 0.05, 'labs.mixer')}
+    ` : ''}
+    ${mixer.mode === 'random' ? `
+      <div class="field">
+        <label for="mixer-random-family">Random family</label>
+        <select id="mixer-random-family" data-path="labs.mixer.randomFamily">
+          ${Object.entries(DISCOVERY_MIXER_LIBRARY.randomFamilies).map(([key, note]) => `<option value="${key}" ${mixer.randomFamily === key ? 'selected' : ''}>${key}</option>`).join('')}
+        </select>
+        <small class="field-note">${DISCOVERY_MIXER_LIBRARY.randomFamilies[mixer.randomFamily]}</small>
+      </div>
+      ${rangeField('randomSeed', 'Seed', mixer.randomSeed, 1, 999, 1, 'labs.mixer')}
+      ${rangeField('randomTrials', 'Search budget', mixer.randomTrials, 1, 64, 1, 'labs.mixer')}
+      <div class="field">
+        <label for="mixer-random-objective">Search objective</label>
+        <select id="mixer-random-objective" data-path="labs.mixer.randomObjective">
+          <option value="failure" ${mixer.randomObjective === 'failure' ? 'selected' : ''}>find a failing case with a repair</option>
+          <option value="any" ${mixer.randomObjective === 'any' ? 'selected' : ''}>accept the first supported case</option>
+        </select>
+      </div>
+    ` : ''}
+  `;
+}
+
 function renderConfigPane() {
   switch (state.activeLab) {
+    case 'mixer':
+      return renderMixerConfigPane();
     case 'recoverability':
       return `
         <div class="field">
@@ -1215,20 +1490,35 @@ function renderConfigPane() {
   }
 }
 
-function rangeField(key, label, value, min, max, step) {
+function rangeField(key, label, value, min, max, step, labOverride = state.activeLab) {
   return `
     <div class="field">
-      <label for="${state.activeLab}-${key}">${label}</label>
+      <label for="${labOverride}-${key}">${label}</label>
       <div class="range-row">
-        <input id="${state.activeLab}-${key}" type="range" min="${min}" max="${max}" step="${step}" value="${value}" data-path="labs.${state.activeLab}.${key}" />
+        <input id="${labOverride}-${key}" type="range" min="${min}" max="${max}" step="${step}" value="${value}" data-path="labs.${labOverride}.${key}" />
         <output>${Number(value).toFixed(step >= 1 ? 0 : 2)}</output>
       </div>
     </div>
   `;
 }
 
+function formatDisplayValue(value) {
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) return String(value);
+    if (Math.abs(value) >= 1000 || (Math.abs(value) > 0 && Math.abs(value) < 1e-2)) {
+      return value.toExponential(3);
+    }
+    return value.toFixed(3);
+  }
+  if (typeof value === 'boolean') return value ? 'yes' : 'no';
+  if (typeof value === 'string') return value;
+  return JSON.stringify(value, null, 2);
+}
+
 function renderVisualStage() {
   switch (state.activeLab) {
+    case 'mixer':
+      return renderMixerStage();
     case 'recoverability':
       return renderRecoverabilityStage();
     case 'benchmark':
@@ -1249,6 +1539,288 @@ function renderVisualStage() {
     default:
       return renderNoGoStage();
   }
+}
+
+function resolveActiveMixerConfig() {
+  const config = cloneState(state.labs.mixer);
+  if ((config.mode ?? 'structured') !== 'demo') return config;
+  const demo = DISCOVERY_MIXER_DEMOS[config.demoKey ?? 'periodic_builder'];
+  if (!demo) return config;
+  return {
+    ...config,
+    ...cloneState(demo.patch),
+    mode: demo.mode,
+    family: demo.family,
+  };
+}
+
+function mixerSeverityClass(severity) {
+  if (severity === 'success') return 'success';
+  if (severity === 'warning') return 'warning';
+  if (severity === 'error') return 'error';
+  return 'info';
+}
+
+function mixerMetricFigure(analysis) {
+  if (analysis.unsupported) {
+    return `
+      <div class="callout warn">
+        <strong>Unsupported composition</strong>
+        <p>The current mixer state could not be reduced to one of the supported typed families, so no structural threshold or recoverability chart is promoted here.</p>
+      </div>
+    `;
+  }
+  const resolved = resolveActiveMixerConfig();
+  if (analysis.family === 'periodic') {
+    const cutoffKey = resolved.mode === 'custom' ? 'customPeriodicCutoff' : 'structuredPeriodicCutoff';
+    const points = Array.from({ length: 4 }, (_, index) => {
+      const cutoff = index + 1;
+      const report = analyzeDiscoveryMixer({ ...resolved, [cutoffKey]: cutoff });
+      return { x: cutoff, y: report.rawDetails?.kappa0 ?? 0 };
+    });
+    return `
+      ${lineChartSvg(points, 'retained cutoff', 'κ(0)', resolved[cutoffKey])}
+      <small>Periodic threshold scan: the zero-noise collision gap collapses only when the retained cutoff contains the protected modal support.</small>
+    `;
+  }
+  if (analysis.family === 'control') {
+    const horizonKey = resolved.mode === 'custom' ? 'customControlHorizon' : 'structuredControlHorizon';
+    const points = Array.from({ length: 4 }, (_, index) => {
+      const horizon = index + 1;
+      const report = analyzeDiscoveryMixer({ ...resolved, [horizonKey]: horizon });
+      return { x: horizon, y: report.rawDetails?.collisionGap ?? 0 };
+    });
+    return `
+      ${lineChartSvg(points, 'history horizon', 'collision gap', resolved[horizonKey])}
+      <small>Diagonal/history threshold scan: exact finite-history recovery begins at the first horizon where the protected functional is generated by the sensed history rows.</small>
+    `;
+  }
+  if (analysis.family === 'linear' && Array.isArray(analysis.rawDetails?.rowResiduals) && analysis.rawDetails.rowResiduals.length) {
+    const rawPoints = analysis.rawDetails.rowResiduals.map((value, index) => ({ x: index + 1, y: value }));
+    const points = rawPoints.length === 1 ? [...rawPoints, { x: 2, y: rawPoints[0].y }] : rawPoints;
+    return `
+      ${lineChartSvg(points, 'protected row index', 'row-space residual', rawPoints[0].x)}
+      <small>Restricted-linear residual profile: any nonzero protected-row residual witnesses a structural exactness failure on the current admissible family.</small>
+    `;
+  }
+  if (analysis.comparison) {
+    const points = [
+      { x: 1, y: analysis.comparison.keyMetricBefore },
+      { x: 2, y: analysis.comparison.keyMetricAfter },
+    ];
+    return `
+      ${lineChartSvg(points, 'configuration (1 = before, 2 = after)', analysis.comparison.keyMetricName, 2)}
+      <small>Before/after evidence uses the same branch metric before the recommended structural change and after it is applied.</small>
+    `;
+  }
+  return `
+    <div class="callout ${analysis.exact ? 'good' : analysis.impossible ? 'warn' : ''}">
+      <strong>No dedicated threshold chart for this case</strong>
+      <p>The current supported evidence is textual and algebraic rather than a family sweep. Use the raw details and theorem links below for the precise diagnostic trail.</p>
+    </div>
+  `;
+}
+
+function renderMixerStage() {
+  const a = latestAnalysis;
+  const summaryTone = a.unsupported ? 'warn' : a.impossible ? 'warn' : a.exact ? 'good' : '';
+  const objectCards = a.objects?.length
+    ? a.objects
+        .map(
+          (item) => `
+            <article class="object-card">
+              <div class="recommendation-header">
+                <span class="recommendation-kind">${item.objectType.replaceAll('_', ' ')}</span>
+                <span class="recommendation-regime">${item.supportStatus}</span>
+              </div>
+              <strong>${item.label}</strong>
+              <div class="object-meta">
+                <span><strong>family:</strong> ${item.family}</span>
+                <span><strong>map:</strong> ${item.domain} → ${item.codomain}</span>
+                <span><strong>basis:</strong> ${item.basis}</span>
+                <span><strong>dimension:</strong> ${item.dimension}</span>
+              </div>
+              <ul class="detail-list">
+                ${item.compatibilityRequirements.map((entry) => `<li>${entry}</li>`).join('')}
+              </ul>
+            </article>
+          `
+        )
+        .join('')
+    : '<div class="callout warn"><strong>No typed objects emitted</strong><p>This happens only when the input never reduced into a supported typed family.</p></div>';
+  const diagnosticCards = a.diagnostics?.length
+    ? a.diagnostics
+        .map(
+          (item) => `
+            <article class="diagnostic-card ${mixerSeverityClass(item.severity)}">
+              <div class="recommendation-header">
+                <span class="recommendation-kind">${item.severity}</span>
+                <span class="recommendation-regime">${item.theoremStatus}</span>
+              </div>
+              <strong>${item.title}</strong>
+              <p>${item.detail}</p>
+              <small class="diagnostic-code">${item.code}</small>
+            </article>
+          `
+        )
+        .join('')
+    : '<div class="callout"><strong>No diagnostics returned</strong><p>The current case did not emit additional diagnostic rows.</p></div>';
+  const recommendationCards = a.recommendations?.length
+    ? a.recommendations
+        .map((item, index) => {
+          const expectedLabel = item.expectedRegime
+            ?? (item.actionKind === 'weaken_target'
+              ? 'alternative target'
+              : item.actionKind === 'reformulate'
+                ? 'unsupported'
+                : item.availableInStudio
+                  ? 'testable fix'
+                  : 'advisory');
+          const tone = item.expectedRegime === 'exact' || item.availableInStudio
+            ? 'good'
+            : item.expectedRegime === 'unsupported'
+              ? 'neutral'
+              : '';
+          return `
+            <article class="recommendation-card card-surface ${tone}">
+              <div class="recommendation-header">
+                <span class="recommendation-kind">${item.actionKind.replaceAll('_', ' ')}</span>
+                <span class="recommendation-regime">${expectedLabel}</span>
+              </div>
+              <strong>${item.title}</strong>
+              <p>${item.rationale}</p>
+              <div class="recommendation-meta">
+                <span>${item.theoremStatus}</span>
+                <span>${item.minimal ? 'minimal change' : 'larger redesign'}</span>
+                <span>${item.availableInStudio ? 'testable in mixer' : 'advisory only'}</span>
+              </div>
+              <div class="action-row">
+                ${item.availableInStudio && item.patch ? `<button class="primary" data-apply-mixer-recommendation="${index}">Apply and compare</button>` : ''}
+                ${item.cost !== undefined && item.cost !== null ? `<button class="ghost-button" disabled>cost: ${item.cost} ${item.costUnit ?? ''}</button>` : ''}
+              </div>
+            </article>
+          `;
+        })
+        .join('')
+    : '<div class="callout"><strong>No fix candidate was promoted</strong><p>The current case either already works, is unsupported, or only supports a documentation-level redesign rather than an in-studio patch.</p></div>';
+  const comparisonPanel = a.comparison
+    ? `
+      <div class="before-after-grid">
+        <article class="before-after-card before">
+          <small>Before</small>
+          <strong>${a.comparison.beforeRegime}</strong>
+          <code>${a.comparison.keyMetricName}: ${formatDisplayValue(a.comparison.keyMetricBefore)}</code>
+        </article>
+        <article class="before-after-card after">
+          <small>After</small>
+          <strong>${a.comparison.afterRegime}</strong>
+          <code>${a.comparison.keyMetricName}: ${formatDisplayValue(a.comparison.keyMetricAfter)}</code>
+        </article>
+      </div>
+      <p class="studio-note">${a.comparison.narrative}</p>
+    `
+    : `
+      <div class="callout ${summaryTone}">
+        <strong>No before/after patch is currently attached</strong>
+        <p>${a.missingStructure}</p>
+      </div>
+    `;
+  const detailEntries = Object.entries(a.rawDetails ?? {});
+  const rawDetails = detailEntries.length
+    ? detailEntries
+        .map(
+          ([key, value]) => `
+            <article class="detail-card">
+              <small>${key}</small>
+              <code>${typeof value === 'object' ? JSON.stringify(value, null, 2) : formatDisplayValue(value)}</code>
+            </article>
+          `
+        )
+        .join('')
+    : '<div class="callout"><strong>No raw details emitted</strong><p>This case did not return an additional raw detail bundle.</p></div>';
+  const theoremLinks = (a.theoremLinks ?? [])
+    .map((href) => `<a href="${href}"><strong>${href.split('/').at(-1)}</strong><small>${href}</small></a>`)
+    .join('');
+  const generatedConfig = a.generatedConfig
+    ? `
+      <div class="callout">
+        <strong>Generated case</strong>
+        <p>This seeded exploration produced a reproducible supported configuration.</p>
+        <code>${JSON.stringify(a.generatedConfig, null, 2)}</code>
+      </div>
+    `
+    : '';
+  return `
+    <div class="figure-grid double">
+      <div class="figure" data-exportable="true">
+        <h4>Structural verdict and threshold evidence</h4>
+        ${mixerMetricFigure(a)}
+      </div>
+      <div class="figure">
+        <h4>Composition summary</h4>
+        <div class="callout ${summaryTone}">
+          <strong>${a.status}</strong>
+          <p>${a.rootCause}</p>
+        </div>
+        <div class="action-row top-gap">
+          <span class="fit-pill">${a.familyLabel}</span>
+          <span class="fit-pill subtle">${a.theoremStatus}</span>
+          <span class="fit-pill subtle">${a.architectureLabel}</span>
+        </div>
+        <ul class="guidance-list">
+          <li><strong>Protected target:</strong> ${a.protectedLabel}</li>
+          <li><strong>Record / architecture:</strong> ${a.observationLabel}</li>
+          <li><strong>Missing structure:</strong> ${a.missingStructure}</li>
+          <li><strong>Recoverable weaker target:</strong> ${a.targetSplitSummary}</li>
+          <li><strong>Supported scope:</strong> ${a.supportScope}</li>
+        </ul>
+        ${generatedConfig}
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Typed composition inventory</h4>
+        <div class="object-grid">
+          ${objectCards}
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Compatibility and failure diagnostics</h4>
+        <div class="diagnostic-list">
+          ${diagnosticCards}
+        </div>
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Structural discovery and redesign</h4>
+        <div class="recommendation-grid">
+          ${recommendationCards}
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Before / after evidence</h4>
+        ${comparisonPanel}
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Supported calculations and provenance</h4>
+        <ul class="guidance-list">
+          ${(a.supportedCalculations ?? []).map((entry) => `<li>${entry}</li>`).join('')}
+        </ul>
+        <div class="ref-list top-gap">
+          ${theoremLinks || '<span class="studio-note">No theorem or note links were attached to this case.</span>'}
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Deep detail</h4>
+        <div class="detail-grid">
+          ${rawDetails}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderRecoverabilityStage() {
@@ -1874,6 +2446,26 @@ function renderNoGoStage() {
 
 function renderMetrics() {
   switch (state.activeLab) {
+    case 'mixer':
+      return [
+        metric('Status', latestAnalysis.status, latestAnalysis.exact ? 'good' : latestAnalysis.impossible || latestAnalysis.unsupported ? 'bad' : ''),
+        metric('Family', latestAnalysis.familyLabel ?? latestAnalysis.family),
+        metric('Evidence', latestAnalysis.theoremStatus ?? 'mixed'),
+        metric('Diagnostics', String(latestAnalysis.diagnostics?.length ?? 0), latestAnalysis.diagnostics?.some((item) => item.severity === 'error') ? 'bad' : 'good'),
+        metric('Recommendations', String(latestAnalysis.recommendations?.length ?? 0), latestAnalysis.recommendations?.length ? 'good' : ''),
+        ...(latestAnalysis.rawDetails?.collisionGap !== undefined
+          ? [metric('Collision gap', Number(latestAnalysis.rawDetails.collisionGap).toExponential(2), Number(latestAnalysis.rawDetails.collisionGap) < 1e-8 ? 'good' : 'bad')]
+          : []),
+        ...(latestAnalysis.rawDetails?.kappa0 !== undefined
+          ? [metric('κ(0)', Number(latestAnalysis.rawDetails.kappa0).toExponential(2), Number(latestAnalysis.rawDetails.kappa0) < 1e-8 ? 'good' : 'bad')]
+          : []),
+        ...(latestAnalysis.rawDetails?.predictedMinCutoff !== undefined
+          ? [metric('Min cutoff', latestAnalysis.rawDetails.predictedMinCutoff < 0 ? 'none' : String(latestAnalysis.rawDetails.predictedMinCutoff), latestAnalysis.exact ? 'good' : '')]
+          : []),
+        ...(latestAnalysis.rawDetails?.predictedMinHorizon !== undefined
+          ? [metric('Min horizon', latestAnalysis.rawDetails.predictedMinHorizon < 0 || latestAnalysis.rawDetails.predictedMinHorizon === null ? 'none' : String(latestAnalysis.rawDetails.predictedMinHorizon), latestAnalysis.exact ? 'good' : '')]
+          : []),
+      ].join('');
     case 'recoverability':
       return [
         metric('Status', latestAnalysis.status, latestAnalysis.exact || latestAnalysis.asymptotic ? 'good' : latestAnalysis.impossible ? 'bad' : ''),
@@ -1959,6 +2551,8 @@ function renderMetrics() {
 
 function renderNarrativeSummary() {
   switch (state.activeLab) {
+    case 'mixer':
+      return `<p>${latestAnalysis.status}. The mixer reduced the current composition to the ${latestAnalysis.familyLabel ?? latestAnalysis.family} and returned a ${latestAnalysis.theoremStatus ?? 'mixed-evidence'} verdict. Protected target: ${latestAnalysis.protectedLabel}. Current record or architecture: ${latestAnalysis.observationLabel}. Root cause: ${latestAnalysis.rootCause} Missing structure: ${latestAnalysis.missingStructure}${latestAnalysis.comparison ? ` The leading before/after witness is ${latestAnalysis.comparison.keyMetricName}, moving from ${formatDisplayValue(latestAnalysis.comparison.keyMetricBefore)} to ${formatDisplayValue(latestAnalysis.comparison.keyMetricAfter)} when the promoted fix is applied.` : ''}${latestAnalysis.generatedConfig ? ' This view was produced by a seeded constrained search, so the generated case can be replayed exactly.' : ''} This lab is intentionally typed and bounded: unsupported inputs are rejected rather than silently approximated.</p>`;
     case 'recoverability':
       return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)} and the zero-noise lower bound from κ(0) is ${(0.5 * latestAnalysis.kappa0).toExponential(2)}. Recommended architecture: ${latestAnalysis.guidance.architecture}. ${latestAnalysis.guidance.missing}${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}; in this lane the threshold is set by the largest protected visible cutoff, not by raw support size.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}, and the threshold is governed by interpolation complexity on the active sensor spectrum rather than by support count alone.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''}${state.labs.recoverability.system === 'linear' ? ` The current static record uses ${latestAnalysis.activeMeasurementLabels.length} measurement rows. The unrestricted theorem-backed minimum added-measurement count is ${latestAnalysis.unrestrictedMinimalAddedMeasurements}.${latestAnalysis.minimalAddedMeasurements === null ? ' No exact fix exists inside the current candidate library.' : ` Inside the current library, the smallest exact fix needs ${latestAnalysis.minimalAddedMeasurements} added measurement${latestAnalysis.minimalAddedMeasurements === 1 ? '' : 's'}.`}` : ''}${state.labs.recoverability.system === 'boundary' ? ` The transplanted periodic projector leaves a bounded-domain boundary mismatch of ${latestAnalysis.transplantBoundaryMismatch.toExponential(2)}, while the restricted boundary-compatible finite-mode Hodge family reaches recovery error ${latestAnalysis.compatibleRecoveryError.toExponential(2)} on its admissible family.` : ''} This studio is meant to tell you what can be recovered, what is blocked, and what to change next.</p>`;
     case 'benchmark':
@@ -2022,8 +2616,16 @@ function attachEvents() {
     button.addEventListener('click', () => applyStructuralPreset(button.dataset.openDemo));
   });
 
+  document.querySelectorAll('[data-mixer-demo]').forEach((button) => {
+    button.addEventListener('click', () => applyMixerDemo(button.dataset.mixerDemo));
+  });
+
   document.querySelectorAll('[data-apply-recommendation]').forEach((button) => {
     button.addEventListener('click', () => applyStructuralRecommendation(button.dataset.applyRecommendation));
+  });
+
+  document.querySelectorAll('[data-apply-mixer-recommendation]').forEach((button) => {
+    button.addEventListener('click', () => applyMixerRecommendation(button.dataset.applyMixerRecommendation));
   });
 
   const matrixInput = document.getElementById('continuous-matrix');
