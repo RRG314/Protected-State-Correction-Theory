@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  analyzeBenchmarkConsole,
   analyzeCfdProjection,
   analyzeContinuousGenerator,
   analyzeExactProjection,
@@ -10,7 +11,14 @@ import {
   analyzeQecSector,
   analyzeRecoverability,
 } from '../../docs/workbench/lib/compute.js';
-import { DEFAULT_STATE, decodeShareState, encodeShareState, sanitizeState } from '../../docs/workbench/lib/state.js';
+import {
+  DEFAULT_STATE,
+  decodeShareState,
+  encodeShareState,
+  exportScenarioCsv,
+  exportScenarioReport,
+  sanitizeState,
+} from '../../docs/workbench/lib/state.js';
 
 test('exact projection lab is exact when the split is orthogonal', () => {
   const result = analyzeExactProjection({ protectedMagnitude: 1.4, disturbanceMagnitude: 0.9, angleDeg: 90 });
@@ -452,4 +460,73 @@ test('structural discovery recommendations expose testable before-after fixes', 
   });
   assert.equal(linear.chosenRecommendation.title, 'Add measure_x2');
   assert.equal(linear.comparison.afterRegime, 'exact');
+});
+
+test('recoverability studio captures bounded-domain architecture failure and repair', () => {
+  const failing = analyzeRecoverability({
+    system: 'boundary',
+    boundaryArchitecture: 'periodic_transplant',
+    boundaryProtected: 'bounded_velocity_class',
+    boundaryGridSize: 17,
+    boundaryDelta: 0.2,
+  });
+  const weak = analyzeRecoverability({
+    system: 'boundary',
+    boundaryArchitecture: 'periodic_transplant',
+    boundaryProtected: 'divergence_certificate',
+    boundaryGridSize: 17,
+    boundaryDelta: 0.2,
+  });
+  const repaired = analyzeRecoverability({
+    system: 'boundary',
+    boundaryArchitecture: 'boundary_compatible_hodge',
+    boundaryProtected: 'bounded_velocity_class',
+    boundaryGridSize: 17,
+    boundaryDelta: 0.2,
+  });
+  assert.equal(failing.impossible, true);
+  assert.equal(failing.chosenRecommendation.title, 'Switch to the boundary-compatible Hodge family');
+  assert.equal(failing.comparison.afterRegime, 'exact');
+  assert.ok(failing.transplantBoundaryMismatch > 1e-2);
+  assert.equal(weak.exact, true);
+  assert.equal(repaired.exact, true);
+  assert.ok(repaired.compatibleRecoveryError < 1e-8);
+});
+
+test('benchmark console exposes validated demos and module-health rows', () => {
+  const benchmark = analyzeBenchmarkConsole({ suite: 'all', selectedDemo: 'boundary_architecture_repair' });
+  assert.equal(benchmark.summary.demoCount, 5);
+  assert.equal(benchmark.summary.regimeChangeCount, 5);
+  assert.equal(benchmark.selectedDemoRow.demo, 'boundary_architecture_repair');
+  assert.ok(benchmark.moduleRows.some((row) => row.label === 'CFD Projection Lab'));
+});
+
+test('report and csv exports include the new structural-discovery data', () => {
+  const reportState = sanitizeState({
+    ...DEFAULT_STATE,
+    activeLab: 'recoverability',
+    labs: {
+      ...DEFAULT_STATE.labs,
+      recoverability: {
+        ...DEFAULT_STATE.labs.recoverability,
+        system: 'boundary',
+        boundaryArchitecture: 'periodic_transplant',
+        boundaryProtected: 'bounded_velocity_class',
+      },
+      benchmark: {
+        ...DEFAULT_STATE.labs.benchmark,
+        selectedDemo: 'boundary_architecture_repair',
+      },
+    },
+  });
+  const reportAnalysis = analyzeRecoverability(reportState.labs.recoverability);
+  const report = exportScenarioReport(reportState, reportAnalysis);
+  const csv = exportScenarioCsv(reportState, reportAnalysis);
+  const benchmarkState = sanitizeState({ ...DEFAULT_STATE, activeLab: 'benchmark' });
+  const benchmarkAnalysis = analyzeBenchmarkConsole(benchmarkState.labs.benchmark);
+  const benchmarkCsv = exportScenarioCsv(benchmarkState, benchmarkAnalysis);
+  assert.match(report, /boundary-compatible finite-mode Hodge/i);
+  assert.match(report, /evidence level/i);
+  assert.match(csv, /boundary_architecture|collapse|series/i);
+  assert.match(benchmarkCsv, /boundary_architecture_repair/);
 });

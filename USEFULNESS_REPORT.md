@@ -48,6 +48,7 @@ The repository now includes reusable templates for:
 3. a reusable linear design engine was added in Python and surfaced in the studio
 4. templates were added so users can start from tested patterns instead of reverse-engineering the repo
 5. user-entry paths now route readers by goal rather than only by theorem family
+6. a Benchmark / Validation Console now lets users sanity-check demos, module health, and reproducibility exports before trusting a workflow
 
 ## 4. What Is Still Mostly Explanatory
 
@@ -64,6 +65,7 @@ They are useful, but they are not themselves design tools.
 2. finite-history versus observer routing
 3. periodic cutoff / functional-support threshold sweeps
 4. explicit no-go witness generation
+5. benchmarked before/after validation snapshots with exportable evidence
 
 ## 6. Strongest Research Directions To Keep Pushing
 

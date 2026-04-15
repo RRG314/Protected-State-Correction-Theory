@@ -6,6 +6,7 @@ Start with:
 1. [Structural Discovery Studio](../workbench/index.html)
 2. [Structural Discovery Studio note](../app/structural-discovery-studio.md)
 3. [Structural Discovery overview](../structural-discovery/overview.md)
+4. [Benchmark / Validation Console](../app/benchmark-validation-console.md)
 
 ## I Want To Design A Measurement Or Record
 
@@ -13,6 +14,7 @@ Start with:
 1. [Structural Discovery algorithms](../structural-discovery/algorithms.md)
 2. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
 3. [Minimal-information sweep template](../templates/minimal-information-sweep-template.md)
+4. [Structural Discovery export guide](../structural-discovery/export-guide.md)
 
 ## I Want To Recover A Protected Variable
 
@@ -37,6 +39,7 @@ Start with:
 2. [Template index](../templates/README.md)
 3. [Periodic projection template](../templates/periodic-projection-template.md)
 4. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
+5. [Benchmark / Validation Console](../app/benchmark-validation-console.md)
 
 ## I Want To Connect This To PDEs, Control, Quantum, Or App Systems
 

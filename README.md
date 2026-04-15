@@ -97,20 +97,22 @@ The repository is organized so readers can enter from different angles:
 8. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
 9. [Protected-State Correction Workbench](docs/workbench/index.html)
 10. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
-11. [Template Index](docs/templates/README.md)
-12. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-13. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
-14. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
-15. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-16. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-17. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-18. [Structural Discovery Overview](docs/structural-discovery/overview.md)
-19. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
-20. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
-21. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-22. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-23. [Open-Problem Program](docs/research-program/open-problem-program.md)
-24. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+11. [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
+12. [Template Index](docs/templates/README.md)
+13. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+14. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
+15. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
+16. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
+17. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+18. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+19. [Structural Discovery Overview](docs/structural-discovery/overview.md)
+20. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
+21. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
+22. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
+23. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+24. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+25. [Open-Problem Program](docs/research-program/open-problem-program.md)
+26. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -126,6 +128,10 @@ Use it as a design system:
 
 Use it as a structural-discovery engine:
 - start from a failing setup, let the studio identify the structural blocker, inspect theorem-backed or family-backed fix cards, apply a supported fix, and compare before versus after.
+- use the bounded-domain architecture path to distinguish a wrong projector transplant from a real restricted bounded exact family.
+
+Use it as a benchmark and reproducibility console:
+- replay validated demo repairs, inspect module-health rows, and export JSON, CSV, figures, and human-readable report snapshots from the workbench itself.
 
 Use it as a physics comparison layer:
 - trace which physics systems are kept, which are conditional, and which were rejected after operator-level testing.
@@ -181,6 +187,7 @@ The repository now includes a static GitHub-Pages-compatible workbench in:
 
 Modules:
 - Structural Discovery Studio
+- Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab

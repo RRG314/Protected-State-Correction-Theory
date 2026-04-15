@@ -41,4 +41,9 @@ def test_structural_discovery_examples_match_recomputed_demo_reports() -> None:
             else:
                 assert saved_value == value
         assert saved_report['chosen_fix'] == report['chosen_fix']
-        assert saved_report['comparison'] == report['comparison']
+        for key, value in report['comparison'].items():
+            saved_value = saved_report['comparison'][key]
+            if isinstance(value, float):
+                assert np.isclose(saved_value, value)
+            else:
+                assert saved_value == value

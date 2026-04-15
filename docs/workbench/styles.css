@@ -164,9 +164,33 @@ button.ghost-button {
 }
 
 .module-section,
-.summary-section {
+.summary-section,
+.quickstart-section {
   display: grid;
   gap: 0.9rem;
+}
+
+.quickstart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.quickstart-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,242,234,0.84));
+  padding: 1rem;
+  text-align: left;
+  display: grid;
+  gap: 0.55rem;
+  min-height: 11rem;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.quickstart-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(141,84,40,0.35);
 }
 
 .section-heading {
@@ -752,6 +776,39 @@ button.ghost-button {
   line-height: 1.45;
 }
 
+.benchmark-table {
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.benchmark-module-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.benchmark-module-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.78);
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.benchmark-module-card span {
+  color: var(--accent-deep);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.benchmark-module-card small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .matrix-table {
   width: 100%;
   border-collapse: collapse;
@@ -777,7 +834,9 @@ button.ghost-button {
   .figure-grid.triple,
   .metric-grid,
   .summary-grid,
-  .module-grid {
+  .module-grid,
+  .quickstart-grid,
+  .benchmark-module-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -799,11 +858,13 @@ button.ghost-button {
   .site-shell { padding: 0.8rem; }
   .module-grid,
   .summary-grid,
+  .quickstart-grid,
   .figure-grid.double,
   .figure-grid.triple,
   .metric-grid,
   .value-grid,
-  .before-after-grid {
+  .before-after-grid,
+  .benchmark-module-grid {
     grid-template-columns: 1fr;
   }
 

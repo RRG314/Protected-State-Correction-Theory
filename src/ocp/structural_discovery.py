@@ -7,6 +7,8 @@ from typing import Any, Mapping, Sequence
 import numpy as np
 
 from .design import linear_recoverability_design_report
+from .cfd import bounded_hodge_projection_report
+from .physics import bounded_domain_projection_counterexample
 from .recoverability import (
     EPS,
     diagonal_functional_minimal_horizon,
@@ -63,6 +65,11 @@ CONTROL_FUNCTIONAL_LABELS: dict[str, str] = {
     'sensor_sum': 'sensor-weighted state sum',
     'first_moment': 'first sensor moment functional',
     'second_moment': 'second sensor moment functional',
+}
+
+BOUNDARY_PROTECTED_LABELS: dict[str, str] = {
+    'bounded_velocity_class': 'bounded velocity class with boundary compatibility',
+    'divergence_certificate': 'bulk divergence certificate only',
 }
 
 
@@ -745,16 +752,139 @@ def discover_qubit_target_split(
     )
 
 
+def discover_bounded_boundary_structure(
+    *,
+    architecture: str = 'periodic_transplant',
+    protected_key: str = 'bounded_velocity_class',
+    grid_size: int = 17,
+) -> StructuralDiscoveryReport:
+    transplant = bounded_domain_projection_counterexample(max(grid_size, 9))
+    compatible = bounded_hodge_projection_report(n=max(grid_size, 17))
+    strong_target = protected_key == 'bounded_velocity_class'
+    exact = architecture == 'boundary_compatible_hodge' or (architecture == 'periodic_transplant' and not strong_target)
+    impossible = architecture == 'periodic_transplant' and strong_target
+    current_regime = _regime_label(exact=exact, asymptotic=False, impossible=impossible)
+    recommendations: list[StructuralFixOption] = []
+    failure_modes: list[str] = []
+    weaker_targets = tuple(() if not strong_target else ('bulk divergence certificate only',))
+    chosen_fix = None
+    comparison = None
+
+    if not exact:
+        failure_modes.append('periodic projector transplant removes divergence but violates bounded boundary compatibility')
+        recommendations.append(
+            StructuralFixOption(
+                fix_id='switch-compatible-hodge',
+                title='Switch to boundary-compatible finite-mode Hodge projector',
+                action_kind='switch_architecture',
+                rationale='The periodic projector is the wrong architecture on this bounded family; the restricted boundary-compatible finite-mode Hodge projector restores exact recovery on its admissible family.',
+                theorem_status='restricted exact bounded-domain theorem',
+                minimal=True,
+                cost=1.0,
+                cost_unit='architecture switch',
+                expected_regime='exact',
+                applies_config={'boundaryArchitecture': 'boundary_compatible_hodge'},
+            )
+        )
+        recommendations.append(
+            StructuralFixOption(
+                fix_id='weaken-divergence-certificate',
+                title='Weaken target to bulk divergence certificate only',
+                action_kind='weaken_target',
+                rationale='If the application only needs a divergence certificate, the transplanted projector can still support that weaker target even though it fails the strong bounded protected class.',
+                theorem_status='validated weaker-target fallback',
+                minimal=False,
+                cost=None,
+                cost_unit=None,
+                expected_regime='exact',
+                applies_config={'boundaryProtected': 'divergence_certificate'},
+            )
+        )
+        chosen_fix = recommendations[0]
+        after_report = discover_bounded_boundary_structure(
+            architecture='boundary_compatible_hodge',
+            protected_key=protected_key,
+            grid_size=grid_size,
+        )
+        comparison = StructuralComparison(
+            before_regime=current_regime,
+            after_regime=after_report.current_regime,
+            regime_changed=current_regime != after_report.current_regime,
+            key_metric_name='boundary mismatch',
+            key_metric_before=float(transplant.projected_boundary_normal_rms),
+            key_metric_after=float(after_report.metrics['recovery_error']),
+            exact_after=after_report.exact,
+            impossible_after=after_report.impossible,
+            narrative='Switching to the boundary-compatible finite-mode Hodge family repairs the architectural mismatch instead of pretending the periodic projector already solved the bounded problem.',
+        )
+    else:
+        recommendations.append(
+            StructuralFixOption(
+                fix_id='keep-current',
+                title='Keep current bounded-domain architecture',
+                action_kind='keep',
+                rationale='The current bounded-domain setup already matches the selected protected target.',
+                theorem_status='restricted exact bounded-domain theorem' if architecture == 'boundary_compatible_hodge' else 'validated weaker-target fallback',
+                minimal=True,
+                cost=0.0,
+                cost_unit='architecture switches',
+                expected_regime='exact',
+                applies_config={'boundaryArchitecture': architecture, 'boundaryProtected': protected_key},
+            )
+        )
+
+    return StructuralDiscoveryReport(
+        family='bounded_boundary_architecture',
+        title='Bounded-domain structural discovery',
+        protected_label=BOUNDARY_PROTECTED_LABELS[protected_key],
+        observation_label='boundary-compatible finite-mode Hodge projector' if architecture == 'boundary_compatible_hodge' else 'periodic projector transplanted to a bounded domain',
+        current_regime=current_regime,
+        exact=exact,
+        asymptotic=False,
+        impossible=impossible,
+        theorem_status='restricted exact bounded-domain theorem plus explicit transplant failure',
+        protected_object='bounded divergence-free protected class with boundary compatibility requirements',
+        disturbance_description='divergence contamination and architecture-induced boundary mismatch',
+        current_failure_summary='The transplanted periodic projector still leaves the bounded protected class because the boundary-normal trace is wrong.' if not exact else 'The current bounded-domain architecture supports the selected target exactly.',
+        missing_structure='Switch to a boundary-compatible projector family or weaken the target to what the current architecture actually certifies.' if not exact else 'No additional bounded-domain structure is needed for the current target.',
+        failure_modes=tuple(failure_modes),
+        weaker_targets=weaker_targets,
+        recommendations=tuple(recommendations),
+        chosen_fix=chosen_fix,
+        comparison=comparison,
+        proof_links=(
+            'docs/theorem-candidates/bounded-domain-hodge-theorems.md',
+            'docs/cfd/bounded-vs-periodic-projection.md',
+            'docs/app/structural-discovery-studio.md',
+        ),
+        limitations=(
+            'restricted finite-mode bounded family only',
+            'the positive exact statement does not justify arbitrary bounded-domain projector transplants',
+        ),
+        metrics={
+            'transplant_before_divergence': float(transplant.before_l2_divergence),
+            'transplant_after_divergence': float(transplant.after_periodic_projection_l2_divergence),
+            'transplant_boundary_mismatch': float(transplant.projected_boundary_normal_rms),
+            'compatible_recovered_divergence': float(compatible.recovered_divergence_rms),
+            'compatible_boundary_normal_rms': float(compatible.recovered_boundary_normal_rms),
+            'recovery_error': float(compatible.recovery_l2_error),
+            'idempotence_error': float(compatible.idempotence_l2_error),
+        },
+    )
+
+
 def structural_discovery_demo_reports() -> dict[str, Any]:
     periodic = discover_periodic_modal_structure(protected_key='full_weighted_sum', observation='cutoff_vorticity', cutoff=3)
     control = discover_diagonal_control_structure(profile='three_active', functional_name='second_moment', horizon=2)
     qubit = discover_qubit_target_split(protected_key='bloch_vector', phase_window_deg=30.0)
     linear = discover_linear_template_structure(template_name='sensor_basis', protected_key='x3', measurement_ids=('measure_x1', 'measure_x2_plus_x3'))
+    boundary = discover_bounded_boundary_structure(architecture='periodic_transplant', protected_key='bounded_velocity_class', grid_size=17)
 
     demos = {
         'periodic_modal_repair': periodic.to_dict(),
         'control_history_repair': control.to_dict(),
         'weaker_vs_stronger_split': qubit.to_dict(),
+        'boundary_architecture_repair': boundary.to_dict(),
         'restricted_linear_measurement_repair': linear.to_dict(),
     }
     return {

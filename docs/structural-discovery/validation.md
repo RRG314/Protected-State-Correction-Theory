@@ -4,10 +4,10 @@
 
 Python-side validation:
 
-- demo report generation
 - periodic repair path
 - control history repair path
-- qubit weaker-vs-stronger split
+- qubit weaker-versus-stronger split
+- boundary architecture repair
 - restricted-linear measurement repair
 - generated artifact consistency
 
@@ -15,6 +15,9 @@ Workbench-side validation:
 
 - recommendation generation
 - before/after regime-change checks
+- bounded-domain architecture diagnosis
+- benchmark-console integrity
+- report and CSV export generation
 - regression of the existing recoverability logic
 
 ## Core Commands
@@ -27,20 +30,23 @@ node --test tests/consistency/workbench_static.test.mjs
 
 ## What The Validation Proves
 
-The validation proves that the current Structural Discovery subsystem can:
+The current Structural Discovery subsystem can:
 
-- detect a real structural failure
-- produce at least one meaningful recommendation
-- apply a validated recommendation in the supported in-studio lanes
-- demonstrate a regime change on the current demo family
+- detect real structural failures
+- identify at least one meaningful repair path on supported families
+- distinguish stronger and weaker protected targets where the branch supports that split
+- repair the bounded-domain architecture demo rather than only explaining it
+- export reproducible scenario snapshots and reports
+- survive the full repo validation gate while keeping the live workbench, generated artifacts, and theorem-linked narratives aligned
 
 It does not prove a universal augmentation theorem.
 
-
 ## Current Snapshot
 
-- structural-discovery Python tests: `6 passed`
-- workbench / Node suite: `18 passed`
-- full repo validation gate: `100 passed` on the Python suite
-- browser smoke: passed across periodic modal repair, control history repair, weaker-vs-stronger qubit split, and restricted-linear repair
+- structural-discovery Python tests: `7 passed`
+- workbench / Node suite: `21 passed`
+- full repo Python suite: `101 passed`
+- full repo Node/workbench suite: `21 passed`
 - generated artifacts: structural-discovery summary JSON, demo table CSV, and before/after SVG regenerated successfully
+- benchmark console: live in the workbench and exportable
+- browser smoke: benchmark console routing, periodic demo routing, and bounded-domain architecture repair passed

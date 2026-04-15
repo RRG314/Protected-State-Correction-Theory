@@ -1,11 +1,12 @@
 {
   "summary": {
-    "demo_count": 4,
-    "exact_after_count": 4,
+    "demo_count": 5,
+    "exact_after_count": 5,
     "families": [
       "periodic_modal_repair",
       "control_history_repair",
       "weaker_vs_stronger_split",
+      "boundary_architecture_repair",
       "restricted_linear_measurement_repair"
     ]
   },
@@ -290,6 +291,100 @@
         "phase_window_deg": 30.0,
         "collision_gap": 0.9999999999999999,
         "weaker_target_count": 1
+      }
+    },
+    "boundary_architecture_repair": {
+      "family": "bounded_boundary_architecture",
+      "title": "Bounded-domain structural discovery",
+      "protected_label": "bounded velocity class with boundary compatibility",
+      "observation_label": "periodic projector transplanted to a bounded domain",
+      "current_regime": "impossible",
+      "exact": false,
+      "asymptotic": false,
+      "impossible": true,
+      "theorem_status": "restricted exact bounded-domain theorem plus explicit transplant failure",
+      "protected_object": "bounded divergence-free protected class with boundary compatibility requirements",
+      "disturbance_description": "divergence contamination and architecture-induced boundary mismatch",
+      "current_failure_summary": "The transplanted periodic projector still leaves the bounded protected class because the boundary-normal trace is wrong.",
+      "missing_structure": "Switch to a boundary-compatible projector family or weaken the target to what the current architecture actually certifies.",
+      "failure_modes": [
+        "periodic projector transplant removes divergence but violates bounded boundary compatibility"
+      ],
+      "weaker_targets": [
+        "bulk divergence certificate only"
+      ],
+      "recommendations": [
+        {
+          "fix_id": "switch-compatible-hodge",
+          "title": "Switch to boundary-compatible finite-mode Hodge projector",
+          "action_kind": "switch_architecture",
+          "rationale": "The periodic projector is the wrong architecture on this bounded family; the restricted boundary-compatible finite-mode Hodge projector restores exact recovery on its admissible family.",
+          "theorem_status": "restricted exact bounded-domain theorem",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "architecture switch",
+          "expected_regime": "exact",
+          "applies_config": {
+            "boundaryArchitecture": "boundary_compatible_hodge"
+          }
+        },
+        {
+          "fix_id": "weaken-divergence-certificate",
+          "title": "Weaken target to bulk divergence certificate only",
+          "action_kind": "weaken_target",
+          "rationale": "If the application only needs a divergence certificate, the transplanted projector can still support that weaker target even though it fails the strong bounded protected class.",
+          "theorem_status": "validated weaker-target fallback",
+          "minimal": false,
+          "cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "applies_config": {
+            "boundaryProtected": "divergence_certificate"
+          }
+        }
+      ],
+      "chosen_fix": {
+        "fix_id": "switch-compatible-hodge",
+        "title": "Switch to boundary-compatible finite-mode Hodge projector",
+        "action_kind": "switch_architecture",
+        "rationale": "The periodic projector is the wrong architecture on this bounded family; the restricted boundary-compatible finite-mode Hodge projector restores exact recovery on its admissible family.",
+        "theorem_status": "restricted exact bounded-domain theorem",
+        "minimal": true,
+        "cost": 1.0,
+        "cost_unit": "architecture switch",
+        "expected_regime": "exact",
+        "applies_config": {
+          "boundaryArchitecture": "boundary_compatible_hodge"
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "regime_changed": true,
+        "key_metric_name": "boundary mismatch",
+        "key_metric_before": 0.05908383612007321,
+        "key_metric_after": 2.3884773244607092e-15,
+        "exact_after": true,
+        "impossible_after": false,
+        "narrative": "Switching to the boundary-compatible finite-mode Hodge family repairs the architectural mismatch instead of pretending the periodic projector already solved the bounded problem."
+      },
+      "proof_links": [
+        "docs/theorem-candidates/bounded-domain-hodge-theorems.md",
+        "docs/cfd/bounded-vs-periodic-projection.md",
+        "docs/app/structural-discovery-studio.md"
+      ],
+      "limitations": [
+        "restricted finite-mode bounded family only",
+        "the positive exact statement does not justify arbitrary bounded-domain projector transplants"
+      ],
+      "metrics": {
+        "transplant_before_divergence": 5.154228467461765,
+        "transplant_after_divergence": 3.0879836024702965e-15,
+        "transplant_boundary_mismatch": 0.05908383612007321,
+        "compatible_recovered_divergence": 9.652218483260753e-15,
+        "compatible_boundary_normal_rms": 6.021476406821791e-16,
+        "recovery_error": 2.3884773244607092e-15,
+        "idempotence_error": 2.3826825410818374e-15
       }
     },
     "restricted_linear_measurement_repair": {

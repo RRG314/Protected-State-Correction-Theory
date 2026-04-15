@@ -1,71 +1,57 @@
 # Structural Discovery Final Report
 
-## Outcome
+## Current Status
 
-Structural Discovery is now a complete repo capability rather than a loose design idea.
+Structural Discovery is now a full repo subsystem rather than only a branch note.
 
-It now includes:
+It includes:
 
-- formal problem definition
-- explicit failure classes
-- recommendation logic
-- validated before/after comparison logic
-- generated demo artifacts
-- workbench integration
-- user and developer documentation
+- formal problem and failure layers
+- theorem/no-go linkage
+- a Python structural-discovery engine
+- generated artifact outputs
+- a workbench-facing Structural Discovery Studio
+- a Benchmark / Validation Console
+- exportable reports and CSV snapshots
+- share-link and JSON scenario capture
+- validated end-to-end demos across multiple families
+
+## Strongest Capabilities
+
+- diagnose why a setup fails
+- identify what structure is missing
+- distinguish stronger and weaker protected targets
+- compute minimal supported fixes on the restricted-linear branch
+- expose threshold-driven fixes on the periodic and diagonal family lanes
+- detect bounded-domain architecture mismatch and switch to the compatible restricted exact lane
+- compare before versus after with explicit evidence labels
+- export the current scenario as a report, CSV, JSON snapshot, or shareable state link
+
+## Evidence Split
+
+The subsystem now keeps four evidence classes visible:
+
+- theorem-backed
+- restricted exact theorem-backed
+- family-specific validated
+- standard or heuristic guidance outside the current theorem spine
 
 ## What It Demonstrates
 
-Structural Discovery can now start from a failing setup, identify the structural reason for failure, propose a meaningful fix, apply that fix on supported families, and show a regime change.
+The subsystem now demonstrates five complete repair stories:
 
-That is currently demonstrated on:
-
-- periodic modal support repair
-- diagonal finite-history repair
-- weaker-vs-stronger target split in the qubit toy model
+- periodic modal augmentation
+- control/history augmentation
+- weaker-versus-stronger target split
+- boundary architecture repair
 - restricted-linear measurement repair
 
-## Exact Versus Heuristic
+It also exposes a live benchmark surface that gathers those repair stories into one reproducible validation console rather than leaving them scattered across separate modules.
 
-Exact or theorem-linked:
+## What Remains Limited
 
-- restricted-linear augmentation logic
-- periodic support threshold recommendations on the tested family
-- diagonal minimal-history recommendations on the tested family
-- qubit weaker-target repair path
-
-Heuristic or standard guidance:
-
-- qubit complementary-basis enrichment as a richer architecture suggestion
-- any future branch where the studio can describe a plausible fix but the repo does not yet prove it
-
-## Limits
-
-Structural Discovery is strong enough to stand on its own as a subsystem, but it is still bounded by the branch results underneath it.
-
-Current limits:
-
-- no universal augmentation theorem across all branches
-- no full bounded-domain repair engine beyond the currently solved restricted subcases
-- no automatic search on arbitrary nonlinear models
-
-## Honest Assessment
-
-This is a real and useful subsystem.
-
-It is strongest as:
-
-- a structural diagnosis engine for the restricted-linear and constrained-observation lanes
-- a design aid for choosing stronger vs weaker targets
-- a proof-linked demonstration layer for threshold and no-go results
-
-It should not be marketed as a universal automated discovery theorem.
-
-
-## Validation Snapshot
-
-- dedicated structural-discovery tests: `6 passed`
-- workbench / Node suite after studio integration: `18 passed`
-- full repository Python suite after integration: `100 passed`
-- browser smoke: passed on all four validated structural-discovery demo flows
-
+- no universal augmentation law is claimed
+- bounded-domain exactness remains restricted to compatible finite-mode families
+- richer quantum measurement redesign remains standard external guidance rather than a repo theorem
+- nonlinear redesign search remains outside the current exact engine
+- the strongest augmentation logic remains theorem-backed only on restricted-linear and explicitly validated family-specific lanes

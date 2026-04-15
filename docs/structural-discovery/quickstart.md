@@ -18,7 +18,8 @@ Recommended first runs:
 1. `Periodic modal repair`
 2. `Control history repair`
 3. `Weaker vs stronger target`
-4. `Restricted-linear repair`
+4. `Boundary architecture repair`
+5. `Restricted-linear repair`
 
 For each run:
 
@@ -27,6 +28,7 @@ For each run:
 3. inspect the minimal-fix cards
 4. click `Apply in studio`
 5. read the before/after evidence panel
+6. export the report or CSV snapshot if the configuration should be kept
 
 ## Fast Path In Python
 

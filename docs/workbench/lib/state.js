@@ -23,6 +23,10 @@ export const DEFAULT_STATE = {
       linearTemplate: 'sensor_basis',
       linearProtected: 'x3',
       linearDelta: 1.0,
+      boundaryArchitecture: 'periodic_transplant',
+      boundaryProtected: 'bounded_velocity_class',
+      boundaryGridSize: 17,
+      boundaryDelta: 0.2,
       linearMeasurements: {
         measure_x1: true,
         measure_x2_plus_x3: true,
@@ -81,6 +85,10 @@ export const DEFAULT_STATE = {
     },
     nogo: {
       example: 'finite-time',
+    },
+    benchmark: {
+      suite: 'all',
+      selectedDemo: 'periodic_modal_repair',
     },
   },
 };
@@ -143,7 +151,169 @@ export function decodeShareState(hash) {
 export function exportScenarioPayload(state, analysis) {
   return {
     exportedAt: new Date().toISOString(),
+    workbenchVersion: 'structural-discovery-v2',
+    activeLab: sanitizeState(state).activeLab,
+    evidenceLevel: scenarioEvidenceLevel(state, analysis),
     state: sanitizeState(state),
     analysis,
   };
+}
+
+export function scenarioEvidenceLevel(state, analysis) {
+  const activeLab = sanitizeState(state).activeLab;
+  if (activeLab === 'recoverability') {
+    if (state.labs.recoverability.system === 'linear') return 'theorem-backed restricted-linear result';
+    if (state.labs.recoverability.system === 'boundary') {
+      return state.labs.recoverability.boundaryArchitecture === 'boundary_compatible_hodge'
+        ? 'restricted exact bounded-domain result'
+        : 'theorem-linked counterexample and family-specific redesign guidance';
+    }
+    if (state.labs.recoverability.system === 'analytic') return 'explicit analytic benchmark';
+    if (state.labs.recoverability.system === 'qubit') return 'family-specific result with standard external guidance';
+    if (state.labs.recoverability.system === 'periodic') return 'family-specific threshold result';
+    if (state.labs.recoverability.system === 'control') return 'family-specific threshold and asymptotic benchmark';
+  }
+  if (activeLab === 'exact' || activeLab === 'qec' || activeLab === 'mhd' || activeLab === 'gauge') {
+    return 'theorem-backed or theorem-linked branch example';
+  }
+  if (activeLab === 'cfd' || activeLab === 'nogo' || activeLab === 'continuous') {
+    return 'validated theorem / no-go / empirical branch example';
+  }
+  if (activeLab === 'benchmark') {
+    return 'validated workbench benchmark and regression surface';
+  }
+  return analysis?.theoremStatus ?? 'workbench output';
+}
+
+function formatValue(value) {
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) return String(value);
+    if (Math.abs(value) >= 1000 || (Math.abs(value) > 0 && Math.abs(value) < 1e-2)) {
+      return value.toExponential(3);
+    }
+    return value.toFixed(3);
+  }
+  if (typeof value === 'string') return value;
+  if (typeof value === 'boolean') return value ? 'yes' : 'no';
+  return JSON.stringify(value, null, 2);
+}
+
+function configLines(config) {
+  return Object.entries(config)
+    .map(([key, value]) => `- \`${key}\`: ${formatValue(value)}`)
+    .join('\n');
+}
+
+function metricLines(analysis) {
+  const pairs = Object.entries(analysis ?? {})
+    .filter(([, value]) => ['number', 'string', 'boolean'].includes(typeof value))
+    .slice(0, 18);
+  return pairs.map(([key, value]) => `- \`${key}\`: ${formatValue(value)}`).join('\n');
+}
+
+export function exportScenarioReport(state, analysis) {
+  const safeState = sanitizeState(state);
+  const activeLab = safeState.activeLab;
+  const config = safeState.labs[activeLab];
+  const title = `Protected-State Correction Workbench Report — ${activeLab}`;
+  const recommendations = Array.isArray(analysis?.recommendations)
+    ? analysis.recommendations.map((item) => `- ${item.title}: ${item.rationale}`).join('\n')
+    : '';
+  const comparison = analysis?.comparison
+    ? [
+        `- before regime: ${analysis.comparison.beforeRegime}`,
+        `- after regime: ${analysis.comparison.afterRegime}`,
+        `- key metric: ${analysis.comparison.keyMetricName}`,
+        `- before metric: ${formatValue(analysis.comparison.keyMetricBefore)}`,
+        `- after metric: ${formatValue(analysis.comparison.keyMetricAfter)}`,
+        `- narrative: ${analysis.comparison.narrative}`,
+      ].join('\n')
+    : '- no before/after comparison available for the current state';
+  return [
+    `# ${title}`,
+    '',
+    `- exported at: ${new Date().toISOString()}`,
+    `- active lab: ${activeLab}`,
+    `- evidence level: ${scenarioEvidenceLevel(state, analysis)}`,
+    '',
+    '## Summary',
+    '',
+    activeLab === 'recoverability'
+      ? `${analysis?.status ?? 'Unknown'} — ${analysis?.classification ?? 'No classification available.'}`
+      : `${analysis?.title ?? analysis?.systemLabel ?? activeLab} — ${analysis?.status ?? analysis?.classification ?? 'Workbench output'}`,
+    '',
+    '## Configuration',
+    '',
+    configLines(config),
+    '',
+    '## Analysis',
+    '',
+    analysis?.structuralBlocker
+      ? `- blocker: ${analysis.structuralBlocker}`
+      : analysis?.summary
+        ? `- summary: ${analysis.summary}`
+        : '- summary: see metrics below',
+    analysis?.missingStructure ? `- missing structure: ${analysis.missingStructure}` : null,
+    analysis?.recommendedArchitecture ? `- recommended architecture: ${analysis.recommendedArchitecture}` : null,
+    analysis?.guidance?.noGo ? `- no-go / boundary: ${analysis.guidance.noGo}` : null,
+    '',
+    '## Key Metrics',
+    '',
+    metricLines(analysis),
+    '',
+    '## Recommendations',
+    '',
+    recommendations || '- no additional recommendation list for the current lab',
+    '',
+    '## Before / After',
+    '',
+    comparison,
+    '',
+    '## Reproducibility',
+    '',
+    '- export source: static Protected-State Correction Workbench',
+    '- data origin: current in-browser configuration and analysis result',
+    '- provenance: use the JSON export for exact state replay and the share link for direct UI reconstruction',
+    '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function exportScenarioCsv(state, analysis) {
+  const activeLab = sanitizeState(state).activeLab;
+  if (activeLab === 'recoverability') {
+    const rows = [['series', 'x', 'y']];
+    if (Array.isArray(analysis?.deltas) && Array.isArray(analysis?.collapse)) {
+      analysis.deltas.forEach((delta, index) => {
+        rows.push(['collapse', String(delta), String(analysis.collapse[index])]);
+      });
+    }
+    if (Array.isArray(analysis?.thresholdCutoffs) && Array.isArray(analysis?.thresholdKappa0)) {
+      analysis.thresholdCutoffs.forEach((cutoff, index) => {
+        rows.push(['threshold_kappa0', String(cutoff), String(analysis.thresholdKappa0[index])]);
+      });
+    }
+    if (Array.isArray(analysis?.historyThreshold)) {
+      analysis.historyThreshold.forEach((item) => {
+        rows.push(['history_threshold', String(item.horizon), String(item.kappa0)]);
+      });
+    }
+    if (Array.isArray(analysis?.boundaryArchitectureSeries)) {
+      analysis.boundaryArchitectureSeries.forEach((item) => {
+        rows.push(['boundary_architecture', String(item.x), String(item.y)]);
+      });
+    }
+    return rows.map((row) => row.join(',')).join('\n');
+  }
+  if (activeLab === 'benchmark' && Array.isArray(analysis?.demoRows)) {
+    const header = ['demo', 'family', 'before_regime', 'after_regime', 'metric_name', 'metric_before', 'metric_after', 'fix'];
+    const body = analysis.demoRows.map((row) =>
+      [row.demo, row.family, row.beforeRegime, row.afterRegime, row.metricName, row.metricBefore, row.metricAfter, row.fixTitle]
+        .map((value) => `"${String(value).replaceAll('"', '""')}"`)
+        .join(',')
+    );
+    return [header.join(','), ...body].join('\n');
+  }
+  return null;
 }

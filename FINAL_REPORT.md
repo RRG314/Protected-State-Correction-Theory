@@ -142,6 +142,7 @@ The workbench was redesigned and renamed to:
 
 Current modules:
 - Structural Discovery Studio
+- Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -153,11 +154,14 @@ Current modules:
 Usability changes:
 - removed the problematic sticky translucent header
 - rebuilt the entry area around a clearer hero + module-card layout
+- added a task-first quickstart layer so users can start from failure mode, recoverability question, or benchmark need instead of browsing theory modules blindly
 - separated configuration, results, theory links, and outside literature
 - reduced repeated cramped text
 - added a kept physics-extension module instead of leaving the physics lane buried in docs only
 - added decision-oriented guidance that says what to add next when a record is insufficient
 - added reusable templates and user-facing paths so the repo can be used to build and diagnose systems, not only read about them
+- added exportable share-link, JSON, CSV, report, and figure outputs for workbench scenarios
+- added a Benchmark / Validation Console that turns built-in demos and module health into an in-workbench trust surface
 
 ## 7. Outside Literature Layer
 
@@ -192,8 +196,9 @@ Current validation status:
 - static workbench asset check: passed
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Structural Discovery Studio: passed
-- Node workbench test suite: `18 passed`
-- Python theorem/operator/example test suite: `100 passed`
+- real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
+- Node workbench test suite: `21 passed`
+- Python theorem/operator/example test suite: `101 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -202,6 +207,8 @@ Generated artifacts of note:
 - [data/generated/validations/system_summary.json](data/generated/validations/system_summary.json)
 - [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
 - [data/generated/design/design_template_examples.json](data/generated/design/design_template_examples.json)
+- [data/generated/structural_discovery/structural_discovery_summary.json](data/generated/structural_discovery/structural_discovery_summary.json)
+- [data/generated/structural_discovery/structural_discovery_demo_table.csv](data/generated/structural_discovery/structural_discovery_demo_table.csv)
 
 ## 9. Final Naming Decision
 

@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+  analyzeBenchmarkConsole,
   analyzeCfdProjection,
   analyzeContinuousGenerator,
   analyzeExactProjection,
@@ -49,6 +50,14 @@ const examples = {
     controlHorizon: 3,
     controlDelta: 0.5,
   }),
+  recoverabilityBoundaryArchitecture: analyzeRecoverability({
+    ...DEFAULT_STATE.labs.recoverability,
+    system: 'boundary',
+    boundaryArchitecture: 'periodic_transplant',
+    boundaryProtected: 'bounded_velocity_class',
+    boundaryGridSize: 17,
+    boundaryDelta: 0.2,
+  }),
   exact: analyzeExactProjection(DEFAULT_STATE.labs.exact),
   qec: analyzeQecSector(DEFAULT_STATE.labs.qec),
   mhd: analyzeMhdProjection(DEFAULT_STATE.labs.mhd),
@@ -57,6 +66,7 @@ const examples = {
   continuous: analyzeContinuousGenerator(DEFAULT_STATE.labs.continuous),
   nogo: analyzeNoGo(DEFAULT_STATE.labs.nogo),
   boundaryNoGo: analyzeNoGo({ example: 'boundary' }),
+  benchmark: analyzeBenchmarkConsole(DEFAULT_STATE.labs.benchmark),
 };
 
 writeFileSync(OUT, JSON.stringify(examples, null, 2));

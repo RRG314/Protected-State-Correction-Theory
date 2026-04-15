@@ -25,15 +25,15 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `280`
+- tracked-like files: `304`
 - root files: `19`
 - archive files: `8`
-- data files: `22`
-- docs files: `124`
+- data files: `24`
+- docs files: `138`
 - papers files: `6`
-- scripts files: `19`
-- source files: `33`
-- test files: `37`
+- scripts files: `20`
+- source files: `36`
+- test files: `41`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -263,9 +263,11 @@ Workbench docs:
 - [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
 - [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
 - [docs/app/structural-discovery-studio.md](docs/app/structural-discovery-studio.md)
+- [docs/app/benchmark-validation-console.md](docs/app/benchmark-validation-console.md)
 
 Workbench modules:
 - Structural Discovery Studio
+- Benchmark / Validation Console
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -311,8 +313,9 @@ Validation status:
 - naming consistency check: passed
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Structural Discovery Studio: passed
-- Node workbench tests: `18 passed`
-- Python theorem/operator/example tests: `100 passed`
+- real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
+- Node workbench tests: `21 passed`
+- Python theorem/operator/example tests: `101 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -326,6 +329,8 @@ Primary generated artifacts:
 - [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
 - [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
 - [data/generated/design/design_template_examples.json](data/generated/design/design_template_examples.json)
+- [data/generated/structural_discovery/structural_discovery_summary.json](data/generated/structural_discovery/structural_discovery_summary.json)
+- [data/generated/structural_discovery/structural_discovery_demo_table.csv](data/generated/structural_discovery/structural_discovery_demo_table.csv)
 
 ## Results Snapshot
 

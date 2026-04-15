@@ -1,4 +1,5 @@
 import {
+  analyzeBenchmarkConsole,
   analyzeCfdProjection,
   analyzeBoundaryProjectionLimit,
   analyzeContinuousGenerator,
@@ -18,7 +19,9 @@ import {
   cloneState,
   decodeShareState,
   encodeShareState,
+  exportScenarioCsv,
   exportScenarioPayload,
+  exportScenarioReport,
   sanitizeState,
 } from './lib/state.js';
 
@@ -49,6 +52,33 @@ const LAB_META = {
       { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum recoverability anchor' },
       { title: 'Functional observability and subspace reconstruction', href: 'https://doi.org/10.1103/PhysRevResearch.4.043195', note: 'Control-side protected-functional anchor' },
       { title: 'Chorin projection-method foundation', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Periodic constrained reconstruction anchor' },
+    ],
+  },
+  benchmark: {
+    label: 'Benchmark / Validation Console',
+    short: 'Run validated demos, inspect branch health, and export reproducibility snapshots.',
+    branch: 'Workbench validation layer',
+    fit: 'Validated demos, benchmark cases, and evidence-level map',
+    status: 'ACTIVE PRODUCT SURFACE',
+    lane: 'Benchmarking and reproducibility',
+    protected: 'Validated theorem-backed or benchmark-backed scenario behavior',
+    disturbance: 'False positives, stale claims, or hidden regressions',
+    correction: 'Recomputed demos, regression rows, and exportable snapshots',
+    plain:
+      'This console is the workbench’s trust surface. It gathers the built-in demos and benchmark cases, shows what changed before versus after, and makes it easy to export a reproducible snapshot instead of relying on memory or screenshots.',
+    technical:
+      'Aggregates the validated structural-discovery demos, module-health benchmark rows, and reproducibility exports into one console. This layer is about regression resistance and evidence visibility rather than new theorem claims.',
+    use: 'Use this when you want a stable starting point, a regression check, or an exportable record of why a demo or branch result should be trusted.',
+    avoid: 'Do not read this as a replacement for the repo-wide test gate. It is a live benchmark surface inside the workbench.',
+    refs: [
+      { title: 'Structural Discovery final report', href: '../structural-discovery/final-report.md', note: 'Capability status and limits' },
+      { title: 'Structural Discovery validation', href: '../structural-discovery/validation.md', note: 'Validation surface and demo checks' },
+      { title: 'Workbench overview', href: '../app/workbench-overview.md', note: 'Workbench-wide module map' },
+    ],
+    literature: [
+      { title: 'Functional observability and subspace reconstruction', href: 'https://doi.org/10.1103/PhysRevResearch.4.043195', note: 'Benchmark anchoring on protected-function recovery' },
+      { title: 'Chorin projection-method foundation', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Classical benchmark anchor for constrained projection' },
+      { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum-side recoverability anchor' },
     ],
   },
   exact: {
@@ -312,7 +342,57 @@ const STRUCTURAL_DISCOVERY_PRESETS = {
       },
     },
   },
+  boundary_architecture_repair: {
+    label: 'Boundary architecture repair',
+    patch: {
+      system: 'boundary',
+      studioMode: 'guided',
+      boundaryArchitecture: 'periodic_transplant',
+      boundaryProtected: 'bounded_velocity_class',
+      boundaryGridSize: 17,
+      boundaryDelta: 0.2,
+    },
+  },
 };
+
+const QUICKSTARTS = [
+  {
+    id: 'discover-structure',
+    title: 'Discover missing structure',
+    body: 'Open the Structural Discovery Studio on a failing boundary-sensitive case and let the workbench identify the missing architecture.',
+    action: { type: 'preset', preset: 'boundary_architecture_repair' },
+  },
+  {
+    id: 'test-recoverability',
+    title: 'Test recoverability',
+    body: 'Jump straight into the theorem-linked diagnosis flow for protected variables under constrained records.',
+    action: { type: 'lab', lab: 'recoverability' },
+  },
+  {
+    id: 'compare-exact-asymptotic',
+    title: 'Compare exact vs asymptotic',
+    body: 'Use the MHD / continuous lanes to see when one-shot correction is real and when only asymptotic suppression survives.',
+    action: { type: 'lab', lab: 'mhd' },
+  },
+  {
+    id: 'inspect-no-go',
+    title: 'Inspect no-go boundaries',
+    body: 'Open explicit failure witnesses instead of guessing why a naive correction strategy breaks.',
+    action: { type: 'lab', lab: 'nogo' },
+  },
+  {
+    id: 'run-benchmarks',
+    title: 'Run built-in benchmarks',
+    body: 'Open the benchmark console to compare validated demo scenarios, module health, and exportable reproducibility snapshots.',
+    action: { type: 'lab', lab: 'benchmark' },
+  },
+  {
+    id: 'open-template',
+    title: 'Open linear template',
+    body: 'Start from a reusable restricted-linear recovery problem with exact minimal augmentation logic.',
+    action: { type: 'preset', preset: 'linear_measurement_repair' },
+  },
+];
 
 const LAB_DEFAULTS = cloneState(DEFAULT_STATE.labs);
 
@@ -343,6 +423,8 @@ function analyzeActiveLab() {
   switch (state.activeLab) {
     case 'recoverability':
       return analyzeRecoverability(state.labs.recoverability);
+    case 'benchmark':
+      return analyzeBenchmarkConsole(state.labs.benchmark);
     case 'exact':
       return analyzeExactProjection(state.labs.exact);
     case 'qec':
@@ -386,6 +468,19 @@ function applyStructuralPreset(name) {
   render();
 }
 
+function applyQuickStart(id) {
+  const quickStart = QUICKSTARTS.find((item) => item.id === id);
+  if (!quickStart) return;
+  if (quickStart.action.type === 'preset') {
+    applyStructuralPreset(quickStart.action.preset);
+    return;
+  }
+  if (quickStart.action.type === 'lab') {
+    state.activeLab = quickStart.action.lab;
+    render();
+  }
+}
+
 function applyStructuralRecommendation(index) {
   const recommendation = latestAnalysis?.recommendations?.[Number(index)];
   if (!recommendation || !recommendation.availableInStudio || !recommendation.patch) return;
@@ -416,7 +511,7 @@ function render() {
           <div class="hero-copy">
             <span class="kicker">Protected-State Correction Theory</span>
             <h1>Protected-State Correction Workbench</h1>
-            <p class="deck">A static scientific workbench for exact projection, sector recovery, continuous asymptotic correction, and theorem-grade failure modes. The workbench uses the Orthogonal Correction Principle as the core internal principle name, but keeps the public-facing structure theory-first and proof-linked.</p>
+            <p class="deck">A structural-discovery and recoverability engineering workbench for exact projection, asymptotic redesign, threshold diagnosis, minimal augmentation, and theorem-grade failure analysis. The interface is designed to help a serious user decide what is protected, what is missing, and what change actually repairs the architecture.</p>
             <div class="hero-meta-row">
               <span class="fit-pill">${meta.branch}</span>
               <span class="status-pill">${meta.status}</span>
@@ -444,6 +539,8 @@ function render() {
               <div class="action-row compact">
                 <button id="share-link">Copy Share Link</button>
                 <button id="export-json">Export JSON</button>
+                <button id="export-csv">Export CSV</button>
+                <button id="export-report">Export Report</button>
                 <button id="export-figure" class="primary">Export Figure</button>
               </div>
             </div>
@@ -458,10 +555,20 @@ function render() {
         </div>
       </header>
 
+      <section class="quickstart-section">
+        <div class="section-heading">
+          <h2>Start from the problem you actually have</h2>
+          <p>Use the workbench like an engineering decision tool: choose the kind of failure or question first, then jump into the right theorem-linked surface.</p>
+        </div>
+        <div class="quickstart-grid">
+          ${renderQuickStarts()}
+        </div>
+      </section>
+
       <section class="module-section">
         <div class="section-heading">
           <h2>Choose a theorem-linked module</h2>
-          <p>Each module is kept only if it corresponds to a proved result, a conditional but citable branch, or a sharp rejected bridge.</p>
+          <p>Each module is kept only if it corresponds to a proved result, a validated family-specific branch, a sharp no-go, or a real benchmark surface.</p>
         </div>
         <div class="module-grid">
           ${renderModuleCards()}
@@ -682,6 +789,18 @@ function renderModuleCards() {
     .join('');
 }
 
+function renderQuickStarts() {
+  return QUICKSTARTS.map(
+    (item) => `
+      <button class="quickstart-card card-surface" data-quickstart="${item.id}">
+        <span class="module-kicker">guided path</span>
+        <strong>${item.title}</strong>
+        <p>${item.body}</p>
+      </button>
+    `
+  ).join('');
+}
+
 function renderSummaryCards(meta) {
   return [
     summaryCard('Protected object', meta.protected),
@@ -870,6 +989,7 @@ function renderConfigPane() {
             <option value="periodic" ${state.labs.recoverability.system === 'periodic' ? 'selected' : ''}>periodic incompressible flow</option>
             <option value="control" ${state.labs.recoverability.system === 'control' ? 'selected' : ''}>functional observability model</option>
             <option value="linear" ${state.labs.recoverability.system === 'linear' ? 'selected' : ''}>reusable linear design template</option>
+            <option value="boundary" ${state.labs.recoverability.system === 'boundary' ? 'selected' : ''}>bounded-domain architecture check</option>
           </select>
         </div>
         ${state.labs.recoverability.system === 'analytic' ? `
@@ -942,6 +1062,24 @@ function renderConfigPane() {
           ${rangeField('controlDelta', 'Selected δ', state.labs.recoverability.controlDelta, 0, state.labs.recoverability.controlMode === 'diagonal_threshold' ? 2 : 2.5, 0.05)}
         ` : ''}
         ${state.labs.recoverability.system === 'linear' ? renderRecoverabilityLinearControls() : ''}
+        ${state.labs.recoverability.system === 'boundary' ? `
+          <div class="field">
+            <label for="recoverability-boundary-architecture">Architecture</label>
+            <select id="recoverability-boundary-architecture" data-path="labs.recoverability.boundaryArchitecture">
+              <option value="periodic_transplant" ${state.labs.recoverability.boundaryArchitecture === 'periodic_transplant' ? 'selected' : ''}>periodic projector transplant</option>
+              <option value="boundary_compatible_hodge" ${state.labs.recoverability.boundaryArchitecture === 'boundary_compatible_hodge' ? 'selected' : ''}>boundary-compatible finite-mode Hodge projector</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="recoverability-boundary-protected">Protected target</label>
+            <select id="recoverability-boundary-protected" data-path="labs.recoverability.boundaryProtected">
+              <option value="bounded_velocity_class" ${state.labs.recoverability.boundaryProtected === 'bounded_velocity_class' ? 'selected' : ''}>full bounded protected class</option>
+              <option value="divergence_certificate" ${state.labs.recoverability.boundaryProtected === 'divergence_certificate' ? 'selected' : ''}>bulk divergence certificate only</option>
+            </select>
+          </div>
+          ${rangeField('boundaryGridSize', 'Grid size', state.labs.recoverability.boundaryGridSize, 13, 25, 2)}
+          ${rangeField('boundaryDelta', 'Selected δ', state.labs.recoverability.boundaryDelta, 0, 1, 0.02)}
+        ` : ''}
         <div class="callout ${latestAnalysis.impossible ? 'warn' : (latestAnalysis.exact || latestAnalysis.asymptotic) ? 'good' : ''}">
           <strong>${latestAnalysis.status}: ${latestAnalysis.classification}</strong>
           <p>${latestAnalysis.structuralBlocker} ${latestAnalysis.missingStructure}</p>
@@ -1033,6 +1171,27 @@ function renderConfigPane() {
           <p>${latestAnalysis.mixingNorm < 1e-8 ? 'This generator respects the protected/disturbance split and belongs to the asymptotic correction branch.' : 'This generator may damp disturbance overall, but it also injects disturbance into the protected coordinates, so it fails the protected-state correction criterion.'}</p>
         </div>
       `;
+    case 'benchmark':
+      return `
+        <div class="field">
+          <label for="benchmark-suite">Console focus</label>
+          <select id="benchmark-suite" data-path="labs.benchmark.suite">
+            <option value="all" ${state.labs.benchmark.suite === 'all' ? 'selected' : ''}>all results</option>
+            <option value="demos" ${state.labs.benchmark.suite === 'demos' ? 'selected' : ''}>demo repairs only</option>
+            <option value="modules" ${state.labs.benchmark.suite === 'modules' ? 'selected' : ''}>module health only</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="benchmark-demo">Selected demo</label>
+          <select id="benchmark-demo" data-path="labs.benchmark.selectedDemo">
+            ${latestAnalysis.demoRows.map((row) => `<option value="${row.demo}" ${state.labs.benchmark.selectedDemo === row.demo ? 'selected' : ''}>${row.label}</option>`).join('')}
+          </select>
+        </div>
+        <div class="callout good">
+          <strong>Validation-facing console.</strong>
+          <p>This surface gathers the built-in repair demos, module health checks, and reproducibility exports in one place so the workbench is auditable instead of purely visual.</p>
+        </div>
+      `;
     case 'nogo':
     default:
       return `
@@ -1072,6 +1231,8 @@ function renderVisualStage() {
   switch (state.activeLab) {
     case 'recoverability':
       return renderRecoverabilityStage();
+    case 'benchmark':
+      return renderBenchmarkStage();
     case 'exact':
       return renderExactStage();
     case 'qec':
@@ -1204,6 +1365,20 @@ function renderRecoverabilityStage() {
         </div>
       `;
     }
+    if (state.labs.recoverability.system === 'boundary') {
+      return `
+        <div class="figure">
+          <h4>Architecture threshold</h4>
+          ${lineChartSvg(
+            a.boundaryArchitectureSeries.map((item) => ({ x: item.x, y: item.y })),
+            'architecture step',
+            a.boundaryProtectedTarget === 'bounded_velocity_class' ? 'strong-target obstruction' : 'bulk divergence residual',
+            a.boundaryArchitecture === 'boundary_compatible_hodge' ? 1 : 0
+          )}
+          <small>The bounded-domain issue is architectural: the periodic transplant can reduce divergence without preserving the strong bounded protected class, while the boundary-compatible finite-mode family restores exactness on its restricted admissible set.</small>
+        </div>
+      `;
+    }
     return `
       <div class="figure">
         <h4>Noise lower bound</h4>
@@ -1320,6 +1495,21 @@ function renderRecoverabilityStage() {
         </div>
       `;
     }
+    if (state.labs.recoverability.system === 'boundary') {
+      return `
+        <div class="figure">
+          <h4>Boundary compatibility diagnostics</h4>
+          <div class="value-grid">
+            <div><small>Current architecture</small><code>${a.boundaryArchitecture.replaceAll('_', ' ')}</code></div>
+            <div><small>Protected target</small><code>${a.protectedLabel}</code></div>
+            <div><small>Transplant boundary mismatch</small><code>${a.transplantBoundaryMismatch.toExponential(3)}</code></div>
+            <div><small>Compatible recovery error</small><code>${a.compatibleRecoveryError.toExponential(3)}</code></div>
+            <div><small>Compatible orthogonality residual</small><code>${a.compatibleOrthogonalityResidual.toExponential(3)}</code></div>
+            <div><small>Weaker recoverable target</small><code>${a.weakerRecoverableTargets.length ? a.weakerRecoverableTargets.join('\n') : 'none needed'}</code></div>
+          </div>
+        </div>
+      `;
+    }
     return `
       <div class="figure">
         <h4>Branch diagnostics</h4>
@@ -1412,6 +1602,77 @@ function renderRecoverabilityStage() {
       ${systemDiagnostics}
     </div>
     ${tertiaryFigure}
+  `;
+}
+
+function renderBenchmarkStage() {
+  const suite = state.labs.benchmark.suite;
+  const demoRows = suite === 'modules' ? [] : latestAnalysis.demoRows;
+  const moduleRows = suite === 'demos' ? [] : latestAnalysis.moduleRows;
+  const selected = latestAnalysis.selectedDemoRow;
+  return `
+    <div class="figure-grid double">
+      <div class="figure" data-exportable="true">
+        <h4>Validated demo regime changes</h4>
+        ${lineChartSvg(
+          latestAnalysis.demoRows.map((row, index) => ({ x: index + 1, y: row.metricBefore })),
+          'demo index',
+          'before metric'
+        )}
+        <small>The console keeps the built-in repair stories visible as measurable before/after transitions rather than as static screenshots.</small>
+      </div>
+      <div class="figure">
+        <h4>Console summary</h4>
+        <div class="value-grid">
+          <div><small>Demos</small><code>${latestAnalysis.summary.demoCount}</code></div>
+          <div><small>Regime changes</small><code>${latestAnalysis.summary.regimeChangeCount}</code></div>
+          <div><small>Exact after fix</small><code>${latestAnalysis.summary.exactAfterCount}</code></div>
+          <div><small>Benchmarked modules</small><code>${latestAnalysis.summary.moduleCount}</code></div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Selected demo</h4>
+        <div class="value-grid">
+          <div><small>Demo</small><code>${selected.label}</code></div>
+          <div><small>Family</small><code>${selected.family}</code></div>
+          <div><small>Before</small><code>${selected.beforeRegime}</code></div>
+          <div><small>After</small><code>${selected.afterRegime}</code></div>
+          <div><small>Key metric</small><code>${selected.metricName}</code></div>
+          <div><small>Fix</small><code>${selected.fixTitle}</code></div>
+          <div><small>Theorem status</small><code>${selected.theoremStatus}</code></div>
+        </div>
+        <div class="action-row top-gap">
+          <button class="primary" data-open-demo="${selected.demo}">Open this demo in the studio</button>
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Demo repair table</h4>
+        <div class="benchmark-table">
+          <table class="matrix-table">
+            <thead>
+              <tr><th>Demo</th><th>Before</th><th>After</th><th>Fix</th></tr>
+            </thead>
+            <tbody>
+              ${demoRows.map((row) => `<tr><th>${row.label}</th><td>${row.beforeRegime}</td><td>${row.afterRegime}</td><td>${row.fixTitle}</td></tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="figure top-gap">
+      <h4>Module health map</h4>
+      <div class="benchmark-module-grid">
+        ${moduleRows.map((row) => `
+          <article class="benchmark-module-card">
+            <strong>${row.label}</strong>
+            <span>${row.verdict}</span>
+            <small>${row.evidence}</small>
+          </article>
+        `).join('')}
+      </div>
+    </div>
   `;
 }
 
@@ -1542,9 +1803,28 @@ function renderCfdStage() {
         <div class="value-grid">
           <div><small>Physical boundary-normal RMS</small><code>${latestAnalysis.boundedPhysicalBoundaryNormalRms.toExponential(3)}</code></div>
           <div><small>Projected boundary-normal RMS</small><code>${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(3)}</code></div>
+          <div><small>Compatible protected boundary-normal RMS</small><code>${latestAnalysis.boundedCompatibleProtectedBoundaryNormalRms.toExponential(3)}</code></div>
+          <div><small>Compatible recovered boundary-normal RMS</small><code>${latestAnalysis.boundedCompatibleRecoveredBoundaryNormalRms.toExponential(3)}</code></div>
+          <div><small>Compatible recovery error</small><code>${latestAnalysis.boundedCompatibleRecoveryError.toExponential(3)}</code></div>
+          <div><small>Compatible projector agreement</small><code>${latestAnalysis.boundedCompatibleProjectorConstructionAgreement?.toExponential(3) ?? 'n/a'}</code></div>
           <div><small>Divergence-only witness 1</small><code>${latestAnalysis.divergenceOnlyWitness.firstStateDivergenceRms.toExponential(3)}</code></div>
           <div><small>Divergence-only witness separation</small><code>${latestAnalysis.divergenceOnlyWitness.stateSeparationRms.toExponential(3)}</code></div>
         </div>
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Restricted exact bounded-domain subcase</h4>
+        <div class="value-grid">
+          <div><small>Protected divergence RMS</small><code>${latestAnalysis.boundedCompatibleProtectedDivNorm.toExponential(3)}</code></div>
+          <div><small>Recovered divergence RMS</small><code>${latestAnalysis.boundedCompatibleRecoveredDivNorm.toExponential(3)}</code></div>
+          <div><small>Orthogonality residual</small><code>${latestAnalysis.boundedCompatibleOrthogonalityResidual.toExponential(3)}</code></div>
+          <div><small>Idempotence error</small><code>${latestAnalysis.boundedCompatibleIdempotenceError.toExponential(3)}</code></div>
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Interpretation</h4>
+        <p class="studio-note">The CFD lane now shows both sides honestly: the periodic branch is exact, the periodic-transplant bounded branch fails, and the restricted boundary-compatible finite-mode Hodge family gives a real bounded exact subcase instead of a vague rescue claim.</p>
       </div>
     </div>
   `;
@@ -1617,6 +1897,19 @@ function renderMetrics() {
               metric('Minimal fix size', latestAnalysis.minimalAddedMeasurements === null ? 'none' : String(latestAnalysis.minimalAddedMeasurements), latestAnalysis.minimalAddedMeasurements !== null ? 'good' : 'bad'),
             ]
           : []),
+        ...(state.labs.recoverability.system === 'boundary'
+          ? [
+              metric('Boundary mismatch', latestAnalysis.transplantBoundaryMismatch.toExponential(2), latestAnalysis.boundaryArchitecture === 'boundary_compatible_hodge' ? 'good' : 'bad'),
+              metric('Compatible recovery', latestAnalysis.compatibleRecoveryError.toExponential(2), latestAnalysis.compatibleRecoveryError < 1e-6 ? 'good' : ''),
+            ]
+          : []),
+      ].join('');
+    case 'benchmark':
+      return [
+        metric('Demos', String(latestAnalysis.summary.demoCount), 'good'),
+        metric('Regime changes', String(latestAnalysis.summary.regimeChangeCount), latestAnalysis.summary.regimeChangeCount === latestAnalysis.summary.demoCount ? 'good' : ''),
+        metric('Exact after fix', String(latestAnalysis.summary.exactAfterCount), 'good'),
+        metric('Benchmarked modules', String(latestAnalysis.summary.moduleCount), 'good'),
       ].join('');
     case 'exact':
       return [
@@ -1667,7 +1960,9 @@ function renderMetrics() {
 function renderNarrativeSummary() {
   switch (state.activeLab) {
     case 'recoverability':
-      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)} and the zero-noise lower bound from κ(0) is ${(0.5 * latestAnalysis.kappa0).toExponential(2)}. Recommended architecture: ${latestAnalysis.guidance.architecture}. ${latestAnalysis.guidance.missing}${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}; in this lane the threshold is set by the largest protected visible cutoff, not by raw support size.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}, and the threshold is governed by interpolation complexity on the active sensor spectrum rather than by support count alone.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''}${state.labs.recoverability.system === 'linear' ? ` The current static record uses ${latestAnalysis.activeMeasurementLabels.length} measurement rows. The unrestricted theorem-backed minimum added-measurement count is ${latestAnalysis.unrestrictedMinimalAddedMeasurements}.${latestAnalysis.minimalAddedMeasurements === null ? ' No exact fix exists inside the current candidate library.' : ` Inside the current library, the smallest exact fix needs ${latestAnalysis.minimalAddedMeasurements} added measurement${latestAnalysis.minimalAddedMeasurements === 1 ? '' : 's'}.`}` : ''} This studio is meant to tell you what can be recovered, what is blocked, and what to change next.</p>`;
+      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)} and the zero-noise lower bound from κ(0) is ${(0.5 * latestAnalysis.kappa0).toExponential(2)}. Recommended architecture: ${latestAnalysis.guidance.architecture}. ${latestAnalysis.guidance.missing}${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}; in this lane the threshold is set by the largest protected visible cutoff, not by raw support size.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}, and the threshold is governed by interpolation complexity on the active sensor spectrum rather than by support count alone.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''}${state.labs.recoverability.system === 'linear' ? ` The current static record uses ${latestAnalysis.activeMeasurementLabels.length} measurement rows. The unrestricted theorem-backed minimum added-measurement count is ${latestAnalysis.unrestrictedMinimalAddedMeasurements}.${latestAnalysis.minimalAddedMeasurements === null ? ' No exact fix exists inside the current candidate library.' : ` Inside the current library, the smallest exact fix needs ${latestAnalysis.minimalAddedMeasurements} added measurement${latestAnalysis.minimalAddedMeasurements === 1 ? '' : 's'}.`}` : ''}${state.labs.recoverability.system === 'boundary' ? ` The transplanted periodic projector leaves a bounded-domain boundary mismatch of ${latestAnalysis.transplantBoundaryMismatch.toExponential(2)}, while the restricted boundary-compatible finite-mode Hodge family reaches recovery error ${latestAnalysis.compatibleRecoveryError.toExponential(2)} on its admissible family.` : ''} This studio is meant to tell you what can be recovered, what is blocked, and what to change next.</p>`;
+    case 'benchmark':
+      return `<p>The console currently tracks ${latestAnalysis.summary.demoCount} validated repair demos and ${latestAnalysis.summary.moduleCount} benchmarked module surfaces. The selected demo is ${latestAnalysis.selectedDemoRow.label}, which moves from ${latestAnalysis.selectedDemoRow.beforeRegime} to ${latestAnalysis.selectedDemoRow.afterRegime} after applying ${latestAnalysis.selectedDemoRow.fixTitle}. Use this surface when you need a reproducible starting point, an exportable evidence snapshot, or a quick sanity check that the workbench is still telling one consistent story.</p>`;
     case 'exact':
       return `<p>${latestAnalysis.admissible ? 'The disturbance is orthogonal, so projection returns the protected component exactly.' : 'The disturbance overlaps the protected direction, so exact recovery fails in the way the theorem spine predicts.'}</p>`;
     case 'qec':
@@ -1675,7 +1970,7 @@ function renderNarrativeSummary() {
     case 'mhd':
       return `<p>Projection drops the divergence norm from ${latestAnalysis.beforeNorm.toExponential(2)} to ${latestAnalysis.afterExactNorm.toExponential(2)}. At the currently selected GLM frame ${latestAnalysis.selectedFrame}, the asymptotic branch sits at ${latestAnalysis.selectedGlmNorm.toExponential(2)} and only reaches ${latestAnalysis.afterGlmNorm.toExponential(2)} at the final frame. This is the exact-versus-asymptotic split in numerical form.</p>`;
     case 'cfd':
-      return `<p>The periodic incompressible projection drops the divergence norm from ${latestAnalysis.periodicBeforeNorm.toExponential(2)} to ${latestAnalysis.periodicAfterNorm.toExponential(2)} with recovery error ${latestAnalysis.periodicRecoveryError.toExponential(2)}. The bounded-domain transplant still leaves a boundary-normal mismatch of ${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(2)}, so the honest CFD fit remains narrow and boundary-sensitive.</p>`;
+      return `<p>The periodic incompressible projection drops the divergence norm from ${latestAnalysis.periodicBeforeNorm.toExponential(2)} to ${latestAnalysis.periodicAfterNorm.toExponential(2)} with recovery error ${latestAnalysis.periodicRecoveryError.toExponential(2)}. The bounded-domain transplant still leaves a boundary-normal mismatch of ${latestAnalysis.boundedProjectedBoundaryNormalRms.toExponential(2)}, while the restricted boundary-compatible finite-mode Hodge family reaches recovery error ${latestAnalysis.boundedCompatibleRecoveryError.toExponential(2)}. That is the honest CFD picture: one real exact periodic branch, one real bounded exact subcase, and one sharp bounded failure.</p>`;
     case 'gauge':
       return `<p>The exact transverse projection drops the longitudinal residual from ${latestAnalysis.beforeGaugeNorm.toExponential(2)} to ${latestAnalysis.afterExactGaugeNorm.toExponential(2)}. At the currently selected damping frame ${latestAnalysis.selectedFrame}, the comparator branch sits at ${latestAnalysis.selectedGlmNorm.toExponential(2)}. This bridge is kept because it uses a real operator, not just an analogy.</p>`;
     case 'continuous':
@@ -1719,6 +2014,14 @@ function attachEvents() {
     button.addEventListener('click', () => applyStructuralPreset(button.dataset.structuralDemo));
   });
 
+  document.querySelectorAll('[data-quickstart]').forEach((button) => {
+    button.addEventListener('click', () => applyQuickStart(button.dataset.quickstart));
+  });
+
+  document.querySelectorAll('[data-open-demo]').forEach((button) => {
+    button.addEventListener('click', () => applyStructuralPreset(button.dataset.openDemo));
+  });
+
   document.querySelectorAll('[data-apply-recommendation]').forEach((button) => {
     button.addEventListener('click', () => applyStructuralRecommendation(button.dataset.applyRecommendation));
   });
@@ -1751,6 +2054,8 @@ function attachEvents() {
   document.getElementById('load-scenario').addEventListener('click', loadScenarioFromSelect);
   document.getElementById('share-link').addEventListener('click', copyShareLink);
   document.getElementById('export-json').addEventListener('click', exportJson);
+  document.getElementById('export-csv').addEventListener('click', exportCsv);
+  document.getElementById('export-report').addEventListener('click', exportReport);
   document.getElementById('export-figure').addEventListener('click', exportFigure);
   document.getElementById('reset-current').addEventListener('click', resetCurrentLab);
   document.getElementById('reset-all').addEventListener('click', resetAllLabs);
@@ -1808,6 +2113,20 @@ async function copyShareLink() {
 function exportJson() {
   const payload = exportScenarioPayload(state, latestAnalysis);
   downloadText(`protected-state-correction-${state.activeLab}-scenario.json`, JSON.stringify(payload, null, 2), 'application/json');
+}
+
+function exportCsv() {
+  const csv = exportScenarioCsv(state, latestAnalysis);
+  if (!csv) {
+    window.alert('CSV export is not available for the current module.');
+    return;
+  }
+  downloadText(`protected-state-correction-${state.activeLab}-series.csv`, csv, 'text/csv');
+}
+
+function exportReport() {
+  const report = exportScenarioReport(state, latestAnalysis);
+  downloadText(`protected-state-correction-${state.activeLab}-report.md`, report, 'text/markdown');
 }
 
 function exportFigure() {

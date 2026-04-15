@@ -1180,6 +1180,73 @@ function analyzeAnalyticRecoverability(config) {
   };
 }
 
+function analyzeBoundaryRecoverability(config) {
+  const architecture = config.boundaryArchitecture ?? 'periodic_transplant';
+  const protectedTarget = config.boundaryProtected ?? 'bounded_velocity_class';
+  const gridSize = Math.max(Number(config.boundaryGridSize ?? 17), 9);
+  const transplant = analyzeBoundaryProjectionLimit({ gridSize, poissonIterations: 320 });
+  const compatible = analyzeBoundedHodgeCompatible({ gridSize: Math.max(gridSize, 17) });
+  const selectedDelta = clamp(Number(config.boundaryDelta ?? 0.2), 0, 1);
+  const deltas = Array.from({ length: 40 }, (_, index) => index / 39);
+  const strongTarget = protectedTarget === 'bounded_velocity_class';
+  const exact = architecture === 'boundary_compatible_hodge' || (!strongTarget && architecture === 'periodic_transplant');
+  const impossible = architecture === 'periodic_transplant' && strongTarget;
+  const kappa0 = exact ? 0 : transplant.projectedBoundaryNormalRms;
+  const collapse = deltas.map(() => kappa0);
+  const deltaIndex = Math.round(selectedDelta * (deltas.length - 1));
+  const weakerTargets = strongTarget ? ['bulk divergence certificate only'] : [];
+  return {
+    systemLabel: 'Bounded-domain projection architecture benchmark',
+    protectedLabel: strongTarget ? 'bounded velocity class with boundary compatibility' : 'bulk divergence certificate only',
+    observationLabel: architecture === 'boundary_compatible_hodge' ? 'boundary-compatible finite-mode Hodge projector' : 'periodic projector transplanted to a bounded domain',
+    classification:
+      architecture === 'boundary_compatible_hodge'
+        ? 'Exact on the restricted boundary-compatible finite-mode family'
+        : strongTarget
+          ? 'Impossible for the strong bounded target under the transplanted architecture'
+          : 'Exact only for the weaker divergence certificate',
+    exact,
+    asymptotic: false,
+    impossible,
+    deltas,
+    collapse,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    kappa0,
+    meanRecoveryError:
+      architecture === 'boundary_compatible_hodge'
+        ? compatible.recoveryError
+        : strongTarget
+          ? transplant.projectedBoundaryNormalRms
+          : transplant.afterNorm,
+    maxRecoveryError:
+      architecture === 'boundary_compatible_hodge'
+        ? compatible.recoveryError
+        : strongTarget
+          ? transplant.projectedBoundaryNormalRms
+          : transplant.afterNorm,
+    boundaryArchitecture: architecture,
+    boundaryProtectedTarget: protectedTarget,
+    weakerBoundaryTargets: weakerTargets,
+    boundaryArchitectureSeries: [
+      { x: 0, y: strongTarget ? transplant.projectedBoundaryNormalRms : transplant.afterNorm, label: 'transplant' },
+      { x: 1, y: strongTarget ? compatible.recoveryError : compatible.recoveredDivNorm, label: 'compatible' },
+    ],
+    transplantBeforeDiv: transplant.beforeNorm,
+    transplantAfterDiv: transplant.afterNorm,
+    transplantBoundaryMismatch: transplant.projectedBoundaryNormalRms,
+    transplantPhysicalBoundaryNormalRms: transplant.physicalBoundaryNormalRms,
+    compatibleProtectedDivNorm: compatible.protectedDivNorm,
+    compatibleRecoveredDivNorm: compatible.recoveredDivNorm,
+    compatibleBoundaryMismatch: compatible.recoveredBoundaryNormalRms,
+    compatibleProtectedBoundaryNormalRms: compatible.protectedBoundaryNormalRms,
+    compatibleRecoveryError: compatible.recoveryError,
+    compatibleOrthogonalityResidual: compatible.orthogonalityResidual,
+    compatibleIdempotenceError: compatible.idempotenceError,
+    compatibleProjectorConstructionAgreement: compatible.projectorConstructionAgreement,
+  };
+}
+
 function recoverabilityStatusLabel(result) {
   if (result.exact) return 'Exact';
   if (result.asymptotic) return 'Asymptotic';
@@ -1394,6 +1461,38 @@ function guidanceForRecoverability(result, config) {
         noGo: result.exact ? null : 'Restricted-linear row-space insufficiency',
       };
     }
+    case 'boundary': {
+      if (result.exact) {
+        return {
+          architecture: result.boundaryArchitecture === 'boundary_compatible_hodge'
+            ? 'Boundary-compatible exact projector'
+            : 'Keep the weak divergence-only target',
+          blocker: 'No structural blocker remains for the current target on the chosen bounded-domain architecture.',
+          missing: result.boundaryArchitecture === 'boundary_compatible_hodge'
+            ? 'The current boundary-compatible finite-mode projector respects both divergence and the bounded protected class.'
+            : 'The current transplanted architecture is only acceptable because the protected target has been weakened to a bulk divergence certificate.',
+          nextSteps: [
+            result.boundaryArchitecture === 'boundary_compatible_hodge'
+              ? 'Keep the boundary-compatible basis if you want an honest exact bounded-domain statement.'
+              : 'Only keep this weaker target if a divergence certificate is all the application really needs.',
+            'If you enlarge the bounded family, rerun the compatibility checks rather than assuming the same projector still fits.',
+          ],
+          weaker: result.weakerBoundaryTargets ?? [],
+          noGo: null,
+        };
+      }
+      return {
+        architecture: 'Switch to a boundary-compatible bounded-domain architecture',
+        blocker: 'The periodic projector removes divergence but leaves the bounded protected class because the projected field picks up the wrong boundary-normal trace.',
+        missing: 'Use the restricted boundary-compatible finite-mode Hodge family for exact recovery, or weaken the target to a bulk divergence certificate.',
+        nextSteps: [
+          'Switch from the periodic transplant to the boundary-compatible Hodge projector on the restricted finite-mode family.',
+          'If the application only needs bulk incompressibility and not the full bounded protected class, weaken the target to a divergence certificate.',
+        ],
+        weaker: result.weakerBoundaryTargets ?? ['bulk divergence certificate only'],
+        noGo: 'Bounded-domain projector transplant failure',
+      };
+    }
     default:
       return {
         architecture: 'Use the current branch classification',
@@ -1422,6 +1521,10 @@ function theoremStatusForRecoverability(result, config) {
         : 'Mixed exact / asymptotic control benchmark';
     case 'linear':
       return 'Restricted-linear theorem-backed design and augmentation spine';
+    case 'boundary':
+      return result.boundaryArchitecture === 'boundary_compatible_hodge'
+        ? 'Restricted exact bounded-domain Hodge theorem on the finite-mode family'
+        : 'Theorem-backed bounded-domain transplant failure with restricted exact repair path';
     default:
       return 'Recoverability branch diagnostic';
   }
@@ -1668,6 +1771,51 @@ function recommendationsForRecoverability(result, config) {
         });
       return recommendations;
     }
+    case 'boundary': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-boundary',
+            title: result.boundaryArchitecture === 'boundary_compatible_hodge'
+              ? 'Keep the boundary-compatible projector'
+              : 'Keep the weaker divergence-only target',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: result.boundaryArchitecture === 'boundary_compatible_hodge'
+              ? 'The current bounded-domain architecture is already aligned with the restricted exact theorem-backed family.'
+              : 'The current architecture only works because the target has been weakened to something the transplanted projector actually certifies.',
+            minimal: true,
+            expectedRegime: 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      return [
+        {
+          id: 'switch-boundary-architecture',
+          title: 'Switch to the boundary-compatible Hodge family',
+          actionKind: 'switch_architecture',
+          theoremStatus: theoremStatusForRecoverability(result, config),
+          rationale: 'The wrong architecture is the blocker here; the restricted bounded-domain Hodge projector restores exact recovery on the compatible finite-mode family.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { boundaryArchitecture: 'boundary_compatible_hodge' },
+          availableInStudio: true,
+        },
+        {
+          id: 'weaken-boundary-target',
+          title: 'Weaken target to bulk divergence certificate only',
+          actionKind: 'weaken_target',
+          theoremStatus: 'Weaker-target fallback using the existing transplanted computation',
+          rationale: 'If the application only needs a divergence certificate, the transplanted architecture can still support that weaker target even though it fails the strong bounded protected class.',
+          minimal: false,
+          expectedRegime: 'exact',
+          patch: { boundaryProtected: 'divergence_certificate' },
+          availableInStudio: true,
+        },
+      ];
+    }
     default:
       return [];
   }
@@ -1683,13 +1831,18 @@ function decorateRecoverabilityGuidance(result, config, depth = 0) {
     chosenRecommendation = recommendations.find((item) => item.availableInStudio && item.actionKind !== 'keep') ?? recommendations[0] ?? null;
     if (chosenRecommendation && chosenRecommendation.patch && chosenRecommendation.actionKind !== 'keep') {
       const nextAnalysis = analyzeRecoverability(mergeRecoverabilityConfig(config, chosenRecommendation.patch), depth + 1);
+      const keyMetricName = config.system === 'boundary' ? 'boundary mismatch' : 'κ(0)';
+      const keyMetricBefore = config.system === 'boundary' ? result.transplantBoundaryMismatch : result.kappa0;
+      const keyMetricAfter = config.system === 'boundary'
+        ? (nextAnalysis.boundaryArchitecture === 'boundary_compatible_hodge' ? nextAnalysis.compatibleRecoveryError : nextAnalysis.kappa0)
+        : nextAnalysis.kappa0;
       comparison = {
         beforeRegime: status.toLowerCase(),
         afterRegime: nextAnalysis.status.toLowerCase(),
         regimeChanged: status !== nextAnalysis.status,
-        keyMetricName: 'κ(0)',
-        keyMetricBefore: result.kappa0,
-        keyMetricAfter: nextAnalysis.kappa0,
+        keyMetricName,
+        keyMetricBefore,
+        keyMetricAfter,
         exactAfter: nextAnalysis.exact,
         asymptoticAfter: nextAnalysis.asymptotic,
         impossibleAfter: nextAnalysis.impossible,
@@ -1739,6 +1892,9 @@ function analyzeRecoverabilityCore(config) {
     case 'control':
       result = analyzeControlRecoverability(config);
       break;
+    case 'boundary':
+      result = analyzeBoundaryRecoverability(config);
+      break;
     case 'analytic':
     default:
       result = analyzeAnalyticRecoverability(config);
@@ -1753,6 +1909,140 @@ export function analyzeRecoverability(config, depth = 0) {
 
 export function analyzeStructuralDiscovery(config) {
   return analyzeRecoverability(config, 0);
+}
+
+export function analyzeBenchmarkConsole(config = {}) {
+  const mhdBenchmark = analyzeMhdProjection({ gridSize: 12, contamination: 0.22, glmSteps: 8, frame: 8, poissonIterations: 320, dt: 0.05, ch: 1, cp: 1 });
+  const cfdBenchmark = analyzeCfdProjection({ periodicGridSize: 12, boundedGridSize: 18, contamination: 0.22, poissonIterations: 320 });
+  const continuousBenchmark = analyzeContinuousGenerator({ matrix: [[0, 0, 0], [0, 1, 1], [0, 0, 1.5]], x0: [2, -1, 0.5], time: 2, steps: 280, frame: 280 });
+  const demoConfigs = {
+    periodic_modal_repair: {
+      label: 'Periodic modal augmentation',
+      config: {
+        system: 'periodic',
+        periodicObservation: 'cutoff_vorticity',
+        periodicProtected: 'full_weighted_sum',
+        periodicCutoff: 3,
+        periodicDelta: 2,
+      },
+    },
+    control_history_repair: {
+      label: 'Control history augmentation',
+      config: {
+        system: 'control',
+        controlMode: 'diagonal_threshold',
+        controlProfile: 'three_active',
+        controlFunctional: 'second_moment',
+        controlHorizon: 2,
+        controlDelta: 0.5,
+      },
+    },
+    weaker_vs_stronger_split: {
+      label: 'Weaker-versus-stronger split',
+      config: {
+        system: 'qubit',
+        qubitProtected: 'bloch_vector',
+        qubitPhaseWindowDeg: 30,
+        qubitDelta: 0.2,
+      },
+    },
+    boundary_architecture_repair: {
+      label: 'Boundary architecture repair',
+      config: {
+        system: 'boundary',
+        boundaryArchitecture: 'periodic_transplant',
+        boundaryProtected: 'bounded_velocity_class',
+        boundaryGridSize: 17,
+        boundaryDelta: 0.2,
+      },
+    },
+    linear_measurement_repair: {
+      label: 'Restricted-linear measurement repair',
+      config: {
+        system: 'linear',
+        linearTemplate: 'sensor_basis',
+        linearProtected: 'x3',
+        linearDelta: 1.0,
+        linearMeasurements: {
+          measure_x1: true,
+          measure_x2_plus_x3: true,
+          measure_x2: false,
+          measure_x3: false,
+          measure_x1_plus_x2: false,
+        },
+      },
+    },
+  };
+
+  const demoRows = Object.entries(demoConfigs).map(([key, entry]) => {
+    const before = analyzeRecoverability(entry.config);
+    const fix = before.chosenRecommendation ?? before.recommendations?.find((item) => item.availableInStudio);
+    const after = fix?.patch ? analyzeRecoverability(mergeRecoverabilityConfig(entry.config, fix.patch), 1) : before;
+    return {
+      demo: key,
+      label: entry.label,
+      family: before.systemLabel,
+      beforeRegime: before.status,
+      afterRegime: after.status,
+      metricName: entry.config.system === 'boundary' ? 'boundary mismatch' : 'κ(0)',
+      metricBefore: entry.config.system === 'boundary' ? before.transplantBoundaryMismatch : before.kappa0,
+      metricAfter: entry.config.system === 'boundary'
+        ? (after.boundaryArchitecture === 'boundary_compatible_hodge' ? after.compatibleRecoveryError : after.kappa0)
+        : after.kappa0,
+      fixTitle: fix?.title ?? 'keep current',
+      theoremStatus: before.theoremStatus,
+      regimeChanged: before.status !== after.status,
+    };
+  });
+
+  const moduleRows = [
+    {
+      label: 'Exact Projection Lab',
+      verdict: analyzeExactProjection({ protectedMagnitude: 1.4, disturbanceMagnitude: 0.9, angleDeg: 90 }).admissible ? 'exact' : 'recheck',
+      evidence: 'theorem-backed exact anchor',
+    },
+    {
+      label: 'QEC Sector Lab',
+      verdict: analyzeQecSector({ alpha: 1, beta: 1, errorIndex: 2 }).exact ? 'exact' : 'recheck',
+      evidence: 'standard-anchor exact sector reinterpretation',
+    },
+    {
+      label: 'MHD Projection Lab',
+      verdict: mhdBenchmark.afterExactNorm < mhdBenchmark.afterGlmNorm ? 'exact-vs-asymptotic split' : 'recheck',
+      evidence: 'validated continuous exact / asymptotic split',
+    },
+    {
+      label: 'CFD Projection Lab',
+      verdict: cfdBenchmark.boundedTransplantFails ? 'narrow exact + boundary limit' : 'recheck',
+      evidence: 'periodic exact branch plus bounded no-go / restricted exact subcase',
+    },
+    {
+      label: 'Continuous Generator Lab',
+      verdict: continuousBenchmark.finiteTimeExactRecoveryPossible ? 'recheck' : 'asymptotic only',
+      evidence: 'validated finite-time no-go boundary',
+    },
+  ];
+
+  const selectedDemo = config.selectedDemo && demoRows.some((row) => row.demo === config.selectedDemo)
+    ? config.selectedDemo
+    : demoRows[0].demo;
+  const selectedDemoRow = demoRows.find((row) => row.demo === selectedDemo);
+
+  return {
+    title: 'Benchmark and validation console',
+    status: 'Validated benchmark surface',
+    suite: config.suite ?? 'all',
+    selectedDemo,
+    selectedDemoRow,
+    demoRows,
+    moduleRows,
+    summary: {
+      demoCount: demoRows.length,
+      regimeChangeCount: demoRows.filter((row) => row.regimeChanged).length,
+      exactAfterCount: demoRows.filter((row) => row.afterRegime === 'Exact').length,
+      moduleCount: moduleRows.length,
+    },
+  };
 }
 
 function gridAxis(n) {
@@ -2100,6 +2390,131 @@ export function analyzeBoundaryProjectionLimit(config = {}) {
   };
 }
 
+function stackFieldVector(Ux, Uy) {
+  return [...Ux.flat(), ...Uy.flat()];
+}
+
+function unstackFieldVector(vector, n) {
+  const size = n * n;
+  return {
+    Ux: vector.slice(0, size).reduce((rows, value, index) => {
+      const row = Math.floor(index / n);
+      if (!rows[row]) rows[row] = [];
+      rows[row].push(value);
+      return rows;
+    }, []),
+    Uy: vector.slice(size).reduce((rows, value, index) => {
+      const row = Math.floor(index / n);
+      if (!rows[row]) rows[row] = [];
+      rows[row].push(value);
+      return rows;
+    }, []),
+  };
+}
+
+function boundedStreamVelocityMode(n, mx, my) {
+  const h = 1 / (n - 1);
+  const x = Array.from({ length: n }, (_, index) => index * h);
+  const y = Array.from({ length: n }, (_, index) => index * h);
+  const psi = zeros2(n, n);
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      psi[i][j] = Math.sin(mx * Math.PI * x[i]) * Math.sin(my * Math.PI * y[j]);
+    }
+  }
+  const dpsix = gradientAxis(psi, h, 0);
+  const dpsiy = gradientAxis(psi, h, 1);
+  return {
+    Ux: dpsiy.map((row) => row.map((value) => -value)),
+    Uy: dpsix,
+  };
+}
+
+function boundedGradientMode(n, mx, my) {
+  const h = 1 / (n - 1);
+  const x = Array.from({ length: n }, (_, index) => index * h);
+  const y = Array.from({ length: n }, (_, index) => index * h);
+  const phi = zeros2(n, n);
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      phi[i][j] = Math.sin(mx * Math.PI * x[i]) * Math.sin(my * Math.PI * y[j]);
+    }
+  }
+  return {
+    Ux: gradientAxis(phi, h, 0),
+    Uy: gradientAxis(phi, h, 1),
+  };
+}
+
+function gramProjectorFromColumns(columns) {
+  if (!columns.length) return null;
+  const gram = columns.map((left) => columns.map((right) => dot(left, right)));
+  const inverse = invertMatrix(gram);
+  if (!inverse) return null;
+  let projector = zeros2(columns[0].length, columns[0].length);
+  for (let i = 0; i < columns.length; i += 1) {
+    for (let j = 0; j < columns.length; j += 1) {
+      projector = addMat(projector, scaleMat(outer(columns[i], columns[j]), inverse[i][j]));
+    }
+  }
+  return projector;
+}
+
+export function analyzeBoundedHodgeCompatible(config = {}) {
+  const n = Math.max(Number(config.gridSize ?? 17), 9);
+  const protectedModes = config.protectedModes ?? [[1, 1], [1, 2], [2, 1]];
+  const disturbanceModes = config.disturbanceModes ?? [[1, 1], [2, 1], [1, 2]];
+  const protectedWeights = config.protectedWeights ?? protectedModes.map((_, index) => 1 + 0.2 * index);
+  const disturbanceWeights = config.disturbanceWeights ?? disturbanceModes.map((_, index) => 0.7 - 0.15 * index);
+
+  const protectedColumns = protectedModes.map(([mx, my]) => {
+    const mode = boundedStreamVelocityMode(n, mx, my);
+    return stackFieldVector(mode.Ux, mode.Uy);
+  });
+  const disturbanceColumns = disturbanceModes.map(([mx, my]) => {
+    const mode = boundedGradientMode(n, mx, my);
+    return stackFieldVector(mode.Ux, mode.Uy);
+  });
+
+  const protectedState = protectedColumns.reduce(
+    (acc, column, index) => addVec(acc, scaleVec(column, protectedWeights[index])),
+    zeros(protectedColumns[0].length)
+  );
+  const disturbanceState = disturbanceColumns.reduce(
+    (acc, column, index) => addVec(acc, scaleVec(column, disturbanceWeights[index])),
+    zeros(disturbanceColumns[0].length)
+  );
+  const state = addVec(protectedState, disturbanceState);
+
+  const projectorQr = projectorFromBasis(protectedColumns, protectedColumns[0].length);
+  const projectorGram = gramProjectorFromColumns(protectedColumns);
+  const recovered = matVec(projectorQr, state);
+  const recoveredIdempotent = matVec(projectorQr, recovered);
+
+  const { Ux: protectedUx, Uy: protectedUy } = unstackFieldVector(protectedState, n);
+  const { Ux: recoveredUx, Uy: recoveredUy } = unstackFieldVector(recovered, n);
+  const h = 1 / (n - 1);
+  const protectedDiv = boundedDivergence2d(protectedUx, protectedUy, h);
+  const recoveredDiv = boundedDivergence2d(recoveredUx, recoveredUy, h);
+  const qProtected = gramSchmidt(protectedColumns);
+  const qDisturbance = gramSchmidt(disturbanceColumns);
+
+  return {
+    protectedDiv,
+    recoveredDiv,
+    protectedDivNorm: l2NormField(protectedDiv),
+    recoveredDivNorm: l2NormField(recoveredDiv),
+    protectedBoundaryNormalRms: boundaryNormalRms(protectedUx, protectedUy),
+    recoveredBoundaryNormalRms: boundaryNormalRms(recoveredUx, recoveredUy),
+    orthogonalityResidual: qProtected.length && qDisturbance.length
+      ? frobeniusNorm(matMul(qProtected, transpose(qDisturbance)))
+      : 0,
+    recoveryError: rmsMetric(recovered, protectedState),
+    idempotenceError: rmsMetric(recoveredIdempotent, recovered),
+    projectorConstructionAgreement: projectorGram ? frobeniusNorm(subMat(projectorQr, projectorGram)) : null,
+  };
+}
+
 export function analyzeCfdProjection(config) {
   const periodicGrid = Number(config.periodicGridSize);
   const boundedGrid = Number(config.boundedGridSize);
@@ -2125,6 +2540,7 @@ export function analyzeCfdProjection(config) {
   );
 
   const bounded = analyzeBoundaryProjectionLimit({ gridSize: boundedGrid, poissonIterations: config.poissonIterations });
+  const boundedCompatible = analyzeBoundedHodgeCompatible({ gridSize: Math.max(boundedGrid, 17) });
   const boundedPair = makeBoundedDivergenceFreePair(boundedGrid);
   const divergenceOnlyWitness = {
     firstStateDivergenceRms: l2NormField(boundedDivergence2d(boundedPair.u1x, boundedPair.u1y, boundedPair.h)),
@@ -2152,6 +2568,16 @@ export function analyzeCfdProjection(config) {
     boundedPhysicalBoundaryNormalRms: bounded.physicalBoundaryNormalRms,
     boundedProjectedBoundaryNormalRms: bounded.projectedBoundaryNormalRms,
     boundedTransplantFails: bounded.transplantFails,
+    boundedCompatibleProtectedDiv: boundedCompatible.protectedDiv,
+    boundedCompatibleRecoveredDiv: boundedCompatible.recoveredDiv,
+    boundedCompatibleProtectedDivNorm: boundedCompatible.protectedDivNorm,
+    boundedCompatibleRecoveredDivNorm: boundedCompatible.recoveredDivNorm,
+    boundedCompatibleProtectedBoundaryNormalRms: boundedCompatible.protectedBoundaryNormalRms,
+    boundedCompatibleRecoveredBoundaryNormalRms: boundedCompatible.recoveredBoundaryNormalRms,
+    boundedCompatibleOrthogonalityResidual: boundedCompatible.orthogonalityResidual,
+    boundedCompatibleRecoveryError: boundedCompatible.recoveryError,
+    boundedCompatibleIdempotenceError: boundedCompatible.idempotenceError,
+    boundedCompatibleProjectorConstructionAgreement: boundedCompatible.projectorConstructionAgreement,
     divergenceOnlyWitness,
   };
 }

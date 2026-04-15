@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from ocp.structural_discovery import (
+    discover_bounded_boundary_structure,
     discover_diagonal_control_structure,
     discover_linear_template_structure,
     discover_periodic_modal_structure,
@@ -69,13 +70,31 @@ def test_structural_discovery_linear_demo_finds_candidate_library_fix() -> None:
     assert 'nullspace witness changes the protected target while leaving the record fixed' in report.failure_modes
 
 
+def test_structural_discovery_boundary_demo_detects_architecture_mismatch_and_repairs_it() -> None:
+    report = discover_bounded_boundary_structure(
+        architecture='periodic_transplant',
+        protected_key='bounded_velocity_class',
+        grid_size=17,
+    )
+    assert report.current_regime == 'impossible'
+    assert 'periodic projector transplant removes divergence but violates bounded boundary compatibility' in report.failure_modes
+    assert report.chosen_fix is not None
+    assert report.chosen_fix.action_kind == 'switch_architecture'
+    assert report.chosen_fix.applies_config['boundaryArchitecture'] == 'boundary_compatible_hodge'
+    assert report.comparison is not None
+    assert report.comparison.after_regime == 'exact'
+    assert report.metrics['transplant_boundary_mismatch'] > 1e-2
+    assert report.metrics['recovery_error'] < 1e-8
+
+
 def test_structural_discovery_demo_bundle_contains_four_reproducible_regime_changes() -> None:
     bundle = structural_discovery_demo_reports()
-    assert bundle['summary']['demo_count'] == 4
-    assert bundle['summary']['exact_after_count'] == 4
+    assert bundle['summary']['demo_count'] == 5
+    assert bundle['summary']['exact_after_count'] == 5
     assert set(bundle['demos']) == {
         'periodic_modal_repair',
         'control_history_repair',
         'weaker_vs_stronger_split',
+        'boundary_architecture_repair',
         'restricted_linear_measurement_repair',
     }
