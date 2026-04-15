@@ -28,37 +28,57 @@ Python-side:
 7. refined qubit phase-window sampling against the analytic formula
 8. periodic full / truncated / divergence-only separation
 9. periodic cutoff-threshold behavior on the two-mode family
-10. periodic protected-variable minimal-cutoff law on the three-mode family
-11. discretization stability of the periodic protected-variable thresholds
+10. periodic functional-support thresholds on the modal family
+11. discretization stability of the periodic functional thresholds
 12. one-step versus two-step versus observer-side control behavior
 13. diagonal minimal-history threshold behavior on the three-state control family
 14. interpolation-weight recovery against the independent pseudoinverse-based linear recovery operator
+15. nested minimal-complexity criterion against direct row-space residual checks
+16. periodic functional-support thresholds for non-coordinate protected variables
+17. weaker-versus-stronger protected-variable splits under the same periodic coarse record
+18. diagonal functional interpolation thresholds for sensor sums and moment-type functionals
+19. diagonal functional weights against the independent row-space solver
 
 Workbench-side:
 
 1. analytic exact-versus-impossible threshold behavior
 2. qubit variable-sensitive recovery split
 3. periodic exact / approximate / impossible split
-4. periodic protected-variable cutoff thresholds
+4. periodic functional-support cutoff thresholds
 5. control finite-history versus observer asymptotics
 6. diagonal minimal-history threshold behavior in the three-state control lane
-7. existing exact / QEC / MHD / CFD / gauge / generator / no-go modules still pass
-8. share-state encoding and decoding still round-trip correctly
+7. generalized periodic functional thresholds in the Recoverability Lab
+8. generalized diagonal functional thresholds in the Recoverability Lab
+9. existing exact / QEC / MHD / CFD / gauge / generator / no-go modules still pass
+10. share-state encoding and decoding still round-trip correctly
+
+Browser smoke checks:
+
+1. periodic `band-limited contrast functional` is impossible at cutoff `2` and exact at cutoff `3`
+2. diagonal `second sensor moment` is impossible at horizon `2` and exact at horizon `3`
+3. verdict text, predicted thresholds, and exact/no-go badges match the offline branch outputs
 
 ## Current Validation Snapshot
 
 Most recent targeted branch checks completed during this pass:
 
-- `tests/math/test_recoverability.py`: `14 passed`
+- `tests/math/test_recoverability.py`: `22 passed`
 - `tests/consistency/workbench_static.test.mjs`: `16 passed`
 - recoverability artifact build:
   - [recoverability_summary.json](../../../data/generated/recoverability/recoverability_summary.json)
   - CSV and SVG outputs generated successfully
 
+New generated branch artifacts in this pass:
+
+- [periodic_functional_complexity_sweep.csv](../../../data/generated/recoverability/periodic_functional_complexity_sweep.csv)
+- [diagonal_functional_complexity_sweep.csv](../../../data/generated/recoverability/diagonal_functional_complexity_sweep.csv)
+- [periodic-functional-threshold.svg](../../assets/recoverability/periodic-functional-threshold.svg)
+- [diagonal-functional-threshold.svg](../../assets/recoverability/diagonal-functional-threshold.svg)
+
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `40 passed`
+- Python suite: `48 passed`
 - Workbench / Node suite: `16 passed`
 - markdown link check: passed
 - naming consistency check: passed
@@ -70,12 +90,14 @@ Most recent full repository gate:
 1. early control collision estimates were too dependent on coarse state sampling and understated the horizon-1 obstruction
 2. workbench chart rendering leaked `NaN` SVG coordinates when switching among some recoverability system families
 3. the control threshold chart was wired to the wrong input shape and silently degraded into an unavailable placeholder
+4. older control-branch wording incorrectly treated the coordinate threshold as the whole control-side story
 
 Fixes applied:
 
 - replaced the control collision estimate with an exact nullspace-on-a-box calculation on the finite family
 - hardened the workbench line-chart renderer against non-finite data
 - corrected the control threshold chart wiring so the displayed figure is again a real chart, not scaffolding
+- generalized the periodic and control threshold tooling to real protected-function choices rather than one fixed headline variable
 
 ## Final Status
 

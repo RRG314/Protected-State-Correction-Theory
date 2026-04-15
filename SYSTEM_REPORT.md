@@ -35,8 +35,8 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `40`
-- `PROVED`: `25`, including the constrained-observation baseline criteria, robust lower bound, and the new periodic/control minimal-record threshold results
+- total tracked claims: `42`
+- `PROVED`: `27`, including the constrained-observation baseline criteria, robust lower bound, the restricted-linear minimal-complexity criterion, and the new periodic/control threshold generalizations
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`
@@ -177,8 +177,9 @@ Status: `kept formal/computational branch`
   - `κ(η)/2` adversarial lower bound,
   - qubit phase-window collision law,
   - periodic cutoff threshold on the tested two-mode incompressible family,
-  - three-mode periodic protected-variable minimal-cutoff law,
-  - diagonal minimal-history threshold on the tested scalar-output control family,
+  - four-mode periodic functional-support threshold law,
+  - diagonal functional-interpolation threshold on the tested scalar-output control family,
+  - same-record weaker-versus-stronger recovery splits,
   - corrected one-step / two-step / observer split in the toy control lane
 
 ### 11. Rejected branch
@@ -249,7 +250,7 @@ Validation status:
 - markdown link check: passed
 - naming consistency check: passed
 - Node workbench tests: `16 passed`
-- Python theorem/operator/example tests: `40 passed`
+- Python theorem/operator/example tests: `48 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -295,12 +296,13 @@ Primary generated artifacts:
   - full vorticity exact with mean RMS recovery error `1.20e-15`
   - truncated vorticity approximate with mean RMS recovery error `2.98`
   - divergence only impossible with collision distance `10.13`
-  - protected-variable thresholds on the three-mode family: exact cutoff `1` for the first modal coefficient, `2` for the first two coefficients, and `3` for the full modal coefficient vector
+  - functional thresholds on the four-mode family: exact cutoff `2` for `low_mode_sum`, `3` for `bandlimited_contrast`, and `4` for `full_weighted_sum`
+  - the same cutoff can exactly recover a weaker protected functional while a stronger one remains impossible
 - functional observability toy lane:
   - horizon `1` not exact for tested couplings
   - horizons `2` and `3` exact for every tested `ε>0`
   - observer branch asymptotically convergent with spectral radius `0.3` on the tracked family
-  - diagonal scalar-output thresholds: exact horizon `3` for the fully active profile, `2` for the two-active profile, and impossible for the hidden protected-coordinate profile
+  - diagonal scalar-output thresholds: `sensor_sum` exact at horizon `1`, `first_moment` at `2`, `second_moment` at `3` for the fully active profile, with hidden protected-coordinate recovery impossible
 
 ## Best Current Reading Paths
 

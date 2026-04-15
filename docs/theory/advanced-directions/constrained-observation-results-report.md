@@ -17,9 +17,11 @@ The strongest surviving outputs are:
 
 1. the exact / approximate / asymptotic / impossible classification for protected variables,
 2. the operational lower bound `worst-case protected-variable error ≥ κ_{M,p}(η)/2`,
-3. a periodic modal minimal-cutoff law on a conventional incompressible family,
-4. a diagonal minimal-history law for protected-coordinate recovery in a scalar-output control family,
-5. and several strong negative results that survive repeated falsification.
+3. a restricted-linear minimal-complexity criterion based on row-space inclusion,
+4. a periodic functional-support threshold law on a conventional incompressible family,
+5. a diagonal functional-interpolation threshold law in a scalar-output control family,
+6. a same-record weaker-versus-stronger recovery split in both periodic and control families,
+7. and several strong negative results that survive repeated falsification.
 
 ## 1. Research Question
 
@@ -51,7 +53,7 @@ Already standard:
 
 The branch-specific question is narrower:
 
-- whether a **protected-variable** framing gives a cleaner cross-domain exactness/no-go story,
+- whether a **protected-variable** framing gives a cleaner exactness/no-go story across several conventional lanes,
 - whether the collapse modulus `κ_{M,p}` does real work,
 - whether any sharp threshold or minimal-record law survives repeated testing.
 
@@ -95,6 +97,20 @@ It also gives the operational robust-recovery lower bound
 worst-case protected-variable error ≥ κ_{M,p}(η)/2.
 ```
 
+For finite-dimensional linear families `x=Fz`, the clean exact criterion is
+
+```text
+ker(O F) ⊂ ker(L F),
+```
+
+or equivalently
+
+```text
+row(L F) ⊂ row(O F).
+```
+
+That row-space formulation is what powers the strongest current threshold results.
+
 ## 4. Derivations Kept In The Branch
 
 The detailed mathematics is written in:
@@ -111,10 +127,12 @@ Kept derivations:
 3. adversarial lower bound `κ(η)/2`,
 4. restricted linear criterion `ker(O F) ⊂ ker(L F)`,
 5. restricted rank lower bound,
-6. divergence-only no-go,
-7. fixed-basis phase-loss law,
-8. periodic modal minimal-cutoff theorem,
-9. diagonal minimal-history theorem.
+6. nested minimal-complexity criterion via row-space inclusion,
+7. same-record weaker-versus-stronger split,
+8. divergence-only no-go,
+9. fixed-basis phase-loss law,
+10. periodic functional-support theorem,
+11. diagonal functional-interpolation theorem.
 
 ## 5. Computational Setup
 
@@ -131,8 +149,10 @@ Generated artifacts:
 - [periodic_velocity_sweep.csv](../../../data/generated/recoverability/periodic_velocity_sweep.csv)
 - [periodic_cutoff_sweep.csv](../../../data/generated/recoverability/periodic_cutoff_sweep.csv)
 - [periodic_protected_complexity_sweep.csv](../../../data/generated/recoverability/periodic_protected_complexity_sweep.csv)
+- [periodic_functional_complexity_sweep.csv](../../../data/generated/recoverability/periodic_functional_complexity_sweep.csv)
 - [functional_observability_sweep.csv](../../../data/generated/recoverability/functional_observability_sweep.csv)
 - [control_minimal_complexity_sweep.csv](../../../data/generated/recoverability/control_minimal_complexity_sweep.csv)
+- [diagonal_functional_complexity_sweep.csv](../../../data/generated/recoverability/diagonal_functional_complexity_sweep.csv)
 
 Figures:
 
@@ -142,10 +162,12 @@ Figures:
 - [periodic-velocity-errors.svg](../../assets/recoverability/periodic-velocity-errors.svg)
 - [periodic-cutoff-threshold.svg](../../assets/recoverability/periodic-cutoff-threshold.svg)
 - [periodic-protected-threshold.svg](../../assets/recoverability/periodic-protected-threshold.svg)
+- [periodic-functional-threshold.svg](../../assets/recoverability/periodic-functional-threshold.svg)
 - [functional-observability-margin.svg](../../assets/recoverability/functional-observability-margin.svg)
 - [observer-convergence.svg](../../assets/recoverability/observer-convergence.svg)
 - [control-history-threshold.svg](../../assets/recoverability/control-history-threshold.svg)
 - [control-minimal-horizon.svg](../../assets/recoverability/control-minimal-horizon.svg)
+- [diagonal-functional-threshold.svg](../../assets/recoverability/diagonal-functional-threshold.svg)
 
 ## 6. Experiment Families
 
@@ -197,12 +219,15 @@ Two conventional periodic lanes were kept.
    - protected variable: full velocity field.
 
 2. **modal complexity lane**
-   - three-mode family,
+   - four-mode family,
    - observations: low-pass truncated vorticity,
    - protected variables:
      - first modal coefficient,
      - first two modal coefficients,
-     - full three-mode coefficient vector.
+     - low-mode sum,
+     - bandlimited contrast,
+     - full weighted sum,
+     - full four-mode coefficient vector.
 
 ### 6.4 Functional-observability control families
 
@@ -221,8 +246,7 @@ p(x_0)=x_{0,2},
 
 ```text
 x_{t+1} = diag(0.95, 0.8, 0.65)x_t,
-y_t = c_1 x_{t,1} + c_2 x_{t,2} + c_3 x_{t,3},
-p(x_0)=x_{0,3}.
+y_t = c_1 x_{t,1} + c_2 x_{t,2} + c_3 x_{t,3}.
 ```
 
 Sensor profiles tested:
@@ -230,6 +254,13 @@ Sensor profiles tested:
 - `three_active = (1.0, 0.4, 0.2)`
 - `two_active = (1.0, 0.0, 0.2)`
 - `protected_hidden = (1.0, 0.4, 0.0)`
+
+Protected functionals tested:
+
+- `sensor_sum`
+- `first_moment`
+- `second_moment`
+- `protected_coordinate`
 
 ## 7. Results
 
@@ -245,17 +276,11 @@ Key results:
 
 This is not novel. It is useful because it gives one fully auditable family where the branch classification is known in closed form.
 
-The strongest second-pass analytic result is the lower bound curve:
+The lower-bound curve also tracks the exact formula for the robust obstruction:
 
 ![Analytic noise lower bound](../../assets/recoverability/analytic-noise-lower-bound.svg)
 
-For `ε=0.25`, the branch now tracks the exact lower bound
-
-```text
-worst-case protected-variable error ≥ κ(η)/2.
-```
-
-Representative values:
+For `ε=0.25`, representative values are:
 
 - `η=0.05` gives lower bound `0.10`
 - `η=0.10` gives lower bound `0.20`
@@ -325,48 +350,54 @@ This is a real coarsening threshold on the finite periodic family:
 
 > exact recovery switches on exactly when the record retains both active modes.
 
-### 7.4 Periodic protected-variable complexity sweep
+### 7.4 Periodic functional complexity sweep
 
-![Periodic protected-variable cutoff thresholds](../../assets/recoverability/periodic-protected-threshold.svg)
+![Periodic functional cutoff thresholds](../../assets/recoverability/periodic-functional-threshold.svg)
 
-The stronger second-pass result comes from changing the protected variable rather than keeping it fixed at the full velocity field.
+The stronger current result comes from changing the protected variable rather than keeping it fixed at the full velocity field or at a selected coefficient subset.
 
-For the three-mode modal family:
+For the four-mode modal family:
 
-- **protected variable: first coefficient only**
-  - predicted minimal cutoff: `1`
-  - exact at cutoffs `1,2,3`
-  - impossible below that
-- **protected variable: first two coefficients**
+- **protected variable: low-mode sum**
   - predicted minimal cutoff: `2`
-  - exact at cutoffs `2,3`
+  - exact at cutoffs `2,3,4`
   - impossible below that
-- **protected variable: full three-coefficient vector**
+- **protected variable: bandlimited contrast**
   - predicted minimal cutoff: `3`
-  - exact only at cutoff `3`
-  - impossible at `0,1,2`
+  - exact at cutoffs `3,4`
+  - impossible below that
+- **protected variable: full weighted sum**
+  - predicted minimal cutoff: `4`
+  - exact only at cutoff `4`
+  - impossible at `0,1,2,3`
 
 Representative `κ(0)` values:
 
-- `mode_1_coefficient`:
-  - cutoff `0`: `κ(0)=2.0`
-  - cutoff `1`: `κ(0)=0`
-- `modes_1_2_coefficients`:
+- `low_mode_sum`:
   - cutoff `1`: `κ(0)=2.0`
   - cutoff `2`: `κ(0)=0`
-- `full_modal_coefficients`:
+- `bandlimited_contrast`:
   - cutoff `2`: `κ(0)=2.0`
   - cutoff `3`: `κ(0)=0`
+- `full_weighted_sum`:
+  - cutoff `3`: `κ(0)=0.5`
+  - cutoff `4`: `κ(0)=0`
 
 This is one of the branch's strongest current results:
 
 > minimal exact record complexity depends on the protected variable, not just on the ambient family.
 
-It is family-specific, but it survived three checks:
+It survived four checks:
 
 1. direct kernel derivation,
-2. independent pseudoinverse recovery,
-3. discretization changes from `n=18` to `n=24`.
+2. independent row-space residual checks,
+3. independent pseudoinverse recovery,
+4. discretization changes from `n=18` to `n=24`.
+
+It also gives a clean weaker-versus-stronger split under the same record:
+
+- at cutoff `2`, `low_mode_sum` is exact while `bandlimited_contrast` and `full_weighted_sum` are not
+- at cutoff `3`, `bandlimited_contrast` is exact while `full_weighted_sum` is still impossible
 
 ### 7.5 Functional observability and asymptotic observer sweep
 
@@ -404,33 +435,37 @@ Interpretation:
 - finite-history exact recovery can then switch on,
 - asymptotic recovery can still remain meaningful from the ongoing record.
 
-### 7.6 Diagonal minimal-history sweep
+### 7.6 Diagonal functional threshold sweep
 
-![Control minimal-history thresholds](../../assets/recoverability/control-minimal-horizon.svg)
+![Diagonal functional thresholds](../../assets/recoverability/diagonal-functional-threshold.svg)
 
-This is the strongest current control-side threshold result.
+This is the strongest current control-side threshold result, and it is stronger than the older coordinate-only story.
 
 - **`three_active` profile**
-  - predicted minimal horizon: `3`
-  - exactness fails at `H=1,2`
-  - exactness holds at `H=3,4`
+  - `sensor_sum`: exact from `H=1`
+  - `first_moment`: exact from `H=2`
+  - `second_moment`: exact from `H=3`
+  - `protected_coordinate`: exact from `H=3`
 - **`two_active` profile**
-  - predicted minimal horizon: `2`
-  - exactness fails at `H=1`
-  - exactness holds at `H=2,3,4`
+  - `sensor_sum`: exact from `H=1`
+  - `first_moment`: exact from `H=2`
+  - `second_moment`: exact from `H=2`
+  - `protected_coordinate`: exact from `H=2`
 - **`protected_hidden` profile**
-  - predicted minimal horizon: `None`
-  - exact recovery fails at every tested horizon
+  - `sensor_sum`: exact from `H=1`
+  - `first_moment`: exact from `H=2`
+  - `second_moment`: exact from `H=2`
+  - `protected_coordinate`: impossible for every tested horizon
 
-Representative errors:
+Representative residuals and exactness checks:
 
-- `three_active`, `H=3`: mean recovery error `1.73e-14`
-- `two_active`, `H=2`: mean recovery error `1.16e-15`
-- `protected_hidden`, any `H`: collision gap `2.0`
+- `three_active`, `second_moment`, `H=3`: interpolation residual `1.15e-15`
+- `two_active`, `protected_coordinate`, `H=2`: interpolation residual `2.99e-15`
+- `protected_hidden`, `protected_coordinate`, any `H`: exact recoverable `False`
 
 All tested interpolation predictions matched the exactness classification from the independent restricted-linear criterion.
 
-This is a real minimal-history result, albeit on a family where the proof reduces to distinct-eigenvalue interpolation.
+This is a real minimal-history result, albeit on a family where the proof reduces to distinct-eigenvalue interpolation. The older coordinate threshold remains true, but only as a special case of a stronger functional interpolation law.
 
 ## 8. Repeated Falsification Protocol And What Survived
 
@@ -450,9 +485,10 @@ What survived cleanly:
 - `κ(η)/2` lower bound,
 - qubit phase-window law,
 - two-mode periodic cutoff threshold,
-- three-mode periodic protected-variable cutoff law,
-- diagonal minimal-history threshold,
-- divergence-only and hidden-mode no-go structure.
+- four-mode periodic functional-support law,
+- diagonal functional interpolation threshold,
+- divergence-only and hidden-mode no-go structure,
+- the same-record weaker-versus-stronger split.
 
 What weakened under harder checking:
 
@@ -467,8 +503,9 @@ Useful outcomes:
 1. `κ(0)` works exactly as the branch's exact / impossible separator should.
 2. `κ(η)/2` survives as a real adversarial lower bound.
 3. the same record can be exact for one protected variable and impossible for a stronger one.
-4. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
-5. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
+4. the branch produces a clean restricted-linear minimal-complexity criterion that explains the strongest periodic and control thresholds.
+5. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
+6. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
 
 ## 10. What Failed Or Stayed Weak
 
@@ -485,10 +522,11 @@ Almost certainly standard or standard-adjacent:
 
 - fiber-separation exactness,
 - restricted linear recovery by kernel inclusion,
+- the row-space formulation of restricted exactness,
 - fixed-basis phase-loss no-go in its basic form,
 - divergence-only no-go in its basic form,
 - two-step finite-history recovery formulas,
-- the diagonal-threshold family as Vandermonde interpolation.
+- the diagonal interpolation family as Vandermonde analysis.
 
 ## 12. What May Be A Real Contribution
 
@@ -496,7 +534,8 @@ The strongest plausible branch-level contribution is still modest:
 
 - a protected-variable recoverability framework that cleanly separates exact, approximate, asymptotic, and impossible regimes,
 - an operational use of `κ` through the lower bound `κ(η)/2`,
-- and a pair of explicit minimal-record threshold laws that show the protected variable matters as much as the record family.
+- a restricted-linear minimal-complexity criterion that becomes visible and useful in the branch language,
+- and explicit minimal-record threshold laws showing that the protected variable matters as much as the record family.
 
 That is a **minor but real** contribution candidate, not a major theorem claim.
 
@@ -511,7 +550,7 @@ The branch should not be promoted around any of these by themselves:
 
 ## 14. Recommended Next Steps
 
-1. Try to prove one theorem that unifies the periodic modal and diagonal history thresholds as a common minimal-record criterion on finite restricted families.
+1. Try to prove one theorem that upgrades the restricted-linear minimal-complexity criterion to a robust threshold theorem under controlled noise or admissible-family enlargement.
 2. Push `κ` beyond `κ(0)=0` and `κ(η)/2`, or stop treating it as the branch's main novelty target.
 3. Prefer stronger no-go results over vague cross-domain generalization.
 4. Keep the branch even if no larger theorem emerges, because it now supports a real tool, real negative results, and real minimal-record examples.

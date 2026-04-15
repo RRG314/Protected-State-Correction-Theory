@@ -35,9 +35,9 @@ const examples = {
   recoverabilityPeriodicThreshold: analyzeRecoverability({
     ...DEFAULT_STATE.labs.recoverability,
     system: 'periodic',
-    periodicProtected: 'full_modal_coefficients',
+    periodicProtected: 'bandlimited_contrast',
     periodicObservation: 'cutoff_vorticity',
-    periodicCutoff: 2,
+    periodicCutoff: 3,
     periodicDelta: 1.0,
   }),
   recoverabilityControlThreshold: analyzeRecoverability({
@@ -45,6 +45,7 @@ const examples = {
     system: 'control',
     controlMode: 'diagonal_threshold',
     controlProfile: 'three_active',
+    controlFunctional: 'second_moment',
     controlHorizon: 3,
     controlDelta: 0.5,
   }),

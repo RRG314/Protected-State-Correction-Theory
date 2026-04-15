@@ -49,12 +49,14 @@ That result materially sharpens the scope of the exact continuous branch.
 The strongest new observation-layer addition is:
 - the constrained-observation recoverability framework centered on the collapse modulus `κ_{M,p}` and on exact / approximate / asymptotic / impossible classification across quantum, periodic flow, and control examples
 
-The strongest second-pass branch results now added on top of that are:
+The strongest current constrained-observation branch results now added on top of that are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- a restricted-linear minimal-complexity criterion based on row-space inclusion,
+- a same-record weaker-versus-stronger recovery split,
 - a closed-form qubit phase-window collision law,
 - a family-level periodic cutoff threshold on the tested two-mode incompressible family,
-- a stronger three-mode periodic protected-variable minimal-cutoff law,
-- a diagonal minimal-history threshold law on the tested scalar-output control family,
+- a stronger four-mode periodic functional-support threshold law,
+- a diagonal functional-interpolation threshold law on the tested scalar-output control family,
 - and a corrected exact-versus-asymptotic control-history split after replacing a misleading sampled collision estimate with an exact nullspace calculation.
 
 That branch still remains a useful formal and computational extension rather than a major standalone theorem program.
@@ -159,7 +161,7 @@ Current validation status:
 - naming consistency check: passed
 - static workbench asset check: passed
 - Node workbench test suite: `16 passed`
-- Python theorem/operator/example test suite: `40 passed`
+- Python theorem/operator/example test suite: `48 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)

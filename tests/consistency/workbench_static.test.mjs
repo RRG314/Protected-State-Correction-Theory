@@ -174,11 +174,32 @@ test('recoverability lab keeps periodic exact, approximate, and no-go branches s
     periodicCutoff: 3,
     periodicDelta: 2,
   });
+  const cutoffFour = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_modal_coefficients',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 4,
+    periodicDelta: 2,
+  });
   const lowMode = analyzeRecoverability({
     system: 'periodic',
     periodicProtected: 'mode_1_coefficient',
     periodicObservation: 'cutoff_vorticity',
     periodicCutoff: 1,
+    periodicDelta: 2,
+  });
+  const lowModeSum = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'low_mode_sum',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 2,
+    periodicDelta: 2,
+  });
+  const bandlimitedContrast = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'bandlimited_contrast',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 3,
     periodicDelta: 2,
   });
   const divergence = analyzeRecoverability({
@@ -191,12 +212,17 @@ test('recoverability lab keeps periodic exact, approximate, and no-go branches s
   assert.ok(full.meanRecoveryError < 1e-6);
   assert.equal(cutoffOne.exact, false);
   assert.equal(cutoffOne.impossible, true);
-  assert.equal(cutoffThree.exact, true);
+  assert.equal(cutoffThree.exact, false);
+  assert.equal(cutoffFour.exact, true);
   assert.equal(lowMode.exact, true);
+  assert.equal(lowModeSum.exact, true);
+  assert.equal(bandlimitedContrast.exact, true);
   assert.ok(cutoffOne.meanRecoveryError > full.meanRecoveryError);
   assert.ok(cutoffOne.kappa0 > 0.1);
-  assert.ok(cutoffThree.kappa0 < 1e-8);
+  assert.ok(cutoffFour.kappa0 < 1e-8);
   assert.equal(lowMode.predictedMinCutoff, 1);
+  assert.equal(lowModeSum.predictedMinCutoff, 2);
+  assert.equal(bandlimitedContrast.predictedMinCutoff, 3);
   assert.equal(divergence.impossible, true);
   assert.ok(divergence.kappa0 > cutoffOne.kappa0);
 });
@@ -228,6 +254,7 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     system: 'control',
     controlMode: 'diagonal_threshold',
     controlProfile: 'three_active',
+    controlFunctional: 'protected_coordinate',
     controlHorizon: 1,
     controlDelta: 0.5,
   });
@@ -235,6 +262,7 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     system: 'control',
     controlMode: 'diagonal_threshold',
     controlProfile: 'two_active',
+    controlFunctional: 'protected_coordinate',
     controlHorizon: 2,
     controlDelta: 0.5,
   });
@@ -242,6 +270,7 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     system: 'control',
     controlMode: 'diagonal_threshold',
     controlProfile: 'three_active',
+    controlFunctional: 'protected_coordinate',
     controlHorizon: 3,
     controlDelta: 0.5,
   });
@@ -249,7 +278,32 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     system: 'control',
     controlMode: 'diagonal_threshold',
     controlProfile: 'protected_hidden',
+    controlFunctional: 'protected_coordinate',
     controlHorizon: 4,
+    controlDelta: 0.5,
+  });
+  const momentOne = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlFunctional: 'first_moment',
+    controlHorizon: 2,
+    controlDelta: 0.5,
+  });
+  const momentTwo = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlFunctional: 'second_moment',
+    controlHorizon: 3,
+    controlDelta: 0.5,
+  });
+  const sensorSum = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlFunctional: 'sensor_sum',
+    controlHorizon: 1,
     controlDelta: 0.5,
   });
   assert.equal(oneStep.exact, false);
@@ -259,6 +313,12 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
   assert.ok(twoActive.meanRecoveryError < 1e-8);
   assert.equal(threeActive.exact, true);
   assert.ok(threeActive.kappa0 < 1e-8);
+  assert.equal(momentOne.exact, true);
+  assert.equal(momentOne.predictedMinHorizon, 2);
+  assert.equal(momentTwo.exact, true);
+  assert.equal(momentTwo.predictedMinHorizon, 3);
+  assert.equal(sensorSum.exact, true);
+  assert.equal(sensorSum.predictedMinHorizon, 1);
   assert.equal(hidden.exact, false);
   assert.equal(hidden.impossible, true);
   assert.equal(hidden.predictedMinHorizon, null);

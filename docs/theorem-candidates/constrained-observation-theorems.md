@@ -114,6 +114,67 @@ is necessary for exact protected-variable recovery.
 
 **Standardness:** standard linear algebra.
 
+### COR-P6: Nested Linear Minimal-Complexity Criterion
+
+Let `x = Fz` range over a finite-dimensional admissible linear family, let the protected variable be `p(x)=Lx`, and let observation levels be a nested family
+
+```text
+M_r(x)=O_r x
+```
+
+with
+
+```text
+row(O_1 F) ⊂ row(O_2 F) ⊂ ··· ⊂ row(O_R F).
+```
+
+Then exact protected-variable recovery at level `r` holds if and only if
+
+```text
+row(L F) ⊂ row(O_r F).
+```
+
+Consequently the minimal exact record complexity is
+
+```text
+r_* = min { r : row(L F) ⊂ row(O_r F) }.
+```
+
+**Status:** proved and implemented.
+
+**Value:** strongest current generalization of the family-level threshold results.
+
+**Standardness:** standard-adjacent linear algebra, but very useful for the branch.
+
+### COR-P7: Same-Record Variable Hierarchy
+
+Under the same setup, let two protected variables be
+
+```text
+p_1(x)=L_1 x,
+p_2(x)=L_2 x.
+```
+
+If
+
+```text
+row(L_1 F) ⊂ row(O_r F)
+```
+
+but
+
+```text
+row(L_2 F) ⊄ row(O_r F),
+```
+
+then the same record level `r` exactly recovers `p_1` while exact recovery of `p_2` is impossible.
+
+**Status:** proved and checked in both the periodic and diagonal control lanes.
+
+**Value:** strongest clean weaker-versus-stronger split under a fixed coarse record.
+
+**Standardness:** standard-adjacent, but one of the branch’s most useful organizing facts.
+
 ## 2. Supported Family-Level Threshold Theorems
 
 ### COR-T1: Qubit Phase-Window Collision Law
@@ -135,7 +196,7 @@ Consequences:
 
 **Standardness:** likely standard in spirit, but a good benchmark-quality result.
 
-### COR-T2: Periodic Modal Minimal-Cutoff Theorem
+### COR-T2: Periodic Functional Support Threshold
 
 Consider the finite periodic incompressible modal family
 
@@ -143,19 +204,30 @@ Consider the finite periodic incompressible modal family
 ω = \sum_{j=1}^m c_j ω_j,
 ```
 
-where each mode `ω_j` is supported at a Fourier cutoff level `q_j`, and let the protected variable be any selected subset of the modal coefficients.
-
-For truncated-vorticity observation at cutoff `Q`, exact recovery of the chosen protected coefficients is possible if and only if
+where each mode `ω_j` is supported at a Fourier cutoff level `q_j`, and let the protected variable be any linear functional
 
 ```text
-Q ≥ max { q_j : c_j \text{ appears in the protected variable} }.
+p(c)=a \cdot c
 ```
 
-In the implemented three-mode family this yields the exact thresholds:
+or any finite list of such functionals.
+
+For truncated-vorticity observation at cutoff `Q`, exact recovery of the chosen protected variable is possible if and only if
+
+```text
+Q ≥ max { q_j : a_j ≠ 0 }.
+```
+
+Equivalently: exact recovery turns on exactly when the record retains every modal coefficient used by the protected variable.
+
+In the implemented four-mode family this yields the exact thresholds:
 
 - `mode_1_coefficient`: threshold `1`
 - `modes_1_2_coefficients`: threshold `2`
-- `full_modal_coefficients`: threshold `3`
+- `low_mode_sum`: threshold `2`
+- `bandlimited_contrast`: threshold `3`
+- `full_weighted_sum`: threshold `4`
+- `full_modal_coefficients`: threshold `4`
 
 **Status:** proved for the finite modal family and checked across discretizations.
 
@@ -163,31 +235,59 @@ In the implemented three-mode family this yields the exact thresholds:
 
 **Standardness:** family-specific and not a general CFD theorem.
 
-### COR-T3: Diagonal Minimal-History Theorem
+### COR-T3: Diagonal Functional Interpolation Theorem
 
 Consider the scalar-output diagonal family
 
 ```text
 x_{t+1} = diag(λ_1, …, λ_n) x_t,
 y_t = \sum_{j=1}^n c_j x_{t,j},
-p(x_0) = x_{0,k},
+p(x_0) = g \cdot x_0,
 ```
 
 with distinct active eigenvalues among the indices for which `c_j ≠ 0`.
 
-Let `m` be the number of active sensor modes.
+Define the active index set
 
-Then:
+```text
+J = { j : c_j ≠ 0 }.
+```
 
-1. if `c_k = 0`, exact recovery of `x_{0,k}` is impossible for every finite horizon;
-2. if `c_k ≠ 0`, exact recovery is impossible for horizons `H < m`;
-3. if `c_k ≠ 0`, exact recovery is possible at horizon `H = m`, and hence for every `H ≥ m`, by an explicit interpolation formula.
+Then exact recovery from the first `H` observations holds if and only if there exists a polynomial `P` of degree at most `H-1` such that
+
+```text
+g_j = c_j P(λ_j)    for every j ∈ J,
+```
+
+and
+
+```text
+g_j = 0    for every j ∉ J.
+```
+
+Consequences:
+
+1. hidden protected directions with `g_j ≠ 0` and `c_j = 0` are impossible for every finite horizon;
+2. weaker functionals such as constants or low-degree moments can be recovered at shorter horizons;
+3. coordinate recovery is the special case obtained by interpolating a Kronecker delta on the active eigenvalues.
 
 In the implemented three-state family this yields:
 
-- `three_active`: exact threshold `H = 3`
-- `two_active`: exact threshold `H = 2`
-- `protected_hidden`: impossible for all tested horizons
+- `three_active`:
+  - `sensor_sum`: threshold `1`
+  - `first_moment`: threshold `2`
+  - `second_moment`: threshold `3`
+  - `protected_coordinate`: threshold `3`
+- `two_active`:
+  - `sensor_sum`: threshold `1`
+  - `first_moment`: threshold `2`
+  - `second_moment`: threshold `2`
+  - `protected_coordinate`: threshold `2`
+- `protected_hidden`:
+  - `sensor_sum`: threshold `1`
+  - `first_moment`: threshold `2`
+  - `second_moment`: threshold `2`
+  - `protected_coordinate`: impossible for all finite horizons
 
 **Status:** proved for the family, with explicit reconstruction weights and computational cross-checks.
 
@@ -195,7 +295,23 @@ In the implemented three-state family this yields:
 
 **Standardness:** very likely standard or Vandermonde-interpolation-adjacent, but still a real, usable branch theorem.
 
-### COR-P6: Two-Step Scalar-Output Recovery Formula
+### COR-C1: Coordinate-Recovery Corollary
+
+Under the assumptions of `COR-T3`, if the protected variable is a visible coordinate
+
+```text
+p(x_0)=x_{0,k}
+```
+
+with `k ∈ J`, then the minimal exact history length is `|J|`; if `k ∉ J`, exact recovery is impossible for every finite horizon.
+
+**Status:** proved as a special case of `COR-T3`.
+
+**Value:** still useful, but no longer the most general control-side threshold statement.
+
+**Standardness:** standard-adjacent.
+
+### COR-P8: Two-Step Scalar-Output Recovery Formula
 
 For the two-state model
 
@@ -235,7 +351,7 @@ On any nontrivial divergence-free family, a recovery architecture that factors o
 
 ### COR-N3: Hidden-Mode Finite-History No-Go
 
-In the diagonal scalar-output family, if the protected coordinate has zero sensor coupling, then no finite observation horizon recovers it exactly.
+In the diagonal scalar-output family, if the protected functional has nonzero weight on a sensor-hidden coordinate, then no finite observation horizon recovers it exactly.
 
 **Status:** proved for the family and checked computationally.
 
@@ -246,8 +362,10 @@ In the diagonal scalar-output family, if the protected coordinate has zero senso
 - `COR-P2` exactness through `κ(0)`
 - `COR-P3` adversarial lower bound `κ(η)/2`
 - `COR-P4` restricted linear exactness criterion
-- `COR-T2` periodic modal minimal-cutoff theorem on the implemented family
-- `COR-T3` diagonal minimal-history theorem on the implemented family
+- `COR-P6` nested linear minimal-complexity criterion
+- `COR-P7` same-record variable hierarchy
+- `COR-T2` periodic functional-support threshold on the implemented family
+- `COR-T3` diagonal functional-interpolation theorem on the implemented family
 
 ### Useful but standard-adjacent
 
@@ -265,5 +383,5 @@ In the diagonal scalar-output family, if the protected coordinate has zero senso
 ## 5. Best Current Next Targets
 
 1. Strengthen `κ` beyond `κ(0)=0` and `κ(η)/2`.
-2. Test whether the periodic and diagonal threshold laws admit one real common theorem schema.
+2. Push `COR-P6` toward a robust threshold theorem under noise or admissible-family enlargement.
 3. Prefer a stronger no-go theorem over a vague cross-domain “phase transition” slogan.

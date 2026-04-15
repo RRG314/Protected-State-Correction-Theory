@@ -183,8 +183,9 @@ This branch asks when a coarse record preserves enough information to recover a 
 The strongest current clean results in that branch are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
 - a closed-form qubit phase-window collision law,
-- family-level periodic minimal-cutoff thresholds,
-- and a diagonal minimal-history threshold law on a scalar-output control family.
+- a restricted-linear minimal-complexity criterion,
+- family-level periodic functional-support thresholds,
+- and a diagonal functional-interpolation threshold law on a scalar-output control family.
 
 Start here:
 

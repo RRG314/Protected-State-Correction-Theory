@@ -7,12 +7,17 @@ from ocp.recoverability import (
     analytic_collapse_modulus,
     analytic_noise_lower_bound_sweep,
     control_minimal_complexity_sweep,
+    diagonal_functional_complexity_sweep,
+    diagonal_functional_history_weights,
+    diagonal_functional_minimal_horizon,
     diagonal_history_recovery_weights,
     finite_collapse_modulus,
     finite_recoverability_report,
     functional_observability_sweep,
+    minimal_linear_observation_complexity,
     naive_finite_collapse_modulus,
     periodic_cutoff_recoverability_sweep,
+    periodic_functional_complexity_sweep,
     periodic_protected_complexity_sweep,
     periodic_velocity_recoverability_sweep,
     qubit_phase_collision_formula,
@@ -263,3 +268,130 @@ def test_control_interpolation_formula_matches_linear_recovery_operator() -> Non
     assert linear.recovery_operator is not None
     assert np.linalg.norm(np.asarray(weights).reshape(1, -1) @ O - L) < 1e-10
     assert np.linalg.norm(np.asarray(weights).reshape(1, -1) - linear.recovery_operator) < 1e-8
+
+
+def test_minimal_linear_observation_complexity_finds_first_exact_level() -> None:
+    observation_matrices = [
+        np.array([[1.0, 0.0, 0.0]]),
+        np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]),
+        np.eye(3),
+    ]
+    protected = np.array([[0.0, 1.0, 1.0]])
+    report = minimal_linear_observation_complexity(observation_matrices, protected)
+    assert report['minimal_index'] == 2
+    assert report['exact_flags'] == [False, False, True]
+
+
+def test_periodic_functional_threshold_matches_support_max_for_general_functionals() -> None:
+    result = periodic_functional_complexity_sweep(n=14, cutoffs=(0, 1, 2, 3, 4), delta_count=6)
+    rows = {(row['functional_name'], row['cutoff']): row for row in result['rows']}
+    expected = {
+        'low_mode_sum': 2,
+        'bandlimited_contrast': 3,
+        'full_weighted_sum': 4,
+    }
+    for functional_name, threshold in expected.items():
+        for cutoff in (0, 1, 2, 3, 4):
+            row = rows[(functional_name, cutoff)]
+            assert row['predicted_min_cutoff'] == threshold
+            if cutoff < threshold:
+                assert row['exact_recoverable'] is False
+                assert row['collision_max_protected_distance'] > 0.1
+            else:
+                assert row['exact_recoverable'] is True
+                assert row['mean_recovery_error'] < 1e-8
+
+
+def test_periodic_functional_hierarchy_keeps_weaker_variable_while_stronger_one_fails() -> None:
+    result = periodic_functional_complexity_sweep(n=14, cutoffs=(2,), delta_count=6)
+    rows = {row['functional_name']: row for row in result['rows']}
+    assert rows['low_mode_sum']['exact_recoverable'] is True
+    assert rows['bandlimited_contrast']['exact_recoverable'] is False
+    assert rows['full_weighted_sum']['exact_recoverable'] is False
+
+
+def test_diagonal_functional_minimal_horizon_tracks_polynomial_degree() -> None:
+    eigenvalues = (0.95, 0.8, 0.65)
+    sensor_weights = (1.0, 0.4, 0.2)
+    sensor_sum_horizon, sensor_sum_weights = diagonal_functional_minimal_horizon(eigenvalues, sensor_weights, sensor_weights, max_horizon=4)
+    first_moment = [sensor_weights[i] * eigenvalues[i] for i in range(3)]
+    first_moment_horizon, first_moment_weights = diagonal_functional_minimal_horizon(eigenvalues, sensor_weights, first_moment, max_horizon=4)
+    second_moment = [sensor_weights[i] * (eigenvalues[i] ** 2) for i in range(3)]
+    second_moment_horizon, second_moment_weights = diagonal_functional_minimal_horizon(eigenvalues, sensor_weights, second_moment, max_horizon=4)
+    hidden_horizon, hidden_weights = diagonal_functional_minimal_horizon(eigenvalues, (1.0, 0.4, 0.0), (0.0, 0.0, 1.0), max_horizon=4)
+
+    assert sensor_sum_horizon == 1
+    assert first_moment_horizon == 2
+    assert second_moment_horizon == 3
+    assert hidden_horizon is None
+    assert sensor_sum_weights is not None and abs(sensor_sum_weights[0] - 1.0) < 1e-10
+    assert first_moment_weights is not None and abs(first_moment_weights[1] - 1.0) < 1e-10
+    assert second_moment_weights is not None and abs(second_moment_weights[2] - 1.0) < 1e-10
+    assert hidden_weights is None
+
+
+def test_diagonal_functional_complexity_generalizes_coordinate_threshold() -> None:
+    result = diagonal_functional_complexity_sweep(horizons=(1, 2, 3, 4))
+    rows = {(row['sensor_profile'], row['functional_name'], row['horizon']): row for row in result['rows']}
+
+    assert rows[('three_active', 'sensor_sum', 1)]['exact_recoverable'] is True
+    assert rows[('three_active', 'first_moment', 1)]['exact_recoverable'] is False
+    assert rows[('three_active', 'first_moment', 2)]['exact_recoverable'] is True
+    assert rows[('three_active', 'second_moment', 2)]['exact_recoverable'] is False
+    assert rows[('three_active', 'second_moment', 3)]['exact_recoverable'] is True
+    assert rows[('protected_hidden', 'protected_coordinate', 4)]['exact_recoverable'] is False
+    assert rows[('protected_hidden', 'protected_coordinate', 4)]['predicted_min_horizon'] is None
+
+
+def test_diagonal_functional_weights_match_rowspace_recovery() -> None:
+    eigenvalues = (0.95, 0.8, 0.65)
+    sensor_weights = (1.0, 0.4, 0.2)
+    protected_weights = tuple(sensor_weights[i] * (eigenvalues[i] ** 2) for i in range(3))
+    horizon = 3
+    weights = diagonal_functional_history_weights(eigenvalues, sensor_weights, protected_weights, horizon)
+    assert weights is not None
+    O = np.array([[sensor_weights[i] * (eigenvalues[i] ** t) for i in range(3)] for t in range(horizon)], dtype=float)
+    L = np.array([protected_weights], dtype=float)
+    linear = restricted_linear_recoverability(O, L)
+    assert linear.exact_recoverable is True
+    assert linear.recovery_operator is not None
+    assert np.linalg.norm(np.asarray(weights).reshape(1, -1) @ O - L) < 1e-10
+    assert np.linalg.norm(np.asarray(weights).reshape(1, -1) - linear.recovery_operator) < 1e-8
+
+
+def test_periodic_functional_threshold_random_supports_match_support_formula() -> None:
+    functionals = {
+        'random_a': (0.4, 0.0, -1.2, 0.0),
+        'random_b': (0.0, -0.75, 0.0, 0.2),
+        'random_c': (0.3, -0.2, 0.5, -0.1),
+    }
+    result = periodic_functional_complexity_sweep(n=12, cutoffs=(0, 1, 2, 3, 4), delta_count=6, functionals=functionals)
+    rows = {(row['functional_name'], row['cutoff']): row for row in result['rows']}
+    expected = {
+        'random_a': 3,
+        'random_b': 4,
+        'random_c': 4,
+    }
+    for functional_name, threshold in expected.items():
+        first_exact = min(row['cutoff'] for row in result['rows'] if row['functional_name'] == functional_name and row['exact_recoverable'])
+        assert first_exact == threshold
+        for cutoff in range(threshold):
+            assert rows[(functional_name, cutoff)]['exact_recoverable'] is False
+
+
+def test_diagonal_functional_threshold_random_polynomial_targets() -> None:
+    eigenvalues = (0.95, 0.8, 0.65)
+    sensor_weights = (1.0, 0.4, 0.2)
+    test_polynomials = [
+        (2.0,),
+        (0.1, -0.7),
+        (0.25, -0.5, 1.25),
+    ]
+    expected_horizons = [1, 2, 3]
+    for coeffs, expected in zip(test_polynomials, expected_horizons, strict=True):
+        protected = []
+        for index, lam in enumerate(eigenvalues):
+            value = sum(coeff * (lam ** power) for power, coeff in enumerate(coeffs))
+            protected.append(sensor_weights[index] * value)
+        horizon, _ = diagonal_functional_minimal_horizon(eigenvalues, sensor_weights, protected, max_horizon=4)
+        assert horizon == expected

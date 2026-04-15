@@ -12,8 +12,10 @@ from ocp.recoverability import (
     analytic_collapse_modulus,
     analytic_noise_lower_bound_sweep,
     control_minimal_complexity_sweep,
+    diagonal_functional_complexity_sweep,
     functional_observability_sweep,
     periodic_cutoff_recoverability_sweep,
+    periodic_functional_complexity_sweep,
     periodic_protected_complexity_sweep,
     periodic_velocity_recoverability_sweep,
     qubit_record_collapse_sweep,
@@ -159,8 +161,10 @@ def main() -> None:
     periodic = periodic_velocity_recoverability_sweep()
     periodic_cutoff = periodic_cutoff_recoverability_sweep()
     periodic_protected = periodic_protected_complexity_sweep()
+    periodic_functional = periodic_functional_complexity_sweep()
     functional = functional_observability_sweep()
     control_complexity = control_minimal_complexity_sweep()
+    diagonal_functional = diagonal_functional_complexity_sweep()
     noise_lower_bound = analytic_noise_lower_bound_sweep(epsilon=0.25)
 
     summary = {
@@ -170,8 +174,10 @@ def main() -> None:
         'periodic_velocity_sweep': periodic,
         'periodic_cutoff_sweep': periodic_cutoff,
         'periodic_protected_complexity_sweep': periodic_protected,
+        'periodic_functional_complexity_sweep': periodic_functional,
         'functional_observability_sweep': functional,
         'control_minimal_complexity_sweep': control_complexity,
+        'diagonal_functional_complexity_sweep': diagonal_functional,
     }
     write_text(DATA_OUT / 'recoverability_summary.json', json.dumps(summary, indent=2))
 
@@ -179,8 +185,10 @@ def main() -> None:
     write_csv(DATA_OUT / 'periodic_velocity_sweep.csv', periodic['rows'])
     write_csv(DATA_OUT / 'periodic_cutoff_sweep.csv', periodic_cutoff['rows'])
     write_csv(DATA_OUT / 'periodic_protected_complexity_sweep.csv', periodic_protected['rows'])
+    write_csv(DATA_OUT / 'periodic_functional_complexity_sweep.csv', periodic_functional['rows'])
     write_csv(DATA_OUT / 'functional_observability_sweep.csv', functional['rows'])
     write_csv(DATA_OUT / 'control_minimal_complexity_sweep.csv', control_complexity['rows'])
+    write_csv(DATA_OUT / 'diagonal_functional_complexity_sweep.csv', diagonal_functional['rows'])
     write_csv(DATA_OUT / 'analytic_collapse_benchmark.csv', benchmark['rows'])
     write_csv(DATA_OUT / 'analytic_noise_lower_bound.csv', noise_lower_bound['rows'])
 
@@ -273,6 +281,27 @@ def main() -> None:
         ),
     )
 
+    functional_threshold_rows = periodic_functional['rows']
+    functional_threshold_series = []
+    for functional_name in ('low_mode_sum', 'bandlimited_contrast', 'full_weighted_sum'):
+        subset = [row for row in functional_threshold_rows if row['functional_name'] == functional_name]
+        functional_threshold_series.append(
+            {
+                'label': functional_name.replace('_', ' '),
+                'x': [row['cutoff'] for row in subset],
+                'y': [row['collision_max_protected_distance'] for row in subset],
+            }
+        )
+    write_text(
+        DOC_OUT / 'periodic-functional-threshold.svg',
+        line_svg(
+            functional_threshold_series,
+            title='Periodic functional recoverability thresholds',
+            x_label='spectral cutoff',
+            y_label='κ(0)',
+        ),
+    )
+
     exact_rows = [row for row in functional['rows'] if row['horizon'] in (1, 2)]
     series = []
     for horizon in (1, 2):
@@ -342,6 +371,31 @@ def main() -> None:
         line_svg(
             complexity_series,
             title='Diagonal control minimal-history thresholds',
+            x_label='record horizon',
+            y_label='κ(0)',
+        ),
+    )
+
+    diagonal_functional_rows = diagonal_functional['rows']
+    diagonal_functional_series = []
+    for functional_name in ('sensor_sum', 'first_moment', 'second_moment', 'protected_coordinate'):
+        subset = [
+            row
+            for row in diagonal_functional_rows
+            if row['sensor_profile'] == 'three_active' and row['functional_name'] == functional_name
+        ]
+        diagonal_functional_series.append(
+            {
+                'label': functional_name.replace('_', ' '),
+                'x': [row['horizon'] for row in subset],
+                'y': [row['collision_max_protected_distance'] for row in subset],
+            }
+        )
+    write_text(
+        DOC_OUT / 'diagonal-functional-threshold.svg',
+        line_svg(
+            diagonal_functional_series,
+            title='Diagonal functional recoverability thresholds',
             x_label='record horizon',
             y_label='κ(0)',
         ),

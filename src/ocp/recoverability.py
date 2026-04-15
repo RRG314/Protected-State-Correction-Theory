@@ -165,6 +165,34 @@ class ControlComplexityRow:
     interpolation_residual: float | None
 
 
+@dataclass(frozen=True)
+class PeriodicFunctionalComplexityRow:
+    functional_name: str
+    cutoff: int
+    predicted_min_cutoff: int
+    exact_recoverable: bool
+    rank_observation: int
+    rank_protected: int
+    collision_max_protected_distance: float
+    mean_recovery_error: float
+    max_recovery_error: float
+
+
+@dataclass(frozen=True)
+class DiagonalFunctionalComplexityRow:
+    sensor_profile: str
+    functional_name: str
+    horizon: int
+    predicted_min_horizon: int | None
+    exact_recoverable: bool
+    rank_observation: int
+    rank_protected: int
+    collision_max_protected_distance: float
+    mean_recovery_error: float
+    max_recovery_error: float
+    interpolation_residual: float | None
+
+
 
 def finite_collapse_modulus(
     observations: Sequence[Array],
@@ -294,6 +322,17 @@ def _null_space(matrix: Array, *, tol: float = EPS) -> Array:
     return vh[rank:].T.copy()
 
 
+def _compressed_observation_matrix(matrix: Array, *, tol: float = EPS) -> Array:
+    obs = np.asarray(matrix, dtype=float)
+    if obs.size == 0:
+        return obs.copy()
+    u, s, vh = np.linalg.svd(obs, full_matrices=False)
+    rank = int(np.sum(s > tol))
+    if rank == 0:
+        return np.zeros((0, obs.shape[1]), dtype=float)
+    return np.diag(s[:rank]) @ vh[:rank, :]
+
+
 
 def restricted_linear_recoverability(
     observation_matrix: Array,
@@ -350,6 +389,26 @@ def restricted_linear_rank_lower_bound(
         rank_protected=rank_protected,
         lower_bound_satisfied=bool(rank_observation >= rank_protected),
     )
+
+
+def minimal_linear_observation_complexity(
+    observation_matrices: Sequence[Array],
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    tol: float = EPS,
+) -> dict[str, object]:
+    reports = [
+        restricted_linear_recoverability(matrix, protected_matrix, family_basis=family_basis, tol=tol)
+        for matrix in observation_matrices
+    ]
+    minimal_index = next((index for index, report in enumerate(reports) if report.exact_recoverable), None)
+    return {
+        'minimal_index': minimal_index,
+        'exact_flags': [bool(report.exact_recoverable) for report in reports],
+        'null_dimensions': [int(report.null_intersection_dimension) for report in reports],
+        'residual_norms': [float(report.residual_norm) for report in reports],
+    }
 
 
 def recoverability_margin_sampled(
@@ -822,6 +881,80 @@ def periodic_protected_complexity_sweep(
     }
 
 
+def periodic_functional_complexity_sweep(
+    *,
+    n: int = 24,
+    modes: Sequence[tuple[int, int, float]] = ((1, 1, 1.0), (2, 1, 0.8), (3, 1, 0.6), (4, 1, 0.45)),
+    cutoffs: Sequence[int] = (0, 1, 2, 3, 4),
+    delta_count: int = 40,
+    functionals: dict[str, Sequence[float]] | None = None,
+) -> dict[str, object]:
+    if functionals is None:
+        functionals = {
+            'low_mode_sum': (1.0, 1.0, 0.0, 0.0),
+            'bandlimited_contrast': (0.0, 1.0, -1.0, 0.0),
+            'full_weighted_sum': (1.0, -0.5, 0.75, 0.25),
+        }
+    basis = _periodic_modal_basis_states(n=n, modes=modes)
+    delta_grid = np.linspace(0.0, 4.0, delta_count)
+    mode_cutoffs = [max(abs(kx), abs(ky)) for kx, ky, _ in modes]
+    rows: list[PeriodicFunctionalComplexityRow] = []
+    curves: dict[str, list[float]] = {}
+    coeff_grid = np.linspace(-1.0, 1.0, 7)
+    coefficient_family = [np.asarray(coeffs, dtype=float) for coeffs in product(coeff_grid, repeat=len(modes))]
+
+    basis_observations_by_cutoff = {
+        int(cutoff): np.column_stack([_truncate_vorticity(state['omega'], int(cutoff)).ravel() for state in basis])
+        if int(cutoff) > 0
+        else np.zeros((basis[0]['omega'].size, len(basis)), dtype=float)
+        for cutoff in cutoffs
+    }
+
+    for functional_name, coefficients in functionals.items():
+        selector = np.asarray([coefficients], dtype=float)
+        if selector.shape[1] != len(modes):
+            raise ValueError('periodic functional coefficients must match the number of modes')
+        support = [index for index, value in enumerate(selector.reshape(-1)) if abs(float(value)) > EPS]
+        predicted_min_cutoff = 0 if not support else int(max(mode_cutoffs[index] for index in support))
+        for cutoff in cutoffs:
+            observation_matrix = basis_observations_by_cutoff[int(cutoff)]
+            compressed_observation_matrix = _compressed_observation_matrix(observation_matrix)
+            linear = restricted_linear_recoverability(observation_matrix, selector)
+            rank_report = restricted_linear_rank_lower_bound(observation_matrix, selector)
+            estimator = linear.recovery_operator if linear.exact_recoverable and linear.recovery_operator is not None else selector @ np.linalg.pinv(observation_matrix, rcond=EPS)
+            observations = [compressed_observation_matrix @ coeffs for coeffs in coefficient_family]
+            protected_values = [selector @ coeffs for coeffs in coefficient_family]
+            errors = [
+                scalar_metric(estimator @ (observation_matrix @ coeffs), protected)
+                for coeffs, protected in zip(coefficient_family, protected_values, strict=True)
+            ]
+            report = finite_recoverability_report(observations, protected_values, delta_grid, observation_metric=euclidean_metric, protected_metric=scalar_metric)
+            collision_gap = _box_collision_gap_from_nullspace(observation_matrix, selector)
+            rows.append(
+                PeriodicFunctionalComplexityRow(
+                    functional_name=str(functional_name),
+                    cutoff=int(cutoff),
+                    predicted_min_cutoff=predicted_min_cutoff,
+                    exact_recoverable=bool(linear.exact_recoverable),
+                    rank_observation=rank_report.rank_observation,
+                    rank_protected=rank_report.rank_protected,
+                    collision_max_protected_distance=float(collision_gap),
+                    mean_recovery_error=float(np.mean(errors)),
+                    max_recovery_error=float(np.max(errors)),
+                )
+            )
+            curves[f'{functional_name}:cutoff={int(cutoff)}'] = list(report.collapse_values)
+
+    return {
+        'delta_grid': list(float(value) for value in delta_grid),
+        'mode_cutoffs': mode_cutoffs,
+        'rows': [row.__dict__ for row in rows],
+        'modes': [{'kx': int(kx), 'ky': int(ky), 'weight': float(weight)} for kx, ky, weight in modes],
+        'functionals': {name: [float(value) for value in values] for name, values in functionals.items()},
+        'curves': curves,
+    }
+
+
 def periodic_velocity_recoverability_sweep(
     *,
     n: int = 24,
@@ -1098,6 +1231,63 @@ def diagonal_history_recovery_weights(
     return weights
 
 
+def diagonal_functional_history_weights(
+    eigenvalues: Sequence[float],
+    sensor_weights: Sequence[float],
+    protected_weights: Sequence[float],
+    horizon: int,
+    *,
+    tol: float = EPS,
+) -> Array | None:
+    couplings = np.asarray(sensor_weights, dtype=float)
+    protected = np.asarray(protected_weights, dtype=float)
+    active = _active_sensor_indices(couplings, tol=tol)
+    inactive = [index for index in range(len(couplings)) if index not in active]
+    if any(abs(float(protected[index])) > tol for index in inactive):
+        return None
+    if not active:
+        return None
+    lambdas = np.asarray([float(eigenvalues[index]) for index in active], dtype=float)
+    if len(np.unique(np.round(lambdas, 12))) != len(lambdas):
+        raise ValueError('distinct active eigenvalues are required for the interpolation-based functional recovery formula')
+    targets = np.asarray([protected[index] / couplings[index] for index in active], dtype=float)
+    if horizon <= 0:
+        return None
+    vandermonde = np.asarray([[lambdas[row] ** power for power in range(int(horizon))] for row in range(len(active))], dtype=float)
+    coeffs, residuals, _, _ = np.linalg.lstsq(vandermonde, targets, rcond=tol)
+    residual = float(np.linalg.norm(vandermonde @ coeffs - targets))
+    if residual > 1e-8:
+        return None
+    weights = np.zeros(int(horizon), dtype=float)
+    weights[:] = coeffs[: int(horizon)]
+    return weights
+
+
+def diagonal_functional_minimal_horizon(
+    eigenvalues: Sequence[float],
+    sensor_weights: Sequence[float],
+    protected_weights: Sequence[float],
+    *,
+    max_horizon: int | None = None,
+    tol: float = EPS,
+) -> tuple[int | None, Array | None]:
+    couplings = np.asarray(sensor_weights, dtype=float)
+    active = _active_sensor_indices(couplings, tol=tol)
+    if max_horizon is None:
+        max_horizon = max(1, len(active))
+    for horizon in range(1, int(max_horizon) + 1):
+        weights = diagonal_functional_history_weights(
+            eigenvalues,
+            sensor_weights,
+            protected_weights,
+            horizon,
+            tol=tol,
+        )
+        if weights is not None:
+            return int(horizon), weights
+    return None, None
+
+
 def control_minimal_complexity_sweep(
     *,
     eigenvalues: Sequence[float] = (0.95, 0.8, 0.65),
@@ -1201,6 +1391,124 @@ def control_minimal_complexity_sweep(
     return {
         'eigenvalues': [float(value) for value in eigenvalues],
         'protected_index': int(protected_index),
+        'delta_grid': list(float(value) for value in delta_grid),
+        'rows': [row.__dict__ for row in rows],
+        'curves': curves,
+        'interpolation_checks': interpolation_checks,
+    }
+
+
+def diagonal_functional_complexity_sweep(
+    *,
+    eigenvalues: Sequence[float] = (0.95, 0.8, 0.65),
+    sensor_profiles: dict[str, Sequence[float]] | None = None,
+    horizons: Sequence[int] = (1, 2, 3, 4),
+    box_radius: float = 1.0,
+    tol: float = EPS,
+) -> dict[str, object]:
+    if sensor_profiles is None:
+        sensor_profiles = {
+            'three_active': (1.0, 0.4, 0.2),
+            'two_active': (1.0, 0.0, 0.2),
+            'protected_hidden': (1.0, 0.4, 0.0),
+        }
+    lambdas = np.asarray(eigenvalues, dtype=float)
+    n = len(lambdas)
+    delta_grid = np.linspace(0.0, 2.0, 40)
+    coeff_grid = np.linspace(-box_radius, box_radius, 7)
+    family_states = [np.asarray(state, dtype=float) for state in product(coeff_grid, repeat=n)]
+    rows: list[DiagonalFunctionalComplexityRow] = []
+    curves: dict[str, list[float]] = {}
+    interpolation_checks: list[dict[str, object]] = []
+
+    for label, sensor_weights in sensor_profiles.items():
+        couplings = np.asarray(sensor_weights, dtype=float)
+        functionals: dict[str, Array] = {
+            'sensor_sum': couplings.copy(),
+            'first_moment': couplings * lambdas,
+            'second_moment': couplings * (lambdas**2),
+            'protected_coordinate': np.array([0.0, 0.0, 1.0], dtype=float),
+        }
+        for functional_name, protected_weights in functionals.items():
+            predicted_min_horizon, predicted_weights = diagonal_functional_minimal_horizon(
+                eigenvalues,
+                sensor_weights,
+                protected_weights,
+                max_horizon=max(horizons),
+                tol=tol,
+            )
+            L = np.asarray([protected_weights], dtype=float)
+            for horizon in horizons:
+                O = _diagonal_record_matrix(eigenvalues, sensor_weights, int(horizon))
+                linear = restricted_linear_recoverability(O, L)
+                rank_report = restricted_linear_rank_lower_bound(O, L)
+                collision_gap = _box_collision_gap_from_nullspace(O, L, box_radius=box_radius)
+                interpolation_weights = diagonal_functional_history_weights(
+                    eigenvalues,
+                    sensor_weights,
+                    protected_weights,
+                    int(horizon),
+                    tol=tol,
+                )
+                interpolation_residual = None
+                if interpolation_weights is not None:
+                    interpolation_residual = float(
+                        np.linalg.norm(np.asarray(interpolation_weights, dtype=float).reshape(1, -1) @ O - L)
+                    )
+                estimator = linear.recovery_operator if linear.exact_recoverable and linear.recovery_operator is not None else np.zeros((1, int(horizon)), dtype=float)
+
+                observations: list[Array] = []
+                protected_values: list[Array] = []
+                errors: list[float] = []
+                for state in family_states:
+                    record = O @ state
+                    protected = L @ state
+                    observations.append(record)
+                    protected_values.append(protected)
+                    estimate = estimator @ record
+                    errors.append(scalar_metric(estimate, protected))
+
+                report = finite_recoverability_report(
+                    observations,
+                    protected_values,
+                    delta_grid,
+                    observation_metric=euclidean_metric,
+                    protected_metric=scalar_metric,
+                )
+                rows.append(
+                    DiagonalFunctionalComplexityRow(
+                        sensor_profile=str(label),
+                        functional_name=str(functional_name),
+                        horizon=int(horizon),
+                        predicted_min_horizon=predicted_min_horizon,
+                        exact_recoverable=bool(linear.exact_recoverable),
+                        rank_observation=rank_report.rank_observation,
+                        rank_protected=rank_report.rank_protected,
+                        collision_max_protected_distance=float(collision_gap),
+                        mean_recovery_error=float(np.mean(errors)),
+                        max_recovery_error=float(np.max(errors)),
+                        interpolation_residual=interpolation_residual,
+                    )
+                )
+                curves[f'{label}:{functional_name}:H={int(horizon)}'] = list(report.collapse_values)
+                interpolation_checks.append(
+                    {
+                        'sensor_profile': str(label),
+                        'functional_name': str(functional_name),
+                        'horizon': int(horizon),
+                        'predicted_min_horizon': predicted_min_horizon,
+                        'prediction_matches': bool(
+                            linear.exact_recoverable
+                            == (predicted_min_horizon is not None and int(horizon) >= predicted_min_horizon)
+                        ),
+                        'interpolation_available': interpolation_weights is not None,
+                        'interpolation_residual': interpolation_residual,
+                        'exact_recoverable': bool(linear.exact_recoverable),
+                    }
+                )
+
+    return {
+        'eigenvalues': [float(value) for value in eigenvalues],
         'delta_grid': list(float(value) for value in delta_grid),
         'rows': [row.__dict__ for row in rows],
         'curves': curves,

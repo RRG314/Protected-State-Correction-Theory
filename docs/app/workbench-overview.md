@@ -47,9 +47,9 @@ It now supports four conventional system lanes:
 It exposes real branch outputs rather than placeholders:
 - `κ(0)` and selected `κ(δ)`
 - `κ(η)/2` lower bound in the analytic lane
-- periodic modal cutoff thresholds tied to the chosen protected variable
+- periodic functional-support thresholds tied to the chosen protected variable
 - finite-history and asymptotic splits in the control lane
-- diagonal minimal-history thresholds in the three-state control family
+- diagonal functional-interpolation thresholds in the three-state control family
 
 ## What It Is For
 - reviewer orientation

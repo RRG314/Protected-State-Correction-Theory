@@ -230,6 +230,66 @@ nullity(O F) ≤ nullity(L F),
 
 so rank-nullity gives the rank lower bound.
 
+### Proposition 5.3: Nested Minimal-Complexity Criterion
+
+Let `(O_r)_r` be a nested observation family satisfying
+
+```text
+row(O_1 F) ⊂ row(O_2 F) ⊂ ··· ⊂ row(O_R F).
+```
+
+Then exact recovery of `Lx` from `O_r x` holds if and only if
+
+```text
+row(L F) ⊂ row(O_r F).
+```
+
+Consequently the minimal exact record complexity is
+
+```text
+r_* = min { r : row(L F) ⊂ row(O_r F) }.
+```
+
+### Derivation
+
+By Proposition 5.1, exact recovery at level `r` holds if and only if
+
+```text
+ker(O_r F) ⊂ ker(L F).
+```
+
+For finite-dimensional matrices this kernel inclusion is equivalent to row-space inclusion
+
+```text
+row(L F) ⊂ row(O_r F).
+```
+
+The minimal exact level is therefore the first `r` at which the protected row enters the observation row space.
+
+### Consequence
+
+This is the cleanest general statement currently supporting the periodic and diagonal threshold laws. It is standard-adjacent linear algebra, but it is the branch’s strongest honest generalization.
+
+### Proposition 5.4: Same-Record Variable Hierarchy
+
+If a fixed record level `r` satisfies
+
+```text
+row(L_1 F) ⊂ row(O_r F)
+```
+
+but
+
+```text
+row(L_2 F) ⊄ row(O_r F),
+```
+
+then `L_1 x` is exactly recoverable while `L_2 x` is not.
+
+### Derivation
+
+Apply Proposition 5.3 separately to `L_1` and `L_2`.
+
 ## 6. Qubit Fixed-Basis Phase-Loss Law
 
 Consider the pure qubit family
@@ -314,7 +374,7 @@ while `p(u) ≠ p(v)`. This is an immediate fiber collision.
 
 Elementary but genuinely useful. It kills a tempting but underpowered recovery architecture.
 
-## 8. Periodic Modal Minimal-Cutoff Theorem
+## 8. Periodic Functional Threshold Law
 
 Consider the finite periodic incompressible modal family
 
@@ -322,22 +382,22 @@ Consider the finite periodic incompressible modal family
 ω = \sum_{j=1}^m c_j ω_j,
 ```
 
-where each `ω_j` is a single Fourier-supported vorticity mode with cutoff level `q_j`, and let the protected variable be the selected coefficient vector
+where each `ω_j` is a single Fourier-supported vorticity mode with cutoff level `q_j`, and let the protected variable be any linear functional
 
 ```text
-p(c) = S c,
+p(c)=a \cdot c
 ```
 
-for a selector matrix `S`.
+or any finite list of such functionals. The selected-coefficient case is the special case in which the rows of `S` are canonical basis vectors.
 
 Let the observation map be low-pass truncated vorticity at cutoff `Q`.
 
 ### Proposition 8.1
 
-Exact recovery of `p` is possible if and only if every selected coefficient corresponds to a retained mode, i.e.
+Exact recovery of `p` is possible if and only if every modal coefficient used by the protected variable survives the truncation, i.e.
 
 ```text
-Q ≥ max { q_j : ||S e_j|| > 0 }.
+Q ≥ max { q_j : a_j ≠ 0 }.
 ```
 
 ### Derivation
@@ -356,51 +416,65 @@ Therefore
 ker(M_Q) = span { e_j : q_j > Q }.
 ```
 
-By Proposition 5.1, exact recovery of `S c` holds exactly when
+By Proposition 5.3, exact recovery of `a \cdot c` holds exactly when the protected row lies in the row space of `D_Q`, which happens precisely when every index with `a_j ≠ 0` survives truncation. In the selected-coefficient language, exact recovery of `S c` holds exactly when
 
 ```text
 ker(D_Q) ⊂ ker(S).
 ```
 
-This is equivalent to requiring that every protected coefficient index `j` survive the truncation.
+These are the same statement written in kernel and row-space language.
 
 ### Implemented family
 
-For the three-mode family with cutoff levels `(1,2,3)`:
+For the four-mode family with cutoff levels `(1,2,3,4)`:
 
 - `mode_1_coefficient`: threshold `1`
 - `modes_1_2_coefficients`: threshold `2`
-- `full_modal_coefficients`: threshold `3`
+- `low_mode_sum`: threshold `2`
+- `bandlimited_contrast`: threshold `3`
+- `full_weighted_sum`: threshold `4`
+- `full_modal_coefficients`: threshold `4`
 
 ### Cross-checking
 
 This proposition was checked by:
 
 1. direct kernel-inclusion reasoning,
-2. pseudoinverse-based recovery on the basis states,
-3. finite-family collision scans across two discretizations.
+2. row-space residual checks from the independent minimal-complexity routine,
+3. pseudoinverse-based recovery on the coefficient grid,
+4. finite-family collision scans across two discretizations.
 
-## 9. Diagonal Minimal-History Theorem
+## 9. Diagonal Functional Interpolation Law
 
 Consider
 
 ```text
 x_{t+1} = diag(λ_1, …, λ_n) x_t,
 y_t = \sum_{j=1}^n c_j x_{t,j},
-p(x_0)=x_{0,k},
+p(x_0)=g \cdot x_0,
 ```
 
 with distinct active eigenvalues among the indices where `c_j ≠ 0`.
 
-Let `A_H` denote the record map built from the first `H` observations.
+Let `A_H` denote the record map built from the first `H` observations and define the active index set
+
+```text
+J = { j : c_j ≠ 0 }.
+```
 
 ### Proposition 9.1
 
-Let `m` be the number of active sensor modes.
+Exact recovery of `g \cdot x_0` from the first `H` observations holds if and only if there exists a polynomial `P` of degree at most `H-1` such that
 
-1. If `c_k = 0`, exact recovery of `x_{0,k}` is impossible for every finite horizon.
-2. If `c_k ≠ 0` and `H < m`, exact recovery is impossible.
-3. If `c_k ≠ 0` and `H = m`, exact recovery is possible, hence also for every `H ≥ m`.
+```text
+g_j = c_j P(λ_j)    for j ∈ J,
+```
+
+and
+
+```text
+g_j = 0    for j ∉ J.
+```
 
 ### Derivation
 
@@ -418,13 +492,31 @@ c_1 λ_1^{H-1} & \cdots & c_n λ_n^{H-1}
 
 Restrict to the active coordinates. Up to column scaling by `c_j`, this is a Vandermonde matrix in the active eigenvalues.
 
-- If `H < m`, the active restriction has nontrivial nullspace, so there exists an active state difference invisible to the record. Because the protected coordinate is active, one can choose that difference to change `x_{0,k}`.
-- If `H = m`, the active restriction is square Vandermonde and invertible. Hence the active coordinates, and therefore `x_{0,k}`, are determined exactly.
-- If `c_k = 0`, the protected coordinate never enters the record, so a fiber collision persists for every horizon.
+Any recovery weights `w_0, …, w_{H-1}` produce the estimator
+
+```text
+\sum_{t=0}^{H-1} w_t y_t
+= \sum_{j=1}^n c_j \Big( \sum_{t=0}^{H-1} w_t λ_j^t \Big) x_{0,j}.
+```
+
+So exact recovery of `g \cdot x_0` is possible exactly when the polynomial
+
+```text
+P(λ)=\sum_{t=0}^{H-1} w_t λ^t
+```
+
+matches `g_j / c_j` on the active eigenvalues and kills every hidden protected direction.
 
 ### Explicit recovery weights
 
-For `H = m`, the exact recovery weights are the coefficients of the interpolation polynomial that equals `1/c_k` at `λ_k` and `0` at the other active eigenvalues.
+When the interpolation condition holds, the exact recovery weights are the polynomial coefficients of `P`.
+
+### Special cases
+
+1. **Coordinate recovery.**
+   For `g=e_k`, exact recovery requires the Lagrange interpolant that equals `1/c_k` at `λ_k` and `0` on the other active eigenvalues. If `k ∈ J`, this has degree `|J|-1`, so the minimal exact horizon is `|J|`. If `k ∉ J`, exact recovery is impossible.
+2. **Moment-type functionals.**
+   If `g_j = c_j q(λ_j)` for a low-degree polynomial `q`, then the minimal exact horizon is at most `deg(q)+1`, even when the full active state dimension is larger.
 
 ### Cross-checking
 
@@ -433,7 +525,8 @@ This theorem was checked by:
 1. explicit interpolation weights,
 2. pseudoinverse recovery from the record matrix,
 3. nullspace-on-a-box collision computation,
-4. horizon sweeps on three active-profile families.
+4. horizon sweeps on three active-profile families and four protected functionals,
+5. direct comparison between predicted minimal horizons and exact-recovery classifications.
 
 ## 10. What Stayed Strong And What Did Not
 
@@ -443,8 +536,9 @@ This theorem was checked by:
 - `κ(0)=0` exactness,
 - adversarial lower bound `κ(η)/2`,
 - restricted linear kernel criterion,
-- periodic modal minimal-cutoff theorem,
-- diagonal minimal-history theorem.
+- nested minimal-complexity criterion,
+- periodic functional support law,
+- diagonal functional interpolation law.
 
 ### Useful but standard-adjacent
 

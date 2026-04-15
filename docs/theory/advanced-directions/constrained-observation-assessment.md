@@ -14,10 +14,11 @@ These are clean and useful, but they should be treated as standard or standard-a
 
 - exact recoverability as a fiber-separation property
 - the linear kernel criterion
+- the row-space formulation of restricted exactness
 - fixed-basis phase-loss logic in the qubit toy model
 - the bare divergence-only no-go
 - the basic observer / functional-observability structure
-- the diagonal-history reconstruction formulas as Vandermonde interpolation
+- the diagonal interpolation formulas as Vandermonde analysis
 
 ## 2. Useful Repackaging Only
 
@@ -34,7 +35,8 @@ The strongest kept negative outputs are:
 1. divergence-only no-go on nontrivial constrained-flow families
 2. fixed-basis phase-loss no-go for phase-sensitive protected variables
 3. hidden-mode no-go in the diagonal scalar-output control family
-4. one-step impossibility versus two-step recovery in the two-state control toy model
+4. same-record weaker-versus-stronger splits in the periodic and control families
+5. one-step impossibility versus two-step recovery in the two-state control toy model
 
 These are not deep on their own, but they make the branch falsification-first in a productive way.
 
@@ -48,9 +50,10 @@ The strongest clean positive outputs are now:
 worst-case protected-variable error ≥ κ_{M,p}(η)/2
 ```
 
-2. the periodic modal minimal-cutoff law on the tested three-mode incompressible family
-3. the diagonal minimal-history law on the tested three-state scalar-output family
-4. the full-versus-weaker protected-variable split in the qubit fixed-basis family
+2. the nested restricted-linear minimal-complexity criterion
+3. the periodic functional-support threshold law on the tested four-mode incompressible family
+4. the diagonal functional-interpolation threshold law on the tested three-state scalar-output family
+5. the full-versus-weaker protected-variable split in the qubit fixed-basis family
 
 These are the results worth pointing readers to first.
 
@@ -58,22 +61,22 @@ These are the results worth pointing readers to first.
 
 The most plausible minor contribution is now the following package:
 
-> a protected-variable recoverability framework in which the same constrained record can be exact for one protected quantity, approximate for another, asymptotic in an observer setting, and impossible for a stronger protected variable, together with explicit minimal-record thresholds on two conventional family classes.
+> a protected-variable recoverability framework in which the same constrained record can be exact for one protected quantity, approximate for another, asymptotic in an observer setting, and impossible for a stronger protected variable, together with an explicit restricted-linear minimal-complexity criterion and finite-family threshold laws on conventional system classes.
 
-That is not a major theorem claim, but it is stronger than the branch was before the second-round falsification pass.
+That is not a major theorem claim, but it is stronger than the branch was before the current falsification pass.
 
 ## 6. Strongest Candidate For A Larger Contribution
 
 The strongest candidate remains the collapse modulus `κ_{M,p}` **if** one of the following can still be shown:
 
 - a useful theorem beyond `κ(0)=0` and `κ(η)/2`,
-- a true cross-family minimal-record theorem,
+- a robust threshold law under noisy or enlarged admissible families,
 - or a sharp no-go theorem that is stronger than family-specific linear-algebra obstruction.
 
 Right now, the strongest surviving result in that direction is narrower:
 
 - `κ(η)/2` is real and useful,
-- but the threshold laws currently survive only as family-level results.
+- but the stronger threshold laws currently survive only through restricted-linear structure.
 
 ## 7. What Should Be Promoted
 
@@ -82,7 +85,8 @@ Promote this branch as:
 - a formal observation-layer extension of Protected-State Correction Theory,
 - a computationally useful recoverability lab,
 - a place for strong no-go results,
-- and a branch with real minimal-record examples.
+- a branch with real minimal-record examples,
+- and a branch with one honest restricted-linear generalization that explains its strongest family thresholds.
 
 Do **not** promote it as:
 
@@ -100,4 +104,5 @@ Keep the claims narrow:
 - real formal value,
 - real negative results,
 - real family-specific threshold laws,
+- one useful restricted-linear generalization,
 - no inflated theorem claim.

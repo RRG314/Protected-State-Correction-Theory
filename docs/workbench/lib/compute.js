@@ -433,15 +433,17 @@ function velocityFromVorticity(field, h) {
   };
 }
 
-const PERIODIC_MODE_CUTOFFS = [1, 2, 3];
+const PERIODIC_MODE_CUTOFFS = [1, 2, 3, 4];
 
 function periodicProtectedFamily() {
-  const coeffs = [-1, -0.5, 0, 0.5, 1];
+  const coeffs = [-1, 0, 1];
   const family = [];
   for (const c1 of coeffs) {
     for (const c2 of coeffs) {
       for (const c3 of coeffs) {
-        family.push({ coefficients: [c1, c2, c3] });
+        for (const c4 of coeffs) {
+          family.push({ coefficients: [c1, c2, c3, c4] });
+        }
       }
     }
   }
@@ -454,6 +456,12 @@ function periodicProtectedVector(coefficients, protectedVariable) {
       return [coefficients[0]];
     case 'modes_1_2_coefficients':
       return [coefficients[0], coefficients[1]];
+    case 'low_mode_sum':
+      return [coefficients[0] + coefficients[1]];
+    case 'bandlimited_contrast':
+      return [coefficients[1] - coefficients[2]];
+    case 'full_weighted_sum':
+      return [coefficients[0] - 0.5 * coefficients[1] + 0.75 * coefficients[2] + 0.25 * coefficients[3]];
     case 'full_modal_coefficients':
     default:
       return coefficients.slice();
@@ -466,9 +474,15 @@ function periodicProtectedThreshold(protectedVariable) {
       return 1;
     case 'modes_1_2_coefficients':
       return 2;
+    case 'low_mode_sum':
+      return 2;
+    case 'bandlimited_contrast':
+      return 3;
+    case 'full_weighted_sum':
+      return 4;
     case 'full_modal_coefficients':
     default:
-      return 3;
+      return 4;
   }
 }
 
@@ -478,9 +492,15 @@ function periodicProtectedLabel(protectedVariable) {
       return 'leading modal coefficient';
     case 'modes_1_2_coefficients':
       return 'first two modal coefficients';
+    case 'low_mode_sum':
+      return 'low-mode weighted sum';
+    case 'bandlimited_contrast':
+      return 'band-limited contrast functional';
+    case 'full_weighted_sum':
+      return 'full weighted modal sum';
     case 'full_modal_coefficients':
     default:
-      return 'full three-mode coefficient vector';
+      return 'full four-mode coefficient vector';
   }
 }
 
@@ -497,7 +517,7 @@ function periodicObservationVector(coefficients, observation, cutoff) {
 function periodicEstimatedProtected(coefficients, observation, cutoff, protectedVariable) {
   const estimatedCoefficients =
     observation === 'divergence_only'
-      ? [0, 0, 0]
+      ? Array.from({ length: PERIODIC_MODE_CUTOFFS.length }, () => 0)
       : observation === 'full_vorticity'
         ? coefficients.slice()
         : coefficients.map((value, index) => (PERIODIC_MODE_CUTOFFS[index] <= cutoff ? value : 0));
@@ -523,7 +543,7 @@ function periodicObservationResult(observation, protectedVariable, family, cutof
     protectedValues.push(protectedValue);
     errors.push(rmsMetric(estimate, protectedValue));
   }
-  const metric = protectedVariable === 'mode_1_coefficient' ? scalarGap : rmsMetric;
+  const metric = periodicProtectedVector([0, 0, 0, 0], protectedVariable).length === 1 ? scalarGap : rmsMetric;
   const collapse = collapseFromSamples(observations, protectedValues, deltas, rmsMetric, metric);
   const kappa0 = fiberCollisionGap(observations, protectedValues, rmsMetric, metric);
   const result = {
@@ -545,7 +565,7 @@ function analyzePeriodicRecoverability(config) {
   const current = periodicObservationResult(observation, protectedVariable, family, cutoff);
   const selectedDelta = clamp(Number(config.periodicDelta), 0, 3);
   const deltaIndex = Math.round((selectedDelta / 3) * (current.deltas.length - 1));
-  const thresholdCutoffs = [0, 1, 2, 3];
+  const thresholdCutoffs = [0, 1, 2, 3, 4];
   const thresholdRows = thresholdCutoffs.map((value) => ({
     cutoff: value,
     result: periodicObservationResult('cutoff_vorticity', protectedVariable, family, value),
@@ -719,6 +739,42 @@ function activeSensorCount(sensorWeights) {
   return sensorWeights.filter((value) => Math.abs(value) > 1e-9).length;
 }
 
+function solveLeastSquares(matrix, rhs) {
+  const mt = transpose(matrix);
+  const gram = matMul(mt, matrix);
+  const inv = invertMatrix(gram);
+  if (!inv) return null;
+  return matVec(matMul(inv, mt), rhs);
+}
+
+function diagonalProtectedWeights(eigenvalues, sensorWeights, functionalName) {
+  switch (functionalName) {
+    case 'sensor_sum':
+      return sensorWeights.slice();
+    case 'first_moment':
+      return sensorWeights.map((weight, index) => weight * eigenvalues[index]);
+    case 'second_moment':
+      return sensorWeights.map((weight, index) => weight * (eigenvalues[index] ** 2));
+    case 'protected_coordinate':
+    default:
+      return [0, 0, 1];
+  }
+}
+
+function diagonalFunctionalLabel(functionalName) {
+  switch (functionalName) {
+    case 'sensor_sum':
+      return 'sensor-weighted state sum';
+    case 'first_moment':
+      return 'first sensor moment functional';
+    case 'second_moment':
+      return 'second sensor moment functional';
+    case 'protected_coordinate':
+    default:
+      return 'third state coordinate x₃';
+  }
+}
+
 function diagonalRecoveryWeights(eigenvalues, sensorWeights, protectedIndex, horizon) {
   const active = sensorWeights
     .map((value, index) => ({ value, index }))
@@ -739,6 +795,26 @@ function diagonalRecoveryWeights(eigenvalues, sensorWeights, protectedIndex, hor
   return [...leading, ...Array.from({ length: horizon - leading.length }, () => 0)];
 }
 
+function diagonalFunctionalRecoveryWeights(eigenvalues, sensorWeights, protectedWeights, horizon) {
+  const active = sensorWeights
+    .map((value, index) => ({ value, index }))
+    .filter((entry) => Math.abs(entry.value) > 1e-9);
+  const inactiveProtected = protectedWeights.some(
+    (value, index) => Math.abs(value) > 1e-9 && !active.some((entry) => entry.index === index)
+  );
+  if (inactiveProtected || !active.length) {
+    return null;
+  }
+  const vandermonde = active.map((entry) =>
+    Array.from({ length: horizon }, (_, power) => eigenvalues[entry.index] ** power)
+  );
+  const targets = active.map((entry) => protectedWeights[entry.index] / entry.value);
+  const coeffs = solveLeastSquares(vandermonde, targets);
+  if (!coeffs) return null;
+  const residual = norm(subVec(matVec(vandermonde, coeffs), targets));
+  return residual < 1e-8 ? coeffs : null;
+}
+
 function invertMatrix(matrix) {
   const n = matrix.length;
   const augmented = matrix.map((row, i) => [...row, ...identity(n)[i]]);
@@ -756,7 +832,8 @@ function analyzeDiagonalControlComplexity(config) {
   };
   const profileKey = config.controlProfile;
   const sensorWeights = profiles[profileKey];
-  const protectedIndex = 2;
+  const functionalName = config.controlFunctional ?? 'protected_coordinate';
+  const protectedWeights = diagonalProtectedWeights(eigenvalues, sensorWeights, functionalName);
   const horizon = Number(config.controlHorizon);
   const recordMatrix = diagonalRecordMatrix(eigenvalues, sensorWeights, horizon);
   const deltas = Array.from({ length: 40 }, (_, index) => (index * 2) / 39);
@@ -765,19 +842,25 @@ function analyzeDiagonalControlComplexity(config) {
   const protectedValues = [];
   const errors = [];
   const activeCount = activeSensorCount(sensorWeights);
-  const predictedMinHorizon = Math.abs(sensorWeights[protectedIndex]) > 1e-9 ? activeCount : null;
+  let predictedMinHorizon = null;
+  for (let value = 1; value <= 4; value += 1) {
+    if (diagonalFunctionalRecoveryWeights(eigenvalues, sensorWeights, protectedWeights, value)) {
+      predictedMinHorizon = value;
+      break;
+    }
+  }
   const exact = predictedMinHorizon !== null && horizon >= predictedMinHorizon;
-  const weights = exact ? diagonalRecoveryWeights(eigenvalues, sensorWeights, protectedIndex, horizon) : null;
+  const weights = diagonalFunctionalRecoveryWeights(eigenvalues, sensorWeights, protectedWeights, horizon);
   for (const x1 of coeffs) {
     for (const x2 of coeffs) {
       for (const x3 of coeffs) {
         const state = [x1, x2, x3];
         const record = matVec2(recordMatrix, state);
-        const protectedValue = [x3];
+        const protectedValue = [dot(protectedWeights, state)];
         observations.push(record);
         protectedValues.push(protectedValue);
         const estimate = weights ? [dot(weights, record)] : [0];
-        errors.push(Math.abs(estimate[0] - x3));
+        errors.push(Math.abs(estimate[0] - protectedValue[0]));
       }
     }
   }
@@ -787,15 +870,15 @@ function analyzeDiagonalControlComplexity(config) {
   const deltaIndex = Math.round((selectedDelta / 2) * (deltas.length - 1));
   const historyThreshold = [1, 2, 3, 4].map((value) => ({
     horizon: value,
-    kappa0: predictedMinHorizon !== null && value >= predictedMinHorizon ? 0 : 2,
+    kappa0: diagonalFunctionalRecoveryWeights(eigenvalues, sensorWeights, protectedWeights, value) ? 0 : 2,
   }));
   return {
     systemLabel: 'Three-state diagonal scalar-output family',
-    protectedLabel: 'third state coordinate x₃',
+    protectedLabel: diagonalFunctionalLabel(functionalName),
     observationLabel: `${horizon}-step history (${profileKey.replaceAll('_', ' ')})`,
     classification:
       predictedMinHorizon === null
-        ? 'Impossible because the protected coordinate never enters the record'
+        ? 'Impossible because the protected functional does not lie in the finite-history row space'
         : exact
           ? `Exact once the record horizon reaches ${predictedMinHorizon}`
           : `Impossible below the minimal horizon ${predictedMinHorizon}`,
@@ -815,6 +898,7 @@ function analyzeDiagonalControlComplexity(config) {
     predictedMinHorizon,
     activeSensorCount: activeCount,
     controlModeLabel: 'minimal-history threshold model',
+    functionalName,
   };
 }
 

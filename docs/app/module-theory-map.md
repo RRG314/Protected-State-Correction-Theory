@@ -2,7 +2,7 @@
 
 | Workbench module | Main result | Status | Source code |
 | --- | --- | --- | --- |
-| Recoverability Lab | constrained-observation branch, fiber-separation exactness, collapse-modulus classification, `κ(η)/2` lower bound, periodic protected-variable threshold examples, control finite-history versus asymptotic split | active branch / proved core / family-level threshold results | `src/ocp/recoverability.py`, `docs/theory/advanced-directions/constrained-observation-*.md`, `docs/workbench/lib/compute.js` |
+| Recoverability Lab | constrained-observation branch, fiber-separation exactness, collapse-modulus classification, `κ(η)/2` lower bound, restricted-linear minimal-complexity criterion, periodic functional-support threshold examples, control finite-history versus asymptotic split | active branch / proved core / family-level threshold results | `src/ocp/recoverability.py`, `docs/theory/advanced-directions/constrained-observation-*.md`, `docs/workbench/lib/compute.js` |
 | Exact Projection Lab | OCP-T1, OCP-N1 | proved | `src/ocp/core.py` and `docs/workbench/lib/compute.js` |
 | QEC Sector Lab | OCP-T5, QEC exact anchor | proved / conditional anchor | `src/ocp/sectors.py`, `src/ocp/qec.py`, `docs/workbench/lib/compute.js` |
 | MHD Projection Lab | periodic exact continuous anchor, GLM asymptotic branch | proved / conditional | `src/ocp/mhd.py`, `docs/workbench/lib/compute.js` |

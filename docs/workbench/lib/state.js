@@ -15,6 +15,7 @@ export const DEFAULT_STATE = {
       periodicDelta: 2.0,
       controlMode: 'two_state_observer',
       controlProfile: 'three_active',
+      controlFunctional: 'protected_coordinate',
       controlEpsilon: 0.2,
       controlHorizon: 2,
       controlDelta: 0.5,

@@ -17,7 +17,7 @@ Why it failed:
 - and the current results reduce to different underlying structures:
   - fiber collisions in the qubit family,
   - Fourier support loss in the periodic modal family,
-  - Vandermonde/history rank loss in the diagonal control family.
+  - interpolation on the active sensor spectrum in the diagonal control family.
 
 Current status:
 - **not worth promoting** as a broad theorem claim
@@ -71,7 +71,7 @@ Rejected form:
 
 Why it failed:
 - the periodic modal threshold depends on protected Fourier support,
-- the diagonal control threshold depends on active sensed modes and distinct eigenvalues,
+- the diagonal control threshold depends on interpolation on the active spectrum,
 - the qubit threshold depends on which protected variable is chosen.
 
 Current status:
@@ -85,14 +85,28 @@ Rejected form:
 
 Why it failed:
 - the strongest general results remain standard or standard-adjacent,
-- the strongest newer results are narrow family-level thresholds,
+- the strongest newer results are narrow family-level thresholds plus a restricted-linear threshold criterion,
 - no stronger cross-domain theorem survived repeated falsification in this pass.
 
 Current status:
 - **keep as a serious branch**
 - **do not promote as a major standalone theorem program yet**
 
-## 7. Weak Directions To Leave Alone For Now
+## 7. Overly Narrow Control Threshold Wording
+
+Rejected headline form:
+- the control-side threshold is simply “the number of active sensed modes containing the protected coordinate.”
+
+Why it failed:
+- that wording is only the coordinate-recovery special case,
+- the stronger surviving law is functional interpolation on the active sensor spectrum,
+- weaker functionals such as `sensor_sum` or `first_moment` recover earlier than the protected coordinate.
+
+Current status:
+- **demote** the coordinate-only wording to a corollary
+- **promote** the functional interpolation law instead
+
+## 8. Weak Directions To Leave Alone For Now
 
 Leave these alone unless a sharply stronger idea appears:
 - universal phase-transition language
@@ -100,15 +114,16 @@ Leave these alone unless a sharply stronger idea appears:
 - generic “coarse records cause irrecoverability” framing
 - any attempt to make the qubit/control/periodic threshold mechanisms look more unified than the proofs support
 
-## 8. Productive Failures Worth Preserving
+## 9. Productive Failures Worth Preserving
 
 These failures were useful and should remain visible:
 
 1. the branch needed exact nullspace calculations, not only sampled collision scans
 2. the strongest broad generalization attempt failed, which sharpened the branch scope
 3. the universal complexity idea failed again, which pushed the branch toward cleaner family-specific thresholds
+4. the coordinate-only control story was too narrow, which led to the stronger functional interpolation law
 
-## 9. Honest Bottom Line
+## 10. Honest Bottom Line
 
 The branch did not fail.
 

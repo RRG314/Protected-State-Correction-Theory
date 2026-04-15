@@ -744,10 +744,13 @@ function renderConfigPane() {
             <select id="recoverability-periodic-protected" data-path="labs.recoverability.periodicProtected">
               <option value="mode_1_coefficient" ${state.labs.recoverability.periodicProtected === 'mode_1_coefficient' ? 'selected' : ''}>leading modal coefficient</option>
               <option value="modes_1_2_coefficients" ${state.labs.recoverability.periodicProtected === 'modes_1_2_coefficients' ? 'selected' : ''}>first two modal coefficients</option>
-              <option value="full_modal_coefficients" ${state.labs.recoverability.periodicProtected === 'full_modal_coefficients' ? 'selected' : ''}>full three-mode coefficient vector</option>
+              <option value="low_mode_sum" ${state.labs.recoverability.periodicProtected === 'low_mode_sum' ? 'selected' : ''}>low-mode weighted sum</option>
+              <option value="bandlimited_contrast" ${state.labs.recoverability.periodicProtected === 'bandlimited_contrast' ? 'selected' : ''}>band-limited contrast functional</option>
+              <option value="full_weighted_sum" ${state.labs.recoverability.periodicProtected === 'full_weighted_sum' ? 'selected' : ''}>full weighted modal sum</option>
+              <option value="full_modal_coefficients" ${state.labs.recoverability.periodicProtected === 'full_modal_coefficients' ? 'selected' : ''}>full four-mode coefficient vector</option>
             </select>
           </div>
-          ${state.labs.recoverability.periodicObservation === 'cutoff_vorticity' ? rangeField('periodicCutoff', 'Retained Fourier cutoff', state.labs.recoverability.periodicCutoff, 0, 3, 1) : ''}
+          ${state.labs.recoverability.periodicObservation === 'cutoff_vorticity' ? rangeField('periodicCutoff', 'Retained Fourier cutoff', state.labs.recoverability.periodicCutoff, 0, 4, 1) : ''}
           ${rangeField('periodicDelta', 'Selected δ', state.labs.recoverability.periodicDelta, 0, 3, 0.05)}
         ` : ''}
         ${state.labs.recoverability.system === 'control' ? `
@@ -765,6 +768,15 @@ function renderConfigPane() {
                 <option value="three_active" ${state.labs.recoverability.controlProfile === 'three_active' ? 'selected' : ''}>three active coordinates</option>
                 <option value="two_active" ${state.labs.recoverability.controlProfile === 'two_active' ? 'selected' : ''}>two active coordinates</option>
                 <option value="protected_hidden" ${state.labs.recoverability.controlProfile === 'protected_hidden' ? 'selected' : ''}>protected coordinate hidden</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="recoverability-control-functional">Protected functional</label>
+              <select id="recoverability-control-functional" data-path="labs.recoverability.controlFunctional">
+                <option value="protected_coordinate" ${state.labs.recoverability.controlFunctional === 'protected_coordinate' ? 'selected' : ''}>third coordinate x₃</option>
+                <option value="sensor_sum" ${state.labs.recoverability.controlFunctional === 'sensor_sum' ? 'selected' : ''}>sensor-weighted state sum</option>
+                <option value="first_moment" ${state.labs.recoverability.controlFunctional === 'first_moment' ? 'selected' : ''}>first sensor moment</option>
+                <option value="second_moment" ${state.labs.recoverability.controlFunctional === 'second_moment' ? 'selected' : ''}>second sensor moment</option>
               </select>
             </div>
           ` : ''}
@@ -947,7 +959,7 @@ function renderRecoverabilityStage() {
             'κ(0)',
             a.currentCutoff
           )}
-          <small>On this finite modal family, exact recovery turns on exactly when the cutoff retains the modes that the chosen protected variable depends on.</small>
+          <small>On this finite modal family, exact recovery turns on exactly when the cutoff retains every mode that the chosen protected functional depends on.</small>
         </div>
       `;
     }
@@ -961,7 +973,7 @@ function renderRecoverabilityStage() {
             'κ(0)',
             Number(state.labs.recoverability.controlHorizon)
           )}
-          <small>${state.labs.recoverability.controlMode === 'diagonal_threshold' ? 'This diagonal family has a clean minimal-history law: exact recovery starts only once the record is long enough to separate every active sensor mode.' : 'For the two-state observer model, one-step output history is not enough, while two steps already separate the protected coordinate whenever ε is nonzero.'}</small>
+          <small>${state.labs.recoverability.controlMode === 'diagonal_threshold' ? 'This diagonal family now exposes a stronger functional law: exact recovery starts once the finite history is rich enough to interpolate the chosen protected functional from the active sensor moments.' : 'For the two-state observer model, one-step output history is not enough, while two steps already separate the protected coordinate whenever ε is nonzero.'}</small>
         </div>
       `;
     }
@@ -1276,7 +1288,7 @@ function renderMetrics() {
 function renderNarrativeSummary() {
   switch (state.activeLab) {
     case 'recoverability':
-      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)}.${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected variable is ${latestAnalysis.predictedMinCutoff}.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the three-state threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected coordinate is hidden' : latestAnalysis.predictedMinHorizon}.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''} This lab is meant to show when correction is mathematically meaningful and when the record has already lost too much structure.</p>`;
+      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)}.${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''} This lab is meant to show when correction is mathematically meaningful and when the record has already lost too much structure.</p>`;
     case 'exact':
       return `<p>${latestAnalysis.admissible ? 'The disturbance is orthogonal, so projection returns the protected component exactly.' : 'The disturbance overlaps the protected direction, so exact recovery fails in the way the theorem spine predicts.'}</p>`;
     case 'qec':

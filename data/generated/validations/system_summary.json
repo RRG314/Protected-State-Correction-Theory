@@ -1,11 +1,12 @@
 {
-  "tracked_like_file_count": 224,
+  "tracked_like_file_count": 238,
   "counts_by_area": {
     ".github": 5,
     "root": 18,
+    ".playwright-cli": 10,
     "archive": 8,
-    "data": 15,
-    "docs": 96,
+    "data": 17,
+    "docs": 98,
     "papers": 6,
     "scripts": 10,
     "src": 30,
