@@ -12,11 +12,11 @@
 - the finished protected-state correction architecture with exact, sector, asymptotic, and no-go layers
 - the strong use of no-go results as part of the core theory rather than a side appendix
 - the finite-time exact-recovery no-go as a sharp separator between exact correction and smooth linear asymptotic correction
-- the sector theorem, the CFD-facing divergence-only bounded no-go, and the boundary-transplant rejection as scope-policing results inside the same framework
+- the sector theorem, the CFD-facing divergence-only bounded no-go, the boundary-transplant rejection, and the restricted bounded Hodge exact theorem as scope-policing and scope-sharpening results inside the same framework
 
 ## Main Limits
 - the strongest mathematics remains operator-theoretic and architectural rather than deep domain-specific physics mathematics
 - several physics bridges are reinterpretive or conditional rather than theorem-generating
-- the bounded-domain exact continuous branch is still open
+- the broad bounded-domain exact continuous branch is still open, even though one restricted finite-mode Hodge subcase is now proved
 - continuous quantum error correction is still a conditional bridge, not a promoted theorem branch
 - generic constrained Hamiltonian language is not promoted

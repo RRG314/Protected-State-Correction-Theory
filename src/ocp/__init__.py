@@ -7,13 +7,24 @@ from .qec import (
 )
 from .mhd import helmholtz_project_2d, divergence_2d, glm_step_2d
 from .continuous import LinearOCPFlow, LinearGeneratorReport, block_decomposition, matrix_exponential
-from .capacity import ExactLinearCapacity, GeneratorCapacity, QECSectorCapacity, exact_linear_capacity, generator_capacity, qec_sector_capacity
+from .capacity import (
+    ExactLinearCapacity,
+    GeneratorCapacity,
+    QECSectorCapacity,
+    RestrictedLinearCapacity,
+    exact_linear_capacity,
+    generator_capacity,
+    qec_sector_capacity,
+    restricted_linear_capacity,
+)
 from .sectors import SectorRecoveryReport, global_sector_recovery_operator, pairwise_sector_overlap_matrix, sector_projector, sector_recovery_operator, sector_recovery_report
 from .physics import BoundaryProjectionReport, bounded_domain_projection_counterexample
 from .cfd import (
+    BoundedHodgeProjectionReport,
     CfdProjectionSummary,
     DivergenceOnlyNoGoWitness,
     PeriodicIncompressibleProjectionReport,
+    bounded_hodge_projection_report,
     cfd_projection_summary,
     divergence_only_bounded_no_go_witness,
     periodic_incompressible_projection_report,
@@ -60,11 +71,13 @@ from .recoverability import (
 from .design import (
     CandidateAugmentationReport,
     LinearRecoverabilityDesignReport,
+    UnrestrictedAugmentationReport,
     linear_recoverability_design_report,
     minimal_candidate_augmentation,
     nullspace_witness_for_protected_loss,
     recoverable_protected_rows,
     restricted_row_space_residuals,
+    unrestricted_exact_augmentation,
 )
 
 __all__ = [
@@ -85,9 +98,11 @@ __all__ = [
     "ExactLinearCapacity",
     "GeneratorCapacity",
     "QECSectorCapacity",
+    "RestrictedLinearCapacity",
     "exact_linear_capacity",
     "generator_capacity",
     "qec_sector_capacity",
+    "restricted_linear_capacity",
     "SectorRecoveryReport",
     "global_sector_recovery_operator",
     "pairwise_sector_overlap_matrix",
@@ -96,9 +111,11 @@ __all__ = [
     "sector_recovery_report",
     "BoundaryProjectionReport",
     "bounded_domain_projection_counterexample",
+    "BoundedHodgeProjectionReport",
     "CfdProjectionSummary",
     "DivergenceOnlyNoGoWitness",
     "PeriodicIncompressibleProjectionReport",
+    "bounded_hodge_projection_report",
     "cfd_projection_summary",
     "divergence_only_bounded_no_go_witness",
     "periodic_incompressible_projection_report",
@@ -141,9 +158,11 @@ __all__ = [
     "restricted_linear_recoverability",
     "CandidateAugmentationReport",
     "LinearRecoverabilityDesignReport",
+    "UnrestrictedAugmentationReport",
     "linear_recoverability_design_report",
     "minimal_candidate_augmentation",
     "nullspace_witness_for_protected_loss",
     "recoverable_protected_rows",
     "restricted_row_space_residuals",
+    "unrestricted_exact_augmentation",
 ]

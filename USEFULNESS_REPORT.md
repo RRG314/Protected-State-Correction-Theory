@@ -19,6 +19,7 @@ The restricted-linear design layer can now identify:
 - which protected rows are already recoverable
 - which are not
 - explicit ambiguity witnesses
+- the theorem-backed unrestricted minimum number of added measurements
 - minimal candidate augmentations that repair the record
 
 ### Architecture routing

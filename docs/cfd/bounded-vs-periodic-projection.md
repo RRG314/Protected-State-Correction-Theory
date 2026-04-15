@@ -28,6 +28,24 @@ or an analogous class with the correct boundary trace for the physical problem.
 
 At that point, exact correction requires more than removing divergence. It must preserve the relevant boundary structure too.
 
+## Stronger Positive Result
+
+The bounded branch is no longer only negative.
+
+The repo now proves a narrower exact result on an explicit finite-mode Hodge family:
+
+```text
+S_bc = span{ J ∇ψ_i },
+G_0  = span{ ∇φ_j },
+```
+
+with boundary-compatible `ψ_i` and Dirichlet `φ_j`.
+
+On that family the orthogonal projector onto `S_bc` is exact.
+
+See:
+- [Bounded-Domain Hodge Theorems](../theorem-candidates/bounded-domain-hodge-theorems.md)
+
 ## Sharper No-Go Result
 
 ### No-Go OCP-CFD-N1: Divergence-Only Recovery Is Insufficient On A Nontrivial Bounded Protected Class
@@ -82,7 +100,8 @@ So the operator stops being an exact correction operator for the bounded protect
 ## Honest Verdict
 
 - periodic projection: **EXACT FIT**
-- bounded-domain projection with the correct Hodge projector: **CONDITIONAL FIT**
+- bounded-domain projection on the implemented boundary-compatible finite-mode Hodge family: **EXACT FIT**
+- broader bounded-domain projection with the correct Hodge projector: **CONDITIONAL FIT**
 - naive periodic reuse on bounded domains: **REJECTED**
 - divergence-only bounded recovery: **PROVED NO-GO**
 

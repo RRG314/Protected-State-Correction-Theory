@@ -6,6 +6,14 @@ This file records one of the most useful physics-side negative results in the re
 
 The periodic exact projector is a real exact correction operator on the periodic branch. But that does **not** mean it can be transplanted unchanged into bounded-domain physical problems.
 
+This file is the negative half of the bounded-domain story.
+
+The positive half is now also present in the repository:
+- on an explicit boundary-compatible finite-mode Hodge family, a bounded-domain orthogonal projector is exact.
+
+See:
+- [Bounded-Domain Hodge Theorems](../theorem-candidates/bounded-domain-hodge-theorems.md)
+
 ## The Rejected Claim
 
 Rejected claim:

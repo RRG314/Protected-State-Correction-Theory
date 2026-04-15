@@ -109,7 +109,7 @@ rows = [
 
 CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
 with CSV_PATH.open('w', newline='') as fh:
-    writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+    writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()), lineterminator='\n')
     writer.writeheader()
     writer.writerows(rows)
 

@@ -6,6 +6,7 @@ import numpy as np
 from .core import orthonormalize_columns
 from .continuous import LinearOCPFlow
 from .qec import error_sector_projector
+from .recoverability import restricted_linear_recoverability
 
 Array = np.ndarray
 
@@ -60,6 +61,16 @@ class GeneratorCapacity:
     split_preserving: bool
     protected_mixing_norm: float
     disturbance_from_protected_norm: float
+
+
+@dataclass(frozen=True)
+class RestrictedLinearCapacity:
+    rank_observation: int
+    rank_protected: int
+    rank_total: int
+    exact_recovery_possible: bool
+    rowspace_deficiency: int
+    min_unrestricted_added_measurements: int
 
 
 def exact_linear_capacity(protected_basis: Array, disturbance_basis: Array, *, tol: float = 1e-10) -> ExactLinearCapacity:
@@ -123,4 +134,34 @@ def generator_capacity(generator: Array, protected_basis: Array, disturbance_bas
         split_preserving=bool(report.annihilates_protected and report.preserves_disturbance),
         protected_mixing_norm=float(report.protected_mixing_norm),
         disturbance_from_protected_norm=float(report.disturbance_from_protected_norm),
+    )
+
+
+def restricted_linear_capacity(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    tol: float = 1e-10,
+) -> RestrictedLinearCapacity:
+    O = _as_matrix(observation_matrix)
+    L = _as_matrix(protected_matrix)
+    if family_basis is None:
+        F = np.eye(O.shape[1])
+    else:
+        F = orthonormalize_columns(family_basis, tol=tol)
+    OF = O @ F
+    LF = L @ F
+    rank_observation = int(np.linalg.matrix_rank(OF, tol=tol))
+    rank_protected = int(np.linalg.matrix_rank(LF, tol=tol))
+    rank_total = int(np.linalg.matrix_rank(np.vstack([OF, LF]), tol=tol))
+    deficiency = int(rank_total - rank_observation)
+    exact = restricted_linear_recoverability(O, L, family_basis=family_basis, tol=tol).exact_recoverable
+    return RestrictedLinearCapacity(
+        rank_observation=rank_observation,
+        rank_protected=rank_protected,
+        rank_total=rank_total,
+        exact_recovery_possible=bool(exact),
+        rowspace_deficiency=deficiency,
+        min_unrestricted_added_measurements=deficiency,
     )

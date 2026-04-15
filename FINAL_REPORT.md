@@ -9,11 +9,11 @@ The local search again confirmed that the strongest usable OCP material was spre
 - and cross-structure/no-go material from nearby programs.
 
 The new pass did not uncover a hidden finished physics-unification draft.
-It uncovered enough projector, constraint-cleaning, and correction-language material to justify a disciplined **physics extension**, but not a theory rename around physics alone.
+It uncovered enough projector, constraint-cleaning, and correction-language material to justify a disciplined **physics extension**, a branch-based open-problem program, and two real partial solutions to previously high-priority open problems, but not a theory rename around physics alone.
 
 ## 2. What Was Added In This Pass
 
-This pass added five major upgrades:
+This pass added major upgrades across the repo:
 
 1. a real physics-extension layer in `docs/physics/`
 2. a citable outside-literature map in `docs/references/citable-expansion-directions.md`
@@ -21,6 +21,9 @@ This pass added five major upgrades:
 4. a redesigned static workbench with clearer card-based hierarchy, improved naming, and a kept Maxwell/gauge module
 5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Recoverability / Correction Studio
 6. a practical design layer with reusable templates, user-entry paths, and app-facing recoverability guidance
+7. a visible research-program layer with branch audit, ranked roadmap, open-problem program, theory-candidate assessment, and usefulness-by-branch notes
+8. a restricted bounded-domain exact theorem on the boundary-compatible finite-mode Hodge family
+9. a restricted-linear minimal augmentation theorem that turns design advice into an exact count
 
 The current extension pass also added:
 
@@ -45,7 +48,10 @@ The promoted no-go spine remains:
 The strongest new physics-side addition is:
 - the explicit rejection of naive periodic-projector transplantation to bounded-domain protected classes
 
-That result materially sharpens the scope of the exact continuous branch.
+That result materially sharpened the scope of the exact continuous branch.
+
+The strongest new positive bounded-domain addition is:
+- the boundary-compatible finite-mode Hodge theorem, which proves exact bounded-domain correction on an explicit restricted family instead of leaving the bounded branch purely negative
 
 The strongest new observation-layer addition is:
 - the constrained-observation recoverability framework centered on the collapse modulus `κ_{M,p}` and on exact / approximate / asymptotic / impossible classification across quantum, periodic flow, and control examples
@@ -54,6 +60,12 @@ The strongest current constrained-observation branch results now added on top of
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
 - a nested restricted-linear collision-gap threshold law on bounded admissible coefficient families,
 - a restricted-linear minimal-complexity criterion based on row-space inclusion,
+- a restricted-linear minimal augmentation theorem with exact count
+
+```text
+δ(O, L; F) = rank([O F; L F]) - rank(O F),
+```
+
 - a same-record weaker-versus-stronger recovery split,
 - a closed-form qubit phase-window collision law,
 - a family-level periodic cutoff threshold on the tested two-mode incompressible family,
@@ -61,7 +73,7 @@ The strongest current constrained-observation branch results now added on top of
 - a diagonal functional-interpolation threshold law that survives larger polynomial stress tests,
 - and a corrected exact-versus-asymptotic control-history split after replacing a misleading sampled collision estimate with an exact nullspace calculation.
 
-That branch now has one real theorem-grade restricted-linear core result, but it still remains a useful formal and computational extension rather than a major standalone theorem program.
+That branch now has two real theorem-grade restricted-linear core results, but it still remains a useful formal and computational extension rather than a major standalone theorem program.
 
 ## 4. Strongest New Physics Results And Decisions
 
@@ -89,6 +101,11 @@ That branch now has one real theorem-grade restricted-linear core result, but it
 - periodic incompressible velocity projection
 - status: `PROVED`
 - reason: it is the same exact projector class as the periodic Helmholtz/Leray branch, now written explicitly in incompressible CFD language
+
+### New restricted bounded-domain exact result
+- boundary-compatible finite-mode Hodge projection
+- status: `PROVED`
+- reason: exact bounded-domain correction now survives on an explicit boundary-compatible finite-mode family even though the naive periodic transplant remains rejected
 
 ### New CFD-facing no-go
 - divergence-only bounded recovery
@@ -169,7 +186,7 @@ Current validation status:
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Recoverability / Correction Studio: passed
 - Node workbench test suite: `17 passed`
-- Python theorem/operator/example test suite: `74 passed`
+- Python theorem/operator/example test suite: `90 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -206,7 +223,7 @@ Important limit on that rating:
 - this is not a physics-dominant universal theory repo
 - and it is not a claim that the whole program is now broadly proved across physics domains
 
-It is **excellent as a finished theorem-first research repository with a real but carefully delimited physics extension**.
+It is **excellent as a theorem-first research repository with a real but carefully delimited physics extension and a visible branch-based open-problem program**.
 
 The new CFD lane does not change that overall rating upward. It strengthens the repository by making one more application slice more real and by adding a sharper negative result at the same time.
 
@@ -214,10 +231,10 @@ The new CFD lane does not change that overall rating upward. It strengthens the 
 
 The best next directions are now clearer and more grounded:
 
-1. boundary-sensitive exact continuous correction beyond the rejected naive projector transplant
-2. sharper asymptotic theorems for constraint-damping architectures in real PDE settings
-3. a more formal continuous-QEC bridge only if it yields real operator statements instead of analogy
-4. a stronger cross-domain theorem for the constrained-observation branch beyond the current family-level threshold laws and the baseline `κ(0)=0` criterion
+1. a broader bounded-domain exactness theorem beyond the solved finite-mode Hodge subcase
+2. a robust noisy extension of the restricted-linear collision-gap and minimal-augmentation theorems
+3. sharper asymptotic theorems for constraint-damping architectures in real PDE settings
+4. a more formal continuous-QEC bridge only if it yields real operator statements instead of analogy
 
 ## 12. Directions To Leave Alone For Now
 

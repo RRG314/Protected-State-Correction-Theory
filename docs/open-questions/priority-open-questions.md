@@ -17,6 +17,10 @@ Can the sector-based correction picture used in QEC be formulated abstractly eno
 
 How much of the exact Helmholtz projection story survives on nonperiodic domains, bounded domains, or more realistic numerical boundary treatments?
 
+Current status:
+- one restricted bounded-domain exact theorem now survives on the repository's boundary-compatible finite-mode Hodge family
+- the open part is the broader theorem tied to realistic domain-compatible projectors
+
 ## 4. Nonlinear Or Manifold-Valued Protected Sets
 
 Can OCP be extended from linear subspaces to invariant manifolds or nonlinear constraint sets without losing operator-level meaning?
@@ -24,6 +28,10 @@ Can OCP be extended from linear subspaces to invariant manifolds or nonlinear co
 ## 5. Category-Specific Correction Capacity
 
 Even if one universal scalar fails, can each branch support a rigorous capacity notion that is genuinely useful?
+
+Current status:
+- the restricted-linear branch now has one finished capacity invariant, the minimal augmentation deficiency `δ(O, L; F)`
+- the open part is maturing comparable invariants on the other branches without forcing false unification
 
 ## 6. Stronger No-Go Results
 

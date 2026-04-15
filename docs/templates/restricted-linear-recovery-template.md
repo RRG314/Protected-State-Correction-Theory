@@ -19,6 +19,7 @@ Script:
 - exact / impossible verdict
 - row-space residuals
 - nullspace witness if recovery fails
+- unrestricted minimal added-measurement count `δ(O, L; F)`
 - minimal candidate augmentation if one exists
 
 ## Validation Checks
@@ -29,6 +30,7 @@ Script:
 ## Interpretation Guide
 - zero residual means the protected row is already in the restricted record row space
 - positive residual means the current record loses protected information
+- the unrestricted minimal count is the theorem-backed best-case number of additional linear measurements needed if you are free to choose them
 - minimal augmentation suggestions are the most actionable next-step result
 
 ## Limitations

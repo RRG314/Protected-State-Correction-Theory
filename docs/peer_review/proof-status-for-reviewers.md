@@ -6,6 +6,8 @@
 - OCP-T3 invariant-split generator theorem
 - OCP-T4 exact correction rank lower bound
 - OCP-T5 exact sector recovery for pairwise orthogonal sector embeddings
+- OCP-T6 restricted-linear minimal augmentation theorem
+- OCP-T7 boundary-compatible finite-mode Hodge projection
 - OCP-C2 PSD spectral-gap corollary
 
 ## Promoted No-Go Results
@@ -20,7 +22,7 @@
 - QEC as an OCP exact anchor under standard QEC assumptions
 - GLM as an asymptotic OCP architecture
 - control/observer fit under invariant-split assumptions
-- branch-specific capacity language beyond lower bounds
+- branch-specific capacity language beyond lower bounds, except for the now-promoted restricted-linear augmentation theorem
 - Maxwell / Coulomb-gauge projection as a corollary-level physics extension of the exact projector branch
 - numerical-relativity constraint damping as a conditional asymptotic physics extension
 - continuous quantum error correction as a conditional bridge
@@ -29,7 +31,7 @@
 - universal scalar capacity
 - optimizer/ML bridge claims
 - generic constrained Hamiltonian systems as an automatic OCP branch
-- boundary-sensitive exact continuous theorem
+- broad boundary-sensitive exact continuous theorem beyond the solved finite-mode bounded Hodge subcase
 
 ## What An Outside Reviewer Should Check First
 1. theorem assumptions match the promoted claims

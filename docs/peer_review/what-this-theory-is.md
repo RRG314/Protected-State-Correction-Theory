@@ -13,6 +13,7 @@ Its core internal principle name is **Orthogonal Correction Principle (OCP)**, b
 - exact sector recovery for pairwise orthogonal compatible sector embeddings
 - continuous asymptotic correction for invariant-split generator flows
 - periodic incompressible velocity projection as a clean exact CFD corollary of the projector branch
+- boundary-compatible finite-mode bounded Hodge projection as a restricted exact bounded-domain theorem
 - spectral-gap decay bounds in the PSD case
 - overlap, mixing, sector ambiguity, rank, and finite-time no-go results
 - a bounded-domain counterexample showing that naive periodic-projector transplantation is not an exact physical correction operator for the bounded problem
@@ -39,4 +40,4 @@ The scope is not:
 - universal correction physics
 - generic feedback theory
 - generic optimization theory
-- or a solved bounded-domain PDE correction framework
+- or a solved general bounded-domain PDE correction framework

@@ -1044,6 +1044,7 @@ function analyzeLinearTemplateRecoverability(config) {
   const protectedRows = protectedOption.rows.map((row) => row.slice());
   const { residuals, recoverable, unrecoverable } = recoverableRowIndices(activeRows, protectedRows);
   const exact = unrecoverable.length === 0;
+  const unrestrictedMinimalAdded = Math.max(0, matrixRank([...activeRows, ...protectedRows]) - matrixRank(activeRows.length ? activeRows : [zeros(3)]));
   const augmentation = minimalRowAugmentation(activeRows, protectedRows, remainingCandidates.map((candidate) => candidate.row));
   const nullBasis = nullSpace(activeRows.length ? activeRows : [zeros(3)]);
   let witness = null;
@@ -1097,7 +1098,9 @@ function analyzeLinearTemplateRecoverability(config) {
       ? 'Exact under the current static record'
       : augmentation.minimalAdded !== null
         ? `Impossible now; exact after ${augmentation.minimalAdded} added measurement${augmentation.minimalAdded === 1 ? '' : 's'}`
-        : 'Impossible under the current candidate record family',
+        : unrestrictedMinimalAdded > 0
+          ? 'Impossible under the current candidate record family'
+          : 'Impossible under the current static record',
     exact,
     asymptotic: false,
     impossible: !exact,
@@ -1114,6 +1117,7 @@ function analyzeLinearTemplateRecoverability(config) {
     unrecoverableProtectedRows: unrecoverable,
     rowResiduals: residuals,
     weakerProtectedOptions: recoverableOptions.map((item) => item.label),
+    unrestrictedMinimalAddedMeasurements: unrestrictedMinimalAdded,
     minimalAddedMeasurements: augmentation.minimalAdded,
     candidateExactSets: augmentation.exactSets.map((combo) => combo.map((index) => remainingCandidates[index].label)),
     nullspaceWitness: witness,
@@ -1328,7 +1332,7 @@ function guidanceForRecoverability(result, config) {
         missing: result.exact
           ? 'Current measurement rows span the protected target.'
           : result.minimalAddedMeasurements === null
-            ? 'No exact fix exists inside the current candidate measurement library.'
+            ? `No exact fix exists inside the current candidate measurement library. The theorem-backed unrestricted minimum is ${result.unrestrictedMinimalAddedMeasurements}.`
             : `Add ${result.minimalAddedMeasurements} measurement${result.minimalAddedMeasurements === 1 ? '' : 's'} from the candidate library.`,
         nextSteps: result.exact
           ? ['Export this scenario as a reusable exact-recovery template.', 'If robustness matters, enlarge the admissible family and retest.']

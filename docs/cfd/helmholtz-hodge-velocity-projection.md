@@ -41,6 +41,13 @@ The fit stays exact only when all of the following remain true:
 
 If these conditions fail, the fit drops from exact to conditional or rejected.
 
+The repository now has a stronger bounded-domain positive result too:
+- on an explicit finite-mode bounded family built from stream modes `J∇ψ` and Dirichlet gradient modes `∇φ`,
+- the corresponding orthogonal projector is exact on that bounded family.
+
+That result is recorded in:
+- [Bounded-Domain Hodge Theorems](../theorem-candidates/bounded-domain-hodge-theorems.md)
+
 ## What This Adds Beyond Standard CFD Language
 
 Standard CFD language often emphasizes the pressure Poisson solve or the fractional-step scheme. The protected-state language emphasizes the correction logic itself:
@@ -53,7 +60,8 @@ That shift is small but useful. It helps explain why some projection steps are e
 ## Repo Classification
 
 - periodic exact projector branch: **PROVED exact fit**
-- bounded-domain exact branch with a domain-compatible Hodge projector: **CONDITIONAL**
+- bounded-domain exact branch on the implemented boundary-compatible finite-mode Hodge family: **PROVED exact fit**
+- broader bounded-domain exact branch with realistic discretizations and boundary treatments: **CONDITIONAL**
 - boundary-insensitive transplant: **REJECTED**
 
 ## Related Files

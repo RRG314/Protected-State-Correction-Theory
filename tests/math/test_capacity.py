@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity
+from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity, restricted_linear_capacity
 from ocp.qec import bitflip_three_qubit_code
 
 
@@ -58,3 +58,36 @@ def test_generator_capacity_detects_mixing_failure() -> None:
 
     assert not capacity.split_preserving
     assert capacity.protected_mixing_norm > 0.9
+
+
+def test_restricted_linear_capacity_recovers_exact_rowspace_deficiency() -> None:
+    observation = np.array(
+        [
+            [1.0, 0.0, 0.0],
+            [0.0, 1.0, 1.0],
+        ]
+    )
+    protected = np.array(
+        [
+            [0.0, 1.0, 0.0],
+            [0.0, 0.0, 1.0],
+        ]
+    )
+    capacity = restricted_linear_capacity(observation, protected)
+
+    assert capacity.rank_observation == 2
+    assert capacity.rank_protected == 2
+    assert capacity.rank_total == 3
+    assert capacity.exact_recovery_possible is False
+    assert capacity.rowspace_deficiency == 1
+    assert capacity.min_unrestricted_added_measurements == 1
+
+
+def test_restricted_linear_capacity_is_zero_when_exact_recovery_already_holds() -> None:
+    observation = np.eye(3)
+    protected = np.array([[1.0, -2.0, 0.5]])
+    capacity = restricted_linear_capacity(observation, protected)
+
+    assert capacity.exact_recovery_possible is True
+    assert capacity.rowspace_deficiency == 0
+    assert capacity.min_unrestricted_added_measurements == 0

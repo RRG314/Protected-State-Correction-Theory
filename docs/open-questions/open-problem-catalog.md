@@ -3,24 +3,24 @@
 ## OCP-OP1: Boundary-Sensitive Exact Continuous Correction
 - Type: foundational
 - Priority: high
-- Current status: open
+- Current status: partially resolved, still open
 - Why it matters: this is the main obstacle to extending the strongest continuous exact anchor beyond the periodic setting.
-- What is already known: periodic Helmholtz/Leray projection is exact in the tested branch.
-- What blocks progress: boundary conditions and harmonic components make the decomposition more delicate.
-- What might solve it: a careful Hodge-theoretic formulation tied to admissible boundary conditions.
+- What is already known: periodic Helmholtz/Leray projection is exact in the tested branch; the repository now also proves a bounded-domain exact result on an explicit boundary-compatible finite-mode Hodge family.
+- What blocks progress: general bounded domains, harmonic components, discretization choices, and realistic boundary data make the decomposition more delicate.
+- What might solve it: a careful Hodge-theoretic formulation tied to admissible boundary conditions and to the actual discrete operator used by the solver.
 - How to falsify weak versions: show a proposed exact projector fails to preserve the intended protected space once boundary modes are introduced.
-- Recommendation: pursue, but keep the boundary assumptions explicit from the start.
+- Recommendation: pursue the general bounded-domain theorem, but keep the already-solved finite-mode boundary-compatible subcase separate.
 
 ## OCP-OP2: Mature Branch-Specific Capacity Theory
 - Type: theorem-completion
 - Priority: high
-- Current status: open but viable
+- Current status: partially resolved, still open
 - Why it matters: the repo now has lower bounds and branch-specific capacity language, but not yet a finished theory.
-- What is already known: exact rank lower bounds, sector distinguishability requirements, and stable-disturbance dimension summaries.
-- What blocks progress: the branches encode correctability in genuinely different mathematical objects.
-- What might solve it: a family of category-specific invariants rather than a forced universal scalar.
+- What is already known: exact rank lower bounds, sector distinguishability requirements, stable-disturbance dimension summaries, and now a proved restricted-linear minimal-augmentation invariant `δ(O, L; F)`.
+- What blocks progress: the branches encode correctability in genuinely different mathematical objects, so the mature theory must remain category-specific.
+- What might solve it: a family of category-specific invariants rather than a forced universal scalar, with the restricted-linear deficiency theorem as the first finished member of that family.
 - How to falsify bad formulations: test whether they collapse distinct exact and asymptotic systems into the same number without preserving correctability information.
-- Recommendation: strong next theorem-completion target.
+- Recommendation: keep extending the category-specific route; do not revive universal scalar language.
 
 ## OCP-OP3: Sector Branch Beyond The 3-Qubit Anchor
 - Type: theorem-completion

@@ -111,7 +111,14 @@ Status:
 
 ### CR-7b: Minimal Augmentation In The Restricted Linear Design Layer
 
-On the finite-dimensional restricted linear families used in the design layer, exact recovery can be restored by adding the smallest candidate measurement set whose rows place every protected row inside the augmented record row space.
+On the finite-dimensional restricted linear families used in the design layer:
+
+- exact recovery can be restored by adding the smallest candidate measurement set whose rows place every protected row inside the augmented record row space,
+- and if unrestricted linear measurements are allowed, the exact minimum number required is the row-space deficiency
+
+```text
+δ(O, L; F) = rank([O F; L F]) - rank(O F).
+```
 
 Status:
 - proved in the restricted linear template setting

@@ -54,6 +54,16 @@
       "idempotence_l2_error": 1.2146786327972174e-15,
       "orthogonality_residual": 0.0
     },
+    "bounded_hodge_exact": {
+      "protected_divergence_rms": 9.488902243386423e-15,
+      "recovered_divergence_rms": 2.9974437321292855e-14,
+      "protected_boundary_normal_rms": 5.956139134841261e-16,
+      "recovered_boundary_normal_rms": 5.959669369268147e-16,
+      "orthogonality_residual": 7.741416097288803e-17,
+      "recovery_l2_error": 1.4286595521890334e-14,
+      "idempotence_l2_error": 1.4322207120660787e-14,
+      "projector_construction_agreement": 4.783148869185309e-15
+    },
     "bounded_transplant": {
       "before_l2_divergence": 7.188908004215289,
       "after_periodic_projection_l2_divergence": 5.4533400392382e-15,
@@ -186,6 +196,14 @@
       "split_preserving": false,
       "protected_mixing_norm": 1.0,
       "disturbance_from_protected_norm": 0.0
+    },
+    "restricted_linear": {
+      "rank_observation": 2,
+      "rank_protected": 2,
+      "rank_total": 3,
+      "exact_recovery_possible": false,
+      "rowspace_deficiency": 1,
+      "min_unrestricted_added_measurements": 1
     }
   }
 }

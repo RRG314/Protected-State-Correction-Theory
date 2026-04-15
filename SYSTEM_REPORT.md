@@ -8,22 +8,25 @@ The strongest current picture is:
 - exact protected-state correction through orthogonal projectors,
 - exact sector recovery through orthogonal sector embeddings,
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
+- exact bounded-domain correction on the repository's boundary-compatible finite-mode Hodge family,
 - exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
 - a constrained-observation recoverability layer that classifies exact, approximate, asymptotic, and impossible recovery under coarse records,
 - a strengthened restricted-linear collision-gap threshold theorem inside that recoverability layer,
+- a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
+- a visible branch-audit and open-problem program layer,
 - and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
 
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `268`
+- tracked-like files: `274`
 - root files: `19`
 - archive files: `8`
 - data files: `20`
-- docs files: `114`
+- docs files: `120`
 - papers files: `6`
 - scripts files: `19`
 - source files: `33`
@@ -37,8 +40,8 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `43`
-- `PROVED`: `28`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear minimal-complexity criterion, and the stronger periodic/control threshold generalizations
+- total tracked claims: `45`
+- `PROVED`: `30`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear minimal-complexity criterion, the new restricted-linear minimal augmentation theorem, the new bounded-domain finite-mode Hodge theorem, and the stronger periodic/control threshold generalizations
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`
@@ -61,6 +64,7 @@ Primary claim artifacts:
 - [docs/theorem-candidates/central-theorem.md](docs/theorem-candidates/central-theorem.md)
 - [docs/theorem-candidates/sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
 - [docs/theorem-candidates/capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
+- [docs/theorem-candidates/bounded-domain-hodge-theorems.md](docs/theorem-candidates/bounded-domain-hodge-theorems.md)
 
 ### Continuous / asymptotic branch
 - [docs/theorem-candidates/generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
@@ -96,6 +100,13 @@ Primary claim artifacts:
 ### No-go layer
 - [docs/impossibility-results/no-go-results.md](docs/impossibility-results/no-go-results.md)
 - [docs/impossibility-results/advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
+
+### Research-program layer
+- [docs/research-program/branch-audit.md](docs/research-program/branch-audit.md)
+- [docs/research-program/ranked-roadmap.md](docs/research-program/ranked-roadmap.md)
+- [docs/research-program/open-problem-program.md](docs/research-program/open-problem-program.md)
+- [docs/research-program/theory-candidate-assessment.md](docs/research-program/theory-candidate-assessment.md)
+- [docs/research-program/usefulness-by-branch.md](docs/research-program/usefulness-by-branch.md)
 
 ## System Inventory
 
@@ -135,11 +146,11 @@ Status: `kept exact physics extension`
 - main value: real physics-side extension of the exact projector branch
 
 ### 5b. Incompressible CFD projection branch
-Status: `kept narrow CFD extension`
+Status: `kept narrow CFD extension with one proved bounded-domain exact subcase`
 - protected object: divergence-free velocity field
 - disturbance object: non-solenoidal velocity contamination
 - operator: pressure projection / Hodge projector
-- main value: strongest honest CFD lane for the exact projector branch
+- main value: strongest honest CFD lane for the exact projector branch, now with a restricted boundary-compatible bounded theorem and a sharper negative boundary layer
 
 ### 6. Asymptotic continuous generator branch
 Status: `finished asymptotic branch`
@@ -177,6 +188,7 @@ Status: `kept formal/computational branch`
 - main value: a disciplined observation layer that distinguishes exact, approximate, asymptotic, and impossible recovery before correction is even attempted
 - strongest surviving branch results:
   - `κ(η)/2` adversarial lower bound,
+  - restricted-linear minimal augmentation count `δ(O, L; F)`,
   - qubit phase-window collision law,
   - periodic cutoff threshold on the tested two-mode incompressible family,
   - four-mode periodic functional-support threshold law,
@@ -198,6 +210,7 @@ Exact operators:
 - global sector recovery operator
 - code projector and QEC recovery family
 - periodic Helmholtz/Leray projector
+- boundary-compatible finite-mode Hodge projector on the bounded-domain family
 - transverse projector interpretation in the Maxwell/gauge extension
 - constrained-observation exact recovery maps on admissible families
 
@@ -217,6 +230,7 @@ Failure diagnostics:
 - divergence-only indistinguishability on bounded incompressible protected classes
 - fiber-collision gap and collapse modulus `κ_{M,p}`
 - restricted observation-rank lower bounds on finite admissible families
+- restricted-linear row-space deficiency `δ(O, L; F)` and unrestricted augmentation count
 
 ## Workbench Inventory
 
@@ -283,7 +297,7 @@ Validation status:
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Recoverability / Correction Studio: passed
 - Node workbench tests: `17 passed`
-- Python theorem/operator/example tests: `74 passed`
+- Python theorem/operator/example tests: `90 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -315,6 +329,13 @@ Primary generated artifacts:
 - bounded-domain physical boundary-normal RMS: `2.304408101585748e-32`
 - bounded-domain projected boundary-normal RMS: `0.031097335905001126`
 
+### New bounded-domain exact subcase
+- protected divergence RMS on the bounded Hodge family: `1.3718012915486173e-14`
+- recovered divergence RMS on the bounded Hodge family: `4.5168532762522876e-14`
+- protected boundary-normal RMS on the bounded Hodge family: `5.949927035461704e-16`
+- recovered boundary-normal RMS on the bounded Hodge family: `8.773545357255127e-16`
+- independent projector-construction agreement: `4.210779740893284e-15`
+
 ### Workbench extension snapshot
 - gauge module before norm: `14.103454585100657`
 - gauge module after exact projection norm: `1.147354786301552e-13`
@@ -337,6 +358,7 @@ Primary generated artifacts:
   - horizons `2` and `3` exact for every tested `ε>0`
   - observer branch asymptotically convergent with spectral radius `0.3` on the tracked family
   - diagonal scalar-output thresholds: `sensor_sum` exact at horizon `1`, `first_moment` at `2`, `second_moment` at `3` for the fully active profile, with hidden protected-coordinate recovery impossible
+  - unrestricted minimal augmentation deficiency for the tracked linear design example: `1`
 
 ## Best Current Reading Paths
 

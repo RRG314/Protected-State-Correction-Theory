@@ -14,6 +14,7 @@ The strongest physics content is concentrated in:
 ### Strong exact fit
 - periodic Helmholtz/Leray projection
 - periodic incompressible velocity projection
+- boundary-compatible finite-mode bounded Hodge projection
 - Maxwell / Coulomb-gauge transverse projection on compatible domains
 - QEC sector recovery as the exact discrete anchor
 

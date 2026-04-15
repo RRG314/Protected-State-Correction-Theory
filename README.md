@@ -101,7 +101,10 @@ The repository is organized so readers can enter from different angles:
 12. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
 13. [Physics System Matrix](docs/physics/physics-system-matrix.md)
 14. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-15. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+15. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+16. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+17. [Open-Problem Program](docs/research-program/open-problem-program.md)
+18. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -235,6 +238,7 @@ The repo also preserves explicit rejections, including the failure of naive peri
 - `docs/theorem-candidates/` - theorem-level results including generator, capacity, and sector branches
 - `docs/impossibility-results/` - core and advanced no-go structure
 - `docs/open-questions/` - disciplined open-problem catalog and dead-end curation
+- `docs/research-program/` - branch audit, ranked roadmap, open-problem program, theory assessment, and usefulness-by-branch notes
 - `docs/workbench/` - static Pages-ready scientific workbench
 - `docs/templates/` - reusable build templates for exact, asymptotic, and no-go design problems
 - `docs/applications/` - practical integration notes, including app / engine-facing recoverability design

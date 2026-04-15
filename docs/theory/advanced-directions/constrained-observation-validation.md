@@ -93,7 +93,7 @@ New generated branch artifacts in this pass:
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `81 passed`
+- Python suite: `90 passed`
 - Workbench / Node suite: `17 passed`
 - markdown link check: passed
 - naming consistency check: passed

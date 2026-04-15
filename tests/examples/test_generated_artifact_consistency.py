@@ -34,6 +34,11 @@ def test_operator_examples_json_matches_recomputed_cfd_and_generator_examples() 
     assert np.isclose(saved_cfd['periodic']['before_l2_divergence'], cfd.periodic.before_l2_divergence)
     assert np.isclose(saved_cfd['periodic']['after_projection_l2_divergence'], cfd.periodic.after_projection_l2_divergence)
     assert np.isclose(saved_cfd['periodic']['recovery_l2_error'], cfd.periodic.recovery_l2_error)
+    assert np.isclose(saved_cfd['bounded_hodge_exact']['recovery_l2_error'], cfd.bounded_hodge_exact.recovery_l2_error)
+    assert np.isclose(
+        saved_cfd['bounded_hodge_exact']['orthogonality_residual'],
+        cfd.bounded_hodge_exact.orthogonality_residual,
+    )
     assert np.isclose(saved_cfd['bounded_transplant']['projected_boundary_normal_rms'], cfd.bounded_transplant.projected_boundary_normal_rms)
     assert np.isclose(
         saved_cfd['divergence_only_no_go_witness']['state_separation_rms'],
@@ -54,6 +59,10 @@ def test_operator_examples_json_matches_recomputed_cfd_and_generator_examples() 
     recomputed = [flow.exact_recovery_residual(time) for time in saved_flow['times']]
     assert np.allclose(saved_flow['exact_recovery_residuals'], recomputed)
     assert saved_flow['exact_recovery_possible'] == [False, False, False]
+
+    saved_capacity = data['capacity']['restricted_linear']
+    assert saved_capacity['rowspace_deficiency'] == 1
+    assert saved_capacity['min_unrestricted_added_measurements'] == 1
 
 
 def test_recoverability_summary_json_matches_recomputed_threshold_sweeps() -> None:

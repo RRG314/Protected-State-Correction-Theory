@@ -38,6 +38,7 @@ def main() -> None:
         'candidate_rows': [row.tolist() for row in candidate_rows],
         'exact_recoverable': report.exact_recoverable,
         'row_space_residuals': list(report.row_space_residuals),
+        'unrestricted_minimal_added_measurements': report.unrestricted_minimal_added_measurements,
         'minimal_added_measurements': report.minimal_added_measurements,
         'candidate_exact_sets': [list(combo) for combo in report.candidate_exact_sets],
         'nullspace_witness': None if report.nullspace_witness is None else report.nullspace_witness.tolist(),

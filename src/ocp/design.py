@@ -21,6 +21,7 @@ class LinearRecoverabilityDesignReport:
     row_space_residuals: tuple[float, ...]
     nullspace_witness: Array | None
     nullspace_protected_gap: float
+    unrestricted_minimal_added_measurements: int
     minimal_added_measurements: int | None
     candidate_exact_sets: tuple[tuple[int, ...], ...]
 
@@ -29,6 +30,16 @@ class LinearRecoverabilityDesignReport:
 class CandidateAugmentationReport:
     minimal_added_measurements: int | None
     candidate_exact_sets: tuple[tuple[int, ...], ...]
+
+
+@dataclass(frozen=True)
+class UnrestrictedAugmentationReport:
+    minimal_added_measurements: int
+    rowspace_deficiency: int
+    restricted_augmentation_rows: Array
+    ambient_augmentation_rows: Array
+    exact_recoverable_after_augmentation: bool
+    residual_norm_after_augmentation: float
 
 
 
@@ -123,6 +134,55 @@ def minimal_candidate_augmentation(
     return CandidateAugmentationReport(minimal_added_measurements=None, candidate_exact_sets=())
 
 
+def unrestricted_exact_augmentation(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    tol: float = EPS,
+) -> UnrestrictedAugmentationReport:
+    OF, LF = _restricted_matrices(observation_matrix, protected_matrix, family_basis=family_basis, tol=tol)
+    rank_observation = int(np.linalg.matrix_rank(OF, tol=tol))
+    rank_total = int(np.linalg.matrix_rank(np.vstack([OF, LF]), tol=tol))
+    deficiency = int(rank_total - rank_observation)
+
+    row_basis = _compressed_observation_matrix(OF, tol=tol)
+    working_basis = row_basis.copy()
+    complement_rows: list[Array] = []
+    if LF.ndim == 1:
+        LF = LF[None, :]
+    for row in LF:
+        candidate = np.asarray(row, dtype=float).copy()
+        if working_basis.size:
+            projector = np.linalg.pinv(working_basis, rcond=tol) @ working_basis
+            candidate = candidate - candidate @ projector
+        norm = float(np.linalg.norm(candidate))
+        if norm > tol:
+            candidate = candidate / norm
+            complement_rows.append(candidate.copy())
+            working_basis = np.vstack([working_basis, candidate]) if working_basis.size else candidate[None, :]
+
+    restricted_rows = np.vstack(complement_rows) if complement_rows else np.zeros((0, OF.shape[1]), dtype=float)
+    if restricted_rows.shape[0] != deficiency:
+        raise ValueError('computed unrestricted augmentation does not match the row-space deficiency')
+
+    if family_basis is None:
+        F = np.eye(np.asarray(observation_matrix, dtype=float).shape[1])
+    else:
+        F = _orthonormalize_columns(np.asarray(family_basis, dtype=float), tol=tol)
+    ambient_rows = restricted_rows @ F.T
+    augmented = np.vstack([np.asarray(observation_matrix, dtype=float), ambient_rows]) if ambient_rows.size else np.asarray(observation_matrix, dtype=float)
+    exact_report = restricted_linear_recoverability(augmented, protected_matrix, family_basis=family_basis, tol=tol)
+    return UnrestrictedAugmentationReport(
+        minimal_added_measurements=deficiency,
+        rowspace_deficiency=deficiency,
+        restricted_augmentation_rows=restricted_rows,
+        ambient_augmentation_rows=ambient_rows,
+        exact_recoverable_after_augmentation=bool(exact_report.exact_recoverable),
+        residual_norm_after_augmentation=float(exact_report.residual_norm),
+    )
+
+
 
 def nullspace_witness_for_protected_loss(
     observation_matrix: Array,
@@ -166,6 +226,7 @@ def linear_recoverability_design_report(
     OF, LF = _restricted_matrices(O, L, family_basis=family_basis, tol=tol)
     recoverable, unrecoverable, residuals = recoverable_protected_rows(O, L, family_basis=family_basis, tol=tol)
     witness, gap = nullspace_witness_for_protected_loss(O, L, family_basis=family_basis, tol=tol)
+    unrestricted = unrestricted_exact_augmentation(O, L, family_basis=family_basis, tol=tol)
     augmentation = (
         minimal_candidate_augmentation(
             O,
@@ -187,6 +248,7 @@ def linear_recoverability_design_report(
         row_space_residuals=tuple(float(value) for value in residuals),
         nullspace_witness=None if witness is None else np.asarray(witness, dtype=float),
         nullspace_protected_gap=float(gap),
+        unrestricted_minimal_added_measurements=int(unrestricted.minimal_added_measurements),
         minimal_added_measurements=augmentation.minimal_added_measurements,
         candidate_exact_sets=augmentation.candidate_exact_sets,
     )

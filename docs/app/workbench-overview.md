@@ -38,13 +38,15 @@ It supports:
 - periodic incompressible cutoff and protected-support thresholds
 - finite-history versus observer routing in the control lane
 - reusable linear design templates with minimal-augmentation suggestions
+- theorem-backed unrestricted minimal augmentation counts in the restricted-linear template
 
 It exposes actual decision outputs:
 - `κ(0)` and selected `κ(δ)`
 - exact / approximate / asymptotic / impossible classification
 - blocker and missing-structure summaries
 - weaker recoverable targets where available
-- minimal added measurements for the restricted-linear template
+- unrestricted minimum added measurements for the restricted-linear template
+- minimal added measurements inside the current candidate library
 - no-go labels when a naive design is blocked
 
 ## What It Is For

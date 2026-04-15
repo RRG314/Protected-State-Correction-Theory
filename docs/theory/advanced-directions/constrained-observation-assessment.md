@@ -52,9 +52,15 @@ worst-case protected-variable error ≥ κ_{M,p}(η)/2
 
 2. the nested restricted-linear collision-gap threshold law
 3. the nested restricted-linear minimal-complexity criterion
-4. the periodic functional-support threshold law on the tested periodic modal families
-5. the diagonal functional-interpolation threshold law on the tested scalar-output families
-6. the full-versus-weaker protected-variable split in the qubit fixed-basis family
+4. the restricted-linear minimal augmentation theorem with exact count
+
+```text
+δ(O, L; F) = rank([O F; L F]) - rank(O F)
+```
+
+5. the periodic functional-support threshold law on the tested periodic modal families
+6. the diagonal functional-interpolation threshold law on the tested scalar-output families
+7. the full-versus-weaker protected-variable split in the qubit fixed-basis family
 
 These are the results worth pointing readers to first.
 
@@ -87,7 +93,9 @@ Promote this branch as:
 - a computationally useful recoverability lab,
 - a place for strong no-go results,
 - a branch with real minimal-record examples,
-- and a branch with one honest restricted-linear theorem that explains its strongest family thresholds and quantitative below-threshold no-go behavior.
+- and a branch with two honest restricted-linear theorems:
+  - the collision-gap threshold law,
+  - and the minimal augmentation count theorem.
 
 Do **not** promote it as:
 

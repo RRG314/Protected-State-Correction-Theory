@@ -18,6 +18,7 @@ The strongest surviving outputs are:
 1. the exact / approximate / asymptotic / impossible classification for protected variables,
 2. the operational lower bound `worst-case protected-variable error ≥ κ_{M,p}(η)/2`,
 3. a nested restricted-linear collision-gap threshold law,
+4. a restricted-linear minimal augmentation theorem with exact count,
 4. a restricted-linear minimal-complexity criterion based on row-space inclusion,
 5. a periodic functional-support threshold law on conventional incompressible modal families,
 6. a diagonal functional-interpolation threshold law in scalar-output control families,
@@ -513,7 +514,9 @@ This is a real minimal-history result, albeit on a family where the proof reduce
 
 ![Nested restricted-linear threshold profile](../../assets/recoverability/nested-linear-threshold.svg)
 
-The cleanest strengthened result from this pass is the structured collision-gap law on nested restricted-linear families.
+The cleanest strengthened results from this pass are:
+- the structured collision-gap law on nested restricted-linear families,
+- and the restricted-linear minimal augmentation count theorem.
 
 For the benchmark nested row family with protected row `[1, -0.5, 0.75, 0.25]`, the profile is:
 
@@ -571,6 +574,7 @@ What survived cleanly:
 - `κ(0)=0` exactness,
 - `κ(η)/2` lower bound,
 - the nested restricted-linear collision-gap threshold law,
+- the restricted-linear minimal augmentation theorem,
 - qubit phase-window law,
 - two-mode periodic cutoff threshold,
 - four-mode periodic functional-support law,
@@ -629,6 +633,7 @@ The strongest plausible branch-level contribution is still modest:
 - a protected-variable recoverability framework that cleanly separates exact, approximate, asymptotic, and impossible regimes,
 - an operational use of `κ` through the lower bound `κ(η)/2`,
 - a restricted-linear collision-gap threshold theorem that turns exactness, minimal complexity, and zero-noise lower bounds into one coherent statement,
+- a restricted-linear minimal augmentation theorem that turns design-layer measurement advice into an exact count,
 - and explicit minimal-record threshold laws showing that the protected variable matters as much as the record family.
 
 That is a **minor but real** contribution candidate, not a major theorem claim.

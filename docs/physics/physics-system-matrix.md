@@ -7,6 +7,7 @@ This file records the physics systems tested against the protected-state correct
 | QEC sector systems | code space / logical state | correctable syndrome sectors | sector projectors and recovery family | exact | exact fit under standard Knill-Laflamme assumptions | yes |
 | Periodic Helmholtz/Leray projection | divergence-free field component | gradient contamination | orthogonal projection onto the divergence-free subspace | exact | exact fit | yes |
 | Periodic incompressible velocity projection | divergence-free velocity field | non-solenoidal velocity contamination | pressure projection / Hodge projector | exact | exact fit as a CFD corollary of the projector branch | yes |
+| Boundary-compatible finite-mode Hodge family | bounded-domain divergence-free field with compatible boundary trace | gradient contamination inside the explicit finite-mode family | bounded-domain Hodge projector on the repository's boundary-compatible stream/gradient basis | exact on the implemented restricted family | exact fit on the restricted bounded family | yes, but restricted |
 | GLM divergence cleaning | physical field content | divergence / constraint violation | damped auxiliary-field evolution | asymptotic | asymptotic fit only | yes |
 | Maxwell / Coulomb-gauge projection | transverse field or vector-potential component | longitudinal / pure-gradient component | transverse projector / gauge projection | exact on projection-compatible domains | exact fit as a corollary of the projector branch | yes |
 | Numerical-relativity constraint damping | constraint-satisfying solution sector | constraint-violating modes | constraint-damping evolution terms | asymptotic | conditional asymptotic fit | yes |
@@ -17,6 +18,7 @@ This file records the physics systems tested against the protected-state correct
 ## Reading Guide
 
 - The first three rows are the strongest current anchors and remain central.
+- The bounded finite-mode Hodge row is worth keeping because it is the first honest positive bounded-domain exact subcase in the repo, but it does not solve the broader bounded-domain theorem.
 - The incompressible CFD row is worth keeping because it is a real operator-level extension, not a metaphor.
 - The Maxwell row survives because it is genuinely the same operator class as the exact projection branch.
 - Numerical relativity and continuous QEC are worth keeping because they expose real asymptotic or feedback-correction architectures, but they are not promoted as new theorem branches yet.

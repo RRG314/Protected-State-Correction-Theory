@@ -35,9 +35,10 @@ def _load() -> dict[str, object]:
     return json.loads(path.read_text())
 
 
-def _normalize(report) -> tuple[bool, int | None, tuple[tuple[int, ...], ...]]:
+def _normalize(report) -> tuple[bool, int, int | None, tuple[tuple[int, ...], ...]]:
     return (
         bool(report.exact_recoverable),
+        int(report.unrestricted_minimal_added_measurements),
         report.minimal_added_measurements,
         tuple(tuple(int(index) for index in combo) for combo in report.candidate_exact_sets),
     )
@@ -69,16 +70,19 @@ def test_design_examples_json_matches_linear_reports() -> None:
 
     assert _normalize(tail_pair) == (
         data['linear_tail_pair']['report']['exact_recoverable'],
+        data['linear_tail_pair']['report']['unrestricted_minimal_added_measurements'],
         data['linear_tail_pair']['report']['minimal_added_measurements'],
         tuple(tuple(combo) for combo in data['linear_tail_pair']['report']['candidate_exact_sets']),
     )
     assert _normalize(x3_only) == (
         data['linear_x3_only']['report']['exact_recoverable'],
+        data['linear_x3_only']['report']['unrestricted_minimal_added_measurements'],
         data['linear_x3_only']['report']['minimal_added_measurements'],
         tuple(tuple(combo) for combo in data['linear_x3_only']['report']['candidate_exact_sets']),
     )
     assert _normalize(weaker_sum) == (
         data['linear_weaker_sum']['report']['exact_recoverable'],
+        data['linear_weaker_sum']['report']['unrestricted_minimal_added_measurements'],
         data['linear_weaker_sum']['report']['minimal_added_measurements'],
         tuple(tuple(combo) for combo in data['linear_weaker_sum']['report']['candidate_exact_sets']),
     )

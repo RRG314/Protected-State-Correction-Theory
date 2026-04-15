@@ -44,7 +44,7 @@ It is meant to answer a practical question before a user starts building a corre
 - strongest lesson: exact static recovery and asymptotic observer recovery are distinct design choices
 
 ### Reusable linear template
-- use for static record sufficiency, minimal augmentation, and ambiguity witness generation
+- use for static record sufficiency, theorem-backed minimal augmentation counts, candidate-library augmentation, and ambiguity witness generation
 - strongest lesson: exact recovery is a row-space question on the restricted family
 
 ## Guidance Logic

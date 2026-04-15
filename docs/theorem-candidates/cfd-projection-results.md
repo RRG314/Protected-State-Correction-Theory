@@ -4,7 +4,7 @@
 
 This file collects the narrow CFD results that survive honest testing.
 
-The conclusion is not that the repository now explains all of CFD. The conclusion is that incompressible projection methods give a real application lane for the exact projector branch, and bounded-domain correction yields a useful limitation result.
+The conclusion is not that the repository now explains all of CFD. The conclusion is that incompressible projection methods give a real application lane for the exact projector branch, bounded-domain correction yields a useful limitation result, and a narrower boundary-compatible bounded-domain exact theorem now survives on an explicit finite-mode Hodge family.
 
 ## Corollary OCP-CFD-C1: Periodic Incompressible Projection Is An Exact Protected-State Correction Operator
 
@@ -54,6 +54,20 @@ That requires the operator to match:
 ### Why This Matters
 
 This criterion is the clean way to say why periodic projection is exact, why a domain-compatible bounded projector may also be exact in principle, and why boundary-insensitive transplants fail.
+
+## Theorem OCP-T7: Boundary-Compatible Finite-Mode Hodge Projection
+
+See [Bounded-Domain Hodge Theorems](bounded-domain-hodge-theorems.md).
+
+### Status
+
+`PROVED` on the explicit boundary-compatible finite-mode family implemented in the repository.
+
+### Significance
+
+This partially resolves the repository's main bounded-domain open problem:
+- the naive periodic transplant is still rejected,
+- but exact bounded correction is real once the protected and disturbance families are matched to the correct bounded Hodge decomposition.
 
 ## No-Go OCP-CFD-N1: Divergence-Only Recovery Is Insufficient On A Nontrivial Bounded Protected Class
 

@@ -31,6 +31,7 @@ def _run(path: Path) -> dict[str, object]:
 def test_template_scripts_emit_expected_payloads() -> None:
     restricted = _run(SCRIPTS['restricted_linear'])
     assert restricted['exact_recoverable'] is False
+    assert restricted['unrestricted_minimal_added_measurements'] == 1
     assert restricted['minimal_added_measurements'] == 1
 
     functional = _run(SCRIPTS['functional_observability'])

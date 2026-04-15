@@ -29,7 +29,11 @@ for path in sorted(ROOT.rglob('*')):
 
 CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
 with CSV_PATH.open('w', newline='') as fh:
-    writer = csv.DictWriter(fh, fieldnames=['relative_path', 'area', 'extension', 'size_bytes'])
+    writer = csv.DictWriter(
+        fh,
+        fieldnames=['relative_path', 'area', 'extension', 'size_bytes'],
+        lineterminator='\n',
+    )
     writer.writeheader()
     writer.writerows(rows)
 

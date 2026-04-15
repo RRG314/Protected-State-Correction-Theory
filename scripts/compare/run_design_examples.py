@@ -28,6 +28,7 @@ def normalize(report) -> dict[str, object]:
         'row_space_residuals': [float(value) for value in report.row_space_residuals],
         'nullspace_witness': None if report.nullspace_witness is None else [float(value) for value in report.nullspace_witness],
         'nullspace_protected_gap': float(report.nullspace_protected_gap),
+        'unrestricted_minimal_added_measurements': int(report.unrestricted_minimal_added_measurements),
         'minimal_added_measurements': report.minimal_added_measurements,
         'candidate_exact_sets': [list(combo) for combo in report.candidate_exact_sets],
         'candidate_exact_labels': [[CANDIDATE_LABELS[index] for index in combo] for combo in report.candidate_exact_sets],

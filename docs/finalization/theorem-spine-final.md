@@ -2,9 +2,16 @@
 
 ## Plain-Language Summary
 
-This is the finished positive theorem spine of the repository.
+This is the current promoted positive theorem spine of the repository.
 
-It is intentionally narrow: exact projector recovery, exact sector recovery, and asymptotic generator recovery. Anything outside that spine is either conditional, open, or explicitly demoted.
+It is still intentionally narrow. The strongest promoted results are:
+- exact projector recovery,
+- exact sector recovery,
+- asymptotic generator recovery,
+- the restricted-linear minimal augmentation theorem,
+- and one restricted bounded-domain exact theorem on the repository's boundary-compatible finite-mode Hodge family.
+
+Anything broader remains conditional, open, or explicitly demoted.
 
 ## Exact Branch
 
@@ -47,6 +54,18 @@ It is intentionally narrow: exact projector recovery, exact sector recovery, and
 - Result: `rank(I-R) >= dim(D)` and `rank(R) >= dim(S)`.
 - Role: minimum correction image theorem in the exact linear branch.
 
+### OCP-T6: Restricted-Linear Minimal Augmentation Theorem
+- Setup: restricted linear family `x = F z`, record `O F z`, protected variable `L F z`.
+- Result: the minimum number of unrestricted added linear measurements needed for exact recovery is `δ(O, L; F) = rank([O F; L F]) - rank(O F)`.
+- Role: first finished category-specific capacity theorem in the restricted-linear design branch.
+
+## Restricted Bounded-Domain Exact Layer
+
+### OCP-T7: Boundary-Compatible Finite-Mode Hodge Projection
+- Setup: bounded-domain family built from boundary-compatible divergence-free stream modes and Dirichlet gradient modes.
+- Result: the orthogonal projector onto the protected bounded family is exact on that family.
+- Role: restricted but real partial solution to the bounded-domain exact-correction problem.
+
 ## What Is Deliberately Not In The Final Theorem Spine
 
 The following stay out of the final positive theorem spine:
@@ -54,7 +73,7 @@ The following stay out of the final positive theorem spine:
 - any full control-theory theorem beyond the invariant-split branch,
 - any claim that GLM is exact,
 - any optimizer/ML theorem,
-- any boundary-sensitive exact PDE theorem,
+- any broad boundary-sensitive exact PDE theorem beyond the solved finite-mode bounded Hodge subcase,
 - and any attempt to count the Maxwell / gauge extension as a new theorem rather than a corollary-level physics fit of the exact projector branch.
 
 ## Finished Assessment

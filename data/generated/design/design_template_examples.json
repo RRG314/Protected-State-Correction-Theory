@@ -32,6 +32,7 @@
         1.0
       ],
       "nullspace_protected_gap": 1.414213562373095,
+      "unrestricted_minimal_added_measurements": 1,
       "minimal_added_measurements": 1,
       "candidate_exact_sets": [
         [
@@ -87,6 +88,7 @@
         1.0
       ],
       "nullspace_protected_gap": 1.0,
+      "unrestricted_minimal_added_measurements": 1,
       "minimal_added_measurements": 1,
       "candidate_exact_sets": [
         [
@@ -138,6 +140,7 @@
       ],
       "nullspace_witness": null,
       "nullspace_protected_gap": 0.0,
+      "unrestricted_minimal_added_measurements": 0,
       "minimal_added_measurements": 1,
       "candidate_exact_sets": [
         [

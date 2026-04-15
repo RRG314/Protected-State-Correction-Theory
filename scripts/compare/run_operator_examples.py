@@ -14,7 +14,7 @@ from ocp.qec import (
 )
 from ocp.mhd import divergence_2d, helmholtz_project_2d, glm_step_2d, orthogonality_residual_2d
 from ocp.continuous import LinearOCPFlow
-from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity
+from ocp.capacity import exact_linear_capacity, generator_capacity, qec_sector_capacity, restricted_linear_capacity
 from ocp.cfd import cfd_projection_summary
 from ocp.physics import bounded_domain_projection_counterexample
 from ocp.sectors import global_sector_recovery_operator, sector_recovery_report
@@ -127,6 +127,22 @@ capacity_report = {
     'qec': qec_sector_capacity(codewords, errors).__dict__,
     'generator_invariant_split': generator_capacity(block_generator, ps_basis, pd_basis).__dict__,
     'generator_mixing_failure': generator_capacity(mix_generator, np.array([[1.0], [0.0]]), np.array([[0.0], [1.0]])).__dict__,
+    'restricted_linear': restricted_linear_capacity(
+        np.array(
+            [
+                [1.0, 0.0, 0.0],
+                [0.0, 1.0, 1.0],
+            ],
+            dtype=float,
+        ),
+        np.array(
+            [
+                [0.0, 1.0, 0.0],
+                [0.0, 0.0, 1.0],
+            ],
+            dtype=float,
+        ),
+    ).__dict__,
 }
 
 generator_report = {
@@ -191,6 +207,7 @@ OUT.write_text(json.dumps({
     'mhd': mhd_report,
     'cfd': {
         'periodic': cfd_report.periodic.__dict__,
+        'bounded_hodge_exact': cfd_report.bounded_hodge_exact.__dict__,
         'bounded_transplant': cfd_report.bounded_transplant.__dict__,
         'divergence_only_no_go_witness': cfd_report.divergence_only_witness.__dict__,
     },

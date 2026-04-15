@@ -8,6 +8,8 @@
 - asymptotic protected-state correction for invariant-split generators
 - spectral-gap decay bound in the self-adjoint PSD case
 - periodic exact continuous projection via the Leray/Helmholtz anchor
+- bounded-domain exact correction on the repository's boundary-compatible finite-mode Hodge family
+- restricted-linear minimal augmentation count via the row-space deficiency `δ(O, L; F)`
 
 ### Resolved negatively
 - overlap / indistinguishability destroys exact recovery
@@ -20,8 +22,8 @@
 ## Still Open
 
 ### High-value open problems
-- boundary-sensitive exact continuous correction beyond the periodic branch
-- a mature branch-specific capacity theory that goes beyond lower bounds
+- boundary-sensitive exact continuous correction beyond the solved finite-mode bounded Hodge subcase
+- a mature branch-specific capacity theory beyond lower bounds and the solved restricted-linear deficiency theorem
 - a sharper sector-branch formulation beyond the 3-qubit anchor but still tied to real operator language
 - a stronger control/observer theorem beyond the invariant-split linear case
 

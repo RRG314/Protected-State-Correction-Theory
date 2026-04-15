@@ -42,7 +42,7 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
     if not rows:
         return
     with path.open('w', newline='') as fh:
-        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
