@@ -106,7 +106,39 @@ Current status:
 - **demote** the coordinate-only wording to a corollary
 - **promote** the functional interpolation law instead
 
-## 8. Weak Directions To Leave Alone For Now
+## 8. “Support Size Is The Threshold” Heuristic
+
+Rejected form:
+- minimal exact observation complexity is always the number of protected coordinates or modes that appear with nonzero weight.
+
+Why it failed:
+- in the periodic repeated-cutoff stress family, the protected functional `repeated_cutoff_mass` uses three nonzero modal coefficients but becomes exactly recoverable already at cutoff `2`, because all three coefficients live under the same retained cutoff level;
+- in the diagonal control stress family, four-active protected functionals can have thresholds `1`, `2`, `3`, or `4`, depending on the minimal interpolation degree, even though every one of them has support size `4`.
+
+What survives instead:
+- periodic thresholds are governed by **visibility support**: the largest retained cutoff level among the protected modes;
+- diagonal thresholds are governed by **interpolation complexity** on the active sensor spectrum;
+- the clean shared invariant is row-space inclusion, not raw support counting.
+
+Current status:
+- **false as a general branch heuristic**
+- **keep only as a family-specific shortcut when the observation family is literally coordinate-revealing**
+
+## 9. “Rank(LF) Determines The Threshold” Heuristic
+
+Rejected form:
+- once `rank(O_r F) ≥ rank(L F)`, exact recovery should occur at that same level.
+
+Why it failed:
+- scalar protected variables always have `rank(L F)=1`, but their exact thresholds can still be much larger;
+- in the diagonal control lane, horizon `2` already satisfies `rank(O_r F)=2 ≥ rank(L F)=1` while exact recovery of the protected coordinate still fails;
+- the right invariant is whether the **specific protected row** lies in the observation row space, not whether the observation rank merely clears the protected rank.
+
+Current status:
+- **useful failure**
+- **keep the rank bound only as a necessary condition**
+
+## 10. Weak Directions To Leave Alone For Now
 
 Leave these alone unless a sharply stronger idea appears:
 - universal phase-transition language
@@ -114,7 +146,7 @@ Leave these alone unless a sharply stronger idea appears:
 - generic “coarse records cause irrecoverability” framing
 - any attempt to make the qubit/control/periodic threshold mechanisms look more unified than the proofs support
 
-## 9. Productive Failures Worth Preserving
+## 11. Productive Failures Worth Preserving
 
 These failures were useful and should remain visible:
 
@@ -122,8 +154,9 @@ These failures were useful and should remain visible:
 2. the strongest broad generalization attempt failed, which sharpened the branch scope
 3. the universal complexity idea failed again, which pushed the branch toward cleaner family-specific thresholds
 4. the coordinate-only control story was too narrow, which led to the stronger functional interpolation law
+5. raw support-size and raw protected-rank heuristics failed, which forced the branch onto the row-space threshold law
 
-## 10. Honest Bottom Line
+## 12. Honest Bottom Line
 
 The branch did not fail.
 

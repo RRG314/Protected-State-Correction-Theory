@@ -175,6 +175,54 @@ then the same record level `r` exactly recovers `p_1` while exact recovery of `p
 
 **Standardness:** standard-adjacent, but one of the branch’s most useful organizing facts.
 
+### COR-P9: Nested Restricted-Linear Collision-Gap Threshold Law
+
+Let the admissible family be the coefficient box
+
+```text
+A_B = { F z : ||z||_∞ ≤ B }
+```
+
+with `B > 0`, let the protected variable be `p(x)=Lx`, and let the record family be nested observations
+
+```text
+M_r(x)=O_r x
+```
+
+with
+
+```text
+row(O_1 F) ⊂ row(O_2 F) ⊂ ··· ⊂ row(O_R F).
+```
+
+Define the structured collision gap
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+Then:
+
+1. `Γ_r(B)` is nonincreasing in `r`;
+2. exact protected-variable recovery at level `r` holds if and only if `Γ_r(B)=0`;
+3. the minimal exact record complexity is
+
+```text
+r_* = min { r : Γ_r(B)=0 } = min { r : row(L F) ⊂ row(O_r F) };
+```
+
+4. every estimator fed exact records from `A_B` obeys the zero-noise lower bound
+
+```text
+sup_{x ∈ A_B} d_P(\hat p(M_r(x)), p(x)) ≥ Γ_r(B) / 2.
+```
+
+**Status:** proved and implemented.
+
+**Value:** strongest surviving threshold/no-go theorem in the branch.
+
+**Standardness:** standard-adjacent convex linear algebra, but still the cleanest honest generalization currently supported.
+
 ## 2. Supported Family-Level Threshold Theorems
 
 ### COR-T1: Qubit Phase-Window Collision Law
@@ -363,6 +411,7 @@ In the diagonal scalar-output family, if the protected functional has nonzero we
 - `COR-P3` adversarial lower bound `κ(η)/2`
 - `COR-P4` restricted linear exactness criterion
 - `COR-P6` nested linear minimal-complexity criterion
+- `COR-P9` nested restricted-linear collision-gap threshold law
 - `COR-P7` same-record variable hierarchy
 - `COR-T2` periodic functional-support threshold on the implemented family
 - `COR-T3` diagonal functional-interpolation theorem on the implemented family
@@ -373,15 +422,16 @@ In the diagonal scalar-output family, if the protected functional has nonzero we
 - linear kernel inclusion
 - two-step two-state recovery formula
 - fixed-basis phase-loss logic
+- the broad restricted-linear theorem spine itself
 
 ### Still open / not yet strong enough
 
 - a genuinely nontrivial cross-domain threshold theorem beyond the family-specific examples
-- a theorem turning `κ_{M,p}` into more than a clean exactness-and-robustness organizer
+- a theorem turning `κ_{M,p}` into more than a clean exactness-and-robustness organizer outside the restricted-linear threshold setting
 - a sharper minimal-record complexity theory that is not just family-specific linear algebra
 
 ## 5. Best Current Next Targets
 
-1. Strengthen `κ` beyond `κ(0)=0` and `κ(η)/2`.
-2. Push `COR-P6` toward a robust threshold theorem under noise or admissible-family enlargement.
+1. Push `COR-P9` into a robust noisy-record theorem under admissible-family enlargement.
+2. Strengthen `κ` beyond `κ(0)=0`, `κ(η)/2`, and the restricted-linear `Γ_r(B)` law.
 3. Prefer a stronger no-go theorem over a vague cross-domain “phase transition” slogan.

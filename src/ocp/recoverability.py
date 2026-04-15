@@ -193,6 +193,46 @@ class DiagonalFunctionalComplexityRow:
     interpolation_residual: float | None
 
 
+@dataclass(frozen=True)
+class NestedLinearThresholdRow:
+    level: int | float | str
+    exact_recoverable: bool
+    rowspace_residual: float
+    collision_gap: float
+    zero_noise_lower_bound: float
+
+
+@dataclass(frozen=True)
+class PeriodicThresholdStressRow:
+    case_name: str
+    functional_name: str
+    support_size: int
+    cutoff: int
+    predicted_min_cutoff: int
+    observed_min_cutoff: int | None
+    exact_recoverable: bool
+    rowspace_residual: float
+    collision_gap: float
+    mean_recovery_error: float
+    max_recovery_error: float
+
+
+@dataclass(frozen=True)
+class DiagonalPolynomialThresholdRow:
+    case_name: str
+    functional_name: str
+    support_size: int
+    polynomial_degree: int | None
+    horizon: int
+    predicted_min_horizon: int | None
+    observed_min_horizon: int | None
+    exact_recoverable: bool
+    rowspace_residual: float
+    collision_gap: float
+    mean_recovery_error: float
+    max_recovery_error: float
+
+
 
 def finite_collapse_modulus(
     observations: Sequence[Array],
@@ -391,6 +431,44 @@ def restricted_linear_rank_lower_bound(
     )
 
 
+def restricted_linear_rowspace_residual(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    tol: float = EPS,
+) -> float:
+    O = np.asarray(observation_matrix, dtype=float)
+    L = np.asarray(protected_matrix, dtype=float)
+    if family_basis is None:
+        F = np.eye(O.shape[1])
+    else:
+        F = _orthonormalize_columns(np.asarray(family_basis, dtype=float), tol=tol)
+    OF = O @ F
+    LF = L @ F
+    if OF.size == 0 or np.linalg.norm(OF) <= tol:
+        return float(np.linalg.norm(LF))
+    projector = np.linalg.pinv(OF, rcond=tol) @ OF
+    return float(np.linalg.norm(LF - LF @ projector))
+
+
+def restricted_linear_collision_gap(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    box_radius: float = 1.0,
+    tol: float = EPS,
+) -> float:
+    O = np.asarray(observation_matrix, dtype=float)
+    L = np.asarray(protected_matrix, dtype=float)
+    if family_basis is None:
+        F = np.eye(O.shape[1])
+    else:
+        F = _orthonormalize_columns(np.asarray(family_basis, dtype=float), tol=tol)
+    return _box_collision_gap_from_nullspace(O @ F, L @ F, box_radius=box_radius, tol=tol)
+
+
 def minimal_linear_observation_complexity(
     observation_matrices: Sequence[Array],
     protected_matrix: Array,
@@ -402,12 +480,80 @@ def minimal_linear_observation_complexity(
         restricted_linear_recoverability(matrix, protected_matrix, family_basis=family_basis, tol=tol)
         for matrix in observation_matrices
     ]
+    rowspace_residuals = [
+        restricted_linear_rowspace_residual(matrix, protected_matrix, family_basis=family_basis, tol=tol)
+        for matrix in observation_matrices
+    ]
+    collision_gaps = [
+        restricted_linear_collision_gap(matrix, protected_matrix, family_basis=family_basis, tol=tol)
+        for matrix in observation_matrices
+    ]
     minimal_index = next((index for index, report in enumerate(reports) if report.exact_recoverable), None)
     return {
         'minimal_index': minimal_index,
         'exact_flags': [bool(report.exact_recoverable) for report in reports],
         'null_dimensions': [int(report.null_intersection_dimension) for report in reports],
         'residual_norms': [float(report.residual_norm) for report in reports],
+        'rowspace_residuals': [float(value) for value in rowspace_residuals],
+        'collision_gaps': [float(value) for value in collision_gaps],
+        'zero_noise_lower_bounds': [float(0.5 * value) for value in collision_gaps],
+    }
+
+
+def nested_linear_threshold_profile(
+    observation_matrices: Sequence[Array],
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    box_radius: float = 1.0,
+    level_labels: Sequence[int | float | str] | None = None,
+    tol: float = EPS,
+) -> dict[str, object]:
+    if level_labels is None:
+        labels = list(range(len(observation_matrices)))
+    else:
+        labels = list(level_labels)
+    if len(labels) != len(observation_matrices):
+        raise ValueError('level_labels must match the observation matrix count')
+
+    rows: list[NestedLinearThresholdRow] = []
+    for label, matrix in zip(labels, observation_matrices, strict=True):
+        linear = restricted_linear_recoverability(matrix, protected_matrix, family_basis=family_basis, tol=tol)
+        residual = restricted_linear_rowspace_residual(matrix, protected_matrix, family_basis=family_basis, tol=tol)
+        gap = restricted_linear_collision_gap(
+            matrix,
+            protected_matrix,
+            family_basis=family_basis,
+            box_radius=box_radius,
+            tol=tol,
+        )
+        rows.append(
+            NestedLinearThresholdRow(
+                level=int(label) if isinstance(label, (int, np.integer)) else label,
+                exact_recoverable=bool(linear.exact_recoverable),
+                rowspace_residual=float(residual),
+                collision_gap=float(gap),
+                zero_noise_lower_bound=float(0.5 * gap),
+            )
+        )
+    minimal_index = next((index for index, row in enumerate(rows) if row.exact_recoverable), None)
+    minimal_label = None if minimal_index is None else labels[minimal_index]
+    collision_gaps = [float(row.collision_gap) for row in rows]
+    rowspace_residuals = [float(row.rowspace_residual) for row in rows]
+    return {
+        'level_labels': labels,
+        'rows': [row.__dict__ for row in rows],
+        'minimal_index': minimal_index,
+        'minimal_label': minimal_label,
+        'gap_monotone_nonincreasing': bool(
+            all(collision_gaps[index + 1] <= collision_gaps[index] + tol for index in range(len(collision_gaps) - 1))
+        ),
+        'residual_monotone_nonincreasing': bool(
+            all(rowspace_residuals[index + 1] <= rowspace_residuals[index] + tol for index in range(len(rowspace_residuals) - 1))
+        ),
+        'exact_gap_match': bool(
+            all((row.exact_recoverable and row.collision_gap <= tol) or ((not row.exact_recoverable) and row.collision_gap > tol) for row in rows)
+        ),
     }
 
 
@@ -1513,6 +1659,248 @@ def diagonal_functional_complexity_sweep(
         'rows': [row.__dict__ for row in rows],
         'curves': curves,
         'interpolation_checks': interpolation_checks,
+    }
+
+
+def _coefficient_grid_family(dim: int, *, box_radius: float = 1.0, points_per_axis: int = 5) -> list[Array]:
+    coeff_grid = np.linspace(-float(box_radius), float(box_radius), int(points_per_axis))
+    return [np.asarray(coeffs, dtype=float) for coeffs in product(coeff_grid, repeat=int(dim))]
+
+
+def _linear_recovery_error_stats(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    coefficient_family: Sequence[Array],
+    *,
+    tol: float = EPS,
+) -> tuple[float, float]:
+    O = np.asarray(observation_matrix, dtype=float)
+    L = np.asarray(protected_matrix, dtype=float)
+    linear = restricted_linear_recoverability(O, L, tol=tol)
+    if linear.exact_recoverable and linear.recovery_operator is not None:
+        estimator = linear.recovery_operator
+    else:
+        estimator = L @ np.linalg.pinv(O, rcond=tol)
+    metric: Metric = scalar_metric if L.shape[0] == 1 else euclidean_metric
+    errors = [metric(estimator @ (O @ coeffs), L @ coeffs) for coeffs in coefficient_family]
+    return float(np.mean(errors)), float(np.max(errors))
+
+
+def periodic_threshold_stress_sweep(
+    *,
+    n: int = 18,
+    cutoffs: Sequence[int] | None = None,
+    box_radius: float = 1.0,
+    points_per_axis: int = 5,
+    cases: dict[str, dict[str, object]] | None = None,
+    tol: float = EPS,
+) -> dict[str, object]:
+    if cases is None:
+        cases = {
+            'strict_cutoffs': {
+                'modes': ((1, 1, 1.0), (2, 1, 0.8), (3, 1, 0.6), (4, 1, 0.45)),
+                'functionals': {
+                    'low_mode_sum': (1.0, 1.0, 0.0, 0.0),
+                    'bandlimited_contrast': (0.0, 1.0, -1.0, 0.0),
+                    'full_weighted_sum': (1.0, -0.5, 0.75, 0.25),
+                },
+            },
+            'repeated_cutoffs': {
+                'modes': ((1, 1, 1.0), (1, 2, 0.9), (2, 1, 0.85), (2, 2, 0.7), (3, 1, 0.55)),
+                'functionals': {
+                    'repeated_cutoff_mass': (0.0, 1.0, 1.0, 1.0, 0.0),
+                    'mixed_tail': (0.2, 0.0, -0.3, 0.0, 0.5),
+                },
+            },
+        }
+
+    rows: list[PeriodicThresholdStressRow] = []
+    summaries: list[dict[str, object]] = []
+    for case_name, case in cases.items():
+        modes = tuple(case['modes'])
+        functionals = dict(case['functionals'])
+        basis = _periodic_modal_basis_states(n=n, modes=modes)
+        mode_cutoffs = [max(abs(kx), abs(ky)) for kx, ky, _ in modes]
+        case_cutoffs = tuple(range(0, max(mode_cutoffs) + 1)) if cutoffs is None else tuple(int(value) for value in cutoffs)
+        basis_observations = [
+            np.column_stack([_truncate_vorticity(state['omega'], int(cutoff)).ravel() for state in basis])
+            if int(cutoff) > 0
+            else np.zeros((basis[0]['omega'].size, len(basis)), dtype=float)
+            for cutoff in case_cutoffs
+        ]
+        coefficient_family = _coefficient_grid_family(len(modes), box_radius=box_radius, points_per_axis=points_per_axis)
+
+        for functional_name, coefficients in functionals.items():
+            selector = np.asarray([coefficients], dtype=float)
+            support = [index for index, value in enumerate(selector.reshape(-1)) if abs(float(value)) > tol]
+            predicted_min_cutoff = 0 if not support else int(max(mode_cutoffs[index] for index in support))
+            profile = nested_linear_threshold_profile(
+                basis_observations,
+                selector,
+                box_radius=box_radius,
+                level_labels=case_cutoffs,
+                tol=tol,
+            )
+            observed_min_cutoff = None if profile['minimal_label'] is None else int(profile['minimal_label'])
+            summaries.append(
+                {
+                    'case_name': str(case_name),
+                    'functional_name': str(functional_name),
+                    'support_size': len(support),
+                    'predicted_min_cutoff': predicted_min_cutoff,
+                    'observed_min_cutoff': observed_min_cutoff,
+                    'gap_monotone_nonincreasing': profile['gap_monotone_nonincreasing'],
+                    'exact_gap_match': profile['exact_gap_match'],
+                }
+            )
+            for cutoff, observation_matrix, row in zip(case_cutoffs, basis_observations, profile['rows'], strict=True):
+                mean_error, max_error = _linear_recovery_error_stats(observation_matrix, selector, coefficient_family, tol=tol)
+                rows.append(
+                    PeriodicThresholdStressRow(
+                        case_name=str(case_name),
+                        functional_name=str(functional_name),
+                        support_size=len(support),
+                        cutoff=int(cutoff),
+                        predicted_min_cutoff=predicted_min_cutoff,
+                        observed_min_cutoff=observed_min_cutoff,
+                        exact_recoverable=bool(row['exact_recoverable']),
+                        rowspace_residual=float(row['rowspace_residual']),
+                        collision_gap=float(row['collision_gap']),
+                        mean_recovery_error=mean_error,
+                        max_recovery_error=max_error,
+                    )
+                )
+
+    return {
+        'rows': [row.__dict__ for row in rows],
+        'summaries': summaries,
+        'cases': {
+            name: {
+                'modes': [{'kx': int(kx), 'ky': int(ky), 'weight': float(weight)} for kx, ky, weight in case['modes']],
+                'functionals': {fname: [float(value) for value in values] for fname, values in case['functionals'].items()},
+            }
+            for name, case in cases.items()
+        },
+    }
+
+
+def diagonal_polynomial_threshold_sweep(
+    *,
+    horizons: Sequence[int] | None = None,
+    box_radius: float = 1.0,
+    points_per_axis: int = 5,
+    cases: dict[str, dict[str, object]] | None = None,
+    tol: float = EPS,
+) -> dict[str, object]:
+    if cases is None:
+        cases = {
+            'four_active': {
+                'eigenvalues': (0.97, 0.83, 0.71, 0.59),
+                'sensor_weights': (1.0, 0.7, 0.45, 0.2),
+                'functionals': {
+                    'degree_0_constant': {'polynomial_coeffs': (1.0,)},
+                    'degree_1_affine': {'polynomial_coeffs': (0.5, -1.2)},
+                    'degree_2_quadratic': {'polynomial_coeffs': (0.2, -0.4, 0.8)},
+                    'degree_3_cubic': {'polynomial_coeffs': (0.1, 0.2, -0.3, 1.0)},
+                },
+            },
+            'hidden_last': {
+                'eigenvalues': (0.97, 0.83, 0.71, 0.59),
+                'sensor_weights': (1.0, 0.7, 0.45, 0.0),
+                'functionals': {
+                    'degree_1_affine': {'polynomial_coeffs': (1.0, -0.4)},
+                    'hidden_coordinate': {'protected_weights': (0.0, 0.0, 0.0, 1.0)},
+                },
+            },
+        }
+
+    rows: list[DiagonalPolynomialThresholdRow] = []
+    summaries: list[dict[str, object]] = []
+    for case_name, case in cases.items():
+        eigenvalues = tuple(float(value) for value in case['eigenvalues'])
+        sensor_weights = tuple(float(value) for value in case['sensor_weights'])
+        n = len(eigenvalues)
+        case_horizons = tuple(range(1, n + 2)) if horizons is None else tuple(int(value) for value in horizons)
+        observation_family = [_diagonal_record_matrix(eigenvalues, sensor_weights, int(horizon)) for horizon in case_horizons]
+        coefficient_family = _coefficient_grid_family(n, box_radius=box_radius, points_per_axis=points_per_axis)
+
+        for functional_name, descriptor in case['functionals'].items():
+            polynomial_coeffs = descriptor.get('polynomial_coeffs')
+            if polynomial_coeffs is not None:
+                polynomial_degree = max(index for index, value in enumerate(polynomial_coeffs) if abs(float(value)) > tol)
+                protected_weights = tuple(
+                    float(sensor_weights[index]) * sum(float(coeff) * (float(eigenvalues[index]) ** power) for power, coeff in enumerate(polynomial_coeffs))
+                    for index in range(n)
+                )
+            else:
+                polynomial_degree = None
+                protected_weights = tuple(float(value) for value in descriptor['protected_weights'])
+            protected_vector = np.asarray(protected_weights, dtype=float)
+            support_size = int(np.sum(np.abs(protected_vector) > tol))
+            predicted_min_horizon, _ = diagonal_functional_minimal_horizon(
+                eigenvalues,
+                sensor_weights,
+                protected_weights,
+                max_horizon=max(case_horizons),
+                tol=tol,
+            )
+            selector = np.asarray([protected_weights], dtype=float)
+            profile = nested_linear_threshold_profile(
+                observation_family,
+                selector,
+                box_radius=box_radius,
+                level_labels=case_horizons,
+                tol=tol,
+            )
+            observed_min_horizon = None if profile['minimal_label'] is None else int(profile['minimal_label'])
+            summaries.append(
+                {
+                    'case_name': str(case_name),
+                    'functional_name': str(functional_name),
+                    'support_size': support_size,
+                    'polynomial_degree': polynomial_degree,
+                    'predicted_min_horizon': predicted_min_horizon,
+                    'observed_min_horizon': observed_min_horizon,
+                    'gap_monotone_nonincreasing': profile['gap_monotone_nonincreasing'],
+                    'exact_gap_match': profile['exact_gap_match'],
+                }
+            )
+            for horizon, observation_matrix, row in zip(case_horizons, observation_family, profile['rows'], strict=True):
+                mean_error, max_error = _linear_recovery_error_stats(observation_matrix, selector, coefficient_family, tol=tol)
+                rows.append(
+                    DiagonalPolynomialThresholdRow(
+                        case_name=str(case_name),
+                        functional_name=str(functional_name),
+                        support_size=support_size,
+                        polynomial_degree=polynomial_degree,
+                        horizon=int(horizon),
+                        predicted_min_horizon=predicted_min_horizon,
+                        observed_min_horizon=observed_min_horizon,
+                        exact_recoverable=bool(row['exact_recoverable']),
+                        rowspace_residual=float(row['rowspace_residual']),
+                        collision_gap=float(row['collision_gap']),
+                        mean_recovery_error=mean_error,
+                        max_recovery_error=max_error,
+                    )
+                )
+
+    return {
+        'rows': [row.__dict__ for row in rows],
+        'summaries': summaries,
+        'cases': {
+            name: {
+                'eigenvalues': [float(value) for value in case['eigenvalues']],
+                'sensor_weights': [float(value) for value in case['sensor_weights']],
+                'functionals': {
+                    functional_name: {
+                        key: [float(value) for value in values]
+                        for key, values in descriptor.items()
+                    }
+                    for functional_name, descriptor in case['functionals'].items()
+                },
+            }
+            for name, case in cases.items()
+        },
     }
 
 

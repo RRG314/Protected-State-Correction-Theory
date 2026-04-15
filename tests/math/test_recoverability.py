@@ -7,6 +7,7 @@ from ocp.recoverability import (
     analytic_collapse_modulus,
     analytic_noise_lower_bound_sweep,
     control_minimal_complexity_sweep,
+    diagonal_polynomial_threshold_sweep,
     diagonal_functional_complexity_sweep,
     diagonal_functional_history_weights,
     diagonal_functional_minimal_horizon,
@@ -15,15 +16,19 @@ from ocp.recoverability import (
     finite_recoverability_report,
     functional_observability_sweep,
     minimal_linear_observation_complexity,
+    nested_linear_threshold_profile,
     naive_finite_collapse_modulus,
     periodic_cutoff_recoverability_sweep,
+    periodic_threshold_stress_sweep,
     periodic_functional_complexity_sweep,
     periodic_protected_complexity_sweep,
     periodic_velocity_recoverability_sweep,
     qubit_phase_collision_formula,
     qubit_record_collapse_sweep,
+    restricted_linear_collision_gap,
     restricted_linear_rank_lower_bound,
     restricted_linear_recoverability,
+    restricted_linear_rowspace_residual,
 )
 
 
@@ -280,6 +285,81 @@ def test_minimal_linear_observation_complexity_finds_first_exact_level() -> None
     report = minimal_linear_observation_complexity(observation_matrices, protected)
     assert report['minimal_index'] == 2
     assert report['exact_flags'] == [False, False, True]
+    assert report['collision_gaps'][2] == 0.0
+    assert report['zero_noise_lower_bounds'][2] == 0.0
+
+
+def test_nested_linear_threshold_profile_matches_exactness_and_monotonic_gap() -> None:
+    observation_matrices = [
+        np.zeros((1, 4), dtype=float),
+        np.diag([1.0, 0.0, 0.0, 0.0]),
+        np.diag([1.0, 1.0, 0.0, 0.0]),
+        np.diag([1.0, 1.0, 1.0, 0.0]),
+        np.diag([1.0, 1.0, 1.0, 1.0]),
+    ]
+    protected = np.array([[1.0, -0.5, 0.75, 0.25]], dtype=float)
+    profile = nested_linear_threshold_profile(observation_matrices, protected, box_radius=1.0)
+    gaps = [row['collision_gap'] for row in profile['rows']]
+    residuals = [row['rowspace_residual'] for row in profile['rows']]
+    exact_flags = [row['exact_recoverable'] for row in profile['rows']]
+
+    assert profile['minimal_index'] == 4
+    assert profile['gap_monotone_nonincreasing'] is True
+    assert profile['residual_monotone_nonincreasing'] is True
+    assert profile['exact_gap_match'] is True
+    assert exact_flags == [False, False, False, False, True]
+    assert np.allclose(gaps, [5.0, 3.0, 2.0, 0.5, 0.0])
+    assert residuals[-1] < 1e-10
+
+
+def test_restricted_linear_collision_gap_matches_coordinate_formula() -> None:
+    protected = np.array([[0.2, 0.0, -0.3, 0.0, 0.5]], dtype=float)
+    observation = np.diag([1.0, 1.0, 0.0, 0.0, 0.0])
+    gap = restricted_linear_collision_gap(observation, protected, box_radius=1.0)
+    expected = 2.0 * (0.3 + 0.5)
+    assert abs(gap - expected) < 1e-10
+    assert restricted_linear_rowspace_residual(observation, protected) > 0.1
+
+
+def test_restricted_linear_collision_gap_agrees_with_independent_bruteforce_on_small_case() -> None:
+    observation = np.array([[1.0, 1.0, 0.0], [0.0, 1.0, 1.0]], dtype=float)
+    protected = np.array([[1.0, -2.0, 0.5]], dtype=float)
+    exact_gap = restricted_linear_collision_gap(observation, protected, box_radius=1.0)
+
+    brute = 0.0
+    grid = np.linspace(-2.0, 2.0, 4001)
+    for t in grid:
+        vector = np.asarray([t, -t, t], dtype=float)
+        brute = max(brute, float(abs((protected @ vector).item())))
+
+    assert abs(exact_gap - brute) < 1e-3
+
+
+def test_rank_lower_bound_is_not_sufficient_for_exact_recovery() -> None:
+    eigenvalues = (0.95, 0.8, 0.65)
+    sensor_weights = (1.0, 0.4, 0.2)
+    observation = np.array([[sensor_weights[i] * (eigenvalues[i] ** t) for i in range(3)] for t in range(2)], dtype=float)
+    protected = np.array([[0.0, 0.0, 1.0]], dtype=float)
+    rank_report = restricted_linear_rank_lower_bound(observation, protected)
+    linear = restricted_linear_recoverability(observation, protected)
+
+    assert rank_report.rank_observation == 2
+    assert rank_report.rank_protected == 1
+    assert rank_report.lower_bound_satisfied is True
+    assert linear.exact_recoverable is False
+    assert restricted_linear_rowspace_residual(observation, protected) > 0.05
+
+
+def test_rank_of_protected_matrix_is_not_the_threshold_complexity() -> None:
+    result = diagonal_polynomial_threshold_sweep()
+    row = next(
+        item
+        for item in result['rows']
+        if item['case_name'] == 'four_active' and item['functional_name'] == 'degree_2_quadratic' and item['horizon'] == 2
+    )
+    assert row['predicted_min_horizon'] == 3
+    assert row['exact_recoverable'] is False
+    assert row['support_size'] == 4
 
 
 def test_periodic_functional_threshold_matches_support_max_for_general_functionals() -> None:
@@ -379,6 +459,22 @@ def test_periodic_functional_threshold_random_supports_match_support_formula() -
             assert rows[(functional_name, cutoff)]['exact_recoverable'] is False
 
 
+def test_periodic_threshold_stress_generalizes_and_support_size_is_not_the_invariant() -> None:
+    result = periodic_threshold_stress_sweep()
+    summaries = {(row['case_name'], row['functional_name']): row for row in result['summaries']}
+    rows = {(row['case_name'], row['functional_name'], row['cutoff']): row for row in result['rows']}
+
+    repeated = summaries[('repeated_cutoffs', 'repeated_cutoff_mass')]
+    assert repeated['support_size'] == 3
+    assert repeated['predicted_min_cutoff'] == repeated['observed_min_cutoff'] == 2
+    assert repeated['gap_monotone_nonincreasing'] is True
+    assert repeated['exact_gap_match'] is True
+    assert rows[('repeated_cutoffs', 'repeated_cutoff_mass', 1)]['exact_recoverable'] is False
+    assert rows[('repeated_cutoffs', 'repeated_cutoff_mass', 2)]['exact_recoverable'] is True
+    assert rows[('repeated_cutoffs', 'repeated_cutoff_mass', 1)]['collision_gap'] > 0.1
+    assert rows[('repeated_cutoffs', 'repeated_cutoff_mass', 2)]['collision_gap'] == 0.0
+
+
 def test_diagonal_functional_threshold_random_polynomial_targets() -> None:
     eigenvalues = (0.95, 0.8, 0.65)
     sensor_weights = (1.0, 0.4, 0.2)
@@ -395,3 +491,22 @@ def test_diagonal_functional_threshold_random_polynomial_targets() -> None:
             protected.append(sensor_weights[index] * value)
         horizon, _ = diagonal_functional_minimal_horizon(eigenvalues, sensor_weights, protected, max_horizon=4)
         assert horizon == expected
+
+
+def test_diagonal_polynomial_threshold_generalizes_and_support_size_fails() -> None:
+    result = diagonal_polynomial_threshold_sweep()
+    summaries = {(row['case_name'], row['functional_name']): row for row in result['summaries']}
+    rows = {(row['case_name'], row['functional_name'], row['horizon']): row for row in result['rows']}
+
+    assert summaries[('four_active', 'degree_0_constant')]['support_size'] == 4
+    assert summaries[('four_active', 'degree_0_constant')]['predicted_min_horizon'] == 1
+    assert summaries[('four_active', 'degree_1_affine')]['predicted_min_horizon'] == 2
+    assert summaries[('four_active', 'degree_2_quadratic')]['predicted_min_horizon'] == 3
+    assert summaries[('four_active', 'degree_3_cubic')]['predicted_min_horizon'] == 4
+    assert summaries[('hidden_last', 'hidden_coordinate')]['predicted_min_horizon'] is None
+
+    assert rows[('four_active', 'degree_2_quadratic', 2)]['exact_recoverable'] is False
+    assert rows[('four_active', 'degree_2_quadratic', 3)]['exact_recoverable'] is True
+    assert rows[('four_active', 'degree_0_constant', 1)]['exact_recoverable'] is True
+    assert rows[('hidden_last', 'hidden_coordinate', 5)]['exact_recoverable'] is False
+    assert rows[('hidden_last', 'hidden_coordinate', 5)]['collision_gap'] > 0.1

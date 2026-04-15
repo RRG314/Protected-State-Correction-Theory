@@ -52,15 +52,16 @@ The strongest new observation-layer addition is:
 
 The strongest current constrained-observation branch results now added on top of that are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- a nested restricted-linear collision-gap threshold law on bounded admissible coefficient families,
 - a restricted-linear minimal-complexity criterion based on row-space inclusion,
 - a same-record weaker-versus-stronger recovery split,
 - a closed-form qubit phase-window collision law,
 - a family-level periodic cutoff threshold on the tested two-mode incompressible family,
-- a stronger four-mode periodic functional-support threshold law,
-- a diagonal functional-interpolation threshold law on the tested scalar-output control family,
+- a stronger periodic functional-support threshold law that survives repeated-cutoff stress tests,
+- a diagonal functional-interpolation threshold law that survives larger polynomial stress tests,
 - and a corrected exact-versus-asymptotic control-history split after replacing a misleading sampled collision estimate with an exact nullspace calculation.
 
-That branch still remains a useful formal and computational extension rather than a major standalone theorem program.
+That branch now has one real theorem-grade restricted-linear core result, but it still remains a useful formal and computational extension rather than a major standalone theorem program.
 
 ## 4. Strongest New Physics Results And Decisions
 

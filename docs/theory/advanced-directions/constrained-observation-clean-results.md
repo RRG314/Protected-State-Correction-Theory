@@ -72,6 +72,35 @@ Status:
 - proved
 - standard-adjacent but genuinely useful
 
+### CR-6b: Nested Restricted-Linear Collision-Gap Threshold Law
+
+On the bounded coefficient box
+
+```text
+A_B = { F z : ||z||_∞ ≤ B },
+```
+
+define the structured collision gap
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+Then:
+
+- `Γ_r(B)` is nonincreasing along any nested record family,
+- `Γ_r(B)=0` exactly at the first exact-recovery level,
+- and every zero-noise estimator on `A_B` obeys
+
+```text
+worst-case protected-variable error ≥ Γ_r(B)/2.
+```
+
+Status:
+- proved
+- strongest surviving theorem-grade threshold result in the branch
+- standard-adjacent, but genuinely useful
+
 ### CR-7: Same-Record Variable Hierarchy
 
 The same coarse record can exactly recover a weaker protected variable while exact recovery of a stronger one remains impossible.
@@ -145,7 +174,7 @@ Status:
 
 ### CR-13: Periodic Functional Support Threshold
 
-On the tested four-mode periodic modal family, the minimal exact cutoff equals the largest retained cutoff index among the Fourier modes used by the protected variable.
+On the tested periodic modal families, the minimal exact cutoff equals the largest retained cutoff index among the Fourier modes used by the protected variable, not the raw support size.
 
 Implemented thresholds:
 - first coefficient only: `1`
@@ -154,6 +183,9 @@ Implemented thresholds:
 - bandlimited contrast: `3`
 - full weighted sum: `4`
 - full coefficient vector: `4`
+- repeated-cutoff stress case:
+  - `repeated_cutoff_mass`: support size `3`, threshold `2`
+  - `mixed_tail`: support size `3`, threshold `3`
 
 Status:
 - proved on the family
@@ -161,7 +193,7 @@ Status:
 
 ### CR-14: Diagonal Functional Interpolation Threshold
 
-On the tested diagonal scalar-output family with distinct active eigenvalues, the minimal exact observation horizon is the smallest history length whose observation rows interpolate the chosen protected functional on the active sensor spectrum.
+On the tested diagonal scalar-output families with distinct active eigenvalues, the minimal exact observation horizon is the smallest history length whose observation rows interpolate the chosen protected functional on the active sensor spectrum, not the raw protected support size.
 
 Implemented thresholds:
 - `three_active`:
@@ -179,6 +211,14 @@ Implemented thresholds:
   - `first_moment`: `2`
   - `second_moment`: `2`
   - `protected_coordinate`: impossible for all finite horizons
+- four-active stress case:
+  - support size `4`, degree-`0` target: threshold `1`
+  - support size `4`, degree-`1` target: threshold `2`
+  - support size `4`, degree-`2` target: threshold `3`
+  - support size `4`, degree-`3` target: threshold `4`
+- hidden-last stress case:
+  - visible affine target: threshold `2`
+  - hidden coordinate: impossible for every tested finite horizon
 
 Status:
 - proved on the family
@@ -199,6 +239,7 @@ Promote carefully:
 - the operational lower bound `κ(η)/2`
 - the divergence-only and phase-loss no-go structure
 - the restricted-linear minimal-complexity criterion
+- the restricted-linear collision-gap threshold law
 - the restricted-linear minimal-augmentation design logic
 - the periodic and diagonal family-level threshold laws
 - the weaker-versus-stronger split under the same coarse record
@@ -215,5 +256,6 @@ The branch now has real clean results.
 They are best described as:
 - a useful formal and computational lane,
 - with honest no-go structure,
-- with narrow but real minimal-record threshold families,
+- with one real restricted-linear threshold theorem,
+- with narrow but real family-level corollaries,
 - and with a clean same-record hierarchy split that survives in more than one conventional system lane.

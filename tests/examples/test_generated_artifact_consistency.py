@@ -8,7 +8,13 @@ import pytest
 
 from ocp.cfd import cfd_projection_summary
 from ocp.continuous import LinearOCPFlow
-from ocp.recoverability import diagonal_functional_complexity_sweep, periodic_functional_complexity_sweep
+from ocp.recoverability import (
+    diagonal_functional_complexity_sweep,
+    diagonal_polynomial_threshold_sweep,
+    nested_linear_threshold_profile,
+    periodic_functional_complexity_sweep,
+    periodic_threshold_stress_sweep,
+)
 
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
@@ -77,3 +83,52 @@ def test_recoverability_summary_json_matches_recomputed_threshold_sweeps() -> No
         assert saved['exact_recoverable'] == row['exact_recoverable']
         assert np.isclose(saved['collision_max_protected_distance'], row['collision_max_protected_distance'])
         assert np.isclose(saved['mean_recovery_error'], row['mean_recovery_error'])
+
+    periodic_stress = periodic_threshold_stress_sweep()
+    saved_periodic_stress_rows = {
+        (row['case_name'], row['functional_name'], row['cutoff']): row
+        for row in data['periodic_threshold_stress_sweep']['rows']
+    }
+    for row in periodic_stress['rows']:
+        key = (row['case_name'], row['functional_name'], row['cutoff'])
+        saved = saved_periodic_stress_rows[key]
+        assert saved['predicted_min_cutoff'] == row['predicted_min_cutoff']
+        assert saved['observed_min_cutoff'] == row['observed_min_cutoff']
+        assert saved['exact_recoverable'] == row['exact_recoverable']
+        assert np.isclose(saved['collision_gap'], row['collision_gap'])
+        assert np.isclose(saved['rowspace_residual'], row['rowspace_residual'])
+
+    diagonal_polynomial = diagonal_polynomial_threshold_sweep()
+    saved_diagonal_polynomial_rows = {
+        (row['case_name'], row['functional_name'], row['horizon']): row
+        for row in data['diagonal_polynomial_threshold_sweep']['rows']
+    }
+    for row in diagonal_polynomial['rows']:
+        key = (row['case_name'], row['functional_name'], row['horizon'])
+        saved = saved_diagonal_polynomial_rows[key]
+        assert saved['predicted_min_horizon'] == row['predicted_min_horizon']
+        assert saved['observed_min_horizon'] == row['observed_min_horizon']
+        assert saved['exact_recoverable'] == row['exact_recoverable']
+        assert np.isclose(saved['collision_gap'], row['collision_gap'])
+        assert np.isclose(saved['rowspace_residual'], row['rowspace_residual'])
+
+    nested = nested_linear_threshold_profile(
+        [
+            np.zeros((1, 4), dtype=float),
+            np.diag([1.0, 0.0, 0.0, 0.0]),
+            np.diag([1.0, 1.0, 0.0, 0.0]),
+            np.diag([1.0, 1.0, 1.0, 0.0]),
+            np.diag([1.0, 1.0, 1.0, 1.0]),
+        ],
+        np.array([[1.0, -0.5, 0.75, 0.25]], dtype=float),
+        box_radius=1.0,
+        level_labels=[0, 1, 2, 3, 4],
+    )
+    saved_nested = data['nested_linear_threshold_profile']
+    assert saved_nested['minimal_label'] == nested['minimal_label']
+    assert saved_nested['gap_monotone_nonincreasing'] == nested['gap_monotone_nonincreasing']
+    for saved_row, row in zip(saved_nested['rows'], nested['rows'], strict=True):
+        assert saved_row['level'] == row['level']
+        assert saved_row['exact_recoverable'] == row['exact_recoverable']
+        assert np.isclose(saved_row['collision_gap'], row['collision_gap'])
+        assert np.isclose(saved_row['rowspace_residual'], row['rowspace_residual'])

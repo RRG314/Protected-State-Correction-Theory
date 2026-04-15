@@ -10,6 +10,7 @@ The strongest current picture is:
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
 - exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
 - a constrained-observation recoverability layer that classifies exact, approximate, asymptotic, and impossible recovery under coarse records,
+- a strengthened restricted-linear collision-gap threshold theorem inside that recoverability layer,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
@@ -18,11 +19,11 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `263`
+- tracked-like files: `268`
 - root files: `19`
 - archive files: `8`
-- data files: `18`
-- docs files: `111`
+- data files: `20`
+- docs files: `114`
 - papers files: `6`
 - scripts files: `19`
 - source files: `33`
@@ -36,8 +37,8 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `42`
-- `PROVED`: `27`, including the constrained-observation baseline criteria, robust lower bound, the restricted-linear minimal-complexity criterion, and the new periodic/control threshold generalizations
+- total tracked claims: `43`
+- `PROVED`: `28`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear minimal-complexity criterion, and the stronger periodic/control threshold generalizations
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`

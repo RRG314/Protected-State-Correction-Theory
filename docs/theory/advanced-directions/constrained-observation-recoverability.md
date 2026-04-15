@@ -76,6 +76,14 @@ This branch asks:
 
 This is not just relabeling the current OCP branch. It changes the object of study from **correction under a known split** to **recoverability under constrained access to the split itself**.
 
+### Strongest current branch result
+
+The strongest theorem-grade result that survived the latest falsification pass is currently narrow and explicit:
+
+- on nested finite-dimensional restricted linear families, exact recovery turns on exactly when the protected row enters the observation row space;
+- the associated structured collision gap `Γ_r(B)` is monotone under record enrichment and yields a zero-noise lower bound below threshold;
+- periodic cutoff laws and diagonal history laws survive as corollaries of that restricted-linear statement, not as a universal cross-domain phase-transition theorem.
+
 ---
 
 ## 3. Standard-Known Background

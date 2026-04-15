@@ -12,9 +12,12 @@ from ocp.recoverability import (
     analytic_collapse_modulus,
     analytic_noise_lower_bound_sweep,
     control_minimal_complexity_sweep,
+    diagonal_polynomial_threshold_sweep,
     diagonal_functional_complexity_sweep,
     functional_observability_sweep,
+    nested_linear_threshold_profile,
     periodic_cutoff_recoverability_sweep,
+    periodic_threshold_stress_sweep,
     periodic_functional_complexity_sweep,
     periodic_protected_complexity_sweep,
     periodic_velocity_recoverability_sweep,
@@ -162,10 +165,24 @@ def main() -> None:
     periodic_cutoff = periodic_cutoff_recoverability_sweep()
     periodic_protected = periodic_protected_complexity_sweep()
     periodic_functional = periodic_functional_complexity_sweep()
+    periodic_stress = periodic_threshold_stress_sweep()
     functional = functional_observability_sweep()
     control_complexity = control_minimal_complexity_sweep()
     diagonal_functional = diagonal_functional_complexity_sweep()
+    diagonal_polynomial = diagonal_polynomial_threshold_sweep()
     noise_lower_bound = analytic_noise_lower_bound_sweep(epsilon=0.25)
+    nested_linear = nested_linear_threshold_profile(
+        [
+            np.zeros((1, 4), dtype=float),
+            np.diag([1.0, 0.0, 0.0, 0.0]),
+            np.diag([1.0, 1.0, 0.0, 0.0]),
+            np.diag([1.0, 1.0, 1.0, 0.0]),
+            np.diag([1.0, 1.0, 1.0, 1.0]),
+        ],
+        np.array([[1.0, -0.5, 0.75, 0.25]], dtype=float),
+        box_radius=1.0,
+        level_labels=[0, 1, 2, 3, 4],
+    )
 
     summary = {
         'analytic_benchmark': benchmark,
@@ -175,9 +192,12 @@ def main() -> None:
         'periodic_cutoff_sweep': periodic_cutoff,
         'periodic_protected_complexity_sweep': periodic_protected,
         'periodic_functional_complexity_sweep': periodic_functional,
+        'periodic_threshold_stress_sweep': periodic_stress,
         'functional_observability_sweep': functional,
         'control_minimal_complexity_sweep': control_complexity,
         'diagonal_functional_complexity_sweep': diagonal_functional,
+        'diagonal_polynomial_threshold_sweep': diagonal_polynomial,
+        'nested_linear_threshold_profile': nested_linear,
     }
     write_text(DATA_OUT / 'recoverability_summary.json', json.dumps(summary, indent=2))
 
@@ -186,9 +206,11 @@ def main() -> None:
     write_csv(DATA_OUT / 'periodic_cutoff_sweep.csv', periodic_cutoff['rows'])
     write_csv(DATA_OUT / 'periodic_protected_complexity_sweep.csv', periodic_protected['rows'])
     write_csv(DATA_OUT / 'periodic_functional_complexity_sweep.csv', periodic_functional['rows'])
+    write_csv(DATA_OUT / 'periodic_threshold_stress_sweep.csv', periodic_stress['rows'])
     write_csv(DATA_OUT / 'functional_observability_sweep.csv', functional['rows'])
     write_csv(DATA_OUT / 'control_minimal_complexity_sweep.csv', control_complexity['rows'])
     write_csv(DATA_OUT / 'diagonal_functional_complexity_sweep.csv', diagonal_functional['rows'])
+    write_csv(DATA_OUT / 'diagonal_polynomial_threshold_sweep.csv', diagonal_polynomial['rows'])
     write_csv(DATA_OUT / 'analytic_collapse_benchmark.csv', benchmark['rows'])
     write_csv(DATA_OUT / 'analytic_noise_lower_bound.csv', noise_lower_bound['rows'])
 
@@ -398,6 +420,71 @@ def main() -> None:
             title='Diagonal functional recoverability thresholds',
             x_label='record horizon',
             y_label='κ(0)',
+        ),
+    )
+
+    repeated_cutoff_rows = [
+        row for row in periodic_stress['rows'] if row['case_name'] == 'repeated_cutoffs' and row['functional_name'] in ('repeated_cutoff_mass', 'mixed_tail')
+    ]
+    repeated_cutoff_series = []
+    for functional_name in ('repeated_cutoff_mass', 'mixed_tail'):
+        subset = [row for row in repeated_cutoff_rows if row['functional_name'] == functional_name]
+        repeated_cutoff_series.append(
+            {
+                'label': functional_name.replace('_', ' '),
+                'x': [row['cutoff'] for row in subset],
+                'y': [row['collision_gap'] for row in subset],
+            }
+        )
+    write_text(
+        DOC_OUT / 'periodic-threshold-stress.svg',
+        line_svg(
+            repeated_cutoff_series,
+            title='Periodic threshold stress test (repeated cutoffs)',
+            x_label='spectral cutoff',
+            y_label='box collision gap',
+        ),
+    )
+
+    diagonal_polynomial_rows = [row for row in diagonal_polynomial['rows'] if row['case_name'] == 'four_active']
+    diagonal_polynomial_series = []
+    for functional_name in ('degree_0_constant', 'degree_1_affine', 'degree_2_quadratic', 'degree_3_cubic'):
+        subset = [row for row in diagonal_polynomial_rows if row['functional_name'] == functional_name]
+        diagonal_polynomial_series.append(
+            {
+                'label': functional_name.replace('_', ' '),
+                'x': [row['horizon'] for row in subset],
+                'y': [row['collision_gap'] for row in subset],
+            }
+        )
+    write_text(
+        DOC_OUT / 'diagonal-polynomial-threshold.svg',
+        line_svg(
+            diagonal_polynomial_series,
+            title='Diagonal polynomial threshold stress test',
+            x_label='record horizon',
+            y_label='box collision gap',
+        ),
+    )
+
+    write_text(
+        DOC_OUT / 'nested-linear-threshold.svg',
+        line_svg(
+            [
+                {
+                    'label': 'box collision gap',
+                    'x': nested_linear['level_labels'],
+                    'y': [row['collision_gap'] for row in nested_linear['rows']],
+                },
+                {
+                    'label': 'zero-noise lower bound',
+                    'x': nested_linear['level_labels'],
+                    'y': [row['zero_noise_lower_bound'] for row in nested_linear['rows']],
+                },
+            ],
+            title='Nested restricted-linear threshold profile',
+            x_label='observation level',
+            y_label='gap / lower bound',
         ),
     )
 

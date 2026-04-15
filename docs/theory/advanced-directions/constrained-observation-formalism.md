@@ -221,6 +221,42 @@ If `α_{O,L,F} > 0`, then
 ||L F z|| ≤ α_{O,L,F}^{-1} ||O F z||
 ```
 
+### Definition 8.2: Structured Collision Gap On A Box Family
+
+Fix `B > 0` and define the bounded coefficient family
+
+```text
+A_B = { F z : ||z||_∞ ≤ B }.
+```
+
+For a record level `O_r`, define the **structured collision gap**
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+This is the largest protected-variable difference that can survive inside an exact-record collision while staying inside the admissible coefficient box.
+
+### Proposition 8.3: Restricted-Linear Gap Criterion
+
+For `B > 0`, the following are equivalent:
+
+1. exact restricted linear recovery holds,
+2. `Γ_r(B)=0`,
+3. `row(L F) ⊂ row(O_r F)`.
+
+Moreover, on any nested record family `O_r`, the quantity `Γ_r(B)` is monotone nonincreasing in `r`.
+
+### Interpretation
+
+This is the strongest current restricted-linear theorem in the branch.
+
+It says the exact threshold is not just the first level where a rank bound is met. It is the first level where the structured collision gap vanishes, equivalently where the protected row enters the observation row space.
+
+### Status note
+
+This is still a restricted linear theorem, not a universal branch theorem. That restriction is part of why it survives repeated falsification.
+
 and exact protected-variable recovery is stable on the restricted family.
 
 ### Status note

@@ -17,11 +17,12 @@ The strongest surviving outputs are:
 
 1. the exact / approximate / asymptotic / impossible classification for protected variables,
 2. the operational lower bound `worst-case protected-variable error ≥ κ_{M,p}(η)/2`,
-3. a restricted-linear minimal-complexity criterion based on row-space inclusion,
-4. a periodic functional-support threshold law on a conventional incompressible family,
-5. a diagonal functional-interpolation threshold law in a scalar-output control family,
-6. a same-record weaker-versus-stronger recovery split in both periodic and control families,
-7. and several strong negative results that survive repeated falsification.
+3. a nested restricted-linear collision-gap threshold law,
+4. a restricted-linear minimal-complexity criterion based on row-space inclusion,
+5. a periodic functional-support threshold law on conventional incompressible modal families,
+6. a diagonal functional-interpolation threshold law in scalar-output control families,
+7. a same-record weaker-versus-stronger recovery split in both periodic and control families,
+8. and several strong negative results that survive repeated falsification.
 
 ## 1. Research Question
 
@@ -111,6 +112,28 @@ row(L F) ⊂ row(O F).
 
 That row-space formulation is what powers the strongest current threshold results.
 
+For bounded coefficient families
+
+```text
+A_B = { F z : ||z||_∞ ≤ B },
+```
+
+the current strongest theorem-grade quantity is the structured collision gap
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+In the restricted linear branch:
+
+- exact recovery at level `r` holds if and only if `Γ_r(B)=0`,
+- `Γ_r(B)` is nonincreasing along nested record families,
+- and every zero-noise estimator on `A_B` obeys
+
+```text
+worst-case protected-variable error ≥ Γ_r(B)/2.
+```
+
 ## 4. Derivations Kept In The Branch
 
 The detailed mathematics is written in:
@@ -150,9 +173,11 @@ Generated artifacts:
 - [periodic_cutoff_sweep.csv](../../../data/generated/recoverability/periodic_cutoff_sweep.csv)
 - [periodic_protected_complexity_sweep.csv](../../../data/generated/recoverability/periodic_protected_complexity_sweep.csv)
 - [periodic_functional_complexity_sweep.csv](../../../data/generated/recoverability/periodic_functional_complexity_sweep.csv)
+- [periodic_threshold_stress_sweep.csv](../../../data/generated/recoverability/periodic_threshold_stress_sweep.csv)
 - [functional_observability_sweep.csv](../../../data/generated/recoverability/functional_observability_sweep.csv)
 - [control_minimal_complexity_sweep.csv](../../../data/generated/recoverability/control_minimal_complexity_sweep.csv)
 - [diagonal_functional_complexity_sweep.csv](../../../data/generated/recoverability/diagonal_functional_complexity_sweep.csv)
+- [diagonal_polynomial_threshold_sweep.csv](../../../data/generated/recoverability/diagonal_polynomial_threshold_sweep.csv)
 
 Figures:
 
@@ -163,11 +188,14 @@ Figures:
 - [periodic-cutoff-threshold.svg](../../assets/recoverability/periodic-cutoff-threshold.svg)
 - [periodic-protected-threshold.svg](../../assets/recoverability/periodic-protected-threshold.svg)
 - [periodic-functional-threshold.svg](../../assets/recoverability/periodic-functional-threshold.svg)
+- [periodic-threshold-stress.svg](../../assets/recoverability/periodic-threshold-stress.svg)
 - [functional-observability-margin.svg](../../assets/recoverability/functional-observability-margin.svg)
 - [observer-convergence.svg](../../assets/recoverability/observer-convergence.svg)
 - [control-history-threshold.svg](../../assets/recoverability/control-history-threshold.svg)
 - [control-minimal-horizon.svg](../../assets/recoverability/control-minimal-horizon.svg)
 - [diagonal-functional-threshold.svg](../../assets/recoverability/diagonal-functional-threshold.svg)
+- [diagonal-polynomial-threshold.svg](../../assets/recoverability/diagonal-polynomial-threshold.svg)
+- [nested-linear-threshold.svg](../../assets/recoverability/nested-linear-threshold.svg)
 
 ## 6. Experiment Families
 
@@ -229,6 +257,11 @@ Two conventional periodic lanes were kept.
      - full weighted sum,
      - full four-mode coefficient vector.
 
+3. **periodic threshold stress lane**
+   - repeated-cutoff modal family,
+   - observations: nested low-pass truncated vorticity,
+   - protected variables chosen to falsify raw support-count heuristics while preserving the restricted-linear theorem assumptions.
+
 ### 6.4 Functional-observability control families
 
 Two control lanes were kept.
@@ -258,6 +291,15 @@ Sensor profiles tested:
 Protected functionals tested:
 
 - `sensor_sum`
+- `first_moment`
+- `second_moment`
+- `protected_coordinate`
+
+3. **four-active / hidden-last stress lanes**
+   - larger diagonal families with distinct active eigenvalues,
+   - polynomial-type protected functionals of degree `0,1,2,3`,
+   - and a hidden-coordinate no-go witness,
+   - used specifically to test whether support size or protected rank predicts the threshold. It does not.
 - `first_moment`
 - `second_moment`
 - `protected_coordinate`
@@ -467,6 +509,51 @@ All tested interpolation predictions matched the exactness classification from t
 
 This is a real minimal-history result, albeit on a family where the proof reduces to distinct-eigenvalue interpolation. The older coordinate threshold remains true, but only as a special case of a stronger functional interpolation law.
 
+### 7.7 Restricted-linear threshold stress sweeps
+
+![Nested restricted-linear threshold profile](../../assets/recoverability/nested-linear-threshold.svg)
+
+The cleanest strengthened result from this pass is the structured collision-gap law on nested restricted-linear families.
+
+For the benchmark nested row family with protected row `[1, -0.5, 0.75, 0.25]`, the profile is:
+
+- level `0`: row-space residual `1.3693`, collision gap `5.0`, zero-noise lower bound `2.5`
+- level `1`: residual `0.9354`, gap `3.0`, lower bound `1.5`
+- level `2`: residual `0.7906`, gap `2.0`, lower bound `1.0`
+- level `3`: residual `0.25`, gap `0.5`, lower bound `0.25`
+- level `4`: residual `0`, gap `0`, exact recovery
+
+This profile survived:
+
+1. direct derivation from kernel and row-space inclusion,
+2. independent nullspace-on-a-box computation,
+3. independent brute-force line search on a one-dimensional nullspace benchmark,
+4. nested periodic and diagonal family checks,
+5. generated-artifact recomputation tests.
+
+The broader structured sweeps then showed exactly what should and should not generalize.
+
+Periodic repeated-cutoff stress case:
+
+![Periodic threshold stress](../../assets/recoverability/periodic-threshold-stress.svg)
+
+- `repeated_cutoff_mass`: support size `3`, predicted threshold `2`, observed threshold `2`
+- `mixed_tail`: support size `3`, predicted threshold `3`, observed threshold `3`
+
+This kills the naive claim that periodic threshold equals raw support size. The correct invariant is the largest retained cutoff level among protected modes.
+
+Diagonal polynomial stress case:
+
+![Diagonal polynomial threshold stress](../../assets/recoverability/diagonal-polynomial-threshold.svg)
+
+- `degree_0_constant`: support size `4`, horizon `1`
+- `degree_1_affine`: support size `4`, horizon `2`
+- `degree_2_quadratic`: support size `4`, horizon `3`
+- `degree_3_cubic`: support size `4`, horizon `4`
+- `hidden_coordinate`: impossible for every tested finite horizon in the `hidden_last` case
+
+This kills the naive claim that control-side threshold equals protected support size or protected rank. The correct invariant is interpolation complexity on the active sensor spectrum.
+
 ## 8. Repeated Falsification Protocol And What Survived
 
 Every promoted branch result was pressure-tested by:
@@ -483,10 +570,13 @@ What survived cleanly:
 
 - `κ(0)=0` exactness,
 - `κ(η)/2` lower bound,
+- the nested restricted-linear collision-gap threshold law,
 - qubit phase-window law,
 - two-mode periodic cutoff threshold,
 - four-mode periodic functional-support law,
+- repeated-cutoff periodic threshold falsification,
 - diagonal functional interpolation threshold,
+- four-active diagonal polynomial threshold falsification,
 - divergence-only and hidden-mode no-go structure,
 - the same-record weaker-versus-stronger split.
 
@@ -495,6 +585,8 @@ What weakened under harder checking:
 - vague “phase transition” language across the whole branch,
 - any suggestion that the branch already supports one broad theorem spanning all anchor systems,
 - any suggestion that `κ` is automatically a major new invariant.
+- raw support-size threshold heuristics,
+- raw protected-rank threshold heuristics.
 
 ## 9. What Was Actually Discovered
 
@@ -502,10 +594,11 @@ Useful outcomes:
 
 1. `κ(0)` works exactly as the branch's exact / impossible separator should.
 2. `κ(η)/2` survives as a real adversarial lower bound.
-3. the same record can be exact for one protected variable and impossible for a stronger one.
-4. the branch produces a clean restricted-linear minimal-complexity criterion that explains the strongest periodic and control thresholds.
-5. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
-6. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
+3. the structured collision gap `Γ_r(B)` gives a real monotone threshold/no-go quantity in the restricted-linear branch.
+4. the same record can be exact for one protected variable and impossible for a stronger one.
+5. the branch produces a clean restricted-linear minimal-complexity criterion that explains the strongest periodic and control thresholds.
+6. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
+7. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
 
 ## 10. What Failed Or Stayed Weak
 
@@ -515,6 +608,7 @@ Weak or non-promotable outcomes:
 - most foundational propositions remain standard or near-standard,
 - the branch still does not justify a major standalone theorem-program claim,
 - some earlier sampled collision estimates were too optimistic and had to be replaced by exact nullspace-based calculations.
+- support size and rank lower bounds did not upgrade into valid threshold predictors.
 
 ## 11. What Appears Standard
 
@@ -534,7 +628,7 @@ The strongest plausible branch-level contribution is still modest:
 
 - a protected-variable recoverability framework that cleanly separates exact, approximate, asymptotic, and impossible regimes,
 - an operational use of `κ` through the lower bound `κ(η)/2`,
-- a restricted-linear minimal-complexity criterion that becomes visible and useful in the branch language,
+- a restricted-linear collision-gap threshold theorem that turns exactness, minimal complexity, and zero-noise lower bounds into one coherent statement,
 - and explicit minimal-record threshold laws showing that the protected variable matters as much as the record family.
 
 That is a **minor but real** contribution candidate, not a major theorem claim.
@@ -550,8 +644,8 @@ The branch should not be promoted around any of these by themselves:
 
 ## 14. Recommended Next Steps
 
-1. Try to prove one theorem that upgrades the restricted-linear minimal-complexity criterion to a robust threshold theorem under controlled noise or admissible-family enlargement.
-2. Push `κ` beyond `κ(0)=0` and `κ(η)/2`, or stop treating it as the branch's main novelty target.
+1. Push the restricted-linear collision-gap theorem into a robust noisy-record theorem under admissible-family enlargement.
+2. Push `κ` beyond `κ(0)=0`, `κ(η)/2`, and the restricted-linear `Γ_r(B)` theorem, or stop treating it as the branch's main novelty target.
 3. Prefer stronger no-go results over vague cross-domain generalization.
 4. Keep the branch even if no larger theorem emerges, because it now supports a real tool, real negative results, and real minimal-record examples.
 

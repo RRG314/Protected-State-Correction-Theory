@@ -290,6 +290,122 @@ then `L_1 x` is exactly recoverable while `L_2 x` is not.
 
 Apply Proposition 5.3 separately to `L_1` and `L_2`.
 
+### Proposition 5.5: Nested Restricted-Linear Collision-Gap Threshold Law
+
+Fix `B > 0` and consider the admissible coefficient box
+
+```text
+A_B = { F z : ||z||_∞ ≤ B }.
+```
+
+For a nested record family `M_r(x)=O_r x`, define the structured collision gap
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+Then:
+
+1. `Γ_r(B)` is nonincreasing in `r`;
+2. exact recovery at level `r` holds if and only if `Γ_r(B)=0`;
+3. the minimal exact complexity is
+
+```text
+r_* = min { r : Γ_r(B)=0 } = min { r : row(L F) ⊂ row(O_r F) };
+```
+
+4. any estimator fed exact records from `A_B` satisfies the zero-noise lower bound
+
+```text
+sup_{x ∈ A_B} d_P(\widehat p(M_r(x)), p(x)) ≥ Γ_r(B) / 2.
+```
+
+### Derivation
+
+**Monotonicity.**
+
+Nested row-space inclusion is equivalent to reverse kernel inclusion:
+
+```text
+ker(O_{r+1} F) ⊂ ker(O_r F).
+```
+
+So the feasible set defining `Γ_{r+1}(B)` is a subset of the feasible set defining `Γ_r(B)`, and therefore
+
+```text
+Γ_{r+1}(B) ≤ Γ_r(B).
+```
+
+**Exactness implies `Γ_r(B)=0`.**
+
+If exact recovery holds, Proposition 5.1 gives
+
+```text
+ker(O_r F) ⊂ ker(L F).
+```
+
+Hence every feasible `h` in the definition of `Γ_r(B)` also satisfies `L F h = 0`, so the supremum vanishes.
+
+**`Γ_r(B)=0` implies exactness.**
+
+Assume `Γ_r(B)=0`. Let `h` be any vector in `ker(O_r F)`. If `h=0`, there is nothing to prove. If `h ≠ 0`, choose
+
+```text
+t = min(1, 2B / ||h||_∞).
+```
+
+Then `t h ∈ ker(O_r F)` and `||t h||_∞ ≤ 2B`, so `t h` is feasible for `Γ_r(B)`. The assumption `Γ_r(B)=0` gives
+
+```text
+L F (t h) = 0.
+```
+
+Since `t > 0`, homogeneity implies `L F h = 0`. Therefore
+
+```text
+ker(O_r F) ⊂ ker(L F),
+```
+
+and Proposition 5.1 yields exact recovery.
+
+**Minimal-complexity identity.**
+
+The previous equivalence shows
+
+```text
+Γ_r(B)=0    if and only if    row(L F) ⊂ row(O_r F),
+```
+
+so the first exact level is exactly the first zero-gap level.
+
+**Zero-noise lower bound.**
+
+Take any feasible `h` with `||h||_∞ ≤ 2B` and `O_r F h = 0`. Write `h = z - z'` with `z, z' ∈ [-B,B]^d`. Then
+
+```text
+O_r F z = O_r F z'
+```
+
+while the protected-variable gap equals `||L F h||`. Any estimator given the shared exact record must approximate both protected values at once, so the triangle inequality gives a worst-case error at least `||L F h|| / 2`. Taking the supremum yields
+
+```text
+sup_{x ∈ A_B} d_P(\widehat p(M_r(x)), p(x)) ≥ Γ_r(B) / 2.
+```
+
+### Interpretation
+
+This is the strongest current theorem-grade statement in the branch:
+
+- the exact threshold is the first level where the structured collision gap vanishes;
+- below that threshold the branch gets an explicit positive no-go quantity, not just a boolean failure flag;
+- periodic cutoff laws and diagonal finite-history laws are corollaries, not isolated curiosities.
+
+### What It Does Not Say
+
+It does **not** give a universal scalar complexity law across every branch system.
+
+The theorem only controls finite-dimensional restricted linear families with a nested observation family. That restriction is part of why it survives falsification.
+
 ## 6. Qubit Fixed-Basis Phase-Loss Law
 
 Consider the pure qubit family

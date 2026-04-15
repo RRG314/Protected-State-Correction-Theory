@@ -39,8 +39,13 @@ Python-side:
 17. weaker-versus-stronger protected-variable splits under the same periodic coarse record
 18. diagonal functional interpolation thresholds for sensor sums and moment-type functionals
 19. diagonal functional weights against the independent row-space solver
-20. generated recoverability summary rows against independent recomputation of the threshold sweeps
-21. generated operator-example artifacts against direct CFD and continuous-flow recomputation
+20. nested restricted-linear collision-gap profiles against exact recovery, monotonicity, and row-space residual decay
+21. restricted-linear collision gaps against independent brute-force nullspace scans on small cases
+22. rank-lower-bound insufficiency counterexample for exact recovery
+23. periodic threshold stress sweeps on repeated-cutoff modal families
+24. diagonal polynomial threshold sweeps on larger active sensor spectra
+25. generated recoverability summary rows against independent recomputation of the threshold sweeps
+26. generated operator-example artifacts against direct CFD and continuous-flow recomputation
 
 Workbench-side:
 
@@ -52,8 +57,9 @@ Workbench-side:
 6. diagonal minimal-history threshold behavior in the three-state control lane
 7. generalized periodic functional thresholds in the Recoverability / Correction Studio
 8. generalized diagonal functional thresholds in the Recoverability / Correction Studio
-9. existing exact / QEC / MHD / CFD / gauge / generator / no-go modules still pass
-10. share-state encoding and decoding still round-trip correctly
+9. the studio still distinguishes weaker recoverable variables from stronger impossible ones after the tightened theorem pass
+10. existing exact / QEC / MHD / CFD / gauge / generator / no-go modules still pass
+11. share-state encoding and decoding still round-trip correctly
 
 Browser smoke checks:
 
@@ -65,7 +71,7 @@ Browser smoke checks:
 
 Most recent targeted branch checks completed during this pass:
 
-- `tests/math/test_recoverability.py`: `22 passed`
+- `tests/math/test_recoverability.py`: `29 passed`
 - `tests/examples/test_generated_artifact_consistency.py`: `2 passed`
 - `tests/consistency/workbench_static.test.mjs`: `17 passed`
 - recoverability artifact build:
@@ -75,14 +81,19 @@ Most recent targeted branch checks completed during this pass:
 New generated branch artifacts in this pass:
 
 - [periodic_functional_complexity_sweep.csv](../../../data/generated/recoverability/periodic_functional_complexity_sweep.csv)
+- [periodic_threshold_stress_sweep.csv](../../../data/generated/recoverability/periodic_threshold_stress_sweep.csv)
 - [diagonal_functional_complexity_sweep.csv](../../../data/generated/recoverability/diagonal_functional_complexity_sweep.csv)
+- [diagonal_polynomial_threshold_sweep.csv](../../../data/generated/recoverability/diagonal_polynomial_threshold_sweep.csv)
 - [periodic-functional-threshold.svg](../../assets/recoverability/periodic-functional-threshold.svg)
 - [diagonal-functional-threshold.svg](../../assets/recoverability/diagonal-functional-threshold.svg)
+- [periodic-threshold-stress.svg](../../assets/recoverability/periodic-threshold-stress.svg)
+- [diagonal-polynomial-threshold.svg](../../assets/recoverability/diagonal-polynomial-threshold.svg)
+- [nested-linear-threshold.svg](../../assets/recoverability/nested-linear-threshold.svg)
 
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `74 passed`
+- Python suite: `81 passed`
 - Workbench / Node suite: `17 passed`
 - markdown link check: passed
 - naming consistency check: passed
@@ -97,6 +108,7 @@ Most recent full repository gate:
 2. workbench chart rendering leaked `NaN` SVG coordinates when switching among some recoverability system families
 3. the control threshold chart was wired to the wrong input shape and silently degraded into an unavailable placeholder
 4. older control-branch wording incorrectly treated the coordinate threshold as the whole control-side story
+5. broad support-size and raw protected-rank heuristics survived in wording longer than they should have
 
 Fixes applied:
 
@@ -104,6 +116,7 @@ Fixes applied:
 - hardened the workbench line-chart renderer against non-finite data
 - corrected the control threshold chart wiring so the displayed figure is again a real chart, not scaffolding
 - generalized the periodic and control threshold tooling to real protected-function choices rather than one fixed headline variable
+- promoted the structured collision gap into an explicit restricted-linear theorem layer and used it to replace weaker threshold heuristics
 
 ## Final Status
 

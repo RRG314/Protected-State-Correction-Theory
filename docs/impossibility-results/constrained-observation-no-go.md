@@ -131,7 +131,37 @@ one-step exact recovery of `p(x_0)` from `y_0` is impossible for any finite `ε`
 
 This is not interesting by itself. It is kept only because the same model becomes exactly recoverable from a two-step record and asymptotically recoverable by an observer. That makes it a good branch benchmark.
 
-## 5. What Not To Promote
+## 5. Restricted-Linear Positive-Gap No-Go
+
+### COR-N5
+
+Let
+
+```text
+A_B = { F z : ||z||_∞ ≤ B }
+```
+
+with `B > 0`, let the protected variable be `p(x)=Lx`, let the record be `M_r(x)=O_r x`, and define
+
+```text
+Γ_r(B) = sup { ||L F h|| : ||h||_∞ ≤ 2B, O_r F h = 0 }.
+```
+
+If `Γ_r(B) > 0`, then exact recovery from the level-`r` record is impossible on `A_B`, and every zero-noise estimator incurs worst-case protected-variable error at least `Γ_r(B)/2`.
+
+### Why it matters
+
+This is stronger than saying “the map is noninvertible.” It gives a quantitative obstruction attached to the chosen protected variable and the chosen admissible family.
+
+### Status
+
+Proved in the restricted-linear branch.
+
+### Standardness
+
+Standard-adjacent, but one of the branch’s most useful no-go statements.
+
+## 6. What Not To Promote
 
 The following directions should not be promoted as branch-defining no-go results unless they sharpen substantially.
 
@@ -141,12 +171,13 @@ The following directions should not be promoted as branch-defining no-go results
 
 All of those are true, but they are too generic to count as results.
 
-## 6. Best Current No-Go Contribution
+## 7. Best Current No-Go Contribution
 
 The strongest branch-specific negative lesson at the moment is not a grand impossibility theorem. It is the combination of:
 
 - fiber-collision as the exact logical obstruction,
 - divergence-only no-go as the PDE-side obstruction,
-- and the qubit phase-loss example as the quantum-side obstruction.
+- qubit phase-loss as the quantum-side obstruction,
+- and the restricted-linear positive-gap theorem as the quantitative threshold obstruction below exact recoverability.
 
 Together they show that the branch is really about **recoverability of a chosen protected variable**, not about full-state inversion in the abstract.
