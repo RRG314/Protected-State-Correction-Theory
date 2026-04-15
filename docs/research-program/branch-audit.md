@@ -18,6 +18,7 @@ This note audits the repository as a branch-based research program rather than a
 | Continuous-QEC bridge | bridge between exact sector correction and continuous monitored correction | citable conditional bridge | smooth-flow finite-time exactness no-go blocks naive overclaiming | still conditional and bridge-like rather than theorem-complete | conditional bridge | keep, but do not oversell |
 | Constrained-observation recoverability branch | exact/approximate/asymptotic/impossible recovery under coarse records | OCP-043 plus the exact-regime upper envelope and same-rank insufficiency theorem | same-record weaker-versus-stronger split; phase-loss and hidden-mode no-gos | broad universal PVRT failed; strongest surviving form is restricted-linear | strongest current theory-program branch in repo | yes, heavily |
 | Restricted-linear / design-engine layer | measurement sufficiency, minimal augmentation, and design diagnostics on restricted families | OCP-T6 restricted-linear minimal augmentation theorem | below-deficiency augmentation impossibility | limited to restricted finite-dimensional linear families | strongest practical theorem-to-tool branch | yes, heavily |
+| Structural Discovery subsystem | failure diagnosis, missing-structure detection, supported repair suggestions, and before/after validation | validated end-to-end diagnosis-and-repair demos across periodic, control, qubit, and restricted-linear families | no in-studio fix is promoted unless a theorem-backed or validated family-backed path exists | novelty is mostly engineering and theorem-surfacing rather than standalone mathematics | high-value subsystem | yes, as a practical research-system layer |
 | Practical workbench / studio layer | turning the theory into decisions, diagnosis, and next-step guidance | real recoverability / correction studio with artifact-backed outputs | fake or weak interactivity gets caught by browser and static tests | usefulness depends on keeping it wired to the actual math | tool layer | yes, but only when coupled to clean branch results |
 | Rejected / demoted directions | optimizer, generic constrained-Hamiltonian automatic fit, universal scalar capacity | none | broad claims fail repeatedly | not worth renewed effort without new operators or theorems | frozen | no |
 
@@ -36,6 +37,7 @@ The repo's current backbone is:
 1. constrained-observation / restricted-linear threshold and augmentation theorems
 2. bounded-domain exact correction under explicit boundary-compatible Hodge assumptions
 3. asymptotic generator completion beyond invariant splits, if a sharper theorem survives
+4. structural discovery as the main theorem-to-tool bridge, provided it stays rigorously tied to the validated branch results
 
 ## Weakest Parts To Demote Or Freeze
 

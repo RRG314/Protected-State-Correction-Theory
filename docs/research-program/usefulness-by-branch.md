@@ -81,6 +81,20 @@ Best outputs:
 - nullspace witnesses and insufficiency diagnoses
 - exact-regime upper-bound estimates when the restricted family is already exact
 
+## Structural Discovery Subsystem
+
+What it helps with:
+- start from a failing setup and identify the structural reason for failure
+- compare the current design against a supported repair
+- decide whether to enrich the record, weaken the target, or switch architecture
+- generate demo-grade evidence that a proposed fix really changes the regime
+
+Best outputs:
+- missing-structure diagnosis
+- ranked fix cards with theorem / family / heuristic status
+- before/after regime comparisons
+- reusable demo scenarios and generated artifacts
+
 ## Practical Workbench / Studio Layer
 
 What it helps with:
@@ -93,12 +107,12 @@ Best outputs:
 
 ## App / Engine-Facing Use
 
-The strongest justified app-facing use is now a recoverability engine:
+The strongest justified app-facing use is now a recoverability and structural-discovery engine:
 - define the protected state or functional that really matters
 - define the coarse record actually available
 - check whether it is enough
 - identify what weaker target is still recoverable
 - identify what extra state or measurement is needed
-- route to exact projector, exact recovery, or asymptotic observer design
+- route to exact projector, exact recovery, asymptotic observer, or structural redesign
 
 That is a real use even when the underlying math is standard-adjacent, because it turns theory into decisions.

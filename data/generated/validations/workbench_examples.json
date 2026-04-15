@@ -154,6 +154,39 @@
       "weaker": [],
       "noGo": null
     },
+    "theoremStatus": "Explicit analytic exactness / stability toy model",
+    "missingStructure": "Current record is sufficient for exact recovery on the chosen family.",
+    "structuralBlocker": "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks.",
+    "recommendedArchitecture": "Static exact recovery with noise-budget control",
+    "weakerRecoverableTargets": [],
+    "failureModes": [
+      "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks."
+    ],
+    "recommendations": [
+      {
+        "id": "keep-analytic",
+        "title": "Keep current record",
+        "actionKind": "keep",
+        "theoremStatus": "Explicit analytic exactness / stability toy model",
+        "rationale": "The current analytic record already separates the protected scalar on the chosen family; only robustness tuning remains.",
+        "minimal": true,
+        "expectedRegime": "exact",
+        "patch": {},
+        "availableInStudio": true
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "keep-analytic",
+      "title": "Keep current record",
+      "actionKind": "keep",
+      "theoremStatus": "Explicit analytic exactness / stability toy model",
+      "rationale": "The current analytic record already separates the protected scalar on the chosen family; only robustness tuning remains.",
+      "minimal": true,
+      "expectedRegime": "exact",
+      "patch": {},
+      "availableInStudio": true
+    },
+    "comparison": null,
     "workflow": [
       {
         "label": "Define protected variable",
@@ -306,6 +339,68 @@
         "z coordinate only"
       ],
       "noGo": "Fixed-basis phase-loss no-go"
+    },
+    "theoremStatus": "Family-specific phase-loss no-go with standard measurement enrichment outside the current theorem spine",
+    "missingStructure": "Add at least one complementary measurement basis or restrict the admissible state family to a meridian.",
+    "structuralBlocker": "Phase freedom creates fiber collisions under the fixed-basis record.",
+    "recommendedArchitecture": "Richer measurement family required",
+    "weakerRecoverableTargets": [
+      "z coordinate only"
+    ],
+    "failureModes": [
+      "Fixed-basis phase-loss no-go",
+      "Phase freedom creates fiber collisions under the fixed-basis record."
+    ],
+    "recommendations": [
+      {
+        "id": "weaken-to-z",
+        "title": "Weaken target to z coordinate only",
+        "actionKind": "weaken_target",
+        "theoremStatus": "Family-specific weaker-target split",
+        "rationale": "The fixed-basis record keeps the phase-insensitive z coordinate exact even when the full Bloch vector collapses.",
+        "minimal": true,
+        "expectedRegime": "exact",
+        "patch": {
+          "qubitProtected": "z_coordinate"
+        },
+        "availableInStudio": true
+      },
+      {
+        "id": "add-basis",
+        "title": "Add a complementary basis",
+        "actionKind": "switch_architecture",
+        "theoremStatus": "Standard physics guidance outside the current theorem spine",
+        "rationale": "Adding a complementary basis is the conventional way to recover phase-sensitive information, but this richer architecture is not yet proven in the repo.",
+        "minimal": false,
+        "expectedRegime": "likely exact on the enlarged measurement family",
+        "patch": null,
+        "availableInStudio": false
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "weaken-to-z",
+      "title": "Weaken target to z coordinate only",
+      "actionKind": "weaken_target",
+      "theoremStatus": "Family-specific weaker-target split",
+      "rationale": "The fixed-basis record keeps the phase-insensitive z coordinate exact even when the full Bloch vector collapses.",
+      "minimal": true,
+      "expectedRegime": "exact",
+      "patch": {
+        "qubitProtected": "z_coordinate"
+      },
+      "availableInStudio": true
+    },
+    "comparison": {
+      "beforeRegime": "impossible",
+      "afterRegime": "exact",
+      "regimeChanged": true,
+      "keyMetricName": "κ(0)",
+      "keyMetricBefore": 0.5773502691896257,
+      "keyMetricAfter": 0,
+      "exactAfter": true,
+      "asymptoticAfter": false,
+      "impossibleAfter": false,
+      "narrative": "Weakening the target removes the unresolved protected degrees of freedom that the current record cannot separate."
     },
     "workflow": [
       {
@@ -478,6 +573,39 @@
       "weaker": [],
       "noGo": null
     },
+    "theoremStatus": "Mixed exact / asymptotic control benchmark",
+    "missingStructure": "Current history length is sufficient for the chosen protected variable.",
+    "structuralBlocker": "No exactness blocker remains at the current horizon.",
+    "recommendedArchitecture": "Static finite-history recovery",
+    "weakerRecoverableTargets": [],
+    "failureModes": [
+      "No exactness blocker remains at the current horizon."
+    ],
+    "recommendations": [
+      {
+        "id": "keep-control",
+        "title": "Keep current control architecture",
+        "actionKind": "keep",
+        "theoremStatus": "Mixed exact / asymptotic control benchmark",
+        "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+        "minimal": true,
+        "expectedRegime": "asymptotic",
+        "patch": {},
+        "availableInStudio": true
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "keep-control",
+      "title": "Keep current control architecture",
+      "actionKind": "keep",
+      "theoremStatus": "Mixed exact / asymptotic control benchmark",
+      "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+      "minimal": true,
+      "expectedRegime": "asymptotic",
+      "patch": {},
+      "availableInStudio": true
+    },
+    "comparison": null,
     "workflow": [
       {
         "label": "Define protected variable",
@@ -637,6 +765,43 @@
       ],
       "noGo": null
     },
+    "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+    "missingStructure": "Current retained modal support is sufficient.",
+    "structuralBlocker": "No structural blocker on the current finite modal family.",
+    "recommendedArchitecture": "Static exact recovery from projection-compatible periodic records",
+    "weakerRecoverableTargets": [
+      "leading modal coefficient",
+      "first two modal coefficients",
+      "low-mode weighted sum"
+    ],
+    "failureModes": [
+      "No structural blocker on the current finite modal family."
+    ],
+    "recommendations": [
+      {
+        "id": "keep-periodic",
+        "title": "Keep current periodic record",
+        "actionKind": "keep",
+        "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+        "rationale": "The current record already retains the full protected modal support for the chosen target.",
+        "minimal": true,
+        "expectedRegime": "exact",
+        "patch": {},
+        "availableInStudio": true
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "keep-periodic",
+      "title": "Keep current periodic record",
+      "actionKind": "keep",
+      "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+      "rationale": "The current record already retains the full protected modal support for the chosen target.",
+      "minimal": true,
+      "expectedRegime": "exact",
+      "patch": {},
+      "availableInStudio": true
+    },
+    "comparison": null,
     "workflow": [
       {
         "label": "Define protected variable",
@@ -793,6 +958,39 @@
       "weaker": [],
       "noGo": null
     },
+    "theoremStatus": "Family-specific finite-history threshold law with interpolation checks",
+    "missingStructure": "Current history length is sufficient for the chosen protected variable.",
+    "structuralBlocker": "No exactness blocker remains at the current horizon.",
+    "recommendedArchitecture": "Static finite-history recovery",
+    "weakerRecoverableTargets": [],
+    "failureModes": [
+      "No exactness blocker remains at the current horizon."
+    ],
+    "recommendations": [
+      {
+        "id": "keep-control",
+        "title": "Keep current control architecture",
+        "actionKind": "keep",
+        "theoremStatus": "Family-specific finite-history threshold law with interpolation checks",
+        "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+        "minimal": true,
+        "expectedRegime": "exact",
+        "patch": {},
+        "availableInStudio": true
+      }
+    ],
+    "chosenRecommendation": {
+      "id": "keep-control",
+      "title": "Keep current control architecture",
+      "actionKind": "keep",
+      "theoremStatus": "Family-specific finite-history threshold law with interpolation checks",
+      "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+      "minimal": true,
+      "expectedRegime": "exact",
+      "patch": {},
+      "availableInStudio": true
+    },
+    "comparison": null,
     "workflow": [
       {
         "label": "Define protected variable",

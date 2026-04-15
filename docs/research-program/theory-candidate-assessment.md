@@ -108,6 +108,14 @@ The strongest real contribution candidate is now:
 That is a **minor but real** theory-level contribution candidate.
 It is not a broad new universal theory of observation.
 
+Structural Discovery should not be treated as a separate theory candidate.
+
+Its honest status is:
+- theorem-linked engineering layer
+- practical synthesis of branch results
+- useful subsystem because it turns proof status and failure analysis into concrete repair workflows
+- not a new theorem program by itself
+
 ## Best Next Upgrade Path
 
 The strongest next path is:

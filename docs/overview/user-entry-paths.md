@@ -3,37 +3,40 @@
 ## I Want To Know If My Problem Is Solvable
 
 Start with:
-1. [Recoverability / Correction Studio](../workbench/index.html)
-2. [Recoverability / Correction Studio note](../app/recoverability-correction-studio.md)
-3. [Constrained-observation clean results](../theory/advanced-directions/constrained-observation-clean-results.md)
+1. [Structural Discovery Studio](../workbench/index.html)
+2. [Structural Discovery Studio note](../app/structural-discovery-studio.md)
+3. [Structural Discovery overview](../structural-discovery/overview.md)
 
 ## I Want To Design A Measurement Or Record
 
 Start with:
-1. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
-2. [Minimal-information sweep template](../templates/minimal-information-sweep-template.md)
-3. [Usefulness roadmap](usefulness-roadmap.md)
+1. [Structural Discovery algorithms](../structural-discovery/algorithms.md)
+2. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
+3. [Minimal-information sweep template](../templates/minimal-information-sweep-template.md)
 
 ## I Want To Recover A Protected Variable
 
 Start with:
-1. [Exact projector template](../templates/exact-projector-template.md)
-2. [Functional observability template](../templates/functional-observability-template.md)
-3. [Asymptotic observer template](../templates/asymptotic-observer-template.md)
+1. [Structural Discovery formalism](../structural-discovery/formalism.md)
+2. [Exact projector template](../templates/exact-projector-template.md)
+3. [Functional observability template](../templates/functional-observability-template.md)
+4. [Asymptotic observer template](../templates/asymptotic-observer-template.md)
 
 ## I Want To Understand Why Recovery Fails
 
 Start with:
-1. [No-Go Explorer](../workbench/index.html)
-2. [No-go detection template](../templates/no-go-detection-template.md)
-3. [Constrained-observation failures](../theory/advanced-directions/constrained-observation-failures.md)
+1. [Structural Discovery Studio](../workbench/index.html)
+2. [No-Go Explorer](../workbench/index.html)
+3. [No-go detection template](../templates/no-go-detection-template.md)
+4. [Constrained-observation failures](../theory/advanced-directions/constrained-observation-failures.md)
 
 ## I Want A Usable Toy Model Or Template
 
 Start with:
-1. [Template index](../templates/README.md)
-2. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
+1. [Structural Discovery demo walkthroughs](../structural-discovery/demo-walkthroughs.md)
+2. [Template index](../templates/README.md)
 3. [Periodic projection template](../templates/periodic-projection-template.md)
+4. [Restricted linear recovery template](../templates/restricted-linear-recovery-template.md)
 
 ## I Want To Connect This To PDEs, Control, Quantum, Or App Systems
 

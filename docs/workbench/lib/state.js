@@ -1,6 +1,6 @@
 export const DEFAULT_STATE = {
   mode: 'plain',
-  activeLab: 'exact',
+  activeLab: 'recoverability',
   labs: {
     recoverability: {
       system: 'analytic',

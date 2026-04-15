@@ -11,7 +11,7 @@
 7. [PVRT theory program](../theory/advanced-directions/pvrt-theory-program.md)
 8. [PVRT theorem spine](../theorem-candidates/pvrt-theorem-spine.md)
 9. [workbench-overview.md](../app/workbench-overview.md)
-10. [Recoverability / Correction Studio note](../app/recoverability-correction-studio.md)
+10. [Structural Discovery Studio note](../app/structural-discovery-studio.md)
 11. [workbench/index.html](../workbench/index.html)
 
 ## If You Want To Use The Repo Practically

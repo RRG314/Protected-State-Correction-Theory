@@ -19,6 +19,7 @@ Scores are qualitative and intentionally conservative.
 | Constrained-observation recoverability | medium-high | high | high | high | medium | low-medium | top branch |
 | Restricted-linear / design-engine layer | medium | very high | high | high | medium | low | top branch |
 | Exact continuous / CFD bounded-domain lane | medium | high | medium-high | high | medium | low-medium | top branch |
+| Structural Discovery subsystem | low-medium novelty | very high | low-medium | high | low-medium | low | top tool-and-diagnosis branch |
 | Asymptotic generator branch | medium | medium-high | medium-high | medium | medium | medium | push hard, but selectively |
 | Exact sector / QEC branch | medium | medium | medium | medium | high | medium | keep active, but targeted only |
 | Practical workbench / studio layer | low novelty | very high | low | high | low | low | invest as tool layer only |
@@ -56,6 +57,7 @@ Why:
 - continuous-QEC bridge
 - Maxwell / gauge projection branch
 - workbench / studio layer, except when a new theorem/result needs to be surfaced
+- structural discovery subsystem, except when it is extending into a richer theorem-backed augmentation class
 
 ## Demote Or Freeze
 

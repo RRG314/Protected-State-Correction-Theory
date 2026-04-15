@@ -135,6 +135,8 @@ h1 {
   gap: 0.55rem;
 }
 
+.wrap-row { align-items: stretch; }
+
 .action-row.compact button { flex: 1 1 0; }
 
 button,
@@ -634,6 +636,89 @@ button.ghost-button {
   color: var(--accent-deep);
 }
 
+.recommendation-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.recommendation-card {
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.recommendation-card.good {
+  border-color: rgba(53, 108, 74, 0.18);
+  background: rgba(53, 108, 74, 0.05);
+}
+
+.recommendation-card.neutral {
+  border-color: rgba(28, 29, 33, 0.12);
+}
+
+.recommendation-header,
+.recommendation-meta,
+.before-after-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.recommendation-kind,
+.recommendation-regime {
+  border-radius: 999px;
+  padding: 0.26rem 0.6rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(28,29,33,0.06);
+  color: var(--muted);
+}
+
+.recommendation-meta span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.before-after-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.85rem 0.9rem;
+  display: grid;
+  gap: 0.25rem;
+  background: rgba(255,255,255,0.72);
+}
+
+.before-after-card.before {
+  border-color: rgba(166, 50, 41, 0.2);
+  background: rgba(166, 50, 41, 0.06);
+}
+
+.before-after-card.after {
+  border-color: rgba(53, 108, 74, 0.2);
+  background: rgba(53, 108, 74, 0.06);
+}
+
+.before-after-card small {
+  margin-top: 0;
+}
+
+.before-after-card code {
+  display: block;
+  white-space: pre-wrap;
+  background: rgba(255,255,255,0.75);
+  padding: 0.72rem;
+  border-radius: 14px;
+  line-height: 1.42;
+}
+
 .guidance-list {
   margin: 0.8rem 0 0;
   padding-left: 1.1rem;
@@ -717,7 +802,8 @@ button.ghost-button {
   .figure-grid.double,
   .figure-grid.triple,
   .metric-grid,
-  .value-grid {
+  .value-grid,
+  .before-after-grid {
     grid-template-columns: 1fr;
   }
 

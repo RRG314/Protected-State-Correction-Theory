@@ -1,0 +1,440 @@
+{
+  "summary": {
+    "demo_count": 4,
+    "exact_after_count": 4,
+    "families": [
+      "periodic_modal_repair",
+      "control_history_repair",
+      "weaker_vs_stronger_split",
+      "restricted_linear_measurement_repair"
+    ]
+  },
+  "demos": {
+    "periodic_modal_repair": {
+      "family": "periodic_modal",
+      "title": "Periodic modal structural discovery",
+      "protected_label": "full weighted modal sum",
+      "observation_label": "cutoff vorticity (cutoff 3)",
+      "current_regime": "impossible",
+      "exact": false,
+      "asymptotic": false,
+      "impossible": true,
+      "theorem_status": "family-specific theorem/no-go mix",
+      "protected_object": "chosen periodic modal coefficient or protected functional",
+      "disturbance_description": "unseen modal content or fully unresolved divergence-only ambiguity",
+      "current_failure_summary": "The current periodic record does not resolve every mode used by the protected target.",
+      "missing_structure": "Retain the full protected modal support in the record, or weaken the target to the currently visible support.",
+      "failure_modes": [
+        "retained cutoff misses part of the protected modal support"
+      ],
+      "weaker_targets": [
+        "leading modal coefficient",
+        "first two modal coefficients",
+        "low-mode weighted sum",
+        "band-limited contrast functional"
+      ],
+      "recommendations": [
+        {
+          "fix_id": "raise-cutoff",
+          "title": "Raise cutoff to 4",
+          "action_kind": "add_mode",
+          "rationale": "The protected-support threshold law on the tested modal family says the retained cutoff must include every mode used by the protected variable.",
+          "theorem_status": "family-specific threshold result with repeated falsification",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "additional cutoff levels",
+          "expected_regime": "exact",
+          "applies_config": {
+            "periodicObservation": "cutoff_vorticity",
+            "periodicCutoff": 4
+          }
+        },
+        {
+          "fix_id": "weaken-mode_1_coefficient",
+          "title": "Weaken target to leading modal coefficient",
+          "action_kind": "weaken_target",
+          "rationale": "The current retained support already resolves this weaker periodic target exactly.",
+          "theorem_status": "family-specific threshold result with repeated falsification",
+          "minimal": false,
+          "cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "applies_config": {
+            "periodicProtected": "mode_1_coefficient"
+          }
+        }
+      ],
+      "chosen_fix": {
+        "fix_id": "raise-cutoff",
+        "title": "Raise cutoff to 4",
+        "action_kind": "add_mode",
+        "rationale": "The protected-support threshold law on the tested modal family says the retained cutoff must include every mode used by the protected variable.",
+        "theorem_status": "family-specific threshold result with repeated falsification",
+        "minimal": true,
+        "cost": 1.0,
+        "cost_unit": "additional cutoff levels",
+        "expected_regime": "exact",
+        "applies_config": {
+          "periodicObservation": "cutoff_vorticity",
+          "periodicCutoff": 4
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "regime_changed": true,
+        "key_metric_name": "collision gap",
+        "key_metric_before": 0.5000000000000001,
+        "key_metric_after": 0.0,
+        "exact_after": true,
+        "impossible_after": false,
+        "narrative": "The proposed periodic augmentation restores the missing protected modal support and moves the example into the exact branch."
+      },
+      "proof_links": [
+        "docs/theory/advanced-directions/constrained-observation-results-report.md",
+        "docs/theorem-candidates/pvrt-theorem-spine.md",
+        "docs/cfd/incompressible-projection.md"
+      ],
+      "limitations": [
+        "finite periodic modal family only",
+        "protected-support thresholds are family-specific rather than universal PDE laws"
+      ],
+      "metrics": {
+        "predicted_min_cutoff": 4,
+        "current_cutoff": 3,
+        "collision_gap": 0.5000000000000001,
+        "mean_recovery_error": 0.142857142857143,
+        "max_recovery_error": 0.2500000000000022,
+        "weaker_target_count": 4
+      }
+    },
+    "control_history_repair": {
+      "family": "diagonal_control",
+      "title": "Diagonal control structural discovery",
+      "protected_label": "second sensor moment functional",
+      "observation_label": "2-step scalar history on profile three_active",
+      "current_regime": "impossible",
+      "exact": false,
+      "asymptotic": false,
+      "impossible": true,
+      "theorem_status": "family-specific threshold result with interpolation checks",
+      "protected_object": "chosen protected functional on a diagonal control family",
+      "disturbance_description": "unresolved hidden functional components under the current history length and sensor profile",
+      "current_failure_summary": "The current history is too short for exact interpolation of the chosen protected functional.",
+      "missing_structure": "Add more history or weaken the target to a functional generated by the active moment family.",
+      "failure_modes": [
+        "finite observation horizon is too short to interpolate the protected functional"
+      ],
+      "weaker_targets": [
+        "sensor-weighted state sum",
+        "first sensor moment functional"
+      ],
+      "recommendations": [
+        {
+          "fix_id": "increase-horizon",
+          "title": "Increase horizon to 3",
+          "action_kind": "add_history",
+          "rationale": "On the tested diagonal family, exact recovery begins once the history is long enough to interpolate the protected functional on the active sensor spectrum.",
+          "theorem_status": "family-specific threshold result with interpolation checks",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "extra history steps",
+          "expected_regime": "exact",
+          "applies_config": {
+            "controlHorizon": 3
+          }
+        },
+        {
+          "fix_id": "weaken-sensor_sum",
+          "title": "Weaken target to sensor-weighted state sum",
+          "action_kind": "weaken_target",
+          "rationale": "This weaker functional is already generated by the current history length and sensor profile.",
+          "theorem_status": "family-specific threshold result with interpolation checks",
+          "minimal": false,
+          "cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "applies_config": {
+            "controlFunctional": "sensor_sum"
+          }
+        }
+      ],
+      "chosen_fix": {
+        "fix_id": "increase-horizon",
+        "title": "Increase horizon to 3",
+        "action_kind": "add_history",
+        "rationale": "On the tested diagonal family, exact recovery begins once the history is long enough to interpolate the protected functional on the active sensor spectrum.",
+        "theorem_status": "family-specific threshold result with interpolation checks",
+        "minimal": true,
+        "cost": 1.0,
+        "cost_unit": "extra history steps",
+        "expected_regime": "exact",
+        "applies_config": {
+          "controlHorizon": 3
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "regime_changed": true,
+        "key_metric_name": "collision gap",
+        "key_metric_before": 2.0,
+        "key_metric_after": 0.0,
+        "exact_after": true,
+        "impossible_after": false,
+        "narrative": "The proposed history augmentation reaches the first exact interpolation horizon for the current protected functional."
+      },
+      "proof_links": [
+        "docs/theory/advanced-directions/constrained-observation-results-report.md",
+        "docs/theorem-candidates/pvrt-theorem-spine.md",
+        "docs/control/worked-linear-example.md"
+      ],
+      "limitations": [
+        "diagonal scalar-output family only",
+        "history threshold law is currently family-specific rather than a general observer theorem"
+      ],
+      "metrics": {
+        "predicted_min_horizon": 3,
+        "current_horizon": 2,
+        "collision_gap": 2.0,
+        "interpolation_available": true,
+        "weaker_target_count": 2
+      }
+    },
+    "weaker_vs_stronger_split": {
+      "family": "qubit_fixed_basis",
+      "title": "Qubit weaker-versus-stronger structural discovery",
+      "protected_label": "full Bloch vector",
+      "observation_label": "fixed-basis record with phase window 30.0 degrees",
+      "current_regime": "impossible",
+      "exact": false,
+      "asymptotic": false,
+      "impossible": true,
+      "theorem_status": "family-specific split and no-go",
+      "protected_object": "chosen qubit protected variable under a fixed-basis classical record",
+      "disturbance_description": "phase-sensitive information lost under the fixed-basis measurement map",
+      "current_failure_summary": "The current fixed-basis record collapses phase-sensitive Bloch information.",
+      "missing_structure": "Either add a complementary basis or weaken the target to the phase-insensitive z coordinate.",
+      "failure_modes": [
+        "phase freedom creates record fibers with different Bloch vectors and the same fixed-basis statistics"
+      ],
+      "weaker_targets": [
+        "z coordinate only"
+      ],
+      "recommendations": [
+        {
+          "fix_id": "weaken-z",
+          "title": "Weaken target to z coordinate only",
+          "action_kind": "weaken_target",
+          "rationale": "Under the fixed-basis record, the z coordinate survives exactly even when the full Bloch vector does not.",
+          "theorem_status": "proved family-specific no-go / weaker-target split",
+          "minimal": true,
+          "cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "applies_config": {
+            "qubitProtected": "z_coordinate"
+          }
+        },
+        {
+          "fix_id": "add-basis",
+          "title": "Add a complementary measurement basis",
+          "action_kind": "add_measurement",
+          "rationale": "This is the standard physical way to recover phase-sensitive information, but the repo does not yet prove a theorem for the richer basis family.",
+          "theorem_status": "standard heuristic outside the current theorem spine",
+          "minimal": false,
+          "cost": 1.0,
+          "cost_unit": "additional basis family",
+          "expected_regime": "likely exact on the enlarged family",
+          "applies_config": {
+            "qubitProtected": "bloch_vector",
+            "qubitExtraBasis": true
+          }
+        }
+      ],
+      "chosen_fix": {
+        "fix_id": "weaken-z",
+        "title": "Weaken target to z coordinate only",
+        "action_kind": "weaken_target",
+        "rationale": "Under the fixed-basis record, the z coordinate survives exactly even when the full Bloch vector does not.",
+        "theorem_status": "proved family-specific no-go / weaker-target split",
+        "minimal": true,
+        "cost": null,
+        "cost_unit": null,
+        "expected_regime": "exact",
+        "applies_config": {
+          "qubitProtected": "z_coordinate"
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "regime_changed": true,
+        "key_metric_name": "collision law",
+        "key_metric_before": 0.9999999999999999,
+        "key_metric_after": 0.0,
+        "exact_after": true,
+        "impossible_after": false,
+        "narrative": "Weakening the target removes the phase-sensitive degrees of freedom that the fixed-basis record cannot resolve."
+      },
+      "proof_links": [
+        "docs/theory/advanced-directions/constrained-observation-results-report.md",
+        "docs/theorem-candidates/pvrt-theorem-spine.md",
+        "docs/physics/continuous-quantum-error-correction.md"
+      ],
+      "limitations": [
+        "fixed-basis toy family only",
+        "complementary-basis recommendation is standard physical guidance, not yet a repo theorem"
+      ],
+      "metrics": {
+        "phase_window_deg": 30.0,
+        "collision_gap": 0.9999999999999999,
+        "weaker_target_count": 1
+      }
+    },
+    "restricted_linear_measurement_repair": {
+      "family": "restricted_linear",
+      "title": "Restricted-linear structural discovery",
+      "protected_label": "coordinate x3",
+      "observation_label": "measure x1, measure x2+x3",
+      "current_regime": "impossible",
+      "exact": false,
+      "asymptotic": false,
+      "impossible": true,
+      "theorem_status": "theorem-backed in the restricted-linear branch",
+      "protected_object": "chosen protected row family Lx on a finite restricted linear state family",
+      "disturbance_description": "state differences that remain invisible to the active record rows",
+      "current_failure_summary": "Exact recovery is blocked because the current measurement rows do not span the protected row family.",
+      "missing_structure": "Add measurement rows that span the unrecoverable protected rows.",
+      "failure_modes": [
+        "nullspace witness changes the protected target while leaving the record fixed",
+        "protected row space is not contained in the active observation row space"
+      ],
+      "weaker_targets": [
+        "sum x2+x3"
+      ],
+      "recommendations": [
+        {
+          "fix_id": "add-measurement-0",
+          "title": "Add minimal measurement set",
+          "action_kind": "add_measurement",
+          "rationale": "These added rows are the smallest candidate-library augmentation that makes the protected row space observable on the restricted family.",
+          "theorem_status": "proved on the restricted-linear branch",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "measurements",
+          "expected_regime": "exact",
+          "applies_config": {
+            "linearMeasurements": {
+              "measure_x1": true,
+              "measure_x2_plus_x3": true,
+              "measure_x2": true
+            }
+          }
+        },
+        {
+          "fix_id": "add-measurement-1",
+          "title": "Add minimal measurement set",
+          "action_kind": "add_measurement",
+          "rationale": "These added rows are the smallest candidate-library augmentation that makes the protected row space observable on the restricted family.",
+          "theorem_status": "proved on the restricted-linear branch",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "measurements",
+          "expected_regime": "exact",
+          "applies_config": {
+            "linearMeasurements": {
+              "measure_x1": true,
+              "measure_x2_plus_x3": true,
+              "measure_x3": true
+            }
+          }
+        },
+        {
+          "fix_id": "add-measurement-2",
+          "title": "Add minimal measurement set",
+          "action_kind": "add_measurement",
+          "rationale": "These added rows are the smallest candidate-library augmentation that makes the protected row space observable on the restricted family.",
+          "theorem_status": "proved on the restricted-linear branch",
+          "minimal": true,
+          "cost": 1.0,
+          "cost_unit": "measurements",
+          "expected_regime": "exact",
+          "applies_config": {
+            "linearMeasurements": {
+              "measure_x1": true,
+              "measure_x2_plus_x3": true,
+              "measure_x1_plus_x2": true
+            }
+          }
+        },
+        {
+          "fix_id": "weaken-x2_plus_x3",
+          "title": "Weaken target to sum x2+x3",
+          "action_kind": "weaken_target",
+          "rationale": "The current record already supports this weaker protected target exactly, so weakening the target is a real structural option rather than a cosmetic fallback.",
+          "theorem_status": "proved on the restricted-linear branch",
+          "minimal": false,
+          "cost": null,
+          "cost_unit": null,
+          "expected_regime": "exact",
+          "applies_config": {
+            "linearProtected": "x2_plus_x3"
+          }
+        }
+      ],
+      "chosen_fix": {
+        "fix_id": "add-measurement-0",
+        "title": "Add minimal measurement set",
+        "action_kind": "add_measurement",
+        "rationale": "These added rows are the smallest candidate-library augmentation that makes the protected row space observable on the restricted family.",
+        "theorem_status": "proved on the restricted-linear branch",
+        "minimal": true,
+        "cost": 1.0,
+        "cost_unit": "measurements",
+        "expected_regime": "exact",
+        "applies_config": {
+          "linearMeasurements": {
+            "measure_x1": true,
+            "measure_x2_plus_x3": true,
+            "measure_x2": true
+          }
+        }
+      },
+      "comparison": {
+        "before_regime": "impossible",
+        "after_regime": "exact",
+        "regime_changed": true,
+        "key_metric_name": "collision gap",
+        "key_metric_before": 1.0,
+        "key_metric_after": 0.0,
+        "exact_after": true,
+        "impossible_after": false,
+        "narrative": "The proposed augmentation removes the protected-variable-changing nullspace witness and moves the restricted family into the exact regime."
+      },
+      "proof_links": [
+        "docs/theory/advanced-directions/pvrt-theory-program.md",
+        "docs/theorem-candidates/pvrt-theorem-spine.md",
+        "docs/app/structural-discovery-studio.md"
+      ],
+      "limitations": [
+        "restricted finite-dimensional linear family only",
+        "candidate-library augmentation is exact only inside the provided row library"
+      ],
+      "metrics": {
+        "rank_observation": 2,
+        "rank_protected": 1,
+        "nullspace_protected_gap": 1.0,
+        "unrestricted_minimal_added_measurements": 1,
+        "candidate_minimal_added_measurements": 1,
+        "row_space_residuals": [
+          0.7071067811865475
+        ],
+        "unrecoverable_row_indices": [
+          0
+        ],
+        "weaker_target_count": 1
+      }
+    }
+  }
+}

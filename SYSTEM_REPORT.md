@@ -16,6 +16,7 @@ The strongest current picture is:
 - a restricted-linear exact-regime stability envelope and same-rank insufficiency theorem inside that same branch,
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
+- a Structural Discovery subsystem that can diagnose failure, propose a supported repair, and validate before/after regime changes on multiple families,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - a visible branch-audit and open-problem program layer,
@@ -203,7 +204,14 @@ Status: `kept formal/computational branch with a restricted PVRT spine`
   - same-record weaker-versus-stronger recovery splits,
   - corrected one-step / two-step / observer split in the toy control lane
 
-### 11. Rejected branch
+### 11. Structural Discovery subsystem
+Status: `active theorem-linked engineering subsystem`
+- protected object: branch-specific protected variable or protected state summary
+- disturbance object: ambiguity, hidden support, nullspace witness, short history, or incompatible record structure
+- operator: diagnosis plus validated augmentation / redesign recommendation
+- main value: turn the strongest recoverability and design results into an end-to-end failure-to-repair workflow
+
+### 12. Rejected branch
 - naive periodic-projector reuse for bounded-domain exact correction
 - generic constrained Hamiltonian automatic-fit language
 - optimizer / ML bridge material as a main theory lane
@@ -254,10 +262,10 @@ Workbench docs:
 - [docs/app/workbench-overview.md](docs/app/workbench-overview.md)
 - [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
 - [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
-- [docs/app/recoverability-correction-studio.md](docs/app/recoverability-correction-studio.md)
+- [docs/app/structural-discovery-studio.md](docs/app/structural-discovery-studio.md)
 
 Workbench modules:
-- Recoverability / Correction Studio
+- Structural Discovery Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -302,9 +310,9 @@ Validation status:
 - markdown link check: passed
 - naming consistency check: passed
 - expanded randomized and multi-grid falsification checks: passed
-- real browser smoke of the Recoverability / Correction Studio: passed
-- Node workbench tests: `17 passed`
-- Python theorem/operator/example tests: `94 passed`
+- real browser smoke of the Structural Discovery Studio: passed
+- Node workbench tests: `18 passed`
+- Python theorem/operator/example tests: `100 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)

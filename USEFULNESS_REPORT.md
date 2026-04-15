@@ -43,7 +43,7 @@ The repository now includes reusable templates for:
 
 ## 3. What Became More Useful In This Pass
 
-1. the Recoverability Lab became a real Recoverability / Correction Studio
+1. the Recoverability Lab became a real Structural Discovery Studio
 2. the workbench now carries explicit next-step logic tied to actual branch results
 3. a reusable linear design engine was added in Python and surfaced in the studio
 4. templates were added so users can start from tested patterns instead of reverse-engineering the repo

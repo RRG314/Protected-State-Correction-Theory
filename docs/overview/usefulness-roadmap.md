@@ -6,7 +6,7 @@ This roadmap audits the repository for practical usefulness rather than only the
 
 ## A. Immediate High-Value Improvements
 
-1. keep the Recoverability / Correction Studio as the central decision surface
+1. keep the Structural Discovery Studio as the central decision surface
 2. expose reusable templates that let users start from a known-good setup
 3. route users by goal rather than only by theorem family
 4. make branch outputs actionable: what failed, why, and what to add next

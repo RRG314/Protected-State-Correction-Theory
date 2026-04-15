@@ -96,7 +96,7 @@ The repository is organized so readers can enter from different angles:
 7. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
 8. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
 9. [Protected-State Correction Workbench](docs/workbench/index.html)
-10. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
+10. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
 11. [Template Index](docs/templates/README.md)
 12. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
 13. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
@@ -104,10 +104,13 @@ The repository is organized so readers can enter from different angles:
 15. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
 16. [Physics System Matrix](docs/physics/physics-system-matrix.md)
 17. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-18. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-19. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-20. [Open-Problem Program](docs/research-program/open-problem-program.md)
-21. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+18. [Structural Discovery Overview](docs/structural-discovery/overview.md)
+19. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
+20. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
+21. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+22. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+23. [Open-Problem Program](docs/research-program/open-problem-program.md)
+24. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -116,10 +119,13 @@ Use it as a theory repository:
 
 Use it as a scientific workbench:
 - run the static workbench to explore exact projection, sector recovery, generator-based damping, and explicit no-go examples.
-- use the Recoverability / Correction Studio to decide what record is sufficient, what weaker target is still recoverable, and what to add next.
+- use the Structural Discovery Studio to diagnose why a setup fails, what weaker target is still recoverable, what structural change to try next, and whether that change actually repairs the problem.
 
 Use it as a design system:
 - start from the reusable templates to build restricted linear recovery checks, observability checks, projection threshold sweeps, ambiguity witnesses, and no-go diagnostics on your own problem.
+
+Use it as a structural-discovery engine:
+- start from a failing setup, let the studio identify the structural blocker, inspect theorem-backed or family-backed fix cards, apply a supported fix, and compare before versus after.
 
 Use it as a physics comparison layer:
 - trace which physics systems are kept, which are conditional, and which were rejected after operator-level testing.
@@ -174,7 +180,7 @@ The repository now includes a static GitHub-Pages-compatible workbench in:
 - `docs/workbench/`
 
 Modules:
-- Recoverability / Correction Studio
+- Structural Discovery Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -222,7 +228,7 @@ Start here:
 8. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
 9. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
 10. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
-11. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
+11. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
 12. [Template Index](docs/templates/README.md)
 
 ## Physics Extension

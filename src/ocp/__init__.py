@@ -85,6 +85,16 @@ from .design import (
     restricted_row_space_residuals,
     unrestricted_exact_augmentation,
 )
+from .structural_discovery import (
+    StructuralComparison,
+    StructuralDiscoveryReport,
+    StructuralFixOption,
+    discover_diagonal_control_structure,
+    discover_linear_template_structure,
+    discover_periodic_modal_structure,
+    discover_qubit_target_split,
+    structural_discovery_demo_reports,
+)
 
 __all__ = [
     "FiniteOCPSystem",
@@ -177,4 +187,12 @@ __all__ = [
     "recoverable_protected_rows",
     "restricted_row_space_residuals",
     "unrestricted_exact_augmentation",
+    "StructuralComparison",
+    "StructuralDiscoveryReport",
+    "StructuralFixOption",
+    "discover_diagonal_control_structure",
+    "discover_linear_template_structure",
+    "discover_periodic_modal_structure",
+    "discover_qubit_target_split",
+    "structural_discovery_demo_reports",
 ]

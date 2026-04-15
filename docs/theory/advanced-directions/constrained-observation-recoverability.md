@@ -1149,7 +1149,7 @@ If this branch survives initial falsification, it should live under a dedicated 
 
 Possible workbench module if the branch survives:
 
-- **Recoverability / Correction Studio**
+- **Structural Discovery Studio**
 
 with:
 

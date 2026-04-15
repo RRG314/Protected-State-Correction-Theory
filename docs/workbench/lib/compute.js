@@ -945,7 +945,7 @@ function analyzeDiagonalControlComplexity(config) {
           : `Impossible below the minimal horizon ${predictedMinHorizon}`,
     exact,
     asymptotic: false,
-    impossible: predictedMinHorizon === null,
+    impossible: predictedMinHorizon === null || !exact,
     deltas,
     collapse,
     selectedDelta,
@@ -1127,11 +1127,13 @@ function analyzeLinearTemplateRecoverability(config) {
     unrecoverableProtectedRows: unrecoverable,
     rowResiduals: residuals,
     weakerProtectedOptions: recoverableOptions.map((item) => item.label),
+    weakerProtectedChoices: recoverableOptions,
     unrestrictedMinimalAddedMeasurements: unrestrictedMinimalAdded,
     minimalAddedMeasurements: augmentation.minimalAdded,
     stabilitySlopeUpper,
     selectedStabilityUpperBound: stabilitySlopeUpper === null ? null : stabilitySlopeUpper * selectedDelta,
     candidateExactSets: augmentation.exactSets.map((combo) => combo.map((index) => remainingCandidates[index].label)),
+    candidateExactIds: augmentation.exactSets.map((combo) => combo.map((index) => remainingCandidates[index].id)),
     nullspaceWitness: witness,
     nullspaceWitnessGap: witnessGap,
     templateProtectedOptions: Object.values(template.protectedOptions).map((item) => item.label),
@@ -1185,16 +1187,44 @@ function recoverabilityStatusLabel(result) {
   return 'Approximate';
 }
 
-function periodicWeakerSuggestions(cutoff) {
-  const options = [
-    { label: 'leading modal coefficient', threshold: 1 },
-    { label: 'first two modal coefficients', threshold: 2 },
-    { label: 'low-mode weighted sum', threshold: 2 },
-    { label: 'band-limited contrast functional', threshold: 3 },
-    { label: 'full weighted modal sum', threshold: 4 },
-    { label: 'full four-mode coefficient vector', threshold: 4 },
+function cloneValue(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function mergeRecoverabilityConfig(config, patch) {
+  const next = cloneValue(config);
+  for (const [key, value] of Object.entries(patch ?? {})) {
+    if (value && typeof value === 'object' && !Array.isArray(value) && typeof next[key] === 'object' && next[key] !== null && !Array.isArray(next[key])) {
+      next[key] = { ...next[key], ...value };
+    } else {
+      next[key] = value;
+    }
+  }
+  return next;
+}
+
+function periodicProtectedOptions() {
+  return [
+    { key: 'mode_1_coefficient', label: 'leading modal coefficient', threshold: 1 },
+    { key: 'modes_1_2_coefficients', label: 'first two modal coefficients', threshold: 2 },
+    { key: 'low_mode_sum', label: 'low-mode weighted sum', threshold: 2 },
+    { key: 'bandlimited_contrast', label: 'band-limited contrast functional', threshold: 3 },
+    { key: 'full_weighted_sum', label: 'full weighted modal sum', threshold: 4 },
+    { key: 'full_modal_coefficients', label: 'full four-mode coefficient vector', threshold: 4 },
   ];
-  return options.filter((option) => cutoff >= option.threshold).map((option) => option.label);
+}
+
+function controlFunctionalOptions() {
+  return [
+    { key: 'sensor_sum', label: 'sensor-weighted state sum' },
+    { key: 'first_moment', label: 'first sensor moment functional' },
+    { key: 'second_moment', label: 'second sensor moment functional' },
+    { key: 'protected_coordinate', label: 'third coordinate x₃' },
+  ];
+}
+
+function periodicWeakerSuggestions(cutoff) {
+  return periodicProtectedOptions().filter((option) => cutoff >= option.threshold).map((option) => option.label);
 }
 
 function guidanceForRecoverability(result, config) {
@@ -1376,13 +1406,315 @@ function guidanceForRecoverability(result, config) {
   }
 }
 
-function decorateRecoverabilityGuidance(result, config) {
+function theoremStatusForRecoverability(result, config) {
+  switch (config.system) {
+    case 'analytic':
+      return result.exact ? 'Explicit analytic exactness / stability toy model' : 'Analytic impossibility witness on the degenerate record';
+    case 'qubit':
+      return result.exact ? 'Family-specific weaker-target split' : 'Family-specific phase-loss no-go with standard measurement enrichment outside the current theorem spine';
+    case 'periodic':
+      return config.periodicObservation === 'divergence_only'
+        ? 'Theorem-backed no-go plus family-specific periodic support thresholds'
+        : 'Family-specific periodic threshold result with repeated falsification';
+    case 'control':
+      return result.controlModeLabel === 'minimal-history threshold model'
+        ? 'Family-specific finite-history threshold law with interpolation checks'
+        : 'Mixed exact / asymptotic control benchmark';
+    case 'linear':
+      return 'Restricted-linear theorem-backed design and augmentation spine';
+    default:
+      return 'Recoverability branch diagnostic';
+  }
+}
+
+function recommendationsForRecoverability(result, config) {
+  switch (config.system) {
+    case 'analytic': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-analytic',
+            title: 'Keep current record',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: 'The current analytic record already separates the protected scalar on the chosen family; only robustness tuning remains.',
+            minimal: true,
+            expectedRegime: 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      return [
+        {
+          id: 'add-coupling',
+          title: 'Add nonzero protected-coordinate coupling',
+          actionKind: 'add_measurement',
+          theoremStatus: 'Analytic exactness criterion on the toy family',
+          rationale: 'Any nonzero coupling to the protected coordinate restores exact recoverability on this analytic family.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { analyticEpsilon: 0.1 },
+          availableInStudio: true,
+        },
+      ];
+    }
+    case 'qubit': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-qubit',
+            title: 'Keep current protected target',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: 'The fixed-basis record already preserves the selected weaker target exactly on the current phase family.',
+            minimal: true,
+            expectedRegime: 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      return [
+        {
+          id: 'weaken-to-z',
+          title: 'Weaken target to z coordinate only',
+          actionKind: 'weaken_target',
+          theoremStatus: 'Family-specific weaker-target split',
+          rationale: 'The fixed-basis record keeps the phase-insensitive z coordinate exact even when the full Bloch vector collapses.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { qubitProtected: 'z_coordinate' },
+          availableInStudio: true,
+        },
+        {
+          id: 'add-basis',
+          title: 'Add a complementary basis',
+          actionKind: 'switch_architecture',
+          theoremStatus: 'Standard physics guidance outside the current theorem spine',
+          rationale: 'Adding a complementary basis is the conventional way to recover phase-sensitive information, but this richer architecture is not yet proven in the repo.',
+          minimal: false,
+          expectedRegime: 'likely exact on the enlarged measurement family',
+          patch: null,
+          availableInStudio: false,
+        },
+      ];
+    }
+    case 'periodic': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-periodic',
+            title: 'Keep current periodic record',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: 'The current record already retains the full protected modal support for the chosen target.',
+            minimal: true,
+            expectedRegime: 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      const recommendations = [];
+      if (config.periodicObservation === 'divergence_only') {
+        recommendations.push({
+          id: 'switch-to-cutoff-record',
+          title: `Switch to cutoff-vorticity record at cutoff ${result.predictedMinCutoff}`,
+          actionKind: 'switch_record',
+          theoremStatus: 'Theorem-backed divergence-only no-go plus family-specific threshold law',
+          rationale: 'The divergence-only record is structurally insufficient; a cutoff-vorticity record is the smallest supported exact architecture on this lane.',
+          minimal: false,
+          expectedRegime: 'exact',
+          patch: { periodicObservation: 'cutoff_vorticity', periodicCutoff: result.predictedMinCutoff },
+          availableInStudio: true,
+        });
+      } else {
+        recommendations.push({
+          id: 'raise-periodic-cutoff',
+          title: `Raise cutoff to ${result.predictedMinCutoff}`,
+          actionKind: 'add_mode',
+          theoremStatus: theoremStatusForRecoverability(result, config),
+          rationale: 'The current retained support misses part of the protected target; exact recovery begins at the first cutoff containing the whole protected support.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { periodicCutoff: result.predictedMinCutoff },
+          availableInStudio: true,
+        });
+      }
+      const weaker = periodicProtectedOptions()
+        .filter((option) => option.threshold <= (config.periodicObservation === 'divergence_only' ? 0 : result.currentCutoff))
+        .filter((option) => option.label !== result.protectedLabel)
+        .map((option) => ({
+          id: `weaken-periodic-${option.key}`,
+          title: `Weaken target to ${option.label}`,
+          actionKind: 'weaken_target',
+          theoremStatus: 'Family-specific periodic support threshold result',
+          rationale: 'This weaker target already lives on the currently visible modal support.',
+          minimal: false,
+          expectedRegime: 'exact',
+          patch: { periodicProtected: option.key },
+          availableInStudio: true,
+        }));
+      return [...recommendations, ...weaker];
+    }
+    case 'control': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-control',
+            title: 'Keep current control architecture',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: 'The current finite-history or observer architecture already supports the chosen protected variable.',
+            minimal: true,
+            expectedRegime: result.asymptotic ? 'asymptotic' : 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      const recommendations = [];
+      if (result.predictedMinHorizon !== null && Number(config.controlHorizon) < result.predictedMinHorizon) {
+        recommendations.push({
+          id: 'increase-control-horizon',
+          title: `Increase horizon to ${result.predictedMinHorizon}`,
+          actionKind: 'add_history',
+          theoremStatus: theoremStatusForRecoverability(result, config),
+          rationale: 'The current history is too short; exact recovery begins at the first horizon that interpolates the protected functional.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { controlHorizon: result.predictedMinHorizon },
+          availableInStudio: true,
+        });
+      }
+      if (result.controlModeLabel === 'two-state observer model' && result.asymptotic) {
+        recommendations.push({
+          id: 'keep-observer-architecture',
+          title: 'Switch to observer-style recovery',
+          actionKind: 'switch_architecture',
+          theoremStatus: 'Empirical/theorem-linked asymptotic control benchmark',
+          rationale: 'Single-shot exact recovery fails at the current horizon, but the ongoing record still supports asymptotic observer convergence.',
+          minimal: false,
+          expectedRegime: 'asymptotic',
+          patch: {},
+          availableInStudio: true,
+        });
+      }
+      const weaker = controlFunctionalOptions()
+        .filter((option) => option.key !== config.controlFunctional)
+        .filter((option) => guidanceForRecoverability(result, config).weaker.includes(option.label))
+        .map((option) => ({
+          id: `weaken-control-${option.key}`,
+          title: `Weaken target to ${option.label}`,
+          actionKind: 'weaken_target',
+          theoremStatus: 'Family-specific control-side weaker-target split',
+          rationale: 'The current record already spans this lower-complexity protected functional.',
+          minimal: false,
+          expectedRegime: 'exact',
+          patch: { controlFunctional: option.key },
+          availableInStudio: true,
+        }));
+      return [...recommendations, ...weaker];
+    }
+    case 'linear': {
+      if (result.exact) {
+        return [
+          {
+            id: 'keep-linear',
+            title: 'Keep current measurement set',
+            actionKind: 'keep',
+            theoremStatus: theoremStatusForRecoverability(result, config),
+            rationale: 'The current measurement rows already span the protected rows on the restricted family.',
+            minimal: true,
+            expectedRegime: 'exact',
+            patch: {},
+            availableInStudio: true,
+          },
+        ];
+      }
+      const recommendations = [];
+      if (result.candidateExactIds.length) {
+        const firstPatch = { ...(config.linearMeasurements ?? {}) };
+        result.candidateExactIds[0].forEach((id) => {
+          firstPatch[id] = true;
+        });
+        recommendations.push({
+          id: 'add-linear-measurements',
+          title: `Add ${result.candidateExactIds[0].join(' + ')}`,
+          actionKind: 'add_measurement',
+          theoremStatus: theoremStatusForRecoverability(result, config),
+          rationale: 'This is the smallest candidate-library augmentation that removes the protected-variable-changing nullspace witness.',
+          minimal: true,
+          expectedRegime: 'exact',
+          patch: { linearMeasurements: firstPatch },
+          availableInStudio: true,
+        });
+      }
+      result.weakerProtectedChoices
+        .filter((choice) => choice.label !== result.protectedLabel)
+        .forEach((choice) => {
+          recommendations.push({
+            id: `weaken-linear-${choice.key}`,
+            title: `Weaken target to ${choice.label}`,
+            actionKind: 'weaken_target',
+            theoremStatus: 'Restricted-linear weaker-target split',
+            rationale: 'The current record already spans this weaker protected target exactly.',
+            minimal: false,
+            expectedRegime: 'exact',
+            patch: { linearProtected: choice.key },
+            availableInStudio: true,
+          });
+        });
+      return recommendations;
+    }
+    default:
+      return [];
+  }
+}
+
+function decorateRecoverabilityGuidance(result, config, depth = 0) {
   const guidance = guidanceForRecoverability(result, config);
   const status = recoverabilityStatusLabel(result);
+  const recommendations = recommendationsForRecoverability(result, config);
+  let chosenRecommendation = null;
+  let comparison = null;
+  if (depth === 0) {
+    chosenRecommendation = recommendations.find((item) => item.availableInStudio && item.actionKind !== 'keep') ?? recommendations[0] ?? null;
+    if (chosenRecommendation && chosenRecommendation.patch && chosenRecommendation.actionKind !== 'keep') {
+      const nextAnalysis = analyzeRecoverability(mergeRecoverabilityConfig(config, chosenRecommendation.patch), depth + 1);
+      comparison = {
+        beforeRegime: status.toLowerCase(),
+        afterRegime: nextAnalysis.status.toLowerCase(),
+        regimeChanged: status !== nextAnalysis.status,
+        keyMetricName: 'κ(0)',
+        keyMetricBefore: result.kappa0,
+        keyMetricAfter: nextAnalysis.kappa0,
+        exactAfter: nextAnalysis.exact,
+        asymptoticAfter: nextAnalysis.asymptotic,
+        impossibleAfter: nextAnalysis.impossible,
+        narrative:
+          chosenRecommendation.actionKind === 'weaken_target'
+            ? 'Weakening the target removes the unresolved protected degrees of freedom that the current record cannot separate.'
+            : chosenRecommendation.actionKind === 'switch_architecture'
+              ? 'The proposed architecture change moves the system into a more appropriate recoverability regime for the chosen record.'
+              : 'The proposed augmentation adds the missing structure identified by the current failure analysis and changes the recoverability verdict.',
+      };
+    }
+  }
   return {
     ...result,
     status,
     guidance,
+    theoremStatus: theoremStatusForRecoverability(result, config),
+    missingStructure: guidance.missing,
+    structuralBlocker: guidance.blocker,
+    recommendedArchitecture: guidance.architecture,
+    weakerRecoverableTargets: guidance.weaker,
+    failureModes: guidance.noGo ? [guidance.noGo, guidance.blocker] : [guidance.blocker],
+    recommendations,
+    chosenRecommendation,
+    comparison,
     workflow: [
       { label: 'Define protected variable', status: result.protectedLabel ? 'done' : 'pending', detail: result.protectedLabel },
       { label: 'Check record sufficiency', status: result.exact ? 'done' : result.impossible ? 'blocked' : 'in-progress', detail: result.observationLabel },
@@ -1392,7 +1724,7 @@ function decorateRecoverabilityGuidance(result, config) {
   };
 }
 
-export function analyzeRecoverability(config) {
+function analyzeRecoverabilityCore(config) {
   let result;
   switch (config.system) {
     case 'linear':
@@ -1412,7 +1744,15 @@ export function analyzeRecoverability(config) {
       result = analyzeAnalyticRecoverability(config);
       break;
   }
-  return decorateRecoverabilityGuidance(result, config);
+  return result;
+}
+
+export function analyzeRecoverability(config, depth = 0) {
+  return decorateRecoverabilityGuidance(analyzeRecoverabilityCore(config), config, depth);
+}
+
+export function analyzeStructuralDiscovery(config) {
+  return analyzeRecoverability(config, 0);
 }
 
 function gridAxis(n) {

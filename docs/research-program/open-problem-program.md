@@ -125,3 +125,16 @@ This file turns each major branch into an explicit research program. Each branch
   browser smoke, static test coverage, script-to-workbench output comparisons, and stale-artifact checks.
 - Validation path:
   workbench example generation, Node tests, browser interaction checks, and generated-artifact consistency tests.
+
+## 10. Structural Discovery Subsystem
+
+- Serious open question:
+  how far can structural diagnosis and minimal-fix recommendation be pushed beyond the current theorem-backed and family-backed lanes without drifting into generic heuristic tooling?
+- Theorem target:
+  a broader theorem-backed structural-augmentation criterion that covers more than the current restricted-linear and family-specific threshold demos.
+- No-go target:
+  prove that no validated in-studio fix can exist for certain families unless the branch underneath first proves a richer augmentation theorem.
+- Computational attack plan:
+  broader demo families, recommendation-ranking stress tests, brute-force verification of proposed repairs on small families, and browser-vs-script consistency checks.
+- Validation path:
+  generated demo artifacts, recommendation application tests, browser smoke on before/after regime changes, and theorem/provenance label checks.

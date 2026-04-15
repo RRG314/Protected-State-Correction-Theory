@@ -24,8 +24,8 @@ import {
 
 const LAB_META = {
   recoverability: {
-    label: 'Recoverability / Correction Studio',
-    short: 'Decide what is recoverable, what is blocked, and what to add next.',
+    label: 'Structural Discovery Studio',
+    short: 'Diagnose structural failure, identify the missing piece, and test a real fix.',
     branch: 'Constrained-observation branch',
     fit: 'Exact / approximate / asymptotic / impossible classification',
     status: 'ACTIVE RESEARCH BRANCH',
@@ -34,16 +34,16 @@ const LAB_META = {
     disturbance: 'Unseen ambiguity inside the observation fibers',
     correction: 'Recovery map R after constrained observation M',
     plain:
-      'This studio turns the recoverability branch into a decision tool. It asks what you want to preserve, what record you actually have, whether recovery is exact, approximate, asymptotic, or impossible, and what you should change next.',
+      'This studio turns the recoverability branch into a structural-discovery engine. It asks what you want to preserve, why the current architecture fails or partially fails, what is missing, and which change actually moves the system into a better regime.',
     technical:
-      'Implements the constrained-observation recoverability branch as a design studio. The module computes finite-sample collapse curves κ(δ), fiber-collision boundaries, restricted-linear sufficiency diagnostics, minimal augmentation suggestions, and system-specific recovery behavior for analytic, quantum, periodic-flow, control-observer, and reusable linear-template examples.',
-    use: 'Use this when you want to decide whether a record is sufficient, what weaker variable is still recoverable, what extra measurements would fix the problem, and which recovery architecture fits best.',
+      'Implements the constrained-observation recoverability branch as a structural-discovery studio. The module computes finite-sample collapse curves κ(δ), fiber-collision boundaries, restricted-linear sufficiency diagnostics, minimal augmentation suggestions, weaker-versus-stronger target splits, and before/after regime changes for analytic, quantum, periodic-flow, control-observer, and reusable linear-template examples.',
+    use: 'Use this when you want to diagnose a failing setup, identify what structure is missing, test a minimal augmentation, compare before versus after, and decide whether to enrich the record, weaken the target, or switch architecture.',
     avoid: 'Do not treat loss of recoverability as a metaphysical statement. This branch is about operator-level information access and reconstruction limits.',
     refs: [
-      { title: 'Branch overview', href: '../theory/advanced-directions/constrained-observation-recoverability.md', note: 'Design scope and falsification target' },
-      { title: 'Formalism', href: '../theory/advanced-directions/constrained-observation-formalism.md', note: 'Definitions, propositions, and theorem candidates' },
-      { title: 'Results report', href: '../theory/advanced-directions/constrained-observation-results-report.md', note: 'Experiments, outputs, and assessment' },
-      { title: 'Studio workflow', href: '../app/recoverability-correction-studio.md', note: 'User-facing design path' },
+      { title: 'Structural Discovery overview', href: '../structural-discovery/overview.md', note: 'Capability overview and scope' },
+      { title: 'Structural Discovery formalism', href: '../structural-discovery/formalism.md', note: 'Problem, failure, augmentation, and validation layers' },
+      { title: 'Structural Discovery algorithms', href: '../structural-discovery/algorithms.md', note: 'Detection, augmentation, and redesign logic' },
+      { title: 'Studio workflow', href: '../app/structural-discovery-studio.md', note: 'User-facing design path' },
     ],
     literature: [
       { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum recoverability anchor' },
@@ -261,6 +261,59 @@ const CONTINUOUS_PRESETS = {
   },
 };
 
+const STRUCTURAL_DISCOVERY_PRESETS = {
+  periodic_modal_repair: {
+    label: 'Periodic modal repair',
+    patch: {
+      system: 'periodic',
+      studioMode: 'guided',
+      periodicObservation: 'cutoff_vorticity',
+      periodicProtected: 'full_weighted_sum',
+      periodicCutoff: 3,
+      periodicDelta: 2,
+    },
+  },
+  control_history_repair: {
+    label: 'Control history repair',
+    patch: {
+      system: 'control',
+      studioMode: 'guided',
+      controlMode: 'diagonal_threshold',
+      controlProfile: 'three_active',
+      controlFunctional: 'second_moment',
+      controlHorizon: 2,
+      controlDelta: 0.5,
+    },
+  },
+  weaker_vs_stronger_split: {
+    label: 'Weaker vs stronger target',
+    patch: {
+      system: 'qubit',
+      studioMode: 'guided',
+      qubitProtected: 'bloch_vector',
+      qubitPhaseWindowDeg: 30,
+      qubitDelta: 0.2,
+    },
+  },
+  linear_measurement_repair: {
+    label: 'Restricted-linear repair',
+    patch: {
+      system: 'linear',
+      studioMode: 'guided',
+      linearTemplate: 'sensor_basis',
+      linearProtected: 'x3',
+      linearDelta: 1.0,
+      linearMeasurements: {
+        measure_x1: true,
+        measure_x2_plus_x3: true,
+        measure_x2: false,
+        measure_x3: false,
+        measure_x1_plus_x2: false,
+      },
+    },
+  },
+};
+
 const LAB_DEFAULTS = cloneState(DEFAULT_STATE.labs);
 
 let state = initialState();
@@ -320,6 +373,31 @@ function applyContinuousPreset(name) {
   state.labs.continuous.matrix = preset.matrix.map((row) => row.slice());
   state.labs.continuous.x0 = preset.x0.slice();
   state.labs.continuous.frame = state.labs.continuous.steps;
+}
+
+function applyStructuralPreset(name) {
+  const preset = STRUCTURAL_DISCOVERY_PRESETS[name];
+  if (!preset) return;
+  state.activeLab = 'recoverability';
+  state.labs.recoverability = {
+    ...cloneState(DEFAULT_STATE.labs.recoverability),
+    ...cloneState(preset.patch),
+  };
+  render();
+}
+
+function applyStructuralRecommendation(index) {
+  const recommendation = latestAnalysis?.recommendations?.[Number(index)];
+  if (!recommendation || !recommendation.availableInStudio || !recommendation.patch) return;
+  state.activeLab = 'recoverability';
+  state.labs.recoverability = {
+    ...cloneState(state.labs.recoverability),
+    ...cloneState(recommendation.patch),
+    linearMeasurements: recommendation.patch.linearMeasurements
+      ? { ...cloneState(state.labs.recoverability.linearMeasurements), ...cloneState(recommendation.patch.linearMeasurements) }
+      : cloneState(state.labs.recoverability.linearMeasurements),
+  };
+  render();
 }
 
 function render() {
@@ -769,6 +847,15 @@ function renderConfigPane() {
     case 'recoverability':
       return `
         <div class="field">
+          <label>Validated demo scenarios</label>
+          <div class="action-row wrap-row">
+            ${Object.entries(STRUCTURAL_DISCOVERY_PRESETS)
+              .map(([key, preset]) => `<button type="button" class="ghost-button" data-structural-demo="${key}">${preset.label}</button>`)
+              .join('')}
+          </div>
+          <small class="field-note">Each preset starts from a real failing setup the studio can diagnose and repair inside the current theorem-backed or family-specific lanes.</small>
+        </div>
+        <div class="field">
           <label for="recoverability-studio-mode">Studio mode</label>
           <select id="recoverability-studio-mode" data-path="labs.recoverability.studioMode">
             <option value="guided" ${state.labs.recoverability.studioMode === 'guided' ? 'selected' : ''}>guided diagnosis</option>
@@ -857,7 +944,7 @@ function renderConfigPane() {
         ${state.labs.recoverability.system === 'linear' ? renderRecoverabilityLinearControls() : ''}
         <div class="callout ${latestAnalysis.impossible ? 'warn' : (latestAnalysis.exact || latestAnalysis.asymptotic) ? 'good' : ''}">
           <strong>${latestAnalysis.status}: ${latestAnalysis.classification}</strong>
-          <p>${latestAnalysis.guidance.blocker} ${latestAnalysis.guidance.missing}</p>
+          <p>${latestAnalysis.structuralBlocker} ${latestAnalysis.missingStructure}</p>
         </div>
       `;
     case 'exact':
@@ -1007,6 +1094,64 @@ function renderRecoverabilityStage() {
   const a = latestAnalysis;
   const guidedMode = state.labs.recoverability.studioMode !== 'diagnostic';
   const guidanceTone = a.impossible ? 'warn' : (a.exact || a.asymptotic) ? 'good' : '';
+  const recommendationCards = `
+    <div class="recommendation-grid">
+      ${a.recommendations
+        .map(
+          (item, index) => `
+            <article class="recommendation-card card-surface ${item.actionKind === 'keep' ? 'neutral' : item.expectedRegime === 'exact' ? 'good' : ''}">
+              <div class="recommendation-header">
+                <span class="recommendation-kind">${item.actionKind.replaceAll('_', ' ')}</span>
+                <span class="recommendation-regime">${item.expectedRegime}</span>
+              </div>
+              <strong>${item.title}</strong>
+              <p>${item.rationale}</p>
+              <div class="recommendation-meta">
+                <span>${item.theoremStatus}</span>
+                <span>${item.minimal ? 'minimal change' : 'non-minimal change'}</span>
+                <span>${item.availableInStudio ? 'testable here' : 'doc-linked only'}</span>
+              </div>
+              <div class="action-row">
+                ${item.availableInStudio && item.patch ? `<button class="primary" data-apply-recommendation="${index}">Apply in studio</button>` : ''}
+                ${item.cost !== undefined && item.cost !== null ? `<button class="ghost-button" disabled>Cost: ${item.cost} ${item.costUnit ?? ''}</button>` : ''}
+              </div>
+            </article>
+          `
+        )
+        .join('')}
+    </div>
+  `;
+  const comparisonPanel = a.comparison
+    ? `
+      <div class="figure-grid double top-gap">
+        <div class="figure" data-exportable="true">
+          <h4>Before / after evidence</h4>
+          <div class="before-after-grid">
+            <div class="before-after-card before">
+              <small>Before</small>
+              <strong>${a.comparison.beforeRegime}</strong>
+              <code>${a.comparison.keyMetricName}: ${Number(a.comparison.keyMetricBefore).toExponential(3)}</code>
+            </div>
+            <div class="before-after-card after">
+              <small>After</small>
+              <strong>${a.comparison.afterRegime}</strong>
+              <code>${a.comparison.keyMetricName}: ${Number(a.comparison.keyMetricAfter).toExponential(3)}</code>
+            </div>
+          </div>
+          <small>${a.comparison.narrative}</small>
+        </div>
+        <div class="figure">
+          <h4>Discovery provenance</h4>
+          <div class="value-grid">
+            <div><small>Theorem / evidence status</small><code>${a.theoremStatus}</code></div>
+            <div><small>Missing structure</small><code>${a.missingStructure}</code></div>
+            <div><small>Primary blocker</small><code>${a.structuralBlocker}</code></div>
+            <div><small>Chosen fix</small><code>${a.chosenRecommendation ? a.chosenRecommendation.title : 'none'}</code></div>
+          </div>
+        </div>
+      </div>
+    `
+    : '';
   const secondaryFigure = (() => {
     if (state.labs.recoverability.system === 'qubit') {
       return `
@@ -1116,7 +1261,7 @@ function renderRecoverabilityStage() {
             <div><small>Degeneracy ε</small><code>${a.epsilon.toFixed(3)}</code></div>
             <div><small>Amplification</small><code>${Number.isFinite(a.amplification) ? a.amplification.toFixed(3) : '∞'}</code></div>
             <div><small>Selected lower bound</small><code>${a.selectedLowerBound.toExponential(3)}</code></div>
-            <div><small>Interpretation</small><code>${a.guidance.missing}</code></div>
+            <div><small>Interpretation</small><code>${a.missingStructure}</code></div>
           </div>
         </div>
       `;
@@ -1128,8 +1273,8 @@ function renderRecoverabilityStage() {
           <div class="value-grid">
             <div><small>Phase window</small><code>${a.phaseWindowDeg.toFixed(0)}°</code></div>
             <div><small>Protected target</small><code>${a.protectedLabel}</code></div>
-            <div><small>Weaker recoverable target</small><code>${a.guidance.weaker.length ? a.guidance.weaker.join('\n') : 'none needed'}</code></div>
-            <div><small>Missing structure</small><code>${a.guidance.missing}</code></div>
+            <div><small>Weaker recoverable target</small><code>${a.weakerRecoverableTargets.length ? a.weakerRecoverableTargets.join('\n') : 'none needed'}</code></div>
+            <div><small>Missing structure</small><code>${a.missingStructure}</code></div>
           </div>
         </div>
       `;
@@ -1141,7 +1286,7 @@ function renderRecoverabilityStage() {
           <div class="value-grid">
             <div><small>Current cutoff</small><code>${a.currentCutoff ?? 'n/a'}</code></div>
             <div><small>Predicted minimum cutoff</small><code>${a.predictedMinCutoff ?? 'n/a'}</code></div>
-            <div><small>Weaker recoverable targets</small><code>${a.guidance.weaker.length ? a.guidance.weaker.join('\n') : 'none below current cutoff'}</code></div>
+            <div><small>Weaker recoverable targets</small><code>${a.weakerRecoverableTargets.length ? a.weakerRecoverableTargets.join('\n') : 'none below current cutoff'}</code></div>
             <div><small>No-go / threshold</small><code>${a.guidance.noGo ?? 'none'}</code></div>
           </div>
         </div>
@@ -1197,6 +1342,24 @@ function renderRecoverabilityStage() {
       </div>
       ${secondaryFigure}
     </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Failure analysis</h4>
+        <div class="callout ${guidanceTone}">
+          <strong>${a.recommendedArchitecture}</strong>
+          <p>${guidedMode ? a.missingStructure : a.structuralBlocker}</p>
+        </div>
+        <ul class="guidance-list">
+          ${a.failureModes.map((mode) => `<li>${mode}</li>`).join('')}
+        </ul>
+        <p class="studio-note"><strong>Weaker target now recoverable:</strong> ${a.weakerRecoverableTargets.length ? a.weakerRecoverableTargets.join(', ') : 'None currently suggested.'}</p>
+      </div>
+      <div class="figure">
+        <h4>Minimal fixes and redesigns</h4>
+        ${recommendationCards}
+      </div>
+    </div>
+    ${comparisonPanel}
     <div class="figure-grid double top-gap">
       <div class="figure">
         <h4>Decision workflow</h4>
@@ -1550,6 +1713,14 @@ function attachEvents() {
       const value = input.type === 'checkbox' ? input.checked : input.value;
       updateStatePath(input.dataset.path, value);
     });
+  });
+
+  document.querySelectorAll('[data-structural-demo]').forEach((button) => {
+    button.addEventListener('click', () => applyStructuralPreset(button.dataset.structuralDemo));
+  });
+
+  document.querySelectorAll('[data-apply-recommendation]').forEach((button) => {
+    button.addEventListener('click', () => applyStructuralRecommendation(button.dataset.applyRecommendation));
   });
 
   const matrixInput = document.getElementById('continuous-matrix');

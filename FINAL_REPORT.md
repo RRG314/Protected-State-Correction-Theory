@@ -19,7 +19,7 @@ This pass added major upgrades across the repo:
 2. a citable outside-literature map in `docs/references/citable-expansion-directions.md`
 3. a stronger physics-side counterexample for bounded-domain projector transplantation
 4. a redesigned static workbench with clearer card-based hierarchy, improved naming, and a kept Maxwell/gauge module
-5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Recoverability / Correction Studio
+5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Structural Discovery Studio
 6. a practical design layer with reusable templates, user-entry paths, and app-facing recoverability guidance
 7. a visible research-program layer with branch audit, ranked roadmap, open-problem program, theory-candidate assessment, and usefulness-by-branch notes
 8. a restricted bounded-domain exact theorem on the boundary-compatible finite-mode Hodge family
@@ -141,7 +141,7 @@ The workbench was redesigned and renamed to:
 - [Protected-State Correction Workbench](docs/workbench/index.html)
 
 Current modules:
-- Recoverability / Correction Studio
+- Structural Discovery Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -191,9 +191,9 @@ Current validation status:
 - naming consistency check: passed
 - static workbench asset check: passed
 - expanded randomized and multi-grid falsification checks: passed
-- real browser smoke of the Recoverability / Correction Studio: passed
-- Node workbench test suite: `17 passed`
-- Python theorem/operator/example test suite: `94 passed`
+- real browser smoke of the Structural Discovery Studio: passed
+- Node workbench test suite: `18 passed`
+- Python theorem/operator/example test suite: `100 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)

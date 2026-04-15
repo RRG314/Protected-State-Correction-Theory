@@ -333,6 +333,7 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     controlDelta: 0.5,
   });
   assert.equal(oneStep.exact, false);
+  assert.equal(oneStep.impossible, true);
   assert.equal(oneStep.predictedMinHorizon, 3);
   assert.equal(twoActive.exact, true);
   assert.equal(twoActive.predictedMinHorizon, 2);
@@ -342,6 +343,7 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
   assert.equal(momentOne.exact, true);
   assert.equal(momentOne.predictedMinHorizon, 2);
   assert.equal(momentTwo.exact, false);
+  assert.equal(momentTwo.impossible, true);
   assert.equal(momentTwo.predictedMinHorizon, 3);
   assert.equal(momentTwoExact.exact, true);
   assert.equal(momentTwoExact.predictedMinHorizon, 3);
@@ -401,4 +403,53 @@ test('recoverability studio surfaces linear measurement insufficiency and minima
   assert.ok(exact.kappa0 < 1e-8);
   assert.equal(weaker.exact, true);
   assert.ok(weaker.guidance.architecture.includes('Static linear recovery'));
+});
+
+test('structural discovery recommendations expose testable before-after fixes', () => {
+  const periodic = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_weighted_sum',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 3,
+    periodicDelta: 2,
+  });
+  assert.equal(periodic.chosenRecommendation.title, 'Raise cutoff to 4');
+  assert.equal(periodic.comparison.afterRegime, 'exact');
+
+  const control = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlFunctional: 'second_moment',
+    controlHorizon: 2,
+    controlDelta: 0.5,
+  });
+  assert.equal(control.chosenRecommendation.title, 'Increase horizon to 3');
+  assert.equal(control.comparison.afterRegime, 'exact');
+
+  const qubit = analyzeRecoverability({
+    system: 'qubit',
+    qubitProtected: 'bloch_vector',
+    qubitPhaseWindowDeg: 30,
+    qubitDelta: 0.2,
+  });
+  assert.equal(qubit.chosenRecommendation.title, 'Weaken target to z coordinate only');
+  assert.equal(qubit.comparison.afterRegime, 'exact');
+  assert.equal(qubit.recommendations.at(-1).availableInStudio, false);
+
+  const linear = analyzeRecoverability({
+    system: 'linear',
+    linearTemplate: 'sensor_basis',
+    linearProtected: 'x3',
+    linearDelta: 1,
+    linearMeasurements: {
+      measure_x1: true,
+      measure_x2_plus_x3: true,
+      measure_x2: false,
+      measure_x3: false,
+      measure_x1_plus_x2: false,
+    },
+  });
+  assert.equal(linear.chosenRecommendation.title, 'Add measure_x2');
+  assert.equal(linear.comparison.afterRegime, 'exact');
 });
