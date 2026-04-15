@@ -9,6 +9,7 @@ The strongest current picture is:
 - exact sector recovery through orthogonal sector embeddings,
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
 - exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
+- a constrained-observation recoverability layer that classifies exact, approximate, asymptotic, and impossible recovery under coarse records,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
@@ -16,15 +17,15 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `143`
-- root files: `12`
+- tracked-like files: `224`
+- root files: `18`
 - archive files: `8`
-- data files: `6`
-- docs files: `64`
+- data files: `15`
+- docs files: `96`
 - papers files: `6`
-- scripts files: `9`
-- source files: `15`
-- test files: `16`
+- scripts files: `10`
+- source files: `30`
+- test files: `29`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -34,11 +35,12 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `26`
-- `PROVED`: multiple core theorem and no-go claims, including the new physics-side corollary fit and the bounded-domain rejection
-- `CONDITIONAL`: kept QEC/control/physics bridges that still need sharper operator theorems
+- total tracked claims: `40`
+- `PROVED`: `25`, including the constrained-observation baseline criteria, robust lower bound, and the new periodic/control minimal-record threshold results
+- `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
-- `ANALOGY ONLY`: generic constrained-Hamiltonian automatic-fit claim and the demoted optimizer/ML bridge
+- `OPEN`: `1`
+- `ANALOGY ONLY`: `2`, namely the generic constrained-Hamiltonian automatic-fit claim and the demoted optimizer/ML bridge
 
 Primary claim artifacts:
 - [docs/overview/claim-registry.md](docs/overview/claim-registry.md)
@@ -70,6 +72,15 @@ Primary claim artifacts:
 - [docs/physics/continuous-quantum-error-correction.md](docs/physics/continuous-quantum-error-correction.md)
 - [docs/physics/bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
 - [docs/physics/kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
+
+### Constrained-observation branch
+- [docs/theory/advanced-directions/constrained-observation-recoverability.md](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+- [docs/theory/advanced-directions/constrained-observation-formalism.md](docs/theory/advanced-directions/constrained-observation-formalism.md)
+- [docs/theory/advanced-directions/constrained-observation-results-report.md](docs/theory/advanced-directions/constrained-observation-results-report.md)
+- [docs/theory/advanced-directions/constrained-observation-validation.md](docs/theory/advanced-directions/constrained-observation-validation.md)
+- [docs/theory/advanced-directions/constrained-observation-assessment.md](docs/theory/advanced-directions/constrained-observation-assessment.md)
+- [docs/theorem-candidates/constrained-observation-theorems.md](docs/theorem-candidates/constrained-observation-theorems.md)
+- [docs/impossibility-results/constrained-observation-no-go.md](docs/impossibility-results/constrained-observation-no-go.md)
 
 ### CFD extension
 - [docs/cfd/cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
@@ -156,7 +167,21 @@ Status: `conditional bridge`
 - operator: continuous measurement plus feedback or engineered dissipation
 - main value: strongest citable bridge between exact QEC and continuous correction
 
-### 10. Rejected branch
+### 10. Constrained-observation branch
+Status: `kept formal/computational branch`
+- protected object: chosen protected variable `p(x)` on an admissible family
+- disturbance object: information lost under the record map or coarse observation fiber
+- operator: record map `M`, recovery map `R`, and collapse-modulus diagnostic `κ_{M,p}`
+- main value: a disciplined observation layer that distinguishes exact, approximate, asymptotic, and impossible recovery before correction is even attempted
+- strongest surviving branch results:
+  - `κ(η)/2` adversarial lower bound,
+  - qubit phase-window collision law,
+  - periodic cutoff threshold on the tested two-mode incompressible family,
+  - three-mode periodic protected-variable minimal-cutoff law,
+  - diagonal minimal-history threshold on the tested scalar-output control family,
+  - corrected one-step / two-step / observer split in the toy control lane
+
+### 11. Rejected branch
 - naive periodic-projector reuse for bounded-domain exact correction
 - generic constrained Hamiltonian automatic-fit language
 - optimizer / ML bridge material as a main theory lane
@@ -171,12 +196,14 @@ Exact operators:
 - code projector and QEC recovery family
 - periodic Helmholtz/Leray projector
 - transverse projector interpretation in the Maxwell/gauge extension
+- constrained-observation exact recovery maps on admissible families
 
 Asymptotic operators:
 - `x_dot = -k P_D x`
 - invariant-split generators `x_dot = -Kx`
 - GLM update law
 - constraint-damping evolution architecture as a conditional physics-side fit
+- observer-side asymptotic recovery maps in the functional-observability toy lane
 
 Failure diagnostics:
 - overlap / intersection checks
@@ -185,6 +212,8 @@ Failure diagnostics:
 - rank / image lower-bound checks
 - bounded-domain boundary-trace failure under naive periodic-projector reuse
 - divergence-only indistinguishability on bounded incompressible protected classes
+- fiber-collision gap and collapse modulus `κ_{M,p}`
+- restricted observation-rank lower bounds on finite admissible families
 
 ## Workbench Inventory
 
@@ -210,6 +239,7 @@ Workbench modules:
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
+- Recoverability Lab
 
 ## Validation Inventory
 
@@ -218,8 +248,8 @@ Validation status:
 - static workbench asset check: passed
 - markdown link check: passed
 - naming consistency check: passed
-- Node workbench tests: `9 passed`
-- Python theorem/operator/example tests: `24 passed`
+- Node workbench tests: `16 passed`
+- Python theorem/operator/example tests: `40 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -231,6 +261,7 @@ Primary generated artifacts:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
 - [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
 - [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
+- [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
 
 ## Results Snapshot
 
@@ -253,6 +284,23 @@ Primary generated artifacts:
 - gauge module before norm: `14.103454585100657`
 - gauge module after exact projection norm: `1.147354786301552e-13`
 - gauge module after damped cleanup norm: `8.623534119392536`
+
+### Constrained-observation snapshot
+- analytic benchmark: `ε=0` is impossible while every tested `ε>0` is exact in the noise-free criterion
+- analytic noise lower bound: every estimator incurs worst-case protected-variable error at least `κ(η)/2`
+- qubit fixed-basis record:
+  - full Bloch vector exact only on the zero-phase window
+  - `z` coordinate exact on every tested phase window
+- periodic record family:
+  - full vorticity exact with mean RMS recovery error `1.20e-15`
+  - truncated vorticity approximate with mean RMS recovery error `2.98`
+  - divergence only impossible with collision distance `10.13`
+  - protected-variable thresholds on the three-mode family: exact cutoff `1` for the first modal coefficient, `2` for the first two coefficients, and `3` for the full modal coefficient vector
+- functional observability toy lane:
+  - horizon `1` not exact for tested couplings
+  - horizons `2` and `3` exact for every tested `ε>0`
+  - observer branch asymptotically convergent with spectral radius `0.3` on the tracked family
+  - diagonal scalar-output thresholds: exact horizon `3` for the fully active profile, `2` for the two-active profile, and impossible for the hidden protected-coordinate profile
 
 ## Best Current Reading Paths
 

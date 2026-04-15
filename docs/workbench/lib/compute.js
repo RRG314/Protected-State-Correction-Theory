@@ -275,6 +275,616 @@ export function analyzeQecSector(config) {
   };
 }
 
+function flattenValue(value) {
+  if (Array.isArray(value) && Array.isArray(value[0])) {
+    return value.flat();
+  }
+  return value.slice();
+}
+
+function rmsMetric(a, b) {
+  const flatA = flattenValue(a);
+  const flatB = flattenValue(b);
+  return norm(subVec(flatA, flatB)) / Math.sqrt(Math.max(flatA.length, 1));
+}
+
+function scalarGap(a, b) {
+  return Math.abs(a[0] - b[0]);
+}
+
+function collapseFromSamples(observations, protectedValues, deltas, obsMetric = rmsMetric, protMetric = rmsMetric) {
+  return deltas.map((delta) => {
+    let maxGap = 0;
+    for (let i = 0; i < observations.length; i += 1) {
+      for (let j = i + 1; j < observations.length; j += 1) {
+        if (obsMetric(observations[i], observations[j]) <= delta + 1e-9) {
+          maxGap = Math.max(maxGap, protMetric(protectedValues[i], protectedValues[j]));
+        }
+      }
+    }
+    return maxGap;
+  });
+}
+
+function fiberCollisionGap(observations, protectedValues, obsMetric = rmsMetric, protMetric = rmsMetric) {
+  let maxGap = 0;
+  for (let i = 0; i < observations.length; i += 1) {
+    for (let j = i + 1; j < observations.length; j += 1) {
+      if (obsMetric(observations[i], observations[j]) <= 1e-9) {
+        maxGap = Math.max(maxGap, protMetric(protectedValues[i], protectedValues[j]));
+      }
+    }
+  }
+  return maxGap;
+}
+
+function qubitBloch(theta, phi) {
+  return [
+    Math.sin(theta) * Math.cos(phi),
+    Math.sin(theta) * Math.sin(phi),
+    Math.cos(theta),
+  ];
+}
+
+function qubitRecord(theta) {
+  const p0 = Math.cos(theta / 2) ** 2;
+  return [p0, 1 - p0];
+}
+
+function qubitPhaseCollisionFormula(phaseWindowDeg) {
+  const window = Math.abs((phaseWindowDeg * Math.PI) / 180);
+  return 2 * Math.sin(Math.min(window, Math.PI / 2));
+}
+
+function analyzeQubitRecoverability(config) {
+  const phaseWindowDeg = Number(config.qubitPhaseWindowDeg);
+  const phaseWindow = (phaseWindowDeg * Math.PI) / 180;
+  const protectedMode = config.qubitProtected;
+  const thetaGrid = Array.from({ length: 17 }, (_, index) => 0.1 + (index * (Math.PI - 0.2)) / 16);
+  const phaseGrid = phaseWindowDeg === 0 ? [0] : Array.from({ length: 13 }, (_, index) => -phaseWindow + (2 * phaseWindow * index) / 12);
+  const observations = [];
+  const protectedValues = [];
+  const recoveryErrors = [];
+  for (const theta of thetaGrid) {
+    for (const phi of phaseGrid) {
+      observations.push(qubitRecord(theta));
+      if (protectedMode === 'bloch_vector') {
+        const protectedValue = qubitBloch(theta, phi);
+        protectedValues.push(protectedValue);
+        recoveryErrors.push(rmsMetric(protectedValue, qubitBloch(theta, 0)));
+      } else {
+        const protectedValue = [Math.cos(theta)];
+        protectedValues.push(protectedValue);
+        recoveryErrors.push(0);
+      }
+    }
+  }
+  const deltas = Array.from({ length: 40 }, (_, index) => index / 39);
+  const collapse = collapseFromSamples(
+    observations,
+    protectedValues,
+    deltas,
+    rmsMetric,
+    protectedMode === 'bloch_vector' ? rmsMetric : scalarGap
+  );
+  const kappa0 = fiberCollisionGap(
+    observations,
+    protectedValues,
+    rmsMetric,
+    protectedMode === 'bloch_vector' ? rmsMetric : scalarGap
+  );
+  const boundaryWindows = [0, 15, 30, 60, 90, 135, 180];
+  const boundaryValues = protectedMode === 'bloch_vector'
+    ? boundaryWindows.map((window) => qubitPhaseCollisionFormula(window))
+    : boundaryWindows.map(() => 0);
+  const selectedDelta = clamp(Number(config.qubitDelta), 0, 1);
+  const deltaIndex = Math.round((selectedDelta / 1) * (deltas.length - 1));
+  return {
+    systemLabel: 'Qubit fixed-basis record',
+    protectedLabel: protectedMode === 'bloch_vector' ? 'full Bloch vector' : 'z coordinate only',
+    observationLabel: 'fixed-basis measurement probabilities',
+    classification:
+      protectedMode === 'bloch_vector'
+        ? phaseWindowDeg === 0
+          ? 'Exact on the meridian family'
+          : 'Impossible for full-state recovery'
+        : 'Exact for the weaker protected variable',
+    exact: kappa0 < 1e-8,
+    asymptotic: false,
+    impossible: kappa0 > 1e-8,
+    deltas,
+    collapse,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    kappa0,
+    meanRecoveryError: recoveryErrors.reduce((sum, value) => sum + value, 0) / recoveryErrors.length,
+    maxRecoveryError: Math.max(...recoveryErrors),
+    phaseWindowDeg,
+    boundaryWindows,
+    boundaryValues,
+  };
+}
+
+function curl2d(Ux, Uy, h) {
+  const dUy = centralDiffX(Uy, h);
+  const dUx = centralDiffY(Ux, h);
+  return dUy.map((row, i) => row.map((value, j) => value - dUx[i][j]));
+}
+
+function lowPassField(field, cutoff) {
+  const n = field.length;
+  const fieldHat = dft2(field);
+  const filteredHat = Array.from({ length: n }, () => Array.from({ length: n }, () => complex(0, 0)));
+  for (let kx = 0; kx < n; kx += 1) {
+    for (let ky = 0; ky < n; ky += 1) {
+      if (Math.abs(fftFrequency(kx, n)) <= cutoff && Math.abs(fftFrequency(ky, n)) <= cutoff) {
+        filteredHat[kx][ky] = fieldHat[kx][ky];
+      }
+    }
+  }
+  return idft2(filteredHat);
+}
+
+function velocityFromVorticity(field, h) {
+  const psi = solvePoissonPeriodic(field, h);
+  return {
+    Ux: centralDiffY(psi, h).map((row) => row.map((value) => -value)),
+    Uy: centralDiffX(psi, h),
+  };
+}
+
+const PERIODIC_MODE_CUTOFFS = [1, 2, 3];
+
+function periodicProtectedFamily() {
+  const coeffs = [-1, -0.5, 0, 0.5, 1];
+  const family = [];
+  for (const c1 of coeffs) {
+    for (const c2 of coeffs) {
+      for (const c3 of coeffs) {
+        family.push({ coefficients: [c1, c2, c3] });
+      }
+    }
+  }
+  return family;
+}
+
+function periodicProtectedVector(coefficients, protectedVariable) {
+  switch (protectedVariable) {
+    case 'mode_1_coefficient':
+      return [coefficients[0]];
+    case 'modes_1_2_coefficients':
+      return [coefficients[0], coefficients[1]];
+    case 'full_modal_coefficients':
+    default:
+      return coefficients.slice();
+  }
+}
+
+function periodicProtectedThreshold(protectedVariable) {
+  switch (protectedVariable) {
+    case 'mode_1_coefficient':
+      return 1;
+    case 'modes_1_2_coefficients':
+      return 2;
+    case 'full_modal_coefficients':
+    default:
+      return 3;
+  }
+}
+
+function periodicProtectedLabel(protectedVariable) {
+  switch (protectedVariable) {
+    case 'mode_1_coefficient':
+      return 'leading modal coefficient';
+    case 'modes_1_2_coefficients':
+      return 'first two modal coefficients';
+    case 'full_modal_coefficients':
+    default:
+      return 'full three-mode coefficient vector';
+  }
+}
+
+function periodicObservationVector(coefficients, observation, cutoff) {
+  if (observation === 'divergence_only') {
+    return [0];
+  }
+  if (observation === 'full_vorticity') {
+    return coefficients.slice();
+  }
+  return coefficients.map((value, index) => (PERIODIC_MODE_CUTOFFS[index] <= cutoff ? value : 0));
+}
+
+function periodicEstimatedProtected(coefficients, observation, cutoff, protectedVariable) {
+  const estimatedCoefficients =
+    observation === 'divergence_only'
+      ? [0, 0, 0]
+      : observation === 'full_vorticity'
+        ? coefficients.slice()
+        : coefficients.map((value, index) => (PERIODIC_MODE_CUTOFFS[index] <= cutoff ? value : 0));
+  return periodicProtectedVector(estimatedCoefficients, protectedVariable);
+}
+
+const periodicRecoverabilityCache = new Map();
+
+function periodicObservationResult(observation, protectedVariable, family, cutoff = 1) {
+  const cacheKey = `${observation}:${protectedVariable}:${cutoff}`;
+  if (periodicRecoverabilityCache.has(cacheKey)) {
+    return periodicRecoverabilityCache.get(cacheKey);
+  }
+  const deltas = Array.from({ length: 40 }, (_, index) => (index * 3) / 39);
+  const observations = [];
+  const protectedValues = [];
+  const errors = [];
+  for (const state of family) {
+    const protectedValue = periodicProtectedVector(state.coefficients, protectedVariable);
+    const observed = periodicObservationVector(state.coefficients, observation, cutoff);
+    const estimate = periodicEstimatedProtected(state.coefficients, observation, cutoff, protectedVariable);
+    observations.push(observed);
+    protectedValues.push(protectedValue);
+    errors.push(rmsMetric(estimate, protectedValue));
+  }
+  const metric = protectedVariable === 'mode_1_coefficient' ? scalarGap : rmsMetric;
+  const collapse = collapseFromSamples(observations, protectedValues, deltas, rmsMetric, metric);
+  const kappa0 = fiberCollisionGap(observations, protectedValues, rmsMetric, metric);
+  const result = {
+    deltas,
+    collapse,
+    kappa0,
+    meanRecoveryError: errors.reduce((sum, value) => sum + value, 0) / errors.length,
+    maxRecoveryError: Math.max(...errors),
+  };
+  periodicRecoverabilityCache.set(cacheKey, result);
+  return result;
+}
+
+function analyzePeriodicRecoverability(config) {
+  const observation = config.periodicObservation;
+  const protectedVariable = config.periodicProtected;
+  const cutoff = Number(config.periodicCutoff ?? 1);
+  const family = periodicProtectedFamily();
+  const current = periodicObservationResult(observation, protectedVariable, family, cutoff);
+  const selectedDelta = clamp(Number(config.periodicDelta), 0, 3);
+  const deltaIndex = Math.round((selectedDelta / 3) * (current.deltas.length - 1));
+  const thresholdCutoffs = [0, 1, 2, 3];
+  const thresholdRows = thresholdCutoffs.map((value) => ({
+    cutoff: value,
+    result: periodicObservationResult('cutoff_vorticity', protectedVariable, family, value),
+  }));
+  const threshold = periodicProtectedThreshold(protectedVariable);
+  const exact =
+    observation === 'full_vorticity' ||
+    (observation === 'cutoff_vorticity' && cutoff >= threshold && current.kappa0 < 1e-8);
+  const impossible = observation === 'divergence_only' || (observation === 'cutoff_vorticity' && cutoff < threshold);
+  const classification =
+    observation === 'full_vorticity'
+      ? 'Exact on the finite modal family'
+      : observation === 'divergence_only'
+        ? 'Impossible for nontrivial recovery'
+        : cutoff >= threshold
+          ? 'Exact once the protected modal support is retained'
+          : 'Impossible below the protected-support cutoff';
+  return {
+    systemLabel: 'Finite periodic incompressible modal family',
+    protectedLabel: periodicProtectedLabel(protectedVariable),
+    observationLabel: observation === 'cutoff_vorticity' ? `cutoff vorticity coordinates (cutoff ${cutoff})` : observation.replaceAll('_', ' '),
+    classification,
+    exact,
+    asymptotic: false,
+    impossible,
+    deltas: current.deltas,
+    collapse: current.collapse,
+    selectedDelta,
+    selectedKappa: current.collapse[deltaIndex],
+    kappa0: current.kappa0,
+    meanRecoveryError: current.meanRecoveryError,
+    maxRecoveryError: current.maxRecoveryError,
+    currentCutoff: cutoff,
+    predictedMinCutoff: threshold,
+    thresholdCutoffs,
+    thresholdKappa0: thresholdRows.map((item) => item.result.kappa0),
+    thresholdErrors: thresholdRows.map((item) => item.result.meanRecoveryError),
+  };
+}
+
+function ltiRecordMatrix(a, b, epsilon, horizon) {
+  return Array.from({ length: horizon }, (_, t) => [a ** t, epsilon * (b ** t)]);
+}
+
+function matVec2(matrix, vector) {
+  return matrix.map((row) => dot(row, vector));
+}
+
+function observerGain(a, b, epsilon, p1 = 0.2, p2 = 0.3) {
+  const s = p1 + p2;
+  const p = p1 * p2;
+  const det = epsilon * (a - b);
+  if (Math.abs(det) < 1e-9) return null;
+  const mat = [
+    [1, epsilon],
+    [b, a * epsilon],
+  ];
+  const rhs = [a + b - s, a * b - p];
+  const inv = inverse2(mat);
+  if (!inv) return null;
+  return matVec(inv, rhs);
+}
+
+function inverse2(matrix) {
+  if (matrix.length !== 2 || matrix[0].length !== 2) return null;
+  const [[a, b], [c, d]] = matrix;
+  const det = a * d - b * c;
+  if (Math.abs(det) < 1e-9) return null;
+  return [
+    [d / det, -b / det],
+    [-c / det, a / det],
+  ];
+}
+
+function controlContinuousCollisionGap(epsilon, horizon) {
+  if (horizon >= 2 && Math.abs(epsilon) > 1e-9) {
+    return 0;
+  }
+  return 2;
+}
+
+function analyzeTwoStateControlRecoverability(config) {
+  const a = 0.95;
+  const b = 0.65;
+  const epsilon = Number(config.controlEpsilon);
+  const horizon = Number(config.controlHorizon);
+  const recordMatrix = ltiRecordMatrix(a, b, epsilon, horizon);
+  const deltas = Array.from({ length: 40 }, (_, index) => (index * 2.5) / 39);
+  const states = [];
+  const observations = [];
+  const protectedValues = [];
+  const errors = [];
+  const coeffs = [-1, -0.66, -0.33, 0, 0.33, 0.66, 1];
+  const exact = horizon >= 2 && Math.abs(epsilon * (a - b)) > 1e-9;
+  for (const x1 of coeffs) {
+    for (const x2 of coeffs) {
+      const state = [x1, x2];
+      states.push(state);
+      const record = matVec2(recordMatrix, state);
+      const protectedValue = [x2];
+      observations.push(record);
+      protectedValues.push(protectedValue);
+      let estimate = [0];
+      if (exact) {
+        estimate = [(a * record[0] - record[1]) / (epsilon * (a - b))];
+      }
+      errors.push(Math.abs(estimate[0] - x2));
+    }
+  }
+  const collapse = collapseFromSamples(observations, protectedValues, deltas, rmsMetric, scalarGap);
+  const kappa0 = controlContinuousCollisionGap(epsilon, horizon);
+  const selectedDelta = clamp(Number(config.controlDelta), 0, 2.5);
+  const deltaIndex = Math.round((selectedDelta / 2.5) * (deltas.length - 1));
+  const historyThreshold = [1, 2, 3].map((value) => ({
+    horizon: value,
+    kappa0: controlContinuousCollisionGap(epsilon, value),
+  }));
+  let observerErrorHistory = [];
+  let spectralRadius = null;
+  const gain = observerGain(a, b, epsilon);
+  if (gain) {
+    let x = [1.2, -0.8];
+    let xhat = [-0.4, 0.5];
+    observerErrorHistory = [Math.abs(xhat[1] - x[1])];
+    const closedLoop = [
+      [a - gain[0], -gain[0] * epsilon],
+      [-gain[1], b - gain[1] * epsilon],
+    ];
+    spectralRadius = maxEigenRadius2(closedLoop);
+    for (let step = 0; step < 18; step += 1) {
+      const y = x[0] + epsilon * x[1];
+      const yhat = xhat[0] + epsilon * xhat[1];
+      x = [a * x[0], b * x[1]];
+      xhat = [a * xhat[0] + gain[0] * (y - yhat), b * xhat[1] + gain[1] * (y - yhat)];
+      observerErrorHistory.push(Math.abs(xhat[1] - x[1]));
+    }
+  }
+  return {
+    systemLabel: 'Two-state functional observability model',
+    protectedLabel: 'second state coordinate x₂',
+    observationLabel: `${horizon}-step scalar output history`,
+    classification:
+      Math.abs(epsilon) < 1e-9
+        ? 'Impossible'
+        : exact
+          ? 'Exact from finite history'
+          : 'Finite exact recovery fails; asymptotic observer remains available',
+    exact,
+    asymptotic: Boolean(gain),
+    impossible: Math.abs(epsilon) < 1e-9,
+    deltas,
+    collapse,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    kappa0,
+    meanRecoveryError: errors.reduce((sum, value) => sum + value, 0) / errors.length,
+    maxRecoveryError: Math.max(...errors),
+    observerErrorHistory,
+    spectralRadius,
+    historyThreshold,
+  };
+}
+
+function diagonalRecordMatrix(eigenvalues, sensorWeights, horizon) {
+  return Array.from({ length: horizon }, (_, t) =>
+    sensorWeights.map((weight, index) => weight * (eigenvalues[index] ** t))
+  );
+}
+
+function activeSensorCount(sensorWeights) {
+  return sensorWeights.filter((value) => Math.abs(value) > 1e-9).length;
+}
+
+function diagonalRecoveryWeights(eigenvalues, sensorWeights, protectedIndex, horizon) {
+  const active = sensorWeights
+    .map((value, index) => ({ value, index }))
+    .filter((entry) => Math.abs(entry.value) > 1e-9);
+  if (!active.some((entry) => entry.index === protectedIndex)) {
+    return null;
+  }
+  if (horizon < active.length) {
+    return null;
+  }
+  const vandermonde = active.map((entry) =>
+    Array.from({ length: active.length }, (_, power) => eigenvalues[entry.index] ** power)
+  );
+  const targets = active.map((entry) => (entry.index === protectedIndex ? 1 / entry.value : 0));
+  const inverse = invertMatrix(vandermonde);
+  if (!inverse) return null;
+  const leading = matVec(inverse, targets);
+  return [...leading, ...Array.from({ length: horizon - leading.length }, () => 0)];
+}
+
+function invertMatrix(matrix) {
+  const n = matrix.length;
+  const augmented = matrix.map((row, i) => [...row, ...identity(n)[i]]);
+  const { matrix: reduced, pivots } = rref(augmented);
+  if (pivots.length < n) return null;
+  return reduced.map((row) => row.slice(n));
+}
+
+function analyzeDiagonalControlComplexity(config) {
+  const eigenvalues = [0.95, 0.8, 0.65];
+  const profiles = {
+    three_active: [1.0, 0.4, 0.2],
+    two_active: [1.0, 0.0, 0.2],
+    protected_hidden: [1.0, 0.4, 0.0],
+  };
+  const profileKey = config.controlProfile;
+  const sensorWeights = profiles[profileKey];
+  const protectedIndex = 2;
+  const horizon = Number(config.controlHorizon);
+  const recordMatrix = diagonalRecordMatrix(eigenvalues, sensorWeights, horizon);
+  const deltas = Array.from({ length: 40 }, (_, index) => (index * 2) / 39);
+  const coeffs = [-1, -0.66, -0.33, 0, 0.33, 0.66, 1];
+  const observations = [];
+  const protectedValues = [];
+  const errors = [];
+  const activeCount = activeSensorCount(sensorWeights);
+  const predictedMinHorizon = Math.abs(sensorWeights[protectedIndex]) > 1e-9 ? activeCount : null;
+  const exact = predictedMinHorizon !== null && horizon >= predictedMinHorizon;
+  const weights = exact ? diagonalRecoveryWeights(eigenvalues, sensorWeights, protectedIndex, horizon) : null;
+  for (const x1 of coeffs) {
+    for (const x2 of coeffs) {
+      for (const x3 of coeffs) {
+        const state = [x1, x2, x3];
+        const record = matVec2(recordMatrix, state);
+        const protectedValue = [x3];
+        observations.push(record);
+        protectedValues.push(protectedValue);
+        const estimate = weights ? [dot(weights, record)] : [0];
+        errors.push(Math.abs(estimate[0] - x3));
+      }
+    }
+  }
+  const collapse = collapseFromSamples(observations, protectedValues, deltas, rmsMetric, scalarGap);
+  const kappa0 = exact ? 0 : 2;
+  const selectedDelta = clamp(Number(config.controlDelta), 0, 2);
+  const deltaIndex = Math.round((selectedDelta / 2) * (deltas.length - 1));
+  const historyThreshold = [1, 2, 3, 4].map((value) => ({
+    horizon: value,
+    kappa0: predictedMinHorizon !== null && value >= predictedMinHorizon ? 0 : 2,
+  }));
+  return {
+    systemLabel: 'Three-state diagonal scalar-output family',
+    protectedLabel: 'third state coordinate x₃',
+    observationLabel: `${horizon}-step history (${profileKey.replaceAll('_', ' ')})`,
+    classification:
+      predictedMinHorizon === null
+        ? 'Impossible because the protected coordinate never enters the record'
+        : exact
+          ? `Exact once the record horizon reaches ${predictedMinHorizon}`
+          : `Impossible below the minimal horizon ${predictedMinHorizon}`,
+    exact,
+    asymptotic: false,
+    impossible: predictedMinHorizon === null,
+    deltas,
+    collapse,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    kappa0,
+    meanRecoveryError: errors.reduce((sum, value) => sum + value, 0) / errors.length,
+    maxRecoveryError: Math.max(...errors),
+    observerErrorHistory: [],
+    spectralRadius: null,
+    historyThreshold,
+    predictedMinHorizon,
+    activeSensorCount: activeCount,
+    controlModeLabel: 'minimal-history threshold model',
+  };
+}
+
+function analyzeControlRecoverability(config) {
+  if (config.controlMode === 'diagonal_threshold') {
+    return analyzeDiagonalControlComplexity(config);
+  }
+  const base = analyzeTwoStateControlRecoverability(config);
+  return {
+    ...base,
+    controlModeLabel: 'two-state observer model',
+    predictedMinHorizon: Math.abs(config.controlEpsilon) < 1e-9 ? null : 2,
+    activeSensorCount: Math.abs(config.controlEpsilon) < 1e-9 ? 1 : 2,
+  };
+}
+
+function maxEigenRadius2(matrix) {
+  const [[a, b], [c, d]] = matrix;
+  const trace = a + d;
+  const det = a * d - b * c;
+  const disc = Math.max(trace * trace - 4 * det, 0);
+  const sqrtDisc = Math.sqrt(disc);
+  const lam1 = (trace + sqrtDisc) / 2;
+  const lam2 = (trace - sqrtDisc) / 2;
+  return Math.max(Math.abs(lam1), Math.abs(lam2));
+}
+
+function analyzeAnalyticRecoverability(config) {
+  const epsilon = Math.abs(Number(config.analyticEpsilon));
+  const deltas = Array.from({ length: 40 }, (_, index) => index / 39);
+  const collapse = deltas.map((delta) => (epsilon < 1e-9 ? 2 : Math.min(2, delta / epsilon)));
+  const noiseLowerBounds = collapse.map((value) => 0.5 * value);
+  const selectedDelta = clamp(Number(config.analyticDelta), 0, 1);
+  const deltaIndex = Math.round(selectedDelta * (deltas.length - 1));
+  return {
+    systemLabel: 'Analytic benchmark Mε(u,v) = (u, εv)',
+    protectedLabel: 'protected scalar v',
+    observationLabel: 'coarse two-coordinate record',
+    classification: epsilon < 1e-9 ? 'Impossible' : 'Exact with explicit stability loss',
+    exact: epsilon >= 1e-9,
+    asymptotic: false,
+    impossible: epsilon < 1e-9,
+    deltas,
+    collapse,
+    noiseLowerBounds,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    selectedLowerBound: noiseLowerBounds[deltaIndex],
+    kappa0: epsilon < 1e-9 ? 2 : 0,
+    meanRecoveryError: 0,
+    maxRecoveryError: 0,
+    epsilon,
+    amplification: epsilon < 1e-9 ? Infinity : 1 / epsilon,
+  };
+}
+
+export function analyzeRecoverability(config) {
+  switch (config.system) {
+    case 'qubit':
+      return analyzeQubitRecoverability(config);
+    case 'periodic':
+      return analyzePeriodicRecoverability(config);
+    case 'control':
+      return analyzeControlRecoverability(config);
+    case 'analytic':
+    default:
+      return analyzeAnalyticRecoverability(config);
+  }
+}
+
 function gridAxis(n) {
   return Array.from({ length: n }, (_, i) => i / n);
 }

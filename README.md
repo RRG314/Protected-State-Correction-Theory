@@ -94,9 +94,10 @@ The repository is organized so readers can enter from different angles:
 5. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
 6. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
 7. [Protected-State Correction Workbench](docs/workbench/index.html)
-8. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-9. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-10. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+8. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+9. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+10. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+11. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -159,6 +160,7 @@ The repository now includes a static GitHub-Pages-compatible workbench in:
 - `docs/workbench/`
 
 Modules:
+- Recoverability Lab
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -167,6 +169,32 @@ Modules:
 - No-Go Explorer
 
 The workbench is tied directly to the theorem and no-go documents. It is not a detached demo layer.
+
+## Constrained-Observation Branch
+
+The repository now also includes a research branch on **Constrained-Observation Recoverability**.
+
+This branch asks when a coarse record preserves enough information to recover a protected variable exactly, approximately, asymptotically, or not at all. It is grounded in conventional systems rather than only in repo-native language:
+
+- fixed-basis qubit records,
+- periodic incompressible-flow reconstruction,
+- and a small functional-observability control model.
+
+The strongest current clean results in that branch are:
+- the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- a closed-form qubit phase-window collision law,
+- family-level periodic minimal-cutoff thresholds,
+- and a diagonal minimal-history threshold law on a scalar-output control family.
+
+Start here:
+
+1. [Branch overview](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+2. [Formalism](docs/theory/advanced-directions/constrained-observation-formalism.md)
+3. [Derivations](docs/theory/advanced-directions/constrained-observation-derivations.md)
+4. [Clean results](docs/theory/advanced-directions/constrained-observation-clean-results.md)
+5. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
+6. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
+7. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
 
 ## Physics Extension
 

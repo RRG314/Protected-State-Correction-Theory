@@ -1,0 +1,4 @@
+observation,exact_recoverable,collision_max_protected_distance,mean_recovery_error,max_recovery_error
+full_vorticity,True,0.0,1.2016481678330342e-15,1.5766579595499052e-15
+truncated_vorticity,False,7.947670612636882,2.9803764797388306,3.973835306318441
+divergence_only,False,10.131331885360845,3.8971773634435385,5.065665942680423

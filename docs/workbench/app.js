@@ -7,6 +7,7 @@ import {
   analyzeMhdProjection,
   analyzeNoGo,
   analyzeQecSector,
+  analyzeRecoverability,
   clamp,
   formatVector,
 } from './lib/compute.js';
@@ -21,6 +22,33 @@ import {
 } from './lib/state.js';
 
 const LAB_META = {
+  recoverability: {
+    label: 'Recoverability Lab',
+    short: 'Coarse records, collapse modulus, and protected-variable recovery.',
+    branch: 'Constrained-observation branch',
+    fit: 'Exact / approximate / asymptotic / impossible classification',
+    status: 'ACTIVE RESEARCH BRANCH',
+    lane: 'Observation and reconstruction',
+    protected: 'Chosen protected variable p(x)',
+    disturbance: 'Unseen ambiguity inside the observation fibers',
+    correction: 'Recovery map R after constrained observation M',
+    plain:
+      'This module studies a question that comes before correction: whether the available record preserves enough information to recover what you care about at all. It compares exact recovery, approximate collapse, observer-style asymptotic recovery, and clean no-go cases.',
+    technical:
+      'Implements the constrained-observation recoverability branch. The lab computes finite-sample collapse curves κ(δ), fiber-collision boundaries, and system-specific recovery behavior for analytic, quantum, periodic-flow, and control-observer examples.',
+    use: 'Use this when you want to know whether a coarse record supports exact recovery, only approximate recovery, asymptotic observer recovery, or no recovery of the protected variable.',
+    avoid: 'Do not treat loss of recoverability as a metaphysical statement. This branch is about operator-level information access and reconstruction limits.',
+    refs: [
+      { title: 'Branch overview', href: '../theory/advanced-directions/constrained-observation-recoverability.md', note: 'Design scope and falsification target' },
+      { title: 'Formalism', href: '../theory/advanced-directions/constrained-observation-formalism.md', note: 'Definitions, propositions, and theorem candidates' },
+      { title: 'Results report', href: '../theory/advanced-directions/constrained-observation-results-report.md', note: 'Experiments, outputs, and assessment' },
+    ],
+    literature: [
+      { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum recoverability anchor' },
+      { title: 'Functional observability and subspace reconstruction', href: 'https://doi.org/10.1103/PhysRevResearch.4.043195', note: 'Control-side protected-functional anchor' },
+      { title: 'Chorin projection-method foundation', href: 'https://doi.org/10.1090/S0025-5718-1968-0242392-2', note: 'Periodic constrained reconstruction anchor' },
+    ],
+  },
   exact: {
     label: 'Exact Projection Lab',
     short: 'Orthogonal exact recovery and overlap failure.',
@@ -257,6 +285,8 @@ function saveScenariosStore() {
 
 function analyzeActiveLab() {
   switch (state.activeLab) {
+    case 'recoverability':
+      return analyzeRecoverability(state.labs.recoverability);
     case 'exact':
       return analyzeExactProjection(state.labs.exact);
     case 'qec':
@@ -674,6 +704,79 @@ function summaryCard(label, value) {
 
 function renderConfigPane() {
   switch (state.activeLab) {
+    case 'recoverability':
+      return `
+        <div class="field">
+          <label for="recoverability-system">System family</label>
+          <select id="recoverability-system" data-path="labs.recoverability.system">
+            <option value="analytic" ${state.labs.recoverability.system === 'analytic' ? 'selected' : ''}>analytic benchmark</option>
+            <option value="qubit" ${state.labs.recoverability.system === 'qubit' ? 'selected' : ''}>qubit fixed-basis record</option>
+            <option value="periodic" ${state.labs.recoverability.system === 'periodic' ? 'selected' : ''}>periodic incompressible flow</option>
+            <option value="control" ${state.labs.recoverability.system === 'control' ? 'selected' : ''}>functional observability model</option>
+          </select>
+        </div>
+        ${state.labs.recoverability.system === 'analytic' ? `
+          ${rangeField('analyticEpsilon', 'Degeneracy parameter ε', state.labs.recoverability.analyticEpsilon, 0, 0.8, 0.01)}
+          ${rangeField('analyticDelta', 'Selected δ', state.labs.recoverability.analyticDelta, 0, 1, 0.01)}
+        ` : ''}
+        ${state.labs.recoverability.system === 'qubit' ? `
+          <div class="field">
+            <label for="recoverability-qubit-protected">Protected variable</label>
+            <select id="recoverability-qubit-protected" data-path="labs.recoverability.qubitProtected">
+              <option value="bloch_vector" ${state.labs.recoverability.qubitProtected === 'bloch_vector' ? 'selected' : ''}>full Bloch vector</option>
+              <option value="z_coordinate" ${state.labs.recoverability.qubitProtected === 'z_coordinate' ? 'selected' : ''}>z coordinate only</option>
+            </select>
+          </div>
+          ${rangeField('qubitPhaseWindowDeg', 'Allowed phase window (degrees)', state.labs.recoverability.qubitPhaseWindowDeg, 0, 180, 5)}
+          ${rangeField('qubitDelta', 'Selected δ', state.labs.recoverability.qubitDelta, 0, 1, 0.01)}
+        ` : ''}
+        ${state.labs.recoverability.system === 'periodic' ? `
+          <div class="field">
+            <label for="recoverability-periodic-observation">Observation map</label>
+            <select id="recoverability-periodic-observation" data-path="labs.recoverability.periodicObservation">
+              <option value="full_vorticity" ${state.labs.recoverability.periodicObservation === 'full_vorticity' ? 'selected' : ''}>full vorticity</option>
+              <option value="cutoff_vorticity" ${state.labs.recoverability.periodicObservation === 'cutoff_vorticity' ? 'selected' : ''}>spectral cutoff vorticity</option>
+              <option value="divergence_only" ${state.labs.recoverability.periodicObservation === 'divergence_only' ? 'selected' : ''}>divergence only</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="recoverability-periodic-protected">Protected variable</label>
+            <select id="recoverability-periodic-protected" data-path="labs.recoverability.periodicProtected">
+              <option value="mode_1_coefficient" ${state.labs.recoverability.periodicProtected === 'mode_1_coefficient' ? 'selected' : ''}>leading modal coefficient</option>
+              <option value="modes_1_2_coefficients" ${state.labs.recoverability.periodicProtected === 'modes_1_2_coefficients' ? 'selected' : ''}>first two modal coefficients</option>
+              <option value="full_modal_coefficients" ${state.labs.recoverability.periodicProtected === 'full_modal_coefficients' ? 'selected' : ''}>full three-mode coefficient vector</option>
+            </select>
+          </div>
+          ${state.labs.recoverability.periodicObservation === 'cutoff_vorticity' ? rangeField('periodicCutoff', 'Retained Fourier cutoff', state.labs.recoverability.periodicCutoff, 0, 3, 1) : ''}
+          ${rangeField('periodicDelta', 'Selected δ', state.labs.recoverability.periodicDelta, 0, 3, 0.05)}
+        ` : ''}
+        ${state.labs.recoverability.system === 'control' ? `
+          <div class="field">
+            <label for="recoverability-control-mode">Control family</label>
+            <select id="recoverability-control-mode" data-path="labs.recoverability.controlMode">
+              <option value="two_state_observer" ${state.labs.recoverability.controlMode === 'two_state_observer' ? 'selected' : ''}>two-state observer model</option>
+              <option value="diagonal_threshold" ${state.labs.recoverability.controlMode === 'diagonal_threshold' ? 'selected' : ''}>three-state minimal-history model</option>
+            </select>
+          </div>
+          ${state.labs.recoverability.controlMode === 'diagonal_threshold' ? `
+            <div class="field">
+              <label for="recoverability-control-profile">Sensor profile</label>
+              <select id="recoverability-control-profile" data-path="labs.recoverability.controlProfile">
+                <option value="three_active" ${state.labs.recoverability.controlProfile === 'three_active' ? 'selected' : ''}>three active coordinates</option>
+                <option value="two_active" ${state.labs.recoverability.controlProfile === 'two_active' ? 'selected' : ''}>two active coordinates</option>
+                <option value="protected_hidden" ${state.labs.recoverability.controlProfile === 'protected_hidden' ? 'selected' : ''}>protected coordinate hidden</option>
+              </select>
+            </div>
+          ` : ''}
+          ${state.labs.recoverability.controlMode === 'two_state_observer' ? rangeField('controlEpsilon', 'Output coupling ε', state.labs.recoverability.controlEpsilon, 0, 0.8, 0.01) : ''}
+          ${rangeField('controlHorizon', 'Finite record horizon', state.labs.recoverability.controlHorizon, 1, state.labs.recoverability.controlMode === 'diagonal_threshold' ? 4 : 3, 1)}
+          ${rangeField('controlDelta', 'Selected δ', state.labs.recoverability.controlDelta, 0, state.labs.recoverability.controlMode === 'diagonal_threshold' ? 2 : 2.5, 0.05)}
+        ` : ''}
+        <div class="callout ${latestAnalysis.impossible ? 'warn' : latestAnalysis.exact ? 'good' : ''}">
+          <strong>${latestAnalysis.classification}</strong>
+          <p>Protected variable: ${latestAnalysis.protectedLabel}. Observation: ${latestAnalysis.observationLabel}. The branch verdict is driven by κ(0), finite recovery error, and asymptotic observer behavior where a dynamic reconstruction exists.</p>
+        </div>
+      `;
     case 'exact':
       return `
         ${rangeField('protectedMagnitude', 'Protected magnitude', state.labs.exact.protectedMagnitude, 0.2, 2.5, 0.05)}
@@ -797,6 +900,8 @@ function rangeField(key, label, value, min, max, step) {
 
 function renderVisualStage() {
   switch (state.activeLab) {
+    case 'recoverability':
+      return renderRecoverabilityStage();
     case 'exact':
       return renderExactStage();
     case 'qec':
@@ -813,6 +918,124 @@ function renderVisualStage() {
     default:
       return renderNoGoStage();
   }
+}
+
+function renderRecoverabilityStage() {
+  const a = latestAnalysis;
+  const secondaryFigure = (() => {
+    if (state.labs.recoverability.system === 'qubit') {
+      return `
+        <div class="figure">
+          <h4>Fiber-collision boundary</h4>
+          ${lineChartSvg(
+            a.boundaryWindows.map((value, index) => ({ x: value, y: a.boundaryValues[index] })),
+            'phase window (degrees)',
+            'κ(0)',
+            a.phaseWindowDeg
+          )}
+          <small>The full Bloch-vector protected variable fails as soon as the phase window opens, while the z-only protected variable stays recoverable.</small>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'periodic') {
+      return `
+        <div class="figure">
+          <h4>Modal cutoff threshold</h4>
+          ${lineChartSvg(
+            a.thresholdCutoffs.map((value, index) => ({ x: value, y: a.thresholdKappa0[index] })),
+            'cutoff',
+            'κ(0)',
+            a.currentCutoff
+          )}
+          <small>On this finite modal family, exact recovery turns on exactly when the cutoff retains the modes that the chosen protected variable depends on.</small>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'control') {
+      return `
+        <div class="figure">
+          <h4>History-length threshold</h4>
+          ${lineChartSvg(
+            a.historyThreshold.map((item) => ({ x: item.horizon, y: item.kappa0 })),
+            'horizon',
+            'κ(0)',
+            Number(state.labs.recoverability.controlHorizon)
+          )}
+          <small>${state.labs.recoverability.controlMode === 'diagonal_threshold' ? 'This diagonal family has a clean minimal-history law: exact recovery starts only once the record is long enough to separate every active sensor mode.' : 'For the two-state observer model, one-step output history is not enough, while two steps already separate the protected coordinate whenever ε is nonzero.'}</small>
+        </div>
+      `;
+    }
+    return `
+      <div class="figure">
+        <h4>Noise lower bound</h4>
+        ${lineChartSvg(
+          a.deltas.map((value, index) => ({ x: value, y: a.noiseLowerBounds[index] })),
+          'noise radius η',
+          'worst-case error lower bound',
+          a.selectedDelta
+        )}
+        <small>Any estimator must incur worst-case protected-variable error at least κ(η)/2 once the record can be perturbed by η.</small>
+      </div>
+    `;
+  })();
+
+  const tertiaryFigure = (() => {
+    if (state.labs.recoverability.system !== 'control' || state.labs.recoverability.controlMode !== 'two_state_observer') return '';
+    return `
+      <div class="figure top-gap">
+        <h4>Observer convergence</h4>
+        ${
+          a.observerErrorHistory.length
+            ? lineChartSvg(
+                a.observerErrorHistory.map((value, index) => ({ x: index, y: value })),
+                'step',
+                '|protected-variable error|'
+              )
+            : '<p class="empty-state">No asymptotic observer is available when ε = 0.</p>'
+        }
+        <small>Single-shot recovery can fail even when an observer still converges asymptotically from the ongoing record.</small>
+      </div>
+    `;
+  })();
+
+  return `
+    <div class="figure-grid double">
+      <div class="figure" data-exportable="true">
+        <h4>Recoverability-collapse curve</h4>
+        ${lineChartSvg(a.deltas.map((value, index) => ({ x: value, y: a.collapse[index] })), 'δ', 'κ(δ)', a.selectedDelta)}
+        <small>κ(δ) measures how much protected-variable ambiguity remains among states whose records stay within δ.</small>
+      </div>
+      ${secondaryFigure}
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Classification</h4>
+        <div class="value-grid">
+          <div><small>System</small><code>${a.systemLabel}</code></div>
+          <div><small>Protected variable</small><code>${a.protectedLabel}</code></div>
+          <div><small>Observation</small><code>${a.observationLabel}</code></div>
+          <div><small>Branch verdict</small><code>${a.classification}</code></div>
+          <div><small>κ(0)</small><code>${a.kappa0.toExponential(3)}</code></div>
+          <div><small>Selected κ(δ)</small><code>${a.selectedKappa.toExponential(3)}</code></div>
+        </div>
+      </div>
+      <div class="figure">
+        <h4>Recovery quality</h4>
+        <div class="value-grid">
+          <div><small>Mean recovery error</small><code>${a.meanRecoveryError.toExponential(3)}</code></div>
+          <div><small>Worst sampled error</small><code>${a.maxRecoveryError.toExponential(3)}</code></div>
+          <div><small>Exact branch</small><code>${a.exact ? 'yes' : 'no'}</code></div>
+          <div><small>Asymptotic branch</small><code>${a.asymptotic ? 'yes' : 'no'}</code></div>
+          <div><small>Impossible branch</small><code>${a.impossible ? 'yes' : 'no'}</code></div>
+          <div><small>Selected δ</small><code>${a.selectedDelta.toFixed(3)}</code></div>
+          ${state.labs.recoverability.system === 'analytic' ? `<div><small>Lower bound κ(η)/2</small><code>${a.selectedLowerBound.toExponential(3)}</code></div>` : ''}
+          ${state.labs.recoverability.system === 'periodic' ? `<div><small>Current cutoff</small><code>${a.currentCutoff}</code></div><div><small>Predicted minimum cutoff</small><code>${a.predictedMinCutoff}</code></div>` : ''}
+          ${state.labs.recoverability.system === 'control' ? `<div><small>Control mode</small><code>${a.controlModeLabel}</code></div><div><small>${a.spectralRadius === null ? 'Predicted minimum horizon' : 'Observer spectral radius'}</small><code>${a.spectralRadius === null ? (a.predictedMinHorizon === null ? 'none' : a.predictedMinHorizon) : a.spectralRadius.toFixed(3)}</code></div>` : ''}
+        </div>
+      </div>
+    </div>
+    ${tertiaryFigure}
+  `;
 }
 
 function renderExactStage() {
@@ -994,6 +1217,16 @@ function renderNoGoStage() {
 
 function renderMetrics() {
   switch (state.activeLab) {
+    case 'recoverability':
+      return [
+        metric('κ(0)', latestAnalysis.kappa0.toExponential(2), latestAnalysis.kappa0 < 1e-8 ? 'good' : 'bad'),
+        metric('Selected κ(δ)', latestAnalysis.selectedKappa.toExponential(2), latestAnalysis.selectedKappa < 1e-6 ? 'good' : ''),
+        metric('Exact', latestAnalysis.exact ? 'yes' : 'no', latestAnalysis.exact ? 'good' : ''),
+        metric('Asymptotic', latestAnalysis.asymptotic ? 'yes' : 'no', latestAnalysis.asymptotic ? 'good' : ''),
+        ...(state.labs.recoverability.system === 'analytic'
+          ? [metric('κ(η)/2 bound', latestAnalysis.selectedLowerBound.toExponential(2), latestAnalysis.selectedLowerBound > 0 ? 'bad' : 'good')]
+          : []),
+      ].join('');
     case 'exact':
       return [
         metric('Basis overlap', latestAnalysis.overlap.toFixed(3), latestAnalysis.admissible ? 'good' : 'bad'),
@@ -1042,6 +1275,8 @@ function renderMetrics() {
 
 function renderNarrativeSummary() {
   switch (state.activeLab) {
+    case 'recoverability':
+      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)}.${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected variable is ${latestAnalysis.predictedMinCutoff}.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the three-state threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected coordinate is hidden' : latestAnalysis.predictedMinHorizon}.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''} This lab is meant to show when correction is mathematically meaningful and when the record has already lost too much structure.</p>`;
     case 'exact':
       return `<p>${latestAnalysis.admissible ? 'The disturbance is orthogonal, so projection returns the protected component exactly.' : 'The disturbance overlaps the protected direction, so exact recovery fails in the way the theorem spine predicts.'}</p>`;
     case 'qec':
@@ -1307,26 +1542,42 @@ function barChartSvg(series) {
 }
 
 function lineChartSvg(points, xLabel, yLabel, markerX = null) {
+  const finitePoints = points
+    .map((point) => ({ x: Number(point.x), y: Number(point.y) }))
+    .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
   const width = 540;
   const height = 260;
   const left = 48;
   const right = 18;
   const top = 18;
   const bottom = 42;
-  const xs = points.map((point) => point.x);
-  const ys = points.map((point) => point.y);
+  if (!finitePoints.length) {
+    return `
+      <svg viewBox="0 0 ${width} ${height}" aria-label="Line chart unavailable">
+        <rect width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.78)" />
+        <text x="${width / 2}" y="${height / 2 - 6}" text-anchor="middle" font-size="14" fill="#5d625e">No finite chart data</text>
+        <text x="${width / 2}" y="${height / 2 + 18}" text-anchor="middle" font-size="12" fill="#8a8f8b">${xLabel} / ${yLabel}</text>
+      </svg>
+    `;
+  }
+  const xs = finitePoints.map((point) => point.x);
+  const ys = finitePoints.map((point) => point.y);
   const xMin = Math.min(...xs);
   const xMax = Math.max(...xs);
   const yMin = Math.min(...ys);
   const yMax = Math.max(...ys);
   const xScale = (value) => left + ((value - xMin) / Math.max(xMax - xMin, 1e-9)) * (width - left - right);
   const yScale = (value) => height - bottom - ((value - yMin) / Math.max(yMax - yMin, 1e-9)) * (height - top - bottom);
-  const path = points.map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.x)} ${yScale(point.y)}`).join(' ');
+  const path = finitePoints.map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.x)} ${yScale(point.y)}`).join(' ');
   const marker = markerX === null
     ? ''
     : (() => {
-        const chosen = points.reduce((best, point) =>
-          Math.abs(point.x - markerX) < Math.abs(best.x - markerX) ? point : best
+        const numericMarker = Number(markerX);
+        if (!Number.isFinite(numericMarker)) {
+          return '';
+        }
+        const chosen = finitePoints.reduce((best, point) =>
+          Math.abs(point.x - numericMarker) < Math.abs(best.x - numericMarker) ? point : best
         );
         const x = xScale(chosen.x);
         const y = yScale(chosen.y);

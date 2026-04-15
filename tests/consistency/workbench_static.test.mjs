@@ -8,6 +8,7 @@ import {
   analyzeMhdProjection,
   analyzeNoGo,
   analyzeQecSector,
+  analyzeRecoverability,
 } from '../../docs/workbench/lib/compute.js';
 import { DEFAULT_STATE, decodeShareState, encodeShareState, sanitizeState } from '../../docs/workbench/lib/state.js';
 
@@ -113,4 +114,152 @@ test('state share encoding round-trips', () => {
   const encoded = encodeShareState(DEFAULT_STATE);
   const decoded = decodeShareState(`#state=${encoded}`);
   assert.deepEqual(decoded, sanitizeState(DEFAULT_STATE));
+});
+
+test('recoverability lab keeps the analytic exact-versus-impossible threshold visible', () => {
+  const exact = analyzeRecoverability({
+    system: 'analytic',
+    analyticEpsilon: 0.25,
+    analyticDelta: 0.25,
+  });
+  const impossible = analyzeRecoverability({
+    system: 'analytic',
+    analyticEpsilon: 0,
+    analyticDelta: 0.25,
+  });
+  assert.equal(exact.exact, true);
+  assert.ok(exact.kappa0 < 1e-9);
+  assert.ok(Math.abs(exact.selectedLowerBound - 0.5128205128205128) < 1e-9);
+  assert.equal(impossible.impossible, true);
+  assert.ok(impossible.kappa0 > 1.9);
+});
+
+test('recoverability lab captures qubit phase-loss and weaker-variable recovery', () => {
+  const bloch = analyzeRecoverability({
+    system: 'qubit',
+    qubitProtected: 'bloch_vector',
+    qubitPhaseWindowDeg: 30,
+    qubitDelta: 0.2,
+  });
+  const zOnly = analyzeRecoverability({
+    system: 'qubit',
+    qubitProtected: 'z_coordinate',
+    qubitPhaseWindowDeg: 30,
+    qubitDelta: 0.2,
+  });
+  assert.equal(bloch.impossible, true);
+  assert.ok(bloch.kappa0 > 0.2);
+  assert.equal(zOnly.exact, true);
+  assert.ok(zOnly.kappa0 < 1e-8);
+});
+
+test('recoverability lab keeps periodic exact, approximate, and no-go branches separate', () => {
+  const full = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_modal_coefficients',
+    periodicObservation: 'full_vorticity',
+    periodicDelta: 2,
+  });
+  const cutoffOne = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_modal_coefficients',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 1,
+    periodicDelta: 2,
+  });
+  const cutoffThree = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_modal_coefficients',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 3,
+    periodicDelta: 2,
+  });
+  const lowMode = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'mode_1_coefficient',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 1,
+    periodicDelta: 2,
+  });
+  const divergence = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_modal_coefficients',
+    periodicObservation: 'divergence_only',
+    periodicDelta: 2,
+  });
+  assert.equal(full.exact, true);
+  assert.ok(full.meanRecoveryError < 1e-6);
+  assert.equal(cutoffOne.exact, false);
+  assert.equal(cutoffOne.impossible, true);
+  assert.equal(cutoffThree.exact, true);
+  assert.equal(lowMode.exact, true);
+  assert.ok(cutoffOne.meanRecoveryError > full.meanRecoveryError);
+  assert.ok(cutoffOne.kappa0 > 0.1);
+  assert.ok(cutoffThree.kappa0 < 1e-8);
+  assert.equal(lowMode.predictedMinCutoff, 1);
+  assert.equal(divergence.impossible, true);
+  assert.ok(divergence.kappa0 > cutoffOne.kappa0);
+});
+
+test('recoverability lab keeps finite-history and observer asymptotics distinct', () => {
+  const oneStep = analyzeRecoverability({
+    system: 'control',
+    controlEpsilon: 0.2,
+    controlHorizon: 1,
+    controlDelta: 0.5,
+  });
+  const twoStep = analyzeRecoverability({
+    system: 'control',
+    controlEpsilon: 0.2,
+    controlHorizon: 2,
+    controlDelta: 0.5,
+  });
+  assert.equal(oneStep.exact, false);
+  assert.equal(oneStep.asymptotic, true);
+  assert.ok(Math.abs(oneStep.kappa0 - 2) < 1e-9);
+  assert.equal(twoStep.exact, true);
+  assert.ok(twoStep.kappa0 < 1e-9);
+  assert.ok(twoStep.meanRecoveryError < 1e-8);
+  assert.ok(twoStep.observerErrorHistory.at(-1) < twoStep.observerErrorHistory[0]);
+});
+
+test('recoverability lab captures the three-state minimal-history threshold', () => {
+  const oneStep = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlHorizon: 1,
+    controlDelta: 0.5,
+  });
+  const twoActive = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'two_active',
+    controlHorizon: 2,
+    controlDelta: 0.5,
+  });
+  const threeActive = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlHorizon: 3,
+    controlDelta: 0.5,
+  });
+  const hidden = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'protected_hidden',
+    controlHorizon: 4,
+    controlDelta: 0.5,
+  });
+  assert.equal(oneStep.exact, false);
+  assert.equal(oneStep.predictedMinHorizon, 3);
+  assert.equal(twoActive.exact, true);
+  assert.equal(twoActive.predictedMinHorizon, 2);
+  assert.ok(twoActive.meanRecoveryError < 1e-8);
+  assert.equal(threeActive.exact, true);
+  assert.ok(threeActive.kappa0 < 1e-8);
+  assert.equal(hidden.exact, false);
+  assert.equal(hidden.impossible, true);
+  assert.equal(hidden.predictedMinHorizon, null);
 });

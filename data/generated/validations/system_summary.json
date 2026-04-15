@@ -1,15 +1,15 @@
 {
-  "tracked_like_file_count": 189,
+  "tracked_like_file_count": 224,
   "counts_by_area": {
     ".github": 5,
     "root": 18,
     "archive": 8,
-    "data": 6,
-    "docs": 76,
+    "data": 15,
+    "docs": 96,
     "papers": 6,
-    "scripts": 9,
-    "src": 27,
-    "tests": 27,
+    "scripts": 10,
+    "src": 30,
+    "tests": 29,
     "theory": 7
   }
 }

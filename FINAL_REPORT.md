@@ -13,14 +13,18 @@ It uncovered enough projector, constraint-cleaning, and correction-language mate
 
 ## 2. What Was Added In This Pass
 
-This pass added four major upgrades:
+This pass added five major upgrades:
 
 1. a real physics-extension layer in `docs/physics/`
 2. a citable outside-literature map in `docs/references/citable-expansion-directions.md`
 3. a stronger physics-side counterexample for bounded-domain projector transplantation
 4. a redesigned static workbench with clearer card-based hierarchy, improved naming, and a kept Maxwell/gauge module
+5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Recoverability Lab
 
-The current extension pass also added a narrow CFD lane centered on incompressible projection methods, bounded-domain projection limits, and a new divergence-only bounded no-go.
+The current extension pass also added:
+
+- a narrow CFD lane centered on incompressible projection methods, bounded-domain projection limits, and a new divergence-only bounded no-go
+- and an observation-layer branch centered on recoverability of protected variables under coarse records
 
 ## 3. Strongest Current Theory After The Physics Audit
 
@@ -41,6 +45,19 @@ The strongest new physics-side addition is:
 - the explicit rejection of naive periodic-projector transplantation to bounded-domain protected classes
 
 That result materially sharpens the scope of the exact continuous branch.
+
+The strongest new observation-layer addition is:
+- the constrained-observation recoverability framework centered on the collapse modulus `κ_{M,p}` and on exact / approximate / asymptotic / impossible classification across quantum, periodic flow, and control examples
+
+The strongest second-pass branch results now added on top of that are:
+- the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- a closed-form qubit phase-window collision law,
+- a family-level periodic cutoff threshold on the tested two-mode incompressible family,
+- a stronger three-mode periodic protected-variable minimal-cutoff law,
+- a diagonal minimal-history threshold law on the tested scalar-output control family,
+- and a corrected exact-versus-asymptotic control-history split after replacing a misleading sampled collision estimate with an exact nullspace calculation.
+
+That branch still remains a useful formal and computational extension rather than a major standalone theorem program.
 
 ## 4. Strongest New Physics Results And Decisions
 
@@ -102,6 +119,7 @@ Current modules:
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
+- Recoverability Lab
 
 Usability changes:
 - removed the problematic sticky translucent header
@@ -135,18 +153,20 @@ Current validation status:
 - generated inventories: passed
 - generated claim registry: passed
 - generated operator examples: passed
+- generated recoverability examples: passed
 - generated workbench examples: passed
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
-- Node workbench test suite: `9 passed`
-- Python theorem/operator/example test suite: `24 passed`
+- Node workbench test suite: `16 passed`
+- Python theorem/operator/example test suite: `40 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
 - [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
 - [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
 - [data/generated/validations/system_summary.json](data/generated/validations/system_summary.json)
+- [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
 
 ## 9. Final Naming Decision
 
@@ -186,6 +206,7 @@ The best next directions are now clearer and more grounded:
 1. boundary-sensitive exact continuous correction beyond the rejected naive projector transplant
 2. sharper asymptotic theorems for constraint-damping architectures in real PDE settings
 3. a more formal continuous-QEC bridge only if it yields real operator statements instead of analogy
+4. a stronger cross-domain theorem for the constrained-observation branch beyond the current family-level threshold laws and the baseline `κ(0)=0` criterion
 
 ## 12. Directions To Leave Alone For Now
 
@@ -194,3 +215,4 @@ Do not promote or spend major time on:
 - generic constrained Hamiltonian claims without explicit recovery operators
 - broad optimizer/ML reintegration
 - any renaming that makes physics sound more dominant than the proofs justify
+- any claim that the constrained-observation branch is already a major new theory rather than a promising formal/computational lane with several narrow but real threshold results

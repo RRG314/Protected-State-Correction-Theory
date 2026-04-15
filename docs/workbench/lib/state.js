@@ -2,6 +2,23 @@ export const DEFAULT_STATE = {
   mode: 'plain',
   activeLab: 'exact',
   labs: {
+    recoverability: {
+      system: 'analytic',
+      analyticEpsilon: 0.25,
+      analyticDelta: 0.25,
+      qubitProtected: 'bloch_vector',
+      qubitPhaseWindowDeg: 30,
+      qubitDelta: 0.2,
+      periodicObservation: 'cutoff_vorticity',
+      periodicProtected: 'full_modal_coefficients',
+      periodicCutoff: 1,
+      periodicDelta: 2.0,
+      controlMode: 'two_state_observer',
+      controlProfile: 'three_active',
+      controlEpsilon: 0.2,
+      controlHorizon: 2,
+      controlDelta: 0.5,
+    },
     exact: {
       protectedMagnitude: 1.4,
       disturbanceMagnitude: 0.9,

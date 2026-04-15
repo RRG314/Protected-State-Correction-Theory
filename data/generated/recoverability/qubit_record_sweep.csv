@@ -1,0 +1,15 @@
+protected_variable,phase_window_deg,exact_recoverable,collision_max_protected_distance,mean_recovery_error,max_recovery_error
+bloch_vector,0.0,True,0.0,0.0,0.0
+bloch_vector,15.0,False,0.5176380902050415,0.09117952851936677,0.26105238444010315
+bloch_vector,30.0,False,0.9999999999999999,0.18144917515714606,0.5176380902050415
+bloch_vector,60.0,False,1.7320508075688772,0.3556908941558828,0.9999999999999999
+bloch_vector,90.0,False,2.0,0.5158949077554515,1.414213562373095
+bloch_vector,135.0,False,2.0,0.7168194679824686,1.8477590650225735
+bloch_vector,180.0,False,2.0,0.8567779128961064,2.0
+z_coordinate,0.0,True,0.0,0.0,0.0
+z_coordinate,15.0,True,0.0,0.0,0.0
+z_coordinate,30.0,True,0.0,0.0,0.0
+z_coordinate,60.0,True,0.0,0.0,0.0
+z_coordinate,90.0,True,0.0,0.0,0.0
+z_coordinate,135.0,True,0.0,0.0,0.0
+z_coordinate,180.0,True,0.0,0.0,0.0
