@@ -88,16 +88,20 @@ The repository is organized so readers can enter from different angles:
 ## Start Here
 
 1. [Start Here](docs/overview/start-here.md)
-2. [Initial Public Release Notes](docs/releases/v1.0.0.md)
-3. [Final Architecture](docs/finalization/architecture-final.md)
-4. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
-5. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
-6. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
-7. [Protected-State Correction Workbench](docs/workbench/index.html)
-8. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-9. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-10. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-11. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+2. [Usefulness Roadmap](docs/overview/usefulness-roadmap.md)
+3. [User Entry Paths](docs/overview/user-entry-paths.md)
+4. [Initial Public Release Notes](docs/releases/v1.0.0.md)
+5. [Final Architecture](docs/finalization/architecture-final.md)
+6. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
+7. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
+8. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
+9. [Protected-State Correction Workbench](docs/workbench/index.html)
+10. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
+11. [Template Index](docs/templates/README.md)
+12. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+13. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+14. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+15. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -106,6 +110,10 @@ Use it as a theory repository:
 
 Use it as a scientific workbench:
 - run the static workbench to explore exact projection, sector recovery, generator-based damping, and explicit no-go examples.
+- use the Recoverability / Correction Studio to decide what record is sufficient, what weaker target is still recoverable, and what to add next.
+
+Use it as a design system:
+- start from the reusable templates to build restricted linear recovery checks, observability checks, projection threshold sweeps, ambiguity witnesses, and no-go diagnostics on your own problem.
 
 Use it as a physics comparison layer:
 - trace which physics systems are kept, which are conditional, and which were rejected after operator-level testing.
@@ -160,10 +168,11 @@ The repository now includes a static GitHub-Pages-compatible workbench in:
 - `docs/workbench/`
 
 Modules:
-- Recoverability Lab
+- Recoverability / Correction Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- CFD Projection Lab
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
@@ -184,6 +193,7 @@ The strongest current clean results in that branch are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
 - a closed-form qubit phase-window collision law,
 - a restricted-linear minimal-complexity criterion,
+- a restricted-linear design layer with ambiguity witnesses and minimal augmentation suggestions,
 - family-level periodic functional-support thresholds,
 - and a diagonal functional-interpolation threshold law on a scalar-output control family.
 
@@ -196,6 +206,8 @@ Start here:
 5. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
 6. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
 7. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
+8. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
+9. [Template Index](docs/templates/README.md)
 
 ## Physics Extension
 
@@ -224,7 +236,10 @@ The repo also preserves explicit rejections, including the failure of naive peri
 - `docs/impossibility-results/` - core and advanced no-go structure
 - `docs/open-questions/` - disciplined open-problem catalog and dead-end curation
 - `docs/workbench/` - static Pages-ready scientific workbench
+- `docs/templates/` - reusable build templates for exact, asymptotic, and no-go design problems
+- `docs/applications/` - practical integration notes, including app / engine-facing recoverability design
 - `src/ocp/` - executable operator and validation code
+- `scripts/templates/` - script entry points for reusable recoverability and correction setups
 - `tests/` - theorem, operator, workbench, and regression checks
 
 ## Validation

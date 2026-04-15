@@ -1,36 +1,44 @@
 # Start Here
 
-If you want the shortest serious path through the repository, read in this order:
+## Shortest Serious Path
 
 1. [README.md](../../README.md)
-2. [architecture-final.md](../finalization/architecture-final.md)
-3. [theorem-spine-final.md](../finalization/theorem-spine-final.md)
-4. [no-go-spine-final.md](../finalization/no-go-spine-final.md)
-5. [formal-theory.md](../formalism/formal-theory.md)
-6. [exact-vs-asymptotic.md](../formalism/exact-vs-asymptotic.md)
-7. [sector-recovery-theorems.md](../theorem-candidates/sector-recovery-theorems.md)
-8. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
-9. [advanced-no-go-results.md](../impossibility-results/advanced-no-go-results.md)
-10. [workbench-overview.md](../app/workbench-overview.md)
-11. [workbench/index.html](../workbench/index.html)
+2. [Usefulness roadmap](usefulness-roadmap.md)
+3. [User entry paths](user-entry-paths.md)
+4. [architecture-final.md](../finalization/architecture-final.md)
+5. [theorem-spine-final.md](../finalization/theorem-spine-final.md)
+6. [no-go-spine-final.md](../finalization/no-go-spine-final.md)
+7. [workbench-overview.md](../app/workbench-overview.md)
+8. [Recoverability / Correction Studio note](../app/recoverability-correction-studio.md)
+9. [workbench/index.html](../workbench/index.html)
 
-## Reading Strategy
+## If You Want To Use The Repo Practically
 
-- If you care most about exact mathematics, go from the finalization docs to the exact theorem files.
-- If you care most about QEC, read the sector theorem file immediately after the architecture note.
-- If you care most about PDE or engineering use, jump from the architecture note to the MHD and continuous-generator docs.
-- If you want to know what not to trust, read the no-go spine and dead-end curation early.
+Start with one of these:
+- [I want to know if my problem is solvable](user-entry-paths.md)
+- [Template index](../templates/README.md)
+- [App / engine integration note](../applications/app-engine-recoverability.md)
+- [Usefulness report](../../USEFULNESS_REPORT.md)
+
+## If You Want The Formal Spine First
+
+Read in this order:
+1. [formal-theory.md](../formalism/formal-theory.md)
+2. [exact-vs-asymptotic.md](../formalism/exact-vs-asymptotic.md)
+3. [sector-recovery-theorems.md](../theorem-candidates/sector-recovery-theorems.md)
+4. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
+5. [advanced-no-go-results.md](../impossibility-results/advanced-no-go-results.md)
 
 ## Deep Read
 
 - [SYSTEM_REPORT.md](../../SYSTEM_REPORT.md)
 - [FINAL_REPORT.md](../../FINAL_REPORT.md)
+- [USEFULNESS_REPORT.md](../../USEFULNESS_REPORT.md)
 - [how-to-read-this-repo.md](../peer_review/how-to-read-this-repo.md)
 
 ## If You Want To Contribute
 
 Read these before opening an issue or pull request:
-
 1. [CONTRIBUTING.md](../../CONTRIBUTING.md)
 2. [contributing-paths.md](contributing-paths.md)
 3. [proof-status-map.md](proof-status-map.md)

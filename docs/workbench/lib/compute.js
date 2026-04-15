@@ -164,6 +164,67 @@ export function nullSpace(matrix, tol = EPS) {
   return gramSchmidt(basis, tol);
 }
 
+export function matrixRank(matrix, tol = EPS) {
+  return rref(matrix, tol).pivots.length;
+}
+
+export function rowSpaceResidual(observationRows, targetRow, tol = EPS) {
+  const rows = observationRows.filter((row) => row.some((value) => Math.abs(value) > tol));
+  if (!rows.length) return norm(targetRow);
+  const augmented = [...rows.map((row) => row.slice()), targetRow.slice()];
+  const rankBefore = matrixRank(rows, tol);
+  const rankAfter = matrixRank(augmented, tol);
+  if (rankAfter === rankBefore) return 0;
+  const basis = gramSchmidt(rows);
+  let projected = zeros(targetRow.length);
+  for (const vector of basis) {
+    projected = addVec(projected, scaleVec(vector, dot(targetRow, vector)));
+  }
+  return norm(subVec(targetRow, projected));
+}
+
+export function recoverableRowIndices(observationRows, protectedRows, tol = EPS) {
+  const residuals = protectedRows.map((row) => rowSpaceResidual(observationRows, row, tol));
+  const recoverable = [];
+  const unrecoverable = [];
+  residuals.forEach((value, index) => {
+    if (value <= tol) recoverable.push(index);
+    else unrecoverable.push(index);
+  });
+  return { residuals, recoverable, unrecoverable };
+}
+
+export function minimalRowAugmentation(observationRows, protectedRows, candidateRows, tol = EPS) {
+  const currentRank = matrixRank(observationRows, tol);
+  const neededRank = matrixRank([...observationRows, ...protectedRows], tol);
+  const maxAdded = Math.max(candidateRows.length, neededRank - currentRank);
+  const exactSets = [];
+  const indexList = Array.from({ length: candidateRows.length }, (_, index) => index);
+  const choose = (items, size, start = 0, prefix = []) => {
+    if (prefix.length === size) {
+      exactSets.push(prefix.slice());
+      return;
+    }
+    for (let i = start; i < items.length; i += 1) {
+      prefix.push(items[i]);
+      choose(items, size, i + 1, prefix);
+      prefix.pop();
+    }
+  };
+  for (let size = 1; size <= maxAdded; size += 1) {
+    exactSets.length = 0;
+    choose(indexList, size);
+    const valid = exactSets.filter((combo) => {
+      const augmented = [...observationRows, ...combo.map((index) => candidateRows[index])];
+      return protectedRows.every((row) => rowSpaceResidual(augmented, row, tol) <= tol);
+    });
+    if (valid.length) {
+      return { minimalAdded: size, exactSets: valid };
+    }
+  }
+  return { minimalAdded: null, exactSets: [] };
+}
+
 export function orthogonalComplement(basis, dimension) {
   const q = gramSchmidt(basis);
   const complement = [];
@@ -915,6 +976,152 @@ function analyzeControlRecoverability(config) {
   };
 }
 
+export const LINEAR_TEMPLATE_LIBRARY = {
+  sensor_basis: {
+    label: '3-state static record template',
+    candidates: [
+      { id: 'measure_x1', label: 'measure x1', row: [1, 0, 0] },
+      { id: 'measure_x2', label: 'measure x2', row: [0, 1, 0] },
+      { id: 'measure_x3', label: 'measure x3', row: [0, 0, 1] },
+      { id: 'measure_x2_plus_x3', label: 'measure x2+x3', row: [0, 1, 1] },
+      { id: 'measure_x1_plus_x2', label: 'measure x1+x2', row: [1, 1, 0] },
+    ],
+    protectedOptions: {
+      x3: { label: 'coordinate x3', rows: [[0, 0, 1]] },
+      x2_plus_x3: { label: 'sum x2+x3', rows: [[0, 1, 1]] },
+      tail_pair: { label: 'tail pair (x2, x3)', rows: [[0, 1, 0], [0, 0, 1]] },
+      full_state: {
+        label: 'full state (x1, x2, x3)',
+        rows: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+      },
+    },
+    defaultMeasurements: ['measure_x1', 'measure_x2_plus_x3'],
+  },
+};
+
+function linearTemplateFamily() {
+  const coeffs = [-1, -0.5, 0, 0.5, 1];
+  const family = [];
+  for (const x1 of coeffs) {
+    for (const x2 of coeffs) {
+      for (const x3 of coeffs) {
+        family.push([x1, x2, x3]);
+      }
+    }
+  }
+  return family;
+}
+
+function linearTemplateActiveCandidates(config) {
+  const template = LINEAR_TEMPLATE_LIBRARY[config.linearTemplate] ?? LINEAR_TEMPLATE_LIBRARY.sensor_basis;
+  return template.candidates.filter((candidate) => config.linearMeasurements?.[candidate.id]);
+}
+
+function linearRowRecoverableWeights(observationRows, protectedRow) {
+  if (!observationRows.length) return null;
+  const coeffs = solveLeastSquares(transpose(observationRows), protectedRow);
+  if (!coeffs) return null;
+  const reconstructed = Array(observationRows[0].length).fill(0);
+  observationRows.forEach((row, index) => {
+    for (let j = 0; j < row.length; j += 1) {
+      reconstructed[j] += coeffs[index] * row[j];
+    }
+  });
+  return norm(subVec(reconstructed, protectedRow)) < 1e-8 ? coeffs : null;
+}
+
+function linearTemplateProtectedValue(state, rows) {
+  return rows.map((row) => dot(row, state));
+}
+
+function analyzeLinearTemplateRecoverability(config) {
+  const template = LINEAR_TEMPLATE_LIBRARY[config.linearTemplate] ?? LINEAR_TEMPLATE_LIBRARY.sensor_basis;
+  const family = linearTemplateFamily();
+  const active = linearTemplateActiveCandidates(config);
+  const activeRows = active.map((candidate) => candidate.row);
+  const remainingCandidates = template.candidates.filter((candidate) => !config.linearMeasurements?.[candidate.id]);
+  const protectedOption = template.protectedOptions[config.linearProtected] ?? template.protectedOptions.x3;
+  const protectedRows = protectedOption.rows.map((row) => row.slice());
+  const { residuals, recoverable, unrecoverable } = recoverableRowIndices(activeRows, protectedRows);
+  const exact = unrecoverable.length === 0;
+  const augmentation = minimalRowAugmentation(activeRows, protectedRows, remainingCandidates.map((candidate) => candidate.row));
+  const nullBasis = nullSpace(activeRows.length ? activeRows : [zeros(3)]);
+  let witness = null;
+  let witnessGap = 0;
+  for (const vector of nullBasis) {
+    const scaled = scaleVec(vector, 1 / Math.max(...vector.map((value) => Math.abs(value)), 1));
+    const gap = norm(linearTemplateProtectedValue(scaled, protectedRows));
+    if (gap > witnessGap + 1e-9) {
+      witness = scaled;
+      witnessGap = gap;
+    }
+  }
+
+  const deltas = Array.from({ length: 40 }, (_, index) => (index * 2.5) / 39);
+  const observations = [];
+  const protectedValues = [];
+  const errors = [];
+  const rowMetric = protectedRows.length === 1 ? scalarGap : rmsMetric;
+  for (const state of family) {
+    const observation = activeRows.map((row) => dot(row, state));
+    const protectedValue = linearTemplateProtectedValue(state, protectedRows);
+    observations.push(observation);
+    protectedValues.push(protectedValue);
+    let estimate = Array.from({ length: protectedRows.length }, () => 0);
+    if (exact) {
+      estimate = protectedRows.map((row) => {
+        const weights = linearRowRecoverableWeights(activeRows, row);
+        return weights ? dot(weights, observation) : 0;
+      });
+    }
+    errors.push(rowMetric(estimate, protectedValue));
+  }
+
+  const collapse = collapseFromSamples(observations, protectedValues, deltas, rmsMetric, rowMetric);
+  const kappa0 = fiberCollisionGap(observations, protectedValues, rmsMetric, rowMetric);
+  const selectedDelta = clamp(Number(config.linearDelta ?? 1), 0, 2.5);
+  const deltaIndex = Math.round((selectedDelta / 2.5) * (deltas.length - 1));
+  const recoverableOptions = Object.entries(template.protectedOptions)
+    .map(([key, value]) => ({
+      key,
+      label: value.label,
+      exact: recoverableRowIndices(activeRows, value.rows).unrecoverable.length === 0,
+    }))
+    .filter((item) => item.exact);
+
+  return {
+    systemLabel: template.label,
+    protectedLabel: protectedOption.label,
+    observationLabel: active.length ? active.map((candidate) => candidate.label).join(', ') : 'no measurements selected',
+    classification: exact
+      ? 'Exact under the current static record'
+      : augmentation.minimalAdded !== null
+        ? `Impossible now; exact after ${augmentation.minimalAdded} added measurement${augmentation.minimalAdded === 1 ? '' : 's'}`
+        : 'Impossible under the current candidate record family',
+    exact,
+    asymptotic: false,
+    impossible: !exact,
+    deltas,
+    collapse,
+    selectedDelta,
+    selectedKappa: collapse[deltaIndex],
+    kappa0,
+    meanRecoveryError: errors.reduce((sum, value) => sum + value, 0) / errors.length,
+    maxRecoveryError: Math.max(...errors),
+    activeMeasurementLabels: active.map((candidate) => candidate.label),
+    remainingMeasurementLabels: remainingCandidates.map((candidate) => candidate.label),
+    recoverableProtectedRows: recoverable,
+    unrecoverableProtectedRows: unrecoverable,
+    rowResiduals: residuals,
+    weakerProtectedOptions: recoverableOptions.map((item) => item.label),
+    minimalAddedMeasurements: augmentation.minimalAdded,
+    candidateExactSets: augmentation.exactSets.map((combo) => combo.map((index) => remainingCandidates[index].label)),
+    nullspaceWitness: witness,
+    nullspaceWitnessGap: witnessGap,
+    templateProtectedOptions: Object.values(template.protectedOptions).map((item) => item.label),
+  };
+}
+
 function maxEigenRadius2(matrix) {
   const [[a, b], [c, d]] = matrix;
   const trace = a + d;
@@ -955,18 +1162,237 @@ function analyzeAnalyticRecoverability(config) {
   };
 }
 
-export function analyzeRecoverability(config) {
+function recoverabilityStatusLabel(result) {
+  if (result.exact) return 'Exact';
+  if (result.asymptotic) return 'Asymptotic';
+  if (result.impossible) return 'Impossible';
+  return 'Approximate';
+}
+
+function periodicWeakerSuggestions(cutoff) {
+  const options = [
+    { label: 'leading modal coefficient', threshold: 1 },
+    { label: 'first two modal coefficients', threshold: 2 },
+    { label: 'low-mode weighted sum', threshold: 2 },
+    { label: 'band-limited contrast functional', threshold: 3 },
+    { label: 'full weighted modal sum', threshold: 4 },
+    { label: 'full four-mode coefficient vector', threshold: 4 },
+  ];
+  return options.filter((option) => cutoff >= option.threshold).map((option) => option.label);
+}
+
+function guidanceForRecoverability(result, config) {
   switch (config.system) {
+    case 'analytic': {
+      if (result.exact) {
+        return {
+          architecture: 'Static exact recovery with noise-budget control',
+          blocker: 'No structural blocker is present, but the record becomes poorly conditioned as ε shrinks.',
+          missing: result.amplification > 6 ? 'Increase ε or reduce tolerated record noise before treating the setup as robust.' : 'Current record is sufficient for exact recovery on the chosen family.',
+          nextSteps: [
+            `Keep ε away from zero; the current amplification factor is ${Number.isFinite(result.amplification) ? result.amplification.toFixed(2) : '∞'}.`,
+            'Use κ(η)/2 to decide whether the current noise budget is acceptable.',
+            'If robustness matters more than exactness, redesign the record before changing the protected variable.',
+          ],
+          weaker: [],
+          noGo: null,
+        };
+      }
+      return {
+        architecture: 'No static recovery under the current record',
+        blocker: 'The record collapses the protected scalar completely when ε = 0.',
+        missing: 'Any nonzero coupling to the protected coordinate would restore exact recoverability on this family.',
+        nextSteps: [
+          'Add direct sensitivity to the protected coordinate.',
+          'Do not switch to an observer here; the issue is missing information, not missing time dynamics.',
+        ],
+        weaker: [],
+        noGo: 'Fiber collision at κ(0) > 0',
+      };
+    }
+    case 'qubit': {
+      if (result.exact) {
+        return {
+          architecture: 'Static exact recovery on the restricted family',
+          blocker: 'None on the current protected variable and phase family.',
+          missing: 'The fixed-basis record is already sufficient for the chosen weaker protected variable.',
+          nextSteps: [
+            'Keep the protected target weak if you want to stay with a fixed-basis record.',
+            'If you need the full Bloch vector, add another measurement basis rather than over-interpreting the current record.',
+          ],
+          weaker: result.protectedLabel === 'z coordinate only' ? [] : ['z coordinate only'],
+          noGo: result.exact ? null : 'Fixed-basis phase-loss no-go',
+        };
+      }
+      return {
+        architecture: 'Richer measurement family required',
+        blocker: 'Phase freedom creates fiber collisions under the fixed-basis record.',
+        missing: 'Add at least one complementary measurement basis or restrict the admissible state family to a meridian.',
+        nextSteps: [
+          'Add X/Y-sensitive observables if you need the full Bloch vector.',
+          'If the record must stay fixed-basis, weaken the protected variable to the z coordinate.',
+        ],
+        weaker: ['z coordinate only'],
+        noGo: 'Fixed-basis phase-loss no-go',
+      };
+    }
+    case 'periodic': {
+      if (result.exact) {
+        return {
+          architecture: 'Static exact recovery from projection-compatible periodic records',
+          blocker: 'No structural blocker on the current finite modal family.',
+          missing: 'Current retained modal support is sufficient.',
+          nextSteps: [
+            'If you enlarge the protected variable, recheck the protected-support cutoff.',
+            'If you move to bounded domains, do not reuse this verdict without a boundary-compatible projector.',
+          ],
+          weaker: periodicWeakerSuggestions(result.currentCutoff).filter((label) => label !== result.protectedLabel),
+          noGo: null,
+        };
+      }
+      if (config.periodicObservation === 'divergence_only') {
+        return {
+          architecture: 'Switch to a richer record family',
+          blocker: 'Divergence-only data leave nontrivial incompressible states indistinguishable.',
+          missing: 'Add vorticity or another record that separates the protected modal content.',
+          nextSteps: [
+            'Move from divergence-only data to cutoff or full vorticity.',
+            'If bandwidth is limited, lower the protected target to a variable with smaller modal support.',
+          ],
+          weaker: periodicWeakerSuggestions(0),
+          noGo: 'Divergence-only no-go',
+        };
+      }
+      return {
+        architecture: 'Increase retained record complexity',
+        blocker: 'The retained cutoff misses part of the protected modal support.',
+        missing: `Raise the cutoff from ${result.currentCutoff} to at least ${result.predictedMinCutoff}.`,
+        nextSteps: [
+          `Increase the cutoff to ${result.predictedMinCutoff} for exact recovery of the current protected variable.`,
+          'If that cost is too high, weaken the protected variable to one supported on the retained modes.',
+        ],
+        weaker: periodicWeakerSuggestions(result.currentCutoff).filter((label) => label !== result.protectedLabel),
+        noGo: 'Protected-support cutoff law',
+      };
+    }
+    case 'control': {
+      if (result.exact) {
+        return {
+          architecture: 'Static finite-history recovery',
+          blocker: 'No exactness blocker remains at the current horizon.',
+          missing: 'Current history length is sufficient for the chosen protected variable.',
+          nextSteps: [
+            'Keep the current horizon if you only need static recovery from batched records.',
+            'Switch to an observer only if you need online estimation rather than finite-history reconstruction.',
+          ],
+          weaker: [],
+          noGo: null,
+        };
+      }
+      if (result.asymptotic) {
+        return {
+          architecture: 'Observer / asymptotic recovery',
+          blocker: 'Finite-history exact recovery fails at the current horizon even though the dynamic record remains informative.',
+          missing: `Either extend the horizon to ${result.predictedMinHorizon ?? 2} or switch to observer-style recovery.`,
+          nextSteps: [
+            `Increase the finite history to ${result.predictedMinHorizon ?? 2} for exact static recovery.`,
+            'If latency matters more than exact one-shot reconstruction, use an observer and monitor spectral radius.',
+          ],
+          weaker: [],
+          noGo: 'Finite-history insufficiency with observer-side asymptotic rescue',
+        };
+      }
+      return {
+        architecture: 'Increase horizon or weaken the protected functional',
+        blocker: result.predictedMinHorizon === null
+          ? 'The current sensor profile never spans the chosen protected functional.'
+          : 'The finite history is too short to interpolate the protected functional.',
+        missing: result.predictedMinHorizon === null
+          ? 'Change the sensor profile or choose a weaker protected functional generated by the sensed moments.'
+          : `Increase the horizon to at least ${result.predictedMinHorizon}.`,
+        nextSteps: result.predictedMinHorizon === null
+          ? ['Switch to sensor_sum or first_moment if those fit the real task better.', 'Otherwise add a sensor that directly touches the hidden protected direction.']
+          : [`Extend the history to ${result.predictedMinHorizon}.`, 'If that is not possible, weaken the protected target to one of the lower-moment functionals.'],
+        weaker: result.controlModeLabel === 'minimal-history threshold model' ? ['sensor-weighted state sum', 'first sensor moment functional'] : [],
+        noGo: result.predictedMinHorizon === null ? 'Hidden protected-direction no-go' : 'Minimal-history threshold law',
+      };
+    }
+    case 'linear': {
+      return {
+        architecture: result.exact ? 'Static linear recovery' : 'Augment the record or weaken the protected variable',
+        blocker: result.exact
+          ? 'No structural blocker remains on the current protected rows.'
+          : result.nullspaceWitness
+            ? `A nullspace witness still changes the protected variable by ${result.nullspaceWitnessGap.toFixed(2)} while leaving the record fixed.`
+            : 'The current record row space does not contain every protected row.',
+        missing: result.exact
+          ? 'Current measurement rows span the protected target.'
+          : result.minimalAddedMeasurements === null
+            ? 'No exact fix exists inside the current candidate measurement library.'
+            : `Add ${result.minimalAddedMeasurements} measurement${result.minimalAddedMeasurements === 1 ? '' : 's'} from the candidate library.`,
+        nextSteps: result.exact
+          ? ['Export this scenario as a reusable exact-recovery template.', 'If robustness matters, enlarge the admissible family and retest.']
+          : [
+              result.candidateExactSets.length
+                ? `Try one of the minimal fixes: ${result.candidateExactSets.map((set) => set.join(' + ')).join(' or ')}.`
+                : 'Rethink the measurement library; the current candidates cannot support exact recovery.',
+              result.weakerProtectedOptions.length
+                ? `If the full target is too expensive, a weaker recoverable target already exists: ${result.weakerProtectedOptions.join(', ')}.`
+                : 'There is no weaker recoverable option in the current protected menu.',
+            ],
+        weaker: result.weakerProtectedOptions.filter((label) => label !== result.protectedLabel),
+        noGo: result.exact ? null : 'Restricted-linear row-space insufficiency',
+      };
+    }
+    default:
+      return {
+        architecture: 'Use the current branch classification',
+        blocker: 'No additional guidance available.',
+        missing: 'Inspect κ(0), the threshold plots, and the no-go layer.',
+        nextSteps: ['Use the theory links and outside literature cards to refine the model.'],
+        weaker: [],
+        noGo: null,
+      };
+  }
+}
+
+function decorateRecoverabilityGuidance(result, config) {
+  const guidance = guidanceForRecoverability(result, config);
+  const status = recoverabilityStatusLabel(result);
+  return {
+    ...result,
+    status,
+    guidance,
+    workflow: [
+      { label: 'Define protected variable', status: result.protectedLabel ? 'done' : 'pending', detail: result.protectedLabel },
+      { label: 'Check record sufficiency', status: result.exact ? 'done' : result.impossible ? 'blocked' : 'in-progress', detail: result.observationLabel },
+      { label: 'Choose architecture', status: guidance.architecture ? 'done' : 'pending', detail: guidance.architecture },
+      { label: 'Take next step', status: guidance.nextSteps?.length ? 'ready' : 'pending', detail: guidance.nextSteps?.[0] ?? 'No next step generated' },
+    ],
+  };
+}
+
+export function analyzeRecoverability(config) {
+  let result;
+  switch (config.system) {
+    case 'linear':
+      result = analyzeLinearTemplateRecoverability(config);
+      break;
     case 'qubit':
-      return analyzeQubitRecoverability(config);
+      result = analyzeQubitRecoverability(config);
+      break;
     case 'periodic':
-      return analyzePeriodicRecoverability(config);
+      result = analyzePeriodicRecoverability(config);
+      break;
     case 'control':
-      return analyzeControlRecoverability(config);
+      result = analyzeControlRecoverability(config);
+      break;
     case 'analytic':
     default:
-      return analyzeAnalyticRecoverability(config);
+      result = analyzeAnalyticRecoverability(config);
+      break;
   }
+  return decorateRecoverabilityGuidance(result, config);
 }
 
 function gridAxis(n) {

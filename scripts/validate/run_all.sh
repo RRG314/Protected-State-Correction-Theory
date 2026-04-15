@@ -7,6 +7,7 @@ python3 scripts/report/build_claim_registry.py
 python3 scripts/report/build_system_report.py
 PYTHONPATH=src python3 scripts/compare/run_operator_examples.py
 PYTHONPATH=src python3 scripts/compare/run_recoverability_examples.py
+PYTHONPATH=src python3 scripts/compare/run_design_examples.py
 if command -v node >/dev/null 2>&1; then
   node scripts/compare/build_workbench_examples.mjs
   node --test tests/consistency/workbench_static.test.mjs

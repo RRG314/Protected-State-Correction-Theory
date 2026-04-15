@@ -50,8 +50,8 @@ Workbench-side:
 4. periodic functional-support cutoff thresholds
 5. control finite-history versus observer asymptotics
 6. diagonal minimal-history threshold behavior in the three-state control lane
-7. generalized periodic functional thresholds in the Recoverability Lab
-8. generalized diagonal functional thresholds in the Recoverability Lab
+7. generalized periodic functional thresholds in the Recoverability / Correction Studio
+8. generalized diagonal functional thresholds in the Recoverability / Correction Studio
 9. existing exact / QEC / MHD / CFD / gauge / generator / no-go modules still pass
 10. share-state encoding and decoding still round-trip correctly
 
@@ -67,7 +67,7 @@ Most recent targeted branch checks completed during this pass:
 
 - `tests/math/test_recoverability.py`: `22 passed`
 - `tests/examples/test_generated_artifact_consistency.py`: `2 passed`
-- `tests/consistency/workbench_static.test.mjs`: `16 passed`
+- `tests/consistency/workbench_static.test.mjs`: `17 passed`
 - recoverability artifact build:
   - [recoverability_summary.json](../../../data/generated/recoverability/recoverability_summary.json)
   - CSV and SVG outputs generated successfully
@@ -82,12 +82,12 @@ New generated branch artifacts in this pass:
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `68 passed`
-- Workbench / Node suite: `16 passed`
+- Python suite: `74 passed`
+- Workbench / Node suite: `17 passed`
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
-- browser smoke check on the updated Recoverability Lab: completed locally during this pass
+- browser smoke check on the updated Recoverability / Correction Studio: completed locally during this pass
 - broader randomized projector / generator / sector tests: passed
 - multi-grid MHD / CFD falsification sweeps: passed
 

@@ -140,7 +140,42 @@
     "meanRecoveryError": 0,
     "maxRecoveryError": 0,
     "epsilon": 0.25,
-    "amplification": 4
+    "amplification": 4,
+    "status": "Exact",
+    "guidance": {
+      "architecture": "Static exact recovery with noise-budget control",
+      "blocker": "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks.",
+      "missing": "Current record is sufficient for exact recovery on the chosen family.",
+      "nextSteps": [
+        "Keep ε away from zero; the current amplification factor is 4.00.",
+        "Use κ(η)/2 to decide whether the current noise budget is acceptable.",
+        "If robustness matters more than exactness, redesign the record before changing the protected variable."
+      ],
+      "weaker": [],
+      "noGo": null
+    },
+    "workflow": [
+      {
+        "label": "Define protected variable",
+        "status": "done",
+        "detail": "protected scalar v"
+      },
+      {
+        "label": "Check record sufficiency",
+        "status": "done",
+        "detail": "coarse two-coordinate record"
+      },
+      {
+        "label": "Choose architecture",
+        "status": "done",
+        "detail": "Static exact recovery with noise-budget control"
+      },
+      {
+        "label": "Take next step",
+        "status": "ready",
+        "detail": "Keep ε away from zero; the current amplification factor is 4.00."
+      }
+    ]
   },
   "recoverabilityQubit": {
     "systemLabel": "Qubit fixed-basis record",
@@ -257,6 +292,42 @@
       2,
       2,
       2
+    ],
+    "status": "Impossible",
+    "guidance": {
+      "architecture": "Richer measurement family required",
+      "blocker": "Phase freedom creates fiber collisions under the fixed-basis record.",
+      "missing": "Add at least one complementary measurement basis or restrict the admissible state family to a meridian.",
+      "nextSteps": [
+        "Add X/Y-sensitive observables if you need the full Bloch vector.",
+        "If the record must stay fixed-basis, weaken the protected variable to the z coordinate."
+      ],
+      "weaker": [
+        "z coordinate only"
+      ],
+      "noGo": "Fixed-basis phase-loss no-go"
+    },
+    "workflow": [
+      {
+        "label": "Define protected variable",
+        "status": "done",
+        "detail": "full Bloch vector"
+      },
+      {
+        "label": "Check record sufficiency",
+        "status": "blocked",
+        "detail": "fixed-basis measurement probabilities"
+      },
+      {
+        "label": "Choose architecture",
+        "status": "done",
+        "detail": "Richer measurement family required"
+      },
+      {
+        "label": "Take next step",
+        "status": "ready",
+        "detail": "Add X/Y-sensitive observables if you need the full Bloch vector."
+      }
     ]
   },
   "recoverabilityControl": {
@@ -394,7 +465,41 @@
     ],
     "controlModeLabel": "two-state observer model",
     "predictedMinHorizon": 2,
-    "activeSensorCount": 2
+    "activeSensorCount": 2,
+    "status": "Exact",
+    "guidance": {
+      "architecture": "Static finite-history recovery",
+      "blocker": "No exactness blocker remains at the current horizon.",
+      "missing": "Current history length is sufficient for the chosen protected variable.",
+      "nextSteps": [
+        "Keep the current horizon if you only need static recovery from batched records.",
+        "Switch to an observer only if you need online estimation rather than finite-history reconstruction."
+      ],
+      "weaker": [],
+      "noGo": null
+    },
+    "workflow": [
+      {
+        "label": "Define protected variable",
+        "status": "done",
+        "detail": "second state coordinate x₂"
+      },
+      {
+        "label": "Check record sufficiency",
+        "status": "done",
+        "detail": "2-step scalar output history"
+      },
+      {
+        "label": "Choose architecture",
+        "status": "done",
+        "detail": "Static finite-history recovery"
+      },
+      {
+        "label": "Take next step",
+        "status": "ready",
+        "detail": "Keep the current horizon if you only need static recovery from batched records."
+      }
+    ]
   },
   "recoverabilityPeriodicThreshold": {
     "systemLabel": "Finite periodic incompressible modal family",
@@ -515,6 +620,44 @@
       0.6666666666666666,
       0,
       0
+    ],
+    "status": "Exact",
+    "guidance": {
+      "architecture": "Static exact recovery from projection-compatible periodic records",
+      "blocker": "No structural blocker on the current finite modal family.",
+      "missing": "Current retained modal support is sufficient.",
+      "nextSteps": [
+        "If you enlarge the protected variable, recheck the protected-support cutoff.",
+        "If you move to bounded domains, do not reuse this verdict without a boundary-compatible projector."
+      ],
+      "weaker": [
+        "leading modal coefficient",
+        "first two modal coefficients",
+        "low-mode weighted sum"
+      ],
+      "noGo": null
+    },
+    "workflow": [
+      {
+        "label": "Define protected variable",
+        "status": "done",
+        "detail": "band-limited contrast functional"
+      },
+      {
+        "label": "Check record sufficiency",
+        "status": "done",
+        "detail": "cutoff vorticity coordinates (cutoff 3)"
+      },
+      {
+        "label": "Choose architecture",
+        "status": "done",
+        "detail": "Static exact recovery from projection-compatible periodic records"
+      },
+      {
+        "label": "Take next step",
+        "status": "ready",
+        "detail": "If you enlarge the protected variable, recheck the protected-support cutoff."
+      }
     ]
   },
   "recoverabilityControlThreshold": {
@@ -637,7 +780,41 @@
     "predictedMinHorizon": 3,
     "activeSensorCount": 3,
     "controlModeLabel": "minimal-history threshold model",
-    "functionalName": "second_moment"
+    "functionalName": "second_moment",
+    "status": "Exact",
+    "guidance": {
+      "architecture": "Static finite-history recovery",
+      "blocker": "No exactness blocker remains at the current horizon.",
+      "missing": "Current history length is sufficient for the chosen protected variable.",
+      "nextSteps": [
+        "Keep the current horizon if you only need static recovery from batched records.",
+        "Switch to an observer only if you need online estimation rather than finite-history reconstruction."
+      ],
+      "weaker": [],
+      "noGo": null
+    },
+    "workflow": [
+      {
+        "label": "Define protected variable",
+        "status": "done",
+        "detail": "second sensor moment functional"
+      },
+      {
+        "label": "Check record sufficiency",
+        "status": "done",
+        "detail": "3-step history (three active)"
+      },
+      {
+        "label": "Choose architecture",
+        "status": "done",
+        "detail": "Static finite-history recovery"
+      },
+      {
+        "label": "Take next step",
+        "status": "ready",
+        "detail": "Keep the current horizon if you only need static recovery from batched records."
+      }
+    ]
   },
   "exact": {
     "protectedBasis": [

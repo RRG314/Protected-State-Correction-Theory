@@ -19,7 +19,8 @@ This pass added five major upgrades:
 2. a citable outside-literature map in `docs/references/citable-expansion-directions.md`
 3. a stronger physics-side counterexample for bounded-domain projector transplantation
 4. a redesigned static workbench with clearer card-based hierarchy, improved naming, and a kept Maxwell/gauge module
-5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Recoverability Lab
+5. a full constrained-observation recoverability branch with formal notes, no-go structure, computational experiments, generated artifacts, and a new Recoverability / Correction Studio
+6. a practical design layer with reusable templates, user-entry paths, and app-facing recoverability guidance
 
 The current extension pass also added:
 
@@ -115,13 +116,14 @@ The workbench was redesigned and renamed to:
 - [Protected-State Correction Workbench](docs/workbench/index.html)
 
 Current modules:
+- Recoverability / Correction Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
+- CFD Projection Lab
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
-- Recoverability Lab
 
 Usability changes:
 - removed the problematic sticky translucent header
@@ -129,6 +131,8 @@ Usability changes:
 - separated configuration, results, theory links, and outside literature
 - reduced repeated cramped text
 - added a kept physics-extension module instead of leaving the physics lane buried in docs only
+- added decision-oriented guidance that says what to add next when a record is insufficient
+- added reusable templates and user-facing paths so the repo can be used to build and diagnose systems, not only read about them
 
 ## 7. Outside Literature Layer
 
@@ -156,13 +160,15 @@ Current validation status:
 - generated claim registry: passed
 - generated operator examples: passed
 - generated recoverability examples: passed
+- generated design examples: passed
 - generated workbench examples: passed
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
 - expanded randomized and multi-grid falsification checks: passed
-- Node workbench test suite: `16 passed`
-- Python theorem/operator/example test suite: `68 passed`
+- real browser smoke of the Recoverability / Correction Studio: passed
+- Node workbench test suite: `17 passed`
+- Python theorem/operator/example test suite: `74 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -170,6 +176,7 @@ Generated artifacts of note:
 - [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
 - [data/generated/validations/system_summary.json](data/generated/validations/system_summary.json)
 - [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
+- [data/generated/design/design_template_examples.json](data/generated/design/design_template_examples.json)
 
 ## 9. Final Naming Decision
 

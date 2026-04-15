@@ -1141,7 +1141,7 @@ If this branch survives initial falsification, it should live under a dedicated 
 
 Possible workbench module if the branch survives:
 
-- **Observation Recoverability Lab**
+- **Recoverability / Correction Studio**
 
 with:
 

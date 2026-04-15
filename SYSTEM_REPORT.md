@@ -10,6 +10,7 @@ The strongest current picture is:
 - exact periodic continuous projection through the Helmholtz/Leray anchor,
 - exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
 - a constrained-observation recoverability layer that classifies exact, approximate, asymptotic, and impossible recovery under coarse records,
+- a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
@@ -17,15 +18,15 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `224`
-- root files: `18`
+- tracked-like files: `263`
+- root files: `19`
 - archive files: `8`
-- data files: `15`
-- docs files: `96`
+- data files: `18`
+- docs files: `111`
 - papers files: `6`
-- scripts files: `10`
-- source files: `30`
-- test files: `29`
+- scripts files: `19`
+- source files: `33`
+- test files: `37`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -231,8 +232,10 @@ Workbench docs:
 - [docs/app/workbench-overview.md](docs/app/workbench-overview.md)
 - [docs/app/module-theory-map.md](docs/app/module-theory-map.md)
 - [docs/app/github-pages-deploy.md](docs/app/github-pages-deploy.md)
+- [docs/app/recoverability-correction-studio.md](docs/app/recoverability-correction-studio.md)
 
 Workbench modules:
+- Recoverability / Correction Studio
 - Exact Projection Lab
 - QEC Sector Lab
 - MHD Projection Lab
@@ -240,7 +243,34 @@ Workbench modules:
 - Gauge Projection Lab
 - Continuous Generator Lab
 - No-Go Explorer
-- Recoverability Lab
+
+## Template And Workflow Inventory
+
+User-facing workflow docs:
+- [docs/overview/usefulness-roadmap.md](docs/overview/usefulness-roadmap.md)
+- [docs/overview/user-entry-paths.md](docs/overview/user-entry-paths.md)
+- [USEFULNESS_REPORT.md](USEFULNESS_REPORT.md)
+
+Reusable template docs:
+- [docs/templates/README.md](docs/templates/README.md)
+- [docs/templates/restricted-linear-recovery-template.md](docs/templates/restricted-linear-recovery-template.md)
+- [docs/templates/functional-observability-template.md](docs/templates/functional-observability-template.md)
+- [docs/templates/periodic-projection-template.md](docs/templates/periodic-projection-template.md)
+- [docs/templates/ambiguity-witness-template.md](docs/templates/ambiguity-witness-template.md)
+- [docs/templates/no-go-detection-template.md](docs/templates/no-go-detection-template.md)
+- [docs/templates/minimal-information-sweep-template.md](docs/templates/minimal-information-sweep-template.md)
+- [docs/templates/asymptotic-observer-template.md](docs/templates/asymptotic-observer-template.md)
+- [docs/templates/exact-projector-template.md](docs/templates/exact-projector-template.md)
+
+Reusable template scripts:
+- `scripts/templates/restricted_linear_recovery_template.py`
+- `scripts/templates/functional_observability_template.py`
+- `scripts/templates/periodic_projection_template.py`
+- `scripts/templates/ambiguity_witness_template.py`
+- `scripts/templates/no_go_detection_template.py`
+- `scripts/templates/minimal_information_sweep_template.py`
+- `scripts/templates/asymptotic_observer_template.py`
+- `scripts/templates/exact_projector_template.py`
 
 ## Validation Inventory
 
@@ -250,8 +280,9 @@ Validation status:
 - markdown link check: passed
 - naming consistency check: passed
 - expanded randomized and multi-grid falsification checks: passed
-- Node workbench tests: `16 passed`
-- Python theorem/operator/example tests: `68 passed`
+- real browser smoke of the Recoverability / Correction Studio: passed
+- Node workbench tests: `17 passed`
+- Python theorem/operator/example tests: `74 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -264,6 +295,7 @@ Primary generated artifacts:
 - [data/generated/validations/workbench_examples.json](data/generated/validations/workbench_examples.json)
 - [data/generated/validations/claim_registry.csv](data/generated/validations/claim_registry.csv)
 - [data/generated/recoverability/recoverability_summary.json](data/generated/recoverability/recoverability_summary.json)
+- [data/generated/design/design_template_examples.json](data/generated/design/design_template_examples.json)
 
 ## Results Snapshot
 

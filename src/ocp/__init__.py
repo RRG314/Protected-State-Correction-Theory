@@ -57,6 +57,15 @@ from .recoverability import (
     restricted_linear_rank_lower_bound,
     restricted_linear_recoverability,
 )
+from .design import (
+    CandidateAugmentationReport,
+    LinearRecoverabilityDesignReport,
+    linear_recoverability_design_report,
+    minimal_candidate_augmentation,
+    nullspace_witness_for_protected_loss,
+    recoverable_protected_rows,
+    restricted_row_space_residuals,
+)
 
 __all__ = [
     "FiniteOCPSystem",
@@ -130,4 +139,11 @@ __all__ = [
     "recoverability_margin_sampled",
     "restricted_linear_rank_lower_bound",
     "restricted_linear_recoverability",
+    "CandidateAugmentationReport",
+    "LinearRecoverabilityDesignReport",
+    "linear_recoverability_design_report",
+    "minimal_candidate_augmentation",
+    "nullspace_witness_for_protected_loss",
+    "recoverable_protected_rows",
+    "restricted_row_space_residuals",
 ]

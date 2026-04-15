@@ -351,3 +351,54 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
   assert.equal(hidden.impossible, true);
   assert.equal(hidden.predictedMinHorizon, null);
 });
+
+test('recoverability studio surfaces linear measurement insufficiency and minimal fixes', () => {
+  const impossible = analyzeRecoverability({
+    system: 'linear',
+    linearTemplate: 'sensor_basis',
+    linearProtected: 'x3',
+    linearDelta: 1,
+    linearMeasurements: {
+      measure_x1: true,
+      measure_x2_plus_x3: false,
+      measure_x2: false,
+      measure_x3: false,
+      measure_x1_plus_x2: false,
+    },
+  });
+  const exact = analyzeRecoverability({
+    system: 'linear',
+    linearTemplate: 'sensor_basis',
+    linearProtected: 'x3',
+    linearDelta: 1,
+    linearMeasurements: {
+      measure_x1: true,
+      measure_x2_plus_x3: false,
+      measure_x2: false,
+      measure_x3: true,
+      measure_x1_plus_x2: false,
+    },
+  });
+  const weaker = analyzeRecoverability({
+    system: 'linear',
+    linearTemplate: 'sensor_basis',
+    linearProtected: 'x2_plus_x3',
+    linearDelta: 1,
+    linearMeasurements: {
+      measure_x1: true,
+      measure_x2_plus_x3: true,
+      measure_x2: false,
+      measure_x3: false,
+      measure_x1_plus_x2: false,
+    },
+  });
+  assert.equal(impossible.exact, false);
+  assert.equal(impossible.impossible, true);
+  assert.equal(impossible.minimalAddedMeasurements, 1);
+  assert.ok(impossible.candidateExactSets.length >= 1);
+  assert.ok(impossible.nullspaceWitnessGap > 0.1);
+  assert.equal(exact.exact, true);
+  assert.ok(exact.kappa0 < 1e-8);
+  assert.equal(weaker.exact, true);
+  assert.ok(weaker.guidance.architecture.includes('Static linear recovery'));
+});

@@ -80,6 +80,14 @@ Status:
 - proved
 - useful negative result
 
+### CR-7b: Minimal Augmentation In The Restricted Linear Design Layer
+
+On the finite-dimensional restricted linear families used in the design layer, exact recovery can be restored by adding the smallest candidate measurement set whose rows place every protected row inside the augmented record row space.
+
+Status:
+- proved in the restricted linear template setting
+- standard-adjacent but practically useful
+
 ## 2. Clean No-Go Results
 
 ### CR-8: Divergence-Only No-Go
@@ -191,6 +199,7 @@ Promote carefully:
 - the operational lower bound `κ(η)/2`
 - the divergence-only and phase-loss no-go structure
 - the restricted-linear minimal-complexity criterion
+- the restricted-linear minimal-augmentation design logic
 - the periodic and diagonal family-level threshold laws
 - the weaker-versus-stronger split under the same coarse record
 

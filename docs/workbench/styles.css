@@ -340,6 +340,11 @@ button.ghost-button {
   font-size: 0.92rem;
 }
 
+.field-note {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .range-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -543,6 +548,109 @@ button.ghost-button {
 .callout p { margin: 0.35rem 0 0; color: var(--muted); line-height: 1.45; }
 .callout.good { background: rgba(53, 108, 74, 0.08); border-color: rgba(53, 108, 74, 0.18); }
 .callout.warn { background: rgba(166, 50, 41, 0.08); border-color: rgba(166, 50, 41, 0.18); }
+
+.toggle-stack {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.toggle-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.82rem 0.9rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.74);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.toggle-card input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.15rem;
+}
+
+.toggle-card span {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.toggle-card strong {
+  font-size: 0.98rem;
+}
+
+.toggle-card small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.workflow-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.workflow-step {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.8rem 0.9rem;
+  background: rgba(255,255,255,0.72);
+  display: grid;
+  gap: 0.18rem;
+}
+
+.workflow-step span {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.workflow-step strong {
+  font-size: 1rem;
+}
+
+.workflow-step p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.42;
+}
+
+.workflow-step.done strong,
+.workflow-step.ready strong {
+  color: var(--success);
+}
+
+.workflow-step.blocked strong {
+  color: var(--danger);
+}
+
+.workflow-step.in-progress strong {
+  color: var(--accent-deep);
+}
+
+.guidance-list {
+  margin: 0.8rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.guidance-list li {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.studio-note {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
 
 .value-grid {
   display: grid;

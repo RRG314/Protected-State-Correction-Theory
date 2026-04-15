@@ -1,0 +1,166 @@
+{
+  "linear_tail_pair": {
+    "measurement_labels": [
+      "measure x1",
+      "measure x2+x3"
+    ],
+    "candidate_labels": [
+      "measure x2",
+      "measure x3",
+      "measure x1+x2"
+    ],
+    "protected_labels": [
+      "recover x2",
+      "recover x3"
+    ],
+    "report": {
+      "exact_recoverable": false,
+      "rank_observation": 2,
+      "rank_protected": 2,
+      "recoverable_row_indices": [],
+      "unrecoverable_row_indices": [
+        0,
+        1
+      ],
+      "row_space_residuals": [
+        0.7071067811865476,
+        0.7071067811865475
+      ],
+      "nullspace_witness": [
+        0.0,
+        -0.9999999999999998,
+        1.0
+      ],
+      "nullspace_protected_gap": 1.414213562373095,
+      "minimal_added_measurements": 1,
+      "candidate_exact_sets": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "candidate_exact_labels": [
+        [
+          "measure x2"
+        ],
+        [
+          "measure x3"
+        ],
+        [
+          "measure x1+x2"
+        ]
+      ]
+    }
+  },
+  "linear_x3_only": {
+    "measurement_labels": [
+      "measure x1",
+      "measure x2+x3"
+    ],
+    "candidate_labels": [
+      "measure x2",
+      "measure x3",
+      "measure x1+x2"
+    ],
+    "protected_labels": [
+      "recover x3"
+    ],
+    "report": {
+      "exact_recoverable": false,
+      "rank_observation": 2,
+      "rank_protected": 1,
+      "recoverable_row_indices": [],
+      "unrecoverable_row_indices": [
+        0
+      ],
+      "row_space_residuals": [
+        0.7071067811865475
+      ],
+      "nullspace_witness": [
+        0.0,
+        -0.9999999999999998,
+        1.0
+      ],
+      "nullspace_protected_gap": 1.0,
+      "minimal_added_measurements": 1,
+      "candidate_exact_sets": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "candidate_exact_labels": [
+        [
+          "measure x2"
+        ],
+        [
+          "measure x3"
+        ],
+        [
+          "measure x1+x2"
+        ]
+      ]
+    }
+  },
+  "linear_weaker_sum": {
+    "measurement_labels": [
+      "measure x1",
+      "measure x2+x3"
+    ],
+    "candidate_labels": [
+      "measure x2",
+      "measure x3",
+      "measure x1+x2"
+    ],
+    "protected_labels": [
+      "recover x2+x3"
+    ],
+    "report": {
+      "exact_recoverable": true,
+      "rank_observation": 2,
+      "rank_protected": 1,
+      "recoverable_row_indices": [
+        0
+      ],
+      "unrecoverable_row_indices": [],
+      "row_space_residuals": [
+        4.275213160736675e-16
+      ],
+      "nullspace_witness": null,
+      "nullspace_protected_gap": 0.0,
+      "minimal_added_measurements": 1,
+      "candidate_exact_sets": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "candidate_exact_labels": [
+        [
+          "measure x2"
+        ],
+        [
+          "measure x3"
+        ],
+        [
+          "measure x1+x2"
+        ]
+      ]
+    }
+  }
+}

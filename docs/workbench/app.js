@@ -8,6 +8,7 @@ import {
   analyzeNoGo,
   analyzeQecSector,
   analyzeRecoverability,
+  LINEAR_TEMPLATE_LIBRARY,
   clamp,
   formatVector,
 } from './lib/compute.js';
@@ -23,8 +24,8 @@ import {
 
 const LAB_META = {
   recoverability: {
-    label: 'Recoverability Lab',
-    short: 'Coarse records, collapse modulus, and protected-variable recovery.',
+    label: 'Recoverability / Correction Studio',
+    short: 'Decide what is recoverable, what is blocked, and what to add next.',
     branch: 'Constrained-observation branch',
     fit: 'Exact / approximate / asymptotic / impossible classification',
     status: 'ACTIVE RESEARCH BRANCH',
@@ -33,15 +34,16 @@ const LAB_META = {
     disturbance: 'Unseen ambiguity inside the observation fibers',
     correction: 'Recovery map R after constrained observation M',
     plain:
-      'This module studies a question that comes before correction: whether the available record preserves enough information to recover what you care about at all. It compares exact recovery, approximate collapse, observer-style asymptotic recovery, and clean no-go cases.',
+      'This studio turns the recoverability branch into a decision tool. It asks what you want to preserve, what record you actually have, whether recovery is exact, approximate, asymptotic, or impossible, and what you should change next.',
     technical:
-      'Implements the constrained-observation recoverability branch. The lab computes finite-sample collapse curves κ(δ), fiber-collision boundaries, and system-specific recovery behavior for analytic, quantum, periodic-flow, and control-observer examples.',
-    use: 'Use this when you want to know whether a coarse record supports exact recovery, only approximate recovery, asymptotic observer recovery, or no recovery of the protected variable.',
+      'Implements the constrained-observation recoverability branch as a design studio. The module computes finite-sample collapse curves κ(δ), fiber-collision boundaries, restricted-linear sufficiency diagnostics, minimal augmentation suggestions, and system-specific recovery behavior for analytic, quantum, periodic-flow, control-observer, and reusable linear-template examples.',
+    use: 'Use this when you want to decide whether a record is sufficient, what weaker variable is still recoverable, what extra measurements would fix the problem, and which recovery architecture fits best.',
     avoid: 'Do not treat loss of recoverability as a metaphysical statement. This branch is about operator-level information access and reconstruction limits.',
     refs: [
       { title: 'Branch overview', href: '../theory/advanced-directions/constrained-observation-recoverability.md', note: 'Design scope and falsification target' },
       { title: 'Formalism', href: '../theory/advanced-directions/constrained-observation-formalism.md', note: 'Definitions, propositions, and theorem candidates' },
       { title: 'Results report', href: '../theory/advanced-directions/constrained-observation-results-report.md', note: 'Experiments, outputs, and assessment' },
+      { title: 'Studio workflow', href: '../app/recoverability-correction-studio.md', note: 'User-facing design path' },
     ],
     literature: [
       { title: 'Jenčová-Petz on quantum sufficiency', href: 'https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-263/issue-1/Sufficiency-in-quantum-statistical-inference/cmp/1143668799.full', note: 'Quantum recoverability anchor' },
@@ -702,10 +704,76 @@ function summaryCard(label, value) {
   return `<article class="summary-card card-surface"><span>${label}</span><strong>${value}</strong></article>`;
 }
 
+function checkboxField(id, label, path, checked, note = '') {
+  return `
+    <label class="toggle-card" for="${id}">
+      <input id="${id}" type="checkbox" data-path="${path}" ${checked ? 'checked' : ''} />
+      <span>
+        <strong>${label}</strong>
+        ${note ? `<small>${note}</small>` : ''}
+      </span>
+    </label>
+  `;
+}
+
+function renderRecoverabilityLinearControls() {
+  const template = LINEAR_TEMPLATE_LIBRARY[state.labs.recoverability.linearTemplate] ?? LINEAR_TEMPLATE_LIBRARY.sensor_basis;
+  const activeCount = Object.values(state.labs.recoverability.linearMeasurements ?? {}).filter(Boolean).length;
+  return `
+    <div class="field">
+      <label for="recoverability-linear-template">Reusable template</label>
+      <select id="recoverability-linear-template" data-path="labs.recoverability.linearTemplate">
+        ${Object.entries(LINEAR_TEMPLATE_LIBRARY)
+          .map(
+            ([key, value]) =>
+              `<option value="${key}" ${state.labs.recoverability.linearTemplate === key ? 'selected' : ''}>${value.label}</option>`
+          )
+          .join('')}
+      </select>
+    </div>
+    <div class="field">
+      <label for="recoverability-linear-protected">Protected variable</label>
+      <select id="recoverability-linear-protected" data-path="labs.recoverability.linearProtected">
+        ${Object.entries(template.protectedOptions)
+          .map(
+            ([key, value]) =>
+              `<option value="${key}" ${state.labs.recoverability.linearProtected === key ? 'selected' : ''}>${value.label}</option>`
+          )
+          .join('')}
+      </select>
+    </div>
+    ${rangeField('linearDelta', 'Selected δ', state.labs.recoverability.linearDelta, 0, 2.5, 0.05)}
+    <div class="field">
+      <label>Candidate measurements</label>
+      <div class="toggle-stack">
+        ${template.candidates
+          .map((candidate) =>
+            checkboxField(
+              `recoverability-${candidate.id}`,
+              candidate.label,
+              `labs.recoverability.linearMeasurements.${candidate.id}`,
+              Boolean(state.labs.recoverability.linearMeasurements?.[candidate.id]),
+              'Toggle this row into the static record library.'
+            )
+          )
+          .join('')}
+      </div>
+      <small class="field-note">${activeCount} active measurement${activeCount === 1 ? '' : 's'}. Exact recovery requires the protected row space to lie inside the active record row space.</small>
+    </div>
+  `;
+}
+
 function renderConfigPane() {
   switch (state.activeLab) {
     case 'recoverability':
       return `
+        <div class="field">
+          <label for="recoverability-studio-mode">Studio mode</label>
+          <select id="recoverability-studio-mode" data-path="labs.recoverability.studioMode">
+            <option value="guided" ${state.labs.recoverability.studioMode === 'guided' ? 'selected' : ''}>guided diagnosis</option>
+            <option value="diagnostic" ${state.labs.recoverability.studioMode === 'diagnostic' ? 'selected' : ''}>raw diagnostics</option>
+          </select>
+        </div>
         <div class="field">
           <label for="recoverability-system">System family</label>
           <select id="recoverability-system" data-path="labs.recoverability.system">
@@ -713,6 +781,7 @@ function renderConfigPane() {
             <option value="qubit" ${state.labs.recoverability.system === 'qubit' ? 'selected' : ''}>qubit fixed-basis record</option>
             <option value="periodic" ${state.labs.recoverability.system === 'periodic' ? 'selected' : ''}>periodic incompressible flow</option>
             <option value="control" ${state.labs.recoverability.system === 'control' ? 'selected' : ''}>functional observability model</option>
+            <option value="linear" ${state.labs.recoverability.system === 'linear' ? 'selected' : ''}>reusable linear design template</option>
           </select>
         </div>
         ${state.labs.recoverability.system === 'analytic' ? `
@@ -784,9 +853,10 @@ function renderConfigPane() {
           ${rangeField('controlHorizon', 'Finite record horizon', state.labs.recoverability.controlHorizon, 1, state.labs.recoverability.controlMode === 'diagonal_threshold' ? 4 : 3, 1)}
           ${rangeField('controlDelta', 'Selected δ', state.labs.recoverability.controlDelta, 0, state.labs.recoverability.controlMode === 'diagonal_threshold' ? 2 : 2.5, 0.05)}
         ` : ''}
-        <div class="callout ${latestAnalysis.impossible ? 'warn' : latestAnalysis.exact ? 'good' : ''}">
-          <strong>${latestAnalysis.classification}</strong>
-          <p>Protected variable: ${latestAnalysis.protectedLabel}. Observation: ${latestAnalysis.observationLabel}. The branch verdict is driven by κ(0), finite recovery error, and asymptotic observer behavior where a dynamic reconstruction exists.</p>
+        ${state.labs.recoverability.system === 'linear' ? renderRecoverabilityLinearControls() : ''}
+        <div class="callout ${latestAnalysis.impossible ? 'warn' : (latestAnalysis.exact || latestAnalysis.asymptotic) ? 'good' : ''}">
+          <strong>${latestAnalysis.status}: ${latestAnalysis.classification}</strong>
+          <p>${latestAnalysis.guidance.blocker} ${latestAnalysis.guidance.missing}</p>
         </div>
       `;
     case 'exact':
@@ -934,6 +1004,8 @@ function renderVisualStage() {
 
 function renderRecoverabilityStage() {
   const a = latestAnalysis;
+  const guidedMode = state.labs.recoverability.studioMode !== 'diagnostic';
+  const guidanceTone = a.impossible ? 'warn' : (a.exact || a.asymptotic) ? 'good' : '';
   const secondaryFigure = (() => {
     if (state.labs.recoverability.system === 'qubit') {
       return `
@@ -977,6 +1049,15 @@ function renderRecoverabilityStage() {
         </div>
       `;
     }
+    if (state.labs.recoverability.system === 'linear') {
+      return `
+        <div class="figure">
+          <h4>Protected-row residuals</h4>
+          ${barChartSvg([{ label: 'Residuals', values: a.rowResiduals }])}
+          <small>Residual 0 means that the protected row already lies in the active record row space. Positive residual means the current record still loses protected information.</small>
+        </div>
+      `;
+    }
     return `
       <div class="figure">
         <h4>Noise lower bound</h4>
@@ -992,20 +1073,114 @@ function renderRecoverabilityStage() {
   })();
 
   const tertiaryFigure = (() => {
-    if (state.labs.recoverability.system !== 'control' || state.labs.recoverability.controlMode !== 'two_state_observer') return '';
+    if (state.labs.recoverability.system === 'control' && state.labs.recoverability.controlMode === 'two_state_observer') {
+      return `
+        <div class="figure top-gap">
+          <h4>Observer convergence</h4>
+          ${
+            a.observerErrorHistory.length
+              ? lineChartSvg(
+                  a.observerErrorHistory.map((value, index) => ({ x: index, y: value })),
+                  'step',
+                  '|protected-variable error|'
+                )
+              : '<p class="empty-state">No asymptotic observer is available when ε = 0.</p>'
+          }
+          <small>Single-shot recovery can fail even when an observer still converges asymptotically from the ongoing record.</small>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'linear') {
+      return `
+        <div class="figure top-gap">
+          <h4>Minimal fixes and weaker targets</h4>
+          <div class="value-grid">
+            <div><small>Active measurements</small><code>${a.activeMeasurementLabels.length ? a.activeMeasurementLabels.join('\n') : 'none'}</code></div>
+            <div><small>Minimal exact fixes</small><code>${a.candidateExactSets.length ? a.candidateExactSets.map((set) => set.join(' + ')).join('\n') : 'no exact fix in current candidate library'}</code></div>
+            <div><small>Weaker recoverable targets</small><code>${a.weakerProtectedOptions.length ? a.weakerProtectedOptions.join('\n') : 'none'}</code></div>
+            <div><small>Nullspace witness</small><code>${a.nullspaceWitness ? formatVector(a.nullspaceWitness) : 'none'}</code></div>
+          </div>
+        </div>
+      `;
+    }
+    return '';
+  })();
+
+  const systemDiagnostics = (() => {
+    if (state.labs.recoverability.system === 'analytic') {
+      return `
+        <div class="figure">
+          <h4>Conditioning and robustness</h4>
+          <div class="value-grid">
+            <div><small>Degeneracy ε</small><code>${a.epsilon.toFixed(3)}</code></div>
+            <div><small>Amplification</small><code>${Number.isFinite(a.amplification) ? a.amplification.toFixed(3) : '∞'}</code></div>
+            <div><small>Selected lower bound</small><code>${a.selectedLowerBound.toExponential(3)}</code></div>
+            <div><small>Interpretation</small><code>${a.guidance.missing}</code></div>
+          </div>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'qubit') {
+      return `
+        <div class="figure">
+          <h4>Measurement sufficiency</h4>
+          <div class="value-grid">
+            <div><small>Phase window</small><code>${a.phaseWindowDeg.toFixed(0)}°</code></div>
+            <div><small>Protected target</small><code>${a.protectedLabel}</code></div>
+            <div><small>Weaker recoverable target</small><code>${a.guidance.weaker.length ? a.guidance.weaker.join('\n') : 'none needed'}</code></div>
+            <div><small>Missing structure</small><code>${a.guidance.missing}</code></div>
+          </div>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'periodic') {
+      return `
+        <div class="figure">
+          <h4>Record-complexity diagnostics</h4>
+          <div class="value-grid">
+            <div><small>Current cutoff</small><code>${a.currentCutoff ?? 'n/a'}</code></div>
+            <div><small>Predicted minimum cutoff</small><code>${a.predictedMinCutoff ?? 'n/a'}</code></div>
+            <div><small>Weaker recoverable targets</small><code>${a.guidance.weaker.length ? a.guidance.weaker.join('\n') : 'none below current cutoff'}</code></div>
+            <div><small>No-go / threshold</small><code>${a.guidance.noGo ?? 'none'}</code></div>
+          </div>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'control') {
+      return `
+        <div class="figure">
+          <h4>Finite-history diagnostics</h4>
+          <div class="value-grid">
+            <div><small>Control mode</small><code>${a.controlModeLabel}</code></div>
+            <div><small>Current horizon</small><code>${state.labs.recoverability.controlHorizon}</code></div>
+            <div><small>Predicted minimum horizon</small><code>${a.predictedMinHorizon === null ? 'none' : a.predictedMinHorizon}</code></div>
+            <div><small>Observer spectral radius</small><code>${a.spectralRadius === null ? 'n/a' : a.spectralRadius.toFixed(3)}</code></div>
+          </div>
+        </div>
+      `;
+    }
+    if (state.labs.recoverability.system === 'linear') {
+      return `
+        <div class="figure">
+          <h4>Linear design diagnosis</h4>
+          <div class="value-grid">
+            <div><small>Active measurements</small><code>${a.activeMeasurementLabels.length}</code></div>
+            <div><small>Minimal added measurements</small><code>${a.minimalAddedMeasurements === null ? 'none available' : a.minimalAddedMeasurements}</code></div>
+            <div><small>Witness gap</small><code>${a.nullspaceWitnessGap.toExponential(3)}</code></div>
+            <div><small>Unrecoverable protected rows</small><code>${a.unrecoverableProtectedRows.length}</code></div>
+          </div>
+        </div>
+      `;
+    }
     return `
-      <div class="figure top-gap">
-        <h4>Observer convergence</h4>
-        ${
-          a.observerErrorHistory.length
-            ? lineChartSvg(
-                a.observerErrorHistory.map((value, index) => ({ x: index, y: value })),
-                'step',
-                '|protected-variable error|'
-              )
-            : '<p class="empty-state">No asymptotic observer is available when ε = 0.</p>'
-        }
-        <small>Single-shot recovery can fail even when an observer still converges asymptotically from the ongoing record.</small>
+      <div class="figure">
+        <h4>Branch diagnostics</h4>
+        <div class="value-grid">
+          <div><small>Selected δ</small><code>${a.selectedDelta.toFixed(3)}</code></div>
+          <div><small>Mean recovery error</small><code>${a.meanRecoveryError.toExponential(3)}</code></div>
+          <div><small>Worst sampled error</small><code>${a.maxRecoveryError.toExponential(3)}</code></div>
+          <div><small>Architecture</small><code>${a.guidance.architecture}</code></div>
+        </div>
       </div>
     `;
   })();
@@ -1021,30 +1196,54 @@ function renderRecoverabilityStage() {
     </div>
     <div class="figure-grid double top-gap">
       <div class="figure">
-        <h4>Classification</h4>
-        <div class="value-grid">
-          <div><small>System</small><code>${a.systemLabel}</code></div>
-          <div><small>Protected variable</small><code>${a.protectedLabel}</code></div>
-          <div><small>Observation</small><code>${a.observationLabel}</code></div>
-          <div><small>Branch verdict</small><code>${a.classification}</code></div>
-          <div><small>κ(0)</small><code>${a.kappa0.toExponential(3)}</code></div>
-          <div><small>Selected κ(δ)</small><code>${a.selectedKappa.toExponential(3)}</code></div>
+        <h4>Decision workflow</h4>
+        <div class="workflow-list">
+          ${a.workflow
+            .map(
+              (step) => `
+                <article class="workflow-step ${step.status}">
+                  <span>${step.label}</span>
+                  <strong>${step.status.replace('-', ' ')}</strong>
+                  <p>${step.detail}</p>
+                </article>
+              `
+            )
+            .join('')}
         </div>
       </div>
       <div class="figure">
-        <h4>Recovery quality</h4>
+        <h4>${guidedMode ? 'What should I do next?' : 'Why this verdict was returned'}</h4>
+        <div class="callout ${guidanceTone}">
+          <strong>${a.guidance.architecture}</strong>
+          <p>${guidedMode ? a.guidance.missing : a.guidance.blocker}</p>
+        </div>
+        <ul class="guidance-list">
+          ${a.guidance.nextSteps.map((step) => `<li>${step}</li>`).join('')}
+        </ul>
+        <p class="studio-note"><strong>Blocking boundary:</strong> ${a.guidance.noGo ?? 'None. The current architecture is admissible on the chosen family.'}</p>
+        <p class="studio-note"><strong>Weaker recoverable target:</strong> ${a.guidance.weaker.length ? a.guidance.weaker.join(', ') : 'No weaker alternative is currently suggested.'}</p>
+      </div>
+    </div>
+    <div class="figure-grid double top-gap">
+      <div class="figure">
+        <h4>Classification and evidence</h4>
         <div class="value-grid">
+          <div><small>Status</small><code>${a.status}</code></div>
+          <div><small>Branch verdict</small><code>${a.classification}</code></div>
+          <div><small>System</small><code>${a.systemLabel}</code></div>
+          <div><small>Observation</small><code>${a.observationLabel}</code></div>
+          <div><small>Protected variable</small><code>${a.protectedLabel}</code></div>
+          <div><small>κ(0)</small><code>${a.kappa0.toExponential(3)}</code></div>
+          <div><small>Selected κ(δ)</small><code>${a.selectedKappa.toExponential(3)}</code></div>
+          <div><small>Selected δ</small><code>${a.selectedDelta.toFixed(3)}</code></div>
           <div><small>Mean recovery error</small><code>${a.meanRecoveryError.toExponential(3)}</code></div>
           <div><small>Worst sampled error</small><code>${a.maxRecoveryError.toExponential(3)}</code></div>
-          <div><small>Exact branch</small><code>${a.exact ? 'yes' : 'no'}</code></div>
-          <div><small>Asymptotic branch</small><code>${a.asymptotic ? 'yes' : 'no'}</code></div>
-          <div><small>Impossible branch</small><code>${a.impossible ? 'yes' : 'no'}</code></div>
-          <div><small>Selected δ</small><code>${a.selectedDelta.toFixed(3)}</code></div>
-          ${state.labs.recoverability.system === 'analytic' ? `<div><small>Lower bound κ(η)/2</small><code>${a.selectedLowerBound.toExponential(3)}</code></div>` : ''}
-          ${state.labs.recoverability.system === 'periodic' ? `<div><small>Current cutoff</small><code>${a.currentCutoff}</code></div><div><small>Predicted minimum cutoff</small><code>${a.predictedMinCutoff}</code></div>` : ''}
-          ${state.labs.recoverability.system === 'control' ? `<div><small>Control mode</small><code>${a.controlModeLabel}</code></div><div><small>${a.spectralRadius === null ? 'Predicted minimum horizon' : 'Observer spectral radius'}</small><code>${a.spectralRadius === null ? (a.predictedMinHorizon === null ? 'none' : a.predictedMinHorizon) : a.spectralRadius.toFixed(3)}</code></div>` : ''}
+          <div><small>Exact</small><code>${a.exact ? 'yes' : 'no'}</code></div>
+          <div><small>Asymptotic</small><code>${a.asymptotic ? 'yes' : 'no'}</code></div>
+          <div><small>Impossible</small><code>${a.impossible ? 'yes' : 'no'}</code></div>
         </div>
       </div>
+      ${systemDiagnostics}
     </div>
     ${tertiaryFigure}
   `;
@@ -1231,12 +1430,25 @@ function renderMetrics() {
   switch (state.activeLab) {
     case 'recoverability':
       return [
+        metric('Status', latestAnalysis.status, latestAnalysis.exact || latestAnalysis.asymptotic ? 'good' : latestAnalysis.impossible ? 'bad' : ''),
         metric('κ(0)', latestAnalysis.kappa0.toExponential(2), latestAnalysis.kappa0 < 1e-8 ? 'good' : 'bad'),
         metric('Selected κ(δ)', latestAnalysis.selectedKappa.toExponential(2), latestAnalysis.selectedKappa < 1e-6 ? 'good' : ''),
         metric('Exact', latestAnalysis.exact ? 'yes' : 'no', latestAnalysis.exact ? 'good' : ''),
         metric('Asymptotic', latestAnalysis.asymptotic ? 'yes' : 'no', latestAnalysis.asymptotic ? 'good' : ''),
         ...(state.labs.recoverability.system === 'analytic'
           ? [metric('κ(η)/2 bound', latestAnalysis.selectedLowerBound.toExponential(2), latestAnalysis.selectedLowerBound > 0 ? 'bad' : 'good')]
+          : []),
+        ...(state.labs.recoverability.system === 'periodic'
+          ? [metric('Min cutoff', String(latestAnalysis.predictedMinCutoff ?? 'n/a'), latestAnalysis.exact ? 'good' : '')]
+          : []),
+        ...(state.labs.recoverability.system === 'control'
+          ? [metric('Min horizon', String(latestAnalysis.predictedMinHorizon ?? 'none'), latestAnalysis.exact || latestAnalysis.asymptotic ? 'good' : '')]
+          : []),
+        ...(state.labs.recoverability.system === 'linear'
+          ? [
+              metric('Active measurements', String(latestAnalysis.activeMeasurementLabels.length), latestAnalysis.exact ? 'good' : ''),
+              metric('Minimal fix size', latestAnalysis.minimalAddedMeasurements === null ? 'none' : String(latestAnalysis.minimalAddedMeasurements), latestAnalysis.minimalAddedMeasurements !== null ? 'good' : 'bad'),
+            ]
           : []),
       ].join('');
     case 'exact':
@@ -1288,7 +1500,7 @@ function renderMetrics() {
 function renderNarrativeSummary() {
   switch (state.activeLab) {
     case 'recoverability':
-      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)}.${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''} This lab is meant to show when correction is mathematically meaningful and when the record has already lost too much structure.</p>`;
+      return `<p>${latestAnalysis.classification}. The current system is ${latestAnalysis.systemLabel}, the protected variable is ${latestAnalysis.protectedLabel}, and the chosen record map is ${latestAnalysis.observationLabel}. At the selected tolerance δ = ${latestAnalysis.selectedDelta.toFixed(2)}, the collapse value is ${latestAnalysis.selectedKappa.toExponential(2)}. Recommended architecture: ${latestAnalysis.guidance.architecture}. ${latestAnalysis.guidance.missing}${state.labs.recoverability.system === 'analytic' ? ` Under adversarial record noise of the same size, the current lower bound on worst-case protected-variable error is ${latestAnalysis.selectedLowerBound.toExponential(2)}.` : ''}${state.labs.recoverability.system === 'periodic' ? ` The current cutoff is ${latestAnalysis.currentCutoff}, and the predicted minimum cutoff for the chosen protected functional is ${latestAnalysis.predictedMinCutoff}.` : ''}${state.labs.recoverability.system === 'control' ? ` The current horizon is ${state.labs.recoverability.controlHorizon}.${state.labs.recoverability.controlMode === 'diagonal_threshold' ? ` In the diagonal threshold model, the predicted minimum exact-history length is ${latestAnalysis.predictedMinHorizon === null ? 'none because the protected functional is not generated by the sensed moment family' : latestAnalysis.predictedMinHorizon}.` : ' In the two-state observer model, the first exact finite-history threshold stays at horizon 2 when ε is nonzero.'}` : ''}${state.labs.recoverability.system === 'linear' ? ` The current static record uses ${latestAnalysis.activeMeasurementLabels.length} measurement rows and ${latestAnalysis.minimalAddedMeasurements === null ? 'no exact fix exists inside the current candidate library.' : `the smallest exact fix needs ${latestAnalysis.minimalAddedMeasurements} added measurement${latestAnalysis.minimalAddedMeasurements === 1 ? '' : 's'}.`}` : ''} This studio is meant to tell you what can be recovered, what is blocked, and what to change next.</p>`;
     case 'exact':
       return `<p>${latestAnalysis.admissible ? 'The disturbance is orthogonal, so projection returns the protected component exactly.' : 'The disturbance overlaps the protected direction, so exact recovery fails in the way the theorem spine predicts.'}</p>`;
     case 'qec':
@@ -1329,8 +1541,11 @@ function attachEvents() {
   });
 
   document.querySelectorAll('[data-path]').forEach((input) => {
-    const eventName = input.tagName === 'SELECT' ? 'change' : 'input';
-    input.addEventListener(eventName, () => updateStatePath(input.dataset.path, input.value));
+    const eventName = input.tagName === 'SELECT' || input.type === 'checkbox' ? 'change' : 'input';
+    input.addEventListener(eventName, () => {
+      const value = input.type === 'checkbox' ? input.checked : input.value;
+      updateStatePath(input.dataset.path, value);
+    });
   });
 
   const matrixInput = document.getElementById('continuous-matrix');
@@ -1386,7 +1601,7 @@ function attachEvents() {
 }
 
 function updateStatePath(path, rawValue) {
-  const value = Number.isNaN(Number(rawValue)) || rawValue === '' ? rawValue : Number(rawValue);
+  const value = typeof rawValue === 'boolean' || Number.isNaN(Number(rawValue)) || rawValue === '' ? rawValue : Number(rawValue);
   setStatePath(path, value);
   render();
 }
