@@ -160,8 +160,9 @@ Current validation status:
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
+- expanded randomized and multi-grid falsification checks: passed
 - Node workbench test suite: `16 passed`
-- Python theorem/operator/example test suite: `48 passed`
+- Python theorem/operator/example test suite: `68 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)

@@ -249,8 +249,9 @@ Validation status:
 - static workbench asset check: passed
 - markdown link check: passed
 - naming consistency check: passed
+- expanded randomized and multi-grid falsification checks: passed
 - Node workbench tests: `16 passed`
-- Python theorem/operator/example tests: `48 passed`
+- Python theorem/operator/example tests: `68 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)

@@ -208,6 +208,20 @@ test('recoverability lab keeps periodic exact, approximate, and no-go branches s
     periodicObservation: 'divergence_only',
     periodicDelta: 2,
   });
+  const fullWeightedSumImpossible = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_weighted_sum',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 3,
+    periodicDelta: 2,
+  });
+  const fullWeightedSumExact = analyzeRecoverability({
+    system: 'periodic',
+    periodicProtected: 'full_weighted_sum',
+    periodicObservation: 'cutoff_vorticity',
+    periodicCutoff: 4,
+    periodicDelta: 2,
+  });
   assert.equal(full.exact, true);
   assert.ok(full.meanRecoveryError < 1e-6);
   assert.equal(cutoffOne.exact, false);
@@ -223,6 +237,10 @@ test('recoverability lab keeps periodic exact, approximate, and no-go branches s
   assert.equal(lowMode.predictedMinCutoff, 1);
   assert.equal(lowModeSum.predictedMinCutoff, 2);
   assert.equal(bandlimitedContrast.predictedMinCutoff, 3);
+  assert.equal(fullWeightedSumImpossible.exact, false);
+  assert.equal(fullWeightedSumImpossible.predictedMinCutoff, 4);
+  assert.equal(fullWeightedSumExact.exact, true);
+  assert.ok(fullWeightedSumExact.kappa0 < 1e-8);
   assert.equal(divergence.impossible, true);
   assert.ok(divergence.kappa0 > cutoffOne.kappa0);
 });
@@ -295,6 +313,14 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
     controlMode: 'diagonal_threshold',
     controlProfile: 'three_active',
     controlFunctional: 'second_moment',
+    controlHorizon: 2,
+    controlDelta: 0.5,
+  });
+  const momentTwoExact = analyzeRecoverability({
+    system: 'control',
+    controlMode: 'diagonal_threshold',
+    controlProfile: 'three_active',
+    controlFunctional: 'second_moment',
     controlHorizon: 3,
     controlDelta: 0.5,
   });
@@ -315,8 +341,10 @@ test('recoverability lab captures the three-state minimal-history threshold', ()
   assert.ok(threeActive.kappa0 < 1e-8);
   assert.equal(momentOne.exact, true);
   assert.equal(momentOne.predictedMinHorizon, 2);
-  assert.equal(momentTwo.exact, true);
+  assert.equal(momentTwo.exact, false);
   assert.equal(momentTwo.predictedMinHorizon, 3);
+  assert.equal(momentTwoExact.exact, true);
+  assert.equal(momentTwoExact.predictedMinHorizon, 3);
   assert.equal(sensorSum.exact, true);
   assert.equal(sensorSum.predictedMinHorizon, 1);
   assert.equal(hidden.exact, false);

@@ -10,6 +10,7 @@ Core implementation:
 Python tests:
 
 - [test_recoverability.py](../../../tests/math/test_recoverability.py)
+- [test_generated_artifact_consistency.py](../../../tests/examples/test_generated_artifact_consistency.py)
 
 Workbench / Node coverage:
 
@@ -38,6 +39,8 @@ Python-side:
 17. weaker-versus-stronger protected-variable splits under the same periodic coarse record
 18. diagonal functional interpolation thresholds for sensor sums and moment-type functionals
 19. diagonal functional weights against the independent row-space solver
+20. generated recoverability summary rows against independent recomputation of the threshold sweeps
+21. generated operator-example artifacts against direct CFD and continuous-flow recomputation
 
 Workbench-side:
 
@@ -63,6 +66,7 @@ Browser smoke checks:
 Most recent targeted branch checks completed during this pass:
 
 - `tests/math/test_recoverability.py`: `22 passed`
+- `tests/examples/test_generated_artifact_consistency.py`: `2 passed`
 - `tests/consistency/workbench_static.test.mjs`: `16 passed`
 - recoverability artifact build:
   - [recoverability_summary.json](../../../data/generated/recoverability/recoverability_summary.json)
@@ -78,12 +82,14 @@ New generated branch artifacts in this pass:
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `48 passed`
+- Python suite: `68 passed`
 - Workbench / Node suite: `16 passed`
 - markdown link check: passed
 - naming consistency check: passed
 - static workbench asset check: passed
 - browser smoke check on the updated Recoverability Lab: completed locally during this pass
+- broader randomized projector / generator / sector tests: passed
+- multi-grid MHD / CFD falsification sweeps: passed
 
 ## Failures Found And Fixed In This Pass
 

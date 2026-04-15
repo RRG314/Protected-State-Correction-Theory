@@ -48,3 +48,44 @@ def test_random_orthogonal_splits_recover_exactly_across_multiple_instances() ->
         s, _ = system.decompose(x)
         recovered = system.exact_recover(x)
         assert np.allclose(recovered, s)
+
+
+def test_decomposition_is_orthogonal_and_exact_across_multiple_dimensions() -> None:
+    rng = np.random.default_rng(19)
+    for ambient_dim, protected_dim in ((5, 1), (5, 2), (6, 3), (8, 2)):
+        for _ in range(5):
+            q, _ = np.linalg.qr(rng.normal(size=(ambient_dim, ambient_dim)))
+            protected = q[:, :protected_dim]
+            disturbance = q[:, protected_dim:]
+            system = FiniteOCPSystem(protected_basis=protected, disturbance_basis=disturbance)
+            x = rng.normal(size=ambient_dim)
+            s, d = system.decompose(x)
+            recovered = system.exact_recover(x)
+            assert np.allclose(s + d, x)
+            assert abs(float(np.vdot(s, d))) < 1e-10
+            assert np.allclose(recovered, s)
+            assert np.allclose(system.exact_recover(s), s)
+            assert np.allclose(system.exact_recover(d), np.zeros_like(d))
+
+
+def test_continuous_correction_energy_is_monotone_over_time_grid() -> None:
+    system = FiniteOCPSystem(
+        protected_basis=np.array([[1.0], [0.0], [0.0], [0.0]]),
+        disturbance_basis=np.array(
+            [
+                [0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0],
+                [0.0, 0.0, 1.0],
+            ]
+        ),
+    )
+    x0 = np.array([1.25, -2.0, 0.5, 3.0])
+    expected_protected = system.exact_recover(x0)
+    times = np.linspace(0.0, 2.5, 7)
+    energies = []
+    for time in times:
+        xt = system.continuous_correction(x0, rate=1.6, time=float(time))
+        energies.append(system.correction_energy(xt))
+        assert np.allclose(system.exact_recover(xt), expected_protected)
+    assert all(left >= right - 1e-12 for left, right in zip(energies, energies[1:]))

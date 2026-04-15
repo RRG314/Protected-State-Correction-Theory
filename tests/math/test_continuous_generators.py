@@ -84,3 +84,48 @@ def test_smooth_linear_flow_cannot_exactly_recover_nontrivial_disturbance_in_fin
     for time in (0.2, 1.0, 3.0):
         assert not flow.finite_time_exact_recovery_possible(time)
         assert flow.exact_recovery_residual(time) > 1e-3
+
+
+def test_diagonal_exact_recovery_residual_matches_closed_form_decay() -> None:
+    generator = np.diag([0.0, 0.75, 2.0])
+    flow = LinearOCPFlow(generator, PROTECTED_BASIS_1D, DISTURBANCE_BASIS_2D)
+    for time in (0.25, 1.0, 2.5):
+        expected = np.sqrt(np.exp(-1.5 * time) + np.exp(-4.0 * time))
+        assert np.isclose(flow.exact_recovery_residual(time), expected)
+
+
+def test_random_invariant_split_spd_generators_preserve_protected_component() -> None:
+    rng = np.random.default_rng(23)
+    ambient_dim = 5
+    protected_dim = 2
+    for _ in range(6):
+        q, _ = np.linalg.qr(rng.normal(size=(ambient_dim, ambient_dim)))
+        protected_basis = q[:, :protected_dim]
+        disturbance_basis = q[:, protected_dim:]
+
+        raw = rng.normal(size=(ambient_dim - protected_dim, ambient_dim - protected_dim))
+        dd = raw.T @ raw + 0.4 * np.eye(ambient_dim - protected_dim)
+        block = np.zeros((ambient_dim, ambient_dim))
+        block[protected_dim:, protected_dim:] = dd
+        generator = q @ block @ q.T
+
+        flow = LinearOCPFlow(generator, protected_basis, disturbance_basis)
+        report = flow.report()
+        assert report.annihilates_protected
+        assert report.preserves_disturbance
+        assert report.disturbance_decay_margin > 0.39
+
+        for time in (0.15, 0.75, 1.5):
+            x0 = rng.normal(size=ambient_dim)
+            xt = flow.flow(x0, time)
+            eigenvalues, eigenvectors = np.linalg.eigh(dd)
+            disturbance_flow = eigenvectors @ np.diag(np.exp(-time * eigenvalues)) @ eigenvectors.T
+            expected_operator = q @ np.block(
+                [
+                    [np.eye(protected_dim), np.zeros((protected_dim, ambient_dim - protected_dim))],
+                    [np.zeros((ambient_dim - protected_dim, protected_dim)), disturbance_flow],
+                ]
+            ) @ q.T
+            assert flow.preserves_protected_component(x0, time)
+            assert flow.disturbance_norm(xt) <= flow.asymptotic_bound(x0, time) + 1e-10
+            assert np.allclose(flow.flow_operator(time), expected_operator, atol=1e-8)
