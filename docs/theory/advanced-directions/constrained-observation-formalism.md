@@ -257,7 +257,97 @@ It says the exact threshold is not just the first level where a rank bound is me
 
 This is still a restricted linear theorem, not a universal branch theorem. That restriction is part of why it survives repeated falsification.
 
-and exact protected-variable recovery is stable on the restricted family.
+### Proposition 8.4: Exact-Regime Stability Envelope
+
+Assume exact restricted-linear recovery holds and let `K` be any linear recovery operator satisfying
+
+```text
+K O F = L F.
+```
+
+Then for Euclidean metrics on record and protected spaces,
+
+```text
+κ_{M,p}(δ) ≤ ||K||_2 δ
+```
+
+for every `δ ≥ 0`.
+
+### Proof sketch
+
+For any `x = F z` and `x' = F z'` in the admissible family,
+
+```text
+p(x) - p(x') = L F(z-z') = K O F(z-z') = K(M(x)-M(x')).
+```
+
+Therefore
+
+```text
+||p(x)-p(x')|| ≤ ||K||_2 ||M(x)-M(x')||.
+```
+
+Taking the supremum over all pairs with record discrepancy at most `δ` gives the claim.
+
+### Interpretation
+
+This is the strongest current upper bound attached to `κ`.
+
+It says that the exact restricted-linear branch is automatically a stable approximate branch under record perturbation, with a computable linear envelope.
+
+### Status note
+
+This is standard-adjacent linear analysis, but it materially strengthens the branch because it gives a real exact-regime upper bound to pair with the lower bound `κ(η)/2`.
+
+### Proposition 8.5: Same-Rank Insufficiency
+
+Let `rank(L F)=r` and assume the restricted family dimension satisfies
+
+```text
+dim(range(F)) > r.
+```
+
+Then for every observation rank `k` with
+
+```text
+r ≤ k < dim(range(F)),
+```
+
+there exist observation matrices `O_exact` and `O_fail` such that
+
+```text
+rank(O_exact F) = rank(O_fail F) = k,
+```
+
+but exact protected-variable recovery holds for `O_exact` and fails for `O_fail`.
+
+### Proof sketch
+
+Choose coordinates on the family so that
+
+```text
+L F = [I_r  0].
+```
+
+Now choose a `k`-dimensional observation row space containing `row(LF)` to get `O_exact`.
+Choose another `k`-dimensional row space that omits at least one protected row direction to get `O_fail`.
+
+Because `k < dim(range(F))`, both choices are available.
+The exactness criterion then gives:
+
+- exact recovery for `O_exact`,
+- failure for `O_fail`.
+
+### Interpretation
+
+This is the cleanest formal reason the branch rejects “information amount alone” language.
+
+Observation rank is only a necessary condition.
+Alignment between `row(O F)` and `row(L F)` still decides exactness.
+
+### Status note
+
+This is a useful negative result rather than a novelty claim. It survives because it is precise, falsifiable, and directly supported by the current tests.
 
 ### Status note
 

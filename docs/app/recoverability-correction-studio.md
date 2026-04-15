@@ -45,7 +45,10 @@ It is meant to answer a practical question before a user starts building a corre
 
 ### Reusable linear template
 - use for static record sufficiency, theorem-backed minimal augmentation counts, candidate-library augmentation, and ambiguity witness generation
-- strongest lesson: exact recovery is a row-space question on the restricted family
+- strongest lessons:
+  - exact recovery is a row-space question on the restricted family
+  - record amount alone is not enough
+  - when exact recovery holds, the studio can expose a computable exact-regime upper bound instead of only a yes/no verdict
 
 ## Guidance Logic
 
@@ -57,6 +60,7 @@ Examples:
 - if `κ(0) > 0`, the guidance reports that exact recovery is blocked and looks for the missing structure that would separate the observation fibers
 - if a weaker protected target is already recoverable, the guidance says so directly instead of implying that the full target can be saved
 - if asymptotic recovery exists but exact finite-history recovery fails, the guidance points toward observer-style architectures instead of pretending that a static inverse exists
+- if two records have the same rank but only one aligns with the protected row space, the guidance says that rank alone is not the deciding invariant
 - if the problem is impossible inside the current candidate record library, the guidance says that explicitly
 
 ## What The Studio Is Good For

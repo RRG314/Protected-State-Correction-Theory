@@ -1,5 +1,16 @@
 # Open Problem Catalog
 
+## OCP-OP6: Robust Restricted PVRT Beyond Zero-Noise Exactness
+- Type: theorem-completion
+- Priority: high
+- Current status: open but newly sharpened
+- Why it matters: the constrained-observation branch now supports a restricted Protected-Variable Recoverability Theory spine, but its strongest theorems still live mainly in zero-noise finite-dimensional linear settings.
+- What is already known: fiber-separation exactness, `κ(0)=0`, the adversarial lower bound `κ(η)/2`, the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ`, the nested restricted-linear collision-gap threshold law, the same-rank insufficiency theorem, and the minimal augmentation invariant `δ(O, L; F)`.
+- What blocks progress: broad noisy extensions can collapse into standard conditioning language unless the admissible family, protected map, and record perturbation model remain explicit.
+- What might solve it: a theorem that preserves the collision-gap and augmentation logic under bounded record noise or controlled admissible-family enlargement.
+- How to falsify bad formulations: produce same-rank or same-size record families with opposite robust behavior, or show that a proposed noisy theorem reduces to a vacuous norm inequality with no recoverability content.
+- Recommendation: this is now the strongest next theorem direction in the constrained-observation lane and the strongest current candidate for turning that branch into a more serious theory program.
+
 ## OCP-OP1: Boundary-Sensitive Exact Continuous Correction
 - Type: foundational
 - Priority: high

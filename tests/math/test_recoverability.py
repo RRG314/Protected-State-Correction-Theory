@@ -25,11 +25,35 @@ from ocp.recoverability import (
     periodic_velocity_recoverability_sweep,
     qubit_phase_collision_formula,
     qubit_record_collapse_sweep,
+    restricted_linear_stability_report,
     restricted_linear_collision_gap,
     restricted_linear_rank_lower_bound,
     restricted_linear_recoverability,
     restricted_linear_rowspace_residual,
+    scalar_metric,
+    same_rank_alignment_counterexample,
 )
+
+
+def _coefficient_family(dimension: int, values: tuple[float, ...] = (-1.0, -0.5, 0.0, 0.5, 1.0)) -> list[np.ndarray]:
+    if dimension == 1:
+        return [np.array([value], dtype=float) for value in values]
+    mesh = np.meshgrid(*([np.asarray(values, dtype=float)] * dimension), indexing='ij')
+    stacked = np.stack([axis.reshape(-1) for axis in mesh], axis=1)
+    return [row.astype(float) for row in stacked]
+
+
+def _sample_linear_collapse_curve(
+    observation_matrix: np.ndarray,
+    protected_matrix: np.ndarray,
+    deltas: np.ndarray,
+    *,
+    metric=scalar_metric,
+) -> np.ndarray:
+    coeffs = _coefficient_family(observation_matrix.shape[1])
+    observations = [observation_matrix @ coeff for coeff in coeffs]
+    protected = [protected_matrix @ coeff for coeff in coeffs]
+    return finite_collapse_modulus(observations, protected, deltas, protected_metric=metric)
 
 
 def test_fiber_collision_and_exact_recoverability_match() -> None:
@@ -310,6 +334,84 @@ def test_nested_linear_threshold_profile_matches_exactness_and_monotonic_gap() -
     assert exact_flags == [False, False, False, False, True]
     assert np.allclose(gaps, [5.0, 3.0, 2.0, 0.5, 0.0])
     assert residuals[-1] < 1e-10
+
+
+def test_exact_restricted_linear_regime_has_lipschitz_kappa_upper_bound() -> None:
+    observation = np.array(
+        [
+            [1.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0],
+        ],
+        dtype=float,
+    )
+    protected = np.array([[1.0, -0.5, 0.0]], dtype=float)
+    report = restricted_linear_stability_report(observation, protected, box_radius=1.0)
+    assert report.exact_recoverable is True
+    assert report.recovery_operator is not None
+    assert report.recovery_operator_norm_upper is not None
+    assert report.collision_gap == 0.0
+    deltas = np.linspace(0.0, 4.0, 17)
+    collapse = _sample_linear_collapse_curve(observation, protected, deltas)
+    upper = report.recovery_operator_norm_upper * deltas
+    assert np.all(collapse <= upper + 1e-9)
+
+
+def test_same_rank_alignment_counterexample_kills_information_amount_claim() -> None:
+    witness = same_rank_alignment_counterexample(ambient_dimension=5, protected_rank=2, observation_rank=2)
+    assert witness.exact_rowspace_residual < 1e-10
+    assert witness.fail_rowspace_residual > 0.5
+    assert witness.exact_collision_gap == 0.0
+    assert witness.fail_collision_gap > 1.0
+
+
+def test_same_rank_alignment_counterexample_persists_across_dimensions() -> None:
+    for ambient_dimension in (3, 4, 5, 6):
+        for protected_rank in range(1, ambient_dimension):
+            for observation_rank in range(protected_rank, ambient_dimension):
+                witness = same_rank_alignment_counterexample(
+                    ambient_dimension=ambient_dimension,
+                    protected_rank=protected_rank,
+                    observation_rank=observation_rank,
+                )
+                exact_report = restricted_linear_recoverability(
+                    witness.exact_observation_matrix,
+                    witness.protected_matrix,
+                )
+                fail_report = restricted_linear_recoverability(
+                    witness.fail_observation_matrix,
+                    witness.protected_matrix,
+                )
+                exact_rank = restricted_linear_rank_lower_bound(
+                    witness.exact_observation_matrix,
+                    witness.protected_matrix,
+                )
+                fail_rank = restricted_linear_rank_lower_bound(
+                    witness.fail_observation_matrix,
+                    witness.protected_matrix,
+                )
+                assert exact_report.exact_recoverable is True
+                assert fail_report.exact_recoverable is False
+                assert exact_rank.rank_observation == fail_rank.rank_observation == observation_rank
+                assert exact_rank.rank_observation >= exact_rank.rank_protected
+
+
+def test_diagonal_exact_history_threshold_has_linear_kappa_upper_bound() -> None:
+    eigenvalues = (0.95, 0.8, 0.65)
+    sensor_weights = (1.0, 0.4, 0.2)
+    protected_weights = tuple(sensor_weights[i] * (eigenvalues[i] ** 2) for i in range(3))
+    horizon = 3
+    observation = np.array(
+        [[sensor_weights[i] * (eigenvalues[i] ** t) for i in range(3)] for t in range(horizon)],
+        dtype=float,
+    )
+    protected = np.array([protected_weights], dtype=float)
+    report = restricted_linear_stability_report(observation, protected, box_radius=1.0)
+    assert report.exact_recoverable is True
+    assert report.recovery_operator_norm_upper is not None
+    deltas = np.linspace(0.0, 3.0, 16)
+    collapse = _sample_linear_collapse_curve(observation, protected, deltas)
+    upper = report.recovery_operator_norm_upper * deltas
+    assert np.all(collapse <= upper + 1e-9)
 
 
 def test_restricted_linear_collision_gap_matches_coordinate_formula() -> None:

@@ -66,6 +66,29 @@ class RestrictedLinearRecoverabilityReport:
 
 
 @dataclass(frozen=True)
+class RestrictedLinearStabilityReport:
+    exact_recoverable: bool
+    recovery_operator: Array | None
+    recovery_operator_norm_upper: float | None
+    rowspace_residual: float
+    collision_gap: float
+
+
+@dataclass(frozen=True)
+class SameRankRecoverabilityCounterexample:
+    ambient_dimension: int
+    protected_rank: int
+    observation_rank: int
+    protected_matrix: Array
+    exact_observation_matrix: Array
+    fail_observation_matrix: Array
+    exact_rowspace_residual: float
+    fail_rowspace_residual: float
+    exact_collision_gap: float
+    fail_collision_gap: float
+
+
+@dataclass(frozen=True)
 class AnalyticCollapseBenchmark:
     epsilon: float
     deltas: tuple[float, ...]
@@ -467,6 +490,100 @@ def restricted_linear_collision_gap(
     else:
         F = _orthonormalize_columns(np.asarray(family_basis, dtype=float), tol=tol)
     return _box_collision_gap_from_nullspace(O @ F, L @ F, box_radius=box_radius, tol=tol)
+
+
+def restricted_linear_stability_report(
+    observation_matrix: Array,
+    protected_matrix: Array,
+    *,
+    family_basis: Array | None = None,
+    box_radius: float = 1.0,
+    tol: float = EPS,
+) -> RestrictedLinearStabilityReport:
+    linear = restricted_linear_recoverability(
+        observation_matrix,
+        protected_matrix,
+        family_basis=family_basis,
+        tol=tol,
+    )
+    rowspace_residual = restricted_linear_rowspace_residual(
+        observation_matrix,
+        protected_matrix,
+        family_basis=family_basis,
+        tol=tol,
+    )
+    collision_gap = restricted_linear_collision_gap(
+        observation_matrix,
+        protected_matrix,
+        family_basis=family_basis,
+        box_radius=box_radius,
+        tol=tol,
+    )
+    recovery_operator_norm_upper = None
+    if linear.exact_recoverable and linear.recovery_operator is not None:
+        recovery_operator_norm_upper = float(np.linalg.norm(linear.recovery_operator, ord=2))
+    return RestrictedLinearStabilityReport(
+        exact_recoverable=bool(linear.exact_recoverable),
+        recovery_operator=None if linear.recovery_operator is None else np.asarray(linear.recovery_operator, dtype=float),
+        recovery_operator_norm_upper=recovery_operator_norm_upper,
+        rowspace_residual=float(rowspace_residual),
+        collision_gap=float(collision_gap),
+    )
+
+
+def same_rank_alignment_counterexample(
+    ambient_dimension: int,
+    protected_rank: int,
+    observation_rank: int,
+    *,
+    box_radius: float = 1.0,
+    tol: float = EPS,
+) -> SameRankRecoverabilityCounterexample:
+    n = int(ambient_dimension)
+    r = int(protected_rank)
+    k = int(observation_rank)
+    if r <= 0:
+        raise ValueError('protected_rank must be positive')
+    if not (r <= k < n):
+        raise ValueError('observation_rank must satisfy protected_rank <= observation_rank < ambient_dimension')
+
+    protected_matrix = np.eye(n, dtype=float)[:r, :]
+    exact_indices = list(range(k))
+    fail_indices = list(range(1, r)) + list(range(r, k + 1))
+    exact_observation_matrix = np.eye(n, dtype=float)[exact_indices, :]
+    fail_observation_matrix = np.eye(n, dtype=float)[fail_indices, :]
+
+    exact_residual = restricted_linear_rowspace_residual(exact_observation_matrix, protected_matrix, tol=tol)
+    fail_residual = restricted_linear_rowspace_residual(fail_observation_matrix, protected_matrix, tol=tol)
+    exact_gap = restricted_linear_collision_gap(
+        exact_observation_matrix,
+        protected_matrix,
+        box_radius=box_radius,
+        tol=tol,
+    )
+    fail_gap = restricted_linear_collision_gap(
+        fail_observation_matrix,
+        protected_matrix,
+        box_radius=box_radius,
+        tol=tol,
+    )
+    exact_report = restricted_linear_recoverability(exact_observation_matrix, protected_matrix, tol=tol)
+    fail_report = restricted_linear_recoverability(fail_observation_matrix, protected_matrix, tol=tol)
+    if not exact_report.exact_recoverable or fail_report.exact_recoverable:
+        raise RuntimeError('constructed same-rank alignment counterexample did not realize the intended exact/impossible split')
+
+    return SameRankRecoverabilityCounterexample(
+        ambient_dimension=n,
+        protected_rank=r,
+        observation_rank=k,
+        protected_matrix=protected_matrix,
+        exact_observation_matrix=exact_observation_matrix,
+        fail_observation_matrix=fail_observation_matrix,
+        exact_rowspace_residual=float(exact_residual),
+        fail_rowspace_residual=float(fail_residual),
+        exact_collision_gap=float(exact_gap),
+        fail_collision_gap=float(fail_gap),
+    )
 
 
 def minimal_linear_observation_complexity(

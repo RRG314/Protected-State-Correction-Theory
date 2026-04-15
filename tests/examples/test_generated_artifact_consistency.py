@@ -9,11 +9,14 @@ import pytest
 from ocp.cfd import cfd_projection_summary
 from ocp.continuous import LinearOCPFlow
 from ocp.recoverability import (
+    finite_collapse_modulus,
     diagonal_functional_complexity_sweep,
     diagonal_polynomial_threshold_sweep,
     nested_linear_threshold_profile,
     periodic_functional_complexity_sweep,
     periodic_threshold_stress_sweep,
+    restricted_linear_stability_report,
+    same_rank_alignment_counterexample,
 )
 
 
@@ -141,3 +144,28 @@ def test_recoverability_summary_json_matches_recomputed_threshold_sweeps() -> No
         assert saved_row['exact_recoverable'] == row['exact_recoverable']
         assert np.isclose(saved_row['collision_gap'], row['collision_gap'])
         assert np.isclose(saved_row['rowspace_residual'], row['rowspace_residual'])
+
+    pvrt_observation = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]], dtype=float)
+    pvrt_protected = np.array([[1.0, -0.5, 0.0]], dtype=float)
+    pvrt_report = restricted_linear_stability_report(pvrt_observation, pvrt_protected, box_radius=1.0)
+    saved_pvrt = data['pvrt_linear_stability_example']
+    assert saved_pvrt['exact_recoverable'] is True
+    assert np.isclose(saved_pvrt['recovery_operator_norm_upper'], pvrt_report.recovery_operator_norm_upper)
+    assert np.isclose(saved_pvrt['rowspace_residual'], pvrt_report.rowspace_residual)
+    assert np.isclose(saved_pvrt['collision_gap'], pvrt_report.collision_gap)
+    delta_grid = np.asarray(saved_pvrt['delta_grid'], dtype=float)
+    coeffs = [np.asarray(values, dtype=float) for values in np.array(np.meshgrid(*([np.linspace(-1.0, 1.0, 5)] * 3), indexing='ij')).reshape(3, -1).T]
+    observations = [pvrt_observation @ coeff for coeff in coeffs]
+    protected_values = [pvrt_protected @ coeff for coeff in coeffs]
+    recomputed_collapse = finite_collapse_modulus(observations, protected_values, delta_grid)
+    assert np.allclose(saved_pvrt['collapse_values'], recomputed_collapse)
+
+    pvrt_counterexample = same_rank_alignment_counterexample(ambient_dimension=5, protected_rank=2, observation_rank=2)
+    saved_counterexample = data['pvrt_same_rank_counterexample']
+    assert saved_counterexample['ambient_dimension'] == pvrt_counterexample.ambient_dimension
+    assert saved_counterexample['protected_rank'] == pvrt_counterexample.protected_rank
+    assert saved_counterexample['observation_rank'] == pvrt_counterexample.observation_rank
+    assert np.isclose(saved_counterexample['exact_rowspace_residual'], pvrt_counterexample.exact_rowspace_residual)
+    assert np.isclose(saved_counterexample['fail_rowspace_residual'], pvrt_counterexample.fail_rowspace_residual)
+    assert np.isclose(saved_counterexample['exact_collision_gap'], pvrt_counterexample.exact_collision_gap)
+    assert np.isclose(saved_counterexample['fail_collision_gap'], pvrt_counterexample.fail_collision_gap)

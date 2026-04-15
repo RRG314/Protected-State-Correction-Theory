@@ -175,7 +175,54 @@ then the same record level `r` exactly recovers `p_1` while exact recovery of `p
 
 **Standardness:** standard-adjacent, but one of the branch’s most useful organizing facts.
 
-### COR-P9: Nested Restricted-Linear Collision-Gap Threshold Law
+### COR-P8: Exact-Regime Stability Envelope
+
+Let the restricted-linear setup be
+
+```text
+x = F z,
+M(x) = O x,
+p(x) = L x.
+```
+
+Assume exact recovery holds and let `K` satisfy
+
+```text
+K O F = L F.
+```
+
+Then for Euclidean record and protected metrics,
+
+```text
+κ_{M,p}(δ) ≤ ||K||_2 δ.
+```
+
+**Status:** proved and cross-checked on exact linear and control-threshold examples.
+
+**Value:** strongest current upper bound attached to `κ`.
+
+**Standardness:** standard-adjacent linear analysis.
+
+### COR-P9: Same-Rank Insufficiency
+
+Let `rank(L F)=r` and assume the restricted family dimension exceeds `r`.
+Then for every observation rank `k` with
+
+```text
+r ≤ k < dim(range(F)),
+```
+
+there exist same-rank record families with opposite recoverability verdicts:
+- one exact,
+- one impossible.
+
+**Status:** proved in the restricted-linear setting and stress-tested across dimensions.
+
+**Value:** strongest negative theorem directly supporting the claim that recoverability depends on interaction, not only on information amount.
+
+**Standardness:** standard-adjacent, but useful.
+
+### COR-P10: Nested Restricted-Linear Collision-Gap Threshold Law
 
 Let the admissible family be the coefficient box
 

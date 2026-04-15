@@ -30,11 +30,11 @@ Scores are qualitative and intentionally conservative.
 
 ## Top 3 Branches To Push Hard
 
-### 1. Constrained-observation recoverability
+### 1. Constrained-observation recoverability / restricted PVRT
 Why:
 - strongest current theorem potential
 - strongest open threshold and lower-bound direction
-- already has clean falsification discipline and real computational support
+- already has clean falsification discipline, real computational support, and the strongest surviving named theory candidate in the repo
 
 ### 2. Restricted-linear / design-engine layer
 Why:
@@ -66,6 +66,6 @@ Why:
 
 ## Immediate Next Theorem Targets
 
-1. robust noisy extension of the restricted-linear minimal-augmentation / collision-gap spine
+1. robust noisy extension of the restricted-linear PVRT spine
 2. broader bounded-domain exactness theorem tied to explicit domain-compatible Hodge projectors and realistic boundary data
 3. sharper asymptotic-generator theorem beyond invariant splits without losing the protected/disturbance meaning

@@ -22,6 +22,7 @@
 ## Still Open
 
 ### High-value open problems
+- a robust noisy or admissible-family-enlarged restricted PVRT theorem beyond the current zero-noise exact spine
 - boundary-sensitive exact continuous correction beyond the solved finite-mode bounded Hodge subcase
 - a mature branch-specific capacity theory beyond lower bounds and the solved restricted-linear deficiency theorem
 - a sharper sector-branch formulation beyond the 3-qubit anchor but still tied to real operator language

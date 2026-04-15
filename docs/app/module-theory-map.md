@@ -2,7 +2,7 @@
 
 | Workbench module | Main result or use | Status | Source code |
 | --- | --- | --- | --- |
-| Recoverability / Correction Studio | constrained-observation branch, fiber-separation exactness, collapse-modulus classification, `κ(η)/2` lower bound, restricted-linear design logic, OCP-T6 minimal augmentation count, periodic functional-support thresholds, control finite-history versus observer split | active branch / proved core / family-level threshold results / design surface | `src/ocp/recoverability.py`, `src/ocp/design.py`, `docs/theory/advanced-directions/constrained-observation-*.md`, `docs/workbench/lib/compute.js` |
+| Recoverability / Correction Studio | constrained-observation branch, restricted PVRT spine, fiber-separation exactness, collapse-modulus classification, `κ(η)/2` lower bound, exact-regime upper envelope, same-rank insufficiency, restricted-linear design logic, OCP-T6 minimal augmentation count, periodic functional-support thresholds, control finite-history versus observer split | active branch / proved restricted-linear core / family-level threshold results / design surface | `src/ocp/recoverability.py`, `src/ocp/design.py`, `docs/theory/advanced-directions/constrained-observation-*.md`, `docs/theory/advanced-directions/pvrt-*.md`, `docs/theorem-candidates/pvrt-theorem-spine.md`, `docs/workbench/lib/compute.js` |
 | Exact Projection Lab | OCP-T1, OCP-N1 | proved | `src/ocp/core.py`, `docs/workbench/lib/compute.js` |
 | QEC Sector Lab | OCP-T5, QEC exact anchor | proved / conditional anchor | `src/ocp/sectors.py`, `src/ocp/qec.py`, `docs/workbench/lib/compute.js` |
 | MHD Projection Lab | periodic exact continuous anchor, GLM asymptotic branch | proved / conditional | `src/ocp/mhd.py`, `docs/workbench/lib/compute.js` |

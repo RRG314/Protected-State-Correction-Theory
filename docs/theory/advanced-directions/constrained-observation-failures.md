@@ -30,11 +30,25 @@ Rejected form:
 Why it failed:
 - `κ(0)=0` is the right exactness criterion,
 - `κ(η)/2` is useful,
+- the exact restricted-linear upper envelope `κ(δ) ≤ ||K||_2 δ` is useful,
 - but most of the surrounding logic remains close to existing inverse-stability and recoverability language.
 
 Current status:
 - **keep**, but only as a useful branch quantity
 - **do not oversell** as automatic novelty
+
+## 2b. “Information Amount Alone Determines Recoverability”
+
+Rejected form:
+- once the record has enough rank or enough channels, recoverability is determined by amount alone.
+
+Why it failed:
+- the restricted-linear same-rank counterexample theorem now shows that same-rank records can have opposite exactness verdicts;
+- the exact deciding invariant is whether the protected row space is contained in the record row space, not the rank count alone.
+
+Current status:
+- **false**
+- keep only the restricted statement that record amount gives necessary lower bounds, not sufficiency
 
 ## 3. Sampled Collision Estimates As Final Evidence
 

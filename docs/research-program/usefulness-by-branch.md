@@ -60,10 +60,12 @@ What it helps with:
 - tell whether a record is sufficient before building a correction architecture
 - identify exact, approximate, asymptotic, and impossible recovery regimes
 - show when weaker protected variables remain recoverable under the same record
+- falsify the claim that record amount alone determines exact recoverability
 
 Best outputs:
 - collision-gap and collapse diagnostics
 - exact/no-go threshold reports
+- restricted PVRT theorem-backed criteria in the finite-dimensional linear lane
 - weaker-versus-stronger protected-variable comparisons
 
 ## Restricted-Linear / Design-Engine Layer
@@ -77,6 +79,7 @@ Best outputs:
 - minimal augmentation counts
 - candidate measurement suggestions
 - nullspace witnesses and insufficiency diagnoses
+- exact-regime upper-bound estimates when the restricted family is already exact
 
 ## Practical Workbench / Studio Layer
 

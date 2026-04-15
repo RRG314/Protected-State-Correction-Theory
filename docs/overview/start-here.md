@@ -8,9 +8,11 @@
 4. [architecture-final.md](../finalization/architecture-final.md)
 5. [theorem-spine-final.md](../finalization/theorem-spine-final.md)
 6. [no-go-spine-final.md](../finalization/no-go-spine-final.md)
-7. [workbench-overview.md](../app/workbench-overview.md)
-8. [Recoverability / Correction Studio note](../app/recoverability-correction-studio.md)
-9. [workbench/index.html](../workbench/index.html)
+7. [PVRT theory program](../theory/advanced-directions/pvrt-theory-program.md)
+8. [PVRT theorem spine](../theorem-candidates/pvrt-theorem-spine.md)
+9. [workbench-overview.md](../app/workbench-overview.md)
+10. [Recoverability / Correction Studio note](../app/recoverability-correction-studio.md)
+11. [workbench/index.html](../workbench/index.html)
 
 ## If You Want To Use The Repo Practically
 
@@ -25,9 +27,11 @@ Start with one of these:
 Read in this order:
 1. [formal-theory.md](../formalism/formal-theory.md)
 2. [exact-vs-asymptotic.md](../formalism/exact-vs-asymptotic.md)
-3. [sector-recovery-theorems.md](../theorem-candidates/sector-recovery-theorems.md)
-4. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
-5. [advanced-no-go-results.md](../impossibility-results/advanced-no-go-results.md)
+3. [pvrt-theory-program.md](../theory/advanced-directions/pvrt-theory-program.md)
+4. [pvrt-theorem-spine.md](../theorem-candidates/pvrt-theorem-spine.md)
+5. [sector-recovery-theorems.md](../theorem-candidates/sector-recovery-theorems.md)
+6. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
+7. [advanced-no-go-results.md](../impossibility-results/advanced-no-go-results.md)
 
 ## Deep Read
 

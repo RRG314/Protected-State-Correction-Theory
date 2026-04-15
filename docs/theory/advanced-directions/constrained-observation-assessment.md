@@ -4,9 +4,14 @@
 
 This branch deserves to stay in the repository.
 
-It now has enough theorem-grade and computational substance to count as a real research lane.
+It now supports a real **restricted Protected-Variable Recoverability Theory (PVRT) program**:
+- exact fiber-compatibility,
+- exact-regime lower and upper bounds,
+- collision-gap thresholds,
+- same-rank insufficiency,
+- and minimal augmentation counts.
 
-It still does **not** justify being sold as a major standalone theorem program.
+It still does **not** justify being sold as a broad universal theory of observation.
 
 ## 1. Definitely Standard
 
@@ -37,8 +42,9 @@ The strongest kept negative outputs are:
 3. hidden-mode no-go in the diagonal scalar-output control family
 4. same-record weaker-versus-stronger splits in the periodic and control families
 5. one-step impossibility versus two-step recovery in the two-state control toy model
+6. same-rank insufficiency in the restricted-linear branch
 
-These are not deep on their own, but they make the branch falsification-first in a productive way.
+These are not deep on their own, but together they make the branch falsification-first in a productive way.
 
 ## 4. Strongest Clean Positive Results
 
@@ -50,17 +56,24 @@ The strongest clean positive outputs are now:
 worst-case protected-variable error ≥ κ_{M,p}(η)/2
 ```
 
-2. the nested restricted-linear collision-gap threshold law
-3. the nested restricted-linear minimal-complexity criterion
-4. the restricted-linear minimal augmentation theorem with exact count
+2. the exact-regime upper envelope on the exact restricted-linear branch
+
+```text
+κ_{M,p}(δ) ≤ ||K||_2 δ
+```
+
+3. the nested restricted-linear collision-gap threshold law
+4. the nested restricted-linear minimal-complexity criterion
+5. the restricted-linear minimal augmentation theorem with exact count
 
 ```text
 δ(O, L; F) = rank([O F; L F]) - rank(O F)
 ```
 
-5. the periodic functional-support threshold law on the tested periodic modal families
-6. the diagonal functional-interpolation threshold law on the tested scalar-output families
-7. the full-versus-weaker protected-variable split in the qubit fixed-basis family
+6. the periodic functional-support threshold law on the tested periodic modal families
+7. the diagonal functional-interpolation threshold law on the tested scalar-output families
+8. the full-versus-weaker protected-variable split in the qubit fixed-basis family
+9. the same-rank insufficiency theorem, which kills the idea that record amount alone determines recoverability
 
 These are the results worth pointing readers to first.
 
@@ -68,22 +81,25 @@ These are the results worth pointing readers to first.
 
 The most plausible minor contribution is now the following package:
 
-> a protected-variable recoverability framework in which the same constrained record can be exact for one protected quantity, approximate for another, asymptotic in an observer setting, and impossible for a stronger protected variable, together with an explicit restricted-linear collision-gap threshold law and finite-family threshold laws on conventional system classes.
+> a restricted protected-variable recoverability theory program in which exactness is fiber-compatibility, exact restricted-linear recovery carries both lower and upper ambiguity bounds, record amount alone is falsified by same-rank counterexamples, and minimal-record / minimal-augmentation thresholds can be proved on conventional finite families.
 
 That is not a major theorem claim, but it is stronger than the branch was before the current falsification pass.
 
 ## 6. Strongest Candidate For A Larger Contribution
 
-The strongest candidate remains the collapse modulus `κ_{M,p}` **if** one of the following can still be shown:
+The strongest current candidate is **restricted PVRT**, not `κ` alone.
 
-- a useful theorem beyond `κ(0)=0` and `κ(η)/2`,
+The most plausible next upgrade would be one of the following:
+
+- a useful theorem beyond `κ(0)=0`, `κ(η)/2`, and the exact-regime linear upper envelope,
 - a robust threshold law under noisy or enlarged admissible families,
-- or a sharp no-go theorem that is stronger than family-specific linear-algebra obstruction.
+- or a sharp no-go theorem that is stronger than the current restricted-linear obstruction.
 
-Right now, the strongest surviving result in that direction is narrower:
+Right now, the honest surviving structure is:
 
 - `κ(η)/2` is real and useful,
-- but the stronger threshold laws currently survive only through restricted-linear structure.
+- `κ(δ) ≤ ||K||_2 δ` is real and useful in the exact restricted-linear branch,
+- the stronger threshold laws still survive only through restricted-linear structure and family-level corollaries.
 
 ## 7. What Should Be Promoted
 
@@ -93,9 +109,7 @@ Promote this branch as:
 - a computationally useful recoverability lab,
 - a place for strong no-go results,
 - a branch with real minimal-record examples,
-- and a branch with two honest restricted-linear theorems:
-  - the collision-gap threshold law,
-  - and the minimal augmentation count theorem.
+- and a branch with a real restricted-linear theory spine.
 
 Do **not** promote it as:
 
@@ -113,5 +127,5 @@ Keep the claims narrow:
 - real formal value,
 - real negative results,
 - real family-specific threshold laws,
-- one useful restricted-linear theorem,
-- no inflated theorem claim.
+- a restricted theorem program,
+- no inflated universal claim.

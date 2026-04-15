@@ -58,6 +58,8 @@ The strongest new observation-layer addition is:
 
 The strongest current constrained-observation branch results now added on top of that are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- the restricted-linear exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ`,
+- the same-rank insufficiency theorem showing that record amount alone does not determine exact recoverability,
 - a nested restricted-linear collision-gap threshold law on bounded admissible coefficient families,
 - a restricted-linear minimal-complexity criterion based on row-space inclusion,
 - a restricted-linear minimal augmentation theorem with exact count
@@ -73,7 +75,12 @@ The strongest current constrained-observation branch results now added on top of
 - a diagonal functional-interpolation threshold law that survives larger polynomial stress tests,
 - and a corrected exact-versus-asymptotic control-history split after replacing a misleading sampled collision estimate with an exact nullspace calculation.
 
-That branch now has two real theorem-grade restricted-linear core results, but it still remains a useful formal and computational extension rather than a major standalone theorem program.
+That branch now supports a real restricted **Protected-Variable Recoverability Theory (PVRT)** program:
+- broad universal PVRT failed,
+- restricted finite-dimensional linear PVRT survived,
+- and the branch now has several theorem-grade restricted-linear core results.
+
+It still remains a useful formal and computational extension rather than a major standalone theorem program.
 
 ## 4. Strongest New Physics Results And Decisions
 
@@ -186,7 +193,7 @@ Current validation status:
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Recoverability / Correction Studio: passed
 - Node workbench test suite: `17 passed`
-- Python theorem/operator/example test suite: `90 passed`
+- Python theorem/operator/example test suite: `94 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -232,7 +239,7 @@ The new CFD lane does not change that overall rating upward. It strengthens the 
 The best next directions are now clearer and more grounded:
 
 1. a broader bounded-domain exactness theorem beyond the solved finite-mode Hodge subcase
-2. a robust noisy extension of the restricted-linear collision-gap and minimal-augmentation theorems
+2. a robust noisy extension of the restricted-linear PVRT spine, especially the collision-gap, exact-regime upper-envelope, and minimal-augmentation theorems
 3. sharper asymptotic theorems for constraint-damping architectures in real PDE settings
 4. a more formal continuous-QEC bridge only if it yields real operator statements instead of analogy
 
@@ -243,4 +250,5 @@ Do not promote or spend major time on:
 - generic constrained Hamiltonian claims without explicit recovery operators
 - broad optimizer/ML reintegration
 - any renaming that makes physics sound more dominant than the proofs justify
-- any claim that the constrained-observation branch is already a major new theory rather than a promising formal/computational lane with several narrow but real threshold results
+- any claim that broad universal PVRT has been proved
+- any claim that the constrained-observation branch is already a major new theory rather than a promising formal/computational lane with a real restricted PVRT spine and several narrow threshold results

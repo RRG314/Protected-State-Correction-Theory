@@ -557,6 +557,49 @@ Diagonal polynomial stress case:
 
 This kills the naive claim that control-side threshold equals protected support size or protected rank. The correct invariant is interpolation complexity on the active sensor spectrum.
 
+### 7.8 PVRT exact-regime upper bound and same-rank falsification
+
+The strongest new theory-facing additions from this pass are:
+
+1. an exact-regime upper envelope inside the exact restricted-linear branch,
+2. and a same-rank counterexample family showing that record amount alone is not enough.
+
+For the benchmark exact restricted-linear example with
+
+```text
+O = [[1, 0, 0],
+     [0, 1, 0]],
+L = [[1, -0.5, 0]],
+```
+
+the computed exact recovery operator gives a finite stability slope, and the sampled collapse curve stays below the theorem envelope
+
+```text
+κ(δ) ≤ ||K||_2 δ.
+```
+
+The corresponding generated figure is:
+
+![PVRT restricted-linear stability envelope](../../assets/recoverability/pvrt-linear-stability-upper-bound.svg)
+
+This matters because the branch now has:
+
+- a lower obstruction `κ(η)/2`,
+- and an upper envelope in the exact restricted-linear regime.
+
+The same pass also constructed an explicit same-rank exact/fail pair.
+For protected rank `2` and observation rank `2` in ambient dimension `5`:
+
+- one rank-`2` record family has row-space residual `0` and collision gap `0`,
+- another rank-`2` record family has positive row-space residual and positive collision gap.
+
+This is a direct falsification of the shortcut:
+
+> “the amount of record information alone determines exact recoverability.”
+
+It does not.
+The interaction between the protected variable and the record row space still decides the outcome.
+
 ## 8. Repeated Falsification Protocol And What Survived
 
 Every promoted branch result was pressure-tested by:
@@ -573,7 +616,9 @@ What survived cleanly:
 
 - `κ(0)=0` exactness,
 - `κ(η)/2` lower bound,
+- the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ` in the restricted-linear branch,
 - the nested restricted-linear collision-gap threshold law,
+- the same-rank insufficiency theorem,
 - the restricted-linear minimal augmentation theorem,
 - qubit phase-window law,
 - two-mode periodic cutoff threshold,
@@ -598,11 +643,13 @@ Useful outcomes:
 
 1. `κ(0)` works exactly as the branch's exact / impossible separator should.
 2. `κ(η)/2` survives as a real adversarial lower bound.
-3. the structured collision gap `Γ_r(B)` gives a real monotone threshold/no-go quantity in the restricted-linear branch.
-4. the same record can be exact for one protected variable and impossible for a stronger one.
-5. the branch produces a clean restricted-linear minimal-complexity criterion that explains the strongest periodic and control thresholds.
-6. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
-7. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
+3. exact restricted-linear recovery also carries a real computable upper envelope `κ(δ) ≤ ||K||_2 δ`.
+4. the structured collision gap `Γ_r(B)` gives a real monotone threshold/no-go quantity in the restricted-linear branch.
+5. the same record can be exact for one protected variable and impossible for a stronger one.
+6. same-rank record families can still have opposite exactness verdicts, so rank alone is not the invariant.
+7. the branch produces a clean restricted-linear minimal-complexity criterion that explains the strongest periodic and control thresholds.
+8. the branch produces real finite-family minimal-record thresholds in both periodic-flow and control settings.
+9. the divergence-only and hidden-mode no-go results are stronger and more useful than a generic “noninvertible maps are not invertible” slogan.
 
 ## 10. What Failed Or Stayed Weak
 
@@ -631,8 +678,9 @@ Almost certainly standard or standard-adjacent:
 The strongest plausible branch-level contribution is still modest:
 
 - a protected-variable recoverability framework that cleanly separates exact, approximate, asymptotic, and impossible regimes,
-- an operational use of `κ` through the lower bound `κ(η)/2`,
+- an operational use of `κ` through the lower bound `κ(η)/2` and the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ`,
 - a restricted-linear collision-gap threshold theorem that turns exactness, minimal complexity, and zero-noise lower bounds into one coherent statement,
+- a same-rank insufficiency theorem showing that record amount alone is not enough,
 - a restricted-linear minimal augmentation theorem that turns design-layer measurement advice into an exact count,
 - and explicit minimal-record threshold laws showing that the protected variable matters as much as the record family.
 

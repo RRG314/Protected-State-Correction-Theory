@@ -1044,6 +1044,8 @@ function analyzeLinearTemplateRecoverability(config) {
   const protectedRows = protectedOption.rows.map((row) => row.slice());
   const { residuals, recoverable, unrecoverable } = recoverableRowIndices(activeRows, protectedRows);
   const exact = unrecoverable.length === 0;
+  const rankObservation = activeRows.length ? matrixRank(activeRows) : 0;
+  const rankProtected = matrixRank(protectedRows);
   const unrestrictedMinimalAdded = Math.max(0, matrixRank([...activeRows, ...protectedRows]) - matrixRank(activeRows.length ? activeRows : [zeros(3)]));
   const augmentation = minimalRowAugmentation(activeRows, protectedRows, remainingCandidates.map((candidate) => candidate.row));
   const nullBasis = nullSpace(activeRows.length ? activeRows : [zeros(3)]);
@@ -1063,17 +1065,23 @@ function analyzeLinearTemplateRecoverability(config) {
   const protectedValues = [];
   const errors = [];
   const rowMetric = protectedRows.length === 1 ? scalarGap : rmsMetric;
+  let recoveryMatrix = null;
+  let stabilitySlopeUpper = null;
+  if (exact) {
+    recoveryMatrix = protectedRows.map((row) => {
+      const weights = linearRowRecoverableWeights(activeRows, row);
+      return weights ?? Array.from({ length: activeRows.length }, () => 0);
+    });
+    stabilitySlopeUpper = frobeniusNorm(recoveryMatrix);
+  }
   for (const state of family) {
     const observation = activeRows.map((row) => dot(row, state));
     const protectedValue = linearTemplateProtectedValue(state, protectedRows);
     observations.push(observation);
     protectedValues.push(protectedValue);
     let estimate = Array.from({ length: protectedRows.length }, () => 0);
-    if (exact) {
-      estimate = protectedRows.map((row) => {
-        const weights = linearRowRecoverableWeights(activeRows, row);
-        return weights ? dot(weights, observation) : 0;
-      });
+    if (exact && recoveryMatrix) {
+      estimate = recoveryMatrix.map((weights) => dot(weights, observation));
     }
     errors.push(rowMetric(estimate, protectedValue));
   }
@@ -1111,6 +1119,8 @@ function analyzeLinearTemplateRecoverability(config) {
     kappa0,
     meanRecoveryError: errors.reduce((sum, value) => sum + value, 0) / errors.length,
     maxRecoveryError: Math.max(...errors),
+    rankObservation,
+    rankProtected,
     activeMeasurementLabels: active.map((candidate) => candidate.label),
     remainingMeasurementLabels: remainingCandidates.map((candidate) => candidate.label),
     recoverableProtectedRows: recoverable,
@@ -1119,6 +1129,8 @@ function analyzeLinearTemplateRecoverability(config) {
     weakerProtectedOptions: recoverableOptions.map((item) => item.label),
     unrestrictedMinimalAddedMeasurements: unrestrictedMinimalAdded,
     minimalAddedMeasurements: augmentation.minimalAdded,
+    stabilitySlopeUpper,
+    selectedStabilityUpperBound: stabilitySlopeUpper === null ? null : stabilitySlopeUpper * selectedDelta,
     candidateExactSets: augmentation.exactSets.map((combo) => combo.map((index) => remainingCandidates[index].label)),
     nullspaceWitness: witness,
     nullspaceWitnessGap: witnessGap,
@@ -1325,17 +1337,21 @@ function guidanceForRecoverability(result, config) {
       return {
         architecture: result.exact ? 'Static linear recovery' : 'Augment the record or weaken the protected variable',
         blocker: result.exact
-          ? 'No structural blocker remains on the current protected rows.'
+          ? 'No structural blocker remains on the current protected rows; exactness comes from row-space alignment, not from rank alone.'
           : result.nullspaceWitness
             ? `A nullspace witness still changes the protected variable by ${result.nullspaceWitnessGap.toFixed(2)} while leaving the record fixed.`
             : 'The current record row space does not contain every protected row.',
         missing: result.exact
-          ? 'Current measurement rows span the protected target.'
+          ? 'Current measurement rows span the protected target, so the exact branch also has a computable linear stability envelope.'
           : result.minimalAddedMeasurements === null
             ? `No exact fix exists inside the current candidate measurement library. The theorem-backed unrestricted minimum is ${result.unrestrictedMinimalAddedMeasurements}.`
             : `Add ${result.minimalAddedMeasurements} measurement${result.minimalAddedMeasurements === 1 ? '' : 's'} from the candidate library.`,
         nextSteps: result.exact
-          ? ['Export this scenario as a reusable exact-recovery template.', 'If robustness matters, enlarge the admissible family and retest.']
+          ? [
+              `At the selected δ, the current computable upper bound on protected-variable ambiguity is ${result.selectedStabilityUpperBound?.toExponential(2) ?? '0.00e+0'}.`,
+              'Export this scenario as a reusable exact-recovery template.',
+              'If robustness matters, enlarge the admissible family and retest.'
+            ]
           : [
               result.candidateExactSets.length
                 ? `Try one of the minimal fixes: ${result.candidateExactSets.map((set) => set.join(' + ')).join(' or ')}.`

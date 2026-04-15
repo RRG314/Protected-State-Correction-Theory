@@ -90,9 +90,9 @@ This file turns each major branch into an explicit research program. Each branch
 ## 7. Constrained-Observation Recoverability Branch
 
 - Serious open question:
-  can the current restricted-linear threshold spine be extended to a genuinely robust noisy theorem beyond `κ(0)=0` and `κ(η)/2`?
+  can the current restricted-linear PVRT spine be extended to a genuinely robust noisy theorem beyond `κ(0)=0`, `κ(η)/2`, and the exact-regime upper envelope?
 - Theorem target:
-  a noise-aware or family-enlargement extension of the nested restricted-linear collision-gap theorem.
+  a noise-aware or family-enlargement extension of the nested restricted-linear collision-gap theorem together with the exact-regime upper envelope.
 - No-go target:
   explicit coarse-record lower bounds that block exact recovery even when weaker protected variables remain recoverable.
 - Computational attack plan:

@@ -14,3 +14,6 @@ Do not treat ordinary damping or feedback stabilization as OCP unless the protec
 
 ## 5. Boundary-Free PDE Extrapolation
 Do not speak as if the periodic Helmholtz/Leray result automatically covers bounded domains or complicated boundary data. That is still open.
+
+## 6. Broad Universal PVRT
+Do not promote Protected-Variable Recoverability Theory as a universal cross-branch law. The strongest surviving form is the restricted finite-dimensional linear spine. Everything broader must re-earn itself by proof.

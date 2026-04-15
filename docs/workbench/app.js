@@ -1166,7 +1166,9 @@ function renderRecoverabilityStage() {
           <h4>Linear design diagnosis</h4>
           <div class="value-grid">
             <div><small>Active measurements</small><code>${a.activeMeasurementLabels.length}</code></div>
+            <div><small>Record / protected rank</small><code>${a.rankObservation} / ${a.rankProtected}</code></div>
             <div><small>Minimal added measurements</small><code>${a.minimalAddedMeasurements === null ? 'none available' : a.minimalAddedMeasurements}</code></div>
+            <div><small>Exact-regime upper bound</small><code>${a.selectedStabilityUpperBound === null ? 'n/a' : a.selectedStabilityUpperBound.toExponential(3)}</code></div>
             <div><small>Witness gap</small><code>${a.nullspaceWitnessGap.toExponential(3)}</code></div>
             <div><small>Unrecoverable protected rows</small><code>${a.unrecoverableProtectedRows.length}</code></div>
           </div>

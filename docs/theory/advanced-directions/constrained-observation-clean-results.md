@@ -101,7 +101,28 @@ Status:
 - strongest surviving theorem-grade threshold result in the branch
 - standard-adjacent, but genuinely useful
 
-### CR-7: Same-Record Variable Hierarchy
+### CR-7: Exact-Regime Stability Envelope
+
+If exact restricted-linear recovery holds and `K` is an exact recovery operator, then
+
+```text
+κ_{M,p}(δ) ≤ ||K||_2 δ.
+```
+
+Status:
+- proved
+- strongest current `κ` upper bound
+- standard-adjacent but materially useful
+
+### CR-8: Same-Rank Insufficiency
+
+For fixed protected rank and fixed observation rank above the rank lower bound, same-rank record families can still have opposite recoverability verdicts.
+
+Status:
+- proved in the restricted-linear setting
+- strongest clean falsification of “information amount alone” language
+
+### CR-9: Same-Record Variable Hierarchy
 
 The same coarse record can exactly recover a weaker protected variable while exact recovery of a stronger one remains impossible.
 
@@ -126,7 +147,7 @@ Status:
 
 ## 2. Clean No-Go Results
 
-### CR-8: Divergence-Only No-Go
+### CR-10: Divergence-Only No-Go
 
 A divergence-only record cannot exactly recover a nonconstant protected variable on a nontrivial divergence-free family.
 
@@ -134,7 +155,7 @@ Status:
 - proved
 - useful negative result
 
-### CR-9: Fixed-Basis Phase-Loss No-Go
+### CR-11: Fixed-Basis Phase-Loss No-Go
 
 A fixed-basis qubit record cannot exactly recover a phase-sensitive protected variable on a family with phase freedom.
 
@@ -142,7 +163,7 @@ Status:
 - proved
 - useful quantum-side no-go
 
-### CR-10: Hidden-Mode No-Go
+### CR-12: Hidden-Mode No-Go
 
 In the diagonal scalar-output family, if the protected functional has nonzero weight on a sensor-hidden coordinate, no finite observation horizon recovers it exactly.
 
@@ -152,7 +173,7 @@ Status:
 
 ## 3. Clean Threshold Results
 
-### CR-11: Qubit Phase-Window Law
+### CR-13: Qubit Phase-Window Law
 
 For the fixed-basis qubit family with phase window `[-w,w]`, the full Bloch-vector ambiguity satisfies
 
@@ -168,7 +189,7 @@ Status:
 - proved on the family
 - benchmark-grade, not a novelty claim
 
-### CR-12: Periodic Two-Mode Cutoff Threshold
+### CR-14: Periodic Two-Mode Cutoff Threshold
 
 On the tested two-mode periodic incompressible family, exact recovery of the full velocity field from truncated vorticity occurs if and only if both active modes are retained.
 
@@ -179,7 +200,7 @@ Status:
 - proved on the family
 - clean coarsening threshold
 
-### CR-13: Periodic Functional Support Threshold
+### CR-15: Periodic Functional Support Threshold
 
 On the tested periodic modal families, the minimal exact cutoff equals the largest retained cutoff index among the Fourier modes used by the protected variable, not the raw support size.
 
@@ -198,7 +219,7 @@ Status:
 - proved on the family
 - strongest current minimal-record result in the periodic lane
 
-### CR-14: Diagonal Functional Interpolation Threshold
+### CR-16: Diagonal Functional Interpolation Threshold
 
 On the tested diagonal scalar-output families with distinct active eigenvalues, the minimal exact observation horizon is the smallest history length whose observation rows interpolate the chosen protected functional on the active sensor spectrum, not the raw protected support size.
 
@@ -231,7 +252,7 @@ Status:
 - proved on the family
 - strongest current minimal-record result in the control lane
 
-### CR-15: Coordinate Threshold As A Special Case
+### CR-17: Coordinate Threshold As A Special Case
 
 The older coordinate-recovery rule is still true on the diagonal family, but only as a special case of the functional interpolation law.
 
@@ -244,10 +265,12 @@ Status:
 Promote carefully:
 - the exact / approximate / asymptotic / impossible protected-variable classification
 - the operational lower bound `κ(η)/2`
+- the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ` on restricted linear families
 - the divergence-only and phase-loss no-go structure
 - the restricted-linear minimal-complexity criterion
 - the restricted-linear collision-gap threshold law
 - the restricted-linear minimal-augmentation design logic
+- the same-rank insufficiency theorem
 - the periodic and diagonal family-level threshold laws
 - the weaker-versus-stronger split under the same coarse record
 
@@ -263,6 +286,6 @@ The branch now has real clean results.
 They are best described as:
 - a useful formal and computational lane,
 - with honest no-go structure,
-- with one real restricted-linear threshold theorem,
+- with a small but real restricted-linear theory spine,
 - with narrow but real family-level corollaries,
 - and with a clean same-record hierarchy split that survives in more than one conventional system lane.

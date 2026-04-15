@@ -71,7 +71,7 @@ Browser smoke checks:
 
 Most recent targeted branch checks completed during this pass:
 
-- `tests/math/test_recoverability.py`: `29 passed`
+- `tests/math/test_recoverability.py`: `33 passed`
 - `tests/examples/test_generated_artifact_consistency.py`: `2 passed`
 - `tests/consistency/workbench_static.test.mjs`: `17 passed`
 - recoverability artifact build:
@@ -93,7 +93,7 @@ New generated branch artifacts in this pass:
 Most recent full repository gate:
 
 - `./scripts/validate/run_all.sh`: passed
-- Python suite: `90 passed`
+- Python suite: `94 passed`
 - Workbench / Node suite: `17 passed`
 - markdown link check: passed
 - naming consistency check: passed

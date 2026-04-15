@@ -14,6 +14,7 @@ from ocp.recoverability import (
     control_minimal_complexity_sweep,
     diagonal_polynomial_threshold_sweep,
     diagonal_functional_complexity_sweep,
+    finite_collapse_modulus,
     functional_observability_sweep,
     nested_linear_threshold_profile,
     periodic_cutoff_recoverability_sweep,
@@ -22,6 +23,8 @@ from ocp.recoverability import (
     periodic_protected_complexity_sweep,
     periodic_velocity_recoverability_sweep,
     qubit_record_collapse_sweep,
+    restricted_linear_stability_report,
+    same_rank_alignment_counterexample,
 )
 
 ROOT = Path('/Users/stevenreid/Documents/New project/repos/ocp-research-program')
@@ -35,6 +38,12 @@ COLORS = ['#8d5428', '#2a6f97', '#356c4a', '#a63229', '#6f4e7c']
 def ensure_dirs() -> None:
     DATA_OUT.mkdir(parents=True, exist_ok=True)
     DOC_OUT.mkdir(parents=True, exist_ok=True)
+
+
+def coefficient_family(dimension: int, values: Sequence[float] = (-1.0, -0.5, 0.0, 0.5, 1.0)) -> list[np.ndarray]:
+    mesh = np.meshgrid(*([np.asarray(values, dtype=float)] * int(dimension)), indexing='ij')
+    stacked = np.stack([axis.reshape(-1) for axis in mesh], axis=1)
+    return [row.astype(float) for row in stacked]
 
 
 
@@ -171,6 +180,10 @@ def main() -> None:
     diagonal_functional = diagonal_functional_complexity_sweep()
     diagonal_polynomial = diagonal_polynomial_threshold_sweep()
     noise_lower_bound = analytic_noise_lower_bound_sweep(epsilon=0.25)
+    pvrt_observation = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]], dtype=float)
+    pvrt_protected = np.array([[1.0, -0.5, 0.0]], dtype=float)
+    pvrt_stability = restricted_linear_stability_report(pvrt_observation, pvrt_protected, box_radius=1.0)
+    pvrt_counterexample = same_rank_alignment_counterexample(ambient_dimension=5, protected_rank=2, observation_rank=2)
     nested_linear = nested_linear_threshold_profile(
         [
             np.zeros((1, 4), dtype=float),
@@ -183,10 +196,38 @@ def main() -> None:
         box_radius=1.0,
         level_labels=[0, 1, 2, 3, 4],
     )
+    pvrt_deltas = np.linspace(0.0, 4.0, 25)
+    pvrt_coeffs = coefficient_family(pvrt_observation.shape[1])
+    pvrt_observations = [pvrt_observation @ coeff for coeff in pvrt_coeffs]
+    pvrt_protected_values = [pvrt_protected @ coeff for coeff in pvrt_coeffs]
+    pvrt_collapse = finite_collapse_modulus(pvrt_observations, pvrt_protected_values, pvrt_deltas)
 
     summary = {
         'analytic_benchmark': benchmark,
         'analytic_noise_lower_bound': noise_lower_bound,
+        'pvrt_linear_stability_example': {
+            'observation_matrix': pvrt_observation.tolist(),
+            'protected_matrix': pvrt_protected.tolist(),
+            'exact_recoverable': pvrt_stability.exact_recoverable,
+            'recovery_operator_norm_upper': pvrt_stability.recovery_operator_norm_upper,
+            'rowspace_residual': pvrt_stability.rowspace_residual,
+            'collision_gap': pvrt_stability.collision_gap,
+            'delta_grid': [float(value) for value in pvrt_deltas],
+            'collapse_values': [float(value) for value in pvrt_collapse],
+            'upper_bound_values': [
+                None if pvrt_stability.recovery_operator_norm_upper is None else float(pvrt_stability.recovery_operator_norm_upper * value)
+                for value in pvrt_deltas
+            ],
+        },
+        'pvrt_same_rank_counterexample': {
+            'ambient_dimension': pvrt_counterexample.ambient_dimension,
+            'protected_rank': pvrt_counterexample.protected_rank,
+            'observation_rank': pvrt_counterexample.observation_rank,
+            'exact_rowspace_residual': pvrt_counterexample.exact_rowspace_residual,
+            'fail_rowspace_residual': pvrt_counterexample.fail_rowspace_residual,
+            'exact_collision_gap': pvrt_counterexample.exact_collision_gap,
+            'fail_collision_gap': pvrt_counterexample.fail_collision_gap,
+        },
         'qubit_record_sweep': qubit,
         'periodic_velocity_sweep': periodic,
         'periodic_cutoff_sweep': periodic_cutoff,
@@ -213,6 +254,32 @@ def main() -> None:
     write_csv(DATA_OUT / 'diagonal_polynomial_threshold_sweep.csv', diagonal_polynomial['rows'])
     write_csv(DATA_OUT / 'analytic_collapse_benchmark.csv', benchmark['rows'])
     write_csv(DATA_OUT / 'analytic_noise_lower_bound.csv', noise_lower_bound['rows'])
+    write_csv(
+        DATA_OUT / 'pvrt_linear_stability_example.csv',
+        [
+            {
+                'delta': float(delta),
+                'collapse': float(collapse),
+                'upper_bound': None if pvrt_stability.recovery_operator_norm_upper is None else float(pvrt_stability.recovery_operator_norm_upper * delta),
+            }
+            for delta, collapse in zip(pvrt_deltas, pvrt_collapse, strict=True)
+        ],
+    )
+    write_csv(
+        DATA_OUT / 'pvrt_same_rank_counterexample.csv',
+        [
+            {
+                'case': 'exact_same_rank',
+                'rowspace_residual': pvrt_counterexample.exact_rowspace_residual,
+                'collision_gap': pvrt_counterexample.exact_collision_gap,
+            },
+            {
+                'case': 'fail_same_rank',
+                'rowspace_residual': pvrt_counterexample.fail_rowspace_residual,
+                'collision_gap': pvrt_counterexample.fail_collision_gap,
+            },
+        ],
+    )
 
     analytic_series = [
         {
@@ -501,6 +568,30 @@ def main() -> None:
             title='Analytic noise lower bound',
             x_label='noise radius η',
             y_label='worst-case protected-variable error lower bound',
+        ),
+    )
+
+    write_text(
+        DOC_OUT / 'pvrt-linear-stability-upper-bound.svg',
+        line_svg(
+            [
+                {
+                    'label': 'empirical κ(δ)',
+                    'x': [float(value) for value in pvrt_deltas],
+                    'y': [float(value) for value in pvrt_collapse],
+                },
+                {
+                    'label': 'theorem upper bound',
+                    'x': [float(value) for value in pvrt_deltas],
+                    'y': [
+                        0.0 if pvrt_stability.recovery_operator_norm_upper is None else float(pvrt_stability.recovery_operator_norm_upper * value)
+                        for value in pvrt_deltas
+                    ],
+                },
+            ],
+            title='PVRT restricted-linear stability envelope',
+            x_label='δ',
+            y_label='protected-variable ambiguity',
         ),
     )
 

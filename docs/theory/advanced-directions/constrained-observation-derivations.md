@@ -290,7 +290,79 @@ then `L_1 x` is exactly recoverable while `L_2 x` is not.
 
 Apply Proposition 5.3 separately to `L_1` and `L_2`.
 
-### Proposition 5.5: Nested Restricted-Linear Collision-Gap Threshold Law
+### Proposition 5.5: Exact-Regime Stability Envelope
+
+Assume exact recovery holds and choose any linear operator `K` satisfying
+
+```text
+K O F = L F.
+```
+
+Then for Euclidean record and protected metrics,
+
+```text
+κ_{M,p}(δ) ≤ ||K||_2 δ.
+```
+
+### Derivation
+
+Take any two admissible coefficient vectors `z,z'`. Then
+
+```text
+L F(z-z') = K O F(z-z').
+```
+
+Hence
+
+```text
+||L F(z-z')|| ≤ ||K||_2 ||O F(z-z')||.
+```
+
+Now take the supremum over all pairs with record discrepancy at most `δ`.
+
+### Why this matters
+
+This gives the strongest current upper bound attached to the branch’s collapse modulus.
+The exact restricted-linear branch is therefore not just exact; it is quantitatively stable under record perturbation with a computable linear envelope.
+
+### Proposition 5.6: Same-Rank Insufficiency
+
+Let `rank(LF)=r` and assume the restricted family dimension is larger than `r`.
+For any observation rank `k` with
+
+```text
+r ≤ k < dim(range(F)),
+```
+
+there exist observation matrices `O_exact` and `O_fail` such that
+
+```text
+rank(O_exact F) = rank(O_fail F) = k,
+```
+
+but exact recovery holds for `O_exact` and fails for `O_fail`.
+
+### Derivation
+
+Choose coordinates on the family so that
+
+```text
+L F = [I_r  0].
+```
+
+Then:
+
+- choose a `k`-dimensional row space containing `row(LF)` to get `O_exact`,
+- choose a `k`-dimensional row space omitting at least one protected row direction to get `O_fail`.
+
+Because `k < dim(range(F))`, both choices exist.
+By Proposition 5.3, the first case is exact and the second is not.
+
+### Consequence
+
+This kills the broad “record amount alone determines recoverability” shortcut even inside the best-behaved restricted-linear branch.
+
+### Proposition 5.7: Nested Restricted-Linear Collision-Gap Threshold Law
 
 Fix `B > 0` and consider the admissible coefficient box
 

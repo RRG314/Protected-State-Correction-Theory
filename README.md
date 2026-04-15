@@ -99,12 +99,15 @@ The repository is organized so readers can enter from different angles:
 10. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
 11. [Template Index](docs/templates/README.md)
 12. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-13. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-14. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-15. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-16. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-17. [Open-Problem Program](docs/research-program/open-problem-program.md)
-18. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+13. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
+14. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
+15. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
+16. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+17. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+18. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+19. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+20. [Open-Problem Program](docs/research-program/open-problem-program.md)
+21. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -194,23 +197,33 @@ This branch asks when a coarse record preserves enough information to recover a 
 
 The strongest current clean results in that branch are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
+- the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ` in the exact restricted-linear branch,
+- the same-rank insufficiency theorem showing that record amount alone does not determine exact recoverability,
 - a closed-form qubit phase-window collision law,
 - a restricted-linear minimal-complexity criterion,
 - a restricted-linear design layer with ambiguity witnesses and minimal augmentation suggestions,
 - family-level periodic functional-support thresholds,
 - and a diagonal functional-interpolation threshold law on a scalar-output control family.
 
+The strongest current theory-level promotion from that branch is a restricted, theorem-backed **Protected-Variable Recoverability Theory (PVRT)** program:
+- broad universal PVRT is rejected,
+- restricted finite-dimensional linear PVRT survives,
+- and it organizes the exactness, threshold, lower-bound, and same-record weaker-versus-stronger results without pretending to unify every branch under one scalar law.
+
 Start here:
 
 1. [Branch overview](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-2. [Formalism](docs/theory/advanced-directions/constrained-observation-formalism.md)
-3. [Derivations](docs/theory/advanced-directions/constrained-observation-derivations.md)
-4. [Clean results](docs/theory/advanced-directions/constrained-observation-clean-results.md)
-5. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
-6. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
-7. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
-8. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
-9. [Template Index](docs/templates/README.md)
+2. [PVRT theory program](docs/theory/advanced-directions/pvrt-theory-program.md)
+3. [PVRT theorem spine](docs/theorem-candidates/pvrt-theorem-spine.md)
+4. [PVRT falsification program](docs/theory/advanced-directions/pvrt-falsification-program.md)
+5. [Formalism](docs/theory/advanced-directions/constrained-observation-formalism.md)
+6. [Derivations](docs/theory/advanced-directions/constrained-observation-derivations.md)
+7. [Clean results](docs/theory/advanced-directions/constrained-observation-clean-results.md)
+8. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
+9. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
+10. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
+11. [Recoverability / Correction Studio](docs/app/recoverability-correction-studio.md)
+12. [Template Index](docs/templates/README.md)
 
 ## Physics Extension
 

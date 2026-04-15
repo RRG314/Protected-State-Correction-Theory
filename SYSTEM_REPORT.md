@@ -11,7 +11,9 @@ The strongest current picture is:
 - exact bounded-domain correction on the repository's boundary-compatible finite-mode Hodge family,
 - exact periodic incompressible velocity projection as a narrow CFD corollary of the same projector branch,
 - a constrained-observation recoverability layer that classifies exact, approximate, asymptotic, and impossible recovery under coarse records,
+- a restricted PVRT theory-program layer extracted from the strongest constrained-observation results,
 - a strengthened restricted-linear collision-gap threshold theorem inside that recoverability layer,
+- a restricted-linear exact-regime stability envelope and same-rank insufficiency theorem inside that same branch,
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - asymptotic continuous correction through invariant-split generators,
@@ -22,11 +24,11 @@ The strongest current picture is:
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `274`
+- tracked-like files: `280`
 - root files: `19`
 - archive files: `8`
-- data files: `20`
-- docs files: `120`
+- data files: `22`
+- docs files: `124`
 - papers files: `6`
 - scripts files: `19`
 - source files: `33`
@@ -40,8 +42,8 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `45`
-- `PROVED`: `30`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear minimal-complexity criterion, the new restricted-linear minimal augmentation theorem, the new bounded-domain finite-mode Hodge theorem, and the stronger periodic/control threshold generalizations
+- total tracked claims: `47`
+- `PROVED`: `32`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear exact-regime upper envelope, the same-rank insufficiency theorem, the restricted-linear minimal-complexity criterion, the new restricted-linear minimal augmentation theorem, the new bounded-domain finite-mode Hodge theorem, and the stronger periodic/control threshold generalizations
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`
@@ -82,10 +84,13 @@ Primary claim artifacts:
 ### Constrained-observation branch
 - [docs/theory/advanced-directions/constrained-observation-recoverability.md](docs/theory/advanced-directions/constrained-observation-recoverability.md)
 - [docs/theory/advanced-directions/constrained-observation-formalism.md](docs/theory/advanced-directions/constrained-observation-formalism.md)
+- [docs/theory/advanced-directions/pvrt-theory-program.md](docs/theory/advanced-directions/pvrt-theory-program.md)
+- [docs/theory/advanced-directions/pvrt-falsification-program.md](docs/theory/advanced-directions/pvrt-falsification-program.md)
 - [docs/theory/advanced-directions/constrained-observation-results-report.md](docs/theory/advanced-directions/constrained-observation-results-report.md)
 - [docs/theory/advanced-directions/constrained-observation-validation.md](docs/theory/advanced-directions/constrained-observation-validation.md)
 - [docs/theory/advanced-directions/constrained-observation-assessment.md](docs/theory/advanced-directions/constrained-observation-assessment.md)
 - [docs/theorem-candidates/constrained-observation-theorems.md](docs/theorem-candidates/constrained-observation-theorems.md)
+- [docs/theorem-candidates/pvrt-theorem-spine.md](docs/theorem-candidates/pvrt-theorem-spine.md)
 - [docs/impossibility-results/constrained-observation-no-go.md](docs/impossibility-results/constrained-observation-no-go.md)
 
 ### CFD extension
@@ -181,13 +186,15 @@ Status: `conditional bridge`
 - main value: strongest citable bridge between exact QEC and continuous correction
 
 ### 10. Constrained-observation branch
-Status: `kept formal/computational branch`
+Status: `kept formal/computational branch with a restricted PVRT spine`
 - protected object: chosen protected variable `p(x)` on an admissible family
 - disturbance object: information lost under the record map or coarse observation fiber
 - operator: record map `M`, recovery map `R`, and collapse-modulus diagnostic `κ_{M,p}`
 - main value: a disciplined observation layer that distinguishes exact, approximate, asymptotic, and impossible recovery before correction is even attempted
 - strongest surviving branch results:
   - `κ(η)/2` adversarial lower bound,
+  - exact restricted-linear stability envelope `κ(δ) ≤ ||K||_2 δ`,
+  - same-rank insufficiency for observation families,
   - restricted-linear minimal augmentation count `δ(O, L; F)`,
   - qubit phase-window collision law,
   - periodic cutoff threshold on the tested two-mode incompressible family,
@@ -297,7 +304,7 @@ Validation status:
 - expanded randomized and multi-grid falsification checks: passed
 - real browser smoke of the Recoverability / Correction Studio: passed
 - Node workbench tests: `17 passed`
-- Python theorem/operator/example tests: `90 passed`
+- Python theorem/operator/example tests: `94 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
