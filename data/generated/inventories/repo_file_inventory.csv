@@ -33,7 +33,7 @@ data/generated/design/design_template_examples.json,data,.json,3203
 data/generated/discovery_mixer/discovery_mixer_demo_table.csv,data,.csv,713
 data/generated/discovery_mixer/discovery_mixer_summary.json,data,.json,38996
 data/generated/inventories/discovery_inventory.csv,data,.csv,3389
-data/generated/inventories/repo_file_inventory.csv,data,.csv,23434
+data/generated/inventories/repo_file_inventory.csv,data,.csv,23616
 data/generated/recoverability/analytic_collapse_benchmark.csv,data,.csv,6318
 data/generated/recoverability/analytic_noise_lower_bound.csv,data,.csv,210
 data/generated/recoverability/control_minimal_complexity_sweep.csv,data,.csv,1148
