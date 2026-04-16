@@ -137,7 +137,8 @@ test('recoverability lab keeps the analytic exact-versus-impossible threshold vi
   });
   assert.equal(exact.exact, true);
   assert.ok(exact.kappa0 < 1e-9);
-  assert.ok(Math.abs(exact.selectedLowerBound - 0.5128205128205128) < 1e-9);
+  assert.ok(Math.abs(exact.selectedKappa - 1.0) < 1e-9);
+  assert.ok(Math.abs(exact.selectedLowerBound - 0.5) < 1e-9);
   assert.equal(impossible.impossible, true);
   assert.ok(impossible.kappa0 > 1.9);
 });
@@ -499,6 +500,13 @@ test('benchmark console exposes validated demos and module-health rows', () => {
   assert.equal(benchmark.summary.regimeChangeCount, 5);
   assert.equal(benchmark.selectedDemoRow.demo, 'boundary_architecture_repair');
   assert.ok(benchmark.moduleRows.some((row) => row.label === 'CFD Projection Lab'));
+  assert.ok(benchmark.moduleRows.some((row) => row.label === 'Recoverability / Observation Studio'));
+  assert.ok(benchmark.moduleRows.some((row) => row.label === 'Structural Discovery Studio'));
+  assert.ok(benchmark.moduleRows.some((row) => row.label === 'Discovery Mixer / Structural Composition Lab'));
+  assert.ok(benchmark.moduleRows.some((row) => row.label === 'No-Go Explorer'));
+  assert.ok(benchmark.validationSnapshot.counts.knownAnswerTotal >= 1);
+  assert.ok(Array.isArray(benchmark.validationSnapshot.limitations));
+  assert.ok(benchmark.summary.moduleCount >= 10);
 });
 
 test('report and csv exports include the new structural-discovery data', () => {
@@ -524,9 +532,13 @@ test('report and csv exports include the new structural-discovery data', () => {
   const csv = exportScenarioCsv(reportState, reportAnalysis);
   const benchmarkState = sanitizeState({ ...DEFAULT_STATE, activeLab: 'benchmark' });
   const benchmarkAnalysis = analyzeBenchmarkConsole(benchmarkState.labs.benchmark);
+  const benchmarkReport = exportScenarioReport(benchmarkState, benchmarkAnalysis);
   const benchmarkCsv = exportScenarioCsv(benchmarkState, benchmarkAnalysis);
   assert.match(report, /boundary-compatible finite-mode Hodge/i);
   assert.match(report, /evidence level/i);
   assert.match(csv, /boundary_architecture|collapse|series/i);
+  assert.match(benchmarkReport, /summary\.demoCount/i);
+  assert.match(benchmarkReport, /Validation Snapshot/i);
+  assert.match(benchmarkReport, /known-answer checks/i);
   assert.match(benchmarkCsv, /boundary_architecture_repair/);
 });

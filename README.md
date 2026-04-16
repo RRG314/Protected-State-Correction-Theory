@@ -98,24 +98,30 @@ The repository is organized so readers can enter from different angles:
 9. [Protected-State Correction Workbench](docs/workbench/index.html)
 10. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
 11. [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
-12. [Discovery Mixer Overview](docs/discovery-mixer/overview.md)
-13. [Discovery Mixer Supported Scope](docs/discovery-mixer/supported-scope.md)
-14. [Discovery Mixer Demo Walkthroughs](docs/discovery-mixer/demo-walkthroughs.md)
-15. [Template Index](docs/templates/README.md)
-16. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-17. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
-18. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
-19. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-20. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-21. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-22. [Structural Discovery Overview](docs/structural-discovery/overview.md)
-23. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
-24. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
-25. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
-26. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-27. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-28. [Open-Problem Program](docs/research-program/open-problem-program.md)
-29. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+12. [Tool Qualification And Known-Results Verification Report](docs/app/tool-qualification-report.md)
+13. [Professional Validation And Discovery Report](docs/app/professional-validation-report.md)
+14. [Workbench Architecture](docs/app/workbench-architecture.md)
+15. [Workbench Data Flow](docs/app/workbench-data-flow.md)
+16. [Workbench Extension Guide](docs/app/workbench-extension-guide.md)
+17. [Workbench Refactor Report](docs/app/workbench-refactor-report.md)
+18. [Discovery Mixer Overview](docs/discovery-mixer/overview.md)
+15. [Discovery Mixer Supported Scope](docs/discovery-mixer/supported-scope.md)
+16. [Discovery Mixer Demo Walkthroughs](docs/discovery-mixer/demo-walkthroughs.md)
+17. [Template Index](docs/templates/README.md)
+18. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
+19. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
+20. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
+21. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
+22. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+23. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+24. [Structural Discovery Overview](docs/structural-discovery/overview.md)
+25. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
+26. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
+27. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
+28. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+29. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+30. [Open-Problem Program](docs/research-program/open-problem-program.md)
+31. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
 
 ## What You Can Do With This Repository
 
@@ -125,6 +131,7 @@ Use it as a theory repository:
 Use it as a scientific workbench:
 - run the static workbench to explore exact projection, sector recovery, generator-based damping, and explicit no-go examples.
 - use the Structural Discovery Studio to diagnose why a setup fails, what weaker target is still recoverable, what structural change to try next, and whether that change actually repairs the problem.
+- use the architecture and extension docs to see how domain, engine, data, app, and presentation layers are separated before extending the workbench.
 
 Use it as a design system:
 - start from the reusable templates to build restricted linear recovery checks, observability checks, projection threshold sweeps, ambiguity witnesses, and no-go diagnostics on your own problem.
@@ -293,10 +300,20 @@ This now runs:
 - discovery and claim regeneration
 - operator example generation
 - static workbench example generation
+- professional validation audit regeneration
 - markdown link checks
 - static workbench asset check
 - Python theorem tests
 - Node workbench tests
+
+Current validation-facing reports:
+- [Tool Qualification And Known-Results Verification Report](docs/app/tool-qualification-report.md)
+- [Professional Validation And Discovery Report](docs/app/professional-validation-report.md)
+
+Current trust snapshot:
+- stage-1 module qualification: `11` qualified modules
+- stage-2 known-answer verification: `21/21` exact matches on the qualified tool surface
+- professional audit: expanded known-answer, adversarial, and workflow testing with explicit limits on circular checks
 
 ## Release Materials
 

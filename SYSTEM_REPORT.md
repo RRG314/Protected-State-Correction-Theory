@@ -17,6 +17,7 @@ The strongest current picture is:
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - a Structural Discovery subsystem that can diagnose failure, propose a supported repair, and validate before/after regime changes on multiple families,
+- a refactored workbench architecture with explicit domain, engine, data, application, and presentation helper layers for the static app,
 - a Discovery Mixer / Structural Composition Lab that can compose supported families, parse controlled custom linear input, run constrained random search, and test supported fixes on user-built systems,
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
@@ -95,6 +96,15 @@ Primary claim artifacts:
 - [docs/theorem-candidates/constrained-observation-theorems.md](docs/theorem-candidates/constrained-observation-theorems.md)
 - [docs/theorem-candidates/pvrt-theorem-spine.md](docs/theorem-candidates/pvrt-theorem-spine.md)
 - [docs/impossibility-results/constrained-observation-no-go.md](docs/impossibility-results/constrained-observation-no-go.md)
+
+### Workbench architecture layer
+- [docs/app/workbench-architecture.md](docs/app/workbench-architecture.md)
+- [docs/app/workbench-data-flow.md](docs/app/workbench-data-flow.md)
+- [docs/app/workbench-extension-guide.md](docs/app/workbench-extension-guide.md)
+- [docs/app/workbench-export-plumbing.md](docs/app/workbench-export-plumbing.md)
+- [docs/app/workbench-validation-map.md](docs/app/workbench-validation-map.md)
+- [docs/app/workbench-refactor-report.md](docs/app/workbench-refactor-report.md)
+- [docs/app/workbench-system-check-report.md](docs/app/workbench-system-check-report.md)
 
 ### Discovery Mixer subsystem
 - [docs/discovery-mixer/overview.md](docs/discovery-mixer/overview.md)
@@ -291,6 +301,8 @@ Workbench docs:
 - [docs/app/structural-discovery-studio.md](docs/app/structural-discovery-studio.md)
 - [docs/app/discovery-mixer-structural-composition-lab.md](docs/app/discovery-mixer-structural-composition-lab.md)
 - [docs/app/benchmark-validation-console.md](docs/app/benchmark-validation-console.md)
+- [docs/app/tool-qualification-report.md](docs/app/tool-qualification-report.md)
+- [docs/app/professional-validation-report.md](docs/app/professional-validation-report.md)
 
 Workbench modules:
 - Structural Discovery Studio
@@ -343,8 +355,10 @@ Validation status:
 - real browser smoke of the Structural Discovery Studio: passed
 - real browser smoke of the Discovery Mixer: passed
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
+- tool qualification surface: `11` qualified modules and `21/21` known-answer matches on the qualified matrix
+- professional validation audit: `25/25` known-answer cases, `7/7` adversarial cases, and `10/10` live workflows
 - Node workbench tests: `26 passed`
-- Python theorem/operator/example tests: `110 passed`
+- Python theorem/operator/example tests: `128 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)

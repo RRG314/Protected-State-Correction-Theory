@@ -12,6 +12,7 @@ PYTHONPATH=src python3 scripts/compare/run_structural_discovery_examples.py
 PYTHONPATH=src python3 scripts/compare/run_discovery_mixer_examples.py
 if command -v node >/dev/null 2>&1; then
   node scripts/compare/build_workbench_examples.mjs
+  PYTHONPATH=src python3 scripts/compare/run_professional_validation_audit.py
   node --test tests/consistency/*.test.mjs
 fi
 python3 scripts/validate/check_links.py

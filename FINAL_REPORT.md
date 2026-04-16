@@ -141,6 +141,13 @@ It shows that removing one residual is not enough if the protected class include
 The workbench was redesigned and renamed to:
 - [Protected-State Correction Workbench](docs/workbench/index.html)
 
+Current validation-facing workbench reports:
+- [docs/app/tool-qualification-report.md](docs/app/tool-qualification-report.md)
+- [docs/app/professional-validation-report.md](docs/app/professional-validation-report.md)
+- [docs/app/workbench-architecture.md](docs/app/workbench-architecture.md)
+- [docs/app/workbench-data-flow.md](docs/app/workbench-data-flow.md)
+- [docs/app/workbench-refactor-report.md](docs/app/workbench-refactor-report.md)
+
 Current modules:
 - Structural Discovery Studio
 - Discovery Mixer / Structural Composition Lab
@@ -164,7 +171,9 @@ Usability changes:
 - added reusable templates and user-facing paths so the repo can be used to build and diagnose systems, not only read about them
 - added exportable share-link, JSON, CSV, report, and figure outputs for workbench scenarios
 - added a Benchmark / Validation Console that turns built-in demos and module health into an in-workbench trust surface
+- added a dedicated tool-qualification and known-results verification report so the workbench is tested as a tool, not only as a codebase
 - added a typed Discovery Mixer so users can build supported compositions directly, enter controlled custom matrices or symbolic-linear functionals, run constrained random exploration, and test supported fixes without leaving the workbench
+- refactored the static workbench into explicit domain, engine, data, app, and UI helper layers so state, charts, catalog metadata, and analysis dispatch no longer live in one page file
 
 ## 7. Outside Literature Layer
 
@@ -187,6 +196,10 @@ Most useful current outside anchors:
 Validation entry point:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
 
+Professional validation reports:
+- [docs/app/tool-qualification-report.md](docs/app/tool-qualification-report.md)
+- [docs/app/professional-validation-report.md](docs/app/professional-validation-report.md)
+
 Current validation status:
 - generated inventories: passed
 - generated claim registry: passed
@@ -202,8 +215,10 @@ Current validation status:
 - real browser smoke of the Structural Discovery Studio: passed
 - real browser smoke of the Discovery Mixer: passed
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
+- tool qualification surface: `11` qualified modules and `21/21` known-answer matches on the qualified matrix
+- professional validation audit: `25/25` known-answer cases, `7/7` adversarial cases, and `10/10` live workflows
 - Node workbench test suite: `26 passed`
-- Python theorem/operator/example test suite: `110 passed`
+- Python theorem/operator/example test suite: `128 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)

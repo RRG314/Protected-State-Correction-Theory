@@ -1,0 +1,50 @@
+{
+  "strong_tests": [
+    {
+      "path": "tests/math/test_core_projectors.py",
+      "why": "direct projector algebra with explicit exact/no-go cases"
+    },
+    {
+      "path": "tests/math/test_recoverability.py",
+      "why": "independent collapse, threshold, and restricted-linear checks including naive reference paths"
+    },
+    {
+      "path": "tests/math/test_discovery_mixer.py",
+      "why": "typed custom-input rejection and repair behavior on supported families"
+    },
+    {
+      "path": "tests/consistency/workbench_static.test.mjs",
+      "why": "UI-side analyzer parity, export integrity, and benchmark/truth-surface regression coverage"
+    },
+    {
+      "path": "scripts/compare/run_browser_tool_qualification.mjs",
+      "why": "real browser workflows, export, reload, share-state, and unsupported-case honesty"
+    }
+  ],
+  "partial_or_circular": [
+    {
+      "path": "tests/examples/test_workbench_examples_consistency.py",
+      "why": "good for drift detection, but the generated examples come from the same analyzer family later being checked"
+    },
+    {
+      "path": "tests/examples/test_generated_artifact_consistency.py",
+      "why": "recomputes artifacts from the same source modules; useful for stale-output detection, not fully independent truth validation"
+    },
+    {
+      "path": "node scripts/compare/build_workbench_examples.mjs",
+      "why": "builds regression fixtures from current workbench analyzers; fixture presence alone does not validate correctness"
+    }
+  ],
+  "missing_before_this_pass": [
+    "explicit validation architecture map marking circularity and trust limits",
+    "professional known-answer matrix spanning all major lanes with independent answers",
+    "adversarial red-team cases near thresholds and parser boundaries",
+    "report-level consistency checks tying README/system/final reports to current validation counts",
+    "truth-surface snapshot inside the benchmark console"
+  ],
+  "integration_gaps_closed_in_this_pass": [
+    "benchmark console now exposes generated validation snapshot and limitations rather than only static demo rows",
+    "browser qualification expanded into product-grade workflows instead of only happy-path smoke checks",
+    "known-answer and adversarial outputs are exported as reproducible CSV/JSON artifacts"
+  ]
+}

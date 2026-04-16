@@ -1,0 +1,527 @@
+{
+  "stage1": {
+    "qualified_count": 11,
+    "partial_count": 0,
+    "modules": [
+      {
+        "module": "Exact Projection Lab",
+        "scenario": "orthogonal exact recovery",
+        "tool_verdict": "exact",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified-narrow",
+        "notes": "Exact theorem anchor is working and export/report state is coherent, but this lab is intentionally narrow and does not expose unsupported free-form input."
+      },
+      {
+        "module": "QEC Sector Lab",
+        "scenario": "three-qubit bit-flip exact sector recovery",
+        "tool_verdict": "exact",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified-narrow",
+        "notes": "Known exact anchor reproduces correctly; this lab is trustworthy for the tracked sector example but not yet a broad QEC explorer."
+      },
+      {
+        "module": "MHD Projection Lab",
+        "scenario": "periodic projection versus short GLM run",
+        "tool_verdict": "exact-vs-asymptotic split",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified",
+        "notes": "Real numerical comparison is present and the exact-versus-GLM gap is preserved."
+      },
+      {
+        "module": "CFD Projection Lab",
+        "scenario": "periodic exact branch plus bounded transplant failure",
+        "tool_verdict": "mixed exact and no-go",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified",
+        "notes": "This lab is trustworthy for both the periodic exact anchor and the bounded-domain negative benchmark."
+      },
+      {
+        "module": "Gauge / Maxwell Lab",
+        "scenario": "transverse projection fit",
+        "tool_verdict": "exact fit on compatible domain",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified-narrow",
+        "notes": "The lab behaves correctly on the kept projection-compatible example, but it remains an anchor surface rather than a broad discovery tool."
+      },
+      {
+        "module": "Continuous Generator Lab",
+        "scenario": "invariant-split asymptotic correction with finite-time no-go",
+        "tool_verdict": "asymptotic only",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified",
+        "notes": "The lab correctly distinguishes asymptotic suppression from impossible finite-time exact recovery."
+      },
+      {
+        "module": "No-Go Explorer",
+        "scenario": "bounded-domain transplant failure witness",
+        "tool_verdict": "COUNTEREXAMPLE / REJECTED BRIDGE",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "n/a",
+        "unsupported_honest": "yes",
+        "qualification": "qualified",
+        "notes": "No-Go Explorer is trustworthy for explicit counterexamples and does not invent fixes for structurally rejected setups."
+      },
+      {
+        "module": "Recoverability / Observation Studio",
+        "scenario": "periodic stronger-target threshold failure",
+        "tool_verdict": "Impossible",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "yes",
+        "unsupported_honest": "yes",
+        "qualification": "qualified",
+        "notes": "The recoverability studio is trustworthy for theorem-backed and family-backed threshold cases and keeps fix cards tied to real comparisons."
+      },
+      {
+        "module": "Structural Discovery Studio",
+        "scenario": "wrong architecture on bounded-domain protected class",
+        "tool_verdict": "Impossible",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "yes",
+        "unsupported_honest": "yes",
+        "qualification": "qualified",
+        "notes": "This is currently the strongest end-to-end diagnosis-to-repair workflow in the workbench."
+      },
+      {
+        "module": "Discovery Mixer / Structural Composition Lab",
+        "scenario": "typed restricted-linear failure, repair, and unsupported nonlinear rejection",
+        "tool_verdict": "Impossible",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "yes",
+        "unsupported_honest": "yes",
+        "qualification": "qualified",
+        "notes": "The mixer is strong enough for supported typed composition and explicit unsupported handling; it is not a free symbolic sandbox."
+      },
+      {
+        "module": "Benchmark / Validation Console",
+        "scenario": "validated demo replay and module-health export",
+        "tool_verdict": "Validated benchmark surface",
+        "live_calculation": true,
+        "export_report_ok": true,
+        "export_csv_ok": "yes",
+        "share_reload_ok": true,
+        "before_after_real": "yes",
+        "unsupported_honest": "n/a",
+        "qualification": "qualified",
+        "notes": "Benchmark console exports real demo rows and module-health summaries."
+      }
+    ]
+  },
+  "stage2": {
+    "passed_count": 21,
+    "case_count": 21,
+    "rows": [
+      {
+        "case_id": "OCP-K1",
+        "category": "Exact / OCP",
+        "case_name": "Orthogonal exact recovery",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "notes": "Exact projector anchor."
+      },
+      {
+        "case_id": "OCP-K2",
+        "category": "Exact / OCP",
+        "case_name": "Overlap / indistinguishability no-go",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "notes": "Non-orthogonal disturbance contaminates the protected projection."
+      },
+      {
+        "case_id": "OCP-K3",
+        "category": "Exact / OCP",
+        "case_name": "Exact sector recovery",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "notes": "Bit-flip sector anchor."
+      },
+      {
+        "case_id": "PVRT-K1",
+        "category": "Constrained observation",
+        "case_name": "Fiber-collision no-go at analytic \u03b5=0",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "explicit analytic benchmark",
+        "notes": "Zero degeneracy closes the record on the protected scalar."
+      },
+      {
+        "case_id": "PVRT-K2",
+        "category": "Constrained observation",
+        "case_name": "Restricted-linear exact no-go before augmentation",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed restricted-linear result",
+        "notes": "The protected row is outside the active observation row space."
+      },
+      {
+        "case_id": "PVRT-K3",
+        "category": "Constrained observation",
+        "case_name": "Minimal augmentation theorem case",
+        "expected_answer": "exact-min-1",
+        "tool_answer": "exact-min-1",
+        "independent_answer": "exact-min-1",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed restricted-linear result",
+        "notes": "One added row is enough, and the tool surfaces candidate one-row repairs."
+      },
+      {
+        "case_id": "PVRT-K4",
+        "category": "Constrained observation",
+        "case_name": "Same-rank exact case",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed restricted-linear result",
+        "notes": "Rank two record that already contains the protected row."
+      },
+      {
+        "case_id": "PVRT-K5",
+        "category": "Constrained observation",
+        "case_name": "Same-rank insufficiency case",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed restricted-linear result",
+        "notes": "Same row rank, opposite recoverability verdict."
+      },
+      {
+        "case_id": "PVRT-K6",
+        "category": "Constrained observation",
+        "case_name": "Qubit phase-loss no-go",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific result with standard external guidance",
+        "notes": "Full Bloch-vector target fails once phase freedom opens."
+      },
+      {
+        "case_id": "PVRT-K7",
+        "category": "Constrained observation",
+        "case_name": "Qubit weaker target exactness",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific result with standard external guidance",
+        "notes": "z-only target survives under the same fixed-basis record."
+      },
+      {
+        "case_id": "PVRT-K8",
+        "category": "Constrained observation",
+        "case_name": "Periodic cutoff threshold failure",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific threshold result",
+        "notes": "Cutoff 3 hides mode 4 support of the weighted functional."
+      },
+      {
+        "case_id": "PVRT-K9",
+        "category": "Constrained observation",
+        "case_name": "Periodic cutoff threshold repair",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific threshold result",
+        "notes": "Cutoff 4 recovers the full functional support on the tracked basis."
+      },
+      {
+        "case_id": "PVRT-K10",
+        "category": "Constrained observation",
+        "case_name": "Diagonal history threshold failure",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific threshold and asymptotic benchmark",
+        "notes": "History horizon 2 is below the proven threshold for the second moment."
+      },
+      {
+        "case_id": "PVRT-K11",
+        "category": "Constrained observation",
+        "case_name": "Diagonal history threshold repair",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "family-specific threshold and asymptotic benchmark",
+        "notes": "Horizon 3 reaches the tracked exact threshold."
+      },
+      {
+        "case_id": "PHY-K1",
+        "category": "Physics-supported lanes",
+        "case_name": "Periodic Helmholtz / GLM split",
+        "expected_answer": "exact-better-than-glm",
+        "tool_answer": "exact-better-than-glm",
+        "independent_answer": "exact-better-than-glm",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "notes": "Projection should beat short GLM cleaning on the tracked periodic case."
+      },
+      {
+        "case_id": "PHY-K2",
+        "category": "Physics-supported lanes",
+        "case_name": "Periodic incompressible velocity projection",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "notes": "Periodic CFD branch should remain exact."
+      },
+      {
+        "case_id": "PHY-K3",
+        "category": "Physics-supported lanes",
+        "case_name": "Gauge / Maxwell transverse projection",
+        "expected_answer": "exact-improves-transverse",
+        "tool_answer": "exact-improves-transverse",
+        "independent_answer": "exact-improves-transverse",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "notes": "Gauge lab stays aligned with the exact projection anchor."
+      },
+      {
+        "case_id": "PHY-K4",
+        "category": "Physics-supported lanes",
+        "case_name": "Naive bounded-domain transplant failure",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "theorem-linked counterexample and family-specific redesign guidance",
+        "notes": "Transplanted periodic projector fails the bounded protected class."
+      },
+      {
+        "case_id": "PHY-K5",
+        "category": "Physics-supported lanes",
+        "case_name": "Restricted bounded-domain exact family",
+        "expected_answer": "exact",
+        "tool_answer": "exact",
+        "independent_answer": "exact",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "restricted exact bounded-domain result",
+        "notes": "Boundary-compatible Hodge family should remain exact on the tracked benchmark."
+      },
+      {
+        "case_id": "PHY-K6",
+        "category": "Physics-supported lanes",
+        "case_name": "Divergence-only bounded no-go",
+        "expected_answer": "impossible",
+        "tool_answer": "impossible",
+        "independent_answer": "impossible",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "notes": "Distinct bounded incompressible states share the same divergence record."
+      },
+      {
+        "case_id": "PHY-K7",
+        "category": "Physics-supported lanes",
+        "case_name": "Finite-time exactness failure for smooth linear flow",
+        "expected_answer": "asymptotic-only",
+        "tool_answer": "asymptotic-only",
+        "independent_answer": "asymptotic-only",
+        "comparison": "exact match",
+        "pass": "yes",
+        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "notes": "Continuous generator lab should keep exact and asymptotic separate."
+      }
+    ]
+  },
+  "stage3": {
+    "findings": [
+      {
+        "title": "Random periodic modal search supports the support-threshold rule",
+        "classification": "survives and worth keeping",
+        "summary": "Across 40 seeded random periodic mixer cases, the tool's predicted minimum cutoff matched the highest active modal support index every time on the tracked four-mode basis.",
+        "support": "family-specific empirical extension of the periodic support-threshold story; independently checked by parsing the generated modal functional support."
+      },
+      {
+        "title": "Naive active-sensor-count heuristic fails in the diagonal/history family",
+        "classification": "useful negative result",
+        "summary": "Seed 46 produced a control case where the naive active-sensor-count heuristic predicts horizon 4, but the tool and independent diagonal-family logic require horizon 1.",
+        "support": "supports keeping the control threshold logic tied to interpolation structure rather than raw sensor-count language."
+      },
+      {
+        "title": "Random linear mixer is usable for repairable counterexample discovery",
+        "classification": "survives and worth keeping",
+        "summary": "Seeded restricted-linear search continues to produce real repairable failures with exact after-fixes, making it suitable for guided discovery inside the supported family.",
+        "support": "tool finding only; this is a validation of discovery usefulness, not a new theorem claim."
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",
+      "status": "pass",
+      "notes": "Boundary architecture workflow moves from impossible to exact with the promoted Hodge replacement."
+    },
+    {
+      "workflow": "Impossible setup \u2192 no-go explanation \u2192 no fake fix suggested",
+      "status": "pass",
+      "notes": "No-Go Explorer reports the obstruction without inventing a repair path."
+    },
+    {
+      "workflow": "Stronger target fails / weaker target succeeds",
+      "status": "pass",
+      "notes": "The same fixed-basis record kills the full Bloch target but preserves the z-only target."
+    },
+    {
+      "workflow": "Exact impossible / asymptotic possible workflow",
+      "status": "pass",
+      "notes": "Continuous generator lab correctly routes the example to asymptotic-only behavior rather than exact finite-time recovery."
+    },
+    {
+      "workflow": "Wrong architecture chosen \u2192 system recommends a better one",
+      "status": "pass",
+      "notes": "The bounded-domain failure points to the boundary-compatible replacement instead of a cosmetic tweak."
+    },
+    {
+      "workflow": "Export and reload preserve the same conclusion",
+      "status": "pass",
+      "notes": "Share-state roundtrip and report export stay aligned on the structured linear mixer case."
+    }
+  ],
+  "browser": {
+    "executedAt": "2026-04-16T01:00:09.761Z",
+    "origin": "http://127.0.0.1:56819",
+    "workflows": [
+      {
+        "workflow": "Exact recovery success workflow",
+        "status": "pass",
+        "notes": "Exact Projection Lab preserved the orthogonal exact-recovery anchor and exported the same verdict."
+      },
+      {
+        "workflow": "Guided benchmark route and export",
+        "status": "pass",
+        "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+      },
+      {
+        "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",
+        "status": "pass",
+        "notes": "Boundary architecture repair moved from impossible to exact, and share-link/reload preserved the repaired result."
+      },
+      {
+        "workflow": "Threshold failure \u2192 cutoff augmentation \u2192 verified exact recovery",
+        "status": "pass",
+        "notes": "Periodic stronger-target threshold failure was diagnosed and repaired in the live studio."
+      },
+      {
+        "workflow": "Stronger target fails / weaker target succeeds",
+        "status": "pass",
+        "notes": "The qubit workflow correctly weakened the Bloch-vector target to the z coordinate and preserved the exact verdict after the change."
+      },
+      {
+        "workflow": "Structured linear mixer failure \u2192 repair \u2192 JSON export",
+        "status": "pass",
+        "notes": "Typed linear mixer case repaired cleanly and exported the repaired exact state."
+      },
+      {
+        "workflow": "Unsupported custom input \u2192 honest rejection",
+        "status": "pass",
+        "notes": "Custom nonlinear protected variable is rejected explicitly and no fake repair is offered."
+      },
+      {
+        "workflow": "Impossible setup \u2192 no-go explanation \u2192 no fake fix suggested",
+        "status": "pass",
+        "notes": "No-Go Explorer preserved the proved no-go without inventing a redesign path."
+      },
+      {
+        "workflow": "Physics example workflow",
+        "status": "pass",
+        "notes": "CFD Projection Lab preserved the periodic exact branch and the bounded-domain limitation in both UI and exported report."
+      },
+      {
+        "workflow": "Exact impossible / asymptotic possible workflow",
+        "status": "pass",
+        "notes": "Continuous generator lab preserved the finite-time exactness no-go and asymptotic-only interpretation."
+      }
+    ],
+    "console": {
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": []
+    },
+    "qualified": true,
+    "scope": "high-risk workbench surfaces and real user workflows"
+  }
+}

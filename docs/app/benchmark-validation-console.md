@@ -16,6 +16,23 @@ The Benchmark / Validation Console is the workbench surface for:
 - module-health benchmark rows
 - summary counts for demo coverage and successful regime changes
 - report and CSV export hooks
+- a direct path to the repo’s dedicated tool-qualification and known-results report
+
+## Linked Qualification Layer
+
+The console is now tied to a separate qualification pass:
+
+- [Tool Qualification And Known-Results Verification Report](tool-qualification-report.md)
+- [Professional Validation And Discovery Report](professional-validation-report.md)
+
+That report checks:
+
+- whether the tool itself behaves correctly in real workflows
+- whether the tool reproduces known expected results
+- whether export, share-state, and reload flows preserve the same conclusion
+- whether the workbench is safe for guided discovery inside supported families
+- where the validation layer is strong, partial, or circular
+- which known-answer, adversarial, and workflow cases currently pass
 
 ## Current Demo Set
 

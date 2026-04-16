@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-04-16T01:00:09.761Z",
+  "validationArchitecture": {
+    "strongCount": 5,
+    "partialOrCircularCount": 3,
+    "closedGapCount": 3
+  },
+  "knownResults": {
+    "passed": 25,
+    "total": 25
+  },
+  "adversarial": {
+    "passed": 7,
+    "total": 7
+  },
+  "workflows": {
+    "passed": 10,
+    "total": 10
+  },
+  "workflowRows": [
+    {
+      "workflow": "Exact recovery success workflow",
+      "status": "pass",
+      "notes": "Exact Projection Lab preserved the orthogonal exact-recovery anchor and exported the same verdict."
+    },
+    {
+      "workflow": "Guided benchmark route and export",
+      "status": "pass",
+      "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+    },
+    {
+      "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",
+      "status": "pass",
+      "notes": "Boundary architecture repair moved from impossible to exact, and share-link/reload preserved the repaired result."
+    },
+    {
+      "workflow": "Threshold failure \u2192 cutoff augmentation \u2192 verified exact recovery",
+      "status": "pass",
+      "notes": "Periodic stronger-target threshold failure was diagnosed and repaired in the live studio."
+    },
+    {
+      "workflow": "Stronger target fails / weaker target succeeds",
+      "status": "pass",
+      "notes": "The qubit workflow correctly weakened the Bloch-vector target to the z coordinate and preserved the exact verdict after the change."
+    },
+    {
+      "workflow": "Structured linear mixer failure \u2192 repair \u2192 JSON export",
+      "status": "pass",
+      "notes": "Typed linear mixer case repaired cleanly and exported the repaired exact state."
+    },
+    {
+      "workflow": "Unsupported custom input \u2192 honest rejection",
+      "status": "pass",
+      "notes": "Custom nonlinear protected variable is rejected explicitly and no fake repair is offered."
+    },
+    {
+      "workflow": "Impossible setup \u2192 no-go explanation \u2192 no fake fix suggested",
+      "status": "pass",
+      "notes": "No-Go Explorer preserved the proved no-go without inventing a redesign path."
+    },
+    {
+      "workflow": "Physics example workflow",
+      "status": "pass",
+      "notes": "CFD Projection Lab preserved the periodic exact branch and the bounded-domain limitation in both UI and exported report."
+    },
+    {
+      "workflow": "Exact impossible / asymptotic possible workflow",
+      "status": "pass",
+      "notes": "Continuous generator lab preserved the finite-time exactness no-go and asymptotic-only interpretation."
+    }
+  ],
+  "discoveryFindings": [
+    {
+      "title": "Periodic threshold follows highest active mode, not support count",
+      "classification": "useful negative result",
+      "summary": "Randomized and hand-built periodic functionals continue to falsify raw support-count heuristics; the tracked threshold is controlled by the highest active retained mode on the four-mode basis.",
+      "support": "family-specific support-threshold stress check"
+    },
+    {
+      "title": "Random restricted-linear search remains useful for repairable supported-family discovery",
+      "classification": "survives and worth keeping",
+      "summary": "15 seeded random linear cases produced impossible-before/exact-after repairs inside the supported typed family.",
+      "support": "seeded typed discovery search only, not a new theorem claim"
+    }
+  ],
+  "failuresFound": [
+    "Several generated-artifact consistency tests remain partial/circular: they are good stale-output alarms, not independent truth validators.",
+    "Narrow anchor labs are still qualified-narrow rather than universal; the workbench should not oversell them as open-ended analyzers."
+  ],
+  "fixesApplied": [
+    "Added professional known-answer and adversarial outputs with independent cross-check logic.",
+    "Added a generated validation snapshot so the benchmark console exposes current trust counts and limitations.",
+    "Extended the browser qualification into a stronger workflow-based acceptance surface.",
+    "Added report-consistency checks so top-level repo claims stay tied to current validation counts."
+  ],
+  "limitations": [
+    "Unsupported free-form symbolic systems are still outside the validated scope and must be rejected rather than approximated.",
+    "Some artifact-consistency checks remain intentionally marked as partial because they recompute outputs from the same implementation family.",
+    "Family-specific thresholds remain family-specific; this pass does not convert them into universal theorems."
+  ],
+  "readiness": {
+    "knownCaseValidation": true,
+    "guidedDiscovery": true,
+    "unsupportedFreeExploration": false
+  }
+}

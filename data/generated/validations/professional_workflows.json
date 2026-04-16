@@ -1,0 +1,52 @@
+[
+  {
+    "workflow": "Exact recovery success workflow",
+    "status": "pass",
+    "notes": "Exact Projection Lab preserved the orthogonal exact-recovery anchor and exported the same verdict."
+  },
+  {
+    "workflow": "Guided benchmark route and export",
+    "status": "pass",
+    "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+  },
+  {
+    "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",
+    "status": "pass",
+    "notes": "Boundary architecture repair moved from impossible to exact, and share-link/reload preserved the repaired result."
+  },
+  {
+    "workflow": "Threshold failure \u2192 cutoff augmentation \u2192 verified exact recovery",
+    "status": "pass",
+    "notes": "Periodic stronger-target threshold failure was diagnosed and repaired in the live studio."
+  },
+  {
+    "workflow": "Stronger target fails / weaker target succeeds",
+    "status": "pass",
+    "notes": "The qubit workflow correctly weakened the Bloch-vector target to the z coordinate and preserved the exact verdict after the change."
+  },
+  {
+    "workflow": "Structured linear mixer failure \u2192 repair \u2192 JSON export",
+    "status": "pass",
+    "notes": "Typed linear mixer case repaired cleanly and exported the repaired exact state."
+  },
+  {
+    "workflow": "Unsupported custom input \u2192 honest rejection",
+    "status": "pass",
+    "notes": "Custom nonlinear protected variable is rejected explicitly and no fake repair is offered."
+  },
+  {
+    "workflow": "Impossible setup \u2192 no-go explanation \u2192 no fake fix suggested",
+    "status": "pass",
+    "notes": "No-Go Explorer preserved the proved no-go without inventing a redesign path."
+  },
+  {
+    "workflow": "Physics example workflow",
+    "status": "pass",
+    "notes": "CFD Projection Lab preserved the periodic exact branch and the bounded-domain limitation in both UI and exported report."
+  },
+  {
+    "workflow": "Exact impossible / asymptotic possible workflow",
+    "status": "pass",
+    "notes": "Continuous generator lab preserved the finite-time exactness no-go and asymptotic-only interpretation."
+  }
+]

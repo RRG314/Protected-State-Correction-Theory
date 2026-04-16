@@ -88,6 +88,17 @@ It exposes:
 - exportable benchmark snapshots
 - a clear split between theorem-backed, family-specific, and benchmark-guided surfaces
 
+Its qualification layer now also has a dedicated report:
+
+- [Tool Qualification And Known-Results Verification Report](tool-qualification-report.md)
+- [Professional Validation And Discovery Report](professional-validation-report.md)
+
+That report keeps three things separate on purpose:
+
+- tool qualification
+- known-result reproduction against expected answers
+- post-qualification discovery use
+
 ## What The Workbench Can Do
 
 - classify a setup as exact, approximate, asymptotic, or impossible
@@ -118,3 +129,14 @@ Every promoted output should be read as one of:
 - standard guidance outside the current theorem spine
 
 That evidence split is part of the feature, not an after-the-fact disclaimer.
+
+
+## Architecture And Extension Docs
+
+- [Workbench Architecture](workbench-architecture.md)
+- [Workbench Data Flow](workbench-data-flow.md)
+- [Workbench Extension Guide](workbench-extension-guide.md)
+- [Workbench Export Plumbing](workbench-export-plumbing.md)
+- [Workbench Validation Map](workbench-validation-map.md)
+- [Workbench Refactor Report](workbench-refactor-report.md)
+- [Workbench Refactor System Check](workbench-system-check-report.md)
