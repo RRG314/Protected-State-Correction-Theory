@@ -10,16 +10,16 @@ CITATION.cff,root,.cff,968
 CODE_OF_CONDUCT.md,root,.md,1565
 CONTRIBUTING.md,root,.md,6963
 FILE_INDEX.md,root,.md,4728
-FINAL_REPORT.md,root,.md,15532
+FINAL_REPORT.md,root,.md,15895
 LICENSE,root,,1068
 NOVELTY_AND_LIMITS.md,root,.md,2191
-README.md,root,.md,19059
+README.md,root,.md,19480
 RESEARCH_MAP.md,root,.md,3947
 ROADMAP.md,root,.md,1108
 SECURITY.md,root,.md,868
 STATUS.md,root,.md,3360
 SUPPORT.md,root,.md,892
-SYSTEM_REPORT.md,root,.md,25859
+SYSTEM_REPORT.md,root,.md,25978
 USEFULNESS_REPORT.md,root,.md,4206
 archive/raw-imports/mhd_divergence_control.md,archive,.md,1172
 archive/raw-imports/mhd_divfree_glm.py,archive,.py,1407
@@ -33,7 +33,7 @@ data/generated/design/design_template_examples.json,data,.json,3203
 data/generated/discovery_mixer/discovery_mixer_demo_table.csv,data,.csv,713
 data/generated/discovery_mixer/discovery_mixer_summary.json,data,.json,38996
 data/generated/inventories/discovery_inventory.csv,data,.csv,3389
-data/generated/inventories/repo_file_inventory.csv,data,.csv,21761
+data/generated/inventories/repo_file_inventory.csv,data,.csv,23434
 data/generated/recoverability/analytic_collapse_benchmark.csv,data,.csv,6318
 data/generated/recoverability/analytic_noise_lower_bound.csv,data,.csv,210
 data/generated/recoverability/control_minimal_complexity_sweep.csv,data,.csv,1148
@@ -81,7 +81,7 @@ docs/app/workbench-export-plumbing.md,docs,.md,1350
 docs/app/workbench-extension-guide.md,docs,.md,2146
 docs/app/workbench-overview.md,docs,.md,5042
 docs/app/workbench-refactor-report.md,docs,.md,3148
-docs/app/workbench-system-check-report.md,docs,.md,1171
+docs/app/workbench-system-check-report.md,docs,.md,1981
 docs/app/workbench-validation-map.md,docs,.md,1578
 docs/applications/app-engine-recoverability.md,docs,.md,2301
 docs/applications/practical-use-cases.md,docs,.md,3307
@@ -108,6 +108,7 @@ docs/cfd/cfd-vs-mhd-correction-comparison.md,docs,.md,2081
 docs/cfd/helmholtz-hodge-velocity-projection.md,docs,.md,2933
 docs/cfd/incompressible-projection.md,docs,.md,3095
 docs/cfd/kept-vs-rejected-cfd-bridges.md,docs,.md,1792
+docs/cfd/restricted-flow-recoverability.md,docs,.md,1171
 docs/control/control-extension.md,docs,.md,3321
 docs/control/worked-linear-example.md,docs,.md,1246
 docs/discovery-mixer/augmentation-guide.md,docs,.md,1291
@@ -140,10 +141,11 @@ docs/impossibility-results/constrained-observation-no-go.md,docs,.md,4582
 docs/impossibility-results/no-go-results.md,docs,.md,4661
 docs/index.html,docs,.html,4974
 docs/internal-provenance/source-map.md,docs,.md,1944
+docs/mhd/closure-and-observation-links.md,docs,.md,813
 docs/mhd/divergence-cleaning-in-ocp.md,docs,.md,2548
 docs/mhd/glm-and-asymptotic-correction.md,docs,.md,2145
 docs/open-questions/dead-ends-and-do-not-promote.md,docs,.md,1257
-docs/open-questions/high-priority-next-problems.md,docs,.md,2493
+docs/open-questions/high-priority-next-problems.md,docs,.md,3023
 docs/open-questions/open-problem-catalog.md,docs,.md,5923
 docs/open-questions/priority-open-questions.md,docs,.md,2432
 docs/open-questions/resolved-vs-open.md,docs,.md,1991
@@ -178,6 +180,7 @@ docs/references/protected-state-correction.bib,docs,.bib,4964
 docs/releases/README.md,docs,.md,196
 docs/releases/v1.0.0.md,docs,.md,6945
 docs/research-program/branch-audit.md,docs,.md,7352
+docs/research-program/cross-repo-expansion-2026-04-15.md,docs,.md,939
 docs/research-program/open-problem-program.md,docs,.md,9038
 docs/research-program/ranked-roadmap.md,docs,.md,3582
 docs/research-program/theory-candidate-assessment.md,docs,.md,5743

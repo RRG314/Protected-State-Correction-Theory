@@ -35,3 +35,9 @@ A second exact sector anchor is only worthwhile if it improves the theorem langu
 
 ## 5. Conditional Control Branch Tightening
 A careful invariant-split observer/controller theorem could add engineering value, but only if it keeps the protected/disturbance split explicit and avoids generic feedback language.
+
+## 6. Restricted CFD Measurement Geometry
+The strongest CFD-facing next target is not a universal flow-recovery theorem. It is a restricted measurement-geometry theorem for selected flow functionals on explicit modal or bounded compatible families.
+
+## 7. Restricted MHD Residual Observation
+The strongest MHD-facing next target is to determine whether closure-breaking residual terms on explicit symbolic families can themselves be made recoverable from restricted records without pretending to solve general MHD observability.

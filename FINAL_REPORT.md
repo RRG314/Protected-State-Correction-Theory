@@ -31,6 +31,11 @@ The current extension pass also added:
 - a narrow CFD lane centered on incompressible projection methods, bounded-domain projection limits, and a new divergence-only bounded no-go
 - and an observation-layer branch centered on recoverability of protected variables under coarse records
 
+The current cross-repo positioning is also clearer:
+- CFD now deserves a standalone CFD-first repo for projection, reconstruction, and bounded-domain structure
+- MHD now deserves a standalone closure-first repo for Euler-potential exactness and variable-resistivity obstruction theory
+- this repository keeps the restricted recoverability and design-engine role
+
 ## 3. Strongest Current Theory After The Physics Audit
 
 The promoted theorem spine remains:

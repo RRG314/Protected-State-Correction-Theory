@@ -39,6 +39,8 @@ Its more grounded goal is to build a usable framework for situations where:
 
 That narrower question is still worth pursuing. It produces theorem statements, concrete operators, counterexamples, and design criteria that are easier to test and easier to reuse.
 
+This repo now also treats the standalone CFD and MHD repositories as first-class companion programs rather than trying to absorb those fields into one universal law.
+
 ## What This Repository Now Supports
 
 This repository does **not** claim a universal theorem covering QEC, control, PDE correction, and optimization under one scalar law.
@@ -122,6 +124,9 @@ The repository is organized so readers can enter from different angles:
 29. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
 30. [Open-Problem Program](docs/research-program/open-problem-program.md)
 31. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+32. [Restricted Flow Recoverability](docs/cfd/restricted-flow-recoverability.md)
+33. [MHD Closure and Observation Links](docs/mhd/closure-and-observation-links.md)
+34. [Cross-Repo Expansion Note](docs/research-program/cross-repo-expansion-2026-04-15.md)
 
 ## What You Can Do With This Repository
 

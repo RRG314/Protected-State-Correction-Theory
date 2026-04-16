@@ -142,6 +142,7 @@ Primary claim artifacts:
 - [docs/research-program/open-problem-program.md](docs/research-program/open-problem-program.md)
 - [docs/research-program/theory-candidate-assessment.md](docs/research-program/theory-candidate-assessment.md)
 - [docs/research-program/usefulness-by-branch.md](docs/research-program/usefulness-by-branch.md)
+- [docs/research-program/cross-repo-expansion-2026-04-15.md](docs/research-program/cross-repo-expansion-2026-04-15.md)
 
 ## System Inventory
 
