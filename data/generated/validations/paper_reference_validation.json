@@ -4,7 +4,7 @@
     "total_urls": 11,
     "failing_count": 0,
     "failing": [],
-    "total_dois": 17,
+    "total_dois": 15,
     "doi_failing_count": 0,
     "doi_failing": []
   },
@@ -156,16 +156,6 @@
       },
       {
         "doi": "10.1109/TAC.1977.1101601",
-        "ok": true,
-        "status": 200
-      },
-      {
-        "doi": "10.1109/TIT.2005.862083",
-        "ok": true,
-        "status": 200
-      },
-      {
-        "doi": "10.1109/TIT.2006.871582",
         "ok": true,
         "status": 200
       },

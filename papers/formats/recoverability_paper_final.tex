@@ -1,0 +1,805 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\setlist{nosep}
+\begin{document}
+\section*{Recoverability Under Constrained Observation: Fiber Factorization, Thresholds, and Minimal Augmentation}
+
+Steven Reid
+
+Independent Researcher
+
+ORCID: 0009-0003-9132-3410
+
+sreid1118@gmail.com
+
+April 2026
+
+
+\subsection*{Abstract}
+We study exact target recoverability under constrained observation, with emphasis on finite-dimensional restricted-linear families where exact classification and design are computable. For a general admissible family with record map M and target tau, we prove that exact recoverability is equivalent to fiber constancy, equivalently to factorization tau = R o M on the admissible set. In the restricted-linear class x = Fz, y = OFz, tau(x) = LFz, we obtain the exact criterion ker(OF) \textbackslash{}subseteq ker(LF) (equivalently row(LF) \textbackslash{}subseteq row(OF)). We then establish three impossibility results for amount-only language: same-rank systems can have opposite exactness verdicts; no rank-only exact classifier exists on the class; and no fixed-library equal-budget/equal-count exact classifier exists. To move beyond binary exact/impossible labels, we develop a quantitative obstruction layer based on collapse and collision structure, including a nested collision-gap threshold law. We also formalize target sensitivity (weaker target recoverable, stronger target impossible under the same record) and prove the exact minimal augmentation law delta(O,L;F)=rank([OF;LF]) - rank(OF). Scope is explicit: constructive design conclusions are strongest in restricted-linear settings, and no universal inverse-problem classifier is claimed.
+
+
+Keywords: exact recoverability, constrained observation, fiber criterion, row-space criterion, rank insufficiency, budget insufficiency, collision gap, minimal augmentation
+
+
+\subsection*{1. Introduction}
+Recoverability questions are often framed in amount language: higher rank, more sensors, or larger budget are treated as proxies for exact target reconstruction. In many practical settings this is useful as a heuristic, but it is not an exact classifier.
+
+
+This paper develops a theorem-first recoverability package in a constrained-observation setting. The scope is disciplined:
+
+\begin{enumerate}
+\item We first establish the general exact criterion in fiber/factorization form.
+\item We then specialize to a restricted-linear class where exactness, impossibility, thresholds, and design are all computable.
+\item We prove anti-classifier no-go theorems showing that rank-only and fixed-budget-only logic fails for exact classification.
+\item We provide an exact minimal augmentation law for repair.
+\end{enumerate}
+
+A concise foundational companion paper, papers/ocp\_core\_paper.md, presents the operator-level OCP spine (exact correction projector logic plus restricted-linear criterion) without the full anti-classifier/threshold expansion developed here.
+
+
+The central message is structural: exact recoverability is governed by how record fibers align with target variation, not by observation amount alone.
+
+
+\subsubsection*{1.1 Contributions and Status Labels}
+\begin{itemize}
+\item PROVED (general setting): Exact recoverability is equivalent to fiber constancy/factorization of tau through the record map M; this gives the conceptual backbone for all later specialization.
+\item PROVED (restricted-linear setting): Exactness is equivalent to ker(OF) \textbackslash{}subseteq ker(LF) (equivalently row(LF) \textbackslash{}subseteq row(OF)); this turns recoverability into a directly testable linear criterion.
+\item PROVED (classification limits): Same-rank systems can yield opposite verdicts, and rank-only or fixed-budget-only exact classifiers fail on the supported class; this rules out amount-only exact criteria.
+\item PROVED (quantitative layer): Collision/collapse quantities produce explicit obstruction bounds and a nested collision-gap threshold law; this adds measurable transition structure beyond binary labels.
+\item PROVED (design law): delta(O,L;F) is the exact minimum unrestricted linear augmentation count needed for repair; this yields a constructive correction-design rule.
+\item INTERPRETATION: Structure-first guidance follows from the proved criteria; no interpretation is promoted as theorem.
+\end{itemize}
+
+\subsection*{2. Problem Setup and Notation}
+Let:
+
+\begin{itemize}
+\item A be an admissible family of states,
+\item M: A -> Y be the observation (record) map,
+\item tau: A -> P be the target map.
+\end{itemize}
+
+\subsubsection*{2.1 Exact Recoverability}
+tau is exactly recoverable from M on A if there exists R: M(A) -> P such that
+
+
+R(M(x)) = tau(x) for all x in A.
+
+
+\subsubsection*{2.2 Fiber Notation}
+For y in M(A), define the record fiber:
+
+
+F\_y := \{ x in A : M(x) = y \}.
+
+
+\subsubsection*{2.3 Restricted-Linear Class}
+For finite-dimensional analysis, we use
+
+
+x = Fz, z in R\textasciicircum{}r,
+
+
+with linear observation and target
+
+
+M(x) = Ox, tau(x)=Lx.
+
+
+On coefficient space:
+
+
+y = OFz, tau = LFz.
+
+
+Exact linear recovery asks whether there exists K such that
+
+
+KOF = LF.
+
+
+\subsubsection*{2.4 Quantitative Obstruction Objects}
+For metrics d\_Y, d\_P, define the collapse modulus
+
+
+kappa\_\{M,tau\}(eps) := sup \{ d\_P(tau(x),tau(x')) : d\_Y(M(x),M(x')) <= eps \}.
+
+
+In nested restricted-linear families (Section 6), define the structured collision gap
+
+
+\begin{verbatim}
+`Gamma_r(B) := sup { ||LFh|| : ||h||_inf <= 2B, O_r F h = 0 }`.
+\end{verbatim}
+
+\subsection*{3. Main Exact Recoverability Theorem}
+
+\subsubsection*{Theorem 3.1 (Fiber Constancy / Factorization Criterion)}
+Let A, M, and tau be as above. The following are equivalent:
+
+\begin{enumerate}
+\item tau is exactly recoverable from M on A.
+\item tau is constant on every fiber of M.
+\item There exists R: M(A) -> P such that tau = R o M on A.
+\end{enumerate}
+
+Status: PROVED (recoverability branch exact backbone).
+
+
+\paragraph{Proof}
+(1 => 2) If R(M(x)) = tau(x) for all x, and M(x)=M(x'), then
+
+tau(x)=R(M(x))=R(M(x'))=tau(x').
+
+
+(2 => 3) For each y in M(A), pick any x\_y in A with M(x\_y)=y and set R(y):=tau(x\_y).
+
+Fiber constancy makes this well-defined.
+
+
+(3 => 1) Immediate from tau=R o M.
+
+
+\subsubsection*{Corollary 3.2 (Exactness via Zero-Fiber Ambiguity)}
+tau is exactly recoverable iff kappa\_\{M,tau\}(0)=0.
+
+
+Status: PROVED.
+
+
+\paragraph{Proof}
+kappa\_\{M,tau\}(0) is the supremum target discrepancy over equal-record pairs. It is zero iff all equal-record pairs have equal target value, which is exactly Theorem 3.1(2).
+
+
+\subsection*{4. Restricted-Linear Theorem Layer}
+
+\subsubsection*{Theorem 4.1 (Restricted-Linear Exactness Criterion)}
+For x=Fz, M(x)=Ox, and tau(x)=Lx, exact linear recovery on range(F) exists iff
+
+
+ker(OF) \textbackslash{}subseteq ker(LF).
+
+
+Equivalent form:
+
+
+row(LF) \textbackslash{}subseteq row(OF).
+
+
+Status: PROVED (OCP-031).
+
+
+\paragraph{Proof}
+If KOF=LF, then for any z with OFz=0, LFz=KOFz=0, so ker(OF) \textbackslash{}subseteq ker(LF).
+
+
+Conversely, assume ker(OF) \textbackslash{}subseteq ker(LF). Define T on im(OF) by T(OFz)=LFz.
+
+This is well-defined: if OFz=OFz', then OF(z-z')=0, so LF(z-z')=0, hence LFz=LFz'.
+
+Extend T linearly to all of observation space as K. Then KOF=LF.
+
+
+Row-space equivalence follows from finite-dimensional linear duality:
+
+ker(A) \textbackslash{}subseteq ker(B) iff row(B) \textbackslash{}subseteq row(A).
+
+
+\subsubsection*{Corollary 4.2 (Necessary Rank Bound)}
+Exact linear recovery implies rank(OF) >= rank(LF).
+
+
+Status: PROVED (necessary only).
+
+
+\paragraph{Proof}
+row(LF) \textbackslash{}subseteq row(OF) implies dim row(LF) <= dim row(OF).
+
+
+\subsubsection*{4.3 Central Structure: One Spine, Three Levels}
+The paper's core structure is the same statement expressed at three levels of specificity:
+
+
+\begin{enumerate}
+\item General fiber level: exactness is equivalent to target constancy on record fibers (tau = R o M on A).
+\item Restricted-linear level: fiber constancy becomes ker(OF) \textbackslash{}subseteq ker(LF), equivalently row(LF) \textbackslash{}subseteq row(OF).
+\item Design/repair level: when row-space inclusion fails, the exact deficit is
+\end{enumerate}
+delta(O,L;F)=rank([OF;LF]) - rank(OF),
+
+which is the minimum unrestricted augmentation needed to restore exactness.
+
+
+This gives one coherent progression:
+
+
+fiber constancy -> row-space inclusion -> minimal augmentation.
+
+
+The progression is theorem-backed by Theorem 3.1, Theorem 4.1, and Theorem 8.1.
+
+
+Figure 1 visualizes this inclusion-versus-exclusion geometry on the canonical two-dimensional witness pair.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/recoverability/recoverability_rowspace_inclusion.png}}
+\caption{Figure 1. Row-space inclusion versus exclusion for the canonical restricted-linear pair. Left: target row lies in row(OF) (exact). Right: target row lies outside row(OF) (failure).}
+\end{figure}
+
+Figure 1. Row-space inclusion versus exclusion for the canonical restricted-linear pair. Left: target row lies in row(OF) (exact). Right: target row lies outside row(OF) (failure).
+
+
+\subsection*{5. Negative Results and Impossibility}
+
+\subsubsection*{Theorem 5.1 (Same-Rank Insufficiency)}
+Fix n > r >= 1 and r <= k < n. There exist restricted-linear instances with the same n, same rank(LF)=r, and same rank(OF)=k, but opposite exactness verdicts.
+
+
+Status: PROVED (OCP-047).
+
+
+\paragraph{Proof}
+Use coefficient coordinates (F=I\_n) and set
+
+
+L = [I\_r  0].
+
+
+Construct O\_exact so row(L) \textbackslash{}subseteq row(O\_exact) and rank(O\_exact)=k (add k-r arbitrary independent rows).
+
+Then exactness holds by Theorem 4.1.
+
+
+Construct O\_fail with rank(O\_fail)=k whose row space omits at least one direction from row(L).
+
+Then row(L) \textbackslash{}nsubseteq row(O\_fail), so exactness fails.
+
+
+Both have rank k, with opposite verdicts.
+
+
+\subsubsection*{Theorem 5.2 (No Rank-Only Exact Classifier)}
+There is no classifier C(n, rank(LF), rank(OF)) that correctly decides exact recoverability for all restricted-linear instances.
+
+
+Status: PROVED (OCP-049).
+
+
+\paragraph{Proof}
+If such C existed, any two instances with equal tuple (n, rank(LF), rank(OF)) would share a verdict.
+
+Theorem 5.1 gives same-tuple opposite-verdict pairs, contradiction.
+
+
+\subsubsection*{Theorem 5.3 (No Fixed-Library Budget-Only Exact Classifier)}
+In a fixed candidate measurement library with equal per-measurement cost, equal cardinality (thus equal budget) does not determine exact recoverability.
+
+
+Status: PROVED (OCP-050).
+
+
+\paragraph{Proof}
+Take coordinate library rows \{e\_1\textasciicircum{}T,...,e\_n\textasciicircum{}T\}, F=I\_n, and target L=[e\_1\textasciicircum{}T].
+
+For budget/count k=1, choose
+
+\begin{itemize}
+\item S\_exact=\{e\_1\textasciicircum{}T\}: exact,
+\item S\_fail=\{e\_2\textasciicircum{}T\}: impossible.
+\end{itemize}
+
+Both selections have identical cost and size, opposite verdicts.
+
+The same construction extends to any k with 1 <= k < n by adding common extra rows that do not alter the inclusion/exclusion of the target row direction.
+
+
+Figure 2 shows the same-rank insufficiency witness directly: both systems have rank(OF)=1, but one is exact and the other is impossible.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/recoverability/recoverability_same_rank_insufficiency.png}}
+\caption{Figure 2. Same-rank insufficiency: two observation systems with identical rank but different row-space residual and opposite exactness verdict.}
+\end{figure}
+
+Figure 2. Same-rank insufficiency: two observation systems with identical rank but different row-space residual and opposite exactness verdict.
+
+
+\subsection*{6. Quantitative Obstruction}
+This section provides measurable ambiguity structure beyond binary exact/impossible labels.
+
+
+\subsubsection*{Theorem 6.1 (Adversarial Noise Lower Bound)}
+For any estimator hat\_tau: Y -> P receiving records with perturbation radius eta (d\_Y(y,M(x)) <= eta),
+
+
+sup\_x sup\_\{d\_Y(y,M(x))<=eta\} d\_P(hat\_tau(y), tau(x)) >= kappa\_\{M,tau\}(eta)/2.
+
+
+Status: PROVED (OCP-035).
+
+
+\paragraph{Proof}
+Fix x,x' with d\_Y(M(x),M(x')) <= eta and target separation near kappa(eta).
+
+Choose an admissible record y that can arise from either state under the noise radius.
+
+By triangle inequality, at least one of d\_P(hat\_tau(y),tau(x)) or d\_P(hat\_tau(y),tau(x')) is at least half of d\_P(tau(x),tau(x')).
+
+Take suprema.
+
+
+\subsubsection*{Theorem 6.2 (Nested Restricted-Linear Collision-Gap Threshold Law)}
+Let nested observations satisfy
+
+
+row(O\_1F) \textbackslash{}subseteq row(O\_2F) \textbackslash{}subseteq ... \textbackslash{}subseteq row(O\_RF)
+
+
+\begin{verbatim}
+on box family `A_B={Fz: ||z||_inf <= B}`.
+\end{verbatim}
+Define
+
+
+\begin{verbatim}
+`Gamma_r(B) = sup { ||LFh|| : ||h||_inf <= 2B, O_rFh=0 }`.
+\end{verbatim}
+
+Then:
+
+\begin{enumerate}
+\item Gamma\_r(B) is nonincreasing in r.
+\item Exact recovery at level r holds iff Gamma\_r(B)=0.
+\item The first exact level is
+\end{enumerate}
+
+r\_ = min \{ r : Gamma\_r(B)=0 \} = min \{ r : row(LF) \textbackslash{}subseteq row(O\_rF) \}.
+
+
+\begin{enumerate}
+\item For zero-noise decoding at level r, worst-case error is at least Gamma\_r(B)/2.
+\end{enumerate}
+
+Status: PROVED (OCP-043, restricted-linear scope).
+
+
+\paragraph{Proof sketch}
+Monotonicity follows because enlarging row space shrinks ker(O\_rF), hence shrinks the feasible set in the supremum.
+
+
+Gamma\_r=0 iff every kernel direction carries zero target variation, i.e. ker(O\_rF) \textbackslash{}subseteq ker(LF), equivalent to row-space inclusion by Theorem 4.1.
+
+
+Lower bound is a direct two-point collision argument on admissible coefficient differences h in the feasible set.
+
+
+\subsubsection*{Proposition 6.3 (Exact-Regime Upper Envelope)}
+If exactness holds and KOF=LF, then under Euclidean norms
+
+
+\begin{verbatim}
+`kappa_{M,tau}(eps) <= ||K||_2 eps`.
+\end{verbatim}
+
+Status: PROVED (OCP-046, exact restricted-linear regime).
+
+
+\paragraph{Proof}
+For any admissible pair,
+
+tau(x)-tau(x') = K(M(x)-M(x')), so
+
+\begin{verbatim}
+`||tau(x)-tau(x')|| <= ||K||_2 ||M(x)-M(x')||`.
+\end{verbatim}
+Take supremum over pairs with record discrepancy at most eps.
+
+
+\subsubsection*{6.4 Integrated Obstruction Picture}
+The quantitative layer is not a separate add-on; it is the metric version of the same fiber logic:
+
+
+\begin{itemize}
+\item kappa\_\{M,tau\}(0)=0 is exactness.
+\item kappa\_\{M,tau\}(eta)/2 is an adversarial impossibility floor under record error radius eta.
+\item Gamma\_r(B) is the restricted-linear collision geometry on bounded coefficient families.
+\item the first level where Gamma\_r(B)=0 is exactly the exactness threshold for that nested record family.
+\end{itemize}
+
+Together these quantities separate:
+
+\begin{itemize}
+\item binary exactness (kappa(0)=0),
+\item below-threshold impossibility (Gamma\_r(B)>0),
+\item exact-but-noisy stability envelope (kappa(eps) <= ||K||\_2 eps when exactness holds).
+\end{itemize}
+
+\subsubsection*{6.5 Regime Classification in the Supported Recoverability Program}
+
+\begin{verbatim}
+| Regime | Structural criterion | Quantitative signature | Status in this paper |
+| --- | --- | --- | --- |
+| exact | target constant on fibers | `kappa(0)=0` and (restricted-linear) `Gamma_r(B)=0` | `PROVED` |
+| approximate (stable) | exactness may fail, but bounded decoder error is targeted | lower bound `>= kappa(eta)/2`; upper envelope available in exact restricted-linear regime | lower bound `PROVED`; general stability program `CONDITIONAL` |
+| asymptotic | exact one-shot may fail but long-horizon observer/record refinement can converge | family-dependent threshold/horizon mechanisms | `VALIDATED` in branch examples, not promoted here as universal theorem |
+| impossible | at least one fiber mixes target values | `kappa(0)>0`; in nested linear families `Gamma_r(B)>0` below threshold | `PROVED` in stated scopes |
+\end{verbatim}
+
+Figure 3 shows the computed nested collision-gap profile Gamma\_r(B) and the exactness threshold r\_. Figure 4 shows a continuous alignment-driven transition from exact (theta=0) to impossible (theta>0) in the canonical one-row observation family.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/recoverability/recoverability_collision_gap_threshold.png}}
+\caption{Figure 3. Collision-gap threshold law on a nested restricted-linear family: Gamma\_r(B) decreases and vanishes exactly at the first exact level.}
+\end{figure}
+
+Figure 3. Collision-gap threshold law on a nested restricted-linear family: Gamma\_r(B) decreases and vanishes exactly at the first exact level.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/recoverability/recoverability_regime_transition.png}}
+\caption{Figure 4. Exact-to-impossible transition under observation misalignment: ambiguity surrogate rises with row-space misalignment angle.}
+\end{figure}
+
+Figure 4. Exact-to-impossible transition under observation misalignment: ambiguity surrogate rises with row-space misalignment angle.
+
+
+\subsection*{7. Strong-vs-Weak Target Split}
+Recoverability is target-sensitive, not record-only.
+
+
+\subsubsection*{Theorem 7.1 (Coarsening Monotonicity)}
+If q = phi o tau and tau is exactly recoverable from M, then q is exactly recoverable from M.
+
+
+Status: PROVED (target hierarchy backbone).
+
+
+\paragraph{Proof}
+If tau = R o M, then q = phi o R o M.
+
+
+\subsubsection*{Proposition 7.2 (Same Record, Opposite Target Verdicts in Restricted-Linear Form)}
+For fixed O,F, choose two targets tau\_w(x)=L\_wx and tau\_s(x)=L\_sx such that
+
+
+row(L\_wF) \textbackslash{}subseteq row(OF) but row(L\_sF) \textbackslash{}nsubseteq row(OF).
+
+
+Then tau\_w is exactly recoverable while tau\_s is not.
+
+
+Status: PROVED (OCP-041/OCP-048 structural form).
+
+
+\paragraph{Proof}
+Apply Theorem 4.1 separately to each target.
+
+
+\subsubsection*{Theorem 7.3 (Noisy Weak-vs-Strong Separation on Restricted Families)}
+Assume:
+
+\begin{enumerate}
+\item weak target exactness: KOF = W F,
+\item strong target positive collision floor on bounded family: Gamma\_s(B) > 0.
+\end{enumerate}
+
+\begin{verbatim}
+Then for record noise `||e|| <= eta`:
+\begin{itemize}
+\item weak target error admits upper bound <= ||K||\_2 eta,
+\item every decoder for the strong target has worst-case error >= Gamma\_s(B)/2.
+\end{itemize}
+\end{verbatim}
+
+\begin{verbatim}
+Hence for `eta < Gamma_s(B)/(2||K||_2)`, weak-target stability can remain strictly below the strong-target impossibility floor.
+\end{verbatim}
+
+Status: PROVED in branch scope (OCP-051).
+
+
+\subsection*{8. Minimal Augmentation Theorem}
+This section gives an exact design law for repair.
+
+
+\subsubsection*{Theorem 8.1 (Minimal Unrestricted Linear Augmentation)}
+For restricted-linear problem (O,L,F), define
+
+
+delta(O,L;F) = rank([OF;LF]) - rank(OF).
+
+
+Then delta(O,L;F) is exactly the minimum number of unrestricted added scalar linear measurements required to make exact recovery possible.
+
+
+Status: PROVED (OCP-045).
+
+
+\paragraph{Proof}
+Let O\_aug = [O; A] where A is the added block.
+
+Exactness for the augmented system requires
+
+
+row(LF) \textbackslash{}subseteq row(O\_aug F).
+
+
+So row(O\_aug F) must span the joined space row([OF;LF]). Starting from dimension rank(OF), at least
+
+
+rank([OF;LF]) - rank(OF)
+
+
+new independent row directions are necessary. This gives necessity.
+
+
+For sufficiency, choose A so that rows of AF add exactly a complementary basis of row([OF;LF]) beyond row(OF). Then
+
+
+row(LF) \textbackslash{}subseteq row([OF;AF]),
+
+
+and exactness follows from Theorem 4.1.
+
+
+Thus the minimum equals delta(O,L;F).
+
+
+\subsubsection*{Interpretation}
+delta is a structure deficit, not an amount heuristic:
+
+\begin{itemize}
+\item delta=0: already exact.
+\item delta>0: exactness impossible without adding at least delta new independent informative directions.
+\end{itemize}
+
+Figure 5 shows this repair law on the canonical failure witness: before augmentation, the target direction is outside row(OF); after adding one informative row, the rank deficit closes (delta=1) and exactness is restored.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/recoverability/recoverability_minimal_augmentation_repair.png}}
+\caption{Figure 5. Minimal augmentation repair: before/after visualization of the rank deficit and exactness restoration.}
+\end{figure}
+
+Figure 5. Minimal augmentation repair: before/after visualization of the rank deficit and exactness restoration.
+
+
+\subsection*{9. Worked Examples}
+All examples are finite-dimensional and exact.
+
+
+\subsubsection*{Example 9.1 (Exact Recoverability)}
+Take
+
+
+F=I\_2, O=[1 0], L=[1 0].
+
+
+Then row(LF)=row(OF), so exactness holds; decoder K=[1] satisfies KOF=LF.
+
+
+\subsubsection*{Example 9.2 (Failure by Hidden Target Direction)}
+Take
+
+
+F=I\_2, O=[0 1], L=[1 0].
+
+
+Then ker(OF)=span\{e\_1\} but LF e\_1=1, so ker(OF) \textbackslash{}nsubseteq ker(LF).
+
+Exact recovery fails.
+
+
+\subsubsection*{Example 9.3 (Same Rank, Opposite Verdict)}
+Use the same F=I\_2, L=[1 0], with
+
+
+O\_1=[1 0], O\_2=[0 1].
+
+
+Both have rank 1.
+
+\begin{itemize}
+\item O\_1: exact (row(L) \textbackslash{}subseteq row(O\_1)).
+\item O\_2: impossible (row(L) \textbackslash{}nsubseteq row(O\_2)).
+\end{itemize}
+
+This is the minimal witness for Theorem 5.1.
+
+
+\subsubsection*{Example 9.4 (Weak vs Strong Target on Same Record)}
+Take F=I\_2, O=[1 0].
+
+Define
+
+\begin{itemize}
+\item weak target tau\_w(x)=x\_1 (L\_w=[1 0]),
+\item strong target tau\_s(x)=x\_2 (L\_s=[0 1]).
+\end{itemize}
+
+Then weak target is exact; strong target is impossible. Same record, different target verdict.
+
+
+\subsubsection*{Example 9.5 (Minimal Augmentation Repair)}
+Start from Example 9.2 (O=[0 1], L=[1 0], F=I\_2).
+
+
+rank(OF)=1,
+
+rank([OF;LF])=2, so delta=1.
+
+
+Add one row [1 0] to observation; augmented row space contains target row, and exactness is restored.
+
+No zero-row augmentation can work, so one added measurement is minimal.
+
+
+\subsubsection*{Example 9.6 (Threshold Transition in a Nested Record Family)}
+\begin{verbatim}
+Let `F=I_2`, `L=[0 1]`, and bounded coefficients `||z||_inf <= B`.
+\end{verbatim}
+Define nested records:
+
+\begin{itemize}
+\item level r=1: O\_1=[1 0],
+\item level r=2: O\_2=I\_2.
+\end{itemize}
+
+At level r=1, row(LF) \textbackslash{}nsubseteq row(O\_1F), so exact recovery fails and
+
+\begin{verbatim}
+`Gamma_1(B)=sup{|h_2|: |h_i|<=2B, h_1=0}=2B>0`.
+\end{verbatim}
+
+At level r=2, row(LF) \textbackslash{}subseteq row(O\_2F) and
+
+Gamma\_2(B)=0.
+
+
+This is an explicit exact/no-go threshold transition: the minimal exact level is r\_=2.
+
+
+\subsection*{10. Interpretation and Implications}
+The theorem package yields practical rules for exact recoverability design in constrained linear settings:
+
+\begin{enumerate}
+\item Check fibers/row spaces first. Exactness is a structural condition, not a data-volume condition.
+\item Use anti-classifier warnings. Equal rank or equal budget does not certify equal recoverability.
+\item Quantify ambiguity. kappa and Gamma\_r(B) distinguish catastrophic collision regimes from near-exact regimes.
+\item Repair by deficit, not by guesswork. delta(O,L;F) gives an exact minimum unrestricted augmentation count.
+\item Choose target granularity explicitly. Coarsened targets can be exact when stronger targets are impossible.
+\end{enumerate}
+
+These are theorem-backed within the stated branch scope.
+
+
+\subsection*{11. Limitations and Scope}
+\begin{enumerate}
+\item The strongest exact design results are restricted-linear (x=Fz) and finite-dimensional.
+\item The general fiber/factorization criterion is broad, but constructive formulas (thresholds, augmentation counts) are proved in supported restricted classes.
+\item The no rank-only and no budget-only theorems are exact-classification failures on the supported class; no universal claim over all nonlinear inverse problems is made.
+\item The collision-gap threshold law is stated on bounded coefficient families with nested record operators.
+\item This paper does not claim a universal recoverability scalar that classifies all systems.
+\end{enumerate}
+
+\subsection*{12. Related Work}
+This paper is adjacent to several established literatures.
+
+
+\subsubsection*{12.1 Observability and Structural Criteria}
+Classical observability results in linear systems (Kalman-type rank conditions) and structural controllability/observability perspectives motivate rank- and structure-based analysis, but they do not by themselves provide the target-specific anti-classifier package developed here.
+
+
+\subsubsection*{12.2 Functional Observability and Sensor Placement}
+Recent functional observability and constrained sensor placement work emphasizes recovering specific functionals under constraints. The restricted-linear criterion here (row(LF) \textbackslash{}subseteq row(OF)) is aligned with that tradition; this paper's distinct emphasis is the combined no-go package (same-rank insufficiency, no rank-only classifier, no fixed-library budget-only classifier) plus an exact minimal unrestricted augmentation count.
+
+
+\subsubsection*{12.3 Inverse-Problem Stability Viewpoint}
+The collapse-modulus lower bound is consistent with inverse-problem stability logic: indistinguishable records impose irreducible estimation floors. In this paper it is integrated with exactness/failure thresholds and target-sensitive design.
+
+
+\subsubsection*{12.4 Identifiability and Model-Structure Perspective}
+The paper is also aligned with identifiability literature in one specific way: exact target recovery is a map-identifiability claim on an admissible family, and failure is a structural non-identifiability induced by fiber collisions. The restricted-linear results sharpen this into computable row-space criteria and anti-classifier no-go theorems.
+
+
+\subsubsection*{12.5 Signal-Recovery and Sparse-Information Context}
+Signal-recovery work emphasizes that structure (not just sample count) controls exact reconstruction. Our setting is different in objective (target recoverability on admissible families rather than generic sparse vector reconstruction), but the same amount-versus-structure distinction appears here in theorem form.
+
+
+\subsubsection*{12.6 Novelty Discipline}
+Likely standard background ingredients:
+
+\begin{itemize}
+\item fiber/factorization exactness logic,
+\item linear kernel/row-space criterion.
+\end{itemize}
+
+Likely paper-distinct contribution package (within stated scope):
+
+\begin{itemize}
+\item theorem-grade anti-classifier triad,
+\item collision-threshold plus upper/lower quantitative envelope in one recoverability spine,
+\item exact minimal augmentation law positioned as a design theorem.
+\end{itemize}
+
+\subsubsection*{12.7 Position Relative to Existing Work}
+The foundational ingredients are standard: factorization/fiber logic in map-based identifiability and kernel/row-space criteria in finite-dimensional linear recovery. This paper's contribution is the scoped theorem package that combines these ingredients with three classifier-failure results, a quantitative collision-threshold layer, and an exact augmentation design law in one coherent framework. The likely distinctive part is this integrated negative-plus-design package under explicit scope control. The paper does not claim a universal recoverability law across nonlinear inverse problems.
+
+
+\subsection*{13. Conclusion}
+Exact recoverability under constrained observation is governed by structure: target variation must be constant on record fibers, and in restricted-linear families this is exactly row-space inclusion. Rank/count/budget summaries alone are insufficient for exact classification. Quantitative ambiguity can be measured through collapse and collision objects, and exact failure can be repaired constructively through the minimal augmentation law. The framework is intentionally narrow, theorem-first, and scoped to claims that are defensible on the supported families.
+
+
+\subsection*{14. Administrative Statements}
+\subsubsection*{14.1 Funding}
+This research received no external funding.
+
+
+\subsubsection*{14.2 AI Usage Statement}
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
+
+
+\subsubsection*{14.3 Data and Code Availability}
+Primary repository for this paper: https://github.com/RRG314/Protected-State-Correction-Theory.
+
+Public workbench: https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/
+
+Figure-generation and validation scripts used in this paper are in scripts/figures/ and scripts/validate/ of the same repository.
+
+
+\subsubsection*{14.4 Conflict of Interest}
+The author declares no conflict of interest.
+
+
+\subsubsection*{14.5 Reproducibility Note}
+All figures in this manuscript are generated from explicit formulas or finite constructions using:
+
+\begin{itemize}
+\item python scripts/figures/generate\_publication\_figures.py
+\item python scripts/figures/validate\_publication\_figures.py
+\end{itemize}
+The corresponding metrics and validation outputs are stored under data/generated/figures/.
+
+
+\subsection*{15. References}
+\begin{enumerate}
+\item R. E. Kalman, “A new approach to linear filtering and prediction problems,” Transactions of the ASME—Journal of Basic Engineering, 82(1) (1960), 35–45. DOI: 10.1115/1.3662552.
+\item A. J. Krener and R. Hermann, “Nonlinear controllability and observability,” IEEE Transactions on Automatic Control, 22(5) (1977), 728–740. DOI: 10.1109/TAC.1977.1101601.
+\item L. Ljung and T. Glad, “On global identifiability for arbitrary model parametrizations,” Automatica, 30(2) (1994), 265–276. DOI: 10.1016/0005-1098(94)90039-6.
+\item E. Walter and L. Pronzato, Identification of Parametric Models from Experimental Data, Springer, Berlin, 1997.
+\item A. N. Tikhonov and V. Y. Arsenin, Solutions of Ill-Posed Problems, Winston, Washington, DC, 1977.
+\item H. W. Engl, M. Hanke, and A. Neubauer, Regularization of Inverse Problems, Kluwer, Dordrecht, 1996.
+\item Y. Zhang, T. Fernando, and M. Darouach, “Functional observability, structural functional observability and optimal sensor placement,” arXiv:2307.08923, 2023. URL: https://arxiv.org/abs/2307.08923.
+\item P. Dey, N. Balachandran, and D. Chatterjee, “Efficient constrained sensor placement for observability of linear systems,” IEEE Control Systems Letters, 5(3) (2021), 927–932. Preprint: https://arxiv.org/abs/1711.08264.
+\item E. J. Candès, J. Romberg, and T. Tao, “Robust uncertainty principles: Exact signal reconstruction from highly incomplete frequency information,” IEEE Transactions on Information Theory, 52(2) (2006), 489–509. DOI: 10.1109/TIT.2005.862083.
+\item D. L. Donoho, “Compressed sensing,” IEEE Transactions on Information Theory, 52(4) (2006), 1289–1306. DOI: 10.1109/TIT.2006.871582.
+\end{enumerate}
+
+\subsection*{16. Appendix A. Mapping to Repository Claim IDs}
+\begin{itemize}
+\item Theorem 3.1 / Corollary 3.2: OCP-030.
+\item Theorem 4.1 / Corollary 4.2: OCP-031 and OCP-036.
+\item Theorem 5.1: OCP-047.
+\item Theorem 5.2: OCP-049.
+\item Theorem 5.3: OCP-050.
+\item Theorem 6.1: OCP-035.
+\item Theorem 6.2: OCP-043.
+\item Proposition 6.3: OCP-046.
+\item Theorem 7.1 / Proposition 7.2 / Theorem 7.3: OCP-048, OCP-041, OCP-051.
+\item Theorem 8.1: OCP-045.
+\end{itemize}
+\end{document}

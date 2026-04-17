@@ -85,6 +85,7 @@ It exposes:
 - validated built-in repair demos
 - module-health benchmark rows
 - reproducibility-oriented scenario selection
+- linked descriptor-fiber anti-classifier metrics artifacts for supported witness classes
 - exportable benchmark snapshots
 - a clear split between theorem-backed, family-specific, and benchmark-guided surfaces
 

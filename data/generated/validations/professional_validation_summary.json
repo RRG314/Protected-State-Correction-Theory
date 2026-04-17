@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-16T01:32:53.133Z",
+  "generatedAt": "2026-04-17T15:08:41.083Z",
   "validationArchitecture": {
     "strongCount": 5,
     "partialOrCircularCount": 3,
@@ -26,7 +26,7 @@
     {
       "workflow": "Guided benchmark route and export",
       "status": "pass",
-      "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+      "notes": "Guided entry opened the benchmark console with 12 module rows and working CSV/report export."
     },
     {
       "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",

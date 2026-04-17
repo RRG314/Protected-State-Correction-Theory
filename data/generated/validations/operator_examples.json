@@ -55,14 +55,14 @@
       "orthogonality_residual": 0.0
     },
     "bounded_hodge_exact": {
-      "protected_divergence_rms": 9.488902243386423e-15,
-      "recovered_divergence_rms": 2.9974437321292855e-14,
+      "protected_divergence_rms": 1.1889672075316247e-14,
+      "recovered_divergence_rms": 3.0726906265552594e-14,
       "protected_boundary_normal_rms": 5.956139134841261e-16,
-      "recovered_boundary_normal_rms": 5.959669369268147e-16,
-      "orthogonality_residual": 7.741416097288803e-17,
-      "recovery_l2_error": 1.4286595521890334e-14,
-      "idempotence_l2_error": 1.4322207120660787e-14,
-      "projector_construction_agreement": 4.783148869185309e-15
+      "recovered_boundary_normal_rms": 9.122634617058322e-16,
+      "orthogonality_residual": 2.9827875626601335e-16,
+      "recovery_l2_error": 1.0173503123937249e-14,
+      "idempotence_l2_error": 1.0177909544380873e-14,
+      "projector_construction_agreement": 3.1680294243861164e-15
     },
     "bounded_transplant": {
       "before_l2_divergence": 7.188908004215289,

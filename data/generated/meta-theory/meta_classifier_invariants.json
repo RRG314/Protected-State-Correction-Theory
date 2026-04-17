@@ -1,0 +1,48 @@
+{
+  "source_files": [
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/unified-recoverability/rank_only_classifier_witnesses.csv",
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/unified-recoverability/candidate_library_budget_witnesses.csv"
+  ],
+  "summary": [
+    {
+      "descriptor": "rank_tuple_(n,r,k)",
+      "descriptor_values": 34,
+      "mixed_values": 34,
+      "ambiguity_rate": 1.0,
+      "total_exact": 34,
+      "total_fail": 34,
+      "total_systems": 68,
+      "irreducible_error_lb": 0.5,
+      "majority_accuracy_ub": 0.5,
+      "perfect_classifier_possible": false
+    },
+    {
+      "descriptor": "rank_tuple_plus_rowspace_proxy",
+      "descriptor_values": 68,
+      "mixed_values": 0,
+      "ambiguity_rate": 0.0,
+      "total_exact": 34,
+      "total_fail": 34,
+      "total_systems": 68,
+      "irreducible_error_lb": 0.0,
+      "majority_accuracy_ub": 1.0,
+      "perfect_classifier_possible": true
+    },
+    {
+      "descriptor": "budget_tuple_(n,r,selection,cost)",
+      "descriptor_values": 19,
+      "mixed_values": 19,
+      "ambiguity_rate": 1.0,
+      "total_exact": 41,
+      "total_fail": 71,
+      "total_systems": 112,
+      "irreducible_error_lb": 0.2857142857142857,
+      "majority_accuracy_ub": 0.7142857142857143,
+      "perfect_classifier_possible": false
+    }
+  ],
+  "derived": {
+    "rank_to_rank_plus_compatibility_error_lift": 0.5,
+    "interpretation": "Reduction in irreducible amount-only classification error when adding a compatibility proxy."
+  }
+}

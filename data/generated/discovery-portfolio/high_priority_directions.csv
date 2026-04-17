@@ -1,0 +1,4 @@
+direction_id,lane,repo,direction,theorem_potential,anomaly_potential,reproducibility,novelty_risk,branch_value,triviality_risk,artifact_risk,impact_if_true,score,priority,status_hint,key_evidence
+OCP-A1,LANE A,ocp-research-program,rank-only / amount-only anti-classifier strengthening,0.93,0.6,0.96,0.45,0.88,0.22,0.08,0.9,0.74958,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,rank_only witnesses=34
+OCP-A2,LANE A,ocp-research-program,family-enlargement false-positive law,0.89,0.71,0.9,0.52,0.84,0.28,0.12,0.86,0.71074,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,false_positive_risk=True
+SOL-B1,LANE B,soliton-geometry-research,same-count opposite-verdict on one-soliton recoverability,0.84,0.73,0.9,0.56,0.87,0.26,0.17,0.88,0.6985000000000001,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,dim4_bad_nonident_pairs=145152

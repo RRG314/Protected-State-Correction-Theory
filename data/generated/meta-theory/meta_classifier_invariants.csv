@@ -1,0 +1,4 @@
+descriptor,descriptor_values,mixed_values,ambiguity_rate,total_exact,total_fail,total_systems,irreducible_error_lb,majority_accuracy_ub,perfect_classifier_possible
+"rank_tuple_(n,r,k)",34,34,1.0,34,34,68,0.5,0.5,False
+rank_tuple_plus_rowspace_proxy,68,0,0.0,34,34,68,0.0,1.0,True
+"budget_tuple_(n,r,selection,cost)",19,19,1.0,41,71,112,0.2857142857142857,0.7142857142857143,False

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OCP Complete Visual Story</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #374151;
+      --line: #e5e7eb;
+      --protected: #1d6f5f;
+      --disturbance: #b34d2e;
+      --obs: #2e5da8;
+      --nogo: #9f1d35;
+      --repair: #8a5a16;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    h1 { margin: 0; font-size: 24px; }
+    .subtitle { margin-top: 6px; color: var(--muted); font-size: 14px; }
+    main { max-width: 1300px; margin: 0 auto; padding: 20px; }
+    .callout {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-left: 4px solid var(--obs);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0 20px;
+      color: var(--muted);
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      margin: 10px 0 24px;
+    }
+    .toc a {
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    section {
+      margin: 30px 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 10px;
+    }
+    h2 { margin: 4px 0 10px; font-size: 20px; }
+    h3 { margin: 12px 0 6px; font-size: 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .card .title {
+      padding: 8px 10px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--line);
+      background: #fafafa;
+      color: var(--muted);
+    }
+    img, video { display: block; width: 100%; height: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+    th, td { border: 1px solid var(--line); padding: 8px; vertical-align: top; }
+    th { background: #f8fafc; text-align: left; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 12px; color: white; }
+    .b-exact { background: var(--protected); }
+    .b-nogo { background: var(--nogo); }
+    .b-asym { background: var(--obs); }
+    .b-schem { background: #6b7280; }
+    .small { font-size: 13px; color: var(--muted); }
+    .links a { margin-right: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OCP Complete Visual Story</h1>
+    <div class="subtitle">A tutorial-first, layperson-friendly walkthrough of what the repo is proving, where each result lives, and how the pieces fit together.</div>
+  </header>
+  <main>
+    <div class="callout">
+      <strong>What is different from the previous gallery:</strong>
+      this page is narrative-first, not image-dump-first.
+      Every section answers: <em>what this means</em>, <em>why it matters</em>, and <em>where to find it in the program</em>.
+    </div>
+
+    <div class="toc">
+      <a href="#s0">0. One-page story map</a>
+      <a href="#s1">1. Core idea (S, D, M)</a>
+      <a href="#s2">2. Fiber collapse and exactness</a>
+      <a href="#s3">3. Why rank alone fails</a>
+      <a href="#s4">4. How minimal repair works</a>
+      <a href="#s5">5. Periodic exact vs bounded no-go</a>
+      <a href="#s6">6. Dynamics and asymptotic correction</a>
+      <a href="#s7">7. Where this appears in the repo</a>
+    </div>
+
+    <section id="s0">
+      <h2>0. One-Page Story Map <span class="badge b-schem">Schematic</span></h2>
+      <div class="grid">
+        <article class="card">
+          <div class="title">Narrative map of the whole program</div>
+          <img src="generated/R_ocp_program_story_map.png" alt="OCP program story map" />
+        </article>
+      </div>
+      <p class="small">Use this as the roadmap. The remaining sections fill in each step with exact examples and theorem-backed visuals.</p>
+    </section>
+
+    <section id="s1">
+      <h2>1. Core Idea: Preserve What Matters, Remove What Does Not <span class="badge b-exact">Exact examples</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>The repo studies situations where a state has a protected part <code>S</code> and a disturbance part <code>D</code>. We observe through some map <code>M</code>, then ask whether we can recover the protected target exactly, asymptotically, or not at all.</p>
+      <h3>Math in one line</h3>
+      <p><code>x = s + d</code>, with <code>s ∈ S</code>, <code>d ∈ D</code>; recovery depends on how <code>M</code> collapses states and whether the target survives that collapse.</p>
+      <div class="grid">
+        <article class="card"><div class="title">2D exact vs misaligned split</div><img src="generated/A_core_geometry_2d.png" alt="Core geometry 2D" /></article>
+        <article class="card"><div class="title">3D overlap non-identifiability</div><img src="generated/A_core_geometry_3d.png" alt="Core geometry 3D" /></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../finalization/theorem-spine-final.md">theorem spine</a>
+        <a href="../research-program/branch-audit.md">branch audit</a>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h2>2. Fiber Collapse: The Central Recoverability Logic <span class="badge b-exact">Exact</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>If two different underlying states produce the same observation, they are in the same fiber. Exact recovery is possible only when the target has the same value on each fiber.</p>
+      <h3>Why this is the key layperson intuition</h3>
+      <p>Observation can erase distinctions. If the erased distinctions contain what you care about, no algorithm can recover it exactly.</p>
+      <div class="grid">
+        <article class="card"><div class="title">Fiber bipartite view</div><img src="generated/B_fiber_bipartite.png" alt="Fiber bipartite" /></article>
+        <article class="card"><div class="title">Fiber partition tree</div><img src="generated/B_fiber_partition_tree.png" alt="Fiber tree" /></article>
+        <article class="card"><div class="title">Fiber table heatmap</div><img src="generated/B_fiber_table_heatmap.png" alt="Fiber table" /></article>
+      </div>
+      <h3>Improved tutorial animation (non-generic)</h3>
+      <div class="grid">
+        <article class="card"><div class="title">Transition tutorial panel</div><img src="generated/P_transition_tutorial_panel.png" alt="Transition tutorial panel" /></article>
+        <article class="card"><div class="title">Transition tutorial animation (GIF)</div><img src="generated/P_transition_tutorial_animation.gif" alt="Transition tutorial gif" /></article>
+        <article class="card"><div class="title">Transition tutorial animation (MP4)</div><video controls src="generated/P_transition_tutorial_animation.mp4"></video></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../fiber-based-recoverability-and-impossibility/overview.md">fiber branch overview</a>
+        <a href="../fiber-based-recoverability-and-impossibility/theorem-candidates.md">fiber theorem candidates</a>
+        <a href="../workbench/index.html">workbench</a>
+      </div>
+    </section>
+
+    <section id="s3">
+      <h2>3. Why Amount/Rank Alone Fails <span class="badge b-nogo">No-go + counterexample</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>Two systems can have the same measurement count/rank but opposite outcomes: one exactly recoverable, the other impossible. Alignment and row-space inclusion are the deciding factors.</p>
+      <div class="grid">
+        <article class="card"><div class="title">Same-rank opposite verdict witness</div><img src="generated/D_same_rank_insufficiency.png" alt="Same-rank insufficiency" /></article>
+        <article class="card"><div class="title">Alignment landscape (rank fixed)</div><img src="generated/I_alignment_landscape.png" alt="Alignment landscape" /></article>
+        <article class="card"><div class="title">Perturbation fragility near exact point</div><img src="generated/J_perturbation_fragility.png" alt="Perturbation fragility" /></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../research-program/theorem-normalization-report.md">theorem normalization report</a>
+        <a href="../overview/terminology-unification.md">terminology</a>
+      </div>
+    </section>
+
+    <section id="s4">
+      <h2>4. Repair: Minimal Augmentation, But Direction Matters <span class="badge b-exact">Exact repair law</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>You can sometimes fix an impossible setup by adding measurements, but not any measurements. The direction of added rows controls whether repair succeeds.</p>
+      <h3>Math in one line</h3>
+      <p><code>δ(O,L;F) = rank([OF;LF]) - rank(OF)</code> gives how much augmentation is needed. Direction scans show which augmentations actually realize exactness.</p>
+      <div class="grid">
+        <article class="card"><div class="title">Minimal augmentation before/after</div><img src="generated/E_minimal_augmentation.png" alt="Minimal augmentation" /></article>
+        <article class="card"><div class="title">Direction-sensitive repair panel</div><img src="generated/Q_augmentation_tutorial_panel.png" alt="Augmentation tutorial panel" /></article>
+        <article class="card"><div class="title">Direction-sensitive repair animation (GIF)</div><img src="generated/Q_augmentation_tutorial_animation.gif" alt="Augmentation tutorial gif" /></article>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="title">Direction-sensitive repair animation (MP4)</div><video controls src="generated/Q_augmentation_tutorial_animation.mp4"></video></article>
+        <article class="card"><div class="title">Augmentation direction scan (static)</div><img src="generated/M_augmentation_direction_scan.png" alt="Augmentation direction scan" /></article>
+        <article class="card"><div class="title">Family-enlargement false positive</div><img src="generated/K_family_enlargement_failure.png" alt="Family enlargement failure" /></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../theory/minimal-structure-classification.md">minimal structure classification</a>
+        <a href="../theory/quantitative-recoverability.md">quantitative recoverability</a>
+      </div>
+    </section>
+
+    <section id="s5">
+      <h2>5. Domain Matters: Periodic Exactness vs Bounded-Domain Failure <span class="badge b-nogo">Branch-limited no-go</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>Fixing divergence is not enough on bounded domains. Boundary-normal compatibility creates a real obstruction, even when periodic-style transplant looks tempting.</p>
+      <div class="grid">
+        <article class="card"><div class="title">Periodic exact vs bounded transplant failure</div><img src="generated/F_periodic_vs_bounded.png" alt="Periodic vs bounded" /></article>
+        <article class="card"><div class="title">Contamination sweep</div><img src="generated/N_periodic_bounded_contamination_sweep.png" alt="Contamination sweep" /></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../cfd/restricted-flow-recoverability.md">CFD restricted-flow recoverability</a>
+        <a href="../cfd/next-phase-deep-dive.md">CFD deep dive</a>
+      </div>
+    </section>
+
+    <section id="s6">
+      <h2>6. Dynamics: Exact vs Asymptotic Over Time <span class="badge b-asym">Asymptotic layer</span></h2>
+      <h3>Plain-language meaning</h3>
+      <p>Some architectures cannot recover exactly at finite time but can suppress error asymptotically. Rates depend on spectral structure and observability geometry.</p>
+      <div class="grid">
+        <article class="card"><div class="title">Dynamic rate layer tutorial figure</div><img src="generated/L_dynamic_rate_layer.png" alt="Dynamic rate layer" /></article>
+        <article class="card"><div class="title">Threshold regime surfaces</div><img src="generated/G_threshold_surfaces.png" alt="Threshold surfaces" /></article>
+      </div>
+      <div class="links small">
+        Program location:
+        <a href="../theory/dynamic-correction-layer.md">dynamic correction layer</a>
+        <a href="../theory/stability-and-fragility.md">stability and fragility</a>
+      </div>
+    </section>
+
+    <section id="s7">
+      <h2>7. Where To Explore In The Program (Concrete Navigation)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Best visual(s)</th>
+            <th>Where in repo docs</th>
+            <th>Where in workbench/program</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>What is OCP doing at a high level?</td>
+            <td>R, A</td>
+            <td><a href="../overview/start-here.md">start-here</a>, <a href="../finalization/theorem-spine-final.md">theorem spine</a></td>
+            <td><a href="../workbench/index.html">workbench index</a></td>
+          </tr>
+          <tr>
+            <td>Why can exact recovery fail?</td>
+            <td>B, P, D, I</td>
+            <td><a href="../fiber-based-recoverability-and-impossibility/overview.md">fiber overview</a></td>
+            <td><a href="../app/structural-discovery-studio.md">Structural Discovery Studio</a></td>
+          </tr>
+          <tr>
+            <td>Why rank alone is not enough?</td>
+            <td>D, I, J</td>
+            <td><a href="../research-program/theorem-normalization-report.md">theorem normalization</a></td>
+            <td><a href="../app/benchmark-validation-console.md">Benchmark / Validation Console</a></td>
+          </tr>
+          <tr>
+            <td>How do we repair impossible cases?</td>
+            <td>E, Q, M, K</td>
+            <td><a href="../theory/minimal-structure-classification.md">minimal structure classification</a></td>
+            <td><a href="../app/structural-discovery-studio.md">Structural Discovery Studio</a></td>
+          </tr>
+          <tr>
+            <td>How does periodic vs bounded differ?</td>
+            <td>F, N</td>
+            <td><a href="../cfd/restricted-flow-recoverability.md">restricted-flow recoverability</a></td>
+            <td><a href="../workbench/index.html">CFD modules in workbench</a></td>
+          </tr>
+          <tr>
+            <td>What about dynamics and rates?</td>
+            <td>L, G</td>
+            <td><a href="../theory/dynamic-correction-layer.md">dynamic correction layer</a></td>
+            <td><a href="../workbench/index.html">Continuous Generator Lab</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="small">All visuals in this story are generated from code and can be rebuilt from <code>scripts/visuals/generate_visuals.py</code>.</p>
+    </section>
+
+    <section>
+      <h2>Full Bundles</h2>
+      <p>
+        <a href="visual-gallery.html">Visual Gallery (all figures)</a> |
+        <a href="generated/visual-atlas.pdf">Visual Atlas PDF</a> |
+        <a href="generated/O_visual_contact_sheet.png">Contact Sheet PNG</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

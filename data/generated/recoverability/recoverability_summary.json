@@ -761,7 +761,7 @@
         "phase_window_deg": 180.0,
         "exact_recoverable": false,
         "collision_max_protected_distance": 2.0,
-        "mean_recovery_error": 0.8567779128961064,
+        "mean_recovery_error": 0.8567779128961063,
         "max_recovery_error": 2.0
       },
       {
@@ -1499,7 +1499,7 @@
         "exact_recoverable": false,
         "collision_max_protected_distance": 10.131331885360845,
         "mean_recovery_error": 3.8971773634435385,
-        "max_recovery_error": 5.065665942680423
+        "max_recovery_error": 5.065665942680424
       }
     ],
     "curves": {
@@ -1682,7 +1682,7 @@
         "rank_protected": 2,
         "collision_max_protected_distance": 10.131331885360845,
         "mean_recovery_error": 3.8971773634435385,
-        "max_recovery_error": 5.065665942680423
+        "max_recovery_error": 5.065665942680424
       },
       {
         "cutoff": 1,
@@ -1691,7 +1691,7 @@
         "rank_protected": 2,
         "collision_max_protected_distance": 7.947670612636882,
         "mean_recovery_error": 2.9803764797388306,
-        "max_recovery_error": 3.9738353063184415
+        "max_recovery_error": 3.973835306318441
       },
       {
         "cutoff": 2,
@@ -1699,8 +1699,8 @@
         "rank_observation": 2,
         "rank_protected": 2,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 4.237251449629863e-15,
-        "max_recovery_error": 5.8462731070081335e-15
+        "mean_recovery_error": 4.77076991004621e-15,
+        "max_recovery_error": 6.9905302732106895e-15
       },
       {
         "cutoff": 3,
@@ -1708,8 +1708,8 @@
         "rank_observation": 2,
         "rank_protected": 2,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 4.226289670508491e-15,
-        "max_recovery_error": 5.789383741865372e-15
+        "mean_recovery_error": 4.222925795528098e-15,
+        "max_recovery_error": 5.778723770970335e-15
       }
     ],
     "curves": {
@@ -1951,8 +1951,8 @@
         "rank_observation": 1,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.466410074142833e-16,
-        "max_recovery_error": 6.661338147750939e-16
+        "mean_recovery_error": 4.1947163782969356e-16,
+        "max_recovery_error": 8.881784197001252e-16
       },
       {
         "protected_variable": "mode_1_coefficient",
@@ -1962,8 +1962,8 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 4.916649985150947e-16,
-        "max_recovery_error": 9.992007221626409e-16
+        "mean_recovery_error": 5.937939577949048e-16,
+        "max_recovery_error": 1.3322676295501878e-15
       },
       {
         "protected_variable": "mode_1_coefficient",
@@ -1973,7 +1973,7 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 7.577148539935785e-16,
+        "mean_recovery_error": 7.748756199405307e-16,
         "max_recovery_error": 1.9984014443252818e-15
       },
       {
@@ -1995,7 +1995,7 @@
         "rank_observation": 1,
         "rank_protected": 2,
         "collision_max_protected_distance": 2.0,
-        "mean_recovery_error": 0.6,
+        "mean_recovery_error": 0.6000000000000001,
         "max_recovery_error": 1.0
       },
       {
@@ -2006,8 +2006,8 @@
         "rank_observation": 2,
         "rank_protected": 2,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 5.749146440059797e-16,
-        "max_recovery_error": 1.1957467920563633e-15
+        "mean_recovery_error": 7.334118468776258e-16,
+        "max_recovery_error": 1.5700924586837751e-15
       },
       {
         "protected_variable": "modes_1_2_coefficients",
@@ -2017,8 +2017,8 @@
         "rank_observation": 3,
         "rank_protected": 2,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 7.961363712281213e-16,
-        "max_recovery_error": 2.010699415441723e-15
+        "mean_recovery_error": 8.370674428106696e-16,
+        "max_recovery_error": 2.531698018113677e-15
       },
       {
         "protected_variable": "full_modal_coefficients",
@@ -2050,7 +2050,7 @@
         "rank_observation": 2,
         "rank_protected": 3,
         "collision_max_protected_distance": 2.0,
-        "mean_recovery_error": 0.6,
+        "mean_recovery_error": 0.6000000000000002,
         "max_recovery_error": 1.0000000000000002
       },
       {
@@ -2061,8 +2061,8 @@
         "rank_observation": 3,
         "rank_protected": 3,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 8.054349493765178e-16,
-        "max_recovery_error": 2.0137621733714643e-15
+        "mean_recovery_error": 8.637183952702374e-16,
+        "max_recovery_error": 2.5414166642833352e-15
       }
     ],
     "modes": [
@@ -2657,7 +2657,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 2.0000000000000004,
+        "collision_max_protected_distance": 2.0,
         "mean_recovery_error": 0.5714285714285714,
         "max_recovery_error": 1.0000000000000009
       },
@@ -2668,9 +2668,9 @@
         "exact_recoverable": true,
         "rank_observation": 2,
         "rank_protected": 1,
-        "collision_max_protected_distance": 4.159367000539444e-16,
-        "mean_recovery_error": 4.740675083471031e-16,
-        "max_recovery_error": 1.1102230246251565e-15
+        "collision_max_protected_distance": 3.92599335597993e-16,
+        "mean_recovery_error": 7.64771618841095e-16,
+        "max_recovery_error": 1.7763568394002505e-15
       },
       {
         "functional_name": "low_mode_sum",
@@ -2680,8 +2680,8 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 6.166283527959398e-16,
-        "max_recovery_error": 1.9984014443252818e-15
+        "mean_recovery_error": 8.763840031766733e-16,
+        "max_recovery_error": 2.6645352591003757e-15
       },
       {
         "functional_name": "low_mode_sum",
@@ -2691,8 +2691,8 @@
         "rank_observation": 4,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.5703005918443154e-15,
-        "max_recovery_error": 5.329070518200751e-15
+        "mean_recovery_error": 1.3218266837467838e-15,
+        "max_recovery_error": 4.218847493575595e-15
       },
       {
         "functional_name": "bandlimited_contrast",
@@ -2723,9 +2723,9 @@
         "exact_recoverable": false,
         "rank_observation": 2,
         "rank_protected": 1,
-        "collision_max_protected_distance": 1.9999999999999996,
-        "mean_recovery_error": 0.5714285714285713,
-        "max_recovery_error": 1.0
+        "collision_max_protected_distance": 1.9999999999999998,
+        "mean_recovery_error": 0.5714285714285714,
+        "max_recovery_error": 1.0000000000000007
       },
       {
         "functional_name": "bandlimited_contrast",
@@ -2735,8 +2735,8 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 9.447168729766063e-17,
-        "max_recovery_error": 4.440892098500626e-16
+        "mean_recovery_error": 3.528699869985428e-16,
+        "max_recovery_error": 9.425579349138513e-16
       },
       {
         "functional_name": "bandlimited_contrast",
@@ -2746,8 +2746,8 @@
         "rank_observation": 4,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 4.701067306842026e-16,
-        "max_recovery_error": 1.2556238572345161e-15
+        "mean_recovery_error": 3.293736398176876e-16,
+        "max_recovery_error": 1.1102230246251565e-15
       },
       {
         "functional_name": "full_weighted_sum",
@@ -2769,7 +2769,7 @@
         "rank_protected": 1,
         "collision_max_protected_distance": 3.0,
         "mean_recovery_error": 0.5131195335276968,
-        "max_recovery_error": 1.5000000000000004
+        "max_recovery_error": 1.5000000000000007
       },
       {
         "functional_name": "full_weighted_sum",
@@ -2790,8 +2790,8 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.5000000000000001,
-        "mean_recovery_error": 0.142857142857143,
-        "max_recovery_error": 0.2500000000000022
+        "mean_recovery_error": 0.14285714285714296,
+        "max_recovery_error": 0.25000000000000155
       },
       {
         "functional_name": "full_weighted_sum",
@@ -2801,8 +2801,8 @@
         "rank_observation": 4,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.2108851513884908e-15,
-        "max_recovery_error": 4.440892098500626e-15
+        "mean_recovery_error": 1.4234102881719209e-15,
+        "max_recovery_error": 3.9968028886505635e-15
       }
     ],
     "modes": [
@@ -3505,8 +3505,8 @@
         "exact_recoverable": false,
         "rowspace_residual": 1.0,
         "collision_gap": 2.0,
-        "mean_recovery_error": 0.6000000000000001,
-        "max_recovery_error": 1.000000000000001
+        "mean_recovery_error": 0.6,
+        "max_recovery_error": 1.0000000000000004
       },
       {
         "case_name": "strict_cutoffs",
@@ -3516,10 +3516,10 @@
         "predicted_min_cutoff": 2,
         "observed_min_cutoff": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.180042639720807e-15,
-        "collision_gap": 9.377929856969516e-16,
-        "mean_recovery_error": 6.961710131363703e-16,
-        "max_recovery_error": 2.0219759011585382e-15
+        "rowspace_residual": 1.687294558030841e-15,
+        "collision_gap": 8.690941978080966e-16,
+        "mean_recovery_error": 4.257129966477327e-16,
+        "max_recovery_error": 1.3698894449354349e-15
       },
       {
         "case_name": "strict_cutoffs",
@@ -3529,10 +3529,10 @@
         "predicted_min_cutoff": 2,
         "observed_min_cutoff": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.0812041021100161e-15,
+        "rowspace_residual": 1.388085009046754e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 7.06699149962926e-16,
-        "max_recovery_error": 1.6653345369377348e-15
+        "mean_recovery_error": 8.104218531099081e-16,
+        "max_recovery_error": 2.5379004453540688e-15
       },
       {
         "case_name": "strict_cutoffs",
@@ -3542,10 +3542,10 @@
         "predicted_min_cutoff": 2,
         "observed_min_cutoff": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.983749850772315e-15,
+        "rowspace_residual": 1.9752974523972343e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 8.931827011649566e-16,
-        "max_recovery_error": 2.6645352591003757e-15
+        "mean_recovery_error": 9.695045113944367e-16,
+        "max_recovery_error": 2.8943861196673026e-15
       },
       {
         "case_name": "strict_cutoffs",
@@ -3594,10 +3594,10 @@
         "predicted_min_cutoff": 3,
         "observed_min_cutoff": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 1.859210981405836e-15,
+        "rowspace_residual": 1.8171476374881702e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 9.094943765311397e-16,
-        "max_recovery_error": 2.6645352591003757e-15
+        "mean_recovery_error": 3.308523330342691e-16,
+        "max_recovery_error": 8.881784197001252e-16
       },
       {
         "case_name": "strict_cutoffs",
@@ -3607,10 +3607,10 @@
         "predicted_min_cutoff": 3,
         "observed_min_cutoff": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 3.102272747087287e-15,
+        "rowspace_residual": 7.932076372564399e-16,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.690348373858338e-15,
-        "max_recovery_error": 3.774758283725532e-15
+        "mean_recovery_error": 2.326749741227846e-16,
+        "max_recovery_error": 8.881784197001252e-16
       },
       {
         "case_name": "strict_cutoffs",
@@ -3636,7 +3636,7 @@
         "rowspace_residual": 0.9354143466934854,
         "collision_gap": 3.0,
         "mean_recovery_error": 0.544,
-        "max_recovery_error": 1.5000000000000009
+        "max_recovery_error": 1.5000000000000002
       },
       {
         "case_name": "strict_cutoffs",
@@ -3649,7 +3649,7 @@
         "rowspace_residual": 0.7905694150420948,
         "collision_gap": 1.9999999999999998,
         "mean_recovery_error": 0.48,
-        "max_recovery_error": 1.0000000000000018
+        "max_recovery_error": 1.0000000000000009
       },
       {
         "case_name": "strict_cutoffs",
@@ -3660,9 +3660,9 @@
         "observed_min_cutoff": 4,
         "exact_recoverable": false,
         "rowspace_residual": 0.25000000000000017,
-        "collision_gap": 0.5000000000000003,
-        "mean_recovery_error": 0.1500000000000003,
-        "max_recovery_error": 0.2500000000000031
+        "collision_gap": 0.5000000000000004,
+        "mean_recovery_error": 0.15000000000000022,
+        "max_recovery_error": 0.2500000000000018
       },
       {
         "case_name": "strict_cutoffs",
@@ -3672,10 +3672,10 @@
         "predicted_min_cutoff": 4,
         "observed_min_cutoff": 4,
         "exact_recoverable": true,
-        "rowspace_residual": 2.029765833053945e-15,
+        "rowspace_residual": 1.4822620822772736e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.3540189697134102e-15,
-        "max_recovery_error": 4.884981308350689e-15
+        "mean_recovery_error": 8.456509364290765e-16,
+        "max_recovery_error": 2.886579864025407e-15
       },
       {
         "case_name": "repeated_cutoffs",
@@ -3699,7 +3699,7 @@
         "observed_min_cutoff": 2,
         "exact_recoverable": false,
         "rowspace_residual": 1.7320508075688772,
-        "collision_gap": 6.000000000000001,
+        "collision_gap": 6.0,
         "mean_recovery_error": 0.984,
         "max_recovery_error": 3.0
       },
@@ -3711,10 +3711,10 @@
         "predicted_min_cutoff": 2,
         "observed_min_cutoff": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 8.416570932119391e-16,
+        "rowspace_residual": 2.7632871010542685e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 7.393730191633909e-16,
-        "max_recovery_error": 2.4424906541753444e-15
+        "mean_recovery_error": 3.2239599795408496e-16,
+        "max_recovery_error": 9.992007221626409e-16
       },
       {
         "case_name": "repeated_cutoffs",
@@ -3724,10 +3724,10 @@
         "predicted_min_cutoff": 2,
         "observed_min_cutoff": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 7.153173364435634e-16,
+        "rowspace_residual": 1.5135711465569916e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 3.946293187299534e-16,
-        "max_recovery_error": 1.3322676295501878e-15
+        "mean_recovery_error": 5.267839549988329e-16,
+        "max_recovery_error": 1.7763568394002505e-15
       },
       {
         "case_name": "repeated_cutoffs",
@@ -3753,7 +3753,7 @@
         "rowspace_residual": 0.58309518948453,
         "collision_gap": 1.6,
         "mean_recovery_error": 0.344,
-        "max_recovery_error": 0.8000000000000003
+        "max_recovery_error": 0.8
       },
       {
         "case_name": "repeated_cutoffs",
@@ -3766,7 +3766,7 @@
         "rowspace_residual": 0.49999999999999994,
         "collision_gap": 0.9999999999999999,
         "mean_recovery_error": 0.3,
-        "max_recovery_error": 0.5000000000000004
+        "max_recovery_error": 0.5000000000000003
       },
       {
         "case_name": "repeated_cutoffs",
@@ -3776,10 +3776,10 @@
         "predicted_min_cutoff": 3,
         "observed_min_cutoff": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 4.56458538214665e-16,
+        "rowspace_residual": 4.0755034722125346e-16,
         "collision_gap": 0.0,
-        "mean_recovery_error": 2.861220816974394e-16,
-        "max_recovery_error": 1.1102230246251565e-15
+        "mean_recovery_error": 1.0361687175592869e-16,
+        "max_recovery_error": 4.440892098500626e-16
       }
     ],
     "summaries": [
@@ -3999,7 +3999,7 @@
         "horizon": 1,
         "exact_recoverable": false,
         "collision_max_protected_distance": 2.0,
-        "recoverability_margin": 0.0024077792830412125,
+        "recoverability_margin": 0.002407779283041214,
         "mean_recovery_error": 0.5555555555555556,
         "max_recovery_error": 1.0
       },
@@ -4009,24 +4009,24 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.010990280121179271,
-        "mean_recovery_error": 7.289093882662447e-15,
-        "max_recovery_error": 1.9817480989559044e-14
+        "mean_recovery_error": 4.254484282020353e-15,
+        "max_recovery_error": 1.4210854715202004e-14
       },
       {
         "epsilon": 0.05,
         "horizon": 3,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.018325152677815447,
-        "mean_recovery_error": 1.923169686914029e-15,
-        "max_recovery_error": 7.494005416219807e-15
+        "recoverability_margin": 0.01832515267781545,
+        "mean_recovery_error": 6.7470035045893004e-15,
+        "max_recovery_error": 1.4210854715202004e-14
       },
       {
         "epsilon": 0.1,
         "horizon": 1,
         "exact_recoverable": false,
         "collision_max_protected_distance": 1.9999999999999998,
-        "recoverability_margin": 0.0037109518024613323,
+        "recoverability_margin": 0.0037109518024613266,
         "mean_recovery_error": 0.5555555555555556,
         "max_recovery_error": 1.0
       },
@@ -4036,24 +4036,24 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.02201496948730383,
-        "mean_recovery_error": 1.216676508056293e-15,
-        "max_recovery_error": 5.578870698741412e-15
+        "mean_recovery_error": 2.6371223449121e-15,
+        "max_recovery_error": 7.105427357601002e-15
       },
       {
         "epsilon": 0.1,
         "horizon": 3,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.036627019952508805,
-        "mean_recovery_error": 1.0399690859999188e-15,
-        "max_recovery_error": 3.9968028886505635e-15
+        "recoverability_margin": 0.03662701995250881,
+        "mean_recovery_error": 3.695260832579533e-15,
+        "max_recovery_error": 1.0658141036401503e-14
       },
       {
         "epsilon": 0.2,
         "horizon": 1,
         "exact_recoverable": false,
         "collision_max_protected_distance": 2.0,
-        "recoverability_margin": 0.003452299423699088,
+        "recoverability_margin": 0.0034522994236990765,
         "mean_recovery_error": 0.5555555555555556,
         "max_recovery_error": 1.0
       },
@@ -4063,8 +4063,8 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.043658716693152036,
-        "mean_recovery_error": 1.0862367247104155e-15,
-        "max_recovery_error": 5.440092820663267e-15
+        "mean_recovery_error": 6.003428207232328e-16,
+        "max_recovery_error": 3.552713678800501e-15
       },
       {
         "epsilon": 0.2,
@@ -4072,15 +4072,15 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.07236560974329942,
-        "mean_recovery_error": 9.52217667463593e-16,
-        "max_recovery_error": 3.9968028886505635e-15
+        "mean_recovery_error": 8.518563084006602e-16,
+        "max_recovery_error": 2.6645352591003757e-15
       },
       {
         "epsilon": 0.35,
         "horizon": 1,
         "exact_recoverable": false,
         "collision_max_protected_distance": 2.0,
-        "recoverability_margin": 0.0041185725306980255,
+        "recoverability_margin": 0.004118572530697997,
         "mean_recovery_error": 0.5555555555555556,
         "max_recovery_error": 1.0
       },
@@ -4089,18 +4089,18 @@
         "horizon": 2,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.07614789656460913,
-        "mean_recovery_error": 6.55038111413173e-16,
-        "max_recovery_error": 2.220446049250313e-15
+        "recoverability_margin": 0.07614789656460912,
+        "mean_recovery_error": 4.6876083261951055e-16,
+        "max_recovery_error": 1.7763568394002505e-15
       },
       {
         "epsilon": 0.35,
         "horizon": 3,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.12647700633525016,
-        "mean_recovery_error": 6.278316729469657e-16,
-        "max_recovery_error": 1.9984014443252818e-15
+        "recoverability_margin": 0.1264770063352502,
+        "mean_recovery_error": 4.194175870806147e-16,
+        "max_recovery_error": 8.881784197001252e-16
       },
       {
         "epsilon": 0.5,
@@ -4117,8 +4117,8 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.10875331805371477,
-        "mean_recovery_error": 1.415191694969721e-15,
-        "max_recovery_error": 3.9968028886505635e-15
+        "mean_recovery_error": 8.840664825718839e-16,
+        "max_recovery_error": 2.6645352591003757e-15
       },
       {
         "epsilon": 0.5,
@@ -4126,15 +4126,15 @@
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
         "recoverability_margin": 0.1807738086657105,
-        "mean_recovery_error": 5.864702169404091e-16,
-        "max_recovery_error": 1.7763568394002505e-15
+        "mean_recovery_error": 3.2484303313106433e-16,
+        "max_recovery_error": 1.3322676295501878e-15
       },
       {
         "epsilon": 0.8,
         "horizon": 1,
         "exact_recoverable": false,
         "collision_max_protected_distance": 2.0,
-        "recoverability_margin": 0.004564083332171862,
+        "recoverability_margin": 0.004564083332171818,
         "mean_recovery_error": 0.5555555555555556,
         "max_recovery_error": 1.0
       },
@@ -4143,18 +4143,18 @@
         "horizon": 2,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.1741742444125295,
-        "mean_recovery_error": 3.392348130799089e-16,
-        "max_recovery_error": 7.771561172376096e-16
+        "recoverability_margin": 0.17417424441252952,
+        "mean_recovery_error": 2.1107943924972112e-16,
+        "max_recovery_error": 8.881784197001252e-16
       },
       {
         "epsilon": 0.8,
         "horizon": 3,
         "exact_recoverable": true,
         "collision_max_protected_distance": 0.0,
-        "recoverability_margin": 0.2890599163759645,
-        "mean_recovery_error": 3.3891889451182974e-16,
-        "max_recovery_error": 7.771561172376096e-16
+        "recoverability_margin": 0.28905991637596445,
+        "mean_recovery_error": 4.187322642259078e-16,
+        "max_recovery_error": 1.3322676295501878e-15
       }
     ],
     "curves": {
@@ -5139,8 +5139,8 @@
         "protected_error_history": [
           1.3,
           0.8725000000000025,
-          0.514250000000001,
-          0.20477500000000035,
+          0.5142500000000008,
+          0.20477500000000057,
           0.07153249999999997,
           0.023479749999999702,
           0.007447925000000105,
@@ -5198,22 +5198,22 @@
           1.3,
           0.47749999999999965,
           0.16074999999999964,
-          0.051724999999999854,
-          0.016217499999999885,
-          0.005005249999999989,
-          0.0015295749999999705,
-          0.00046447249999991697,
-          0.00014046174999996983,
-          4.236252500004062e-05,
-          1.2753557500097198e-05,
-          3.835027250049215e-06,
-          1.1523001749273731e-06,
-          3.460484524465089e-07,
-          1.0388621572710033e-07,
-          3.1180200645150244e-08,
-          9.356927511560038e-09,
-          2.807651644488006e-09,
-          8.42410184090283e-10
+          0.051724999999999716,
+          0.016217500000000024,
+          0.005005250000000072,
+          0.0015295749999999428,
+          0.0004644724999999725,
+          0.000140461750000008,
+          4.2362524999992046e-05,
+          1.2753557500065973e-05,
+          3.8350272500283986e-06,
+          1.1523001749134953e-06,
+          3.460484524374016e-07,
+          1.0388621572124564e-07,
+          3.1180200641247116e-08,
+          9.356927509066373e-09,
+          2.8076516428617027e-09,
+          8.424101830060808e-10
         ]
       }
     ]
@@ -5277,7 +5277,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 2.0,
+        "collision_max_protected_distance": 1.9999999999999998,
         "mean_recovery_error": 0.5714285714285714,
         "max_recovery_error": 1.0,
         "interpolation_residual": null
@@ -5291,7 +5291,7 @@
         "exact_recoverable": false,
         "rank_observation": 2,
         "rank_protected": 1,
-        "collision_max_protected_distance": 2.0,
+        "collision_max_protected_distance": 1.9999999999999987,
         "mean_recovery_error": 0.5714285714285714,
         "max_recovery_error": 1.0,
         "interpolation_residual": null
@@ -5306,9 +5306,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.7272515251691436e-14,
-        "max_recovery_error": 7.338574192772285e-14,
-        "interpolation_residual": 7.023171136797136e-15
+        "mean_recovery_error": 2.6064022983940556e-14,
+        "max_recovery_error": 9.00390872971002e-14,
+        "interpolation_residual": 3.552713678800501e-15
       },
       {
         "sensor_profile": "three_active",
@@ -5320,9 +5320,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 9.485319568560439e-15,
-        "max_recovery_error": 2.9531932455029164e-14,
-        "interpolation_residual": 7.023171136797136e-15
+        "mean_recovery_error": 7.512293346508822e-15,
+        "max_recovery_error": 3.552713678800501e-14,
+        "interpolation_residual": 3.552713678800501e-15
       },
       {
         "sensor_profile": "two_active",
@@ -5348,9 +5348,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.1588613666563537e-15,
-        "max_recovery_error": 3.552713678800501e-15,
-        "interpolation_residual": 5.876612749394169e-16
+        "mean_recovery_error": 1.8511269614668426e-15,
+        "max_recovery_error": 5.329070518200751e-15,
+        "interpolation_residual": 4.440892098500626e-16
       },
       {
         "sensor_profile": "two_active",
@@ -5362,9 +5362,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.2879129023379274e-15,
-        "max_recovery_error": 6.161737786669619e-15,
-        "interpolation_residual": 5.876612749394169e-16
+        "mean_recovery_error": 1.375317093770347e-15,
+        "max_recovery_error": 3.552713678800501e-15,
+        "interpolation_residual": 4.440892098500626e-16
       },
       {
         "sensor_profile": "two_active",
@@ -5376,9 +5376,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.3225014671452787e-15,
-        "max_recovery_error": 3.552713678800501e-15,
-        "interpolation_residual": 5.876612749394169e-16
+        "mean_recovery_error": 1.907770993335473e-15,
+        "max_recovery_error": 4.773959005888173e-15,
+        "interpolation_residual": 4.440892098500626e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -5968,7 +5968,7 @@
         "predicted_min_horizon": 3,
         "linear_exact": true,
         "interpolation_available": true,
-        "interpolation_residual": 7.023171136797136e-15,
+        "interpolation_residual": 3.552713678800501e-15,
         "prediction_matches": true
       },
       {
@@ -5977,7 +5977,7 @@
         "predicted_min_horizon": 3,
         "linear_exact": true,
         "interpolation_available": true,
-        "interpolation_residual": 7.023171136797136e-15,
+        "interpolation_residual": 3.552713678800501e-15,
         "prediction_matches": true
       },
       {
@@ -5995,7 +5995,7 @@
         "predicted_min_horizon": 2,
         "linear_exact": true,
         "interpolation_available": true,
-        "interpolation_residual": 5.876612749394169e-16,
+        "interpolation_residual": 4.440892098500626e-16,
         "prediction_matches": true
       },
       {
@@ -6004,7 +6004,7 @@
         "predicted_min_horizon": 2,
         "linear_exact": true,
         "interpolation_available": true,
-        "interpolation_residual": 5.876612749394169e-16,
+        "interpolation_residual": 4.440892098500626e-16,
         "prediction_matches": true
       },
       {
@@ -6013,7 +6013,7 @@
         "predicted_min_horizon": 2,
         "linear_exact": true,
         "interpolation_available": true,
-        "interpolation_residual": 5.876612749394169e-16,
+        "interpolation_residual": 4.440892098500626e-16,
         "prediction_matches": true
       },
       {
@@ -6111,7 +6111,7 @@
         "exact_recoverable": true,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 1.554312234475219e-16,
+        "collision_max_protected_distance": 2.220446049250313e-16,
         "mean_recovery_error": 1.296339129336371e-16,
         "max_recovery_error": 4.440892098500626e-16,
         "interpolation_residual": 0.0
@@ -6125,9 +6125,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 5.575802401015149e-16,
-        "max_recovery_error": 1.3322676295501878e-15,
-        "interpolation_residual": 6.206335383118183e-17
+        "mean_recovery_error": 2.5298843033440887e-16,
+        "max_recovery_error": 6.661338147750939e-16,
+        "interpolation_residual": 2.7755575615628914e-17
       },
       {
         "sensor_profile": "three_active",
@@ -6138,9 +6138,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.7176544173602109e-15,
-        "max_recovery_error": 3.552713678800501e-15,
-        "interpolation_residual": 7.301351988545593e-16
+        "mean_recovery_error": 3.846391944827513e-15,
+        "max_recovery_error": 9.103828801926284e-15,
+        "interpolation_residual": 5.087681048627601e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6151,9 +6151,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 5.285453993898651e-16,
-        "max_recovery_error": 1.5543122344752192e-15,
-        "interpolation_residual": 6.690187733356917e-16
+        "mean_recovery_error": 1.0486770081236092e-15,
+        "max_recovery_error": 2.886579864025407e-15,
+        "interpolation_residual": 2.3055512673781017e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6163,7 +6163,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 0.24000000000000002,
+        "collision_max_protected_distance": 0.24000000000000005,
         "mean_recovery_error": 0.5742662779397474,
         "max_recovery_error": 1.4,
         "interpolation_residual": null
@@ -6177,9 +6177,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.274025042006839e-16,
-        "max_recovery_error": 8.881784197001252e-16,
-        "interpolation_residual": 1.2412670766236366e-16
+        "mean_recovery_error": 5.4226798383665085e-16,
+        "max_recovery_error": 1.3322676295501878e-15,
+        "interpolation_residual": 2.3055512673781017e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6190,9 +6190,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.4066306226377243e-15,
-        "max_recovery_error": 2.886579864025407e-15,
-        "interpolation_residual": 1.1443916996305594e-16
+        "mean_recovery_error": 2.185837557279149e-15,
+        "max_recovery_error": 5.773159728050814e-15,
+        "interpolation_residual": 3.387999773988765e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6203,9 +6203,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 4.998279487093641e-16,
-        "max_recovery_error": 1.3322676295501878e-15,
-        "interpolation_residual": 2.2887833992611187e-16
+        "mean_recovery_error": 2.802686006825689e-15,
+        "max_recovery_error": 5.995204332975845e-15,
+        "interpolation_residual": 4.775249788392736e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6228,7 +6228,7 @@
         "exact_recoverable": false,
         "rank_observation": 2,
         "rank_protected": 1,
-        "collision_max_protected_distance": 0.018000000000000006,
+        "collision_max_protected_distance": 0.018000000000000065,
         "mean_recovery_error": 0.5381943634596695,
         "max_recovery_error": 1.243,
         "interpolation_residual": null
@@ -6242,9 +6242,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 2.134862353912371e-15,
-        "max_recovery_error": 4.884981308350689e-15,
-        "interpolation_residual": 3.4021815010030383e-16
+        "mean_recovery_error": 2.1873554403206287e-15,
+        "max_recovery_error": 5.773159728050814e-15,
+        "interpolation_residual": 5.688200336284365e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6255,9 +6255,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.929674405971103e-16,
-        "max_recovery_error": 4.440892098500626e-16,
-        "interpolation_residual": 2.237726045655905e-16
+        "mean_recovery_error": 8.976688237895435e-16,
+        "max_recovery_error": 2.220446049250313e-15,
+        "interpolation_residual": 1.1188630228279524e-16
       },
       {
         "sensor_profile": "three_active",
@@ -6267,7 +6267,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 2.0,
+        "collision_max_protected_distance": 1.9999999999999998,
         "mean_recovery_error": 0.5714285714285714,
         "max_recovery_error": 1.0,
         "interpolation_residual": null
@@ -6280,7 +6280,7 @@
         "exact_recoverable": false,
         "rank_observation": 2,
         "rank_protected": 1,
-        "collision_max_protected_distance": 2.0,
+        "collision_max_protected_distance": 1.9999999999999987,
         "mean_recovery_error": 0.5714285714285714,
         "max_recovery_error": 1.0,
         "interpolation_residual": null
@@ -6294,9 +6294,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.7272515251691436e-14,
-        "max_recovery_error": 7.338574192772285e-14,
-        "interpolation_residual": 6.351076869001815e-14
+        "mean_recovery_error": 2.6064022983940556e-14,
+        "max_recovery_error": 9.00390872971002e-14,
+        "interpolation_residual": 1.165376734978219e-13
       },
       {
         "sensor_profile": "three_active",
@@ -6307,9 +6307,9 @@
         "rank_observation": 3,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 9.485319568560439e-15,
-        "max_recovery_error": 2.9531932455029164e-14,
-        "interpolation_residual": 9.705913018306063e-15
+        "mean_recovery_error": 7.512293346508822e-15,
+        "max_recovery_error": 3.552713678800501e-14,
+        "interpolation_residual": 3.972054645195637e-15
       },
       {
         "sensor_profile": "two_active",
@@ -6322,7 +6322,7 @@
         "collision_max_protected_distance": 5.551115123125783e-17,
         "mean_recovery_error": 1.297148329791637e-16,
         "max_recovery_error": 2.220446049250313e-16,
-        "interpolation_residual": 2.2887833992611187e-16
+        "interpolation_residual": 3.3766115072321297e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6333,9 +6333,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 6.12321984499895e-16,
-        "max_recovery_error": 1.3322676295501878e-15,
-        "interpolation_residual": 0.0
+        "mean_recovery_error": 2.2034528396897239e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 1.2412670766236366e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6346,9 +6346,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 5.310377987684103e-16,
-        "max_recovery_error": 1.1102230246251565e-15,
-        "interpolation_residual": 1.1102230246251565e-15
+        "mean_recovery_error": 2.209117242876587e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 8.326672684688674e-17
       },
       {
         "sensor_profile": "two_active",
@@ -6359,9 +6359,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 8.864790987440663e-17,
-        "max_recovery_error": 2.220446049250313e-16,
-        "interpolation_residual": 6.804363002006077e-16
+        "mean_recovery_error": 2.339398516174437e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 6.713178136967714e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6385,9 +6385,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.483607959920772e-16,
-        "max_recovery_error": 6.661338147750939e-16,
-        "interpolation_residual": 3.3766115072321297e-16
+        "mean_recovery_error": 6.174199473680718e-17,
+        "max_recovery_error": 2.220446049250313e-16,
+        "interpolation_residual": 1.1443916996305594e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6398,9 +6398,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 2.6070415667537157e-16,
-        "max_recovery_error": 5.551115123125783e-16,
-        "interpolation_residual": 2.237726045655905e-16
+        "mean_recovery_error": 7.944325469575418e-17,
+        "max_recovery_error": 2.220446049250313e-16,
+        "interpolation_residual": 5.551115123125783e-17
       },
       {
         "sensor_profile": "two_active",
@@ -6411,9 +6411,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.9202326803465717e-16,
-        "max_recovery_error": 4.440892098500626e-16,
-        "interpolation_residual": 7.894497640785698e-16
+        "mean_recovery_error": 1.2659941122638903e-16,
+        "max_recovery_error": 2.220446049250313e-16,
+        "interpolation_residual": 0.0
       },
       {
         "sensor_profile": "two_active",
@@ -6437,9 +6437,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 5.710426462756306e-16,
-        "max_recovery_error": 1.2212453270876722e-15,
-        "interpolation_residual": 1.1443916996305594e-16
+        "mean_recovery_error": 8.616973348015406e-17,
+        "max_recovery_error": 2.220446049250313e-16,
+        "interpolation_residual": 1.1188630228279524e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6450,9 +6450,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.712065863229355e-16,
+        "mean_recovery_error": 1.2412123483213645e-16,
         "max_recovery_error": 3.3306690738754696e-16,
-        "interpolation_residual": 3.3335590258932494e-16
+        "interpolation_residual": 3.3766115072321297e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6463,9 +6463,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 2.4187001607905194e-16,
-        "max_recovery_error": 4.440892098500626e-16,
-        "interpolation_residual": 6.753223014464259e-16
+        "mean_recovery_error": 5.466149075322837e-17,
+        "max_recovery_error": 1.1102230246251565e-16,
+        "interpolation_residual": 1.1857187100668868e-16
       },
       {
         "sensor_profile": "two_active",
@@ -6489,9 +6489,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.1588613666563537e-15,
-        "max_recovery_error": 3.552713678800501e-15,
-        "interpolation_residual": 2.990200679657088e-15
+        "mean_recovery_error": 1.8511269614668426e-15,
+        "max_recovery_error": 5.329070518200751e-15,
+        "interpolation_residual": 3.552713678800501e-15
       },
       {
         "sensor_profile": "two_active",
@@ -6502,9 +6502,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.2879129023379274e-15,
-        "max_recovery_error": 6.161737786669619e-15,
-        "interpolation_residual": 3.1163769036247702e-15
+        "mean_recovery_error": 1.375317093770347e-15,
+        "max_recovery_error": 3.552713678800501e-15,
+        "interpolation_residual": 2.673771110915334e-15
       },
       {
         "sensor_profile": "two_active",
@@ -6515,9 +6515,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.3225014671452787e-15,
-        "max_recovery_error": 3.552713678800501e-15,
-        "interpolation_residual": 1.7168650272545202e-15
+        "mean_recovery_error": 1.907770993335473e-15,
+        "max_recovery_error": 4.773959005888173e-15,
+        "interpolation_residual": 9.155133597044475e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6527,10 +6527,10 @@
         "exact_recoverable": true,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 8.881784197001253e-17,
-        "mean_recovery_error": 0.0,
-        "max_recovery_error": 0.0,
-        "interpolation_residual": 2.482534153247273e-16
+        "collision_max_protected_distance": 1.1102230246251565e-16,
+        "mean_recovery_error": 3.4212995248652784e-16,
+        "max_recovery_error": 6.661338147750939e-16,
+        "interpolation_residual": 3.510833468576701e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6541,9 +6541,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.2008534756149653e-16,
+        "mean_recovery_error": 1.047914589569663e-16,
         "max_recovery_error": 2.220446049250313e-16,
-        "interpolation_residual": 2.2887833992611187e-16
+        "interpolation_residual": 1.1102230246251565e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6554,9 +6554,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 2.730242336067987e-16,
-        "max_recovery_error": 6.661338147750939e-16,
-        "interpolation_residual": 4.47545209131181e-16
+        "mean_recovery_error": 3.613889233218622e-16,
+        "max_recovery_error": 7.771561172376096e-16,
+        "interpolation_residual": 4.440892098500626e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6567,9 +6567,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 7.76023236600237e-17,
-        "max_recovery_error": 2.220446049250313e-16,
-        "interpolation_residual": 3.1401849173675503e-16
+        "mean_recovery_error": 1.4897380381449804e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 1.2412670766236366e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6579,7 +6579,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 0.11999999999999995,
+        "collision_max_protected_distance": 0.11999999999999977,
         "mean_recovery_error": 0.5692517006802721,
         "max_recovery_error": 1.27,
         "interpolation_residual": null
@@ -6593,9 +6593,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 2.0940590531434313e-16,
-        "max_recovery_error": 4.440892098500626e-16,
-        "interpolation_residual": 8.252325904466732e-16
+        "mean_recovery_error": 0.0,
+        "max_recovery_error": 0.0,
+        "interpolation_residual": 5.79553433516819e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6606,9 +6606,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.8579011017527063e-16,
-        "max_recovery_error": 8.881784197001252e-16,
-        "interpolation_residual": 3.3766115072321297e-16
+        "mean_recovery_error": 2.2338990068191127e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 2.220446049250313e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6619,9 +6619,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 1.2552848499887273e-16,
+        "mean_recovery_error": 1.3527302860627307e-16,
         "max_recovery_error": 4.440892098500626e-16,
-        "interpolation_residual": 2.2887833992611187e-16
+        "interpolation_residual": 3.7238012298709097e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6631,7 +6631,7 @@
         "exact_recoverable": false,
         "rank_observation": 1,
         "rank_protected": 1,
-        "collision_max_protected_distance": 0.2099999999999999,
+        "collision_max_protected_distance": 0.20999999999999985,
         "mean_recovery_error": 0.5366122448979591,
         "max_recovery_error": 1.1585,
         "interpolation_residual": null
@@ -6645,9 +6645,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.191891195797325e-16,
-        "max_recovery_error": 6.661338147750939e-16,
-        "interpolation_residual": 1.4043333874306805e-15
+        "mean_recovery_error": 6.278990932637684e-16,
+        "max_recovery_error": 1.3322676295501878e-15,
+        "interpolation_residual": 1.2658490090568385e-15
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6658,9 +6658,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 3.6223858379989166e-16,
-        "max_recovery_error": 8.881784197001252e-16,
-        "interpolation_residual": 3.3766115072321297e-16
+        "mean_recovery_error": 2.445606075928119e-16,
+        "max_recovery_error": 4.440892098500626e-16,
+        "interpolation_residual": 1.5700924586837752e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6671,9 +6671,9 @@
         "rank_observation": 2,
         "rank_protected": 1,
         "collision_max_protected_distance": 0.0,
-        "mean_recovery_error": 8.369155708590147e-17,
+        "mean_recovery_error": 8.581570828097511e-17,
         "max_recovery_error": 2.220446049250313e-16,
-        "interpolation_residual": 1.5700924586837752e-16
+        "interpolation_residual": 1.2412670766236366e-16
       },
       {
         "sensor_profile": "protected_hidden",
@@ -6860,7 +6860,7 @@
         2.220446049250313e-16,
         0.06666666666666687,
         0.13333333333333353,
-        0.13333333333333364,
+        0.13333333333333358,
         0.20000000000000023,
         0.2666666666666669,
         0.26666666666666694,
@@ -6987,15 +6987,15 @@
         0.06333333333333357,
         0.08333333333333348,
         0.10666666666666691,
-        0.14666666666666683,
+        0.14666666666666694,
         0.17000000000000015,
         0.2100000000000002,
         0.2333333333333335,
         0.27333333333333354,
-        0.29333333333333356,
-        0.3166666666666669,
+        0.29333333333333367,
+        0.316666666666667,
         0.3566666666666669,
-        0.3800000000000002,
+        0.38000000000000034,
         0.42000000000000026,
         0.4433333333333336,
         0.4800000000000002,
@@ -7081,7 +7081,7 @@
         0.9084999999999999,
         0.9366666666666665,
         0.9366666666666665,
-        0.9938333333333331,
+        0.9938333333333332,
         1.1239999999999997,
         1.1521666666666663,
         1.1521666666666663,
@@ -7110,7 +7110,7 @@
       "three_active:second_moment:H=2": [
         0.015000000000000124,
         0.07300000000000018,
-        0.17583333333333329,
+        0.1758333333333333,
         0.2778333333333331,
         0.3349999999999999,
         0.3631666666666666,
@@ -7131,8 +7131,8 @@
         0.9084999999999999,
         0.9366666666666665,
         0.9366666666666665,
-        0.9938333333333331,
-        0.9938333333333331,
+        0.9938333333333332,
+        0.9938333333333332,
         1.1239999999999997,
         1.1239999999999997,
         1.1521666666666663,
@@ -7154,7 +7154,7 @@
         0.04400000000000015,
         0.07383333333333353,
         0.13100000000000023,
-        0.17583333333333329,
+        0.1758333333333333,
         0.2048333333333333,
         0.262,
         0.30683333333333324,
@@ -7180,10 +7180,10 @@
         0.9084999999999999,
         0.9366666666666665,
         0.9366666666666665,
-        0.9938333333333331,
-        0.9938333333333331,
+        0.9938333333333332,
+        0.9938333333333332,
         1.0219999999999998,
-        1.0501666666666665,
+        1.0501666666666667,
         1.1239999999999997,
         1.1521666666666663,
         1.1521666666666663,
@@ -7199,7 +7199,7 @@
         0.11516666666666675,
         0.13183333333333347,
         0.175,
-        0.20399999999999996,
+        0.204,
         0.23299999999999998,
         0.262,
         0.2901666666666667,
@@ -7229,9 +7229,9 @@
         0.9366666666666665,
         0.9366666666666665,
         0.9648333333333332,
-        0.9938333333333331,
+        0.9938333333333332,
         1.0219999999999998,
-        1.0501666666666665
+        1.0501666666666667
       ],
       "three_active:protected_coordinate:H=1": [
         2.0,
@@ -8094,7 +8094,7 @@
         0.8666666666666668,
         0.8666666666666668,
         0.9333333333333336,
-        1.0000000000000002,
+        1.0,
         1.0666666666666669,
         1.0666666666666669,
         1.1333333333333335,
@@ -8142,8 +8142,8 @@
         0.8666666666666668,
         0.8666666666666668,
         0.9333333333333336,
-        1.0000000000000002,
-        1.0000000000000002,
+        1.0,
+        1.0,
         1.0666666666666669,
         1.1333333333333335,
         1.1333333333333335,
@@ -8188,9 +8188,9 @@
         0.8666666666666668,
         0.8666666666666668,
         0.9333333333333336,
-        1.0000000000000002,
-        1.0000000000000002,
-        1.0000000000000002,
+        1.0,
+        1.0,
+        1.0,
         1.1333333333333335,
         1.1333333333333335,
         1.1333333333333335,
@@ -8232,10 +8232,10 @@
         0.8666666666666668,
         0.8666666666666668,
         0.8666666666666668,
-        1.0000000000000002,
-        1.0000000000000002,
-        1.0000000000000002,
-        1.0000000000000002,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
         1.1333333333333335,
         1.1333333333333335,
         1.1333333333333335,
@@ -8244,7 +8244,7 @@
       "protected_hidden:first_moment:H=1": [
         0.10000000000000003,
         0.10000000000000003,
-        0.10333333333333339,
+        0.1033333333333335,
         0.2066666666666667,
         0.3099999999999999,
         0.3099999999999999,
@@ -8287,17 +8287,17 @@
         0.0,
         0.0,
         0.10000000000000003,
-        0.10333333333333339,
+        0.1033333333333335,
         0.1066666666666668,
         0.2066666666666667,
-        0.21000000000000008,
-        0.21333333333333343,
+        0.2100000000000002,
+        0.21333333333333349,
         0.3099999999999999,
-        0.31666666666666676,
+        0.3166666666666669,
         0.3200000000000001,
         0.41666666666666663,
         0.4200000000000001,
-        0.42333333333333345,
+        0.42333333333333356,
         0.5233333333333333,
         0.5266666666666667,
         0.5300000000000001,
@@ -8308,7 +8308,7 @@
         0.7366666666666667,
         0.7400000000000002,
         0.84,
-        0.8433333333333334,
+        0.8433333333333333,
         0.9433333333333332,
         0.9466666666666667,
         0.9500000000000001,
@@ -8334,10 +8334,10 @@
         0.11000000000000021,
         0.11000000000000021,
         0.2066666666666667,
-        0.21333333333333343,
+        0.21333333333333349,
         0.2166666666666669,
         0.2166666666666669,
-        0.31666666666666676,
+        0.3166666666666669,
         0.3233333333333336,
         0.3233333333333336,
         0.41666666666666663,
@@ -8376,7 +8376,7 @@
         0.11000000000000021,
         0.11000000000000021,
         0.11000000000000021,
-        0.21333333333333343,
+        0.21333333333333349,
         0.2166666666666669,
         0.2166666666666669,
         0.2166666666666669,
@@ -8410,9 +8410,9 @@
         0.9566666666666669
       ],
       "protected_hidden:second_moment:H=1": [
-        0.17499999999999993,
-        0.17499999999999993,
-        0.17499999999999993,
+        0.175,
+        0.175,
+        0.175,
         0.2603333333333333,
         0.3904999999999998,
         0.3904999999999998,
@@ -8433,7 +8433,7 @@
         1.0775,
         1.0775,
         1.0775,
-        1.1628333333333332,
+        1.1628333333333334,
         1.2929999999999997,
         1.2929999999999997,
         1.3783333333333332,
@@ -8454,9 +8454,9 @@
       "protected_hidden:second_moment:H=2": [
         0.0,
         0.0,
-        0.17499999999999993,
-        0.17499999999999993,
-        0.17499999999999993,
+        0.175,
+        0.175,
+        0.175,
         0.2603333333333333,
         0.2603333333333333,
         0.2603333333333333,
@@ -8484,8 +8484,8 @@
         1.0775,
         1.0775,
         1.0775,
-        1.1628333333333332,
-        1.1628333333333332,
+        1.1628333333333334,
+        1.1628333333333334,
         1.2929999999999997,
         1.2929999999999997,
         1.2929999999999997,
@@ -8498,9 +8498,9 @@
         0.0,
         0.0448333333333335,
         0.0448333333333335,
-        0.17499999999999993,
-        0.17499999999999993,
-        0.17499999999999993,
+        0.175,
+        0.175,
+        0.175,
         0.2603333333333333,
         0.2603333333333333,
         0.2603333333333333,
@@ -8533,7 +8533,7 @@
         1.0775,
         1.0775,
         1.0775,
-        1.1628333333333332
+        1.1628333333333334
       ],
       "protected_hidden:second_moment:H=4": [
         0.0,
@@ -8542,9 +8542,9 @@
         0.0448333333333335,
         0.08533333333333348,
         0.13016666666666687,
-        0.17499999999999993,
-        0.17499999999999993,
-        0.17499999999999993,
+        0.175,
+        0.175,
+        0.175,
         0.21550000000000025,
         0.2603333333333333,
         0.2603333333333333,
@@ -8764,7 +8764,7 @@
         "predicted_min_horizon": 1,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 6.206335383118183e-17,
+        "interpolation_residual": 2.7755575615628914e-17,
         "exact_recoverable": true
       },
       {
@@ -8774,7 +8774,7 @@
         "predicted_min_horizon": 1,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 7.301351988545593e-16,
+        "interpolation_residual": 5.087681048627601e-16,
         "exact_recoverable": true
       },
       {
@@ -8784,7 +8784,7 @@
         "predicted_min_horizon": 1,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 6.690187733356917e-16,
+        "interpolation_residual": 2.3055512673781017e-16,
         "exact_recoverable": true
       },
       {
@@ -8804,13 +8804,163 @@
         "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 1.2412670766236366e-16,
+        "interpolation_residual": 2.3055512673781017e-16,
         "exact_recoverable": true
       },
       {
         "sensor_profile": "three_active",
         "functional_name": "first_moment",
         "horizon": 3,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.387999773988765e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "first_moment",
+        "horizon": 4,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 4.775249788392736e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "second_moment",
+        "horizon": 1,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "second_moment",
+        "horizon": 2,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "second_moment",
+        "horizon": 3,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 5.688200336284365e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "second_moment",
+        "horizon": 4,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.1188630228279524e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 1,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 2,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 3,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.165376734978219e-13,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "three_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 4,
+        "predicted_min_horizon": 3,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.972054645195637e-15,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "sensor_sum",
+        "horizon": 1,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.3766115072321297e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "sensor_sum",
+        "horizon": 2,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.2412670766236366e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "sensor_sum",
+        "horizon": 3,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 8.326672684688674e-17,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "sensor_sum",
+        "horizon": 4,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 6.713178136967714e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "first_moment",
+        "horizon": 1,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "first_moment",
+        "horizon": 2,
         "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
@@ -8818,110 +8968,20 @@
         "exact_recoverable": true
       },
       {
-        "sensor_profile": "three_active",
+        "sensor_profile": "two_active",
         "functional_name": "first_moment",
-        "horizon": 4,
+        "horizon": 3,
         "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 2.2887833992611187e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "second_moment",
-        "horizon": 1,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "second_moment",
-        "horizon": 2,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "second_moment",
-        "horizon": 3,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.4021815010030383e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "second_moment",
-        "horizon": 4,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.237726045655905e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 1,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 2,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 3,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 6.351076869001815e-14,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "three_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 4,
-        "predicted_min_horizon": 3,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 9.705913018306063e-15,
+        "interpolation_residual": 5.551115123125783e-17,
         "exact_recoverable": true
       },
       {
         "sensor_profile": "two_active",
-        "functional_name": "sensor_sum",
-        "horizon": 1,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.2887833992611187e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "sensor_sum",
-        "horizon": 2,
-        "predicted_min_horizon": 1,
+        "functional_name": "first_moment",
+        "horizon": 4,
+        "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
         "interpolation_residual": 0.0,
@@ -8929,66 +8989,6 @@
       },
       {
         "sensor_profile": "two_active",
-        "functional_name": "sensor_sum",
-        "horizon": 3,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 1.1102230246251565e-15,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "sensor_sum",
-        "horizon": 4,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 6.804363002006077e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "first_moment",
-        "horizon": 1,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "first_moment",
-        "horizon": 2,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.3766115072321297e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "first_moment",
-        "horizon": 3,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.237726045655905e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "first_moment",
-        "horizon": 4,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 7.894497640785698e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
         "functional_name": "second_moment",
         "horizon": 1,
         "predicted_min_horizon": 2,
@@ -9004,171 +9004,11 @@
         "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
-        "interpolation_residual": 1.1443916996305594e-16,
+        "interpolation_residual": 1.1188630228279524e-16,
         "exact_recoverable": true
       },
       {
         "sensor_profile": "two_active",
-        "functional_name": "second_moment",
-        "horizon": 3,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.3335590258932494e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "second_moment",
-        "horizon": 4,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 6.753223014464259e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 1,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 2,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.990200679657088e-15,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 3,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.1163769036247702e-15,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "two_active",
-        "functional_name": "protected_coordinate",
-        "horizon": 4,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 1.7168650272545202e-15,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "sensor_sum",
-        "horizon": 1,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.482534153247273e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "sensor_sum",
-        "horizon": 2,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.2887833992611187e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "sensor_sum",
-        "horizon": 3,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 4.47545209131181e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "sensor_sum",
-        "horizon": 4,
-        "predicted_min_horizon": 1,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.1401849173675503e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "first_moment",
-        "horizon": 1,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "first_moment",
-        "horizon": 2,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 8.252325904466732e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "first_moment",
-        "horizon": 3,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 3.3766115072321297e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "first_moment",
-        "horizon": 4,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 2.2887833992611187e-16,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "second_moment",
-        "horizon": 1,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": false,
-        "interpolation_residual": null,
-        "exact_recoverable": false
-      },
-      {
-        "sensor_profile": "protected_hidden",
-        "functional_name": "second_moment",
-        "horizon": 2,
-        "predicted_min_horizon": 2,
-        "prediction_matches": true,
-        "interpolation_available": true,
-        "interpolation_residual": 1.4043333874306805e-15,
-        "exact_recoverable": true
-      },
-      {
-        "sensor_profile": "protected_hidden",
         "functional_name": "second_moment",
         "horizon": 3,
         "predicted_min_horizon": 2,
@@ -9178,13 +9018,173 @@
         "exact_recoverable": true
       },
       {
-        "sensor_profile": "protected_hidden",
+        "sensor_profile": "two_active",
         "functional_name": "second_moment",
         "horizon": 4,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.1857187100668868e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 1,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 2,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.552713678800501e-15,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 3,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 2.673771110915334e-15,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "two_active",
+        "functional_name": "protected_coordinate",
+        "horizon": 4,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 9.155133597044475e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "sensor_sum",
+        "horizon": 1,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.510833468576701e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "sensor_sum",
+        "horizon": 2,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.1102230246251565e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "sensor_sum",
+        "horizon": 3,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 4.440892098500626e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "sensor_sum",
+        "horizon": 4,
+        "predicted_min_horizon": 1,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.2412670766236366e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "first_moment",
+        "horizon": 1,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "first_moment",
+        "horizon": 2,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 5.79553433516819e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "first_moment",
+        "horizon": 3,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 2.220446049250313e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "first_moment",
+        "horizon": 4,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 3.7238012298709097e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "second_moment",
+        "horizon": 1,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": false,
+        "interpolation_residual": null,
+        "exact_recoverable": false
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "second_moment",
+        "horizon": 2,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.2658490090568385e-15,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "second_moment",
+        "horizon": 3,
         "predicted_min_horizon": 2,
         "prediction_matches": true,
         "interpolation_available": true,
         "interpolation_residual": 1.5700924586837752e-16,
+        "exact_recoverable": true
+      },
+      {
+        "sensor_profile": "protected_hidden",
+        "functional_name": "second_moment",
+        "horizon": 4,
+        "predicted_min_horizon": 2,
+        "prediction_matches": true,
+        "interpolation_available": true,
+        "interpolation_residual": 1.2412670766236366e-16,
         "exact_recoverable": true
       },
       {
@@ -9240,10 +9240,10 @@
         "predicted_min_horizon": 1,
         "observed_min_horizon": 1,
         "exact_recoverable": true,
-        "rowspace_residual": 2.3055512673781017e-16,
-        "collision_gap": 5.329070518200751e-16,
-        "mean_recovery_error": 1.6553425297161085e-16,
-        "max_recovery_error": 4.440892098500626e-16
+        "rowspace_residual": 1.2719202621569003e-16,
+        "collision_gap": 7.771561172376096e-16,
+        "mean_recovery_error": 0.0,
+        "max_recovery_error": 0.0
       },
       {
         "case_name": "four_active",
@@ -9254,9 +9254,9 @@
         "predicted_min_horizon": 1,
         "observed_min_horizon": 1,
         "exact_recoverable": true,
-        "rowspace_residual": 3.608224830031759e-16,
-        "collision_gap": 1.7763568394002506e-16,
-        "mean_recovery_error": 2.5755920923504137e-16,
+        "rowspace_residual": 5.064917260848195e-16,
+        "collision_gap": 4.440892098500626e-16,
+        "mean_recovery_error": 2.648536501226317e-16,
         "max_recovery_error": 8.881784197001252e-16
       },
       {
@@ -9268,10 +9268,10 @@
         "predicted_min_horizon": 1,
         "observed_min_horizon": 1,
         "exact_recoverable": true,
-        "rowspace_residual": 4.257835571332685e-15,
+        "rowspace_residual": 8.585585147181251e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.9551656090233505e-15,
-        "max_recovery_error": 5.773159728050814e-15
+        "mean_recovery_error": 2.2807365525068235e-15,
+        "max_recovery_error": 6.217248937900877e-15
       },
       {
         "case_name": "four_active",
@@ -9282,10 +9282,10 @@
         "predicted_min_horizon": 1,
         "observed_min_horizon": 1,
         "exact_recoverable": true,
-        "rowspace_residual": 1.759747271996753e-14,
+        "rowspace_residual": 1.2664763313167397e-13,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.2684136331927221e-14,
-        "max_recovery_error": 3.4638958368304884e-14
+        "mean_recovery_error": 9.423348262060927e-14,
+        "max_recovery_error": 2.6201263381153694e-13
       },
       {
         "case_name": "four_active",
@@ -9296,10 +9296,10 @@
         "predicted_min_horizon": 1,
         "observed_min_horizon": 1,
         "exact_recoverable": true,
-        "rowspace_residual": 2.6471370052450307e-14,
+        "rowspace_residual": 4.4205152575982957e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 2.0228610847468724e-14,
-        "max_recovery_error": 4.973799150320701e-14
+        "mean_recovery_error": 2.5250880553162604e-14,
+        "max_recovery_error": 6.261657858885883e-14
       },
       {
         "case_name": "four_active",
@@ -9311,9 +9311,9 @@
         "observed_min_horizon": 2,
         "exact_recoverable": false,
         "rowspace_residual": 0.16243201015218006,
-        "collision_gap": 0.5808000000000002,
+        "collision_gap": 0.5808,
         "mean_recovery_error": 0.09322230025974025,
-        "max_recovery_error": 0.31612121212121214
+        "max_recovery_error": 0.316121212121212
       },
       {
         "case_name": "four_active",
@@ -9324,10 +9324,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 3.5224712442708127e-16,
-        "collision_gap": 7.862599460395358e-17,
-        "mean_recovery_error": 1.463384968758419e-16,
-        "max_recovery_error": 6.661338147750939e-16
+        "rowspace_residual": 1.0950489174571622e-15,
+        "collision_gap": 1.1102230246251565e-16,
+        "mean_recovery_error": 5.819233983572758e-16,
+        "max_recovery_error": 1.7763568394002505e-15
       },
       {
         "case_name": "four_active",
@@ -9338,10 +9338,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 2.3007953393101627e-15,
+        "rowspace_residual": 4.560220801727704e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.5283926871343e-16,
-        "max_recovery_error": 8.881784197001252e-16
+        "mean_recovery_error": 2.7624005900506176e-15,
+        "max_recovery_error": 7.549516567451064e-15
       },
       {
         "case_name": "four_active",
@@ -9352,10 +9352,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 5.798192227688178e-15,
+        "rowspace_residual": 4.9096405048520415e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.7217371169235777e-14,
-        "max_recovery_error": 4.973799150320701e-14
+        "mean_recovery_error": 3.397552239547963e-14,
+        "max_recovery_error": 9.170442183403793e-14
       },
       {
         "case_name": "four_active",
@@ -9366,10 +9366,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.0484521735686004e-14,
+        "rowspace_residual": 1.599282583256234e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 3.2458821203791276e-15,
-        "max_recovery_error": 6.8833827526759706e-15
+        "mean_recovery_error": 9.351919239009021e-15,
+        "max_recovery_error": 2.3092638912203256e-14
       },
       {
         "case_name": "four_active",
@@ -9381,9 +9381,9 @@
         "observed_min_horizon": 3,
         "exact_recoverable": false,
         "rowspace_residual": 0.12800702994836669,
-        "collision_gap": 0.4517120000000003,
-        "mean_recovery_error": 0.07340505418989902,
-        "max_recovery_error": 0.249758383838384
+        "collision_gap": 0.4517120000000001,
+        "mean_recovery_error": 0.07340505418989901,
+        "max_recovery_error": 0.24975838383838392
       },
       {
         "case_name": "four_active",
@@ -9394,10 +9394,10 @@
         "predicted_min_horizon": 3,
         "observed_min_horizon": 3,
         "exact_recoverable": false,
-        "rowspace_residual": 0.011247288319419792,
-        "collision_gap": 0.033408000000000146,
-        "mean_recovery_error": 0.00649309651484381,
-        "max_recovery_error": 0.019475076304269978
+        "rowspace_residual": 0.011247288319419823,
+        "collision_gap": 0.033408000000000104,
+        "mean_recovery_error": 0.006493096514843816,
+        "max_recovery_error": 0.01947507630427009
       },
       {
         "case_name": "four_active",
@@ -9408,10 +9408,10 @@
         "predicted_min_horizon": 3,
         "observed_min_horizon": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 1.934346581136773e-15,
+        "rowspace_residual": 3.2848169680256904e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.813620087443013e-15,
-        "max_recovery_error": 5.10702591327572e-15
+        "mean_recovery_error": 1.5472623182688495e-15,
+        "max_recovery_error": 4.440892098500626e-15
       },
       {
         "case_name": "four_active",
@@ -9422,10 +9422,10 @@
         "predicted_min_horizon": 3,
         "observed_min_horizon": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 5.2234341516042005e-15,
+        "rowspace_residual": 4.4590435784213296e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 6.043680833567322e-15,
-        "max_recovery_error": 1.687538997430238e-14
+        "mean_recovery_error": 1.158015350277708e-14,
+        "max_recovery_error": 3.4861002973229915e-14
       },
       {
         "case_name": "four_active",
@@ -9436,10 +9436,10 @@
         "predicted_min_horizon": 3,
         "observed_min_horizon": 3,
         "exact_recoverable": true,
-        "rowspace_residual": 9.702988092420396e-15,
+        "rowspace_residual": 1.474657317483889e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 2.4785132279880883e-15,
-        "max_recovery_error": 5.440092820663267e-15
+        "mean_recovery_error": 1.9442131238278647e-14,
+        "max_recovery_error": 5.084821452783217e-14
       },
       {
         "case_name": "four_active",
@@ -9450,9 +9450,9 @@
         "predicted_min_horizon": 4,
         "observed_min_horizon": 4,
         "exact_recoverable": false,
-        "rowspace_residual": 0.24966128370332627,
+        "rowspace_residual": 0.24966128370332624,
         "collision_gap": 0.8756316000000002,
-        "mean_recovery_error": 0.1432542863127273,
+        "mean_recovery_error": 0.14325428631272727,
         "max_recovery_error": 0.48707963636363644
       },
       {
@@ -9464,10 +9464,10 @@
         "predicted_min_horizon": 4,
         "observed_min_horizon": 4,
         "exact_recoverable": false,
-        "rowspace_residual": 0.029583261587559778,
-        "collision_gap": 0.0879119999999999,
-        "mean_recovery_error": 0.017066309275786652,
-        "max_recovery_error": 0.051996373603364954
+        "rowspace_residual": 0.029583261587559834,
+        "collision_gap": 0.08791199999999988,
+        "mean_recovery_error": 0.017066309275786687,
+        "max_recovery_error": 0.051996373603366064
       },
       {
         "case_name": "four_active",
@@ -9478,10 +9478,10 @@
         "predicted_min_horizon": 4,
         "observed_min_horizon": 4,
         "exact_recoverable": false,
-        "rowspace_residual": 0.0012023043759943485,
-        "collision_gap": 0.0033696000000000975,
-        "mean_recovery_error": 0.0006944766876708024,
-        "max_recovery_error": 0.002135082588495818
+        "rowspace_residual": 0.0012023043759956493,
+        "collision_gap": 0.0033696000000001786,
+        "mean_recovery_error": 0.0006944766876706814,
+        "max_recovery_error": 0.0021350825884930424
       },
       {
         "case_name": "four_active",
@@ -9492,10 +9492,10 @@
         "predicted_min_horizon": 4,
         "observed_min_horizon": 4,
         "exact_recoverable": true,
-        "rowspace_residual": 7.427300760240727e-15,
+        "rowspace_residual": 6.490559461336811e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.560193640948171e-15,
-        "max_recovery_error": 3.1086244689504383e-15
+        "mean_recovery_error": 2.4004909171537748e-15,
+        "max_recovery_error": 7.327471962526033e-15
       },
       {
         "case_name": "four_active",
@@ -9506,10 +9506,10 @@
         "predicted_min_horizon": 4,
         "observed_min_horizon": 4,
         "exact_recoverable": true,
-        "rowspace_residual": 1.4373322045076425e-14,
+        "rowspace_residual": 2.1180705120124634e-14,
         "collision_gap": 0.0,
-        "mean_recovery_error": 6.876521574383787e-15,
-        "max_recovery_error": 1.4432899320127035e-14
+        "mean_recovery_error": 1.3077561256125136e-14,
+        "max_recovery_error": 3.019806626980426e-14
       },
       {
         "case_name": "hidden_last",
@@ -9521,9 +9521,9 @@
         "observed_min_horizon": 2,
         "exact_recoverable": false,
         "rowspace_residual": 0.04834327278571109,
-        "collision_gap": 0.15520000000000006,
+        "collision_gap": 0.1551999999999999,
         "mean_recovery_error": 0.02790921831610044,
-        "max_recovery_error": 0.08170162481536182
+        "max_recovery_error": 0.08170162481536186
       },
       {
         "case_name": "hidden_last",
@@ -9534,10 +9534,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 2.482534153247273e-16,
-        "collision_gap": 9.066593629715777e-17,
-        "mean_recovery_error": 6.268076335746998e-17,
-        "max_recovery_error": 3.3306690738754696e-16
+        "rowspace_residual": 5.661048867003676e-16,
+        "collision_gap": 2.220446049250313e-16,
+        "mean_recovery_error": 4.299338662860919e-16,
+        "max_recovery_error": 1.3322676295501878e-15
       },
       {
         "case_name": "hidden_last",
@@ -9548,10 +9548,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.0389486995761859e-14,
+        "rowspace_residual": 9.575150641977675e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 6.699233182083652e-15,
-        "max_recovery_error": 1.8207657603852567e-14
+        "mean_recovery_error": 3.391776443040229e-15,
+        "max_recovery_error": 8.43769498715119e-15
       },
       {
         "case_name": "hidden_last",
@@ -9562,10 +9562,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 1.5161761050816639e-15,
+        "rowspace_residual": 2.3347702487811585e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 1.6526276874762046e-15,
-        "max_recovery_error": 4.218847493575595e-15
+        "mean_recovery_error": 9.291456493087935e-16,
+        "max_recovery_error": 2.3314683517128287e-15
       },
       {
         "case_name": "hidden_last",
@@ -9576,10 +9576,10 @@
         "predicted_min_horizon": 2,
         "observed_min_horizon": 2,
         "exact_recoverable": true,
-        "rowspace_residual": 2.2650998591337196e-15,
+        "rowspace_residual": 1.1827914066321619e-15,
         "collision_gap": 0.0,
-        "mean_recovery_error": 9.319940652563475e-16,
-        "max_recovery_error": 2.886579864025407e-15
+        "mean_recovery_error": 2.2445795222481025e-15,
+        "max_recovery_error": 5.773159728050814e-15
       },
       {
         "case_name": "hidden_last",

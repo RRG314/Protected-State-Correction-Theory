@@ -1,0 +1,2 @@
+coefficient_dimension,observation_rank,fiber_dimension,exact_recoverable,target_mixed_fiber,rowspace_residual,collision_gap
+3,2,1,False,True,0.7071067811865476,2.0

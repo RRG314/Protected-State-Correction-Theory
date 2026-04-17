@@ -2,120 +2,127 @@
 
 ## Plain-Language Summary
 
-The finished OCP architecture is now explicit:
-- exact projector branch,
-- exact sector branch,
-- exact continuous projector anchor,
-- asymptotic continuous generator branch,
-- and a formal no-go boundary around the whole program.
+The finished architecture is branch-structured and falsification-first.
 
-This is the main architectural cleanup that makes the repository reviewable.
+Primary branches:
+1. exact projector branch
+2. exact sector branch
+3. exact periodic continuous projection anchor
+4. asymptotic generator branch
+5. bounded-domain/Hodge restricted exactness + obstruction branch
+6. constrained-observation recoverability branch
+7. fiber-based recoverability / impossibility limits branch
+8. descriptor-fiber anti-classifier quantitative branch
+9. cross-branch no-go boundary layer
+
+This architecture is intentionally not a universal one-law system.
 
 ## 1. Exact Projector Branch
-
-This is the narrowest and cleanest branch.
 
 Objects:
 - protected subspace `S`
 - disturbance subspace `D`
-- orthogonal projector `P_S`
+- projector `P_S`
 
 Output:
-- one-step exact recovery
-
-Main theorem:
-- OCP-T1
+- one-step exact recovery on orthogonal split class
 
 ## 2. Exact Sector Branch
 
-This branch handles systems where disturbance is not one complementary subspace but a family of distinguishable sectors.
-
 Objects:
-- protected space `S`
-- sector family `D_i`
-- sector projectors `Q_i`
-- sector-conditioned recovery architecture
+- protected sector
+- disturbance sector family
+- sector projectors and sector-conditioned recovery
 
 Output:
-- exact recovery sector by sector
+- exact sector recovery under orthogonality/distinguishability assumptions
 
-Main theorem:
-- OCP-T5
-
-Main anchor:
-- QEC bit-flip example
-
-## 3. Exact Continuous Projector Anchor
-
-This branch is still exact, but now in a continuous/PDE-like setting.
+## 3. Exact Periodic Continuous Anchor
 
 Objects:
-- divergence-free protected subspace
-- gradient disturbance space
-- Leray/Helmholtz projector
+- divergence-free protected component
+- gradient disturbance component
+- periodic Leray/Helmholtz projector
 
 Output:
-- exact continuous correction on the periodic tested branch
+- exact periodic continuous correction anchor
 
-Main anchor:
-- periodic Helmholtz/Leray projection
-
-## 4. Asymptotic Continuous Generator Branch
-
-This branch handles systems where exact one-shot projection is unavailable or not the right architecture.
+## 4. Asymptotic Generator Branch
 
 Objects:
-- protected kernel `S = ker(K)` or invariant protected coordinates
-- disturbance family `D`
 - generator `K`
+- invariant split with stable disturbance restriction
 - semigroup `e^{-tK}`
 
 Output:
-- asymptotic suppression, not exact finite-time annihilation
+- asymptotic suppression
+- explicit no finite-time exactness boundary in smooth linear-flow class
 
-Main theorems:
-- OCP-T2
-- OCP-T3
-- OCP-C2
+## 5. Bounded-Domain / Hodge Branch
 
-Main boundary:
-- OCP-N7
+Objects:
+- bounded protected/disturbance classes
+- boundary compatibility constraints
+- domain-compatible Hodge/projector structures
 
-## 5. No-Go Boundary Layer
+Output:
+- restricted bounded exact theorem (`OCP-044`)
+- bounded transplant and divergence-only no-go boundaries (`OCP-023`, `OCP-028`)
 
-The no-go layer applies across all branches.
+## 6. Constrained-Observation Recoverability Branch
 
-It rules out:
-- overlap and ambiguity,
-- insufficient correction image,
-- mixing into protected coordinates,
+Objects:
+- admissible family `A`
+- record map `M` (`O` in restricted-linear form)
+- protected target `p` (`L` in restricted-linear form)
+
+Output:
+- exact/approximate/asymptotic/impossible regime classification
+- row-space/kernel compatibility criteria
+- collision-gap threshold and minimal augmentation laws
+
+## 7. Fiber-Based Recoverability / Impossibility Limits Branch
+
+Objects:
+- fibers of observation map
+- target hierarchy/coarsening maps
+- restricted family-enlargement and mismatch witnesses
+
+Output:
+- universal exact core: factorization/fiber constancy
+- anti-classifier and false-positive limits above that core
+
+## 8. Descriptor-Fiber Anti-Classifier Quantitative Branch
+
+Objects:
+- finite witness sets with exact/fail labels
+- descriptor fibers
+- compatibility refinement descriptors
+
+Output:
+- finite-class purity criterion for descriptor-only exactness
+- irreducible descriptor-only error lower bound
+- computed branch diagnostics (`DFMI`, `IDELB`, `CL`)
+
+## 9. No-Go Boundary Layer
+
+Cross-branch no-go outputs prevent overreach in:
+- overlap ambiguity,
 - sector overlap,
-- and false promotion of smooth damping as exact recovery.
+- finite-time exactness inflation,
+- boundary-oblivious bounded projections,
+- rank-only or budget-only exactness classifiers,
+- family-blind exactness and mismatch-robustness claims.
 
-## 6. What The Architecture Does Not Claim
+## Architecture Claim Boundary
 
-The final architecture deliberately does **not** claim:
-- universal correction theory across all systems,
-- full theorem-complete control theory,
-- full theorem-complete boundary-sensitive PDE theory,
-- or a universal scalar capacity invariant.
-
-## 7. Physics Extension
-
-The strongest honest physics extension now sits alongside, not above, the main theory.
-
-Kept physics lanes:
-- periodic incompressible projection as a kept CFD extension of the exact continuous branch,
-- Maxwell / Coulomb-gauge projection as an exact projector-compatible extension,
-- numerical-relativity constraint damping as a conditional asymptotic extension,
-- continuous quantum error correction as a conditional future bridge.
-
-Rejected or demoted physics lanes:
-- naive bounded-domain reuse of the periodic projector,
-- generic constrained Hamiltonian systems without an explicit correction operator.
+The architecture does **not** claim:
+- one universal scalar recoverability/capacity law,
+- one universal bounded-domain exact projection theorem,
+- one universal theorem unifying all branches beyond supported assumptions.
 
 ## Final Architectural Outcome
 
-The strongest honest global statement is now:
+The strongest honest statement is:
 
-> Protected-State Correction Theory is a finished framework with an exact projector branch, an exact sector branch, an exact periodic continuous anchor, an asymptotic generator branch, a strong no-go layer, and a disciplined physics extension.
+> Protected-State Correction Theory is a theorem-first, branch-structured program with exact and asymptotic correction anchors, constrained-observation and fiber-limit recoverability structure, bounded-domain obstruction discipline, and a strong no-go layer that enforces scope control.

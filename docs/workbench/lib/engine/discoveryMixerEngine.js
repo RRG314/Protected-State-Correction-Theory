@@ -231,7 +231,7 @@ function analyzeCustomLinear(config) {
         title: `Add ${augmentation.minimalAdded} candidate row${augmentation.minimalAdded === 1 ? '' : 's'}`,
         actionKind: 'add_measurement',
         rationale: 'This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.',
-        theoremStatus: 'theorem-backed restricted-linear result',
+        theoremStatus: 'restricted theorem-backed (restricted-linear)',
         minimal: true,
         availableInStudio: true,
         patch: { mode: 'custom', customFamily: 'linear', customLinearObservationText: [...observationRows, ...addedRows].map((row) => row.join(',')).join('\n') },
@@ -247,7 +247,7 @@ function analyzeCustomLinear(config) {
         title: `Weaken target to ${weakerTargets[0]}`,
         actionKind: 'weaken_target',
         rationale: 'The current record already supports this weaker basis target exactly.',
-        theoremStatus: 'theorem-backed restricted-linear result',
+        theoremStatus: 'restricted theorem-backed (restricted-linear)',
         minimal: false,
         availableInStudio: false,
       });
@@ -265,7 +265,7 @@ function analyzeCustomLinear(config) {
       asymptotic: false,
       impossible: !exact,
       unsupported: false,
-      theoremStatus: 'theorem-backed restricted-linear result',
+      theoremStatus: 'restricted theorem-backed (restricted-linear)',
       supportScope: 'Finite-dimensional restricted-linear family on an explicit coefficient box.',
       protectedLabel: `${protectedRows.length} protected row(s)`,
       observationLabel: `${observationRows.length} observation row(s)`,
@@ -273,16 +273,16 @@ function analyzeCustomLinear(config) {
       targetSplitSummary: weakerTargets.length ? weakerTargets.join(', ') : 'No weaker basis target was automatically certified.',
       rootCause: exact ? 'Current record row space is sufficient.' : 'Current record row space is insufficient.',
       missingStructure: exact ? 'No structural augmentation is required.' : 'Add rows until the protected rows lie in the record row space.',
-      objects: buildObjectsLinear(dimension, observationRows, protectedRows, candidateRows, 'theorem-backed restricted-linear result'),
+      objects: buildObjectsLinear(dimension, observationRows, protectedRows, candidateRows, 'restricted theorem-backed (restricted-linear)'),
       diagnostics: [
         {
           severity: exact ? 'success' : 'error',
           code: exact ? 'rowspace-supported' : 'rowspace-deficiency',
           title: exact ? 'Protected target lies in the record row space' : 'Record map does not separate the protected target',
           detail: exact ? 'The requested protected rows are already separated on the admissible family.' : 'At least one protected row lies outside the current observation row space on the admissible family.',
-          theoremStatus: 'theorem-backed restricted-linear result',
+          theoremStatus: 'restricted theorem-backed (restricted-linear)',
         },
-        ...(!exact ? [{ severity: 'warning', code: 'collision-gap', title: 'A protected collision gap survives at zero noise', detail: `The current κ(0) witness is ${collisionGap.toExponential(3)}.`, theoremStatus: 'theorem-backed restricted-linear result' }] : []),
+        ...(!exact ? [{ severity: 'warning', code: 'collision-gap', title: 'A protected collision gap survives at zero noise', detail: `The current κ(0) witness is ${collisionGap.toExponential(3)}.`, theoremStatus: 'restricted theorem-backed (restricted-linear)' }] : []),
       ],
       recommendations,
       chosenRecommendation,
@@ -645,18 +645,18 @@ function analyzeStructuredMixer(config) {
     const exact = architecture === 'boundary_compatible_hodge' || (!strong && architecture === 'periodic_transplant');
     const impossible = architecture === 'periodic_transplant' && strong;
     const chosenRecommendation = impossible ? {
-      title: 'Switch to boundary-compatible Hodge projector', actionKind: 'switch_architecture', rationale: 'The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.', theoremStatus: 'restricted exact bounded-domain result plus counterexample layer', minimal: true, availableInStudio: true, patch: structuredMixerPatch('structured', 'boundary', { structuredBoundaryArchitecture: 'boundary_compatible_hodge', structuredBoundaryProtected: config.structuredBoundaryProtected ?? 'bounded_velocity_class', structuredBoundaryGridSize: config.structuredBoundaryGridSize ?? 17, structuredDelta: config.structuredDelta ?? 0.2 }),
+      title: 'Switch to boundary-compatible Hodge projector', actionKind: 'switch_architecture', rationale: 'The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.', theoremStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)', minimal: true, availableInStudio: true, patch: structuredMixerPatch('structured', 'boundary', { structuredBoundaryArchitecture: 'boundary_compatible_hodge', structuredBoundaryProtected: config.structuredBoundaryProtected ?? 'bounded_velocity_class', structuredBoundaryGridSize: config.structuredBoundaryGridSize ?? 17, structuredDelta: config.structuredDelta ?? 0.2 }),
     } : null;
     return {
       title: 'Structured bounded-domain composition', mode: 'structured', family: 'boundary', familyLabel: 'Bounded-domain architecture benchmark', validity: 'supported', regime: exact ? 'exact' : 'impossible', status: uppercaseRegime(exact ? 'exact' : 'impossible'), exact, approximate: false, asymptotic: false, impossible, unsupported: false,
-      theoremStatus: 'restricted exact bounded-domain result plus counterexample layer', supportScope: 'Restricted bounded-domain family with compatible Hodge replacement.', protectedLabel: strong ? 'bounded velocity class with boundary compatibility' : 'bulk divergence certificate only', observationLabel: architecture.replaceAll('_', ' '), architectureLabel: architecture.replaceAll('_', ' '), targetSplitSummary: strong ? 'bulk divergence certificate only' : 'No weaker target needed.',
+      theoremStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)', supportScope: 'Restricted bounded-domain family with compatible Hodge replacement.', protectedLabel: strong ? 'bounded velocity class with boundary compatibility' : 'bulk divergence certificate only', observationLabel: architecture.replaceAll('_', ' '), architectureLabel: architecture.replaceAll('_', ' '), targetSplitSummary: strong ? 'bulk divergence certificate only' : 'No weaker target needed.',
       rootCause: impossible ? 'The transplanted periodic projector is incompatible with the bounded protected class.' : 'The current architecture is compatible with the bounded protected target.', missingStructure: impossible ? 'Use the boundary-compatible finite-mode Hodge family.' : 'No structural change is needed.',
       objects: [
-        { objectId: 'boundary-family', label: 'Bounded finite-mode Hodge family', objectType: 'admissible_family', family: 'boundary', domain: 'field coefficients', codomain: 'bounded velocity class', dimension: `${config.structuredBoundaryGridSize ?? 17}`, basis: 'boundary-compatible finite-mode basis', linearStatus: 'linear', supportStatus: 'restricted exact bounded-domain result plus counterexample layer', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['bounded domain', 'compatible trace basis'], notes: [] },
-        { objectId: 'boundary-record', label: architecture.replaceAll('_', ' '), objectType: 'correction_operator', family: 'boundary', domain: 'bounded velocity class', codomain: 'bounded velocity class', dimension: 'family-specific', basis: 'projector architecture', linearStatus: 'linear', supportStatus: 'restricted exact bounded-domain result plus counterexample layer', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['projector must respect boundary conditions'], notes: [] },
-        { objectId: 'boundary-target', label: strong ? 'bounded velocity class with boundary compatibility' : 'bulk divergence certificate only', objectType: 'protected_variable', family: 'boundary', domain: 'bounded velocity class', codomain: 'certificate', dimension: 'family-specific', basis: 'bounded basis', linearStatus: 'linear', supportStatus: 'restricted exact bounded-domain result plus counterexample layer', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['target must declare whether boundary compatibility matters'], notes: [] },
+        { objectId: 'boundary-family', label: 'Bounded finite-mode Hodge family', objectType: 'admissible_family', family: 'boundary', domain: 'field coefficients', codomain: 'bounded velocity class', dimension: `${config.structuredBoundaryGridSize ?? 17}`, basis: 'boundary-compatible finite-mode basis', linearStatus: 'linear', supportStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['bounded domain', 'compatible trace basis'], notes: [] },
+        { objectId: 'boundary-record', label: architecture.replaceAll('_', ' '), objectType: 'correction_operator', family: 'boundary', domain: 'bounded velocity class', codomain: 'bounded velocity class', dimension: 'family-specific', basis: 'projector architecture', linearStatus: 'linear', supportStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['projector must respect boundary conditions'], notes: [] },
+        { objectId: 'boundary-target', label: strong ? 'bounded velocity class with boundary compatibility' : 'bulk divergence certificate only', objectType: 'protected_variable', family: 'boundary', domain: 'bounded velocity class', codomain: 'certificate', dimension: 'family-specific', basis: 'bounded basis', linearStatus: 'linear', supportStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)', theoremLinks: ['../theorem-candidates/bounded-domain-hodge-theorems.md', '../cfd/bounded-vs-periodic-projection.md'], compatibilityRequirements: ['target must declare whether boundary compatibility matters'], notes: [] },
       ],
-      diagnostics: [{ severity: exact ? 'success' : 'error', code: 'boundary-compatibility', title: 'Boundary compatibility check', detail: impossible ? 'The current projector architecture is incompatible with the bounded protected target.' : 'The current architecture respects the bounded protected class.', theoremStatus: 'restricted exact bounded-domain result plus counterexample layer' }],
+      diagnostics: [{ severity: exact ? 'success' : 'error', code: 'boundary-compatibility', title: 'Boundary compatibility check', detail: impossible ? 'The current projector architecture is incompatible with the bounded protected target.' : 'The current architecture respects the bounded protected class.', theoremStatus: 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)' }],
       recommendations: chosenRecommendation ? [chosenRecommendation, { title: 'Weaken target to divergence certificate', actionKind: 'weaken_target', rationale: 'The transplanted architecture can support a weaker bulk divergence certificate even though it fails on the strong bounded class.', theoremStatus: 'family-specific weaker-target split', minimal: false, availableInStudio: true, patch: structuredMixerPatch('structured', 'boundary', { structuredBoundaryArchitecture: 'periodic_transplant', structuredBoundaryProtected: 'divergence_certificate', structuredBoundaryGridSize: config.structuredBoundaryGridSize ?? 17, structuredDelta: config.structuredDelta ?? 0.2 }) }] : [],
       chosenRecommendation,
       comparison: chosenRecommendation ? { beforeRegime: 'impossible', afterRegime: 'exact', keyMetricName: 'boundary mismatch', keyMetricBefore: transplant.projectedBoundaryNormalRms, keyMetricAfter: 5.172e-15, narrative: 'Switching to the compatible Hodge architecture removes the boundary mismatch on the restricted admissible family.', changed: true } : null,

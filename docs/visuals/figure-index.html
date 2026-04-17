@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OCP Figure Index (Clickable, Downloadable, Citable)</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --link: #1d4ed8;
+    }
+    body { margin: 0; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+    header { position: sticky; top: 0; z-index: 9; background: #fff; border-bottom: 1px solid var(--line); padding: 16px 20px; }
+    h1 { margin: 0; font-size: 22px; }
+    p { margin: 6px 0 0; color: var(--muted); }
+    main { max-width: 1500px; margin: 0 auto; padding: 18px; }
+    .notice { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 12px; margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; }
+    .card { border: 1px solid var(--line); border-radius: 10px; background: var(--panel); overflow: hidden; }
+    .meta { padding: 10px; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .meta .id { font-weight: 700; }
+    .meta .status { color: var(--muted); }
+    .thumb-wrap { display: block; border-bottom: 1px solid var(--line); }
+    img, video { display: block; width: 100%; height: auto; }
+    .links { padding: 10px; font-size: 13px; }
+    .links a { margin-right: 10px; color: var(--link); text-decoration: none; }
+    .cite { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; color: #1f2937; background: #f8fafc; border: 1px solid var(--line); border-radius: 6px; padding: 8px; margin-top: 8px; }
+    .wide { grid-column: 1 / -1; }
+    .modal {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 50;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal.open { display: flex; }
+    .modal img { max-width: 95vw; max-height: 92vh; width: auto; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.4); background: #fff; }
+    .modal .close {
+      position: absolute; top: 14px; right: 16px; font-size: 26px; color: white; cursor: pointer; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OCP Figure Index</h1>
+    <p>Click any image to expand. Every card includes direct download links and a stable citation ID.</p>
+  </header>
+  <main>
+    <div class="notice">
+      Recommended reading order: <a href="ocp-complete-visual-story.html">complete visual story</a>.
+      Full bundles: <a href="visual-gallery.html">gallery</a>, <a href="generated/visual-atlas.pdf">PDF atlas</a>, <a href="generated/O_visual_contact_sheet.png">contact sheet</a>.
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-A</span> Core geometry of recovery <span class="status">(Exact)</span></div>
+        <a class="thumb-wrap" href="generated/A_core_geometry_2d.png" data-full="generated/A_core_geometry_2d.png"><img src="generated/A_core_geometry_2d.png" alt="A core geometry"></a>
+        <div class="links">
+          <a href="generated/A_core_geometry_2d.png" download>Download PNG</a>
+          <a href="generated/A_core_geometry_2d.svg" download>Download SVG</a>
+          <a href="../finalization/theorem-spine-final.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-A | file: docs/visuals/generated/A_core_geometry_2d.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-B</span> Fiber-collapse views <span class="status">(Exact)</span></div>
+        <a class="thumb-wrap" href="generated/B_fiber_bipartite.png" data-full="generated/B_fiber_bipartite.png"><img src="generated/B_fiber_bipartite.png" alt="B fiber"></a>
+        <div class="links">
+          <a href="generated/B_fiber_bipartite.png" download>Download PNG</a>
+          <a href="generated/B_fiber_bipartite.svg" download>Download SVG</a>
+          <a href="../fiber-based-recoverability-and-impossibility/overview.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-B | file: docs/visuals/generated/B_fiber_bipartite.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-P</span> Exact-to-impossible tutorial animation <span class="status">(Exact)</span></div>
+        <a class="thumb-wrap" href="generated/P_transition_tutorial_panel.png" data-full="generated/P_transition_tutorial_panel.png"><img src="generated/P_transition_tutorial_panel.png" alt="P panel"></a>
+        <div class="links">
+          <a href="generated/P_transition_tutorial_panel.png" download>Download panel PNG</a>
+          <a href="generated/P_transition_tutorial_panel.svg" download>Download panel SVG</a>
+          <a href="generated/P_transition_tutorial_animation.gif" download>Download GIF</a>
+          <a href="generated/P_transition_tutorial_animation.mp4" download>Download MP4</a>
+          <div class="cite">Citation ID: OCP-FIG-P | files: P_transition_tutorial_panel, P_transition_tutorial_animation</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-D</span> Same-rank insufficiency <span class="status">(Exact counterexample)</span></div>
+        <a class="thumb-wrap" href="generated/D_same_rank_insufficiency.png" data-full="generated/D_same_rank_insufficiency.png"><img src="generated/D_same_rank_insufficiency.png" alt="D same rank"></a>
+        <div class="links">
+          <a href="generated/D_same_rank_insufficiency.png" download>Download PNG</a>
+          <a href="generated/D_same_rank_insufficiency.svg" download>Download SVG</a>
+          <a href="../research-program/theorem-normalization-report.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-D | file: docs/visuals/generated/D_same_rank_insufficiency.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-I</span> Alignment landscape <span class="status">(Exact sweep)</span></div>
+        <a class="thumb-wrap" href="generated/I_alignment_landscape.png" data-full="generated/I_alignment_landscape.png"><img src="generated/I_alignment_landscape.png" alt="I alignment"></a>
+        <div class="links">
+          <a href="generated/I_alignment_landscape.png" download>Download PNG</a>
+          <a href="generated/I_alignment_landscape.svg" download>Download SVG</a>
+          <a href="../theory/quantitative-recoverability.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-I | file: docs/visuals/generated/I_alignment_landscape.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-J</span> Perturbation fragility <span class="status">(Exact local analysis)</span></div>
+        <a class="thumb-wrap" href="generated/J_perturbation_fragility.png" data-full="generated/J_perturbation_fragility.png"><img src="generated/J_perturbation_fragility.png" alt="J fragility"></a>
+        <div class="links">
+          <a href="generated/J_perturbation_fragility.png" download>Download PNG</a>
+          <a href="generated/J_perturbation_fragility.svg" download>Download SVG</a>
+          <a href="../theory/stability-and-fragility.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-J | file: docs/visuals/generated/J_perturbation_fragility.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-E</span> Minimal augmentation law <span class="status">(Exact)</span></div>
+        <a class="thumb-wrap" href="generated/E_minimal_augmentation.png" data-full="generated/E_minimal_augmentation.png"><img src="generated/E_minimal_augmentation.png" alt="E augmentation"></a>
+        <div class="links">
+          <a href="generated/E_minimal_augmentation.png" download>Download PNG</a>
+          <a href="generated/E_minimal_augmentation.svg" download>Download SVG</a>
+          <a href="../theory/minimal-structure-classification.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-E | file: docs/visuals/generated/E_minimal_augmentation.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-Q</span> Augmentation tutorial animation <span class="status">(Exact)</span></div>
+        <a class="thumb-wrap" href="generated/Q_augmentation_tutorial_panel.png" data-full="generated/Q_augmentation_tutorial_panel.png"><img src="generated/Q_augmentation_tutorial_panel.png" alt="Q panel"></a>
+        <div class="links">
+          <a href="generated/Q_augmentation_tutorial_panel.png" download>Download panel PNG</a>
+          <a href="generated/Q_augmentation_tutorial_panel.svg" download>Download panel SVG</a>
+          <a href="generated/Q_augmentation_tutorial_animation.gif" download>Download GIF</a>
+          <a href="generated/Q_augmentation_tutorial_animation.mp4" download>Download MP4</a>
+          <div class="cite">Citation ID: OCP-FIG-Q | files: Q_augmentation_tutorial_panel, Q_augmentation_tutorial_animation</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-K</span> Family-enlargement failure <span class="status">(No-go witness)</span></div>
+        <a class="thumb-wrap" href="generated/K_family_enlargement_failure.png" data-full="generated/K_family_enlargement_failure.png"><img src="generated/K_family_enlargement_failure.png" alt="K family enlargement"></a>
+        <div class="links">
+          <a href="generated/K_family_enlargement_failure.png" download>Download PNG</a>
+          <a href="generated/K_family_enlargement_failure.svg" download>Download SVG</a>
+          <a href="../fiber-based-recoverability-and-impossibility/final-report.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-K | file: docs/visuals/generated/K_family_enlargement_failure.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-F</span> Periodic exact vs bounded failure <span class="status">(Exact + No-go)</span></div>
+        <a class="thumb-wrap" href="generated/F_periodic_vs_bounded.png" data-full="generated/F_periodic_vs_bounded.png"><img src="generated/F_periodic_vs_bounded.png" alt="F periodic bounded"></a>
+        <div class="links">
+          <a href="generated/F_periodic_vs_bounded.png" download>Download PNG</a>
+          <a href="generated/F_periodic_vs_bounded.svg" download>Download SVG</a>
+          <a href="../cfd/restricted-flow-recoverability.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-F | file: docs/visuals/generated/F_periodic_vs_bounded.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-N</span> Contamination sweep <span class="status">(Validated sweep)</span></div>
+        <a class="thumb-wrap" href="generated/N_periodic_bounded_contamination_sweep.png" data-full="generated/N_periodic_bounded_contamination_sweep.png"><img src="generated/N_periodic_bounded_contamination_sweep.png" alt="N contamination sweep"></a>
+        <div class="links">
+          <a href="generated/N_periodic_bounded_contamination_sweep.png" download>Download PNG</a>
+          <a href="generated/N_periodic_bounded_contamination_sweep.svg" download>Download SVG</a>
+          <a href="../cfd/next-phase-deep-dive.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-N | file: docs/visuals/generated/N_periodic_bounded_contamination_sweep.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-L</span> Dynamic rate layer <span class="status">(Asymptotic branch)</span></div>
+        <a class="thumb-wrap" href="generated/L_dynamic_rate_layer.png" data-full="generated/L_dynamic_rate_layer.png"><img src="generated/L_dynamic_rate_layer.png" alt="L dynamic"></a>
+        <div class="links">
+          <a href="generated/L_dynamic_rate_layer.png" download>Download PNG</a>
+          <a href="generated/L_dynamic_rate_layer.svg" download>Download SVG</a>
+          <a href="../theory/dynamic-correction-layer.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-L | file: docs/visuals/generated/L_dynamic_rate_layer.png</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="id">OCP-FIG-H</span> Cross-system status map <span class="status">(Schematic, status-faithful)</span></div>
+        <a class="thumb-wrap" href="generated/H_cross_system_structural_map.png" data-full="generated/H_cross_system_structural_map.png"><img src="generated/H_cross_system_structural_map.png" alt="H map"></a>
+        <div class="links">
+          <a href="generated/H_cross_system_structural_map.png" download>Download PNG</a>
+          <a href="generated/H_cross_system_structural_map.svg" download>Download SVG</a>
+          <a href="../research-program/final-theory-status-decision.md">Program location</a>
+          <div class="cite">Citation ID: OCP-FIG-H | file: docs/visuals/generated/H_cross_system_structural_map.png</div>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <div class="meta"><span class="id">OCP-FIG-O</span> Full contact sheet and printable atlas</div>
+        <a class="thumb-wrap" href="generated/O_visual_contact_sheet.png" data-full="generated/O_visual_contact_sheet.png"><img src="generated/O_visual_contact_sheet.png" alt="O contact sheet"></a>
+        <div class="links">
+          <a href="generated/O_visual_contact_sheet.png" download>Download contact sheet PNG</a>
+          <a href="generated/O_visual_contact_sheet.svg" download>Download contact sheet SVG</a>
+          <a href="generated/visual-atlas.pdf" download>Download visual-atlas.pdf</a>
+          <div class="cite">Citation ID: OCP-FIG-O | files: O_visual_contact_sheet + visual-atlas.pdf</div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded figure view">
+    <div class="close" id="lightbox-close">×</div>
+    <img id="lightbox-image" alt="Expanded figure" />
+  </div>
+
+  <script>
+    const modal = document.getElementById('lightbox');
+    const modalImg = document.getElementById('lightbox-image');
+    const close = document.getElementById('lightbox-close');
+    document.querySelectorAll('a[data-full]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalImg.src = link.getAttribute('data-full');
+        modal.classList.add('open');
+      });
+    });
+    function closeModal() { modal.classList.remove('open'); modalImg.src = ''; }
+    close.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>

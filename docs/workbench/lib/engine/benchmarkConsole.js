@@ -148,12 +148,18 @@ export function analyzeBenchmarkConsole(config = {}) {
     },
     {
       label: 'Recoverability / Observation Studio',
+      verdict: recoverabilityBenchmark.impossible ? 'exact/approximate/impossible split visible' : 'recheck',
+      evidence: 'constrained-observation regime analysis with theorem-linked diagnostics',
+      trust: 'qualified',
+    },
+    {
+      label: 'Structural Discovery Studio',
       verdict: recoverabilityBenchmark.impossible && recoverabilityBenchmark.chosenRecommendation ? 'threshold diagnosis + minimal fix' : 'recheck',
       evidence: 'family-backed threshold studio with theorem-linked comparison output',
       trust: 'qualified',
     },
     {
-      label: 'Structural Discovery Studio',
+      label: 'Structural Discovery Studio (Boundary mode)',
       verdict: structuralBenchmark.impossible && structuralBenchmark.comparison?.afterRegime === 'exact' ? 'diagnosis-to-repair workflow' : 'recheck',
       evidence: 'architecture mismatch diagnosis with validated before/after repair',
       trust: 'qualified',
@@ -208,4 +214,3 @@ export function analyzeBenchmarkConsole(config = {}) {
     },
   };
 }
-

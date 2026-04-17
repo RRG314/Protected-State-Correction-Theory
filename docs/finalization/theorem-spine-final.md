@@ -2,84 +2,96 @@
 
 ## Plain-Language Summary
 
-This is the current promoted positive theorem spine of the repository.
+This is the canonical promoted positive theorem spine.
 
-It is still intentionally narrow. The strongest promoted results are:
-- exact projector recovery,
-- exact sector recovery,
-- asymptotic generator recovery,
-- the restricted-linear minimal augmentation theorem,
-- and one restricted bounded-domain exact theorem on the repository's boundary-compatible finite-mode Hodge family.
+It is intentionally scoped and branch-aware. The strongest promoted positive package is:
+- exact projector and exact sector anchors,
+- asymptotic invariant-split generator branch,
+- bounded-domain restricted exact subcase,
+- constrained-observation restricted-linear recoverability package,
+- and fiber-level target-hierarchy theorem content that survives falsification.
 
-Anything broader remains conditional, open, or explicitly demoted.
+No universal one-law theorem is claimed.
 
-## Exact Branch
+## 1. Exact Projector And Sector Anchors
 
-### OCP-T1: Exact Protected-Subspace Recovery
-- Setup: `H = S ⊕ D`, `S ⟂ D`
-- Result: orthogonal projection `P_S` recovers the protected component exactly.
-- Role: finite-dimensional backbone.
+### OCP-002 (OCP-T1): Exact orthogonal projection theorem
+- setup: `H = S ⊕ D`, `S ⟂ D`
+- result: `P_S` recovers protected component exactly
+- role: finite-dimensional exact backbone
 
-### OCP-C1: Uniqueness Among Linear Recoveries
-- Setup: same as OCP-T1.
-- Result: any linear map fixing `S` and annihilating `D` agrees with `P_S`.
-- Role: tells the exact projector branch there is essentially one linear recovery operator once the split is fixed.
+### OCP-019 (OCP-T5): Exact sector recovery theorem
+- setup: pairwise orthogonal coordinate-compatible disturbance sectors
+- result: one sector-conditioned operator recovers each sector exactly
+- role: strongest exact sector/QEC-style branch theorem
 
-### OCP-T5: Exact Sector Recovery For Orthogonal Sector Embeddings
-- Setup: protected space `S`, pairwise orthogonal sector family `D_i`, coordinate-compatible embeddings.
-- Result: a single sector-conditioned operator recovers each sector exactly.
-- Role: exact sector branch and strongest bridge to QEC.
+### OCP-016 (OCP-T4): Exact correction rank lower bound
+- result: exact linear correction requires sufficient recovery/correction image rank
+- role: minimum-structure theorem in exact linear branch
 
-## Asymptotic Branch
+## 2. Asymptotic Generator Spine
 
-### OCP-T2: Continuous Damping Theorem
-- Setup: `x_dot = -k P_D x`, `k > 0`.
-- Result: `S` stays fixed, `D` decays exponentially.
-- Role: simplest exact-to-asymptotic bridge.
+### OCP-013 (OCP-T3): Invariant-split generator theorem
+- result: protected component preserved, disturbance suppressed asymptotically under split/stability assumptions
 
-### OCP-T3: Invariant-Split Generator Theorem
-- Setup: `K|_S = 0`, `K(D) ⊆ D`, stable restriction on `D`.
-- Result: `x_dot = -Kx` preserves `S` and suppresses `D` asymptotically.
-- Role: strongest general positive theorem in the continuous branch.
+### OCP-014 (OCP-C2): Self-adjoint PSD corollary
+- result: explicit spectral-gap decay bound
 
-### OCP-C2: Self-Adjoint PSD Corollary
-- Setup: self-adjoint PSD `K` with `ker(K)=S` and positive spectral gap on `S^⊥`.
-- Result: explicit decay bound.
-- Role: cleanest ready-to-cite continuous corollary.
+### OCP-004 (OCP-T2): Continuous damping theorem
+- role: simplest exact-to-asymptotic bridge
 
-## Minimum-Structure Layer
+## 3. Bounded-Domain Restricted Exactness
 
-### OCP-T4: Exact Correction Rank Lower Bound
-- Setup: exact linear recovery `R` on `V = S ⊕ D`.
-- Result: `rank(I-R) >= dim(D)` and `rank(R) >= dim(S)`.
-- Role: minimum correction image theorem in the exact linear branch.
+### OCP-044 (OCP-T7): Boundary-compatible finite-mode Hodge projection
+- result: exact bounded-domain correction on explicit boundary-compatible finite-mode family
+- role: restricted but real positive bounded-domain theorem
 
-### OCP-T6: Restricted-Linear Minimal Augmentation Theorem
-- Setup: restricted linear family `x = F z`, record `O F z`, protected variable `L F z`.
-- Result: the minimum number of unrestricted added linear measurements needed for exact recovery is `δ(O, L; F) = rank([O F; L F]) - rank(O F)`.
-- Role: first finished category-specific capacity theorem in the restricted-linear design branch.
+## 4. Constrained-Observation Restricted-Linear Spine
 
-## Restricted Bounded-Domain Exact Layer
+### OCP-030: Observation fiber exactness
+- exact recoverability iff protected target is fiber-constant
 
-### OCP-T7: Boundary-Compatible Finite-Mode Hodge Projection
-- Setup: bounded-domain family built from boundary-compatible divergence-free stream modes and Dirichlet gradient modes.
-- Result: the orthogonal projector onto the protected bounded family is exact on that family.
-- Role: restricted but real partial solution to the bounded-domain exact-correction problem.
+### OCP-031: Restricted linear protected-variable recovery
+- exactness iff `ker(O F) ⊆ ker(L F)` (equivalently row-space compatibility)
 
-## What Is Deliberately Not In The Final Theorem Spine
+### OCP-043: Nested restricted-linear collision-gap threshold law
+- structured gap vanishes exactly at first exact level and gives sub-threshold lower bound
 
-The following stay out of the final positive theorem spine:
-- any universal scalar capacity theorem,
-- any full control-theory theorem beyond the invariant-split branch,
-- any claim that GLM is exact,
-- any optimizer/ML theorem,
-- any broad boundary-sensitive exact PDE theorem beyond the solved finite-mode bounded Hodge subcase,
-- and any attempt to count the Maxwell / gauge extension as a new theorem rather than a corollary-level physics fit of the exact projector branch.
+### OCP-045: Restricted-linear minimal augmentation theorem
+- exact unrestricted added-measurement count:
+`δ(O, L; F) = rank([O F; L F]) - rank(O F)`
+
+### OCP-046: Restricted-linear exact-regime upper envelope
+- exact branch stability envelope:
+`κ(δ) ≤ ||K||_2 δ`
+
+## 5. Fiber-Level Positive Hierarchy Result
+
+### OCP-048: Detectable-only through target coarsening
+- exact stronger target implies exact coarsening; converse can fail
+- role: clean positive theorem in fiber/target-hierarchy layer
+
+## 6. Descriptor-Fiber Quantitative Extraction (Supported Witness Classes)
+
+### Descriptor-fiber purity criterion (branch-limited)
+- on finite witness classes, perfect descriptor-only classification exists iff every descriptor fiber is verdict-pure.
+- role: exact finite-class criterion above anti-classifier witness suites.
+
+### Irreducible descriptor-only error lower bound (branch-limited)
+- on finite witness classes, any descriptor-only classifier incurs error at least `IDELB`.
+- role: quantitative lower bound that sharpens amount-only insufficiency claims.
+
+## Deliberately Not Promoted As Positive Spine
+
+- universal scalar capacity theorem (`OCP-009` remains open/failed as universal claim)
+- universal rank/count/budget exactness classifiers (falsified in no-go spine)
+- broad bounded-domain exact theorem beyond the solved restricted finite-mode family
+- universal cross-branch theory statement beyond current branch-limited candidate
+- entropy or inverse-problem reframing where exact operator statements are sharper
 
 ## Finished Assessment
 
-This theorem spine is now finished enough to support outside review because each promoted statement has:
-- a clean statement,
-- explicit assumptions,
-- operator-level meaning,
-- and executable support in the repository.
+The promoted theorem spine is now coherent with the live claim registry and branch structure:
+- operator-first overall,
+- functional-analysis-first in continuous/bounded-domain lanes,
+- geometry retained as theorem-support diagnostics where computable and branch-valid.

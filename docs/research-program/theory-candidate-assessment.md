@@ -4,12 +4,24 @@
 
 This note asks whether the branch results now support a serious theory candidate, or only a more careful reframing.
 
+For the lens-integration and multi-candidate falsification pass, see:
+- [theory-candidate-comparison.md](theory-candidate-comparison.md)
+- [final-theory-formation-decision.md](final-theory-formation-decision.md)
+
 The current focused candidate is:
 
 **Protected-Variable Recoverability Theory (PVRT)**
 
 Core claim under test:
 - recoverability depends on the interaction between the observation map, the protected variable, and the admissible family, not just on the amount of information.
+
+This file now also tracks a second, more falsification-heavy branch:
+
+**Fiber-Based Recoverability and Impossibility**
+
+Core claim under test:
+- exact recoverability has a genuine universal factorization core,
+- but stronger exact classifiers already fragment above that level.
 
 ## Candidate Theory Statements
 
@@ -60,6 +72,9 @@ Why it is no longer enough:
 The strongest honest theory statement now is:
 
 > Protected-variable recoverability is governed by the compatibility between observation fibers and protected-variable distinctions on the admissible family. In restricted finite-dimensional linear families this compatibility becomes a real theorem program: exactness is row-space inclusion, exact-regime ambiguity is linearly bounded above by an exact recovery operator, exact failure is quantified below by collision gaps, and minimal unrestricted augmentation is given by the row-space deficiency `δ(O, L; F)`.
+
+The strongest new limit added on top of that statement is:
+- exactness on a smaller admissible family does not certify exactness on an enlarged one once the enlarged family restores hidden target-changing directions inside the record kernel.
 
 This is narrower than a universal theory.
 It is also stronger than “just a framework.”
@@ -139,3 +154,54 @@ Reject as theory claims:
 - “information amount alone” language
 - universal threshold language
 - any statement that makes the current branch less restricted than the proofs justify
+
+## Unified Branch Assessment
+
+### Candidate D: Broad Unified Recoverability Theory
+
+Claim:
+- a serious universal theorem unifies observability, decodability, inverse recovery, QEC correction, PDE recovery, and detectability through one positive law stronger than fiber compatibility.
+
+Verdict:
+- rejected
+
+Why:
+- universal threshold language failed,
+- universal detectability language failed,
+- amount-only classifiers fail already inside the restricted-linear branch.
+
+### Candidate E: Fiber-Based Recoverability / Impossibility Limits Branch
+
+Claim:
+- the universal exact core is factorization through the record map,
+- the universal obstruction is fiber collision,
+- stronger exactness laws above that level must be restricted and structural rather than amount-only.
+
+Verdict:
+- strongest surviving branch-wide formulation
+
+Why it survives:
+- it keeps the standard universal exactness criterion,
+- it promotes the detectable-only/coarsening hierarchy honestly,
+- and it now has the no-rank-only theorem, the fixed-library same-budget strengthening, the noisy weaker-versus-stronger separation theorem, the family-enlargement false-positive theorem, and the canonical model-mismatch instability theorem as sharp branch results.
+
+Best honest summary:
+- not a theory of everything,
+- but a useful cross-field limits branch that says exactly where the common structure stops being universal.
+
+### Candidate F: Descriptor-Fiber Anti-Classifier Branch
+
+Claim:
+- finite witness-class descriptor fibers can be used to compute irreducible amount-only classification error and compatibility lift above existing anti-classifier witnesses.
+
+Verdict:
+- keep as a real branch-limited quantitative extraction lane (`PROVED ON SUPPORTED FAMILY` + `VALIDATED`).
+
+Why it survives:
+- purity and lower-bound statements are exact on finite witness classes,
+- generated invariants (`DFMI`, `IDELB`, `CL`) reproduce and sharpen existing rank/budget anti-classifier witnesses,
+- the lane adds measurable diagnostic value without pretending to be a universal theorem layer.
+
+Scope guard:
+- keep this branch explicitly subordinate to restricted-linear/fiber theorem cores,
+- do not promote finite witness-class extraction to unrestricted continuous theory claims.

@@ -16,6 +16,40 @@
     "residual_at_0": 0.0,
     "residual_at_90": 1.0
   },
+  "recoverability_augmentation": {
+    "rank_before": 1,
+    "rank_after": 2,
+    "target_rank": 2,
+    "delta": 1,
+    "residual_before": 1.0,
+    "residual_after": 0.0
+  },
+  "ocp_operator_defects": {
+    "exact_preservation_defect": 0.0,
+    "exact_disturbance_leakage": 0.0,
+    "misaligned_preservation_defect": 0.09059174058954747,
+    "misaligned_disturbance_leakage": 0.19623742904288075,
+    "rank_before": 1,
+    "rank_after": 2,
+    "delta": 1
+  },
+  "mhd_tokamak_lane": {
+    "kappas": [
+      0.0,
+      0.4,
+      0.8
+    ],
+    "constant_eta_R_at_r1": [
+      4.0,
+      4.0,
+      4.0
+    ],
+    "variable_eta_R_at_r1": [
+      8.0,
+      8.8,
+      9.6
+    ]
+  },
   "mhd_sheet_scaling": {
     "deltas": [
       0.4,

@@ -1,0 +1,500 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\setlist{nosep}
+\begin{document}
+\section*{Exact Closure and Obstruction in Euler-Potential MHD Under Variable Resistivity}
+
+Steven Reid
+
+Independent Researcher
+
+ORCID: 0009-0003-9132-3410
+
+sreid1118@gmail.com
+
+April 2026
+
+
+\subsection*{Abstract}
+\begin{verbatim}
+We study closure for resistive MHD in Euler-potential form `B = ∇α × ∇β`, focusing on exactness versus obstruction under variable resistivity. The manuscript tightens scope to theorem-supported cylindrical families, makes domain assumptions explicit, and separates proved exact statements from validated asymptotic evidence. For constant resistivity, we provide exact/conditional classification on supported ansätze; for variable resistivity, we prove an obstruction layer with restricted annular survivors and no nonconstant smooth axis-touching survivors in the supported radial classes. We also develop a mixed reduced-MHD/tokamak-adjacent lane `β = z + q(r)θ`, with a constant-resistivity factorization law and a restricted exact annular ODE under variable resistivity. A perturbative layer gives first-order defect formulas, and sheet-profile benchmarks support `max|R| ~ ε/δ` scaling in the tested family. Claims are explicitly separated into proved, validated, interpretation, and open.
+\end{verbatim}
+
+Keywords: Euler potentials, resistive MHD, closure remainder, variable resistivity, cylindrical coordinates, annular domains, Helmholtz-Hodge structure
+
+
+\subsection*{1. Introduction}
+The Euler-potential representation B = ∇α × ∇β preserves ∇·B = 0 structurally, but resistive evolution introduces a closure mismatch: naively diffusing α and β does not generically reproduce resistive diffusion of B. The central object is therefore the closure remainder R, and exact closure means solving a first-order correction equation that reproduces R exactly.
+
+
+Relative to the 2025 draft, this upgrade enforces four corrections.
+
+
+\begin{enumerate}
+\item Coordinate scope is narrowed to currently supported cylindrical families.
+\item Domain class is explicit (axis-touching versus annular).
+\item Variable-resistivity survivors are separated from smooth exact families.
+\item Symbolic verification is used as evidence, not as a substitute for theorem statements.
+\end{enumerate}
+
+This paper remains domain-specific and largely standalone. It interfaces with the broader correction/recoverability program only at a high level; abstract restricted-linear recoverability theorems are treated separately in papers/recoverability\_paper\_final.md and papers/ocp\_core\_paper.md.
+
+
+\subsubsection*{1.1 Contributions and Status Labels}
+\begin{itemize}
+\item PROVED (constant-eta cylindrical lanes): exact/conditional closure classification for supported alpha, beta ansätze.
+\item PROVED (variable-eta obstruction layer): annular-only nontrivial survivors in supported radial classes, with axis-touching smooth exclusion.
+\item PROVED (mixed tokamak-adjacent lane): constant-eta factorization law and restricted variable-eta annular exact ODE branch.
+\item PROVED (perturbative formulas): first-order defect laws for eta and alpha perturbations around exact bases.
+\item VALIDATED (benchmark lane): sheet-thinning defect localization/scaling behavior on declared families.
+\item INTERPRETATION: physical positioning remains conservative and does not claim full toroidal/reconnection closure theory.
+\end{itemize}
+
+\subsection*{2. Setup and Closure Remainder}
+Let (r,θ,z) denote cylindrical coordinates, with physical-component operators used consistently.
+
+
+Define:
+
+\begin{itemize}
+\item magnetic field: B(α,β) = ∇α × ∇β,
+\item naive source term: N(α,β;η) = ∇(ηΔα) × ∇β + ∇α × ∇(ηΔβ),
+\item true resistive term:
+\item constant η: T = η Δ\_vec B,
+\item variable η(r): T = η Δ\_vec B + ∇η × (∇×B).
+\end{itemize}
+
+The closure remainder is
+
+
+R = T - N.
+
+
+Exact closure in this paper means: there exist scalar correction sources (S\_α,S\_β) such that
+
+
+∇S\_α × ∇β + ∇α × ∇S\_β = R.
+
+
+\subsubsection*{Domain classes used throughout}
+\begin{itemize}
+\item Axis-touching smooth domain: includes r=0 and requires smooth non-singular profiles there.
+\item Annular domain: r ∈ [r\_min, r\_max] with r\_min > 0; singular-at-axis formulas can still be admissible.
+\end{itemize}
+
+\subsection*{3. Constant-Resistivity Exact Classification}
+
+\subsubsection*{Theorem 3.1 (Radial-rθ exactness)}
+For constant η, the family
+
+α=f(r), β=rθ
+
+is exactly closed for smooth f in the supported cylindrical framework.
+
+
+Status: PROVED
+
+Evidence: direct derivation + symbolic checks (MHD-T1).
+
+
+\subsubsection*{Theorem 3.2 (Radial-z exactness)}
+For constant η,
+
+α=f(r), β=z
+
+is exactly closed for smooth f.
+
+
+Status: PROVED
+
+Evidence: direct derivation + symbolic checks (MHD-T2).
+
+
+\subsubsection*{Theorem 3.3 (rθ-g(z) exactness)}
+For constant η,
+
+α=rθ, β=g(z)
+
+is exactly closed for smooth g.
+
+
+Status: PROVED
+
+Evidence: derivation + symbolic checks (MHD-T3).
+
+
+\subsubsection*{Theorem 3.4 (Conditional radial-θ exactness)}
+For constant η,
+
+α=f(r), β=θ
+
+is exact iff
+
+f(r)=a r\textasciicircum{}2 + b.
+
+
+Status: PROVED
+
+Evidence: exact residual factorization (MHD-T4).
+
+
+\subsubsection*{Proposition 3.5 (Infinite exact-family cardinality in constant resistivity)}
+In the supported constant-η cylindrical lanes, exact closure is not isolated: each lane contains infinitely many exact ansätze (for example, arbitrary smooth f in Theorems 3.1 and 3.2, arbitrary smooth g in Theorem 3.3).
+
+
+Status: PROVED
+
+Evidence: direct family parameter freedom in Theorems 3.1–3.3.
+
+
+\subsection*{4. Variable-Resistivity Obstruction and Restricted Survivors}
+
+\subsubsection*{Theorem 4.1 (Radial-rθ obstruction with annular survivor)}
+For nonconstant η(r), exactness in
+
+α=f(r), β=rθ
+
+forces an ODE yielding the nontrivial annular survivor
+
+f(r)=a√r+b.
+
+In axis-touching smooth domains, only trivial constants survive.
+
+
+Status: PROVED on the supported family
+
+Evidence: explicit residual + solved ODE (MHD-O1).
+
+
+\subsubsection*{Theorem 4.2 (Radial-z obstruction with annular survivor)}
+For nonconstant η(r), exactness in
+
+α=f(r), β=z
+
+forces the logarithmic annular branch
+
+f(r)=a log r + b;
+
+axis-touching smooth nonconstant survivors are excluded in the supported family.
+
+
+Status: PROVED on the supported family
+
+Evidence: explicit residual + solved ODE (MHD-O2).
+
+
+\subsubsection*{Theorem 4.3 (rθ-g(z) trivial-survivor theorem)}
+For nonconstant η(r) nonzero on an interval,
+
+α=rθ, β=g(z)
+
+has only trivial constant-g exact survivors.
+
+
+Status: PROVED
+
+Evidence: residual structure and symbolic verification (MHD-O3).
+
+
+\subsubsection*{Corollary 4.4 (No-smooth-axis nonconstant survivor theorem on supported radial classes)}
+For the supported radial families in Sections 4.1 and 4.2 with nonconstant η(r), nonconstant exact survivors are annular-only; there is no nonconstant smooth axis-touching survivor.
+
+
+Status: PROVED
+
+Evidence: Theorems 4.1 and 4.2 (axis regularity exclusions).
+
+
+\begin{verbatim}
+Figure 1 compares `|R(r)|` for constant and variable resistivity in a common mixed-lane formula. Figure 2 shows the near-axis singular behavior that motivates the axis-touching versus annular distinction.
+\end{verbatim}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/mhd/mhd_remainder_constant_vs_variable_eta.png}}
+\caption{Figure 1. Closure-defect magnitude |R(r)| for constant η and variable η=r\textasciicircum{}2 in the mixed-lane remainder formula.}
+\end{figure}
+
+\begin{verbatim}
+Figure 1. Closure-defect magnitude `|R(r)|` for constant `η` and variable `η=r^2` in the mixed-lane remainder formula.
+\end{verbatim}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/mhd/mhd_singularity_near_axis.png}}
+\caption{Figure 2. Near-axis singular behavior of |R(r)| on log-log axes for representative resistivity profiles.}
+\end{figure}
+
+\begin{verbatim}
+Figure 2. Near-axis singular behavior of `|R(r)|` on log-log axes for representative resistivity profiles.
+\end{verbatim}
+
+\subsection*{5. Mixed Tokamak / Reduced-MHD-Adjacent Lane}
+We consider
+
+α=f(r), β=z+q(r)θ.
+
+This lane is mathematically motivated by safety-factor-like shear profiles while remaining fully explicit in the current closure framework.
+
+
+\subsubsection*{Theorem 5.1 (Constant-η mixed factorization law)}
+For constant η, the z-component of the remainder factorizes as
+
+
+R\_z = (2η/r\textasciicircum{}3) (r f'' - f')(r q' - q),
+
+
+with R\_r = R\_θ = 0.
+
+Hence exactness is equivalent to
+
+(r f'' - f')(r q' - q)=0, i.e.
+
+\begin{itemize}
+\item branch A: f(r)=a r\textasciicircum{}2+b with arbitrary q(r), or
+\item branch B: q(r)=c r with arbitrary f(r).
+\end{itemize}
+
+Status: PROVED (MHD-XT1).
+
+
+\subsubsection*{Theorem 5.2 (Variable-η annular mixed branch)}
+For variable η(r), restricting to f(r)=a log r+b yields exactness iff
+
+
+(r\textasciicircum{}2 η' + 4rη) q' = (2rη' + 4η) q.
+
+
+For power law η(r)=r\textasciicircum{}m, one exact branch is
+
+q(r)=C r\textasciicircum{}((2m+4)/(m+4)).
+
+
+Status: PROVED (restricted annular) (MHD-XT2).
+
+
+\subsubsection*{Proposition 5.3 (Local toroidal shear obstruction term)}
+For q(r)=q0+κr in the same annular branch,
+
+
+R\_z = a(κ r\textasciicircum{}2 η' + 2 q0 r η' + 4 q0 η)/r\textasciicircum{}4.
+
+
+This isolates curvature/shear and coefficient-gradient coupling in a closed form.
+
+
+Status: PROVED (local) (MHD-XG1).
+
+
+Figure 3 visualizes the mixed tokamak-adjacent lane by sweeping shear parameter kappa in
+
+q(r)=q0+kappa r and comparing constant-eta versus variable-eta behavior. The variable-resistivity panel shows uniformly larger closure-defect magnitude across the tested shear values.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/mhd/mhd_mixed_tokamak_lane.png}}
+\caption{Figure 3. Mixed tokamak-lane visualization: closure-defect profiles for shear sweep kappa in \{0.0,0.4,0.8\} under constant and variable resistivity.}
+\end{figure}
+
+Figure 3. Mixed tokamak-lane visualization: closure-defect profiles for shear sweep kappa in \{0.0,0.4,0.8\} under constant and variable resistivity.
+
+
+\subsubsection*{5.4 Tokamak-claim scope discipline}
+The mixed lane is mathematically tokamak-adjacent through shear-profile structure (q(r)), but this paper does not claim full tokamak equilibrium closure or global toroidal classification.
+
+
+Status: INTERPRETATION
+
+Scope note: results in Section 5 are exact only for the declared cylindrical/annular ansätze.
+
+
+\subsection*{6. Perturbative and Asymptotic Defect Layer}
+
+\subsubsection*{Theorem 6.1 (First-order η-perturbation formula)}
+Around exact base α=a r\textasciicircum{}2+b, β=z+q(r)θ, η=η0+εη1(r),
+
+
+[R]\_ε = (0, 8aη1'(r), -2a(rq'(r)+2q(r))η1'(r)/r).
+
+
+Status: PROVED (MHD-XP1).
+
+
+\subsubsection*{Theorem 6.2 (First-order α-perturbation formula)}
+Around exact base α=a r\textasciicircum{}2+b+εh(r), β=z+q0θ, constant η,
+
+
+[R]\_ε = (0,0,2ηq0(-r h'' + h')/r\textasciicircum{}3).
+
+
+Status: PROVED (MHD-XP1 lane, alpha-perturbation component).
+
+
+\subsubsection*{Benchmark 6.3 (Sheet-thinning defect localization)}
+For
+
+η(r)=η0+ε tanh((r-r0)/δ),
+
+α=a log r, β=z+(q0+κr)θ,
+
+benchmarks show
+
+\begin{itemize}
+\item max|R| scales approximately as ε/δ,
+\item localization ratio near the sheet grows strongly as δ decreases,
+\item normalized quantity max|R| δ / ε remains near constant over tested δ.
+\end{itemize}
+
+Status: VALIDATED (MHD-XP2), not a universal theorem.
+
+
+\begin{verbatim}
+Figure 4 gives the computed sheet-thinning benchmark in the gradient-dominated lane: maxima increase with `1/δ`, and the normalized trend `max|R|·δ/ε` remains comparatively stable across the tested `δ` values.
+\end{verbatim}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/mhd/mhd_sheet_thinning_scaling.png}}
+\caption{Figure 4. Sheet-thinning defect scaling benchmark: max|R| versus 1/δ and normalized scaling check.}
+\end{figure}
+
+\begin{verbatim}
+Figure 4. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and normalized scaling check.
+\end{verbatim}
+
+\subsection*{7. Consolidated Classification Table}
+
+\begin{verbatim}
+| Lane | Constant `η` | Variable `η(r)` | Domain sensitivity | Status | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| `α=f(r), β=rθ` | exact for smooth `f` | nontrivial exact survivor `f=a√r+b` annular-only | axis-touching smooth nonconstant excluded | `PROVED` | residual factorization + ODE |
+| `α=f(r), β=z` | exact for smooth `f` | nontrivial exact survivor `f=a log r+b` annular-only | axis-touching smooth nonconstant excluded | `PROVED` | residual factorization + ODE |
+| `α=rθ, β=g(z)` | exact for smooth `g` | only constant `g` exact | no nontrivial survivor on supported family | `PROVED` | residual structure |
+| mixed `α=f(r), β=z+q(r)θ` | factorization law with two exact branches | restricted annular exact ODE (`XT2`) | annular restriction is essential | `PROVED (restricted)` | exact derivation |
+| sheet-profile asymptotic defect scaling | n/a | `max|R| ~ ε/δ` trend on tested family | profile-dependent | `VALIDATED` | reproducible benchmark |
+| full toroidal/global class | open | open | global geometry unresolved | `OPEN` | not solved |
+\end{verbatim}
+
+\begin{verbatim}
+Figure 5 quantifies axis sensitivity of annular survivor profiles through a regularity proxy `||f'(r)||_{L2([r_min,1])}`: the axis-touching limit is singular, while fixed annular cutoffs remain finite.
+\end{verbatim}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/mhd/mhd_axis_vs_annular_behavior.png}}
+\caption{Figure 5. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius r\_min decreases.}
+\end{figure}
+
+Figure 5. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius r\_min decreases.
+
+
+\subsection*{8. Status-Separated Claims}
+
+\subsubsection*{8.1 PROVED}
+\begin{itemize}
+\item Constant-η exact cylindrical families (Theorems 3.1–3.4).
+\item Infinite exact-family cardinality in constant η supported lanes (Proposition 3.5).
+\item Variable-η obstruction with annular survivors (Theorems 4.1–4.3).
+\item No-smooth-axis nonconstant survivor theorem on supported radial classes (Corollary 4.4).
+\item Mixed-lane factorization and restricted variable-η annular law (Theorems 5.1–5.2; Proposition 5.3).
+\item First-order perturbative defect formulas (Theorems 6.1–6.2).
+\end{itemize}
+
+\subsubsection*{8.2 VALIDATED}
+\begin{itemize}
+\item Sheet-thinning defect localization/scaling benchmark (Benchmark 6.3).
+\end{itemize}
+
+\subsubsection*{8.3 INTERPRETATION}
+\begin{itemize}
+\item Tokamak/reduced-MHD adjacency as motivation for the mixed lane (Section 5.4), without a full toroidal-physics claim.
+\end{itemize}
+
+\subsection*{9. Interpretation}
+
+\subsubsection*{9.1 What this paper now supports}
+\begin{itemize}
+\item Exact closure survives in explicit structured families.
+\item Variable resistivity introduces a real structural obstruction, not only a small perturbation.
+\item Domain class is decisive: annular exact survivors do not imply smooth axis-touching exactness.
+\item A limited mixed tokamak-adjacent lane is theorem-viable in restricted form.
+\end{itemize}
+
+\subsubsection*{9.2 What this paper does not claim}
+\begin{itemize}
+\item No full tokamak/toroidal closure classification.
+\item No universal reconnection theorem from remainder structure alone.
+\item No statement that symbolic checks replace closed-form arguments.
+\end{itemize}
+
+\subsubsection*{9.3 Position Relative to Existing Work}
+Classical MHD and Euler-potential literature establishes the governing equations, representation issues, and broad physical context. This paper contributes a narrower, explicitly scoped package: theorem-labeled closure/obstruction classification on declared cylindrical families, annular-versus-axis scope separation, and a status-separated perturbative/benchmark layer. The likely distinct contribution is this disciplined theorem-plus-obstruction packaging under variable resistivity in supported families, not a complete toroidal or reconnection theory.
+
+
+\subsection*{10. Limitations and Scope}
+\begin{enumerate}
+\item Main proofs are cylindrical-family restricted.
+\item Annular survivor theorems do not transfer automatically to axis-touching smooth domains.
+\item Dynamic PDE evolution beyond static closure remainder structure remains mostly open.
+\item Asymptotic sheet scaling is benchmark-validated, not universal.
+\end{enumerate}
+
+\subsection*{11. Conclusion}
+This upgraded paper replaces broad language with a sharper theorem/no-go package: exact constant-resistivity cylindrical anchors, explicit variable-resistivity obstruction with restricted annular survivors, a new mixed reduced-MHD/tokamak-adjacent theorem lane, and a perturbative/asymptotic defect layer with clear status labels. The next mathematically serious step is to extend restricted local/toroidal obstructions and higher-order perturbative correction theory without relaxing scope discipline.
+
+
+\subsection*{12. Administrative Statements}
+\subsubsection*{12.1 Funding}
+This research received no external funding.
+
+
+\subsubsection*{12.2 AI Usage Statement}
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
+
+
+\subsubsection*{12.3 Data and Code Availability}
+Primary MHD repository: https://github.com/RRG314/MagnetoHydroDynamic-research.
+
+This finalized paper version, cross-paper synchronization notes, and companion figure scripts are also tracked in the OCP companion repository: https://github.com/RRG314/Protected-State-Correction-Theory.
+
+
+\subsubsection*{12.4 Conflict of Interest}
+The author declares no conflict of interest.
+
+
+\subsubsection*{12.5 Reproducibility Note}
+Figures in this manuscript are generated and checked via:
+
+\begin{itemize}
+\item python scripts/figures/generate\_publication\_figures.py
+\item python scripts/figures/validate\_publication\_figures.py
+\end{itemize}
+The metrics and validation outputs are stored under data/generated/figures/.
+
+
+\subsection*{13. References}
+\begin{enumerate}
+\item P. A. Davidson, An Introduction to Magnetohydrodynamics, Cambridge University Press, Cambridge, 2001.
+\item D. Biskamp, Magnetohydrodynamic Turbulence, Cambridge University Press, Cambridge, 2003.
+\item A. Brandenburg, “Magnetic field evolution in simulations with Euler potentials,” Monthly Notices of the Royal Astronomical Society, 401(1) (2010), 347–358. DOI: 10.1111/j.1365-2966.2009.15500.x.
+\item A. Dedner, F. Kemm, D. Kröner, C.-D. Munz, T. Schnitzer, and M. Wesenberg, “Hyperbolic divergence cleaning for the MHD equations,” Journal of Computational Physics, 175(2) (2002), 645–673. DOI: 10.1006/jcph.2001.6961.
+\item E. R. Priest and T. G. Forbes, Magnetic Reconnection: MHD Theory and Applications, Cambridge University Press, Cambridge, 2000.
+\item J. P. Goedbloed, R. Keppens, and S. Poedts, Magnetohydrodynamics of Laboratory and Astrophysical Plasmas, Cambridge University Press, Cambridge, 2019.
+\end{enumerate}
+
+\subsection*{14. Appendix A. Status Labels Used}
+\begin{itemize}
+\item PROVED: exact mathematical statement supported by derivation/proof.
+\item VALIDATED: reproducible computational evidence on declared families.
+\item CONDITIONAL: mathematically sound under explicit additional assumptions.
+\item OPEN: unresolved in current repo theorem spine.
+\item INTERPRETATION: explanatory framing not promoted as theorem.
+\end{itemize}
+\end{document}

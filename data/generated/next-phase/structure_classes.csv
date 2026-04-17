@@ -1,0 +1,4 @@
+case_name,structural_class,exact_recoverable,observation_rank,coefficient_dimension,rowspace_residual,principal_angle_defect,collision_gap,unrestricted_minimal_added_measurements
+robust-full-information,robust_exact_full_information,True,3,3,0.0,0.0,0.0,0
+exact-but-fragile-rank-deficient,aligned_exact_but_fragile,True,2,3,0.0,0.0,0.0,0
+augmentation-repairable,augmentation_repairable_misaligned,False,2,3,0.7071067811865476,0.7071067811865476,2.0,1

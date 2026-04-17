@@ -1,0 +1,2 @@
+cutoff,coarse_mode_count,refined_mode_count,coarse_exact_recoverable,refined_exact_recoverable,coarse_collision_gap,refined_collision_gap,refinement_false_positive_risk,refined_family_impossibility_lower_bound,coarse_decoder_max_error_on_refined_family,coarse_decoder_mean_error_on_refined_family
+2,2,4,True,False,0.0,1.9999999999999998,True,0.9999999999999999,1.0000000000000007,0.48

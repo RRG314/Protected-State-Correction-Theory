@@ -320,7 +320,7 @@
         "before_regime": "impossible",
         "after_regime": "exact",
         "key_metric": "\u03ba(0)",
-        "before_value": 0.07400000000000001,
+        "before_value": 0.07400000000000038,
         "after_value": 0.0,
         "changed": true,
         "narrative": "Extending the history horizon provides enough independent rows to interpolate the protected functional exactly."
@@ -346,13 +346,13 @@
           0.6400000000000001,
           0.42250000000000004
         ],
-        "collision_gap": 0.07400000000000001,
-        "rowspace_residual": 0.02590518155451836,
+        "collision_gap": 0.07400000000000038,
+        "rowspace_residual": 0.025905181554518358,
         "predicted_min_horizon": 3,
         "interpolation_weights": [
-          2.1955555555555266,
-          2.544444444444526,
-          -4.111111111111163
+          2.195555555555532,
+          2.5444444444445122,
+          -4.111111111111155
         ],
         "selected_delta": 0.5
       },
@@ -362,8 +362,8 @@
           "regime": "impossible",
           "horizon": 2,
           "predicted_min_horizon": 3,
-          "collision_gap": 0.07400000000000001,
-          "rowspace_residual": 0.02590518155451836
+          "collision_gap": 0.07400000000000038,
+          "rowspace_residual": 0.025905181554518358
         }
       ]
     },
@@ -564,7 +564,7 @@
       "asymptotic": false,
       "impossible": true,
       "unsupported": false,
-      "theorem_status": "theorem-backed restricted-linear result",
+      "theorem_status": "restricted theorem-backed (restricted-linear)",
       "support_scope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
       "protected_label": "1 protected row(s)",
       "observation_label": "2 observation row(s)",
@@ -583,7 +583,7 @@
           "dimension": "3",
           "basis": "x1, x2, x3",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -606,7 +606,7 @@
           "dimension": "2x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -628,7 +628,7 @@
           "dimension": "1x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -650,7 +650,7 @@
           "dimension": "3x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -669,14 +669,14 @@
           "code": "rowspace-deficiency",
           "title": "Record map does not separate the protected target",
           "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
-          "theorem_status": "theorem-backed restricted-linear result"
+          "theorem_status": "restricted theorem-backed (restricted-linear)"
         },
         {
           "severity": "warning",
           "code": "collision-gap",
           "title": "A protected collision gap survives at zero noise",
           "detail": "The current \u03ba(0) witness is 2.000e+00, so exact recovery is blocked until the row-space deficiency is removed.",
-          "theorem_status": "theorem-backed restricted-linear result"
+          "theorem_status": "restricted theorem-backed (restricted-linear)"
         }
       ],
       "recommendations": [
@@ -685,7 +685,7 @@
           "title": "Add 1 candidate row",
           "action_kind": "add_measurement",
           "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
-          "theorem_status": "theorem-backed restricted-linear result",
+          "theorem_status": "restricted theorem-backed (restricted-linear)",
           "estimated_cost": 1.0,
           "cost_unit": "rows",
           "expected_regime": "exact",
@@ -700,7 +700,7 @@
           "title": "Weaken target to coordinate x1",
           "action_kind": "weaken_target",
           "rationale": "The current record already supports this weaker basis target exactly, so target weakening is a real structural option.",
-          "theorem_status": "theorem-backed restricted-linear result",
+          "theorem_status": "restricted theorem-backed (restricted-linear)",
           "estimated_cost": null,
           "cost_unit": null,
           "expected_regime": "exact",
@@ -718,7 +718,7 @@
         "title": "Add 1 candidate row",
         "action_kind": "add_measurement",
         "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
-        "theorem_status": "theorem-backed restricted-linear result",
+        "theorem_status": "restricted theorem-backed (restricted-linear)",
         "estimated_cost": 1.0,
         "cost_unit": "rows",
         "expected_regime": "exact",
@@ -831,7 +831,7 @@
       "asymptotic": false,
       "impossible": true,
       "unsupported": false,
-      "theorem_status": "theorem-backed restricted-linear result",
+      "theorem_status": "restricted theorem-backed (restricted-linear)",
       "support_scope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
       "protected_label": "coordinate x3",
       "observation_label": "1 observation row(s)",
@@ -850,7 +850,7 @@
           "dimension": "3",
           "basis": "x1, x2, x3",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -873,7 +873,7 @@
           "dimension": "1x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -895,7 +895,7 @@
           "dimension": "1x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -917,7 +917,7 @@
           "dimension": "4x3",
           "basis": "row representation",
           "linear_status": "linear",
-          "support_status": "theorem-backed restricted-linear result",
+          "support_status": "restricted theorem-backed (restricted-linear)",
           "theorem_links": [
             "docs/theorem-candidates/constrained-observation-theorems.md",
             "docs/theorem-candidates/capacity-theorems.md"
@@ -936,14 +936,14 @@
           "code": "rowspace-deficiency",
           "title": "Record map does not separate the protected target",
           "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
-          "theorem_status": "theorem-backed restricted-linear result"
+          "theorem_status": "restricted theorem-backed (restricted-linear)"
         },
         {
           "severity": "warning",
           "code": "collision-gap",
           "title": "A protected collision gap survives at zero noise",
           "detail": "The current \u03ba(0) witness is 2.000e+00, so exact recovery is blocked until the row-space deficiency is removed.",
-          "theorem_status": "theorem-backed restricted-linear result"
+          "theorem_status": "restricted theorem-backed (restricted-linear)"
         }
       ],
       "recommendations": [
@@ -952,7 +952,7 @@
           "title": "Add 1 candidate row",
           "action_kind": "add_measurement",
           "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
-          "theorem_status": "theorem-backed restricted-linear result",
+          "theorem_status": "restricted theorem-backed (restricted-linear)",
           "estimated_cost": 1.0,
           "cost_unit": "rows",
           "expected_regime": "exact",
@@ -967,7 +967,7 @@
           "title": "Weaken target to coordinate x2",
           "action_kind": "weaken_target",
           "rationale": "The current record already supports this weaker basis target exactly, so target weakening is a real structural option.",
-          "theorem_status": "theorem-backed restricted-linear result",
+          "theorem_status": "restricted theorem-backed (restricted-linear)",
           "estimated_cost": null,
           "cost_unit": null,
           "expected_regime": "exact",
@@ -985,7 +985,7 @@
         "title": "Add 1 candidate row",
         "action_kind": "add_measurement",
         "rationale": "This is the smallest candidate-library augmentation whose row space contains the protected target on the admissible family.",
-        "theorem_status": "theorem-backed restricted-linear result",
+        "theorem_status": "restricted theorem-backed (restricted-linear)",
         "estimated_cost": 1.0,
         "cost_unit": "rows",
         "expected_regime": "exact",

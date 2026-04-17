@@ -1,0 +1,2 @@
+direction_id,lane,repo,direction,theorem_potential,anomaly_potential,reproducibility,novelty_risk,branch_value,triviality_risk,artifact_risk,impact_if_true,score,priority,status_hint,key_evidence
+SOL-D2,LANE D,soliton-geometry-research,CGL random-beats-perturbed anomaly,0.2,0.7,0.46,0.76,0.58,0.33,0.92,0.83,0.21838000000000002,KILL NOW,ARTIFACT RISK,artifact_survival_rate=0.00

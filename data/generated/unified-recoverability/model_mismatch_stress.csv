@@ -1,0 +1,4 @@
+label,family_dimension,subspace_distance,exact_recoverable_under_true_family,rowspace_residual,collision_gap,reference_decoder_max_error,reference_decoder_mean_error
+beta=0.5,2,0.3162277660168381,True,0.0,0.0,0.4472135954999582,0.29814239699997214
+beta=1.0,2,0.0,True,0.0,0.0,0.0,0.0
+beta=2.0,2,0.3162277660168378,True,0.0,0.0,0.44721359549995765,0.2981423969999717

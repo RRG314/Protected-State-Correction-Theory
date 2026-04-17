@@ -7,6 +7,9 @@ python3 scripts/report/build_claim_registry.py
 python3 scripts/report/build_system_report.py
 PYTHONPATH=src python3 scripts/compare/run_operator_examples.py
 PYTHONPATH=src python3 scripts/compare/run_recoverability_examples.py
+PYTHONPATH=src python3 scripts/compare/run_fiber_recoverability_examples.py
+PYTHONPATH=src python3 scripts/compare/run_decision_layer_examples.py
+PYTHONPATH=src python3 scripts/compare/run_next_phase_examples.py
 PYTHONPATH=src python3 scripts/compare/run_design_examples.py
 PYTHONPATH=src python3 scripts/compare/run_structural_discovery_examples.py
 PYTHONPATH=src python3 scripts/compare/run_discovery_mixer_examples.py
@@ -17,6 +20,7 @@ if command -v node >/dev/null 2>&1; then
 fi
 python3 scripts/validate/check_links.py
 python3 scripts/validate/check_naming.py
+python3 scripts/validate/check_visual_gallery.py
 python3 scripts/validate/check_workbench_static.py
 if command -v uv >/dev/null 2>&1; then
   PYTHONPATH=src uv run --with pytest python -m pytest -q
