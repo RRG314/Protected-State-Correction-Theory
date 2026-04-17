@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\setlist{nosep}
+\begin{document}
+\section*{Orthogonal Correction Principle in Restricted Linear Systems: A Foundational Companion Paper}
+
+Steven Reid
+
+Independent Researcher
+
+ORCID: 0009-0003-9132-3410
+
+sreid1118@gmail.com
+
+April 2026
+
+
+\subsection*{Abstract}
+This paper provides a concise foundational statement of the Orthogonal Correction Principle (OCP) in finite-dimensional linear settings. The central question is operator-structural: when does a correction map preserve the protected component while removing disturbance exactly? We give a complete characterization on a protected/disturbance decomposition and derive the restricted-linear recoverability criterion as a direct consequence. In the family x=Fz with observation y=OFz and protected target p(x)=LFz, exact linear decoding is equivalent to ker(OF) \textbackslash{}subseteq ker(LF) (equivalently row(LF) \textbackslash{}subseteq row(OF)). We then state the exact minimal augmentation law delta(O,L;F)=rank([OF;LF]) - rank(OF) as a design corollary and illustrate exact-versus-failure operator behavior on explicit witnesses. Scope is deliberate: this manuscript is a foundation companion; the broader anti-classifier and quantitative-threshold package is developed in the recoverability paper.
+
+
+Keywords: orthogonal correction principle, exact correction, protected/disturbance decomposition, restricted-linear recoverability, row-space criterion, minimal augmentation
+
+
+\subsection*{1. Introduction}
+The OCP program asks a narrowly defined question: can a correction operator remove disturbance without damaging a declared protected target? In this paper we present the foundational linear answer in compact form.
+
+
+This manuscript is intentionally companion-scoped. It is not the full recoverability package. Instead, it provides:
+
+\begin{enumerate}
+\item the core exact-correction operator logic on protected/disturbance decompositions;
+\item the restricted-linear criterion that makes exact recoverability computable;
+\item a compact repair law (minimal augmentation) for design.
+\end{enumerate}
+
+A separate theorem-heavy companion, recoverability\_paper\_final.md, develops the full anti-classifier and threshold program.
+
+
+\subsubsection*{1.1 Contributions and Status Labels}
+\begin{itemize}
+\item PROVED (operator foundation): Exact correction on H = S \textbackslash{}oplus D is equivalent to projector structure (C = P\_\{S//D\}), with the orthogonal case as a corollary.
+\item PROVED (restricted-linear criterion): Exact linear decoding exists iff ker(OF) \textbackslash{}subseteq ker(LF) (equivalently row(LF) \textbackslash{}subseteq row(OF)).
+\item PROVED (design corollary): delta(O,L;F) gives the minimum unrestricted linear augmentation count required for exact repair.
+\item INTERPRETATION: Compact geometric/defect visuals explain exact versus failure behavior without extending theorem scope.
+\end{itemize}
+
+\subsection*{2. Setup and Notation}
+Let H be a finite-dimensional real Hilbert space, and let
+
+\begin{itemize}
+\item S \textbackslash{}subset H be the protected subspace,
+\item D \textbackslash{}subset H be the disturbance subspace,
+\item H = S \textbackslash{}oplus D be a declared direct-sum architecture,
+\item C: H -> H be a linear correction operator.
+\end{itemize}
+
+We call C exact on (S,D) if
+
+
+C(s + d) = s for all s in S, d in D.
+
+
+\subsubsection*{Theorem 2.1 (Exact correction operator characterization)}
+For a linear C, the following are equivalent:
+
+\begin{enumerate}
+\item C is exact on (S,D).
+\item C|\_S = I\_S and C|\_D = 0.
+\item C equals the projector onto S along D, i.e. C = P\_\{S//D\}.
+\end{enumerate}
+
+\paragraph{Proof}
+(1 => 2) For s in S, write s = s + 0; exactness gives C s = s. For d in D, write d = 0 + d; exactness gives C d = 0.
+
+(2 => 1) For any x = s + d, linearity gives C x = C s + C d = s + 0 = s.
+
+(2 <=> 3) is the standard characterization of the oblique projector with range S and kernel D.
+
+
+\subsubsection*{Corollary 2.2 (Orthogonal OCP anchor)}
+If D = S\textasciicircum{}\textbackslash{}perp, then the unique self-adjoint idempotent exact correction is the orthogonal projector P\_S.
+
+
+\subsection*{3. Restricted-Linear Recoverability Layer}
+Let admissible states be A = \{x = Fz : z in R\textasciicircum{}r\} with
+
+\begin{itemize}
+\item observation map M(x) = O x,
+\item protected target p(x) = L x.
+\end{itemize}
+
+Define restricted matrices O\_F := OF, L\_F := LF. A linear decoder K is exact on A when
+
+
+K O\_F z = L\_F z for all z.
+
+
+\subsubsection*{Theorem 3.1 (Restricted-linear exactness criterion)}
+An exact linear decoder exists iff
+
+
+ker(O\_F) \textbackslash{}subseteq ker(L\_F).
+
+
+Equivalent row-space form:
+
+
+row(L\_F) \textbackslash{}subseteq row(O\_F).
+
+
+\paragraph{Proof}
+Necessity: if K O\_F = L\_F, then O\_F z = 0 implies L\_F z = K O\_F z = 0.
+
+Sufficiency: kernel inclusion implies each row of L\_F annihilates ker(O\_F), hence each row belongs to row(O\_F). Therefore there exists K with K O\_F = L\_F.
+
+
+\subsubsection*{Corollary 3.2 (Minimal unrestricted augmentation)}
+Define
+
+
+delta(O,L;F) = rank([O\_F; L\_F]) - rank(O\_F).
+
+
+Then delta is exactly the minimum number of unrestricted added scalar linear measurements needed to make exact recovery possible on A.
+
+
+\paragraph{Proof sketch}
+Each added row increases rank(O\_F) by at most one; reaching inclusion requires recovering the missing rank in row([O\_F;L\_F]). This lower bound is tight by adding rows spanning the missing row-space complement.
+
+
+\subsection*{4. Worked Examples and OCP Figures}
+\subsubsection*{Example 4.1 (Row-space geometry: exact versus failure)}
+In the restricted-linear witness F=I\_2, L=[1,0], compare O1=[1,0] (exact) and O2=[0,1] (failure). Figure 1 shows inclusion (row(LF) ⊆ row(OF)) versus exclusion in direct geometry.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/ocp/ocp_rowspace_geometry.png}}
+\caption{Figure 1. OCP row-space geometry: exact inclusion (left) and failure exclusion (right).}
+\end{figure}
+
+Figure 1. OCP row-space geometry: exact inclusion (left) and failure exclusion (right).
+
+
+\subsubsection*{Example 4.2 (Minimal augmentation repair)}
+Starting from the failure case O2=[0,1], one added informative row restores exactness. Figure 2 visualizes the rank repair:
+
+\begin{itemize}
+\item before: rank-deficient for target recovery,
+\item after: augmented row-space closes the exactness deficit.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/ocp/ocp_minimal_augmentation.png}}
+\caption{Figure 2. OCP minimal augmentation visualization: rank repair by one added row (delta=1).}
+\end{figure}
+
+Figure 2. OCP minimal augmentation visualization: rank repair by one added row (delta=1).
+
+
+\subsubsection*{Example 4.3 (Exact vs failure operator behavior)}
+On normalized protected/disturbance probes, compare an exact correction operator with a misaligned failure operator. Figure 3 reports preservation defect and disturbance leakage side-by-side.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\linewidth]{\detokenize{/Users/stevenreid/Documents/New project/repos/ocp-research-program/figures/ocp/ocp_operator_defect_comparison.png}}
+\caption{Figure 3. Exact versus failure operators under OCP defect metrics.}
+\end{figure}
+
+Figure 3. Exact versus failure operators under OCP defect metrics.
+
+
+\subsection*{5. Interpretation and Companion Positioning}
+This paper contributes the operator spine of OCP:
+
+\begin{enumerate}
+\item exact correction is projector structure (P\_\{S//D\}),
+\item restricted-linear exactness is row-space inclusion,
+\item design repair is minimal augmentation rank deficit.
+\end{enumerate}
+
+The recoverability companion paper carries the broader theorem package (fiber criterion, no rank-only classifier, no budget-only classifier, threshold laws, and quantitative obstruction). The bridge and MHD papers apply the same structure in PDE/projection and Euler-potential closure domains without claiming universality.
+
+
+\subsection*{6. Related Work}
+The operator criterion connects to classical projection and observability ideas in linear systems and control. Kernel/row-space formulations are standard linear algebra, while minimal augmentation is aligned with structural sensor placement and functional observability perspectives.
+
+
+\subsubsection*{6.1 Position Relative to Existing Work}
+The operator ingredients are classical: oblique/orthogonal projectors, kernel inclusion criteria, and row-space formulations in finite-dimensional recovery. What is likely distinct here is not a new algebraic identity, but the scoped packaging: one compact companion manuscript that connects exact correction architecture, exact recoverability criterion, and exact augmentation count with explicit witness examples and strict scope boundaries.
+
+
+\subsection*{7. Limitations and Scope}
+\begin{enumerate}
+\item Finite-dimensional linear scope only.
+\item Restricted-linear admissible families x=Fz.
+\item No universal nonlinear, stochastic, or PDE-wide claims.
+\item Budget/anti-classifier depth is deferred to the recoverability companion paper.
+\end{enumerate}
+
+\subsection*{8. Conclusion}
+OCP exactness in linear settings is not an amount statement; it is a structural statement. Exact correction corresponds to projector compatibility, exact recoverability to row-space inclusion, and repair to a precise rank-deficit augmentation law.
+
+
+\subsection*{9. Administrative Statements}
+\subsubsection*{9.1 Funding}
+This research received no external funding.
+
+
+\subsubsection*{9.2 AI Usage Statement}
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
+
+
+\subsubsection*{9.3 Data and Code Availability}
+Primary repository for this paper: https://github.com/RRG314/Protected-State-Correction-Theory.
+
+Public workbench entrypoint: https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/
+
+
+\subsubsection*{9.4 Conflict of Interest}
+The author declares no conflict of interest.
+
+
+\subsubsection*{9.5 Reproducibility Note}
+Figures are generated and validated through:
+
+\begin{itemize}
+\item python scripts/figures/generate\_publication\_figures.py
+\item python scripts/figures/validate\_publication\_figures.py
+\end{itemize}
+
+\subsection*{10. References}
+\begin{enumerate}
+\item R. E. Kalman, “A new approach to linear filtering and prediction problems,” Transactions of the ASME—Journal of Basic Engineering, 82(1) (1960), 35–45. DOI: 10.1115/1.3662552.
+\item C.-T. Lin, “Structural controllability,” IEEE Transactions on Automatic Control, 19(3) (1974), 201–208. DOI: 10.1109/TAC.1974.1100557.
+\item A. J. Krener and R. Hermann, “Nonlinear controllability and observability,” IEEE Transactions on Automatic Control, 22(5) (1977), 728–740. DOI: 10.1109/TAC.1977.1101601.
+\item Y. Zhang, T. Fernando, and M. Darouach, “Functional observability, structural functional observability and optimal sensor placement,” arXiv:2307.08923, 2023. URL: https://arxiv.org/abs/2307.08923.
+\item P. Dey, N. Balachandran, and D. Chatterjee, “Efficient constrained sensor placement for observability of linear systems,” IEEE Control Systems Letters, 5(3) (2021), 927–932. Preprint: https://arxiv.org/abs/1711.08264.
+\end{enumerate}
+
+\subsection*{Appendix A. Companion-Paper Orientation}
+\begin{itemize}
+\item Full recoverability theorem package: papers/recoverability\_paper\_final.md.
+\item Projection/PDE bridge lane: papers/bridge\_paper.md.
+\item MHD domain lane: papers/mhd\_paper\_upgraded.md.
+\end{itemize}
+\end{document}

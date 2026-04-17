@@ -1,5 +1,5 @@
 export const LATEST_VALIDATION_SNAPSHOT = {
-  "generatedAt": "2026-04-16T01:32:53.133Z",
+  "generatedAt": "2026-04-17T15:08:41.083Z",
   "readiness": {
     "knownCaseValidation": true,
     "guidedDiscovery": true,

@@ -1,0 +1,5 @@
+case,exact_recoverable,coefficient_dimension,observation_rank,protected_rank,rowspace_residual,normalized_rowspace_residual,principal_angle_defect,alignment_score,collision_gap,zero_noise_lower_bound,recovery_operator_norm_upper,unrestricted_minimal_added_measurements,structural_class
+robust-full-information,True,3,3,1,0.0,0.0,0.0,1.0,0.0,0.0,1.3190905958272916,0,robust_exact_full_information
+exact-but-fragile,True,3,2,1,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0,aligned_exact_but_fragile
+augmentation-repairable,False,3,2,1,0.7071067811865476,0.7071067811865476,0.7071067811865476,0.2928932188134524,2.0,1.0,,1,augmentation_repairable_misaligned
+collision-dominated,False,3,2,1,1.0,1.0,1.0,0.0,2.0,1.0,,1,augmentation_repairable_misaligned

@@ -4,30 +4,28 @@ import { sanitizeState } from './scenarioSerialization.js';
 export function scenarioEvidenceLevel(state, analysis) {
   const activeLab = sanitizeState(state).activeLab;
   if (activeLab === 'recoverability') {
-    if (state.labs.recoverability.system === 'linear') return 'theorem-backed restricted-linear result';
+    if (state.labs.recoverability.system === 'linear') return 'restricted theorem-backed (restricted-linear)';
     if (state.labs.recoverability.system === 'boundary') {
       return state.labs.recoverability.boundaryArchitecture === 'boundary_compatible_hodge'
-        ? 'restricted exact bounded-domain result'
-        : 'theorem-linked counterexample and family-specific redesign guidance';
+        ? 'restricted theorem-backed (bounded-domain finite-mode Hodge)'
+        : 'theorem-backed counterexample (bounded-domain transplant limit)';
     }
-    if (state.labs.recoverability.system === 'analytic') return 'explicit analytic benchmark';
-    if (state.labs.recoverability.system === 'qubit') return 'family-specific result with standard external guidance';
-    if (state.labs.recoverability.system === 'periodic') return 'family-specific threshold result';
-    if (state.labs.recoverability.system === 'control') return 'family-specific threshold and asymptotic benchmark';
+    if (state.labs.recoverability.system === 'analytic') return 'validated family-specific (analytic benchmark)';
+    if (state.labs.recoverability.system === 'qubit') return 'validated family-specific (qubit record family)';
+    if (state.labs.recoverability.system === 'periodic') return 'validated family-specific (periodic threshold family)';
+    if (state.labs.recoverability.system === 'control') return 'validated family-specific (control threshold/asymptotic benchmark)';
   }
   if (activeLab === 'exact' || activeLab === 'qec' || activeLab === 'mhd' || activeLab === 'gauge') {
-    return 'theorem-backed or theorem-linked branch example';
+    return 'theorem-backed';
   }
   if (activeLab === 'cfd' || activeLab === 'nogo' || activeLab === 'continuous') {
-    return 'validated theorem / no-go / empirical branch example';
+    return 'validated family-specific';
   }
   if (activeLab === 'benchmark') {
-    return 'validated workbench benchmark and regression surface';
+    return 'benchmark empirical';
   }
-  if (activeLab === 'mixer') {
-    return analysis?.theoremStatus ?? 'typed composition and discovery surface';
-  }
-  return analysis?.theoremStatus ?? 'workbench output';
+  if (activeLab === 'mixer') return analysis?.theoremStatus ?? 'validated family-specific (typed composition)';
+  return analysis?.theoremStatus ?? 'validated family-specific';
 }
 
 function formatValue(value) {
@@ -133,6 +131,9 @@ export function exportScenarioReport(state, analysis) {
     '## Unified Result Envelope',
     '',
     `- regime: ${resultEnvelope.regime}`,
+    analysis?.resultScopeLabel ? `- support scope: ${analysis.resultScopeLabel}` : null,
+    analysis?.identifiabilityStatus ? `- identifiability status: ${analysis.identifiabilityStatus}` : null,
+    analysis?.decisionPosture?.label ? `- decision posture: ${analysis.decisionPosture.label}` : null,
     `- root cause: ${resultEnvelope.rootCause}`,
     `- weaker targets: ${resultEnvelope.weakerTargets.length ? resultEnvelope.weakerTargets.join(', ') : 'none'}`,
     `- stronger target requirements: ${resultEnvelope.strongerTargetRequirements ?? 'none'}`,
@@ -148,9 +149,12 @@ export function exportScenarioReport(state, analysis) {
       : analysis?.summary
         ? `- summary: ${analysis.summary}`
         : '- summary: see metrics below',
+    analysis?.fiberSummary ? `- fiber structure: ${analysis.fiberSummary}` : null,
     analysis?.missingStructure ? `- missing structure: ${analysis.missingStructure}` : null,
     analysis?.recommendedArchitecture ? `- recommended architecture: ${analysis.recommendedArchitecture}` : null,
+    analysis?.decisionPosture?.rationale ? `- decision rationale: ${analysis.decisionPosture.rationale}` : null,
     analysis?.guidance?.noGo ? `- no-go / boundary: ${analysis.guidance.noGo}` : null,
+    analysis?.falsePositiveWarnings?.length ? `- false-positive warnings: ${analysis.falsePositiveWarnings.join(' | ')}` : null,
     '',
     '## Key Metrics',
     '',

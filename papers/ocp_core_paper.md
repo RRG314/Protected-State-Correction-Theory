@@ -1,4 +1,4 @@
-# On the Failure of Rank-Based Criteria for Exact Recovery in Restricted Linear Observation Systems
+# Orthogonal Correction Principle in Restricted Linear Systems: A Foundational Companion Paper
 
 Steven Reid  
 Independent Researcher  
@@ -7,160 +7,157 @@ sreid1118@gmail.com
 April 2026
 
 ## Abstract
-We study exact recoverability of protected linear targets under restricted linear observation models and show that amount-only criteria fail sharply. In the finite-dimensional family `x=Fz`, with observation `y=OFz` and target `p(x)=LFz`, exact linear recovery is equivalent to `ker(OF) ⊆ ker(LF)` (equivalently `row(LF) ⊆ row(OF)`). We then prove anti-classifier results: equal observation rank can yield opposite exactness verdicts, and even equal fixed-library sensor count/budget can yield opposite exactness verdicts. We next give an exact minimal augmentation law, `δ(O,L;F)=rank([OF;LF]) - rank(OF)`, which is both necessary and sufficient for unrestricted added measurements to achieve exact recovery. The paper is intentionally scoped: claims are restricted-linear and do not assert universal observability laws.
+This paper provides a concise foundational statement of the Orthogonal Correction Principle (OCP) in finite-dimensional linear settings. The central question is operator-structural: when does a correction map preserve the protected component while removing disturbance exactly? We give a complete characterization on a protected/disturbance decomposition and derive the restricted-linear recoverability criterion as a direct consequence. In the family `x=Fz` with observation `y=OFz` and protected target `p(x)=LFz`, exact linear decoding is equivalent to `ker(OF) \subseteq ker(LF)` (equivalently `row(LF) \subseteq row(OF)`). We then state the exact minimal augmentation law `delta(O,L;F)=rank([OF;LF]) - rank(OF)` as a design corollary and illustrate exact-versus-failure operator behavior on explicit witnesses. Scope is deliberate: this manuscript is a foundation companion; the broader anti-classifier and quantitative-threshold package is developed in the recoverability paper.
 
-**Keywords:** exact recoverability, observability, row-space criterion, rank insufficiency, sensor budget, minimal augmentation
+**Keywords:** orthogonal correction principle, exact correction, protected/disturbance decomposition, restricted-linear recoverability, row-space criterion, minimal augmentation
 
 ## 1. Introduction
-A common engineering shorthand treats “more sensors,” “higher rank,” or “larger budget” as reliable indicators of exact recovery capability. This paper formalizes where that intuition fails and what replaces it in a theorem-clean restricted linear class.
+The OCP program asks a narrowly defined question: can a correction operator remove disturbance without damaging a declared protected target? In this paper we present the foundational linear answer in compact form.
 
-Our setting keeps model scope explicit. We do not claim a universal law over all inverse problems or all nonlinear systems. Instead, we show that in a precise finite-dimensional class, exact recoverability is controlled by structural alignment (kernel/row-space compatibility), not raw amount.
+This manuscript is intentionally companion-scoped. It is not the full recoverability package. Instead, it provides:
+1. the core exact-correction operator logic on protected/disturbance decompositions;
+2. the restricted-linear criterion that makes exact recoverability computable;
+3. a compact repair law (minimal augmentation) for design.
 
-## 2. Setup
-Let
-- admissible family: `A = {x = Fz : z ∈ R^r}`,
-- observation map: `M(x)=Ox`,
-- protected target: `p(x)=Lx`.
+A separate theorem-heavy companion, `recoverability_paper_final.md`, develops the full anti-classifier and threshold program.
 
-Restricted matrices are
-`O_F := OF`, `L_F := LF`.
+### 1.1 Contributions and Status Labels
+- **PROVED (operator foundation):** Exact correction on `H = S \oplus D` is equivalent to projector structure (`C = P_{S//D}`), with the orthogonal case as a corollary.
+- **PROVED (restricted-linear criterion):** Exact linear decoding exists iff `ker(OF) \subseteq ker(LF)` (equivalently `row(LF) \subseteq row(OF)`).
+- **PROVED (design corollary):** `delta(O,L;F)` gives the minimum unrestricted linear augmentation count required for exact repair.
+- **INTERPRETATION:** Compact geometric/defect visuals explain exact versus failure behavior without extending theorem scope.
 
-A linear decoder `K` is **exact** on `A` if
+## 2. Setup and Notation
+Let `H` be a finite-dimensional real Hilbert space, and let
+- `S \subset H` be the protected subspace,
+- `D \subset H` be the disturbance subspace,
+- `H = S \oplus D` be a declared direct-sum architecture,
+- `C: H -> H` be a linear correction operator.
+
+We call `C` **exact on `(S,D)`** if
+
+`C(s + d) = s` for all `s in S`, `d in D`.
+
+### Theorem 2.1 (Exact correction operator characterization)
+For a linear `C`, the following are equivalent:
+1. `C` is exact on `(S,D)`.
+2. `C|_S = I_S` and `C|_D = 0`.
+3. `C` equals the projector onto `S` along `D`, i.e. `C = P_{S//D}`.
+
+#### Proof
+`(1 => 2)` For `s in S`, write `s = s + 0`; exactness gives `C s = s`. For `d in D`, write `d = 0 + d`; exactness gives `C d = 0`.  
+`(2 => 1)` For any `x = s + d`, linearity gives `C x = C s + C d = s + 0 = s`.  
+`(2 <=> 3)` is the standard characterization of the oblique projector with range `S` and kernel `D`.
+
+### Corollary 2.2 (Orthogonal OCP anchor)
+If `D = S^\perp`, then the unique self-adjoint idempotent exact correction is the orthogonal projector `P_S`.
+
+## 3. Restricted-Linear Recoverability Layer
+Let admissible states be `A = {x = Fz : z in R^r}` with
+- observation map `M(x) = O x`,
+- protected target `p(x) = L x`.
+
+Define restricted matrices `O_F := OF`, `L_F := LF`. A linear decoder `K` is exact on `A` when
+
 `K O_F z = L_F z` for all `z`.
 
-## 3. Main Theorems
-
 ### Theorem 3.1 (Restricted-linear exactness criterion)
-Exact linear recovery exists iff
+An exact linear decoder exists iff
 
-`ker(O_F) ⊆ ker(L_F)`.
+`ker(O_F) \subseteq ker(L_F)`.
 
-Equivalent form:
-`row(L_F) ⊆ row(O_F)`.
+Equivalent row-space form:
 
-**Status:** `PROVED` (OCP-031).
+`row(L_F) \subseteq row(O_F)`.
 
-#### Proof sketch
-If exactness holds, then `O_F z=0 => K O_F z=0 = L_F z`, so kernel inclusion is necessary. Conversely, if kernel inclusion holds, each target row is a linear combination of observation rows, giving a decoder `K` with `K O_F = L_F`.
+#### Proof
+Necessity: if `K O_F = L_F`, then `O_F z = 0` implies `L_F z = K O_F z = 0`.  
+Sufficiency: kernel inclusion implies each row of `L_F` annihilates `ker(O_F)`, hence each row belongs to `row(O_F)`. Therefore there exists `K` with `K O_F = L_F`.
 
-### Proposition 3.2 (Same-rank insufficiency)
-There exist restricted-linear instances with identical `rank(O_F)` but opposite exactness verdicts.
-
-**Status:** `PROVED` (OCP-047).
-
-### Theorem 3.3 (No rank-only exact classifier)
-No classifier depending only on ambient dimension and rank tuple can decide exact recoverability across all restricted-linear instances.
-
-**Status:** `PROVED` (OCP-049).
-
-### Theorem 3.4 (No fixed-library budget-only exact classifier)
-Within a fixed candidate sensor library with equal per-sensor cost, equal sensor count/equal total budget can still produce opposite exactness verdicts.
-
-**Status:** `PROVED` (OCP-050).
-
-### Theorem 3.5 (Minimal augmentation law)
+### Corollary 3.2 (Minimal unrestricted augmentation)
 Define
 
-`δ(O,L;F) = rank([O_F; L_F]) - rank(O_F)`.
+`delta(O,L;F) = rank([O_F; L_F]) - rank(O_F)`.
 
-Then `δ` is exactly the minimum number of unrestricted added scalar linear measurements required to make exact recovery possible.
+Then `delta` is exactly the minimum number of unrestricted added scalar linear measurements needed to make exact recovery possible on `A`.
 
-**Status:** `PROVED` (OCP-045).
+#### Proof sketch
+Each added row increases `rank(O_F)` by at most one; reaching inclusion requires recovering the missing rank in `row([O_F;L_F])`. This lower bound is tight by adding rows spanning the missing row-space complement.
 
-## 4. Explicit Examples
+## 4. Worked Examples and OCP Figures
+### Example 4.1 (Row-space geometry: exact versus failure)
+In the restricted-linear witness `F=I_2`, `L=[1,0]`, compare `O1=[1,0]` (exact) and `O2=[0,1]` (failure). Figure 1 shows inclusion (`row(LF) ⊆ row(OF)`) versus exclusion in direct geometry.
 
-## 4.1 Exact case
-Take
-`F=I_2`,
-`O=[1 0]`,
-`L=[1 0]`.
-Then `row(L_F)=row(O_F)`, so exactness holds with decoder `K=[1]`.
+![Figure 1. OCP row-space geometry: exact inclusion (left) and failure exclusion (right).](../figures/ocp/ocp_rowspace_geometry.png)
 
-**Label:** `PROVED` (direct construction).
+Figure 1. OCP row-space geometry: exact inclusion (left) and failure exclusion (right).
 
-## 4.2 Failure case with same rank
-Take
-`F=I_2`,
-`L=[1 0]`,
-`O_1=[1 0]`, `O_2=[0 1]`.
-Both have rank 1, but:
-- `row(L_F) ⊆ row(O_1F)` so `O_1` is exact,
-- `row(L_F) ⊄ row(O_2F)` so `O_2` is impossible.
+### Example 4.2 (Minimal augmentation repair)
+Starting from the failure case `O2=[0,1]`, one added informative row restores exactness. Figure 2 visualizes the rank repair:
+- before: rank-deficient for target recovery,
+- after: augmented row-space closes the exactness deficit.
 
-**Label:** `PROVED` (same-rank opposite verdict witness).
+![Figure 2. OCP minimal augmentation visualization: rank repair by one added row (delta=1).](../figures/ocp/ocp_minimal_augmentation.png)
 
-## 4.3 Repaired case via one-step augmentation
-From failure case `O_2=[0 1]`, compute
+Figure 2. OCP minimal augmentation visualization: rank repair by one added row (`delta=1`).
 
-`δ = rank([O_2F; L_F]) - rank(O_2F) = rank([[0,1],[1,0]]) - 1 = 1`.
+### Example 4.3 (Exact vs failure operator behavior)
+On normalized protected/disturbance probes, compare an exact correction operator with a misaligned failure operator. Figure 3 reports preservation defect and disturbance leakage side-by-side.
 
-Add one measurement row `[1 0]`; augmented observation has full target row support and exactness is restored.
+![Figure 3. Exact versus failure operators under OCP defect metrics.](../figures/ocp/ocp_operator_defect_comparison.png)
 
-**Label:** `PROVED` (minimal augmentation theorem witness).
+Figure 3. Exact versus failure operators under OCP defect metrics.
 
-## 5. Why Amount Fails and Structure Survives
-Amount-only summaries collapse distinctions between:
-- where the observation nullspace lies, and
-- whether that nullspace carries target variation.
+## 5. Interpretation and Companion Positioning
+This paper contributes the operator spine of OCP:
+1. exact correction is projector structure (`P_{S//D}`),
+2. restricted-linear exactness is row-space inclusion,
+3. design repair is minimal augmentation rank deficit.
 
-Kernel and row-space alignment are therefore the mathematically relevant invariants in this class.
+The recoverability companion paper carries the broader theorem package (fiber criterion, no rank-only classifier, no budget-only classifier, threshold laws, and quantitative obstruction). The bridge and MHD papers apply the same structure in PDE/projection and Euler-potential closure domains without claiming universality.
 
-A practical corollary is immediate: sensor design should prioritize target-row coverage, not only count or rank.
+## 6. Related Work
+The operator criterion connects to classical projection and observability ideas in linear systems and control. Kernel/row-space formulations are standard linear algebra, while minimal augmentation is aligned with structural sensor placement and functional observability perspectives.
 
-## 6. Validation and Evidence Discipline
-The paper uses theorem-first evidence for exact claims and benchmark checks for stress behavior.
+### 6.1 Position Relative to Existing Work
+The operator ingredients are classical: oblique/orthogonal projectors, kernel inclusion criteria, and row-space formulations in finite-dimensional recovery. What is likely distinct here is not a new algebraic identity, but the scoped packaging: one compact companion manuscript that connects exact correction architecture, exact recoverability criterion, and exact augmentation count with explicit witness examples and strict scope boundaries.
 
-- Theorems 3.1–3.5: `PROVED` in restricted-linear branch documents/tests.
-- Stress sweeps and witness libraries: `VALIDATED` computational support for anti-classifier behavior and design-law reproducibility.
+## 7. Limitations and Scope
+1. Finite-dimensional linear scope only.
+2. Restricted-linear admissible families `x=Fz`.
+3. No universal nonlinear, stochastic, or PDE-wide claims.
+4. Budget/anti-classifier depth is deferred to the recoverability companion paper.
 
-No validated-only result is upgraded to theorem language here.
+## 8. Conclusion
+OCP exactness in linear settings is not an amount statement; it is a structural statement. Exact correction corresponds to projector compatibility, exact recoverability to row-space inclusion, and repair to a precise rank-deficit augmentation law.
 
-## 7. Related Work Positioning
-This paper sits near linear observability and sensor placement, but with a narrower objective: exact target recoverability on admissible restricted families.
-
-Related lanes include functional observability and constrained sensor placement, where structural criteria and complexity barriers are central.
-
-### 7.1 Position Relative to Existing Work
-The linear kernel/row-space criterion is standard finite-dimensional linear algebra. The paper's distinct contribution is the scoped negative-and-design package: same-rank insufficiency, no rank-only and no fixed-budget-only exact classifiers, and an exact minimal augmentation law in one restricted-linear framework.
-
-## 8. Limitations and Scope
-1. Scope is restricted-linear (`x=Fz`) and finite-dimensional.
-2. Nonlinear, stochastic, and PDE-wide universality is not claimed.
-3. Budget theorem is fixed-library and equal-cost in the stated formulation.
-4. The augmentation theorem is exact for unrestricted added linear measurements; constrained hardware catalogs may require additional combinatorial analysis.
-
-## 9. Conclusion
-Rank/count/budget language alone is insufficient for exact recoverability classification in the restricted-linear class. The replacement is a structural criterion (`ker(OF) ⊆ ker(LF)`) and its design consequence (exact minimal augmentation count `δ`). The main contribution is therefore not “more data helps,” but a theorem-clean statement of when structure, not amount, controls exactness.
-
-## 10. Administrative Statements
-### 10.1 Funding
+## 9. Administrative Statements
+### 9.1 Funding
 This research received no external funding.
 
-### 10.2 AI Usage Statement
-AI-assisted tools were used for coding support, test scripting, and editorial drafting support. The theorem statements, proofs, examples, and final manuscript were manually checked and verified by the author.
+### 9.2 AI Usage Statement
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
 
-### 10.3 Data and Code Availability
+### 9.3 Data and Code Availability
 Primary repository for this paper: https://github.com/RRG314/Protected-State-Correction-Theory.  
 Public workbench entrypoint: https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/
 
-### 10.4 Conflict of Interest
+### 9.4 Conflict of Interest
 The author declares no conflict of interest.
 
-### 10.5 Reproducibility Note
-The restricted-linear examples and anti-classifier witnesses are reproducible from the repository scripts and tests under `scripts/compare/` and `tests/math/`.
+### 9.5 Reproducibility Note
+Figures are generated and validated through:
+- `python scripts/figures/generate_publication_figures.py`
+- `python scripts/figures/validate_publication_figures.py`
 
-## 11. References
+## 10. References
 1. R. E. Kalman, “A new approach to linear filtering and prediction problems,” *Transactions of the ASME—Journal of Basic Engineering*, 82(1) (1960), 35–45. DOI: 10.1115/1.3662552.
 2. C.-T. Lin, “Structural controllability,” *IEEE Transactions on Automatic Control*, 19(3) (1974), 201–208. DOI: 10.1109/TAC.1974.1100557.
 3. A. J. Krener and R. Hermann, “Nonlinear controllability and observability,” *IEEE Transactions on Automatic Control*, 22(5) (1977), 728–740. DOI: 10.1109/TAC.1977.1101601.
 4. Y. Zhang, T. Fernando, and M. Darouach, “Functional observability, structural functional observability and optimal sensor placement,” arXiv:2307.08923, 2023. URL: https://arxiv.org/abs/2307.08923.
 5. P. Dey, N. Balachandran, and D. Chatterjee, “Efficient constrained sensor placement for observability of linear systems,” *IEEE Control Systems Letters*, 5(3) (2021), 927–932. Preprint: https://arxiv.org/abs/1711.08264.
-6. E. J. Candès, J. Romberg, and T. Tao, “Robust uncertainty principles: Exact signal reconstruction from highly incomplete frequency information,” *IEEE Transactions on Information Theory*, 52(2) (2006), 489–509. DOI: 10.1109/TIT.2005.862083.
-7. D. L. Donoho, “Compressed sensing,” *IEEE Transactions on Information Theory*, 52(4) (2006), 1289–1306. DOI: 10.1109/TIT.2006.871582.
 
-## Appendix A. Repo Claim Mapping
-- Theorem 3.1 maps to OCP-031.
-- Proposition 3.2 maps to OCP-047.
-- Theorem 3.3 maps to OCP-049.
-- Theorem 3.4 maps to OCP-050.
-- Theorem 3.5 maps to OCP-045.
+## Appendix A. Companion-Paper Orientation
+- Full recoverability theorem package: `papers/recoverability_paper_final.md`.
+- Projection/PDE bridge lane: `papers/bridge_paper.md`.
+- MHD domain lane: `papers/mhd_paper_upgraded.md`.

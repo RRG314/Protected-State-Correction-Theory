@@ -82,7 +82,7 @@
 - passing live workflows: **10/10**
 
 - `Exact recovery success workflow`: pass — Exact Projection Lab preserved the orthogonal exact-recovery anchor and exported the same verdict.
-- `Guided benchmark route and export`: pass — Guided entry opened the benchmark console with 11 module rows and working CSV/report export.
+- `Guided benchmark route and export`: pass — Guided entry opened the benchmark console with 12 module rows and working CSV/report export.
 - `Failing setup → diagnosis → fix → verified success`: pass — Boundary architecture repair moved from impossible to exact, and share-link/reload preserved the repaired result.
 - `Threshold failure → cutoff augmentation → verified exact recovery`: pass — Periodic stronger-target threshold failure was diagnosed and repaired in the live studio.
 - `Stronger target fails / weaker target succeeds`: pass — The qubit workflow correctly weakened the Bloch-vector target to the z coordinate and preserved the exact verdict after the change.

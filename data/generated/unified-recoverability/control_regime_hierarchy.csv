@@ -1,0 +1,2 @@
+epsilon,one_step_exact_recoverable,two_step_exact_recoverable,observer_asymptotic_recoverable,one_step_collision_gap,two_step_collision_gap,observer_spectral_radius,observer_final_protected_error
+0.2,False,True,True,2.0,0.0,0.2999999999999993,1.1353077706351307e-08

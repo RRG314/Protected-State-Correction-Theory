@@ -155,12 +155,29 @@
       "noGo": null
     },
     "theoremStatus": "Explicit analytic exactness / stability toy model",
+    "resultScopeLabel": "exact / analytic toy family / theorem-linked",
+    "identifiabilityStatus": "exactly identifiable target on the declared family",
+    "fiberSummary": "The protected scalar is constant on every current record fiber of the analytic family.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: this verdict is only certified on the current analytic toy family, not on arbitrary enlarged observation models."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: this verdict is only certified on the current analytic toy family, not on arbitrary enlarged observation models.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": null,
     "missingStructure": "Current record is sufficient for exact recovery on the chosen family.",
     "structuralBlocker": "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks.",
     "recommendedArchitecture": "Static exact recovery with noise-budget control",
     "weakerRecoverableTargets": [],
+    "decisionPosture": {
+      "label": "Continue exact recovery attempt",
+      "action": "continue_exact",
+      "rationale": "The current analytic record already separates the protected scalar on the chosen family; only robustness tuning remains.",
+      "theoremStatus": "Explicit analytic exactness / stability toy model"
+    },
     "failureModes": [
-      "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks."
+      "No structural blocker is present, but the record becomes poorly conditioned as ε shrinks.",
+      "Family-restriction warning: this verdict is only certified on the current analytic toy family, not on arbitrary enlarged observation models."
     ],
     "recommendations": [
       {
@@ -341,15 +358,32 @@
       "noGo": "Fixed-basis phase-loss no-go"
     },
     "theoremStatus": "Family-specific phase-loss no-go with standard measurement enrichment outside the current theorem spine",
+    "resultScopeLabel": "impossible / family-specific phase-loss no-go",
+    "identifiabilityStatus": "selected target is not identifiable on the current record, but a weaker/coarsened target is identifiable",
+    "fiberSummary": "The fixed-basis record fibers still contain states with different phase-sensitive Bloch targets.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: this no-go is on the fixed-basis phase-window family, not on every enriched qubit measurement architecture."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: this no-go is on the fixed-basis phase-window family, not on every enriched qubit measurement architecture.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": null,
     "missingStructure": "Add at least one complementary measurement basis or restrict the admissible state family to a meridian.",
     "structuralBlocker": "Phase freedom creates fiber collisions under the fixed-basis record.",
     "recommendedArchitecture": "Richer measurement family required",
     "weakerRecoverableTargets": [
       "z coordinate only"
     ],
+    "decisionPosture": {
+      "label": "Switch to a weaker target",
+      "action": "switch_target",
+      "rationale": "The fixed-basis record keeps the phase-insensitive z coordinate exact even when the full Bloch vector collapses.",
+      "theoremStatus": "Family-specific weaker-target split"
+    },
     "failureModes": [
       "Fixed-basis phase-loss no-go",
-      "Phase freedom creates fiber collisions under the fixed-basis record."
+      "Phase freedom creates fiber collisions under the fixed-basis record.",
+      "Family-restriction warning: this no-go is on the fixed-basis phase-window family, not on every enriched qubit measurement architecture."
     ],
     "recommendations": [
       {
@@ -400,7 +434,7 @@
       "exactAfter": true,
       "asymptoticAfter": false,
       "impossibleAfter": false,
-      "narrative": "Weakening the target removes the unresolved protected degrees of freedom that the current record cannot separate."
+      "narrative": "Weakening the target coarsens the protected variable until it becomes constant on the existing record fibers."
     },
     "workflow": [
       {
@@ -574,12 +608,31 @@
       "noGo": null
     },
     "theoremStatus": "Mixed exact / asymptotic control benchmark",
+    "resultScopeLabel": "asymptotic / benchmark-backed / family-restricted",
+    "identifiabilityStatus": "exactly identifiable target on the declared family",
+    "fiberSummary": "The current finite-history record fibers are fine enough to separate the chosen protected functional exactly.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law.",
+      "Regime warning: this architecture is asymptotic, not exact, on the current record."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": null,
     "missingStructure": "Current history length is sufficient for the chosen protected variable.",
     "structuralBlocker": "No exactness blocker remains at the current horizon.",
     "recommendedArchitecture": "Static finite-history recovery",
     "weakerRecoverableTargets": [],
+    "decisionPosture": {
+      "label": "Continue exact recovery attempt",
+      "action": "continue_exact",
+      "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+      "theoremStatus": "Mixed exact / asymptotic control benchmark"
+    },
     "failureModes": [
-      "No exactness blocker remains at the current horizon."
+      "No exactness blocker remains at the current horizon.",
+      "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law.",
+      "Regime warning: this architecture is asymptotic, not exact, on the current record."
     ],
     "recommendations": [
       {
@@ -766,6 +819,17 @@
       "noGo": null
     },
     "theoremStatus": "Family-specific periodic threshold result with repeated falsification",
+    "resultScopeLabel": "exact / family-specific threshold result",
+    "identifiabilityStatus": "exactly identifiable target on the declared family",
+    "fiberSummary": "The retained cutoff record now refines the modal fibers enough that the chosen protected target is constant on them.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: periodic exactness and threshold numbers here are certified only on the supported finite modal benchmark.",
+      "Discretization/refinement warning: enlarging the modal family or the protected support can destroy exactness even when the current cutoff looks sufficient on the present truncation."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: periodic exactness and threshold numbers here are certified only on the supported finite modal benchmark.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": "Discretization/refinement warning: enlarging the modal family or the protected support can destroy exactness even when the current cutoff looks sufficient on the present truncation.",
     "missingStructure": "Current retained modal support is sufficient.",
     "structuralBlocker": "No structural blocker on the current finite modal family.",
     "recommendedArchitecture": "Static exact recovery from projection-compatible periodic records",
@@ -774,8 +838,16 @@
       "first two modal coefficients",
       "low-mode weighted sum"
     ],
+    "decisionPosture": {
+      "label": "Continue exact only on the current supported family",
+      "action": "continue_with_fragility_caution",
+      "rationale": "Discretization/refinement warning: enlarging the modal family or the protected support can destroy exactness even when the current cutoff looks sufficient on the present truncation. Keep the current exact result local to the declared family instead of promoting it as a robust inverse-recovery law.",
+      "theoremStatus": "Family-specific periodic threshold result with repeated falsification"
+    },
     "failureModes": [
-      "No structural blocker on the current finite modal family."
+      "No structural blocker on the current finite modal family.",
+      "Family-restriction warning: periodic exactness and threshold numbers here are certified only on the supported finite modal benchmark.",
+      "Discretization/refinement warning: enlarging the modal family or the protected support can destroy exactness even when the current cutoff looks sufficient on the present truncation."
     ],
     "recommendations": [
       {
@@ -959,12 +1031,29 @@
       "noGo": null
     },
     "theoremStatus": "Family-specific finite-history threshold law with interpolation checks",
+    "resultScopeLabel": "exact / family-specific threshold result",
+    "identifiabilityStatus": "exactly identifiable target on the declared family",
+    "fiberSummary": "The current finite-history record fibers are fine enough to separate the chosen protected functional exactly.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": null,
     "missingStructure": "Current history length is sufficient for the chosen protected variable.",
     "structuralBlocker": "No exactness blocker remains at the current horizon.",
     "recommendedArchitecture": "Static finite-history recovery",
     "weakerRecoverableTargets": [],
+    "decisionPosture": {
+      "label": "Continue exact recovery attempt",
+      "action": "continue_exact",
+      "rationale": "The current finite-history or observer architecture already supports the chosen protected variable.",
+      "theoremStatus": "Family-specific finite-history threshold law with interpolation checks"
+    },
     "failureModes": [
-      "No exactness blocker remains at the current horizon."
+      "No exactness blocker remains at the current horizon.",
+      "Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law."
     ],
     "recommendations": [
       {
@@ -1155,15 +1244,34 @@
       "noGo": "Bounded-domain projector transplant failure"
     },
     "theoremStatus": "Theorem-backed bounded-domain transplant failure with restricted exact repair path",
+    "resultScopeLabel": "impossible / theorem-backed bounded-domain counterexample",
+    "identifiabilityStatus": "selected target is not identifiable on the current record, but a weaker/coarsened target is identifiable",
+    "fiberSummary": "The transplanted projector collapses divergence but leaves fibers that still mix different bounded protected states through boundary-trace mismatch.",
+    "falsePositiveWarnings": [
+      "Family-restriction warning: bounded-domain claims here apply only on the restricted compatible family and tested architecture.",
+      "Wrong-architecture warning: reducing divergence alone is not enough when boundary trace remains fiber-mixed."
+    ],
+    "familyRestrictionWarning": "Family-restriction warning: bounded-domain claims here apply only on the restricted compatible family and tested architecture.",
+    "targetStrengthWarning": null,
+    "modelMismatchWarning": null,
+    "discretizationWarning": null,
     "missingStructure": "Use the restricted boundary-compatible finite-mode Hodge family for exact recovery, or weaken the target to a bulk divergence certificate.",
     "structuralBlocker": "The periodic projector removes divergence but leaves the bounded protected class because the projected field picks up the wrong boundary-normal trace.",
     "recommendedArchitecture": "Switch to a boundary-compatible bounded-domain architecture",
     "weakerRecoverableTargets": [
       "bulk divergence certificate only"
     ],
+    "decisionPosture": {
+      "label": "Change architecture",
+      "action": "change_architecture",
+      "rationale": "The wrong architecture is the blocker here; the restricted bounded-domain Hodge projector restores exact recovery on the compatible finite-mode family.",
+      "theoremStatus": "Theorem-backed bounded-domain transplant failure with restricted exact repair path"
+    },
     "failureModes": [
       "Bounded-domain projector transplant failure",
-      "The periodic projector removes divergence but leaves the bounded protected class because the projected field picks up the wrong boundary-normal trace."
+      "The periodic projector removes divergence but leaves the bounded protected class because the projected field picks up the wrong boundary-normal trace.",
+      "Family-restriction warning: bounded-domain claims here apply only on the restricted compatible family and tested architecture.",
+      "Wrong-architecture warning: reducing divergence alone is not enough when boundary trace remains fiber-mixed."
     ],
     "recommendations": [
       {
@@ -1216,7 +1324,7 @@
       "exactAfter": true,
       "asymptoticAfter": false,
       "impossibleAfter": false,
-      "narrative": "The proposed architecture change moves the system into a more appropriate recoverability regime for the chosen record."
+      "narrative": "The proposed architecture change replaces the current fiber geometry with one that is compatible with the protected target."
     },
     "workflow": [
       {
@@ -1254,7 +1362,7 @@
     "asymptotic": false,
     "impossible": true,
     "unsupported": false,
-    "theoremStatus": "theorem-backed restricted-linear result",
+    "theoremStatus": "restricted theorem-backed (restricted-linear)",
     "supportScope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
     "protectedLabel": "1 protected row(s)",
     "observationLabel": "2 observation row(s)",
@@ -1273,7 +1381,7 @@
         "dimension": "3",
         "basis": "x1, x2, x3",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1296,7 +1404,7 @@
         "dimension": "2x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1318,7 +1426,7 @@
         "dimension": "1x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1340,7 +1448,7 @@
         "dimension": "3x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1359,14 +1467,14 @@
         "code": "rowspace-deficiency",
         "title": "Record map does not separate the protected target",
         "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
-        "theoremStatus": "theorem-backed restricted-linear result"
+        "theoremStatus": "restricted theorem-backed (restricted-linear)"
       },
       {
         "severity": "warning",
         "code": "collision-gap",
         "title": "A protected collision gap survives at zero noise",
         "detail": "The current κ(0) witness is 2.000e+0.",
-        "theoremStatus": "theorem-backed restricted-linear result"
+        "theoremStatus": "restricted theorem-backed (restricted-linear)"
       }
     ],
     "recommendations": [
@@ -1374,7 +1482,7 @@
         "title": "Add 1 candidate row",
         "actionKind": "add_measurement",
         "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
-        "theoremStatus": "theorem-backed restricted-linear result",
+        "theoremStatus": "restricted theorem-backed (restricted-linear)",
         "minimal": true,
         "availableInStudio": true,
         "patch": {
@@ -1395,7 +1503,7 @@
         "title": "Weaken target to coordinate x1",
         "actionKind": "weaken_target",
         "rationale": "The current record already supports this weaker basis target exactly.",
-        "theoremStatus": "theorem-backed restricted-linear result",
+        "theoremStatus": "restricted theorem-backed (restricted-linear)",
         "minimal": false,
         "availableInStudio": false
       }
@@ -1404,7 +1512,7 @@
       "title": "Add 1 candidate row",
       "actionKind": "add_measurement",
       "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
-      "theoremStatus": "theorem-backed restricted-linear result",
+      "theoremStatus": "restricted theorem-backed (restricted-linear)",
       "minimal": true,
       "availableInStudio": true,
       "patch": {
@@ -1612,6 +1720,13 @@
         "title": "Derived diagnosis",
         "detail": "The retained cutoff misses part of the protected modal support.",
         "theoremStatus": "Family-specific periodic threshold result with repeated falsification"
+      },
+      {
+        "severity": "warning",
+        "code": "structured-periodic-2",
+        "title": "Derived diagnosis",
+        "detail": "Family-restriction warning: periodic exactness and threshold numbers here are certified only on the supported finite modal benchmark.",
+        "theoremStatus": "Family-specific periodic threshold result with repeated falsification"
       }
     ],
     "recommendations": [
@@ -1734,7 +1849,7 @@
       "exactAfter": true,
       "asymptoticAfter": false,
       "impossibleAfter": false,
-      "narrative": "The proposed augmentation adds the missing structure identified by the current failure analysis and changes the recoverability verdict."
+      "narrative": "The proposed augmentation refines the record fibers by adding the missing structure identified in the current failure analysis."
     },
     "theoremLinks": [
       "../theorem-candidates/constrained-observation-theorems.md",
@@ -1772,7 +1887,7 @@
     "asymptotic": false,
     "impossible": true,
     "unsupported": false,
-    "theoremStatus": "theorem-backed restricted-linear result",
+    "theoremStatus": "restricted theorem-backed (restricted-linear)",
     "supportScope": "Finite-dimensional restricted-linear family on an explicit coefficient box.",
     "protectedLabel": "1 protected row(s)",
     "observationLabel": "2 observation row(s)",
@@ -1791,7 +1906,7 @@
         "dimension": "3",
         "basis": "x1, x2, x3",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1814,7 +1929,7 @@
         "dimension": "2x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1836,7 +1951,7 @@
         "dimension": "1x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1858,7 +1973,7 @@
         "dimension": "3x3",
         "basis": "row representation",
         "linearStatus": "linear",
-        "supportStatus": "theorem-backed restricted-linear result",
+        "supportStatus": "restricted theorem-backed (restricted-linear)",
         "theoremLinks": [
           "../theorem-candidates/constrained-observation-theorems.md",
           "../theorem-candidates/capacity-theorems.md"
@@ -1877,14 +1992,14 @@
         "code": "rowspace-deficiency",
         "title": "Record map does not separate the protected target",
         "detail": "At least one protected row lies outside the current observation row space on the admissible family.",
-        "theoremStatus": "theorem-backed restricted-linear result"
+        "theoremStatus": "restricted theorem-backed (restricted-linear)"
       },
       {
         "severity": "warning",
         "code": "collision-gap",
         "title": "A protected collision gap survives at zero noise",
         "detail": "The current κ(0) witness is 2.000e+0.",
-        "theoremStatus": "theorem-backed restricted-linear result"
+        "theoremStatus": "restricted theorem-backed (restricted-linear)"
       }
     ],
     "recommendations": [
@@ -1892,7 +2007,7 @@
         "title": "Add 1 candidate row",
         "actionKind": "add_measurement",
         "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
-        "theoremStatus": "theorem-backed restricted-linear result",
+        "theoremStatus": "restricted theorem-backed (restricted-linear)",
         "minimal": true,
         "availableInStudio": true,
         "patch": {
@@ -1905,7 +2020,7 @@
         "title": "Weaken target to coordinate x1",
         "actionKind": "weaken_target",
         "rationale": "The current record already supports this weaker basis target exactly.",
-        "theoremStatus": "theorem-backed restricted-linear result",
+        "theoremStatus": "restricted theorem-backed (restricted-linear)",
         "minimal": false,
         "availableInStudio": false
       }
@@ -1914,7 +2029,7 @@
       "title": "Add 1 candidate row",
       "actionKind": "add_measurement",
       "rationale": "This is the smallest candidate-library augmentation that lifts the protected rows into the record row space.",
-      "theoremStatus": "theorem-backed restricted-linear result",
+      "theoremStatus": "restricted theorem-backed (restricted-linear)",
       "minimal": true,
       "availableInStudio": true,
       "patch": {
@@ -2028,7 +2143,7 @@
     "asymptotic": false,
     "impossible": true,
     "unsupported": false,
-    "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+    "theoremStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
     "supportScope": "Restricted bounded-domain family with compatible Hodge replacement.",
     "protectedLabel": "bounded velocity class with boundary compatibility",
     "observationLabel": "periodic transplant",
@@ -2047,7 +2162,7 @@
         "dimension": "17",
         "basis": "boundary-compatible finite-mode basis",
         "linearStatus": "linear",
-        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "supportStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
         "theoremLinks": [
           "../theorem-candidates/bounded-domain-hodge-theorems.md",
           "../cfd/bounded-vs-periodic-projection.md"
@@ -2068,7 +2183,7 @@
         "dimension": "family-specific",
         "basis": "projector architecture",
         "linearStatus": "linear",
-        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "supportStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
         "theoremLinks": [
           "../theorem-candidates/bounded-domain-hodge-theorems.md",
           "../cfd/bounded-vs-periodic-projection.md"
@@ -2088,7 +2203,7 @@
         "dimension": "family-specific",
         "basis": "bounded basis",
         "linearStatus": "linear",
-        "supportStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "supportStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
         "theoremLinks": [
           "../theorem-candidates/bounded-domain-hodge-theorems.md",
           "../cfd/bounded-vs-periodic-projection.md"
@@ -2105,7 +2220,7 @@
         "code": "boundary-compatibility",
         "title": "Boundary compatibility check",
         "detail": "The current projector architecture is incompatible with the bounded protected target.",
-        "theoremStatus": "restricted exact bounded-domain result plus counterexample layer"
+        "theoremStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)"
       }
     ],
     "recommendations": [
@@ -2113,7 +2228,7 @@
         "title": "Switch to boundary-compatible Hodge projector",
         "actionKind": "switch_architecture",
         "rationale": "The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.",
-        "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+        "theoremStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
         "minimal": true,
         "availableInStudio": true,
         "patch": {
@@ -2146,7 +2261,7 @@
       "title": "Switch to boundary-compatible Hodge projector",
       "actionKind": "switch_architecture",
       "rationale": "The transplanted periodic projector violates the bounded-domain boundary trace required by the strong target.",
-      "theoremStatus": "restricted exact bounded-domain result plus counterexample layer",
+      "theoremStatus": "restricted theorem-backed (bounded-domain Hodge + counterexample layer)",
       "minimal": true,
       "availableInStudio": true,
       "patch": {
@@ -12021,19 +12136,27 @@
       },
       {
         "label": "Recoverability / Observation Studio",
-        "verdict": "threshold diagnosis + minimal fix",
-        "evidence": "family-backed threshold studio with theorem-linked comparison output",
+        "verdict": "exact/approximate/impossible split visible",
+        "evidence": "constrained-observation regime analysis with theorem-linked diagnostics",
         "trust": "qualified",
         "notes": "The recoverability studio is trustworthy for theorem-backed and family-backed threshold cases and keeps fix cards tied to real comparisons.",
         "scenario": "periodic stronger-target threshold failure"
       },
       {
         "label": "Structural Discovery Studio",
-        "verdict": "diagnosis-to-repair workflow",
-        "evidence": "architecture mismatch diagnosis with validated before/after repair",
+        "verdict": "threshold diagnosis + minimal fix",
+        "evidence": "family-backed threshold studio with theorem-linked comparison output",
         "trust": "qualified",
         "notes": "This is currently the strongest end-to-end diagnosis-to-repair workflow in the workbench.",
         "scenario": "wrong architecture on bounded-domain protected class"
+      },
+      {
+        "label": "Structural Discovery Studio (Boundary mode)",
+        "verdict": "diagnosis-to-repair workflow",
+        "evidence": "architecture mismatch diagnosis with validated before/after repair",
+        "trust": "qualified",
+        "notes": "",
+        "scenario": null
       },
       {
         "label": "Discovery Mixer / Structural Composition Lab",
@@ -12061,7 +12184,7 @@
       }
     ],
     "validationSnapshot": {
-      "generatedAt": "2026-04-16T01:32:53.133Z",
+      "generatedAt": "2026-04-17T15:08:41.083Z",
       "readiness": {
         "knownCaseValidation": true,
         "guidedDiscovery": true,
@@ -12165,7 +12288,7 @@
       "demoCount": 5,
       "regimeChangeCount": 5,
       "exactAfterCount": 5,
-      "moduleCount": 11
+      "moduleCount": 12
     }
   }
 }

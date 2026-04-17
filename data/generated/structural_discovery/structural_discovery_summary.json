@@ -104,8 +104,8 @@
         "predicted_min_cutoff": 4,
         "current_cutoff": 3,
         "collision_gap": 0.5000000000000001,
-        "mean_recovery_error": 0.142857142857143,
-        "max_recovery_error": 0.2500000000000022,
+        "mean_recovery_error": 0.14285714285714296,
+        "max_recovery_error": 0.25000000000000155,
         "weaker_target_count": 4
       }
     },
@@ -363,7 +363,7 @@
         "regime_changed": true,
         "key_metric_name": "boundary mismatch",
         "key_metric_before": 0.05908383612007321,
-        "key_metric_after": 2.3884773244607092e-15,
+        "key_metric_after": 1.898718455594205e-15,
         "exact_after": true,
         "impossible_after": false,
         "narrative": "Switching to the boundary-compatible finite-mode Hodge family repairs the architectural mismatch instead of pretending the periodic projector already solved the bounded problem."
@@ -381,10 +381,10 @@
         "transplant_before_divergence": 5.154228467461765,
         "transplant_after_divergence": 3.0879836024702965e-15,
         "transplant_boundary_mismatch": 0.05908383612007321,
-        "compatible_recovered_divergence": 9.652218483260753e-15,
-        "compatible_boundary_normal_rms": 6.021476406821791e-16,
-        "recovery_error": 2.3884773244607092e-15,
-        "idempotence_error": 2.3826825410818374e-15
+        "compatible_recovered_divergence": 1.0703870172653892e-14,
+        "compatible_boundary_normal_rms": 6.916860104423822e-16,
+        "recovery_error": 1.898718455594205e-15,
+        "idempotence_error": 1.9962091405042654e-15
       }
     },
     "restricted_linear_measurement_repair": {

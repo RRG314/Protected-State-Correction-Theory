@@ -7,7 +7,7 @@ sreid1118@gmail.com
 April 2026
 
 ## Abstract
-We study exact target recoverability under constrained observation, with emphasis on finite-dimensional restricted-linear families where theorem-grade classification and design are possible. For a general admissible family with record map `M` and target `tau`, we prove that exact recoverability is equivalent to fiber constancy, equivalently to factorization `tau = R o M` on the admissible set. In the restricted-linear class `x = Fz`, `y = OFz`, `tau(x) = LFz`, we obtain the exact criterion `ker(OF) \subseteq ker(LF)` (equivalently `row(LF) \subseteq row(OF)`). We then prove three negative classification theorems: same-rank observation families can have opposite exactness verdicts; no rank-only exact classifier exists on the class; and no fixed-library equal-budget/equal-count exact classifier exists. To move beyond binary exact/impossible labels, we include quantitative obstruction results via a collapse modulus and a structured collision gap, including a threshold law on nested record families. We also formalize target sensitivity (weaker target recoverable, stronger target impossible under the same record) and prove an exact minimal augmentation theorem, `delta(O,L;F)=rank([OF;LF]) - rank(OF)`, giving the minimum number of unrestricted added scalar measurements required for exact recovery. The paper is intentionally scoped: strongest constructive design conclusions are restricted-linear, and no universal inverse-problem classifier is claimed.
+We study exact target recoverability under constrained observation, with emphasis on finite-dimensional restricted-linear families where exact classification and design are computable. For a general admissible family with record map `M` and target `tau`, we prove that exact recoverability is equivalent to fiber constancy, equivalently to factorization `tau = R o M` on the admissible set. In the restricted-linear class `x = Fz`, `y = OFz`, `tau(x) = LFz`, we obtain the exact criterion `ker(OF) \subseteq ker(LF)` (equivalently `row(LF) \subseteq row(OF)`). We then establish three impossibility results for amount-only language: same-rank systems can have opposite exactness verdicts; no rank-only exact classifier exists on the class; and no fixed-library equal-budget/equal-count exact classifier exists. To move beyond binary exact/impossible labels, we develop a quantitative obstruction layer based on collapse and collision structure, including a nested collision-gap threshold law. We also formalize target sensitivity (weaker target recoverable, stronger target impossible under the same record) and prove the exact minimal augmentation law `delta(O,L;F)=rank([OF;LF]) - rank(OF)`. Scope is explicit: constructive design conclusions are strongest in restricted-linear settings, and no universal inverse-problem classifier is claimed.
 
 **Keywords:** exact recoverability, constrained observation, fiber criterion, row-space criterion, rank insufficiency, budget insufficiency, collision gap, minimal augmentation
 
@@ -20,16 +20,17 @@ This paper develops a theorem-first recoverability package in a constrained-obse
 3. We prove anti-classifier no-go theorems showing that rank-only and fixed-budget-only logic fails for exact classification.
 4. We provide an exact minimal augmentation law for repair.
 
+A concise foundational companion paper, `papers/ocp_core_paper.md`, presents the operator-level OCP spine (exact correction projector logic plus restricted-linear criterion) without the full anti-classifier/threshold expansion developed here.
+
 The central message is structural: exact recoverability is governed by how record fibers align with target variation, not by observation amount alone.
 
 ### 1.1 Contributions and Status Labels
-- **PROVED:** General exact recoverability criterion (`tau` fiber constancy / factorization).
-- **PROVED:** Restricted-linear exact criterion (`ker(OF) \subseteq ker(LF)` or `row(LF) \subseteq row(OF)`).
-- **PROVED:** Same-rank insufficiency and no rank-only exact classifier.
-- **PROVED:** No fixed-library equal-budget/equal-count exact classifier.
-- **PROVED:** Quantitative lower/upper bounds and nested collision-gap threshold law in the restricted-linear class.
-- **PROVED:** Minimal augmentation law `delta(O,L;F)`.
-- **INTERPRETATION:** Structure-first design guidance derived from theorems.
+- **PROVED (general setting):** Exact recoverability is equivalent to fiber constancy/factorization of `tau` through the record map `M`; this gives the conceptual backbone for all later specialization.
+- **PROVED (restricted-linear setting):** Exactness is equivalent to `ker(OF) \subseteq ker(LF)` (equivalently `row(LF) \subseteq row(OF)`); this turns recoverability into a directly testable linear criterion.
+- **PROVED (classification limits):** Same-rank systems can yield opposite verdicts, and rank-only or fixed-budget-only exact classifiers fail on the supported class; this rules out amount-only exact criteria.
+- **PROVED (quantitative layer):** Collision/collapse quantities produce explicit obstruction bounds and a nested collision-gap threshold law; this adds measurable transition structure beyond binary labels.
+- **PROVED (design law):** `delta(O,L;F)` is the exact minimum unrestricted linear augmentation count needed for repair; this yields a constructive correction-design rule.
+- **INTERPRETATION:** Structure-first guidance follows from the proved criteria; no interpretation is promoted as theorem.
 
 ## 2. Problem Setup and Notation
 Let:
@@ -363,6 +364,12 @@ Thus the minimum equals `delta(O,L;F)`.
 - `delta=0`: already exact.
 - `delta>0`: exactness impossible without adding at least `delta` new independent informative directions.
 
+Figure 5 shows this repair law on the canonical failure witness: before augmentation, the target direction is outside `row(OF)`; after adding one informative row, the rank deficit closes (`delta=1`) and exactness is restored.
+
+![Figure 5. Minimal augmentation repair: before/after visualization of the rank deficit and exactness restoration.](../figures/recoverability/recoverability_minimal_augmentation_repair.png)
+
+Figure 5. Minimal augmentation repair: before/after visualization of the rank deficit and exactness restoration.
+
 ## 9. Worked Examples
 All examples are finite-dimensional and exact.
 
@@ -469,17 +476,17 @@ Likely paper-distinct contribution package (within stated scope):
 - exact minimal augmentation law positioned as a design theorem.
 
 ### 12.7 Position Relative to Existing Work
-The foundational exactness ingredients (fiber factorization and linear row-space criteria) are established mathematics. The paper's contribution is the scoped integration: a single restricted-linear theorem package combining exactness, anti-classifier impossibility, quantitative collision thresholds, and exact minimal augmentation repair in one coherent recoverability-design framework, without claiming universal inverse-problem classification.
+The foundational ingredients are standard: factorization/fiber logic in map-based identifiability and kernel/row-space criteria in finite-dimensional linear recovery. This paper's contribution is the scoped theorem package that combines these ingredients with three classifier-failure results, a quantitative collision-threshold layer, and an exact augmentation design law in one coherent framework. The likely distinctive part is this integrated negative-plus-design package under explicit scope control. The paper does not claim a universal recoverability law across nonlinear inverse problems.
 
 ## 13. Conclusion
-Exact recoverability under constrained observation is governed by structure: target variation must be constant on record fibers, and in restricted-linear families this is exactly row-space inclusion. Rank/count/budget amount language alone is insufficient for exact classification. Quantitative ambiguity can be measured through collapse and collision objects, and exact failure can be repaired constructively by an exact minimal augmentation count. The resulting framework is intentionally narrow, theorem-first, and suitable for submission-focused polishing without universal overreach.
+Exact recoverability under constrained observation is governed by structure: target variation must be constant on record fibers, and in restricted-linear families this is exactly row-space inclusion. Rank/count/budget summaries alone are insufficient for exact classification. Quantitative ambiguity can be measured through collapse and collision objects, and exact failure can be repaired constructively through the minimal augmentation law. The framework is intentionally narrow, theorem-first, and scoped to claims that are defensible on the supported families.
 
 ## 14. Administrative Statements
 ### 14.1 Funding
 This research received no external funding.
 
 ### 14.2 AI Usage Statement
-AI-assisted tools were used for coding support, computational-figure scripting, and editorial drafting support. All theorem statements, proofs, formulas, references, and final manuscript text were manually checked and verified by the author.
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
 
 ### 14.3 Data and Code Availability
 Primary repository for this paper: https://github.com/RRG314/Protected-State-Correction-Theory.  

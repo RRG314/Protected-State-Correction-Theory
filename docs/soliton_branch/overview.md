@@ -37,5 +37,5 @@ This branch captures only the mathematically honest overlap between OCP and the 
 
 - `docs/soliton_branch/status_registry.md`
 - `docs/soliton_branch/final_branch_decision.md`
+- `docs/soliton_branch/self_organization_bridge_retest.md`
 - Companion detailed package (legacy path): `docs/soliton-branch/*`
-

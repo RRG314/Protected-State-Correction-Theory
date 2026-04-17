@@ -1,0 +1,4 @@
+functional_name,cutoff,exact_recoverable,predicted_min_cutoff,collision_max_protected_distance,mean_recovery_error
+low_mode_sum,2,True,2,8.740472234459382e-16,5.257650246114059e-16
+bandlimited_contrast,2,False,3,2.0,0.5714285714285714
+full_weighted_sum,2,False,4,1.9999999999999996,0.4489795918367346

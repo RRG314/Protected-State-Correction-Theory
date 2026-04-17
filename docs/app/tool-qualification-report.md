@@ -47,27 +47,27 @@ A live browser qualification pass was executed on the high-risk workbench surfac
 
 | Case | Category | Expected | Tool | Independent check | Result | Evidence | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Orthogonal exact recovery | Exact / OCP | exact | exact | exact | exact match | theorem-backed or theorem-linked branch example | Exact projector anchor. |
-| Overlap / indistinguishability no-go | Exact / OCP | impossible | impossible | impossible | exact match | theorem-backed or theorem-linked branch example | Non-orthogonal disturbance contaminates the protected projection. |
-| Exact sector recovery | Exact / OCP | exact | exact | exact | exact match | theorem-backed or theorem-linked branch example | Bit-flip sector anchor. |
-| Fiber-collision no-go at analytic ε=0 | Constrained observation | impossible | impossible | impossible | exact match | explicit analytic benchmark | Zero degeneracy closes the record on the protected scalar. |
-| Restricted-linear exact no-go before augmentation | Constrained observation | impossible | impossible | impossible | exact match | theorem-backed restricted-linear result | The protected row is outside the active observation row space. |
-| Minimal augmentation theorem case | Constrained observation | exact-min-1 | exact-min-1 | exact-min-1 | exact match | theorem-backed restricted-linear result | One added row is enough, and the tool surfaces candidate one-row repairs. |
-| Same-rank exact case | Constrained observation | exact | exact | exact | exact match | theorem-backed restricted-linear result | Rank two record that already contains the protected row. |
-| Same-rank insufficiency case | Constrained observation | impossible | impossible | impossible | exact match | theorem-backed restricted-linear result | Same row rank, opposite recoverability verdict. |
-| Qubit phase-loss no-go | Constrained observation | impossible | impossible | impossible | exact match | family-specific result with standard external guidance | Full Bloch-vector target fails once phase freedom opens. |
-| Qubit weaker target exactness | Constrained observation | exact | exact | exact | exact match | family-specific result with standard external guidance | z-only target survives under the same fixed-basis record. |
-| Periodic cutoff threshold failure | Constrained observation | impossible | impossible | impossible | exact match | family-specific threshold result | Cutoff 3 hides mode 4 support of the weighted functional. |
-| Periodic cutoff threshold repair | Constrained observation | exact | exact | exact | exact match | family-specific threshold result | Cutoff 4 recovers the full functional support on the tracked basis. |
-| Diagonal history threshold failure | Constrained observation | impossible | impossible | impossible | exact match | family-specific threshold and asymptotic benchmark | History horizon 2 is below the proven threshold for the second moment. |
-| Diagonal history threshold repair | Constrained observation | exact | exact | exact | exact match | family-specific threshold and asymptotic benchmark | Horizon 3 reaches the tracked exact threshold. |
-| Periodic Helmholtz / GLM split | Physics-supported lanes | exact-better-than-glm | exact-better-than-glm | exact-better-than-glm | exact match | theorem-backed or theorem-linked branch example | Projection should beat short GLM cleaning on the tracked periodic case. |
-| Periodic incompressible velocity projection | Physics-supported lanes | exact | exact | exact | exact match | validated theorem / no-go / empirical branch example | Periodic CFD branch should remain exact. |
-| Gauge / Maxwell transverse projection | Physics-supported lanes | exact-improves-transverse | exact-improves-transverse | exact-improves-transverse | exact match | theorem-backed or theorem-linked branch example | Gauge lab stays aligned with the exact projection anchor. |
-| Naive bounded-domain transplant failure | Physics-supported lanes | impossible | impossible | impossible | exact match | theorem-linked counterexample and family-specific redesign guidance | Transplanted periodic projector fails the bounded protected class. |
-| Restricted bounded-domain exact family | Physics-supported lanes | exact | exact | exact | exact match | restricted exact bounded-domain result | Boundary-compatible Hodge family should remain exact on the tracked benchmark. |
-| Divergence-only bounded no-go | Physics-supported lanes | impossible | impossible | impossible | exact match | validated theorem / no-go / empirical branch example | Distinct bounded incompressible states share the same divergence record. |
-| Finite-time exactness failure for smooth linear flow | Physics-supported lanes | asymptotic-only | asymptotic-only | asymptotic-only | exact match | validated theorem / no-go / empirical branch example | Continuous generator lab should keep exact and asymptotic separate. |
+| Orthogonal exact recovery | Exact / OCP | exact | exact | exact | exact match | theorem-backed | Exact projector anchor. |
+| Overlap / indistinguishability no-go | Exact / OCP | impossible | impossible | impossible | exact match | theorem-backed | Non-orthogonal disturbance contaminates the protected projection. |
+| Exact sector recovery | Exact / OCP | exact | exact | exact | exact match | theorem-backed | Bit-flip sector anchor. |
+| Fiber-collision no-go at analytic ε=0 | Constrained observation | impossible | impossible | impossible | exact match | validated family-specific (analytic benchmark) | Zero degeneracy closes the record on the protected scalar. |
+| Restricted-linear exact no-go before augmentation | Constrained observation | impossible | impossible | impossible | exact match | restricted theorem-backed (restricted-linear) | The protected row is outside the active observation row space. |
+| Minimal augmentation theorem case | Constrained observation | exact-min-1 | exact-min-1 | exact-min-1 | exact match | restricted theorem-backed (restricted-linear) | One added row is enough, and the tool surfaces candidate one-row repairs. |
+| Same-rank exact case | Constrained observation | exact | exact | exact | exact match | restricted theorem-backed (restricted-linear) | Rank two record that already contains the protected row. |
+| Same-rank insufficiency case | Constrained observation | impossible | impossible | impossible | exact match | restricted theorem-backed (restricted-linear) | Same row rank, opposite recoverability verdict. |
+| Qubit phase-loss no-go | Constrained observation | impossible | impossible | impossible | exact match | validated family-specific (qubit record family) | Full Bloch-vector target fails once phase freedom opens. |
+| Qubit weaker target exactness | Constrained observation | exact | exact | exact | exact match | validated family-specific (qubit record family) | z-only target survives under the same fixed-basis record. |
+| Periodic cutoff threshold failure | Constrained observation | impossible | impossible | impossible | exact match | validated family-specific (periodic threshold family) | Cutoff 3 hides mode 4 support of the weighted functional. |
+| Periodic cutoff threshold repair | Constrained observation | exact | exact | exact | exact match | validated family-specific (periodic threshold family) | Cutoff 4 recovers the full functional support on the tracked basis. |
+| Diagonal history threshold failure | Constrained observation | impossible | impossible | impossible | exact match | validated family-specific (control threshold/asymptotic benchmark) | History horizon 2 is below the proven threshold for the second moment. |
+| Diagonal history threshold repair | Constrained observation | exact | exact | exact | exact match | validated family-specific (control threshold/asymptotic benchmark) | Horizon 3 reaches the tracked exact threshold. |
+| Periodic Helmholtz / GLM split | Physics-supported lanes | exact-better-than-glm | exact-better-than-glm | exact-better-than-glm | exact match | theorem-backed | Projection should beat short GLM cleaning on the tracked periodic case. |
+| Periodic incompressible velocity projection | Physics-supported lanes | exact | exact | exact | exact match | validated family-specific | Periodic CFD branch should remain exact. |
+| Gauge / Maxwell transverse projection | Physics-supported lanes | exact-improves-transverse | exact-improves-transverse | exact-improves-transverse | exact match | theorem-backed | Gauge lab stays aligned with the exact projection anchor. |
+| Naive bounded-domain transplant failure | Physics-supported lanes | impossible | impossible | impossible | exact match | theorem-backed counterexample (bounded-domain transplant limit) | Transplanted periodic projector fails the bounded protected class. |
+| Restricted bounded-domain exact family | Physics-supported lanes | exact | exact | exact | exact match | restricted theorem-backed (bounded-domain finite-mode Hodge) | Boundary-compatible Hodge family should remain exact on the tracked benchmark. |
+| Divergence-only bounded no-go | Physics-supported lanes | impossible | impossible | impossible | exact match | validated family-specific | Distinct bounded incompressible states share the same divergence record. |
+| Finite-time exactness failure for smooth linear flow | Physics-supported lanes | asymptotic-only | asymptotic-only | asymptotic-only | exact match | validated family-specific | Continuous generator lab should keep exact and asymptotic separate. |
 
 ## 5. Independent cross-check findings
 

@@ -3,8 +3,15 @@
   "checks": {
     "rowspace_exact_zero": true,
     "rowspace_fail_positive": true,
+    "recoverability_delta_one": true,
+    "recoverability_aug_residual_drop": true,
+    "ocp_exact_preservation_zero": true,
+    "ocp_exact_leakage_zero": true,
+    "ocp_misaligned_nonzero": true,
+    "ocp_delta_one": true,
     "gamma_monotone": true,
     "gamma_hits_zero": true,
+    "tokamak_variable_exceeds_constant_at_r1": true,
     "sheet_scaling_slope_positive": true,
     "bridge_periodic_beats_bounded_error": true,
     "bridge_divergence_reduced_both": true

@@ -2,62 +2,68 @@
 
 ## Plain-Language Summary
 
-The no-go layer is not auxiliary. It is one of the strongest finished parts of the OCP program.
+The no-go layer is a primary output of the program.
 
-It prevents the framework from collapsing into the tautology that “good correction should preserve what matters.”
+It now includes:
+- core exact and continuous obstructions,
+- bounded-domain projection failures,
+- constrained-observation anti-classifier limits,
+- and false-positive/mismatch boundaries under family changes.
 
-## Core Exact No-Go Results
+## 1. Core Exact And Continuous No-Go Results
 
-### OCP-N1: Overlap Kills Exact Recovery
-- If `S ∩ D ≠ {0}`, single-valued exact recovery is impossible.
-- This is the exact-branch boundary theorem.
+### OCP-003 (OCP-N1): Overlap kills exact recovery
+- `S ∩ D ≠ {0}` implies exact single-valued recovery impossibility
 
-### OCP-N2: Non-Preserving Correction Cannot Be Exact
-- If a claimed recovery map changes protected states or fails to annihilate the disturbance family, it is disqualified immediately.
-- This is elementary but necessary for repo hygiene.
+### OCP-015 (OCP-N5): Mixing no-go for linear flows
+- `P_S K P_D ≠ 0` generically breaks protected preservation
 
-## Structural No-Go Results
+### OCP-020 (OCP-N7): No finite-time exact recovery in smooth linear flows
+- invertible finite-time linear flow cannot annihilate nontrivial disturbance family exactly
 
-### OCP-N4: No Universal Scalar Correction-Capacity Number
-- The repository rejects the current all-branches scalar-capacity story.
-- This is a program boundary, not a missing footnote.
+### OCP-021 (OCP-N8): Sector-overlap detection no-go
+- overlapping sectors destroy unique exact sector detection
 
-### OCP-N6: Rank-Deficient Exact Correction Cannot Cover The Disturbance Space
-- If `rank(C) < dim(D)`, exact correction cannot cover the full disturbance family.
-- This is the exact linear minimum-structure obstruction.
+## 2. Bounded-Domain / PDE No-Go Layer
 
-## Continuous No-Go Results
+### OCP-023: Periodic projector transplant to bounded domains is disproved
+- divergence removal alone does not certify bounded protected-class exactness
 
-### OCP-N5: Mixing Into The Protected Coordinates Breaks OCP Correction
-- If `P_S K P_D ≠ 0`, disturbance leaks into protected coordinates.
-- This rejects many superficially stable but structurally invalid flows.
+### OCP-028: Divergence-only bounded recovery no-go
+- divergence-only observation cannot classify exact bounded incompressible protected states
 
-### OCP-N7: No Finite-Time Exact Recovery In Smooth Linear Flow Systems
-- A smooth linear flow `e^{-tK}` is invertible at every finite time.
-- Therefore it cannot annihilate a nontrivial disturbance family exactly at finite time.
-- This is the clearest reason the continuous linear branch belongs on the asymptotic side.
+## 3. Constrained-Observation And Fiber Limits No-Go Layer
 
-## Sector No-Go Results
+### OCP-047: Same-rank observation insufficiency
+- same rank can produce opposite exactness verdicts
 
-### OCP-N8: Sector Overlap Destroys Unique Exact Detection
-- If two candidate sectors overlap nontrivially, exact sector-conditioned detection collapses.
-- This is the sector-branch analog of OCP-N1.
+### OCP-049: No rank-only exact classifier theorem
+- rank tuple alone cannot classify exact recoverability on restricted-linear class
 
-## Open Boundary, Not Yet Theorem
+### OCP-050: No fixed-library budget-only exact classifier theorem
+- same budget/count inside fixed candidate library can yield opposite exactness verdicts
 
-### OCP-N9: Naive Periodic Projector Transplant Fails On Bounded-Domain Problems
-- The periodic projector can remove divergence while still failing the bounded protected class because the boundary-normal trace is not preserved.
-- This rejects the simplest projector-transplant overclaim directly.
+### OCP-052: Family-enlargement false-positive theorem
+- exactness on smaller family does not certify exactness on enlarged admissible family
 
-### Remaining open boundary issue
-- The repo still does not claim a finished exact bounded-domain theorem.
-- What is rejected is the naive unchanged transplant, not bounded-domain exact correction in general.
+### OCP-053: Canonical model-mismatch instability theorem
+- exact identifiability of true family does not imply robustness of mismatched decoder
 
-## Why The No-Go Spine Is Strong
+### Descriptor-fiber mixedness lower-bound no-go (supported witness classes)
+- if a descriptor fiber mixes exact/fail witnesses, descriptor-only perfect classification is impossible and descriptor-only error has a nonzero irreducible lower bound (`IDELB > 0`).
 
-The no-go spine is strong because it covers all three important branches:
-- exact projector recovery,
-- exact sector recovery,
-- asymptotic continuous correction.
+## 4. Program Boundary No-Go
 
-That makes the repository falsification-first in a real way rather than just by tone.
+### OCP-009: No universal scalar correction-capacity law (still open as universal claim)
+- current evidence rejects universal scalar unification as promoted theorem output
+
+## Why This Spine Is Strong
+
+This no-go spine now blocks the main overreach modes:
+- overlap or structural ambiguity,
+- finite-time exactness inflation in smooth asymptotic flows,
+- boundary-oblivious bounded-domain transplants,
+- rank-only and budget-only recoverability classification,
+- family-blind exactness and family-blind inverse-map robustness claims.
+
+This is the repository’s primary scope-control mechanism.

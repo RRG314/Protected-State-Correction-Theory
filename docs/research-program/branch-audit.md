@@ -55,6 +55,12 @@ Canonical scope-sync overlays for this pass:
 - [../soliton_branch/overview.md](../soliton_branch/overview.md)
 - [../soliton_branch/status_registry.md](../soliton_branch/status_registry.md)
 
+## Current Descriptor-Fiber Branch Integration Pass
+
+- [descriptor-fiber-anti-classifier-branch-overview.md](descriptor-fiber-anti-classifier-branch-overview.md)
+- [descriptor-fiber-anti-classifier-branch-status.md](descriptor-fiber-anti-classifier-branch-status.md)
+- [descriptor-fiber-anti-classifier-branch-integration-report.md](descriptor-fiber-anti-classifier-branch-integration-report.md)
+
 ## Branch Matrix
 
 | Branch | What it is about | Strongest clean result | Strongest negative result | Strongest limitation | Status | Worth pushing harder? |
@@ -69,6 +75,7 @@ Canonical scope-sync overlays for this pass:
 | Continuous-QEC bridge | bridge between exact sector correction and continuous monitored correction | citable conditional bridge | smooth-flow finite-time exactness no-go blocks naive overclaiming | still conditional and bridge-like rather than theorem-complete | conditional bridge | keep, but do not oversell |
 | Constrained-observation recoverability branch | exact/approximate/asymptotic/impossible recovery under coarse records | OCP-043 plus the exact-regime upper envelope and same-rank insufficiency theorem | same-record weaker-versus-stronger split; phase-loss and hidden-mode no-gos | broad universal PVRT failed; strongest surviving form is restricted-linear | strongest current theory-program branch in repo | yes, heavily |
 | Fiber-based recoverability / impossibility branch | common formal limits on recoverability, detectability, distinguishability, irrecoverability, and false-positive exactness claims across fields | universal fiber-factorization exactness plus OCP-049/OCP-050 anti-universal classifier theorems, OCP-051 noisy weaker-vs-stronger separation, OCP-052 family-enlargement false-positive theorem, and OCP-053 canonical model-mismatch instability theorem | one universal threshold law, one amount-only classifier, one family-blind exactness slogan, and one family-blind inverse-map robustness slogan all fail | strongest positive laws above the fiber level remain restricted by field or family | serious synthesis / limits branch | yes, but keep falsification-first |
+| Descriptor-fiber anti-classifier branch | finite-class quantitative extraction of anti-classifier witness structure | descriptor-fiber purity and irreducible descriptor-only error bounds with computed DFMI/IDELB/CL summaries | amount-only descriptors remain mixed on supported witness classes (`DFMI=1`) | finite witness-class scope; no unrestricted continuous promotion | branch-limited quantitative extraction lane (`PROVED ON SUPPORTED FAMILY` + `VALIDATED`) | yes, as a scoped diagnostic layer |
 | Soliton nonlinear-wave candidate branch | quotient recoverability and projection-preservation/no-go on restricted one-soliton NLS families | symmetry non-identifiability no-go plus validated same-count opposite-verdict witnesses on tested families | direct linear minimal-augmentation transfer and broad universal bridge claims fail | strongest positive claims remain finite-grid validated/conditional rather than closed continuous theorems | conditional candidate branch (`B`) | yes, but only as a tightly bounded bridge lane |
 | Restricted-linear / design-engine layer | measurement sufficiency, minimal augmentation, and design diagnostics on restricted families | OCP-T6 restricted-linear minimal augmentation theorem | below-deficiency augmentation impossibility | limited to restricted finite-dimensional linear families | strongest practical theorem-to-tool branch | yes, heavily |
 | Structural Discovery subsystem | failure diagnosis, missing-structure detection, supported repair suggestions, and before/after validation | validated end-to-end diagnosis-and-repair demos across periodic, control, qubit, and restricted-linear families | no in-studio fix is promoted unless a theorem-backed or validated family-backed path exists | novelty is mostly engineering and theorem-surfacing rather than standalone mathematics | high-value subsystem | yes, as a practical research-system layer |
@@ -85,6 +92,7 @@ The repo's current backbone is:
 - asymptotic generator branch as the strongest finished continuous theorem branch,
 - constrained-observation and restricted-linear design layers as the strongest current open theorem/program branches,
 - fiber-based recoverability / impossibility as the cleanest statement of what part of recoverability theory is universal and what part fails to unify,
+- descriptor-fiber anti-classifier as the cleanest finite-class quantitative extraction layer above anti-classifier witnesses,
 - no-go layer as the main scope-control mechanism.
 
 ## Strongest Current Contribution Candidates

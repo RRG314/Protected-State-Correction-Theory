@@ -336,7 +336,7 @@ def analyze_linear_custom_case(
 ) -> MixerReport:
     diagnostics: list[MixerDiagnostic] = []
     recommendations: list[MixerRecommendation] = []
-    theorem_status = 'theorem-backed restricted-linear result'
+    theorem_status = 'restricted theorem-backed (restricted-linear)'
     try:
         observation_rows = np.asarray(_parse_row_lines(observation_text, prefix='x', dimension=dimension), dtype=float)
         protected_rows = np.asarray(_parse_row_lines(protected_text, prefix='x', dimension=dimension), dtype=float)
@@ -844,7 +844,7 @@ def analyze_control_custom_case(*, sensor_profile_text: str, target_text: str, h
 
 
 def analyze_boundary_structured_case(*, architecture: str, protected_key: str, grid_size: int, delta: float = 0.2) -> MixerReport:
-    theorem_status = 'restricted exact bounded-domain result plus counterexample layer'
+    theorem_status = 'restricted theorem-backed (bounded-domain Hodge + counterexample layer)'
     strong_target = protected_key == 'bounded_velocity_class'
     transplant_mismatch = 9.676e-2
     compatible_error = 5.172e-15

@@ -7,7 +7,7 @@ sreid1118@gmail.com
 April 2026
 
 ## Abstract
-We study closure for resistive MHD written in Euler potentials `B = ∇α × ∇β`, with emphasis on exactness versus obstruction under variable resistivity. The paper upgrades the 2025 draft by tightening scope to theorem-supported cylindrical families, making domain assumptions explicit, and separating proved exact identities from validated asymptotic evidence. In constant resistivity, we keep a complete exact/conditional cylindrical classification for supported ansätze; in variable resistivity we prove a sharp obstruction layer with restricted annular survivors and no nonconstant smooth axis-touching survivors in the supported radial classes. We then add a new mixed reduced-MHD/tokamak-adjacent lane `β = z + q(r)θ`, proving a factorization criterion for constant resistivity and a restricted exact annular ODE for variable resistivity. A perturbative layer provides first-order defect formulas, and a sheet-profile benchmark validates `max|R| ~ ε/δ` localization scaling. We state precisely what is proved, what is validated, and what remains open.
+We study closure for resistive MHD in Euler-potential form `B = ∇α × ∇β`, focusing on exactness versus obstruction under variable resistivity. The manuscript tightens scope to theorem-supported cylindrical families, makes domain assumptions explicit, and separates proved exact statements from validated asymptotic evidence. For constant resistivity, we provide exact/conditional classification on supported ansätze; for variable resistivity, we prove an obstruction layer with restricted annular survivors and no nonconstant smooth axis-touching survivors in the supported radial classes. We also develop a mixed reduced-MHD/tokamak-adjacent lane `β = z + q(r)θ`, with a constant-resistivity factorization law and a restricted exact annular ODE under variable resistivity. A perturbative layer gives first-order defect formulas, and sheet-profile benchmarks support `max|R| ~ ε/δ` scaling in the tested family. Claims are explicitly separated into proved, validated, interpretation, and open.
 
 **Keywords:** Euler potentials, resistive MHD, closure remainder, variable resistivity, cylindrical coordinates, annular domains, Helmholtz-Hodge structure
 
@@ -20,6 +20,16 @@ Relative to the 2025 draft, this upgrade enforces four corrections.
 2. Domain class is explicit (axis-touching versus annular).
 3. Variable-resistivity survivors are separated from smooth exact families.
 4. Symbolic verification is used as evidence, not as a substitute for theorem statements.
+
+This paper remains domain-specific and largely standalone. It interfaces with the broader correction/recoverability program only at a high level; abstract restricted-linear recoverability theorems are treated separately in `papers/recoverability_paper_final.md` and `papers/ocp_core_paper.md`.
+
+### 1.1 Contributions and Status Labels
+- **PROVED (constant-`eta` cylindrical lanes):** exact/conditional closure classification for supported `alpha, beta` ansätze.
+- **PROVED (variable-`eta` obstruction layer):** annular-only nontrivial survivors in supported radial classes, with axis-touching smooth exclusion.
+- **PROVED (mixed tokamak-adjacent lane):** constant-`eta` factorization law and restricted variable-`eta` annular exact ODE branch.
+- **PROVED (perturbative formulas):** first-order defect laws for `eta` and `alpha` perturbations around exact bases.
+- **VALIDATED (benchmark lane):** sheet-thinning defect localization/scaling behavior on declared families.
+- **INTERPRETATION:** physical positioning remains conservative and does not claim full toroidal/reconnection closure theory.
 
 ## 2. Setup and Closure Remainder
 Let `(r,θ,z)` denote cylindrical coordinates, with physical-component operators used consistently.
@@ -167,6 +177,13 @@ This isolates curvature/shear and coefficient-gradient coupling in a closed form
 
 **Status:** `PROVED (local)` (MHD-XG1).
 
+Figure 3 visualizes the mixed tokamak-adjacent lane by sweeping shear parameter `kappa` in
+`q(r)=q0+kappa r` and comparing constant-`eta` versus variable-`eta` behavior. The variable-resistivity panel shows uniformly larger closure-defect magnitude across the tested shear values.
+
+![Figure 3. Mixed tokamak-lane visualization: closure-defect profiles for shear sweep `kappa in {0.0,0.4,0.8}` under constant and variable resistivity.](../figures/mhd/mhd_mixed_tokamak_lane.png)
+
+Figure 3. Mixed tokamak-lane visualization: closure-defect profiles for shear sweep `kappa in {0.0,0.4,0.8}` under constant and variable resistivity.
+
 ### 5.4 Tokamak-claim scope discipline
 The mixed lane is mathematically tokamak-adjacent through shear-profile structure (`q(r)`), but this paper does **not** claim full tokamak equilibrium closure or global toroidal classification.
 
@@ -200,11 +217,11 @@ benchmarks show
 
 **Status:** `VALIDATED` (MHD-XP2), not a universal theorem.
 
-Figure 3 gives the computed sheet-thinning benchmark in the gradient-dominated lane: maxima increase with `1/δ`, and the normalized trend `max|R|·δ/ε` remains comparatively stable across the tested `δ` values.
+Figure 4 gives the computed sheet-thinning benchmark in the gradient-dominated lane: maxima increase with `1/δ`, and the normalized trend `max|R|·δ/ε` remains comparatively stable across the tested `δ` values.
 
-![Figure 3. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and normalized scaling check.](../figures/mhd/mhd_sheet_thinning_scaling.png)
+![Figure 4. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and normalized scaling check.](../figures/mhd/mhd_sheet_thinning_scaling.png)
 
-Figure 3. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and normalized scaling check.
+Figure 4. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and normalized scaling check.
 
 ## 7. Consolidated Classification Table
 
@@ -217,11 +234,11 @@ Figure 3. Sheet-thinning defect scaling benchmark: `max|R|` versus `1/δ` and no
 | sheet-profile asymptotic defect scaling | n/a | `max|R| ~ ε/δ` trend on tested family | profile-dependent | `VALIDATED` | reproducible benchmark |
 | full toroidal/global class | open | open | global geometry unresolved | `OPEN` | not solved |
 
-Figure 4 quantifies axis sensitivity of annular survivor profiles through a regularity proxy `||f'(r)||_{L2([r_min,1])}`: the axis-touching limit is singular, while fixed annular cutoffs remain finite.
+Figure 5 quantifies axis sensitivity of annular survivor profiles through a regularity proxy `||f'(r)||_{L2([r_min,1])}`: the axis-touching limit is singular, while fixed annular cutoffs remain finite.
 
-![Figure 4. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius `r_min` decreases.](../figures/mhd/mhd_axis_vs_annular_behavior.png)
+![Figure 5. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius `r_min` decreases.](../figures/mhd/mhd_axis_vs_annular_behavior.png)
 
-Figure 4. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius `r_min` decreases.
+Figure 5. Axis-touching versus annular behavior measured by derivative-norm growth as inner radius `r_min` decreases.
 
 ## 8. Status-Separated Claims
 
@@ -253,7 +270,7 @@ Figure 4. Axis-touching versus annular behavior measured by derivative-norm grow
 - No statement that symbolic checks replace closed-form arguments.
 
 ### 9.3 Position Relative to Existing Work
-Classical MHD literature and Euler-potential discussions already establish the broad modeling context. The contribution of this paper is narrower: a theorem-labeled closure/obstruction classification on explicit cylindrical families, with explicit annular-versus-axis scope control and a status-separated perturbative/benchmark layer. The paper does not claim a complete toroidal or reconnection theory.
+Classical MHD and Euler-potential literature establishes the governing equations, representation issues, and broad physical context. This paper contributes a narrower, explicitly scoped package: theorem-labeled closure/obstruction classification on declared cylindrical families, annular-versus-axis scope separation, and a status-separated perturbative/benchmark layer. The likely distinct contribution is this disciplined theorem-plus-obstruction packaging under variable resistivity in supported families, not a complete toroidal or reconnection theory.
 
 ## 10. Limitations and Scope
 1. Main proofs are cylindrical-family restricted.
@@ -269,7 +286,7 @@ This upgraded paper replaces broad language with a sharper theorem/no-go package
 This research received no external funding.
 
 ### 12.2 AI Usage Statement
-AI-assisted tools were used for symbolic-code scaffolding, figure scripting, and editorial drafting support. All mathematical claims, derivations, and final manuscript text were manually verified by the author.
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
 
 ### 12.3 Data and Code Availability
 Primary MHD repository: https://github.com/RRG314/MagnetoHydroDynamic-research.  

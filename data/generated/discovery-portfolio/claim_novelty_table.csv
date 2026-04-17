@@ -1,0 +1,5 @@
+claim_or_pattern,repo_scope,status,literature_position,promotion_risk,source
+structure-over-amount anti-classifier,ocp-research-program,PROVED ON SUPPORTED FAMILY,plausible extension,moderate,data/generated/unified-recoverability/rank_only_classifier_witnesses.csv
+family-enlargement fragility,ocp-research-program,VALIDATED,standard but useful benchmark,moderate,data/generated/unified-recoverability/family_enlargement_false_positive.csv
+integrable_single_state_robustness,soliton-geometry-research,VALIDATED,standard but useful benchmark,moderate,data/generated/discovery/systems/multi_system_summary_expanded.csv
+same-size opposite-outcome motif,ocp + soliton,CONDITIONAL,plausible extension,moderate,cross-derived from OCP witness tables and soliton anomaly A-OP-OPPOSITE

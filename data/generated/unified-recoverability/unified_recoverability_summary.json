@@ -1,0 +1,1254 @@
+{
+  "canonical_detectable_only_examples": {
+    "finite": {
+      "strong_exact_recoverable": false,
+      "weak_exact_recoverable": true,
+      "detectable_only": true,
+      "strong_collision_gap": 1.0,
+      "weak_collision_gap": 0.0,
+      "strong_witness_pair": [
+        1,
+        2
+      ],
+      "weak_witness_pair": null
+    },
+    "restricted_linear": {
+      "strong_exact_recoverable": false,
+      "weak_exact_recoverable": true,
+      "detectable_only": true,
+      "strong_rowspace_residual": 0.7071067811865476,
+      "weak_rowspace_residual": 4.710277376051325e-16,
+      "strong_collision_gap": 2.0,
+      "weak_collision_gap": 0.0
+    },
+    "noisy_restricted_linear": {
+      "weak_exact_recoverable": true,
+      "strong_exact_recoverable": false,
+      "detectable_only": true,
+      "weak_decoder_operator_norm": 0.9999999999999997,
+      "strong_collision_gap": 2.0,
+      "strong_uniform_lower_bound": 1.0,
+      "separation_noise_threshold": 1.0000000000000004,
+      "weak_discrete_collision_gap": 0.0,
+      "strong_discrete_collision_gap": 2.0,
+      "rows": [
+        {
+          "noise_radius": 0.0,
+          "weak_upper_bound": 0.0,
+          "weak_bruteforce_max_error": 6.661338147750939e-16,
+          "strong_uniform_lower_bound": 1.0,
+          "strong_discrete_collision_gap": 2.0,
+          "separated": true
+        },
+        {
+          "noise_radius": 0.25,
+          "weak_upper_bound": 0.24999999999999992,
+          "weak_bruteforce_max_error": 0.25000000000000067,
+          "strong_uniform_lower_bound": 1.0,
+          "strong_discrete_collision_gap": 2.0,
+          "separated": true
+        },
+        {
+          "noise_radius": 0.5,
+          "weak_upper_bound": 0.49999999999999983,
+          "weak_bruteforce_max_error": 0.5000000000000004,
+          "strong_uniform_lower_bound": 1.0,
+          "strong_discrete_collision_gap": 2.0,
+          "separated": true
+        },
+        {
+          "noise_radius": 1.0,
+          "weak_upper_bound": 0.9999999999999997,
+          "weak_bruteforce_max_error": 1.0000000000000004,
+          "strong_uniform_lower_bound": 1.0,
+          "strong_discrete_collision_gap": 2.0,
+          "separated": false
+        }
+      ]
+    },
+    "control": {
+      "epsilon": 0.2,
+      "one_step_exact_recoverable": false,
+      "two_step_exact_recoverable": true,
+      "observer_asymptotic_recoverable": true,
+      "one_step_collision_gap": 2.0,
+      "two_step_collision_gap": 0.0,
+      "observer_spectral_radius": 0.2999999999999993,
+      "observer_final_protected_error": 1.1353077706351307e-08
+    }
+  },
+  "rank_only_classifier_failure": {
+    "witness_count": 34,
+    "all_same_rank": true,
+    "all_opposite_verdicts": true,
+    "rows": [
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_rank_observation": 1,
+        "fail_rank_observation": 1,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_rank_observation": 1,
+        "fail_rank_observation": 1,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 3,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_rank_observation": 1,
+        "fail_rank_observation": 1,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 4,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_rank_observation": 1,
+        "fail_rank_observation": 1,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 1,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 1,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 1,
+        "observation_rank": 5,
+        "exact_rank_observation": 5,
+        "fail_rank_observation": 5,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_rank_observation": 2,
+        "fail_rank_observation": 2,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 2,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 2,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 2,
+        "observation_rank": 5,
+        "exact_rank_observation": 5,
+        "fail_rank_observation": 5,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 3,
+        "observation_rank": 3,
+        "exact_rank_observation": 3,
+        "fail_rank_observation": 3,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 3,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 3,
+        "observation_rank": 5,
+        "exact_rank_observation": 5,
+        "fail_rank_observation": 5,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 4,
+        "observation_rank": 4,
+        "exact_rank_observation": 4,
+        "fail_rank_observation": 4,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 4,
+        "observation_rank": 5,
+        "exact_rank_observation": 5,
+        "fail_rank_observation": 5,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      },
+      {
+        "ambient_dimension": 6,
+        "protected_rank": 5,
+        "observation_rank": 5,
+        "exact_rank_observation": 5,
+        "fail_rank_observation": 5,
+        "exact_recoverable": true,
+        "fail_recoverable": false,
+        "exact_rowspace_residual": 0.0,
+        "fail_rowspace_residual": 1.0,
+        "exact_collision_gap": 0.0,
+        "fail_collision_gap": 2.0
+      }
+    ]
+  },
+  "coordinate_rank_enumeration": {
+    "all_levels_have_exact_and_fail": true,
+    "rows": [
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_count": 1,
+        "fail_count": 2
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_count": 2,
+        "fail_count": 1
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_count": 1,
+        "fail_count": 2
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_count": 1,
+        "fail_count": 3
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_count": 3,
+        "fail_count": 3
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "observation_rank": 3,
+        "exact_count": 3,
+        "fail_count": 1
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_count": 1,
+        "fail_count": 5
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "observation_rank": 3,
+        "exact_count": 2,
+        "fail_count": 2
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 3,
+        "observation_rank": 3,
+        "exact_count": 1,
+        "fail_count": 3
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 1,
+        "exact_count": 1,
+        "fail_count": 4
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 2,
+        "exact_count": 4,
+        "fail_count": 6
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 3,
+        "exact_count": 6,
+        "fail_count": 4
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "observation_rank": 4,
+        "exact_count": 4,
+        "fail_count": 1
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 2,
+        "exact_count": 1,
+        "fail_count": 9
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 3,
+        "exact_count": 3,
+        "fail_count": 7
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "observation_rank": 4,
+        "exact_count": 3,
+        "fail_count": 2
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "observation_rank": 3,
+        "exact_count": 1,
+        "fail_count": 9
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "observation_rank": 4,
+        "exact_count": 2,
+        "fail_count": 3
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 4,
+        "observation_rank": 4,
+        "exact_count": 1,
+        "fail_count": 4
+      }
+    ]
+  },
+  "candidate_library_budget": {
+    "witness_count": 19,
+    "all_levels_have_exact_and_fail": true,
+    "rows": [
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "selection_size": 1,
+        "exact_count": 1,
+        "fail_count": 2,
+        "exact_subset": [
+          0
+        ],
+        "fail_subset": [
+          1
+        ],
+        "exact_total_cost": 1.0,
+        "fail_total_cost": 1.0
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 1,
+        "selection_size": 2,
+        "exact_count": 2,
+        "fail_count": 1,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          1,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 3,
+        "protected_rank": 2,
+        "selection_size": 2,
+        "exact_count": 1,
+        "fail_count": 2,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          0,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "selection_size": 1,
+        "exact_count": 1,
+        "fail_count": 3,
+        "exact_subset": [
+          0
+        ],
+        "fail_subset": [
+          1
+        ],
+        "exact_total_cost": 1.0,
+        "fail_total_cost": 1.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "selection_size": 2,
+        "exact_count": 3,
+        "fail_count": 3,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          1,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 1,
+        "selection_size": 3,
+        "exact_count": 3,
+        "fail_count": 1,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          1,
+          2,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "selection_size": 2,
+        "exact_count": 1,
+        "fail_count": 5,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          0,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 2,
+        "selection_size": 3,
+        "exact_count": 2,
+        "fail_count": 2,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          0,
+          2,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 4,
+        "protected_rank": 3,
+        "selection_size": 3,
+        "exact_count": 1,
+        "fail_count": 3,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          0,
+          1,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "selection_size": 1,
+        "exact_count": 1,
+        "fail_count": 4,
+        "exact_subset": [
+          0
+        ],
+        "fail_subset": [
+          1
+        ],
+        "exact_total_cost": 1.0,
+        "fail_total_cost": 1.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "selection_size": 2,
+        "exact_count": 4,
+        "fail_count": 6,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          1,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "selection_size": 3,
+        "exact_count": 6,
+        "fail_count": 4,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          1,
+          2,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 1,
+        "selection_size": 4,
+        "exact_count": 4,
+        "fail_count": 1,
+        "exact_subset": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fail_subset": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "exact_total_cost": 4.0,
+        "fail_total_cost": 4.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "selection_size": 2,
+        "exact_count": 1,
+        "fail_count": 9,
+        "exact_subset": [
+          0,
+          1
+        ],
+        "fail_subset": [
+          0,
+          2
+        ],
+        "exact_total_cost": 2.0,
+        "fail_total_cost": 2.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "selection_size": 3,
+        "exact_count": 3,
+        "fail_count": 7,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          0,
+          2,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 2,
+        "selection_size": 4,
+        "exact_count": 3,
+        "fail_count": 2,
+        "exact_subset": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fail_subset": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "exact_total_cost": 4.0,
+        "fail_total_cost": 4.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "selection_size": 3,
+        "exact_count": 1,
+        "fail_count": 9,
+        "exact_subset": [
+          0,
+          1,
+          2
+        ],
+        "fail_subset": [
+          0,
+          1,
+          3
+        ],
+        "exact_total_cost": 3.0,
+        "fail_total_cost": 3.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 3,
+        "selection_size": 4,
+        "exact_count": 2,
+        "fail_count": 3,
+        "exact_subset": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fail_subset": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "exact_total_cost": 4.0,
+        "fail_total_cost": 4.0
+      },
+      {
+        "ambient_dimension": 5,
+        "protected_rank": 4,
+        "selection_size": 4,
+        "exact_count": 1,
+        "fail_count": 4,
+        "exact_subset": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fail_subset": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "exact_total_cost": 4.0,
+        "fail_total_cost": 4.0
+      }
+    ]
+  },
+  "noisy_restricted_linear_target_hierarchy": {
+    "weak_exact_recoverable": true,
+    "strong_exact_recoverable": false,
+    "detectable_only": true,
+    "weak_decoder_operator_norm": 0.9999999999999997,
+    "strong_collision_gap": 2.0,
+    "strong_uniform_lower_bound": 1.0,
+    "separation_noise_threshold": 1.0000000000000004,
+    "weak_discrete_collision_gap": 0.0,
+    "strong_discrete_collision_gap": 2.0,
+    "rows": [
+      {
+        "noise_radius": 0.0,
+        "weak_upper_bound": 0.0,
+        "weak_bruteforce_max_error": 6.661338147750939e-16,
+        "strong_uniform_lower_bound": 1.0,
+        "strong_discrete_collision_gap": 2.0,
+        "separated": true
+      },
+      {
+        "noise_radius": 0.25,
+        "weak_upper_bound": 0.24999999999999992,
+        "weak_bruteforce_max_error": 0.25000000000000067,
+        "strong_uniform_lower_bound": 1.0,
+        "strong_discrete_collision_gap": 2.0,
+        "separated": true
+      },
+      {
+        "noise_radius": 0.5,
+        "weak_upper_bound": 0.49999999999999983,
+        "weak_bruteforce_max_error": 0.5000000000000004,
+        "strong_uniform_lower_bound": 1.0,
+        "strong_discrete_collision_gap": 2.0,
+        "separated": true
+      },
+      {
+        "noise_radius": 1.0,
+        "weak_upper_bound": 0.9999999999999997,
+        "weak_bruteforce_max_error": 1.0000000000000004,
+        "strong_uniform_lower_bound": 1.0,
+        "strong_discrete_collision_gap": 2.0,
+        "separated": false
+      }
+    ]
+  },
+  "restricted_linear_fiber_geometry": {
+    "coefficient_dimension": 3,
+    "observation_rank": 2,
+    "fiber_dimension": 1,
+    "exact_recoverable": false,
+    "target_mixed_fiber": true,
+    "rowspace_residual": 0.7071067811865476,
+    "collision_gap": 2.0
+  },
+  "family_enlargement_false_positive": {
+    "small_family_dimension": 2,
+    "large_family_dimension": 3,
+    "inclusion_residual": 0.0,
+    "small_exact_recoverable": true,
+    "large_exact_recoverable": false,
+    "small_rowspace_residual": 0.0,
+    "large_rowspace_residual": 1.0,
+    "small_collision_gap": 0.0,
+    "large_collision_gap": 2.0,
+    "false_positive_risk": true,
+    "larger_family_impossibility_lower_bound": 1.0,
+    "reference_decoder_max_error_on_large_family": 1.0,
+    "reference_decoder_mean_error_on_large_family": 0.6666666666666666
+  },
+  "model_mismatch_stress": {
+    "reference_exact_recoverable": true,
+    "reference_family_dimension": 2,
+    "reference_decoder_operator_norm": 1.0000000000000002,
+    "rows": [
+      {
+        "label": "beta=0.5",
+        "family_dimension": 2,
+        "subspace_distance": 0.3162277660168381,
+        "exact_recoverable_under_true_family": true,
+        "rowspace_residual": 0.0,
+        "collision_gap": 0.0,
+        "reference_decoder_max_error": 0.4472135954999582,
+        "reference_decoder_mean_error": 0.29814239699997214
+      },
+      {
+        "label": "beta=1.0",
+        "family_dimension": 2,
+        "subspace_distance": 0.0,
+        "exact_recoverable_under_true_family": true,
+        "rowspace_residual": 0.0,
+        "collision_gap": 0.0,
+        "reference_decoder_max_error": 0.0,
+        "reference_decoder_mean_error": 0.0
+      },
+      {
+        "label": "beta=2.0",
+        "family_dimension": 2,
+        "subspace_distance": 0.3162277660168378,
+        "exact_recoverable_under_true_family": true,
+        "rowspace_residual": 0.0,
+        "collision_gap": 0.0,
+        "reference_decoder_max_error": 0.44721359549995765,
+        "reference_decoder_mean_error": 0.2981423969999717
+      }
+    ]
+  },
+  "canonical_model_mismatch": {
+    "beta_reference": 1.0,
+    "reference_exact_recoverable": true,
+    "reference_decoder_operator_norm": 1.0000000000000002,
+    "rows": [
+      {
+        "beta_true": 0.5,
+        "beta_reference": 1.0,
+        "exact_recoverable_true_family": true,
+        "subspace_distance": 0.316227766016838,
+        "formula_max_error": 0.4472135954999579,
+        "brute_force_max_error": 0.44721359549995804,
+        "brute_force_mean_error": 0.298142396999972
+      },
+      {
+        "beta_true": 1.0,
+        "beta_reference": 1.0,
+        "exact_recoverable_true_family": true,
+        "subspace_distance": 4.710277376051326e-16,
+        "formula_max_error": 0.0,
+        "brute_force_max_error": 1.1102230246251565e-16,
+        "brute_force_mean_error": 7.401486830834377e-17
+      },
+      {
+        "beta_true": 2.0,
+        "beta_reference": 1.0,
+        "exact_recoverable_true_family": true,
+        "subspace_distance": 0.31622776601683783,
+        "formula_max_error": 0.4472135954999579,
+        "brute_force_max_error": 0.44721359549995776,
+        "brute_force_mean_error": 0.29814239699997186
+      }
+    ]
+  },
+  "periodic_refinement_false_positive": {
+    "cutoff": 2,
+    "coarse_mode_count": 2,
+    "refined_mode_count": 4,
+    "coarse_exact_recoverable": true,
+    "refined_exact_recoverable": false,
+    "coarse_collision_gap": 0.0,
+    "refined_collision_gap": 1.9999999999999998,
+    "refinement_false_positive_risk": true,
+    "refined_family_impossibility_lower_bound": 0.9999999999999999,
+    "coarse_decoder_max_error_on_refined_family": 1.0000000000000007,
+    "coarse_decoder_mean_error_on_refined_family": 0.48
+  },
+  "periodic_same_record_target_hierarchy": {
+    "cutoff": 2,
+    "rows": {
+      "low_mode_sum": {
+        "exact_recoverable": true,
+        "predicted_min_cutoff": 2,
+        "collision_max_protected_distance": 8.740472234459382e-16,
+        "mean_recovery_error": 5.257650246114059e-16
+      },
+      "bandlimited_contrast": {
+        "exact_recoverable": false,
+        "predicted_min_cutoff": 3,
+        "collision_max_protected_distance": 2.0,
+        "mean_recovery_error": 0.5714285714285714
+      },
+      "full_weighted_sum": {
+        "exact_recoverable": false,
+        "predicted_min_cutoff": 4,
+        "collision_max_protected_distance": 1.9999999999999996,
+        "mean_recovery_error": 0.4489795918367346
+      }
+    }
+  },
+  "control_exact_vs_asymptotic_split": {
+    "epsilon": 0.2,
+    "one_step": {
+      "epsilon": 0.2,
+      "horizon": 1,
+      "exact_recoverable": false,
+      "collision_max_protected_distance": 2.0,
+      "recoverability_margin": 0.003452299423699088,
+      "mean_recovery_error": 0.5555555555555556,
+      "max_recovery_error": 1.0
+    },
+    "two_step": {
+      "epsilon": 0.2,
+      "horizon": 2,
+      "exact_recoverable": true,
+      "collision_max_protected_distance": 0.0,
+      "recoverability_margin": 0.043658716693152036,
+      "mean_recovery_error": 1.0862367247104155e-15,
+      "max_recovery_error": 5.440092820663267e-15
+    },
+    "observer": {
+      "epsilon": 0.2,
+      "gain": [
+        1.6250000000000009,
+        -2.6250000000000036
+      ],
+      "spectral_radius": 0.2999999999999993,
+      "protected_error_history": [
+        1.3,
+        2.6725000000000048,
+        1.4142500000000013,
+        0.5467750000000007,
+        0.18853250000000016,
+        0.061459749999999605,
+        0.01941792500000021,
+        0.006021377499999897,
+        0.001845613250000152,
+        0.0005615239750004462,
+        0.00017002519250021095,
+        5.132115775007603e-05,
+        1.5459067325216368e-05,
+        4.650264197832588e-06,
+        1.3975880597504042e-06,
+        4.197781777062846e-07,
+        1.2603380512626536e-07,
+        3.7830212006712514e-08,
+        1.1353077706351307e-08
+      ]
+    }
+  },
+  "control_regime_hierarchy": {
+    "epsilon": 0.2,
+    "one_step_exact_recoverable": false,
+    "two_step_exact_recoverable": true,
+    "observer_asymptotic_recoverable": true,
+    "one_step_collision_gap": 2.0,
+    "two_step_collision_gap": 0.0,
+    "observer_spectral_radius": 0.2999999999999993,
+    "observer_final_protected_error": 1.1353077706351307e-08
+  }
+}

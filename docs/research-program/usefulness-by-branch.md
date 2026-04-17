@@ -85,6 +85,19 @@ Best outputs:
 - the canonical model-mismatch instability theorem
 - field dictionaries that say where the mapping is exact, conditional, or analogy only
 
+## Descriptor-Fiber Anti-Classifier Branch
+
+What it helps with:
+- quantify when descriptor-only summaries are structurally incapable of exact classification on supported witness classes
+- compare amount-only descriptors against compatibility-augmented descriptors using one consistent finite-class metric layer
+- pressure-test branch claims before overpromoting count/rank/budget language
+
+Best outputs:
+- descriptor-fiber mixedness (`DFMI`)
+- irreducible descriptor-only error lower bound (`IDELB`)
+- compatibility lift (`CL`) from structural side-information
+- branch-limited quantitative evidence attached directly to anti-classifier witness artifacts
+
 ## Soliton Nonlinear-Wave Candidate Branch
 
 What it helps with:

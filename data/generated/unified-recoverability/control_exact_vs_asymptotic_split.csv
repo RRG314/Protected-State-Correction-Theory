@@ -1,0 +1,4 @@
+mode,epsilon,horizon,exact_recoverable,collision_max_protected_distance,max_recovery_error,recoverability_margin
+one_step,0.2,1,False,2.0,1.0,0.003452299423699088
+two_step,0.2,2,True,0.0,5.440092820663267e-15,0.043658716693152036
+observer,0.2,18,False,,1.1353077706351307e-08,0.7000000000000006

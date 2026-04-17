@@ -1,0 +1,131 @@
+{
+  "rows": [
+    {
+      "family": "restricted_linear",
+      "scenario": "exact target blocked but one-row repair exists",
+      "action": "add_measurements_or_history",
+      "status": "CONDITIONAL",
+      "supporting_claims": [
+        "OCP-045",
+        "OCP-047"
+      ],
+      "current_regime": "exact target not identifiable on the current record",
+      "rationale": "Exact recovery is blocked now, but the supported family admits a finite minimal augmentation; augment if the available budget meets that exact count.",
+      "notes": "minimal augmentation count = 1; available budget = 1",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "restricted_linear",
+      "scenario": "same exact blocker but budget is too small",
+      "action": "stop_exact_recovery_attempt",
+      "status": "CONDITIONAL",
+      "supporting_claims": [
+        "OCP-045",
+        "OCP-047"
+      ],
+      "current_regime": "exact target not identifiable on the current record",
+      "rationale": "Exact recovery remains blocked and the available budget is below the supported minimal augmentation count, so exact pursuit should stop unless the budget changes.",
+      "notes": "minimal augmentation count = 1; available budget = 0",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "qubit_phase_loss",
+      "scenario": "phase-sensitive Bloch target fails but z target survives",
+      "action": "switch_to_weaker_target",
+      "status": "PROVED",
+      "supporting_claims": [
+        "OCP-048",
+        "OCP-051"
+      ],
+      "current_regime": "strong target non-identifiable; weaker target exact",
+      "rationale": "The same record fails the stronger target but exactly determines a coarsened target, so switching target is structurally justified.",
+      "notes": "Bloch collision gap = 1.0000; z-coordinate gap = 0.0000",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "periodic_modal",
+      "scenario": "current cutoff misses the exact functional threshold",
+      "action": "add_measurements_or_history",
+      "status": "VALIDATED",
+      "supporting_claims": [
+        "OCP-041"
+      ],
+      "current_regime": "strong target not identifiable at current cutoff",
+      "rationale": "The current cutoff leaves hidden protected modes; the natural decision is to refine the record to the first cutoff where the protected functional becomes exact.",
+      "notes": "current cutoff = 3; predicted exact cutoff = 4",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "control_history",
+      "scenario": "one-step history is insufficient but the next exact horizon is known",
+      "action": "add_measurements_or_history",
+      "status": "VALIDATED",
+      "supporting_claims": [
+        "OCP-042"
+      ],
+      "current_regime": "finite-history target not identifiable at the current horizon",
+      "rationale": "The current history is too short for exact recovery, but the supported control family has a known finite threshold, so adding history is the justified decision.",
+      "notes": "one-step exact = False; two-step exact = True",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "control_history",
+      "scenario": "finite-step exactness fails but observer recovery still converges",
+      "action": "change_architecture",
+      "status": "VALIDATED",
+      "supporting_claims": [
+        "OCP-042",
+        "OCP-013"
+      ],
+      "current_regime": "finite-step exact impossible at current horizon, asymptotic observer viable",
+      "rationale": "Finite-history exact recovery is blocked at the current horizon, but the ongoing observer architecture still converges asymptotically on the supported benchmark.",
+      "notes": "observer spectral radius = 0.3000",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "bounded_domain_cfd",
+      "scenario": "wrong projector architecture on the strong bounded target",
+      "action": "change_architecture",
+      "status": "PROVED",
+      "supporting_claims": [
+        "OCP-028",
+        "OCP-029"
+      ],
+      "current_regime": "wrong architecture; strong target not recovered",
+      "rationale": "The transplanted bounded-domain projector fails the protected boundary class, but the boundary-compatible Hodge architecture restores exact recovery on the supported finite-mode family.",
+      "notes": "transplant boundary mismatch = 4.1711e-02; compatible recovery error = 1.4287e-14",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "family_enlargement",
+      "scenario": "exact result on the small family breaks immediately on enlargement",
+      "action": "stop_promoting_exactness_claim",
+      "status": "PROVED",
+      "supporting_claims": [
+        "OCP-052"
+      ],
+      "current_regime": "exact on small family, impossible on enlarged family",
+      "rationale": "Exactness on the narrow family breaks immediately under honest enlargement, so the current positive result should not be promoted without a stronger family-robust proof.",
+      "notes": "large-family lower bound = 1.0000",
+      "adds_value_beyond_regime": true
+    },
+    {
+      "family": "model_mismatch",
+      "scenario": "decoder exact on the reference family but wrong on the true family",
+      "action": "stop_trusting_mismatched_inverse_map",
+      "status": "CONDITIONAL",
+      "supporting_claims": [
+        "OCP-053"
+      ],
+      "current_regime": "true family exactly identifiable but inverse map mismatched",
+      "rationale": "The mismatched decoder error exceeds the tolerated budget even with exact data, so the apparent success should be rejected until the family model is revalidated.",
+      "notes": "tolerated error = 0.250; witnessed mismatch error = 0.4472",
+      "adds_value_beyond_regime": true
+    }
+  ],
+  "recommended_scope": "integrate as a small theorem-linked decision layer inside the current branch",
+  "belongs_in_branch": true,
+  "deserves_new_branch": false,
+  "strongest_value": "It converts exact/no-go/fragility results into explicit stop / switch / augment / architecture-change decisions on supported families and catches false-positive promotions.",
+  "strongest_failure": "By itself it does not create a new universal theorem family; many candidate stopping laws collapse into corollaries of impossibility, augmentation, or fragility theorems already proved elsewhere in the branch."
+}

@@ -2,75 +2,86 @@
 
 ## Plain-Language Summary
 
-OCP is only worth keeping if it constructs or characterizes real correction operators. This file lists the operator layer that survives final review.
+The repository is operator-first.
 
-## Exact Projector Branch
+The canonical operator spine now includes both:
+- correction operators in exact/asymptotic projector branches,
+- and recoverability operators/maps in constrained-observation and fiber-limit branches.
+
+## 1. Exact Projector Operators
 
 ### Protected projector
-```text
-P_S
-```
-- fixes `S`
-- annihilates `D`
-- gives exact recovery when `H = S ⊕ D` and `S ⟂ D`
+`P_S`
+- fixes protected space `S`
+- annihilates disturbance `D`
+- exact under `H = S ⊕ D`, `S ⟂ D`
 
-### Complementary disturbance projector
-```text
-P_D = I - P_S
-```
-- gives the canonical decomposition `x = P_S x + P_D x`
-- drives the simplest damping generator `K = k P_D`
+### Disturbance projector
+`P_D = I - P_S`
+- canonical decomposition operator
+- feeds damping generator constructions
 
-## Exact Sector Branch
+## 2. Sector Operators
 
 ### Sector projectors
-```text
-Q_i
-```
-- orthogonal projectors onto exact disturbance sectors `D_i`
-- used as the detection layer of the sector branch
+`Q_i`
+- orthogonal projectors onto sector family `D_i`
 
 ### Sector-conditioned recovery operator
-```text
-R = Σ_i B_S B_i^{+} Q_i
-```
-- exact on each orthogonal sector `D_i`
-- implemented in `src/ocp/sectors.py`
-- instantiated concretely in the 3-qubit bit-flip QEC example
+`R = Σ_i B_S B_i^+ Q_i`
+- exact on each supported orthogonal sector
 
-## Exact Continuous Anchor
+## 3. Continuous/PDE Operators
 
-### Periodic Leray / Helmholtz projector
-```text
-P_df B = B - ∇Δ^{-1}(div B)
-```
-- exact continuous recovery operator on the tested periodic branch
-- strongest continuous exact operator in the repository
+### Periodic Leray/Helmholtz projector
+`P_df B = B - ∇Δ^{-1}(div B)`
+- exact periodic continuous anchor
 
-## Asymptotic Continuous Branch
+### Bounded-domain restricted Hodge projector (family-restricted)
+- exact on boundary-compatible finite-mode protected/disturbance families (`OCP-044`)
+- not promoted as universal bounded-domain operator theorem
+
+## 4. Asymptotic Generator Operators
 
 ### Damping generator
-```text
-K = k P_D
-```
-- simplest asymptotic correction operator
-- exact on `S`, exponentially suppressive on `D`
+`K = k P_D`
+- preserves protected space and damps disturbance asymptotically
 
-### Invariant-split generator family
-```text
-x_dot = -Kx
-```
-with `K|_S = 0`, `K(D) ⊆ D`, stable restriction on `D`
-- general asymptotic continuous branch
-- includes the PSD/spectral-gap corollary as a distinguished case
+### Invariant-split generator class
+`x_dot = -Kx`, with `K|_S = 0`, `K(D) ⊆ D`, stable restriction on `D`
+- canonical asymptotic branch operator class
 
-### GLM update law
-- kept as a practical asymptotic correction architecture
-- explicitly not promoted as an exact projector
+## 5. Constrained-Observation Operators
 
-## Final Operator Boundary
+### Observation and protected maps
+- record map: `M` (or matrix form `O` on restricted-linear families)
+- protected map: `p` (or matrix form `L`)
 
-The operator spine stops here intentionally. The following are not promoted as finished operators:
-- any boundary-sensitive exact PDE projector beyond the periodic branch,
-- any universal capacity operator,
-- any optimizer/ML correction operator.
+### Exactness compatibility operators
+- exactness condition in restricted-linear families:
+`ker(O F) ⊆ ker(L F)`
+- equivalent row-space compatibility condition
+
+### Exact recovery operator on restricted-linear exact class
+- `K` such that `K O F = L F`
+- drives exact-regime upper envelope (`OCP-046`)
+
+### Minimal augmentation deficiency operator quantity
+`δ(O, L; F) = rank([O F; L F]) - rank(O F)`
+- exact unrestricted added-measurement count (`OCP-045`)
+
+## 6. Fiber/Hierarchy Operators
+
+### Target coarsening map
+`q = φ ∘ p`
+- exact stronger-target recoverability implies exact coarsened-target recoverability (`OCP-048`)
+
+### Collision-gap quantities
+- structured collision gaps used as quantitative impossibility floors in restricted classes (`OCP-043`, `OCP-051`, `OCP-052`)
+
+## Operator Boundary
+
+Not promoted as finished universal operator outputs:
+- one universal scalar capacity operator,
+- one universal bounded-domain exact projector theorem,
+- one universal nonlinear inverse-operator framework across all branches.

@@ -136,7 +136,7 @@
       ],
       "unrecoverable_row_indices": [],
       "row_space_residuals": [
-        4.275213160736675e-16
+        3.510833468576701e-16
       ],
       "nullspace_witness": null,
       "nullspace_protected_gap": 0.0,

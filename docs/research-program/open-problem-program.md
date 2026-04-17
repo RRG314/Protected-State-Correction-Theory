@@ -92,7 +92,7 @@ This file turns each major branch into an explicit research program. Each branch
 - Serious open question:
   can the current restricted-linear PVRT spine be extended to a genuinely robust noisy theorem beyond `κ(0)=0`, `κ(η)/2`, and the exact-regime upper envelope?
 - Theorem target:
-  a noise-aware or family-enlargement extension of the nested restricted-linear collision-gap theorem together with the exact-regime upper envelope.
+  a weighted-cost or geometry-constrained extension of the anti-classifier / family-enlargement theorem package together with the exact-regime upper envelope.
 - No-go target:
   explicit coarse-record lower bounds that block exact recovery even when weaker protected variables remain recoverable.
 - Computational attack plan:
@@ -151,3 +151,16 @@ This file turns each major branch into an explicit research program. Each branch
   typed-composition fuzzing, custom-input rejection stress tests, seeded counterexample search, and before/after consistency checks between browser results and offline reports.
 - Validation path:
   parser tests, typed-rule tests, random-seed reproducibility, demo regressions, export consistency, and browser smoke on the advanced mixer flows.
+
+## 12. Fiber-Based Recoverability / Impossibility Branch
+
+- Serious open question:
+  can the branch be sharpened from a universal factorization core plus a negative no-rank-only theorem into one additional restricted equivalence theorem that still survives across more than one field dictionary?
+- Theorem target:
+  a restricted-class theorem connecting exact recoverability, detectable-only coarsenings, and asymptotic recovery on one family rich enough to matter but still honest enough to prove.
+- No-go target:
+  a genuinely weighted-cost or geometry-constrained version of the anti-universal theorem showing that same nominal budget can still give opposite exactness verdicts after the solved fixed-library unit-cost case.
+- Computational attack plan:
+  exact witness sweeps, exhaustive small-family enumeration, field-dictionary consistency checks, and generated artifact comparisons across periodic, control, and restricted-linear examples.
+- Validation path:
+  explicit finite witnesses, restricted-linear brute-force enumeration, generated fiber-branch artifacts (currently preserved under the legacy unified artifact path), and agreement between theorem statements and stored counterexample families.

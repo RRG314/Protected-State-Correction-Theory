@@ -26,3 +26,32 @@ Every module must state one of the following clearly:
 - rejected bridge or counterexample
 
 No workbench surface should imply a stronger status than the linked theorem or scope document supports.
+
+## Fiber-Based Branch Note
+
+The fiber-based recoverability / impossibility branch currently has **no standalone workbench module by design**.
+
+That is intentional.
+Its current honest UI presence is indirect:
+- Structural Discovery,
+- Structural Discovery (Threshold mode),
+- Structural Discovery (Boundary mode),
+- Benchmark / Validation Console,
+- and Discovery Mixer
+already expose the branch's supported witnesses on real families.
+
+The branch itself is a theorem/falsification layer, not a generic symbolic dashboard. Its workbench-facing value now appears through explicit fiber-structure explanations and family-restriction / model-mismatch / target-strength / discretization warnings in recoverability analysis and exports.
+
+## Descriptor-Fiber Anti-Classifier Branch Note
+
+The descriptor-fiber anti-classifier branch also has **no standalone module by design**.
+
+Its outputs are integrated into existing surfaces:
+- Structural Discovery (amount-only warning and compatibility-lift cues),
+- Discovery Mixer summaries (descriptor-insufficiency diagnostics),
+- Benchmark / Validation Console (finite witness-class invariant summaries).
+
+Status mapping for this branch in app surfaces:
+- theorem statements: `PROVED ON SUPPORTED FAMILY`,
+- computed summaries: `VALIDATED`,
+- broad interpretive cross-branch language: not promoted.

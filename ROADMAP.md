@@ -9,6 +9,7 @@
 1. Formalize category-specific correction-capacity notions rather than chasing a single scalar capacity.
 2. Investigate continuous quantum correction / feedback correction as a true bridge topic.
 3. Add boundary-condition-sensitive variants of the Helmholtz projection discussion.
+4. Run promotion gate for the conditional soliton branch candidate: close one continuous injectivity/noninjectivity theorem on the quotient manifold or demote to companion-only status.
 
 ## Longer-Term
 1. Determine whether OCP can produce a genuinely new no-go theorem beyond the direct-sum/indistinguishability statements.

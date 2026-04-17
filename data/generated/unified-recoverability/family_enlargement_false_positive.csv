@@ -1,0 +1,2 @@
+small_family_dimension,large_family_dimension,inclusion_residual,small_exact_recoverable,large_exact_recoverable,small_rowspace_residual,large_rowspace_residual,small_collision_gap,large_collision_gap,false_positive_risk,larger_family_impossibility_lower_bound,reference_decoder_max_error_on_large_family,reference_decoder_mean_error_on_large_family
+2,3,0.0,True,False,0.0,1.0,0.0,2.0,True,1.0,1.0,0.6666666666666666

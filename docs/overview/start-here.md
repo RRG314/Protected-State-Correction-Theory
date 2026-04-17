@@ -1,49 +1,33 @@
 # Start Here
 
+Status: Canonical onboarding entry
+
 ## Shortest Serious Path
 
-1. [README.md](../../README.md)
-2. [Usefulness roadmap](usefulness-roadmap.md)
-3. [User entry paths](user-entry-paths.md)
-4. [architecture-final.md](../finalization/architecture-final.md)
-5. [theorem-spine-final.md](../finalization/theorem-spine-final.md)
-6. [no-go-spine-final.md](../finalization/no-go-spine-final.md)
-7. [PVRT theory program](../theory/advanced-directions/pvrt-theory-program.md)
-8. [PVRT theorem spine](../theorem-candidates/pvrt-theorem-spine.md)
-9. [workbench-overview.md](../app/workbench-overview.md)
-10. [Structural Discovery Studio note](../app/structural-discovery-studio.md)
-11. [workbench/index.html](../workbench/index.html)
+1. `README.md`
+2. `docs/repo_cleanup/canonical_reading_paths.md`
+3. `docs/finalization/architecture-final.md`
+4. `docs/finalization/theorem-spine-final.md`
+5. `docs/finalization/no-go-spine-final.md`
+6. `docs/unifying_theory/final_theory_identity.md`
+7. `papers/unifying_theory_framework_final.md`
 
-## If You Want To Use The Repo Practically
+## Choose Your Entry Lane
 
-Start with one of these:
-- [I want to know if my problem is solvable](user-entry-paths.md)
-- [Template index](../templates/README.md)
-- [App / engine integration note](../applications/app-engine-recoverability.md)
-- [Usefulness report](../../USEFULNESS_REPORT.md)
+- Theory-first: `docs/repo_cleanup/canonical_reading_paths.md` (Theory-First Path)
+- Paper-first: `papers/recoverability_paper_final.md`
+- Workbench-first: `docs/workbench/index.html`
+- Validation-first: `docs/validation/master_validation_report.md`
+- Advanced/internal: `docs/research-program/`
+- Branch-specific quantitative lane: `docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md`
 
-## If You Want The Formal Spine First
+## Core Maps
 
-Read in this order:
-1. [formal-theory.md](../formalism/formal-theory.md)
-2. [exact-vs-asymptotic.md](../formalism/exact-vs-asymptotic.md)
-3. [pvrt-theory-program.md](../theory/advanced-directions/pvrt-theory-program.md)
-4. [pvrt-theorem-spine.md](../theorem-candidates/pvrt-theorem-spine.md)
-5. [sector-recovery-theorems.md](../theorem-candidates/sector-recovery-theorems.md)
-6. [generator-theorems.md](../theorem-candidates/generator-theorems.md)
-7. [advanced-no-go-results.md](../impossibility-results/advanced-no-go-results.md)
+- `docs/repo_cleanup/canonical_document_map.md`
+- `docs/overview/proof-status-map.md`
+- `docs/repo_cleanup/companion_repo_map.md`
 
-## Deep Read
+## Terminology + Notation
 
-- [SYSTEM_REPORT.md](../../SYSTEM_REPORT.md)
-- [FINAL_REPORT.md](../../FINAL_REPORT.md)
-- [USEFULNESS_REPORT.md](../../USEFULNESS_REPORT.md)
-- [how-to-read-this-repo.md](../peer_review/how-to-read-this-repo.md)
-
-## If You Want To Contribute
-
-Read these before opening an issue or pull request:
-1. [CONTRIBUTING.md](../../CONTRIBUTING.md)
-2. [contributing-paths.md](contributing-paths.md)
-3. [proof-status-map.md](proof-status-map.md)
-4. [dead-ends-and-do-not-promote.md](../open-questions/dead-ends-and-do-not-promote.md)
+- `docs/overview/terminology-unification.md`
+- `docs/overview/notation-unification.md`

@@ -250,6 +250,7 @@ test('recoverability lab keeps periodic exact, approximate, and no-go branches s
   assert.equal(fullWeightedSumImpossible.predictedMinCutoff, 4);
   assert.equal(fullWeightedSumExact.exact, true);
   assert.ok(fullWeightedSumExact.kappa0 < 1e-8);
+  assert.ok(fullWeightedSumExact.falsePositiveWarnings.some((warning) => /discretization\/refinement warning/i.test(warning)));
   assert.equal(divergence.impossible, true);
   assert.ok(divergence.kappa0 > cutoffOne.kappa0);
 });
@@ -408,10 +409,19 @@ test('recoverability studio surfaces linear measurement insufficiency and minima
   assert.equal(impossible.minimalAddedMeasurements, 1);
   assert.ok(impossible.candidateExactSets.length >= 1);
   assert.ok(impossible.nullspaceWitnessGap > 0.1);
+  assert.match(impossible.identifiabilityStatus, /non-identifiable/i);
+  assert.match(impossible.decisionPosture.label, /augment the record/i);
   assert.equal(exact.exact, true);
   assert.ok(exact.kappa0 < 1e-8);
+  assert.ok(exact.falsePositiveWarnings.some((warning) => /family-enlargement warning/i.test(warning)));
+  assert.ok(exact.falsePositiveWarnings.some((warning) => /anti-classifier warning/i.test(warning)));
+  assert.match(exact.resultScopeLabel, /restricted linear family/i);
+  assert.match(exact.identifiabilityStatus, /exactly identifiable/i);
+  assert.match(exact.decisionPosture.label, /continue exact only on the current supported family/i);
   assert.equal(weaker.exact, true);
+  assert.ok(weaker.falsePositiveWarnings.some((warning) => /model-mismatch warning/i.test(warning)));
   assert.ok(weaker.guidance.architecture.includes('Static linear recovery'));
+  assert.match(weaker.decisionPosture.label, /continue exact only on the current supported family/i);
 });
 
 test('structural discovery recommendations expose testable before-after fixes', () => {
@@ -535,7 +545,13 @@ test('report and csv exports include the new structural-discovery data', () => {
   const benchmarkReport = exportScenarioReport(benchmarkState, benchmarkAnalysis);
   const benchmarkCsv = exportScenarioCsv(benchmarkState, benchmarkAnalysis);
   assert.match(report, /boundary-compatible finite-mode Hodge/i);
+  assert.match(report, /fiber structure/i);
+  assert.match(report, /record fibers|bounded-domain fibers|fiber/i);
   assert.match(report, /evidence level/i);
+  assert.match(report, /support scope/i);
+  assert.match(report, /identifiability status/i);
+  assert.match(report, /decision posture/i);
+  assert.match(report, /false-positive warnings/i);
   assert.match(csv, /boundary_architecture|collapse|series/i);
   assert.match(benchmarkReport, /summary\.demoCount/i);
   assert.match(benchmarkReport, /Validation Snapshot/i);

@@ -7,7 +7,7 @@ sreid1118@gmail.com
 April 2026
 
 ## Abstract
-Projection-based correction is often treated as a generic recipe: enforce one constraint (for example, low divergence) and infer full recovery. This paper isolates when that logic works and when it fails in a restricted but explicit setting. We contrast an exact periodic projection lane with a bounded-domain transplant failure lane, and then classify outcomes as exact, asymptotic-only, or impossible in the tested structure. The central message is architectural: success depends on compatibility between protected structure, domain class, and correction operator. Divergence reduction alone is not an exactness certificate on bounded classes. The paper is intentionally non-universal and states limits explicitly.
+Projection-based correction is often treated as a generic recipe: reduce a constraint violation (for example, divergence) and infer full state recovery. This paper isolates where that inference is valid and where it fails in an explicit, tested setting. We contrast a periodic exact-projection lane with a bounded-domain transplant-failure lane, then classify outcomes as exact, asymptotic-only, or impossible under declared structural assumptions. The central result is architectural: exactness depends on compatibility between protected structure, domain class, and correction operator. Divergence reduction alone is not an exactness certificate on bounded classes. Scope is intentionally non-universal.
 
 **Keywords:** projection methods, Helmholtz-Hodge decomposition, incompressible flow, bounded-domain obstruction, recoverability, structural mismatch
 
@@ -18,7 +18,16 @@ Projection methods are central in incompressible-flow computation and many corre
 
 These claims coincide only under specific structural conditions. This paper develops a minimal comparative framework that keeps this distinction explicit.
 
-## 2. Minimal Correction Framework
+This manuscript is intentionally bridge-scoped: it applies projection/correction structure in PDE-style settings. For the abstract restricted-linear recoverability theorem package, see `papers/recoverability_paper_final.md`; for the compact operator-foundation companion, see `papers/ocp_core_paper.md`.
+
+### 1.1 Contributions and Status Labels
+- **PROVED (periodic success lane):** periodic-compatible projection recovers the protected component exactly on the supported benchmark class.
+- **PROVED (bounded failure lane):** naive periodic-to-bounded transplant can reduce divergence while still failing exact protected recovery.
+- **PROVED (mechanism):** boundary-structure mismatch explains divergence-reduction/ recovery-decoupling in the transplant lane.
+- **PROVED (restricted positive bounded result):** exact bounded recovery survives on an explicit boundary-compatible family.
+- **VALIDATED/INTERPRETATION:** classification and design consequences are reported with explicit evidence labels and scope.
+
+## 2. Setup and Minimal Correction Framework
 Let
 - `x` denote the full state,
 - `x_p` the protected component (e.g., boundary-compatible incompressible component),
@@ -130,7 +139,7 @@ Correction architecture should be selected from the protected class and domain g
 Classical and modern projection-method literature emphasizes pressure/projection mechanics and computational efficiency. The contribution here is a recoverability-focused contrast: same broad method family, opposite exactness verdicts under domain-structure change.
 
 ### 9.1 Position Relative to Existing Work
-The periodic projection and bounded-domain decomposition ingredients are well-established in CFD and functional-analysis literature. The paper's contribution is the explicit recoverability-focused contrast: same broad correction family, opposite exactness outcomes due to boundary-structure compatibility, plus a status-disciplined exact/asymptotic/impossible classification in the tested structural setting.
+The periodic and bounded decomposition ingredients are well-established in CFD, projection-method, and Hodge/Helmholtz literature. The contribution here is narrower and operational: an explicit recoverability-centered contrast showing how the same broad correction family can produce opposite exactness outcomes when boundary-structure compatibility changes. The likely distinctive element is this status-disciplined exact/asymptotic/impossible comparison in one declared benchmark setting, not a new universal PDE theorem.
 
 ## 10. Limitations and Scope
 1. This is a bridge paper, not a universal PDE theory.
@@ -146,7 +155,7 @@ Projection methods are structurally powerful but not context-free. The periodic 
 This research received no external funding.
 
 ### 12.2 AI Usage Statement
-AI-assisted tools were used for plotting-code support and editorial drafting support. All mathematical claims, operator definitions, and final manuscript text were manually reviewed and verified by the author.
+Generative AI tools were used for code generation, refactoring assistance, testing support, visualization scripting, and drafting assistance. Mathematical claims, derivations, validation logic, and final content were reviewed and verified by the author.
 
 ### 12.3 Data and Code Availability
 Public repository for this bridge paper release: https://github.com/RRG314/Protected-State-Correction-Theory.  

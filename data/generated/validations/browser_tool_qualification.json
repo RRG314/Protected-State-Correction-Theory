@@ -1,6 +1,6 @@
 {
-  "executedAt": "2026-04-16T01:32:53.133Z",
-  "origin": "http://127.0.0.1:57131",
+  "executedAt": "2026-04-17T15:08:41.083Z",
+  "origin": "http://127.0.0.1:62790",
   "workflows": [
     {
       "workflow": "Exact recovery success workflow",
@@ -10,7 +10,7 @@
     {
       "workflow": "Guided benchmark route and export",
       "status": "pass",
-      "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+      "notes": "Guided entry opened the benchmark console with 12 module rows and working CSV/report export."
     },
     {
       "workflow": "Failing setup → diagnosis → fix → verified success",

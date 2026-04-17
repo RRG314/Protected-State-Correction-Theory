@@ -1,0 +1,365 @@
+{
+  "quantitative_profiles": [
+    {
+      "case": "robust-full-information",
+      "exact_recoverable": true,
+      "coefficient_dimension": 3,
+      "observation_rank": 3,
+      "protected_rank": 1,
+      "rowspace_residual": 0.0,
+      "normalized_rowspace_residual": 0.0,
+      "principal_angle_defect": 0.0,
+      "alignment_score": 1.0,
+      "collision_gap": 0.0,
+      "zero_noise_lower_bound": 0.0,
+      "recovery_operator_norm_upper": 1.3190905958272916,
+      "unrestricted_minimal_added_measurements": 0,
+      "structural_class": "robust_exact_full_information"
+    },
+    {
+      "case": "exact-but-fragile",
+      "exact_recoverable": true,
+      "coefficient_dimension": 3,
+      "observation_rank": 2,
+      "protected_rank": 1,
+      "rowspace_residual": 0.0,
+      "normalized_rowspace_residual": 0.0,
+      "principal_angle_defect": 0.0,
+      "alignment_score": 1.0,
+      "collision_gap": 0.0,
+      "zero_noise_lower_bound": 0.0,
+      "recovery_operator_norm_upper": 1.0,
+      "unrestricted_minimal_added_measurements": 0,
+      "structural_class": "aligned_exact_but_fragile"
+    },
+    {
+      "case": "augmentation-repairable",
+      "exact_recoverable": false,
+      "coefficient_dimension": 3,
+      "observation_rank": 2,
+      "protected_rank": 1,
+      "rowspace_residual": 0.7071067811865476,
+      "normalized_rowspace_residual": 0.7071067811865476,
+      "principal_angle_defect": 0.7071067811865476,
+      "alignment_score": 0.2928932188134524,
+      "collision_gap": 2.0,
+      "zero_noise_lower_bound": 1.0,
+      "recovery_operator_norm_upper": null,
+      "unrestricted_minimal_added_measurements": 1,
+      "structural_class": "augmentation_repairable_misaligned"
+    },
+    {
+      "case": "collision-dominated",
+      "exact_recoverable": false,
+      "coefficient_dimension": 3,
+      "observation_rank": 2,
+      "protected_rank": 1,
+      "rowspace_residual": 1.0,
+      "normalized_rowspace_residual": 1.0,
+      "principal_angle_defect": 1.0,
+      "alignment_score": 0.0,
+      "collision_gap": 2.0,
+      "zero_noise_lower_bound": 1.0,
+      "recovery_operator_norm_upper": null,
+      "unrestricted_minimal_added_measurements": 1,
+      "structural_class": "augmentation_repairable_misaligned"
+    }
+  ],
+  "rank_deficient_fragility": {
+    "base_exact_recoverable": true,
+    "base_rowspace_residual": 0.0,
+    "base_principal_angle_defect": 0.0,
+    "base_collision_gap": 0.0,
+    "first_failure_epsilon": 0.0001,
+    "rows": [
+      {
+        "epsilon": 0.0,
+        "exact_recoverable": true,
+        "rowspace_residual": 0.0,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0
+      },
+      {
+        "epsilon": 0.0001,
+        "exact_recoverable": false,
+        "rowspace_residual": 9.999999950000001e-05,
+        "principal_angle_defect": 9.999999969612645e-05,
+        "collision_gap": 0.0002
+      },
+      {
+        "epsilon": 0.001,
+        "exact_recoverable": false,
+        "rowspace_residual": 0.000999999500000375,
+        "principal_angle_defect": 0.000999999499803269,
+        "collision_gap": 0.002
+      },
+      {
+        "epsilon": 0.01,
+        "exact_recoverable": false,
+        "rowspace_residual": 0.009999500037496875,
+        "principal_angle_defect": 0.009999500037492155,
+        "collision_gap": 0.019999999999999997
+      },
+      {
+        "epsilon": 0.1,
+        "exact_recoverable": false,
+        "rowspace_residual": 0.09950371902099892,
+        "principal_angle_defect": 0.09950371902099561,
+        "collision_gap": 0.2
+      }
+    ]
+  },
+  "full_rank_robustness": {
+    "base_exact_recoverable": true,
+    "base_rowspace_residual": 1.2412670766236366e-16,
+    "base_principal_angle_defect": 0.0,
+    "base_collision_gap": 0.0,
+    "first_failure_epsilon": null,
+    "rows": [
+      {
+        "epsilon": 0.0,
+        "exact_recoverable": true,
+        "rowspace_residual": 1.2412670766236366e-16,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0
+      },
+      {
+        "epsilon": 0.01,
+        "exact_recoverable": true,
+        "rowspace_residual": 3.6821932062951477e-16,
+        "principal_angle_defect": 2.5809568279517847e-08,
+        "collision_gap": 0.0
+      },
+      {
+        "epsilon": 0.05,
+        "exact_recoverable": true,
+        "rowspace_residual": 6.473657049138938e-16,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0
+      },
+      {
+        "epsilon": 0.1,
+        "exact_recoverable": true,
+        "rowspace_residual": 1.5700924586837752e-16,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0
+      },
+      {
+        "epsilon": 0.2,
+        "exact_recoverable": true,
+        "rowspace_residual": 1.5700924586837752e-16,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0
+      }
+    ]
+  },
+  "time_accumulation": {
+    "exact_threshold_step": 4,
+    "rows": [
+      {
+        "step": 1,
+        "exact_recoverable": false,
+        "rowspace_residual": 1.4142135623730951,
+        "principal_angle_defect": 1.0,
+        "collision_gap": 4.0,
+        "unrestricted_minimal_added_measurements": 1
+      },
+      {
+        "step": 2,
+        "exact_recoverable": false,
+        "rowspace_residual": 1.4142135623730951,
+        "principal_angle_defect": 1.0,
+        "collision_gap": 4.0,
+        "unrestricted_minimal_added_measurements": 1
+      },
+      {
+        "step": 3,
+        "exact_recoverable": false,
+        "rowspace_residual": 1.0,
+        "principal_angle_defect": 0.7071067811865476,
+        "collision_gap": 2.0,
+        "unrestricted_minimal_added_measurements": 1
+      },
+      {
+        "step": 4,
+        "exact_recoverable": true,
+        "rowspace_residual": 0.0,
+        "principal_angle_defect": 0.0,
+        "collision_gap": 0.0,
+        "unrestricted_minimal_added_measurements": 0
+      }
+    ]
+  },
+  "generator_dynamics": {
+    "disturbance_decay_margin": 1.0,
+    "finite_time_exact_recovery_possible": false,
+    "rows": [
+      {
+        "time": 0.0,
+        "disturbance_norm": 1.4142135623730951,
+        "predicted_upper_bound": 1.4142135623730951,
+        "ratio_to_bound": 1.0
+      },
+      {
+        "time": 0.5,
+        "disturbance_norm": 0.7093762925331344,
+        "predicted_upper_bound": 0.8577638849607069,
+        "ratio_to_bound": 0.8270064815862819
+      },
+      {
+        "time": 1.0,
+        "disturbance_norm": 0.3919833186825007,
+        "predicted_upper_bound": 0.520260095022889,
+        "ratio_to_bound": 0.7534372181000262
+      },
+      {
+        "time": 2.0,
+        "disturbance_norm": 0.1365690357168736,
+        "predicted_upper_bound": 0.19139299302082188,
+        "ratio_to_bound": 0.7135529548984904
+      },
+      {
+        "time": 3.0,
+        "disturbance_norm": 0.04984873507943493,
+        "predicted_upper_bound": 0.07040954731662971,
+        "ratio_to_bound": 0.7079826100183062
+      }
+    ]
+  },
+  "structure_classes": [
+    {
+      "case_name": "robust-full-information",
+      "structural_class": "robust_exact_full_information",
+      "exact_recoverable": true,
+      "observation_rank": 3,
+      "coefficient_dimension": 3,
+      "rowspace_residual": 0.0,
+      "principal_angle_defect": 0.0,
+      "collision_gap": 0.0,
+      "unrestricted_minimal_added_measurements": 0
+    },
+    {
+      "case_name": "exact-but-fragile-rank-deficient",
+      "structural_class": "aligned_exact_but_fragile",
+      "exact_recoverable": true,
+      "observation_rank": 2,
+      "coefficient_dimension": 3,
+      "rowspace_residual": 0.0,
+      "principal_angle_defect": 0.0,
+      "collision_gap": 0.0,
+      "unrestricted_minimal_added_measurements": 0
+    },
+    {
+      "case_name": "augmentation-repairable",
+      "structural_class": "augmentation_repairable_misaligned",
+      "exact_recoverable": false,
+      "observation_rank": 2,
+      "coefficient_dimension": 3,
+      "rowspace_residual": 0.7071067811865476,
+      "principal_angle_defect": 0.7071067811865476,
+      "collision_gap": 2.0,
+      "unrestricted_minimal_added_measurements": 1
+    }
+  ],
+  "cfd_deep_dive": [
+    {
+      "grid_size": 17,
+      "contamination": 0.1,
+      "periodic_divergence_suppression": 91292341855.04083,
+      "periodic_recovery_error": 1.152282554572181e-15,
+      "transplant_divergence_suppression": 51542284674.61765,
+      "transplant_boundary_normal_rms": 0.05908383612007321,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 590838361.2007321
+    },
+    {
+      "grid_size": 17,
+      "contamination": 0.2,
+      "periodic_divergence_suppression": 182584683710.0817,
+      "periodic_recovery_error": 1.1101413957483713e-15,
+      "transplant_divergence_suppression": 51542284674.61765,
+      "transplant_boundary_normal_rms": 0.05908383612007321,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 590838361.2007321
+    },
+    {
+      "grid_size": 17,
+      "contamination": 0.3,
+      "periodic_divergence_suppression": 273877025565.12247,
+      "periodic_recovery_error": 1.3011753415087904e-15,
+      "transplant_divergence_suppression": 51542284674.61765,
+      "transplant_boundary_normal_rms": 0.05908383612007321,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 590838361.2007321
+    },
+    {
+      "grid_size": 25,
+      "contamination": 0.1,
+      "periodic_divergence_suppression": 91854144527.67809,
+      "periodic_recovery_error": 9.327592838753221e-16,
+      "transplant_divergence_suppression": 63238090252.30708,
+      "transplant_boundary_normal_rms": 0.039693616515815135,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 396936165.1581513
+    },
+    {
+      "grid_size": 25,
+      "contamination": 0.2,
+      "periodic_divergence_suppression": 183708289055.35617,
+      "periodic_recovery_error": 1.0287688348562736e-15,
+      "transplant_divergence_suppression": 63238090252.30708,
+      "transplant_boundary_normal_rms": 0.039693616515815135,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 396936165.1581513
+    },
+    {
+      "grid_size": 25,
+      "contamination": 0.3,
+      "periodic_divergence_suppression": 275562433583.03424,
+      "periodic_recovery_error": 1.0099083602057229e-15,
+      "transplant_divergence_suppression": 63238090252.30708,
+      "transplant_boundary_normal_rms": 0.039693616515815135,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 396936165.1581513
+    },
+    {
+      "grid_size": 33,
+      "contamination": 0.1,
+      "periodic_divergence_suppression": 94715238362.26888,
+      "periodic_recovery_error": 1.0622021938187394e-15,
+      "transplant_divergence_suppression": 73039515244.49954,
+      "transplant_boundary_normal_rms": 0.029941427889534456,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 299414278.89534456
+    },
+    {
+      "grid_size": 33,
+      "contamination": 0.2,
+      "periodic_divergence_suppression": 189430476724.53772,
+      "periodic_recovery_error": 1.2024794064682532e-15,
+      "transplant_divergence_suppression": 73039515244.49954,
+      "transplant_boundary_normal_rms": 0.029941427889534456,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 299414278.89534456
+    },
+    {
+      "grid_size": 33,
+      "contamination": 0.3,
+      "periodic_divergence_suppression": 284145715086.8066,
+      "periodic_recovery_error": 1.1127852702108437e-15,
+      "transplant_divergence_suppression": 73039515244.49954,
+      "transplant_boundary_normal_rms": 0.029941427889534456,
+      "bounded_hodge_recovery_error": 1.4286595521890334e-14,
+      "bounded_hodge_boundary_normal_rms": 5.959669369268147e-16,
+      "bounded_hodge_vs_transplant_boundary_ratio": 299414278.89534456
+    }
+  ]
+}

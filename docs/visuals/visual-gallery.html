@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OCP Visual Learning Flow</title>
+  <link rel="stylesheet" href="visual-gallery.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <h1>OCP Visual Learning Flow</h1>
+      <p class="top-subtitle">A guided walkthrough from intuition to exactness, no-go boundaries, structural design, and dynamic behavior.</p>
+      <nav class="step-links" aria-label="Learning steps">
+        <a href="#step-1">1. Core Idea</a>
+        <a href="#step-2">2. Exact Recovery</a>
+        <a href="#step-3">3. Failure / No-Go</a>
+        <a href="#step-4">4. Structural Insight</a>
+        <a href="#step-5">5. Fixing Systems</a>
+        <a href="#step-6">6. Advanced Failures</a>
+        <a href="#step-7">7. Dynamic Behavior</a>
+        <a href="#step-8">8. Cross-System Mapping</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="learning-controls" aria-label="Learning progress controls">
+      <div class="progress-meta">
+        <strong id="progress-label">Step 1 of 8: Core Idea</strong>
+        <span id="asset-health">Visuals loaded: 0/0</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="control-buttons">
+        <button id="prev-step" type="button">Previous Step</button>
+        <button id="next-step" type="button">Next Step</button>
+      </div>
+      <div class="evidence-legend">
+        <span class="badge theorem">theorem-backed</span>
+        <span class="badge validated">validated</span>
+        <span class="badge schematic">schematic</span>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-1" data-step-index="1" data-step-title="Core Idea">
+      <div class="step-head">
+        <h2>1. Core Idea (Signal vs Disturbance)</h2>
+        <p>The repo starts with a simple structural split: what must be preserved and what should be removed. Observation can hide distinctions, so recovery is fundamentally about what survives collapse. This step gives the intuition before any theorem details.</p>
+      </div>
+      <div class="visual-grid two-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Protected vs disturbance geometry</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/A_core_geometry_2d.png" data-full-image="generated/A_core_geometry_2d.png"><img src="generated/A_core_geometry_2d.png" alt="Core geometry 2D" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> an exact separable case and a misaligned case in one geometric frame.</p>
+            <p><strong>Why it matters:</strong> exact correction is structural, not just numerical.</p>
+            <div class="asset-links"><a href="generated/A_core_geometry_2d.png" download>PNG</a><a href="generated/A_core_geometry_2d.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Observation collapse into fibers</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/B_fiber_bipartite.png" data-full-image="generated/B_fiber_bipartite.png"><img src="generated/B_fiber_bipartite.png" alt="Fiber collapse" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> multiple states sharing the same observation fiber.</p>
+            <p><strong>Why it matters:</strong> collapsed distinctions cannot be reconstructed unless target values agree on each fiber.</p>
+            <div class="asset-links"><a href="generated/B_fiber_bipartite.png" download>PNG</a><a href="generated/B_fiber_bipartite.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-2" data-step-index="2" data-step-title="Exact Recovery">
+      <div class="step-head">
+        <h2>2. Exact Recovery</h2>
+        <p>Exact recovery is not a slogan here: it means a precise structural criterion is satisfied. The visuals below show exact recoverability on supported families and exact repair under minimal augmentation conditions. This is where positive theorems live.</p>
+      </div>
+      <div class="visual-grid two-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Fiber-constant exact branch</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/B_fiber_partition_tree.png" data-full-image="generated/B_fiber_partition_tree.png"><img src="generated/B_fiber_partition_tree.png" alt="Fiber partition tree" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> exact recovery when the target is constant across each fiber.</p>
+            <p><strong>Why it matters:</strong> exactness is explained by structure, not post-hoc fitting.</p>
+            <div class="asset-links"><a href="generated/B_fiber_partition_tree.png" download>PNG</a><a href="generated/B_fiber_partition_tree.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Exact repair after minimal augmentation</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/E_minimal_augmentation.png" data-full-image="generated/E_minimal_augmentation.png"><img src="generated/E_minimal_augmentation.png" alt="Minimal augmentation" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> impossible before, exact after adding structurally necessary rows.</p>
+            <p><strong>Why it matters:</strong> this gives an actionable design law, not just diagnosis.</p>
+            <div class="asset-links"><a href="generated/E_minimal_augmentation.png" download>PNG</a><a href="generated/E_minimal_augmentation.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-3" data-step-index="3" data-step-title="Failure / No-Go">
+      <div class="step-head">
+        <h2>3. Failure / No-Go</h2>
+        <p>The program is falsification-first, so no-go boundaries are first-class results. These visuals show how exactness fails at thresholds and why some apparently successful transplants still violate deeper constraints. Failure is preserved as useful knowledge.</p>
+      </div>
+      <div class="visual-grid two-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Exact-to-impossible threshold</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/P_transition_tutorial_panel.png" data-full-image="generated/P_transition_tutorial_panel.png"><img src="generated/P_transition_tutorial_panel.png" alt="Transition panel" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> as discrimination falls, fibers merge and the exact verdict flips.</p>
+            <p><strong>Why it matters:</strong> this pinpoints why exactness fails, not just that it fails.</p>
+            <div class="asset-links"><a href="generated/P_transition_tutorial_animation.gif" download>GIF</a><a href="generated/P_transition_tutorial_animation.mp4" download>MP4</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Bounded-domain no-go vs periodic exactness</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/F_periodic_vs_bounded.png" data-full-image="generated/F_periodic_vs_bounded.png"><img src="generated/F_periodic_vs_bounded.png" alt="Periodic vs bounded" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> divergence can be reduced while boundary-normal structure still fails.</p>
+            <p><strong>Why it matters:</strong> prevents false positives when transplanting periodic logic to bounded domains.</p>
+            <div class="asset-links"><a href="generated/F_periodic_vs_bounded.png" download>PNG</a><a href="generated/F_periodic_vs_bounded.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-4" data-step-index="4" data-step-title="Structural Insight">
+      <div class="step-head">
+        <h2>4. Structural Insight (Alignment, Fibers, Insufficiency)</h2>
+        <p>This step explains the strongest structural lesson: amount-only and rank-only language is insufficient. Alignment, row-space compatibility, and fiber behavior supply the real discriminators. These visuals are the core anti-classifier evidence.</p>
+      </div>
+      <div class="visual-grid three-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Same-rank opposite verdict</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/D_same_rank_insufficiency.png" data-full-image="generated/D_same_rank_insufficiency.png"><img src="generated/D_same_rank_insufficiency.png" alt="Same-rank insufficiency" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> equal-rank systems with opposite exactness outcomes.</p>
+            <p><strong>Why it matters:</strong> rank cannot be the final classifier.</p>
+            <div class="asset-links"><a href="generated/D_same_rank_insufficiency.png" download>PNG</a><a href="generated/D_same_rank_insufficiency.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Alignment landscape</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/I_alignment_landscape.png" data-full-image="generated/I_alignment_landscape.png"><img src="generated/I_alignment_landscape.png" alt="Alignment landscape" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> recoverability metrics over orientation space with fixed rank.</p>
+            <p><strong>Why it matters:</strong> alignment is quantitatively stronger than count-based summaries.</p>
+            <div class="asset-links"><a href="generated/I_alignment_landscape.png" download>PNG</a><a href="generated/I_alignment_landscape.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Fiber/target consistency table</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/B_fiber_table_heatmap.png" data-full-image="generated/B_fiber_table_heatmap.png"><img src="generated/B_fiber_table_heatmap.png" alt="Fiber table" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> one target aligns with fibers and another does not.</p>
+            <p><strong>Why it matters:</strong> visually grounds the exactness criterion in concrete data.</p>
+            <div class="asset-links"><a href="generated/B_fiber_table_heatmap.png" download>PNG</a><a href="generated/B_fiber_table_heatmap.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-5" data-step-index="5" data-step-title="Fixing Systems">
+      <div class="step-head">
+        <h2>5. Fixing Systems (Augmentation)</h2>
+        <p>When recovery fails, the next question is whether a repair exists and what minimal structure is needed. These visuals show repair as a directional design problem, not merely a bigger-budget problem. This is the practical design lane of the repo.</p>
+      </div>
+      <div class="visual-grid three-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Before/after augmentation law</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/E_minimal_augmentation.png" data-full-image="generated/E_minimal_augmentation.png"><img src="generated/E_minimal_augmentation.png" alt="Augmentation law" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> exact repair after satisfying minimal rank-defect requirements.</p>
+            <p><strong>Why it matters:</strong> turns failure into an explicit design target.</p>
+            <div class="asset-links"><a href="generated/E_minimal_augmentation.png" download>PNG</a><a href="generated/E_minimal_augmentation.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Direction-sensitive repair panel</h3><span class="badge validated">validated</span></div>
+          <a class="thumb" href="generated/Q_augmentation_tutorial_panel.png" data-full-image="generated/Q_augmentation_tutorial_panel.png"><img src="generated/Q_augmentation_tutorial_panel.png" alt="Augmentation panel" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> same added-row count, different outcomes by direction.</p>
+            <p><strong>Why it matters:</strong> structure dominates amount in repair design.</p>
+            <div class="asset-links"><a href="generated/Q_augmentation_tutorial_panel.png" download>PNG</a><a href="generated/Q_augmentation_tutorial_panel.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Augmentation tutorial animation</h3><span class="badge validated">validated</span></div>
+          <div class="thumb"><video controls preload="metadata" src="generated/Q_augmentation_tutorial_animation.mp4"></video></div>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> angle-by-angle movement between exact and impossible repair outcomes.</p>
+            <p><strong>Why it matters:</strong> gives an intuitive but still computed design workflow.</p>
+            <div class="asset-links"><a href="generated/Q_augmentation_tutorial_animation.gif" download>GIF</a><a href="generated/Q_augmentation_tutorial_animation.mp4" download>MP4</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-6" data-step-index="6" data-step-title="Advanced Failures">
+      <div class="step-head">
+        <h2>6. Advanced Failures (Bounded Domain, Fragility)</h2>
+        <p>Beyond basic impossibility, the repo tracks subtle failure regimes: family enlargement false positives and perturbation fragility near exact points. These are the failure modes that often surprise practitioners. Keeping them visible prevents overgeneralization.</p>
+      </div>
+      <div class="visual-grid three-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Family-enlargement false positive</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/K_family_enlargement_failure.png" data-full-image="generated/K_family_enlargement_failure.png"><img src="generated/K_family_enlargement_failure.png" alt="Family enlargement failure" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> exactness on a small family can break after family expansion.</p>
+            <p><strong>Why it matters:</strong> guards against false confidence from narrow validation sets.</p>
+            <div class="asset-links"><a href="generated/K_family_enlargement_failure.png" download>PNG</a><a href="generated/K_family_enlargement_failure.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Perturbation fragility map</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/J_perturbation_fragility.png" data-full-image="generated/J_perturbation_fragility.png"><img src="generated/J_perturbation_fragility.png" alt="Perturbation fragility" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> exactness can collapse rapidly under small structural perturbations.</p>
+            <p><strong>Why it matters:</strong> separates robust exactness from knife-edge exactness.</p>
+            <div class="asset-links"><a href="generated/J_perturbation_fragility.png" download>PNG</a><a href="generated/J_perturbation_fragility.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Contamination sweep (bounded vs periodic)</h3><span class="badge validated">validated</span></div>
+          <a class="thumb" href="generated/N_periodic_bounded_contamination_sweep.png" data-full-image="generated/N_periodic_bounded_contamination_sweep.png"><img src="generated/N_periodic_bounded_contamination_sweep.png" alt="Contamination sweep" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> bounded-domain boundary mismatch persists across contamination levels.</p>
+            <p><strong>Why it matters:</strong> confirms the no-go is structural, not a one-case artifact.</p>
+            <div class="asset-links"><a href="generated/N_periodic_bounded_contamination_sweep.png" download>PNG</a><a href="generated/N_periodic_bounded_contamination_sweep.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-7" data-step-index="7" data-step-title="Dynamic Behavior">
+      <div class="step-head">
+        <h2>7. Dynamic Behavior (Asymptotic Correction)</h2>
+        <p>Not every branch supports finite-time exact correction; some support asymptotic suppression with explicit rate structure. This step distinguishes exact solvability from dynamic convergence behavior. It also shows regime boundaries across parameter sweeps.</p>
+      </div>
+      <div class="visual-grid two-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Dynamic correction layer</h3><span class="badge theorem">theorem-backed</span></div>
+          <a class="thumb" href="generated/L_dynamic_rate_layer.png" data-full-image="generated/L_dynamic_rate_layer.png"><img src="generated/L_dynamic_rate_layer.png" alt="Dynamic rate layer" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> observer decay, exactness map, and recoverability margins in one view.</p>
+            <p><strong>Why it matters:</strong> links theory to explicit dynamic performance indicators.</p>
+            <div class="asset-links"><a href="generated/L_dynamic_rate_layer.png" download>PNG</a><a href="generated/L_dynamic_rate_layer.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Threshold regime surfaces</h3><span class="badge validated">validated</span></div>
+          <a class="thumb" href="generated/G_threshold_surfaces.png" data-full-image="generated/G_threshold_surfaces.png"><img src="generated/G_threshold_surfaces.png" alt="Threshold surfaces" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> exact / asymptotic / approximate / impossible regions on supported families.</p>
+            <p><strong>Why it matters:</strong> helps users classify regime transitions quickly.</p>
+            <div class="asset-links"><a href="generated/G_threshold_surfaces.png" download>PNG</a><a href="generated/G_threshold_surfaces.svg" download>SVG</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-step" id="step-8" data-step-index="8" data-step-title="Cross-System Mapping">
+      <div class="step-head">
+        <h2>8. Cross-System Mapping</h2>
+        <p>The final step places branch outcomes into one map without forcing fake unification. Exact anchors, asymptotic-only lanes, and no-go boundaries are all labeled explicitly. This is the orientation layer for reviewers and new contributors.</p>
+      </div>
+      <div class="visual-grid three-up">
+        <article class="visual-card">
+          <div class="card-head"><h3>Cross-system status map</h3><span class="badge schematic">schematic</span></div>
+          <a class="thumb" href="generated/H_cross_system_structural_map.png" data-full-image="generated/H_cross_system_structural_map.png"><img src="generated/H_cross_system_structural_map.png" alt="Cross-system map" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> status-faithful branch map across kept and rejected lanes.</p>
+            <p><strong>Why it matters:</strong> clarifies scope and prevents overclaiming.</p>
+            <div class="asset-links"><a href="generated/H_cross_system_structural_map.png" download>PNG</a><a href="generated/H_cross_system_structural_map.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Program story map</h3><span class="badge schematic">schematic</span></div>
+          <a class="thumb" href="generated/R_ocp_program_story_map.png" data-full-image="generated/R_ocp_program_story_map.png"><img src="generated/R_ocp_program_story_map.png" alt="Program story map" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> guided path from setup to verdict to branch-level integration.</p>
+            <p><strong>Why it matters:</strong> gives a stable onboarding path into the repo.</p>
+            <div class="asset-links"><a href="generated/R_ocp_program_story_map.png" download>PNG</a><a href="generated/R_ocp_program_story_map.svg" download>SVG</a></div>
+          </div>
+        </article>
+        <article class="visual-card">
+          <div class="card-head"><h3>Atlas and contact sheet</h3><span class="badge validated">validated</span></div>
+          <a class="thumb" href="generated/O_visual_contact_sheet.png" data-full-image="generated/O_visual_contact_sheet.png"><img src="generated/O_visual_contact_sheet.png" alt="Contact sheet" /></a>
+          <div class="card-body">
+            <p><strong>What this shows:</strong> all visuals in one reviewer bundle for quick cross-checking.</p>
+            <p><strong>Why it matters:</strong> supports citing, exporting, and peer review workflows.</p>
+            <div class="asset-links"><a href="generated/O_visual_contact_sheet.png" download>PNG</a><a href="generated/visual-atlas.pdf" download>Atlas PDF</a><a href="figure-index.html">Figure index</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reference-panel">
+      <p><strong>Further navigation:</strong> <a href="ocp-complete-visual-story.html">Complete visual story</a> · <a href="figure-index.html">Figure index</a> · <a href="../references/ocp-visual-figures.bib">Visual BibTeX</a></p>
+    </section>
+  </main>
+
+  <div class="modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded figure view">
+    <div class="modal-close" id="lightbox-close">×</div>
+    <img id="lightbox-image" alt="Expanded figure" />
+  </div>
+
+  <script src="visual-gallery.js"></script>
+</body>
+</html>

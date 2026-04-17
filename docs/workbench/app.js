@@ -1465,6 +1465,9 @@ function renderRecoverabilityStage() {
           <h4>Discovery provenance</h4>
           <div class="value-grid">
             <div><small>Theorem / evidence status</small><code>${a.theoremStatus}</code></div>
+            <div><small>Support scope</small><code>${a.resultScopeLabel ?? 'branch classification'}</code></div>
+            <div><small>Identifiability</small><code>${a.identifiabilityStatus ?? 'not labeled'}</code></div>
+            <div><small>Decision posture</small><code>${a.decisionPosture?.label ?? 'not labeled'}</code></div>
             <div><small>Missing structure</small><code>${a.missingStructure}</code></div>
             <div><small>Primary blocker</small><code>${a.structuralBlocker}</code></div>
             <div><small>Chosen fix</small><code>${a.chosenRecommendation ? a.chosenRecommendation.title : 'none'}</code></div>
@@ -1702,6 +1705,8 @@ function renderRecoverabilityStage() {
         <ul class="guidance-list">
           ${a.failureModes.map((mode) => `<li>${mode}</li>`).join('')}
         </ul>
+        ${a.decisionPosture?.rationale ? `<p class="studio-note"><strong>Decision posture:</strong> ${a.decisionPosture.rationale}</p>` : ''}
+        ${a.falsePositiveWarnings?.length ? `<p class="studio-note"><strong>False-positive warnings:</strong> ${a.falsePositiveWarnings.join(' ')}</p>` : ''}
         <p class="studio-note"><strong>Weaker target now recoverable:</strong> ${a.weakerRecoverableTargets.length ? a.weakerRecoverableTargets.join(', ') : 'None currently suggested.'}</p>
       </div>
       <div class="figure">

@@ -161,7 +161,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "evidence_level": "theorem-backed",
         "notes": "Exact projector anchor."
       },
       {
@@ -173,7 +173,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "evidence_level": "theorem-backed",
         "notes": "Non-orthogonal disturbance contaminates the protected projection."
       },
       {
@@ -185,7 +185,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "evidence_level": "theorem-backed",
         "notes": "Bit-flip sector anchor."
       },
       {
@@ -197,7 +197,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "explicit analytic benchmark",
+        "evidence_level": "validated family-specific (analytic benchmark)",
         "notes": "Zero degeneracy closes the record on the protected scalar."
       },
       {
@@ -209,7 +209,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed restricted-linear result",
+        "evidence_level": "restricted theorem-backed (restricted-linear)",
         "notes": "The protected row is outside the active observation row space."
       },
       {
@@ -221,7 +221,7 @@
         "independent_answer": "exact-min-1",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed restricted-linear result",
+        "evidence_level": "restricted theorem-backed (restricted-linear)",
         "notes": "One added row is enough, and the tool surfaces candidate one-row repairs."
       },
       {
@@ -233,7 +233,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed restricted-linear result",
+        "evidence_level": "restricted theorem-backed (restricted-linear)",
         "notes": "Rank two record that already contains the protected row."
       },
       {
@@ -245,7 +245,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed restricted-linear result",
+        "evidence_level": "restricted theorem-backed (restricted-linear)",
         "notes": "Same row rank, opposite recoverability verdict."
       },
       {
@@ -257,7 +257,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific result with standard external guidance",
+        "evidence_level": "validated family-specific (qubit record family)",
         "notes": "Full Bloch-vector target fails once phase freedom opens."
       },
       {
@@ -269,7 +269,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific result with standard external guidance",
+        "evidence_level": "validated family-specific (qubit record family)",
         "notes": "z-only target survives under the same fixed-basis record."
       },
       {
@@ -281,7 +281,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific threshold result",
+        "evidence_level": "validated family-specific (periodic threshold family)",
         "notes": "Cutoff 3 hides mode 4 support of the weighted functional."
       },
       {
@@ -293,7 +293,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific threshold result",
+        "evidence_level": "validated family-specific (periodic threshold family)",
         "notes": "Cutoff 4 recovers the full functional support on the tracked basis."
       },
       {
@@ -305,7 +305,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific threshold and asymptotic benchmark",
+        "evidence_level": "validated family-specific (control threshold/asymptotic benchmark)",
         "notes": "History horizon 2 is below the proven threshold for the second moment."
       },
       {
@@ -317,7 +317,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "family-specific threshold and asymptotic benchmark",
+        "evidence_level": "validated family-specific (control threshold/asymptotic benchmark)",
         "notes": "Horizon 3 reaches the tracked exact threshold."
       },
       {
@@ -329,7 +329,7 @@
         "independent_answer": "exact-better-than-glm",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "evidence_level": "theorem-backed",
         "notes": "Projection should beat short GLM cleaning on the tracked periodic case."
       },
       {
@@ -341,7 +341,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "evidence_level": "validated family-specific",
         "notes": "Periodic CFD branch should remain exact."
       },
       {
@@ -353,7 +353,7 @@
         "independent_answer": "exact-improves-transverse",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-backed or theorem-linked branch example",
+        "evidence_level": "theorem-backed",
         "notes": "Gauge lab stays aligned with the exact projection anchor."
       },
       {
@@ -365,7 +365,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "theorem-linked counterexample and family-specific redesign guidance",
+        "evidence_level": "theorem-backed counterexample (bounded-domain transplant limit)",
         "notes": "Transplanted periodic projector fails the bounded protected class."
       },
       {
@@ -377,7 +377,7 @@
         "independent_answer": "exact",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "restricted exact bounded-domain result",
+        "evidence_level": "restricted theorem-backed (bounded-domain finite-mode Hodge)",
         "notes": "Boundary-compatible Hodge family should remain exact on the tracked benchmark."
       },
       {
@@ -389,7 +389,7 @@
         "independent_answer": "impossible",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "evidence_level": "validated family-specific",
         "notes": "Distinct bounded incompressible states share the same divergence record."
       },
       {
@@ -401,7 +401,7 @@
         "independent_answer": "asymptotic-only",
         "comparison": "exact match",
         "pass": "yes",
-        "evidence_level": "validated theorem / no-go / empirical branch example",
+        "evidence_level": "validated family-specific",
         "notes": "Continuous generator lab should keep exact and asymptotic separate."
       }
     ]
@@ -461,8 +461,8 @@
     }
   ],
   "browser": {
-    "executedAt": "2026-04-16T01:32:53.133Z",
-    "origin": "http://127.0.0.1:57131",
+    "executedAt": "2026-04-17T15:08:41.083Z",
+    "origin": "http://127.0.0.1:62790",
     "workflows": [
       {
         "workflow": "Exact recovery success workflow",
@@ -472,7 +472,7 @@
       {
         "workflow": "Guided benchmark route and export",
         "status": "pass",
-        "notes": "Guided entry opened the benchmark console with 11 module rows and working CSV/report export."
+        "notes": "Guided entry opened the benchmark console with 12 module rows and working CSV/report export."
       },
       {
         "workflow": "Failing setup \u2192 diagnosis \u2192 fix \u2192 verified success",

@@ -169,6 +169,132 @@ def recoverability_figures(metrics: dict) -> None:
     }
     save_both(fig, "recoverability", "recoverability_regime_transition")
 
+    # Figure 5: minimal augmentation repair (before vs after).
+    o_bad = np.array([[0.0, 1.0]])
+    o_aug = np.array([[0.0, 1.0], [1.0, 0.0]])
+    rank_before = int(np.linalg.matrix_rank(o_bad))
+    rank_after = int(np.linalg.matrix_rank(o_aug))
+    target_rank = 2
+    delta = target_rank - rank_before
+    res_before = row_space_residual(l, o_bad)
+    res_after = row_space_residual(l, o_aug)
+
+    metrics["recoverability_augmentation"] = {
+        "rank_before": rank_before,
+        "rank_after": rank_after,
+        "target_rank": target_rank,
+        "delta": int(delta),
+        "residual_before": float(res_before),
+        "residual_after": float(res_after),
+    }
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.6, 4.6))
+
+    # Left: geometric view
+    t = np.linspace(-1.4, 1.4, 200)
+    line_before = np.outer(t, o_bad[0] / np.linalg.norm(o_bad[0]))
+    axs[0].plot(line_before[:, 0], line_before[:, 1], color="#e76f51", linewidth=2.2, label="row(OF) before")
+    axs[0].arrow(0, 0, l[0, 0], l[0, 1], width=0.01, color="#264653", length_includes_head=True, label="target row LF")
+    axs[0].set_title("Before augmentation\n(target not in row-space)")
+    axs[0].set_xlim(-1.5, 1.5)
+    axs[0].set_ylim(-1.5, 1.5)
+    axs[0].set_aspect("equal")
+    axs[0].set_xlabel("component 1")
+    axs[0].set_ylabel("component 2")
+    axs[0].legend(loc="upper right")
+
+    # Right: rank-repair summary
+    bars = [rank_before, rank_after]
+    labels = ["before", "after +1 row"]
+    axs[1].bar(labels, bars, color=["#e76f51", "#2a9d8f"], width=0.55)
+    axs[1].axhline(target_rank, color="#1d3557", linestyle="--", linewidth=1.6, label=f"required rank {target_rank}")
+    axs[1].set_ylim(0, target_rank + 0.8)
+    axs[1].set_ylabel("rank(OF)")
+    axs[1].set_title(f"Minimal augmentation repair\nδ = {delta}, residual: {res_before:.1f} -> {res_after:.1f}")
+    axs[1].legend(loc="upper left")
+    save_both(fig, "recoverability", "recoverability_minimal_augmentation_repair")
+
+
+def ocp_figures(metrics: dict) -> None:
+    """Figures for the concise OCP core companion paper."""
+    l = np.array([[1.0, 0.0]])
+    o_exact = np.array([[1.0, 0.0]])
+    o_fail = np.array([[0.0, 1.0]])
+
+    # Figure 1: row-space geometry (inclusion vs exclusion).
+    res_exact = row_space_residual(l, o_exact)
+    res_fail = row_space_residual(l, o_fail)
+    fig, axs = plt.subplots(1, 2, figsize=(10.0, 4.0))
+    for ax, row, title, color, resid in [
+        (axs[0], o_exact[0], "Exact inclusion", "#2a9d8f", res_exact),
+        (axs[1], o_fail[0], "Failure exclusion", "#e76f51", res_fail),
+    ]:
+        t = np.linspace(-1.3, 1.3, 200)
+        line = np.outer(t, row / np.linalg.norm(row))
+        ax.plot(line[:, 0], line[:, 1], color=color, linewidth=2.2, label="row(OF)")
+        ax.arrow(0, 0, l[0, 0], l[0, 1], width=0.01, color="#264653", length_includes_head=True, label="target row LF")
+        ax.set_title(f"{title}\nresidual={resid:.2f}")
+        ax.set_xlim(-1.4, 1.4)
+        ax.set_ylim(-1.4, 1.4)
+        ax.set_aspect("equal")
+        ax.set_xlabel("component 1")
+        ax.set_ylabel("component 2")
+        ax.legend(loc="upper right")
+    save_both(fig, "ocp", "ocp_rowspace_geometry")
+
+    # Figure 2: minimal augmentation visualization.
+    o_bad = np.array([[0.0, 1.0]])
+    o_aug = np.array([[0.0, 1.0], [1.0, 0.0]])
+    rank_before = int(np.linalg.matrix_rank(o_bad))
+    rank_after = int(np.linalg.matrix_rank(o_aug))
+    delta = rank_after - rank_before
+
+    fig, ax = plt.subplots(figsize=(6.8, 4.4))
+    ax.bar(["before", "after"], [rank_before, rank_after], color=["#e76f51", "#2a9d8f"], width=0.58)
+    ax.axhline(rank_after, linestyle="--", color="#1d3557", linewidth=1.4, label=f"target rank={rank_after}")
+    ax.set_ylabel("rank(OF)")
+    ax.set_ylim(0, rank_after + 0.8)
+    ax.set_title(f"Minimal augmentation: add {delta} row to restore exactness")
+    ax.legend(loc="upper left")
+    save_both(fig, "ocp", "ocp_minimal_augmentation")
+
+    # Figure 3: exact-vs-failure operator defect comparison.
+    c_exact = np.array([[1.0, 0.0], [0.0, 0.0]])
+    c_bad = np.array([[0.85, 0.25], [0.10, 0.30]])
+    t = np.linspace(-1.0, 1.0, 200)
+    s_samples = np.stack([t, np.zeros_like(t)], axis=1)
+    d_samples = np.stack([np.zeros_like(t), t], axis=1)
+
+    def defects(c: np.ndarray) -> tuple[float, float]:
+        preserve = np.mean(np.linalg.norm((s_samples @ c.T) - s_samples, axis=1))
+        leakage = np.mean(np.linalg.norm(d_samples @ c.T, axis=1))
+        return float(preserve), float(leakage)
+
+    exact_preserve, exact_leak = defects(c_exact)
+    bad_preserve, bad_leak = defects(c_bad)
+    metrics["ocp_operator_defects"] = {
+        "exact_preservation_defect": exact_preserve,
+        "exact_disturbance_leakage": exact_leak,
+        "misaligned_preservation_defect": bad_preserve,
+        "misaligned_disturbance_leakage": bad_leak,
+        "rank_before": rank_before,
+        "rank_after": rank_after,
+        "delta": delta,
+    }
+
+    fig, ax = plt.subplots(figsize=(7.0, 4.6))
+    labels = ["preservation defect", "disturbance leakage"]
+    xloc = np.arange(len(labels))
+    width = 0.34
+    ax.bar(xloc - width / 2, [exact_preserve, exact_leak], width=width, color="#2a9d8f", label="exact operator")
+    ax.bar(xloc + width / 2, [bad_preserve, bad_leak], width=width, color="#e76f51", label="failure operator")
+    ax.set_xticks(xloc)
+    ax.set_xticklabels(labels)
+    ax.set_ylabel("mean defect on normalized probes")
+    ax.set_title("Exact versus failure operator behavior")
+    ax.legend(loc="upper right")
+    save_both(fig, "ocp", "ocp_operator_defect_comparison")
+
 
 def mixed_remainder_abs(r: np.ndarray, eta: np.ndarray, eta_prime: np.ndarray, a: float = 1.0, q0: float = 1.0, kappa: float = 0.5) -> np.ndarray:
     num = a * (kappa * r**2 * eta_prime + 2.0 * q0 * r * eta_prime + 4.0 * q0 * eta)
@@ -214,7 +340,44 @@ def mhd_figures(metrics: dict) -> None:
     ax.legend(loc="upper right")
     save_both(fig, "mhd", "mhd_singularity_near_axis")
 
-    # Figure 3: sheet-thinning scaling max|R| ~ eps/delta
+    # Figure 3: mixed tokamak-lane visualization (q-shear sensitivity).
+    r_tok = np.linspace(0.2, 2.0, 800)
+    kappas = [0.0, 0.4, 0.8]
+    eta_const_tok = np.ones_like(r_tok)
+    eta_const_tok_prime = np.zeros_like(r_tok)
+    eta_var_tok = r_tok**2
+    eta_var_tok_prime = 2.0 * r_tok
+
+    fig, axs = plt.subplots(1, 2, figsize=(11.0, 4.2))
+    for kappa in kappas:
+        r_const_tok = mixed_remainder_abs(r_tok, eta_const_tok, eta_const_tok_prime, q0=1.0, kappa=kappa)
+        r_var_tok = mixed_remainder_abs(r_tok, eta_var_tok, eta_var_tok_prime, q0=1.0, kappa=kappa)
+        axs[0].plot(r_tok, r_const_tok, linewidth=2.0, label=f"κ={kappa:.1f}")
+        axs[1].plot(r_tok, r_var_tok, linewidth=2.0, label=f"κ={kappa:.1f}")
+
+    for ax, title in zip(
+        axs,
+        ["constant η mixed lane", "variable η=r² mixed lane"],
+    ):
+        ax.set_yscale("log")
+        ax.set_xlabel("r")
+        ax.set_ylabel("|R_mix(r)|")
+        ax.set_title(title)
+        ax.legend(loc="upper right")
+    save_both(fig, "mhd", "mhd_mixed_tokamak_lane")
+    metrics["mhd_tokamak_lane"] = {
+        "kappas": kappas,
+        "constant_eta_R_at_r1": [
+            float(mixed_remainder_abs(np.array([1.0]), np.array([1.0]), np.array([0.0]), q0=1.0, kappa=k)[0])
+            for k in kappas
+        ],
+        "variable_eta_R_at_r1": [
+            float(mixed_remainder_abs(np.array([1.0]), np.array([1.0]), np.array([2.0]), q0=1.0, kappa=k)[0])
+            for k in kappas
+        ],
+    }
+
+    # Figure 4: sheet-thinning scaling max|R| ~ eps/delta
     eta0 = 1.0
     eps = 0.02
     r0 = 1.0
@@ -256,7 +419,7 @@ def mhd_figures(metrics: dict) -> None:
     }
     save_both(fig, "mhd", "mhd_sheet_thinning_scaling")
 
-    # Figure 4: axis-touching vs annular domain behavior
+    # Figure 5: axis-touching vs annular domain behavior
     r_min = np.logspace(-4, -0.15, 250)
     l2_log = np.sqrt(1.0 / r_min - 1.0)  # integral of (1/r)^2 on [r_min,1]
     l2_sqrt = np.sqrt(0.25 * np.log(1.0 / r_min))  # integral of (1/(2sqrt(r)))^2 on [r_min,1]
@@ -411,6 +574,7 @@ def main() -> None:
     setup_style()
     metrics: dict[str, object] = {}
     recoverability_figures(metrics)
+    ocp_figures(metrics)
     mhd_figures(metrics)
     bridge_figures(metrics)
 

@@ -1224,6 +1224,110 @@ function theoremStatusForRecoverability(result, config) {
   }
 }
 
+function scopeLabelForRecoverability(result, config) {
+  switch (config.system) {
+    case 'analytic':
+      return result.exact ? 'exact / analytic toy family / theorem-linked' : 'impossible / analytic toy witness';
+    case 'qubit':
+      return result.exact ? 'exact / weaker-target only / family-restricted' : 'impossible / family-specific phase-loss no-go';
+    case 'periodic':
+      if (config.periodicObservation === 'divergence_only') {
+        return result.exact ? 'exact / weaker-target only / family-restricted' : 'impossible / theorem-backed divergence-only no-go';
+      }
+      return result.exact ? 'exact / family-specific threshold result' : 'impossible / family-specific threshold failure';
+    case 'control':
+      if (result.asymptotic) {
+        return 'asymptotic / benchmark-backed / family-restricted';
+      }
+      return result.exact ? 'exact / family-specific threshold result' : 'impossible / family-specific threshold failure';
+    case 'linear':
+      return result.exact ? 'exact / theorem-backed / restricted linear family' : 'impossible / theorem-backed / restricted linear family';
+    case 'boundary':
+      if (result.exact && result.boundaryArchitecture === 'boundary_compatible_hodge') {
+        return 'exact / theorem-backed / restricted bounded-domain family';
+      }
+      if (result.exact) {
+        return 'exact / weaker-target only / family-restricted bounded-domain fallback';
+      }
+      return 'impossible / theorem-backed bounded-domain counterexample';
+    default:
+      return 'branch-classified result';
+  }
+}
+
+function identifiabilityStatusForRecoverability(result, config, guidance) {
+  if (result.exact) {
+    return 'exactly identifiable target on the declared family';
+  }
+  if (result.asymptotic) {
+    return 'not exactly identifiable from the current finite record, but asymptotically recoverable under the continuing observer architecture';
+  }
+  if (guidance.weaker?.length) {
+    return 'selected target is not identifiable on the current record, but a weaker/coarsened target is identifiable';
+  }
+  if (config.system === 'boundary' && config.boundaryProtected === 'bounded_velocity_class') {
+    return 'strong bounded target is non-identifiable under the current architecture';
+  }
+  return 'target is non-identifiable on the current family and record';
+}
+
+function falsePositiveWarningsForRecoverability(result, config) {
+  const warnings = [];
+  switch (config.system) {
+    case 'analytic':
+      warnings.push('Family-restriction warning: this verdict is only certified on the current analytic toy family, not on arbitrary enlarged observation models.');
+      break;
+    case 'qubit':
+      if (result.exact) {
+        warnings.push('Target-strength warning: only the phase-insensitive z target is exact here; phase-sensitive Bloch targets remain mixed on the same measurement fibers.');
+      } else {
+        warnings.push('Family-restriction warning: this no-go is on the fixed-basis phase-window family, not on every enriched qubit measurement architecture.');
+      }
+      break;
+    case 'periodic':
+      warnings.push('Family-restriction warning: periodic exactness and threshold numbers here are certified only on the supported finite modal benchmark.');
+      if (result.exact && config.periodicObservation !== 'divergence_only') {
+        warnings.push('Discretization/refinement warning: enlarging the modal family or the protected support can destroy exactness even when the current cutoff looks sufficient on the present truncation.');
+      }
+      if (config.periodicObservation === 'divergence_only') {
+        warnings.push('Target-strength warning: divergence-only success certifies only the weak divergence target, not full field recovery.');
+      }
+      break;
+    case 'control':
+      warnings.push('Family-restriction warning: the current control verdict is tied to the supported diagonal/history or observer benchmark, not a universal observability law.');
+      if (result.asymptotic) {
+        warnings.push('Regime warning: this architecture is asymptotic, not exact, on the current record.');
+      }
+      if (result.weakerRecoverableTargets?.length) {
+        warnings.push('Target-strength warning: weaker protected functionals may already be exact even though the selected stronger target fails at the current horizon.');
+      }
+      break;
+    case 'linear':
+      warnings.push('Family-restriction warning: the current verdict is certified only on the declared restricted linear family.');
+      warnings.push('Anti-classifier warning: same rank, same sensor count, or the same candidate-library budget can still produce the opposite exactness verdict on a different sensor geometry.');
+      if (result.exact) {
+        warnings.push('Family-enlargement warning: enlarging the admissible family can reintroduce hidden target-changing fiber directions and invalidate this exact decoder.');
+      }
+      warnings.push('Model-mismatch warning: a decoder exact on one restricted family can drift on a nearby structurally different family even when the true family remains exactly recoverable.');
+      if (!result.exact && result.weakerProtectedOptions?.length) {
+        warnings.push('Target-strength warning: some weaker protected targets are already exact even though the currently selected stronger target fails.');
+      }
+      break;
+    case 'boundary':
+      warnings.push('Family-restriction warning: bounded-domain claims here apply only on the restricted compatible family and tested architecture.');
+      if (result.exact && result.boundaryArchitecture !== 'boundary_compatible_hodge') {
+        warnings.push('Target-strength warning: this success is only for the weakened divergence certificate, not for the strong bounded protected class.');
+      }
+      if (!result.exact) {
+        warnings.push('Wrong-architecture warning: reducing divergence alone is not enough when boundary trace remains fiber-mixed.');
+      }
+      break;
+    default:
+      break;
+  }
+  return Array.from(new Set(warnings));
+}
+
 function recommendationsForRecoverability(result, config) {
   switch (config.system) {
     case 'analytic': {
@@ -1515,10 +1619,131 @@ function recommendationsForRecoverability(result, config) {
   }
 }
 
+function fiberSummaryForRecoverability(result, config) {
+  switch (config.system) {
+    case 'analytic':
+      return result.exact
+        ? 'The protected scalar is constant on every current record fiber of the analytic family.'
+        : 'The current record fibers still mix states with different protected scalar values.';
+    case 'qubit':
+      return result.exact
+        ? 'The fixed-basis record fibers collapse only states with the same z-coordinate target.'
+        : 'The fixed-basis record fibers still contain states with different phase-sensitive Bloch targets.';
+    case 'periodic':
+      if (config.periodicObservation === 'divergence_only') {
+        return result.exact
+          ? 'The remaining record fibers already preserve the chosen weak divergence certificate.'
+          : 'Divergence-only fibers still contain distinct incompressible states and therefore mix the stronger target.';
+      }
+      return result.exact
+        ? 'The retained cutoff record now refines the modal fibers enough that the chosen protected target is constant on them.'
+        : 'The retained cutoff fibers still mix states that differ on hidden protected modes.';
+    case 'control':
+      if (result.exact) {
+        return 'The current finite-history record fibers are fine enough to separate the chosen protected functional exactly.';
+      }
+      if (result.asymptotic) {
+        return 'Static fibers at the current horizon still mix target values, but the continuing observer record separates them asymptotically over time.';
+      }
+      return 'The current finite-history fibers still mix the protected functional, so exact recovery needs either horizon refinement or a weaker target.';
+    case 'linear':
+      return result.exact
+        ? 'On the restricted linear family, every record fiber lies inside a target-constant fiber because the protected rows lie in the observation row space.'
+        : 'A nontrivial restricted-linear record fiber still contains directions that change the protected target.';
+    case 'boundary':
+      return result.exact
+        ? (result.boundaryArchitecture === 'boundary_compatible_hodge'
+            ? 'The boundary-compatible architecture refines the bounded-domain fibers so both divergence and boundary trace stay target-constant on the restricted family.'
+            : 'The target was weakened until it became constant on the coarse divergence-only fibers.')
+        : 'The transplanted projector collapses divergence but leaves fibers that still mix different bounded protected states through boundary-trace mismatch.';
+    default:
+      return 'Recoverability depends on whether the protected target is constant on the active record fibers.';
+  }
+}
+
+function decisionPostureForRecoverability(result, config, chosenRecommendation, falsePositiveWarnings) {
+  const fragileWarning = falsePositiveWarnings.find((item) =>
+    item.startsWith('Family-enlargement')
+      || item.startsWith('Model-mismatch')
+      || item.startsWith('Discretization/refinement')
+  );
+  if (fragileWarning && result.exact) {
+    return {
+      label: 'Continue exact only on the current supported family',
+      action: 'continue_with_fragility_caution',
+      rationale: `${fragileWarning} Keep the current exact result local to the declared family instead of promoting it as a robust inverse-recovery law.`,
+      theoremStatus: theoremStatusForRecoverability(result, config),
+    };
+  }
+  if (chosenRecommendation) {
+    switch (chosenRecommendation.actionKind) {
+      case 'keep':
+        return {
+          label: 'Continue exact recovery attempt',
+          action: 'continue_exact',
+          rationale: chosenRecommendation.rationale,
+          theoremStatus: chosenRecommendation.theoremStatus,
+        };
+      case 'weaken_target':
+        return {
+          label: 'Switch to a weaker target',
+          action: 'switch_target',
+          rationale: chosenRecommendation.rationale,
+          theoremStatus: chosenRecommendation.theoremStatus,
+        };
+      case 'add_measurement':
+      case 'add_history':
+      case 'add_mode':
+        return {
+          label: 'Augment the record',
+          action: 'augment',
+          rationale: chosenRecommendation.rationale,
+          theoremStatus: chosenRecommendation.theoremStatus,
+        };
+      case 'switch_architecture':
+      case 'switch_record':
+        return {
+          label: 'Change architecture',
+          action: 'change_architecture',
+          rationale: chosenRecommendation.rationale,
+          theoremStatus: chosenRecommendation.theoremStatus,
+        };
+      default:
+        break;
+    }
+  }
+  if (result.asymptotic) {
+    return {
+      label: 'Change architecture toward asymptotic recovery',
+      action: 'change_architecture',
+      rationale: 'The current exact pursuit fails, but the supported continuing-time architecture still converges asymptotically.',
+      theoremStatus: theoremStatusForRecoverability(result, config),
+    };
+  }
+  if (result.impossible) {
+    return {
+      label: 'Stop exact recovery attempt as impossible',
+      action: 'stop_exact',
+      rationale: 'The current target remains fiber-mixed on the declared family and record, so continuing an exact-recovery claim is structurally futile.',
+      theoremStatus: theoremStatusForRecoverability(result, config),
+    };
+  }
+  return {
+    label: 'Continue with caution',
+    action: 'continue_cautiously',
+    rationale: 'The current result is neither exact nor ruled out strongly enough to force a sharper decision on this surface.',
+    theoremStatus: theoremStatusForRecoverability(result, config),
+  };
+}
+
 function decorateRecoverabilityGuidance(result, config, depth = 0) {
   const guidance = guidanceForRecoverability(result, config);
   const status = recoverabilityStatusLabel(result);
   const recommendations = recommendationsForRecoverability(result, config);
+  const fiberSummary = fiberSummaryForRecoverability(result, config);
+  const falsePositiveWarnings = falsePositiveWarningsForRecoverability(result, config);
+  const resultScopeLabel = scopeLabelForRecoverability(result, config);
+  const identifiabilityStatus = identifiabilityStatusForRecoverability(result, config, guidance);
   let chosenRecommendation = null;
   let comparison = null;
   if (depth === 0) {
@@ -1542,23 +1767,33 @@ function decorateRecoverabilityGuidance(result, config, depth = 0) {
         impossibleAfter: nextAnalysis.impossible,
         narrative:
           chosenRecommendation.actionKind === 'weaken_target'
-            ? 'Weakening the target removes the unresolved protected degrees of freedom that the current record cannot separate.'
+            ? 'Weakening the target coarsens the protected variable until it becomes constant on the existing record fibers.'
             : chosenRecommendation.actionKind === 'switch_architecture'
-              ? 'The proposed architecture change moves the system into a more appropriate recoverability regime for the chosen record.'
-              : 'The proposed augmentation adds the missing structure identified by the current failure analysis and changes the recoverability verdict.',
+              ? 'The proposed architecture change replaces the current fiber geometry with one that is compatible with the protected target.'
+              : 'The proposed augmentation refines the record fibers by adding the missing structure identified in the current failure analysis.',
       };
     }
   }
+  const decisionPosture = decisionPostureForRecoverability(result, config, chosenRecommendation, falsePositiveWarnings);
   return {
     ...result,
     status,
     guidance,
     theoremStatus: theoremStatusForRecoverability(result, config),
+    resultScopeLabel,
+    identifiabilityStatus,
+    fiberSummary,
+    falsePositiveWarnings,
+    familyRestrictionWarning: falsePositiveWarnings.find((item) => item.startsWith('Family-restriction')) ?? null,
+    targetStrengthWarning: falsePositiveWarnings.find((item) => item.startsWith('Target-strength')) ?? null,
+    modelMismatchWarning: falsePositiveWarnings.find((item) => item.startsWith('Model-mismatch')) ?? null,
+    discretizationWarning: falsePositiveWarnings.find((item) => item.startsWith('Discretization/refinement')) ?? null,
     missingStructure: guidance.missing,
     structuralBlocker: guidance.blocker,
     recommendedArchitecture: guidance.architecture,
     weakerRecoverableTargets: guidance.weaker,
-    failureModes: guidance.noGo ? [guidance.noGo, guidance.blocker] : [guidance.blocker],
+    decisionPosture,
+    failureModes: Array.from(new Set(guidance.noGo ? [guidance.noGo, guidance.blocker, ...falsePositiveWarnings] : [guidance.blocker, ...falsePositiveWarnings])),
     recommendations,
     chosenRecommendation,
     comparison,
@@ -1604,4 +1839,3 @@ export function analyzeRecoverability(config, depth = 0) {
 export function analyzeStructuralDiscovery(config) {
   return analyzeRecoverability(config, 0);
 }
-

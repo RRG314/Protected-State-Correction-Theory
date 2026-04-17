@@ -1,0 +1,11 @@
+direction_id,lane,repo,direction,theorem_potential,anomaly_potential,reproducibility,novelty_risk,branch_value,triviality_risk,artifact_risk,impact_if_true,score,priority,status_hint,key_evidence
+OCP-A1,LANE A,ocp-research-program,rank-only / amount-only anti-classifier strengthening,0.93,0.6,0.96,0.45,0.88,0.22,0.08,0.9,0.74958,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,rank_only witnesses=34
+OCP-A2,LANE A,ocp-research-program,family-enlargement false-positive law,0.89,0.71,0.9,0.52,0.84,0.28,0.12,0.86,0.71074,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,false_positive_risk=True
+SOL-B1,LANE B,soliton-geometry-research,same-count opposite-verdict on one-soliton recoverability,0.84,0.73,0.9,0.56,0.87,0.26,0.17,0.88,0.6985000000000001,HIGH PRIORITY,PROVED ON SUPPORTED FAMILY,dim4_bad_nonident_pairs=145152
+SOL-B2,LANE B/C,soliton-geometry-research,projection/reduction preservation vs no-go boundary,0.79,0.67,0.93,0.51,0.83,0.31,0.12,0.84,0.6759000000000001,MEDIUM PRIORITY,VALIDATED,"near_exact=1, no_go=3"
+OCP-A3,LANE A,ocp-research-program,canonical model-mismatch instability envelope,0.73,0.64,0.88,0.58,0.79,0.34,0.18,0.8,0.60624,MEDIUM PRIORITY,CONDITIONAL,max_decoder_error=0.4472
+SOL-D1,LANE D,soliton-geometry-research,same-operator opposite-outcome anomaly class,0.52,0.82,0.88,0.57,0.76,0.25,0.15,0.79,0.6014200000000001,MEDIUM PRIORITY,VALIDATED,opposite_verdict_operations=2
+OCP-A4,LANE A,ocp-research-program,quantitative fragility split (rank-deficient vs full-rank),0.78,0.55,0.92,0.62,0.74,0.36,0.1,0.77,0.6013600000000001,MEDIUM PRIORITY,VALIDATED,"rank_first_failure_eps=0.0001, full_rank_failure=False"
+SOL-C1,LANE C/D,soliton-geometry-research,modulation-instability persistent extreme-event regime map,0.4,0.9,0.86,0.6,0.82,0.22,0.24,0.81,0.5796800000000001,MEDIUM PRIORITY,VALIDATED,persistent_share=0.600
+BRANCH-E1,LANE E,soliton-geometry-research,dissipative-attractor/extreme-event branch candidate,0.48,0.83,0.84,0.63,0.87,0.29,0.28,0.86,0.57884,MEDIUM PRIORITY,CONDITIONAL,"mi_persistent_share=0.60, operator_opposite_outcomes=2"
+SOL-D2,LANE D,soliton-geometry-research,CGL random-beats-perturbed anomaly,0.2,0.7,0.46,0.76,0.58,0.33,0.92,0.83,0.21838000000000002,KILL NOW,ARTIFACT RISK,artifact_survival_rate=0.00
