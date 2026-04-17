@@ -1,74 +1,66 @@
 # Research Map
 
-## 1. Finished Framework Layer
-- [architecture-final.md](docs/finalization/architecture-final.md)
-- [theorem-spine-final.md](docs/finalization/theorem-spine-final.md)
-- [no-go-spine-final.md](docs/finalization/no-go-spine-final.md)
-- [operator-spine-final.md](docs/finalization/operator-spine-final.md)
+This file is the public navigation map for the live repository.
 
-## 2. Core Formalism
-- [plain-language-overview.md](docs/foundations/plain-language-overview.md)
-- [formal-theory.md](docs/formalism/formal-theory.md)
-- [exact-vs-asymptotic.md](docs/formalism/exact-vs-asymptotic.md)
+## 1. Front Door
 
-## 3. Exact Anchor Systems
-- [qec-foundations.md](docs/qec/qec-foundations.md)
-- [qec-in-ocp.md](docs/qec/qec-in-ocp.md)
-- [sector-recovery-theorems.md](docs/theorem-candidates/sector-recovery-theorems.md)
-- [divergence-cleaning-in-ocp.md](docs/mhd/divergence-cleaning-in-ocp.md)
+- [README.md](README.md)
+- [Start Here](docs/overview/start-here.md)
+- [Canonical Reading Paths](docs/repo_cleanup/canonical_reading_paths.md)
+- [Canonical Document Map](docs/repo_cleanup/canonical_document_map.md)
 
-## 4. Asymptotic / Continuous Correction
-- [generator-theorems.md](docs/theorem-candidates/generator-theorems.md)
-- [glm-and-asymptotic-correction.md](docs/mhd/glm-and-asymptotic-correction.md)
-- [control-extension.md](docs/control/control-extension.md)
-- [worked-linear-example.md](docs/control/worked-linear-example.md)
+## 2. Foundational OCP Spine
 
-## 5. Minimum-Structure And Capacity Layer
-- [capacity-theorems.md](docs/theorem-candidates/capacity-theorems.md)
-- [capacity-maturation.md](docs/theory/advanced-directions/capacity-maturation.md)
+- [Final Architecture](docs/finalization/architecture-final.md)
+- [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
+- [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
+- [Proof Status Map](docs/overview/proof-status-map.md)
+- [Claim Registry](docs/overview/claim-registry.md)
 
-## 6. No-Go Boundary Layer
-- [no-go-results.md](docs/impossibility-results/no-go-results.md)
-- [advanced-no-go-results.md](docs/impossibility-results/advanced-no-go-results.md)
-- [dead-ends-and-do-not-promote.md](docs/open-questions/dead-ends-and-do-not-promote.md)
+## 3. Major Branch-Limited Lanes
 
-## 7. Reviewer / Program Surface
-- [what-this-theory-is.md](docs/peer_review/what-this-theory-is.md)
-- [proof-status-for-reviewers.md](docs/peer_review/proof-status-for-reviewers.md)
-- [novelty-and-limits-for-reviewers.md](docs/peer_review/novelty-and-limits-for-reviewers.md)
-- [physics-scope-and-limits.md](docs/peer_review/physics-scope-and-limits.md)
-- [how-to-read-this-repo.md](docs/peer_review/how-to-read-this-repo.md)
-- [paper-outline.md](docs/peer_review/paper-outline.md)
+### Restricted-linear recoverability lane
+- [Constrained-observation theorems](docs/theorem-candidates/constrained-observation-theorems.md)
+- [PVRT theorem spine](docs/theorem-candidates/pvrt-theorem-spine.md)
 
-## 8. Physics Extension
-- [physics-system-matrix.md](docs/physics/physics-system-matrix.md)
-- [maxwell-coulomb-gauge.md](docs/physics/maxwell-coulomb-gauge.md)
-- [numerical-relativity-constraint-damping.md](docs/physics/numerical-relativity-constraint-damping.md)
-- [continuous-quantum-error-correction.md](docs/physics/continuous-quantum-error-correction.md)
-- [bounded-domain-projection-limits.md](docs/physics/bounded-domain-projection-limits.md)
-- [kept-vs-rejected-physics-bridges.md](docs/physics/kept-vs-rejected-physics-bridges.md)
+### Fiber-based limits lane
+- [Fiber branch overview](docs/fiber-based-recoverability-and-impossibility/overview.md)
+- [Fiber formalism core](docs/fiber-based-recoverability-and-impossibility/fiber-formalism-core.md)
+- [Fiber theorem candidates](docs/fiber-based-recoverability-and-impossibility/theorem-candidates.md)
 
-## 9. CFD Extension
-- [cfd-system-matrix.md](docs/cfd/cfd-system-matrix.md)
-- [incompressible-projection.md](docs/cfd/incompressible-projection.md)
-- [helmholtz-hodge-velocity-projection.md](docs/cfd/helmholtz-hodge-velocity-projection.md)
-- [bounded-vs-periodic-projection.md](docs/cfd/bounded-vs-periodic-projection.md)
-- [cfd-vs-mhd-correction-comparison.md](docs/cfd/cfd-vs-mhd-correction-comparison.md)
-- [kept-vs-rejected-cfd-bridges.md](docs/cfd/kept-vs-rejected-cfd-bridges.md)
-- [cfd-projection-results.md](docs/theorem-candidates/cfd-projection-results.md)
+### Descriptor-fiber quantitative lane
+- [Branch overview](docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md)
+- [Branch status](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
+- [Branch paper](papers/descriptor-fiber-anti-classifier-branch.md)
 
-## 10. Workbench
-- [workbench-overview.md](docs/app/workbench-overview.md)
-- [module-theory-map.md](docs/app/module-theory-map.md)
-- [github-pages-deploy.md](docs/app/github-pages-deploy.md)
-- [workbench/index.html](docs/workbench/index.html)
+### Bounded-domain/CFD obstruction lane
+- [Bounded vs periodic projection](docs/cfd/bounded-vs-periodic-projection.md)
+- [CFD projection results](docs/theorem-candidates/cfd-projection-results.md)
 
-## 11. Provenance, References, And Validation
-- [discovery-inventory.md](docs/overview/discovery-inventory.md)
-- [claim-registry.md](docs/overview/claim-registry.md)
-- [proof-status-map.md](docs/overview/proof-status-map.md)
-- [citable-expansion-directions.md](docs/references/citable-expansion-directions.md)
-- [core-references.md](docs/references/core-references.md)
-- [source-map.md](docs/internal-provenance/source-map.md)
-- [SYSTEM_REPORT.md](SYSTEM_REPORT.md)
-- [FINAL_REPORT.md](FINAL_REPORT.md)
+## 4. Papers
+
+- [Recoverability paper](papers/recoverability_paper_final.md)
+- [OCP core paper](papers/ocp_core_paper.md)
+- [Bridge paper](papers/bridge_paper.md)
+- [MHD paper](papers/mhd_paper_upgraded.md)
+- [Unifying framework paper](papers/unifying_theory_framework_final.md)
+
+## 5. Workbench
+
+- [Workbench entry](docs/workbench/index.html)
+- [Workbench overview](docs/app/workbench-overview.md)
+- [Module-theory map](docs/app/module-theory-map.md)
+- [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
+
+## 6. Validation and References
+
+- [Master validation report](docs/validation/master_validation_report.md)
+- [Full falsification and repair report](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [Master reference map](docs/references/master_reference_map.md)
+- [BibTeX library](docs/references/protected-state-correction.bib)
+
+## 7. Companion Repositories
+
+- [OCP main repository](https://github.com/RRG314/Protected-State-Correction-Theory)
+- [Soliton companion repository](https://github.com/RRG314/soliton-geometry-research)
+- [MHD companion repository](https://github.com/RRG314/MagnetoHydroDynamic-research)

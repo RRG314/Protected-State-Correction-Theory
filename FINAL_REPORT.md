@@ -1,5 +1,32 @@
 # Final Report
 
+## Live Repo Alignment Update (2026-04-17)
+
+This final report includes the live-repo alignment and consolidation pass:
+- public identity now states OCP as foundation and recoverability/anti-classifier branches as major branch-limited theorem lanes;
+- descriptor-fiber quantitative results are integrated as a scoped branch layer, not as universal replacement theory;
+- front-door docs (`README`, `RESEARCH_MAP`, `STATUS`) are synchronized with theorem/no-go/validation surfaces;
+- workbench and figure/image surfaces were re-audited for branch-name, link, and status consistency.
+
+Alignment artifacts:
+- `docs/repo_cleanup/live_vs_current_repo_audit.md`
+- `docs/repo_cleanup/public_structure_consolidation_plan.md`
+- `docs/repo_cleanup/low_value_clutter_review.md`
+- `docs/app/live_workbench_and_asset_audit.md`
+- `docs/repo_cleanup/github_branch_and_sync_report.md`
+
+## Falsification/Repair Addendum (2026-04-17)
+
+This repository has undergone a full falsification/disproof/repair pass. Canonical outcomes are tracked in:
+- [docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [docs/falsification/CHANGELOG_FALSIFICATION_PASS.md](docs/falsification/CHANGELOG_FALSIFICATION_PASS.md)
+- [docs/falsification/falsification_validation_results.md](docs/falsification/falsification_validation_results.md)
+
+Status normalization applied in this pass:
+- `OCP-022`, `OCP-027`, `OCP-044` -> `PROVED ON SUPPORTED FAMILY`.
+- workbench benchmark-label mismatch repaired.
+- README professional-validation link consistency repaired.
+
 ## Integration + Validation Update (2026-04-16)
 
 This report now includes the full integration/validation/theory-status pass requested after the lens investigation.
@@ -67,6 +94,7 @@ This pass added major upgrades across the repo:
 9. a restricted-linear minimal augmentation theorem that turns design advice into an exact count
 10. a Discovery Mixer / Structural Composition Lab that turns those theorem-backed and family-backed branches into a typed composition, diagnostics, and repair surface
 11. a fiber-based recoverability / impossibility branch that keeps the universal exact core, formalizes detectable-only target hierarchies, proves no-rank-only and no-budget-only exact classifier theorems on the restricted-linear class, and now includes exact family-enlargement and canonical model-mismatch false-positive theorems
+12. a descriptor-fiber anti-classifier branch that quantitatively extracts finite-class anti-classifier limits through `DFMI`, `IDELB`, and compatibility-lift metrics, with explicit branch-limited status discipline
 
 The current extension pass also added:
 
@@ -142,6 +170,12 @@ The new fiber-based branch pushes that lesson one step further:
 - weaker noisy recovery can remain quantitatively separated from stronger-target impossibility on the same restricted-linear record,
 - exactness can fail under honest family enlargement,
 - and exact-data model mismatch can incur a closed-form target error even when every fixed true family remains exactly identifiable.
+
+The descriptor-fiber anti-classifier branch then adds a quantitative layer on top of those witnesses:
+- descriptor-fiber mixedness (`DFMI`) for ambiguity incidence,
+- irreducible descriptor-only error lower bound (`IDELB`),
+- compatibility lift (`CL`) from adding structural descriptors.
+This lane is promoted only as `PROVED ON SUPPORTED FAMILY` + `VALIDATED` on finite witness classes.
 
 ## 4. Strongest New Physics Results And Decisions
 

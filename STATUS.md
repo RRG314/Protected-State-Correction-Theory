@@ -1,59 +1,64 @@
 # Status
 
-## Overall Verdict
+## Live Public Status
 
-The repository now supports outcome **A/B** from the program brief:
-- OCP is a finished protected-state correction framework with theorem-level results, operator constructions, no-go structure, reviewer-facing scope control, and a real static workbench.
-- It is also still narrower than a universal correction theory, and it stays honest about that.
+Program class: **theorem-first, branch-limited research program**.
 
-## Proved In This Repository
+Current overall theory class: **`B`**
+- strong universal core survives,
+- strongest additional claims are branch-limited,
+- no universal cross-domain promotion.
 
-- Exact orthogonal protected-subspace recovery on `H = S ⊕ D`.
-- Exact sector recovery for pairwise orthogonal coordinate-compatible sector embeddings.
-- Exact correction rank lower bound in the exact linear branch.
-- Continuous exponential disturbance damping under `xdot = -k P_D x`.
-- Invariant-split linear generator theorem for `xdot = -Kx`.
-- Self-adjoint PSD corollary with explicit spectral-gap decay bound.
-- Mixing no-go for linear flows when disturbance feeds into protected coordinates.
-- Finite-time exact recovery no-go for smooth linear flows.
-- Sector-overlap detection no-go.
-- Exact periodic Helmholtz/Leray projection interpretation of divergence cleaning.
-- Exact periodic incompressible velocity projection as a kept CFD corollary of the same projector branch.
-- Naive periodic-projector transplantation to a bounded-domain protected class is rejected by explicit counterexample.
-- Divergence-only bounded recovery is impossible on a nontrivial bounded incompressible protected class.
-- Maxwell / Coulomb-gauge projection is kept as a corollary-level exact physics extension of the projector branch.
+## Foundational Backbone (Promoted)
 
-## Conditional But Strong
+1. Exact projector/sector anchors.
+2. Asymptotic generator branch.
+3. Strong no-go spine (overlap, mixing, finite-time, bounded-domain mismatch).
+4. Universal fiber/factorization exactness core.
 
-- QEC as an OCP exact sector anchor under standard Knill-Laflamme / syndrome assumptions.
-- GLM cleaning as an asymptotic correction architecture.
-- Control-theoretic extension when invariant protected/disturbance splitting exists.
-- Branch-specific capacity language beyond the lower-bound layer.
-- Numerical-relativity constraint damping as a conditional asymptotic physics extension.
-- Continuous quantum error correction as a conditional bridge.
+## Major Branch-Limited Packages (Promoted Where Scoped)
 
-## Weak Or Demoted
+1. Restricted-linear recoverability package:
+   - row-space exactness criterion,
+   - collision-gap thresholds,
+   - minimal augmentation theorem,
+   - same-rank insufficiency.
+2. Fiber-based anti-classifier package:
+   - no rank-only exact classifier,
+   - no fixed-budget-only exact classifier,
+   - family-enlargement false positives,
+   - model-mismatch instability.
+3. Descriptor-fiber quantitative package:
+   - finite-class descriptor-fiber purity,
+   - irreducible descriptor-only error lower bound,
+   - `DFMI` / `IDELB` / `CL` summaries.
+4. Bounded-domain/CFD branch:
+   - periodic exact anchor,
+   - bounded transplant no-go,
+   - restricted bounded exact subcase.
 
-- optimizer and ML bridge material,
-- claims of a universal scalar correction-capacity number,
-- broad cross-domain unification language without system-specific operator content,
-- any wording implying GLM is exact,
-- any wording implying the periodic projector theorem already covers boundary-sensitive domains.
+## Workbench Status
 
-## Best Current Outputs
+The workbench is **theorem-linked** and maintained as a branch-aware decision and diagnostics surface:
+- Structural Discovery Studio,
+- Discovery Mixer,
+- Benchmark / Validation Console.
 
-1. A finished exact/asymptotic architecture.
-2. A finished exact sector branch beyond the simple projector model.
-3. A strong no-go layer that now spans exact, sector, and smooth-flow failure modes.
-4. A static GitHub-Pages-compatible Protected-State Correction Workbench.
-5. A real physics-extension layer with kept and rejected bridges documented explicitly.
-6. A narrow CFD extension that survives as a real operator-level lane rather than a loose analogy.
-7. Reviewer-facing documents that make outside scrutiny easier instead of harder.
+It is not presented as a detached app or universal symbolic engine.
 
-## Best Next Step
+## Conditional / Companion / Non-Promoted
 
-The single strongest next move remains boundary-sensitive continuous correction beyond the rejected naive projector transplant, with branch-specific capacity maturation as the main theorem-completion target.
+- Soliton overlap: conditional, scope-limited bridge lane.
+- Physics bridges: kept where operator-compatible; conditional where asymptotic/comparator-only.
+- Not promoted:
+  - universal amount-only classifier law,
+  - universal projection-preservation law,
+  - universal emergence/correction equivalence,
+  - universal physics unification language.
 
-## Program Rating
+## Best Next Public-Facing Priority
 
-Current strict repo-level rating: **EXCELLENT** as a finished protected-state correction research program with a real but delimited physics extension, while still explicitly non-universal in scope.
+Keep main branch presentation clean and theorem-first:
+1. preserve canonical docs,
+2. keep branch labels/status discipline synchronized,
+3. demote/archive redundant layered pass reports from front-door paths.

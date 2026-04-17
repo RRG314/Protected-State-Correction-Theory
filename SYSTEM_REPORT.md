@@ -1,5 +1,34 @@
 # System Report
 
+## Live Repo Alignment Update (2026-04-17)
+
+This report now reflects the public-alignment pass for `RRG314/Protected-State-Correction-Theory`:
+- OCP remains the foundational backbone.
+- The repo identity is explicitly broader than exact correction alone.
+- Restricted-linear recoverability, fiber anti-classifier limits, and descriptor-fiber quantitative extraction are integrated as branch-limited theorem/validation lanes.
+- Workbench positioning remains theorem-linked and branch-aware.
+- Public-path naming is normalized away from stale exploratory labels in canonical front-door docs.
+
+Canonical entry points after this pass:
+- [README.md](README.md)
+- [RESEARCH_MAP.md](RESEARCH_MAP.md)
+- [STATUS.md](STATUS.md)
+- [docs/repo_cleanup/public_structure_consolidation_plan.md](docs/repo_cleanup/public_structure_consolidation_plan.md)
+
+## Falsification Addendum (2026-04-17)
+
+A full branch-by-branch falsification/disproof/repair pass was executed and is now the canonical correctness gate for this phase:
+- [docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [docs/falsification/theorem_falsification_report.md](docs/falsification/theorem_falsification_report.md)
+- [docs/falsification/falsification_validation_results.md](docs/falsification/falsification_validation_results.md)
+- [docs/falsification/full_claim_audit.md](docs/falsification/full_claim_audit.md)
+- [docs/falsification/counterexample_catalog.md](docs/falsification/counterexample_catalog.md)
+
+Key normalization from this pass:
+- `OCP-022`, `OCP-027`, and `OCP-044` were narrowed from `PROVED` to `PROVED ON SUPPORTED FAMILY`.
+- workbench benchmark-label consistency defects were repaired.
+- README validation-link consistency defect was repaired.
+
 ## Executive Summary
 
 The repository now stands as an integrated mathematics-first program with a real physics extension and a branch-limited theory candidate (`B`, not full repo-wide `C`).
@@ -48,6 +77,7 @@ The strongest current picture is:
 - a strengthened restricted-linear collision-gap threshold theorem inside that recoverability layer,
 - a restricted-linear exact-regime stability envelope and same-rank insufficiency theorem inside that same branch,
 - a fiber-based recoverability / impossibility limits branch that keeps factorization/fiber exactness as the universal core while proving that rank-only and fixed-library budget-only exact classifiers already fail on the restricted-linear class, that restricted exactness can become a false positive under admissible-family enlargement, and that exact identifiability of the true restricted family does not imply robustness of a mismatched inverse map,
+- a descriptor-fiber anti-classifier branch that adds finite-class quantitative extraction (`DFMI`, `IDELB`, `CL`) on top of anti-classifier witness suites and is explicitly status-labeled as branch-limited (`PROVED ON SUPPORTED FAMILY` + `VALIDATED`),
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - a Structural Discovery subsystem that can diagnose failure, propose a supported repair, and validate before/after regime changes on multiple families,
@@ -82,7 +112,8 @@ Machine-readable inventory:
 
 Current registered claim totals from the regenerated claim registry:
 - total tracked claims: `53`
-- `PROVED`: `38`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear exact-regime upper envelope, the same-rank insufficiency theorem, the restricted-linear minimal-complexity criterion, the new restricted-linear minimal augmentation theorem, the new bounded-domain finite-mode Hodge theorem, the detectable-only coarsening theorem, the no rank-only exact classifier theorem, the fixed-library same-budget anti-classifier theorem, the family-enlargement false-positive theorem, the canonical model-mismatch instability theorem, and the stronger periodic/control threshold generalizations
+- `PROVED`: `35`
+- `PROVED ON SUPPORTED FAMILY`: `3` (`OCP-022`, `OCP-027`, `OCP-044`)
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`
@@ -141,6 +172,11 @@ Primary claim artifacts:
 - [docs/fiber-based-recoverability-and-impossibility/literature-anchors.md](docs/fiber-based-recoverability-and-impossibility/literature-anchors.md)
 - [docs/fiber-based-recoverability-and-impossibility/final-report.md](docs/fiber-based-recoverability-and-impossibility/final-report.md)
 
+### Descriptor-fiber anti-classifier branch
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md](docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-status.md](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
+- [papers/descriptor-fiber-anti-classifier-branch.md](papers/descriptor-fiber-anti-classifier-branch.md)
+
 ### Workbench architecture layer
 - [docs/app/workbench-architecture.md](docs/app/workbench-architecture.md)
 - [docs/app/workbench-data-flow.md](docs/app/workbench-data-flow.md)
@@ -186,6 +222,8 @@ Primary claim artifacts:
 - [docs/research-program/open-problem-program.md](docs/research-program/open-problem-program.md)
 - [docs/research-program/theory-candidate-assessment.md](docs/research-program/theory-candidate-assessment.md)
 - [docs/research-program/usefulness-by-branch.md](docs/research-program/usefulness-by-branch.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md](docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-status.md](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
 - [docs/research-program/cross-repo-expansion-2026-04-15.md](docs/research-program/cross-repo-expansion-2026-04-15.md)
 
 ## System Inventory
@@ -305,6 +343,17 @@ Status: `conditional branch candidate`
 - explicit non-promotions:
   - direct transfer of linear minimal-augmentation law is rejected,
   - broad universal OCP-soliton unification language remains analogy-only
+
+### 10d. Descriptor-fiber anti-classifier branch
+Status: `branch-limited quantitative extraction`
+- protected object: exact/fail verdict on supported witness classes
+- disturbance object: descriptor-fiber mixedness under amount-only summaries
+- operator: descriptor map and compatibility refinement map on generated witness suites
+- main value: quantify descriptor-only insufficiency and compatibility gain above anti-classifier witnesses without universal overreach
+- strongest outputs:
+  - descriptor-fiber purity criterion (`PROVED ON SUPPORTED FAMILY`),
+  - irreducible descriptor-only error lower bound (`PROVED ON SUPPORTED FAMILY`),
+  - computed `DFMI`/`IDELB`/`CL` summaries (`VALIDATED`)
 
 ### 11. Structural Discovery subsystem
 Status: `active theorem-linked engineering subsystem`
