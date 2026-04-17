@@ -2,349 +2,85 @@
 
 [![Release](https://img.shields.io/github/v/release/RRG314/Protected-State-Correction-Theory?display_name=tag)](https://github.com/RRG314/Protected-State-Correction-Theory/releases)
 [![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
-[![Scope](https://img.shields.io/badge/Scope-Exact%20%7C%20Asymptotic%20%7C%20No--Go-1f6feb)](https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/docs/finalization/architecture-final.md)
-[![Physics Extension](https://img.shields.io/badge/Physics-QEC%20%7C%20Projection%20%7C%20Damping-5c6ac4)](https://github.com/RRG314/Protected-State-Correction-Theory/blob/main/docs/physics/physics-system-matrix.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2f855a.svg)](LICENSE)
 
-Core principle: **Orthogonal Correction Principle (OCP)**.
+A theorem-first research repository for **protected-state correction and constrained-observation recoverability**.
 
-This repository exists to answer a focused question that appears in several technical settings:
+## Repository Identity
 
-> when can a system remove the part that should not be there without damaging the part that must be preserved?
+This repository is centered on OCP as the foundational correction principle:
+- define a protected object,
+- model disturbance/ambiguity structure,
+- test whether an architecture preserves or recovers the protected object,
+- classify outcomes as exact, asymptotic, or impossible.
 
-The repository develops that question into a theorem-first research program. It treats protected-state correction as a formal framework with exact recovery results, asymptotic correction results, explicit impossibility statements, operator constructions, and a physics extension that is kept only where the operator structure survives honest testing.
+The repo is broader than the original exact-projector anchor. It now includes major branch-limited recoverability and anti-classifier results with strict status discipline.
 
-In plain language, the project does four things:
-- identify what part of a system must be preserved,
-- identify what part counts as disturbance, contamination, or nonphysical content,
-- build or characterize correction operators that act on the disturbance without corrupting the protected object,
-- and prove when exact recovery, asymptotic suppression, or impossibility actually occurs.
+## Current Strongest Branches
 
-In formal language, the project works with a state space `H`, a protected subspace or protected sector, a disturbance family, and a correction architecture. It studies projector recovery, sector recovery, generator-based damping, detectability, correction image, and failure of correction when those structures are not rich enough.
+1. **Foundational OCP branch (exact/asymptotic/no-go anchors)**
+2. **Restricted-linear recoverability branch** (row-space criterion, collision-gap thresholds, minimal augmentation)
+3. **Fiber-based limits branch** (factorization core, no rank-only and no fixed-budget-only exact classifiers, family-enlargement and model-mismatch failures)
+4. **Descriptor-fiber anti-classifier quantitative branch** (finite-class `DFMI`/`IDELB`/`CL` extraction)
+5. **Bounded-domain/CFD obstruction branch** (periodic exactness versus bounded mismatch, restricted bounded exact subcase)
+6. **Theorem-linked workbench branch** (Structural Discovery + Discovery Mixer + Benchmark Console)
 
-## Initial Public Release
+## Theory Status (Honest Scope)
 
-The current public release is [v1.0.0](docs/releases/v1.0.0.md).
-
-This is the first release intended to stand on its own as a public research repository rather than an internal build log. It brings the theorem spine, the no-go layer, the workbench, the physics bridge testing, and the reviewer-facing documents into one coherent public path.
-
-## Why This Repository Exists
-
-The project is not trying to force one grand law across quantum error correction, fluid projection, constraint damping, and control.
-
-Its more grounded goal is to build a usable framework for situations where:
-- there is a meaningful protected object,
-- there is a meaningful disturbance family,
-- and there is a nontrivial question about whether correction can act on one without damaging the other.
-
-That narrower question is still worth pursuing. It produces theorem statements, concrete operators, counterexamples, and design criteria that are easier to test and easier to reuse.
-
-This repo now also treats the standalone CFD and MHD repositories as first-class companion programs rather than trying to absorb those fields into one universal law.
-
-## What This Repository Now Supports
-
-This repository does **not** claim a universal theorem covering QEC, control, PDE correction, and optimization under one scalar law.
-
-It now supports a narrower and stronger statement:
-- protected-state correction is a finished theorem-first framework,
-- with an exact projector branch,
-- an exact sector branch,
-- an exact periodic continuous projection anchor,
-- an asymptotic generator branch,
-- a theorem-grade no-go layer,
-- and a physics extension that is real but not universal.
-
-## Strongest Current Results
-
-### Exact branch
-- **OCP-T1** exact orthogonal protected-subspace recovery.
-- **OCP-T5** exact sector recovery for pairwise orthogonal coordinate-compatible sector embeddings.
-- **OCP-T4** exact correction rank lower bound.
-
-### Continuous / asymptotic branch
-- **OCP-T2** continuous damping theorem for `x_dot = -k P_D x`.
-- **OCP-T3** invariant-split generator theorem.
-- **OCP-C2** self-adjoint PSD corollary with explicit spectral-gap decay bound.
-
-### No-go layer
-- **OCP-N1** overlap / indistinguishability no-go.
-- **OCP-N5** mixing no-go for linear flows.
-- **OCP-N7** no finite-time exact recovery in the smooth linear flow branch.
-- **OCP-N8** sector-overlap detection no-go.
-
-### Strongest anchor systems
-- QEC as the exact sector anchor under standard assumptions.
-- Periodic Helmholtz/Leray projection as the exact continuous anchor.
-- Periodic incompressible velocity projection as a kept CFD corollary of the exact continuous branch.
-- GLM cleaning as an asymptotic continuous architecture, explicitly not exact.
-
-## What Is Inside
-
-The repository is organized so readers can enter from different angles:
-
-- theory and proofs for readers who want the formal spine first,
-- a workbench for readers who want to test the structure interactively,
-- physics bridge documents for readers who care about concrete systems,
-- executable code and validation for readers who want reproducibility.
+- **Universal core (promoted):** factorization/fiber constancy exactness + collision impossibility.
+- **Branch-limited theorem package (promoted where scoped):** anti-classifier theorems, family-enlargement fragility, model-mismatch instability, bounded-domain compatibility obstructions.
+- **Not promoted:** universal amount-only laws, universal projection-preservation laws, universal emergence/correction equivalence.
 
 ## Start Here
 
-1. [Start Here](docs/overview/start-here.md)
-2. [Usefulness Roadmap](docs/overview/usefulness-roadmap.md)
-3. [User Entry Paths](docs/overview/user-entry-paths.md)
-4. [Initial Public Release Notes](docs/releases/v1.0.0.md)
-5. [Final Architecture](docs/finalization/architecture-final.md)
-6. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
-7. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
-8. [How To Read This Repo](docs/peer_review/how-to-read-this-repo.md)
-9. [Protected-State Correction Workbench](docs/workbench/index.html)
-10. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
-11. [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
-12. [Tool Qualification And Known-Results Verification Report](docs/app/tool-qualification-report.md)
-13. [Professional Validation And Discovery Report](docs/app/professional-validation-report.md)
-14. [Workbench Architecture](docs/app/workbench-architecture.md)
-15. [Workbench Data Flow](docs/app/workbench-data-flow.md)
-16. [Workbench Extension Guide](docs/app/workbench-extension-guide.md)
-17. [Workbench Refactor Report](docs/app/workbench-refactor-report.md)
-18. [Discovery Mixer Overview](docs/discovery-mixer/overview.md)
-15. [Discovery Mixer Supported Scope](docs/discovery-mixer/supported-scope.md)
-16. [Discovery Mixer Demo Walkthroughs](docs/discovery-mixer/demo-walkthroughs.md)
-17. [Template Index](docs/templates/README.md)
-18. [Constrained-Observation Recoverability Branch](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-19. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
-20. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
-21. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-22. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-23. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-24. [Structural Discovery Overview](docs/structural-discovery/overview.md)
-25. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
-26. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
-27. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
-28. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-29. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-30. [Open-Problem Program](docs/research-program/open-problem-program.md)
-31. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
-32. [Restricted Flow Recoverability](docs/cfd/restricted-flow-recoverability.md)
-33. [MHD Closure and Observation Links](docs/mhd/closure-and-observation-links.md)
-34. [Cross-Repo Expansion Note](docs/research-program/cross-repo-expansion-2026-04-15.md)
+- [Start Here](docs/overview/start-here.md)
+- [Final Architecture](docs/finalization/architecture-final.md)
+- [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
+- [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
+- [Canonical Reading Paths](docs/repo_cleanup/canonical_reading_paths.md)
 
-## What You Can Do With This Repository
+## Paper Set
 
-Use it as a theory repository:
-- read the theorem spine, no-go spine, and proof-status map to see exactly what has been proved and where the boundaries are.
+- [Recoverability paper](papers/recoverability_paper_final.md)
+- [OCP core companion](papers/ocp_core_paper.md)
+- [Bridge paper](papers/bridge_paper.md)
+- [MHD closure paper](papers/mhd_paper_upgraded.md)
+- [Unifying framework paper](papers/unifying_theory_framework_final.md)
+- [Descriptor-fiber anti-classifier branch paper](papers/descriptor-fiber-anti-classifier-branch.md)
 
-Use it as a scientific workbench:
-- run the static workbench to explore exact projection, sector recovery, generator-based damping, and explicit no-go examples.
-- use the Structural Discovery Studio to diagnose why a setup fails, what weaker target is still recoverable, what structural change to try next, and whether that change actually repairs the problem.
-- use the architecture and extension docs to see how domain, engine, data, app, and presentation layers are separated before extending the workbench.
+## Workbench
 
-Use it as a design system:
-- start from the reusable templates to build restricted linear recovery checks, observability checks, projection threshold sweeps, ambiguity witnesses, and no-go diagnostics on your own problem.
+Primary entry:
+- [Protected-State Correction Workbench](docs/workbench/index.html)
 
-Use it as a structural-discovery engine:
-- start from a failing setup, let the studio identify the structural blocker, inspect theorem-backed or family-backed fix cards, apply a supported fix, and compare before versus after.
-- use the bounded-domain architecture path to distinguish a wrong projector transplant from a real restricted bounded exact family.
+Canonical docs:
+- [Workbench overview](docs/app/workbench-overview.md)
+- [Module-theory map](docs/app/module-theory-map.md)
+- [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
 
-Use it as a composable discovery mixer:
-- assemble supported state families, targets, records, and architectures in the Discovery Mixer / Structural Composition Lab.
-- test whether the composition is coherent before trusting any result.
-- enter supported custom matrices or symbolic linear functionals and get explicit exact / impossible / unsupported outcomes.
-- run seeded constrained searches to discover threshold cases, hidden obstructions, and repairable failures without leaving the validated family classes.
+## Validation and References
 
-Use it as a benchmark and reproducibility console:
-- replay validated demo repairs, inspect module-health rows, and export JSON, CSV, figures, and human-readable report snapshots from the workbench itself.
+- [Master validation report](docs/validation/master_validation_report.md)
+- [Professional validation report](docs/app/professional-validation-report.md)
+- [Full falsification and repair report](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [Master reference map](docs/references/master_reference_map.md)
+- [BibTeX library](docs/references/protected-state-correction.bib)
 
-Use it as a physics comparison layer:
-- trace which physics systems are kept, which are conditional, and which were rejected after operator-level testing.
+## Companion Repositories
 
-Use it as a research starting point:
-- follow the citable reference map and the open-problem catalog to connect the current framework to stronger outside literatures without blurring the limits of the present repo.
+- OCP main repo (this repo): [RRG314/Protected-State-Correction-Theory](https://github.com/RRG314/Protected-State-Correction-Theory)
+- Soliton companion: [RRG314/soliton-geometry-research](https://github.com/RRG314/soliton-geometry-research)
+- MHD companion: [RRG314/MagnetoHydroDynamic-research](https://github.com/RRG314/MagnetoHydroDynamic-research)
 
-## How To Cite This Work
+## Nonclaims
 
-If you are citing the repository as a whole, use the repository citation metadata and include the release or access context when possible.
+This repository does not claim:
+- a universal correction law across all domains,
+- a universal amount-only recoverability classifier,
+- a universal physics unification theorem.
 
-Citation files:
-- [CITATION.cff](CITATION.cff)
-- [How to Cite This Work](docs/references/how-to-cite-this-work.md)
-- [Reference Library (BibTeX)](docs/references/protected-state-correction.bib)
+## Author
 
-If you are citing a specific result, it is best to:
-- cite the repository itself,
-- name the exact theorem, no-go result, or application document you are using,
-- and cite the outside anchor paper that supports the surrounding standard literature.
-
-Author metadata:
-- Steven Reid
-- ORCID: [0009-0003-9132-3410](https://orcid.org/0009-0003-9132-3410)
-
-## Contributing
-
-This repository is open to contribution, but it is curated around proof status, falsification, and scope control.
-
-The best contributions usually do one of these well:
-- sharpen a theorem, proof, lemma, or no-go statement
-- improve a kept physics or application lane without forcing it broader
-- improve the workbench so it reflects the math more faithfully
-- strengthen validation, reproducibility, or reviewer-facing documentation
-
-Start here if you want to help:
-
-1. [CONTRIBUTING.md](CONTRIBUTING.md)
-2. [Contributing Paths](docs/overview/contributing-paths.md)
-3. [Start Here](docs/overview/start-here.md)
-
-Community files:
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Security Policy](SECURITY.md)
-- [Support](SUPPORT.md)
-- [MIT License](LICENSE)
-
-## Protected-State Correction Workbench
-
-The repository now includes a static GitHub-Pages-compatible workbench in:
-
-- `docs/workbench/`
-
-Modules:
-- Structural Discovery Studio
-- Discovery Mixer / Structural Composition Lab
-- Benchmark / Validation Console
-- Exact Projection Lab
-- QEC Sector Lab
-- MHD Projection Lab
-- CFD Projection Lab
-- Gauge Projection Lab
-- Continuous Generator Lab
-- No-Go Explorer
-
-The workbench is tied directly to the theorem and no-go documents. It is not a detached demo layer.
-
-## Constrained-Observation Branch
-
-The repository now also includes a research branch on **Constrained-Observation Recoverability**.
-
-This branch asks when a coarse record preserves enough information to recover a protected variable exactly, approximately, asymptotically, or not at all. It is grounded in conventional systems rather than only in repo-native language:
-
-- fixed-basis qubit records,
-- periodic incompressible-flow reconstruction,
-- and a small functional-observability control model.
-
-The strongest current clean results in that branch are:
-- the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
-- the exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ` in the exact restricted-linear branch,
-- the same-rank insufficiency theorem showing that record amount alone does not determine exact recoverability,
-- a closed-form qubit phase-window collision law,
-- a restricted-linear minimal-complexity criterion,
-- a restricted-linear design layer with ambiguity witnesses and minimal augmentation suggestions,
-- family-level periodic functional-support thresholds,
-- and a diagonal functional-interpolation threshold law on a scalar-output control family.
-
-The strongest current theory-level promotion from that branch is a restricted, theorem-backed **Protected-Variable Recoverability Theory (PVRT)** program:
-- broad universal PVRT is rejected,
-- restricted finite-dimensional linear PVRT survives,
-- and it organizes the exactness, threshold, lower-bound, and same-record weaker-versus-stronger results without pretending to unify every branch under one scalar law.
-
-Start here:
-
-1. [Branch overview](docs/theory/advanced-directions/constrained-observation-recoverability.md)
-2. [PVRT theory program](docs/theory/advanced-directions/pvrt-theory-program.md)
-3. [PVRT theorem spine](docs/theorem-candidates/pvrt-theorem-spine.md)
-4. [PVRT falsification program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-5. [Formalism](docs/theory/advanced-directions/constrained-observation-formalism.md)
-6. [Derivations](docs/theory/advanced-directions/constrained-observation-derivations.md)
-7. [Clean results](docs/theory/advanced-directions/constrained-observation-clean-results.md)
-8. [Failures and dead ends](docs/theory/advanced-directions/constrained-observation-failures.md)
-9. [Results report](docs/theory/advanced-directions/constrained-observation-results-report.md)
-10. [Branch assessment](docs/theory/advanced-directions/constrained-observation-assessment.md)
-11. [Structural Discovery Studio](docs/app/structural-discovery-studio.md)
-12. [Template Index](docs/templates/README.md)
-
-## Physics Extension
-
-The strongest kept physics lanes are:
-- QEC as the exact sector anchor,
-- periodic Helmholtz/Leray projection as the exact continuous anchor,
-- periodic incompressible projection as a kept CFD extension of the same exact projector branch,
-- Maxwell / Coulomb-gauge projection as a kept exact extension of the projector branch,
-- GLM divergence cleaning as an asymptotic comparator,
-- numerical-relativity constraint damping as a conditional asymptotic extension,
-- continuous quantum error correction as a conditional future bridge.
-
-The repo also preserves explicit rejections, including the failure of naive periodic-projector transplantation to bounded-domain problems.
-
-## Repository Map
-
-- `docs/finalization/` - final theorem, no-go, operator, and architecture spine
-- `docs/peer_review/` - reviewer-facing framing, novelty, proof status, and paper map
-- `docs/formalism/` - core framework and exact-vs-asymptotic split
-- `docs/qec/` - QEC foundation and OCP sector framing
-- `docs/mhd/` - exact periodic projection and asymptotic GLM branch
-- `docs/cfd/` - incompressible projection, bounded-domain scope control, and kept versus rejected CFD bridges
-- `docs/physics/` - kept and rejected physics bridges, including the citable extension matrix
-- `docs/control/` - conditional control extension and worked linear example
-- `docs/theorem-candidates/` - theorem-level results including generator, capacity, and sector branches
-- `docs/impossibility-results/` - core and advanced no-go structure
-- `docs/open-questions/` - disciplined open-problem catalog and dead-end curation
-- `docs/research-program/` - branch audit, ranked roadmap, open-problem program, theory assessment, and usefulness-by-branch notes
-- `docs/workbench/` - static Pages-ready scientific workbench
-- `docs/templates/` - reusable build templates for exact, asymptotic, and no-go design problems
-- `docs/applications/` - practical integration notes, including app / engine-facing recoverability design
-- `src/ocp/` - executable operator and validation code
-- `scripts/templates/` - script entry points for reusable recoverability and correction setups
-- `tests/` - theorem, operator, workbench, and regression checks
-
-## Validation
-
-```bash
-cd '/Users/stevenreid/Documents/New project/repos/ocp-research-program'
-./scripts/validate/run_all.sh
-```
-
-This now runs:
-- discovery and claim regeneration
-- operator example generation
-- static workbench example generation
-- professional validation audit regeneration
-- markdown link checks
-- static workbench asset check
-- Python theorem tests
-- Node workbench tests
-
-Current validation-facing reports:
-- [Tool Qualification And Known-Results Verification Report](docs/app/tool-qualification-report.md)
-- [Professional Validation And Discovery Report](docs/app/professional-validation-report.md)
-
-Current trust snapshot:
-- stage-1 module qualification: `11` qualified modules
-- stage-2 known-answer verification: `21/21` exact matches on the qualified tool surface
-- professional audit: expanded known-answer, adversarial, and workflow testing with explicit limits on circular checks
-
-## Release Materials
-
-- [Release Notes Index](docs/releases/README.md)
-- [v1.0.0 Release Notes](docs/releases/v1.0.0.md)
-- [Changelog](CHANGELOG.md)
-- [Final Report](FINAL_REPORT.md)
-- [System Report](SYSTEM_REPORT.md)
-- [Citation Metadata](CITATION.cff)
-
-## Current Honest Rating
-
-The repository currently earns an **EXCELLENT** rating as a finished repository-scale research program.
-
-Why this rating is justified:
-- the repo now has a polished theorem spine,
-- materially stronger new theorem/no-go content beyond the earlier baseline,
-- a finished negative-results layer,
-- reviewer-facing documentation,
-- and a real usable static workbench.
-
-Important limit on that rating:
-- this does **not** mean OCP is now a universal correction theory,
-- and it does **not** erase the fact that the strongest mathematics is still operator-theoretic and that the boundary-sensitive continuous branch remains open.
-
-The current public-facing title is theory-first on purpose:
-- main title: **Protected-State Correction Theory**
-- core internal principle: **Orthogonal Correction Principle (OCP)**
-- physics lane: **Physics Extension of Protected-State Correction Theory**
+Steven Reid  
+ORCID: [0009-0003-9132-3410](https://orcid.org/0009-0003-9132-3410)  
+Email: `sreid1118@gmail.com`

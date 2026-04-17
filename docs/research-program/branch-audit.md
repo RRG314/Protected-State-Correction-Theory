@@ -4,6 +4,57 @@
 
 This note audits the repository as a branch-based research program rather than as a finished framework. Every branch is treated honestly: strongest result, strongest failure, strongest limitation, and whether it is worth pushing harder.
 
+## Current Geometry Pass
+
+Repo-native consolidated geometry findings for this program:
+- [GEOMETRY_FINDINGS_FOR_REPO_2026-04-16.md](GEOMETRY_FINDINGS_FOR_REPO_2026-04-16.md)
+
+## Current Lens Integration Pass
+
+Lens integration and theory-formation outputs for this program:
+- [LENS_INTEGRATION_COMPLETE_REPORT_2026-04-16.md](LENS_INTEGRATION_COMPLETE_REPORT_2026-04-16.md)
+- [lens-integration-map.md](lens-integration-map.md)
+- [lens-promotion-decisions.md](lens-promotion-decisions.md)
+- [theory-candidate-comparison.md](theory-candidate-comparison.md)
+- [final-theory-formation-decision.md](final-theory-formation-decision.md)
+- [../validation/lens-integration-validation-plan.md](../validation/lens-integration-validation-plan.md)
+- [../validation/lens-integration-validation-results.md](../validation/lens-integration-validation-results.md)
+- [../references/lens-integration-reference-map.md](../references/lens-integration-reference-map.md)
+- [../references/theory-candidate-literature-positioning.md](../references/theory-candidate-literature-positioning.md)
+
+## Current Next-Phase Deepening Pass
+
+Quantitative/stability/dynamic/minimal-structure and deep-dive outputs:
+- [next-phase-audit.md](next-phase-audit.md)
+- [next-phase-paper-lanes.md](next-phase-paper-lanes.md)
+- [next-phase-final-report.md](next-phase-final-report.md)
+- [../theory/quantitative-recoverability.md](../theory/quantitative-recoverability.md)
+- [../theory/stability-and-fragility.md](../theory/stability-and-fragility.md)
+- [../theory/dynamic-correction-layer.md](../theory/dynamic-correction-layer.md)
+- [../theory/minimal-structure-classification.md](../theory/minimal-structure-classification.md)
+- [../cfd/next-phase-deep-dive.md](../cfd/next-phase-deep-dive.md)
+- [../fiber-based-recoverability-and-impossibility/next-phase-deep-dive.md](../fiber-based-recoverability-and-impossibility/next-phase-deep-dive.md)
+- [../app/next-phase-tool-integration.md](../app/next-phase-tool-integration.md)
+
+## Current Soliton Branch Admission Pass
+
+Soliton-to-OCP admission and stress-test outputs:
+- [../soliton-branch/branch_admission_report.md](../soliton-branch/branch_admission_report.md)
+- [../soliton-branch/internal_ocp_alignment_report.md](../soliton-branch/internal_ocp_alignment_report.md)
+- [../soliton-branch/status_normalization.md](../soliton-branch/status_normalization.md)
+- [../soliton-branch/claim_registry.md](../soliton-branch/claim_registry.md)
+- [../soliton-branch/literature_audit.md](../soliton-branch/literature_audit.md)
+- [../soliton-branch/novelty_positioning.md](../soliton-branch/novelty_positioning.md)
+- [../soliton-branch/stress_test_report.md](../soliton-branch/stress_test_report.md)
+- [../soliton-branch/validation_scope_note.md](../soliton-branch/validation_scope_note.md)
+- [../soliton-branch/final_branch_decision.md](../soliton-branch/final_branch_decision.md)
+
+Canonical scope-sync overlays for this pass:
+- [../integration/cross_repo_audit.md](../integration/cross_repo_audit.md)
+- [../integration/repo_scope_statement.md](../integration/repo_scope_statement.md)
+- [../soliton_branch/overview.md](../soliton_branch/overview.md)
+- [../soliton_branch/status_registry.md](../soliton_branch/status_registry.md)
+
 ## Branch Matrix
 
 | Branch | What it is about | Strongest clean result | Strongest negative result | Strongest limitation | Status | Worth pushing harder? |
@@ -17,6 +68,8 @@ This note audits the repository as a branch-based research program rather than a
 | GLM / constraint-damping branch | asymptotic cleaning and damping instead of exact projection | asymptotic classification survives | cannot be promoted to exact correction | practical but harder to sharpen into strong theorems without more PDE structure | comparator branch | keep, but targeted investment only |
 | Continuous-QEC bridge | bridge between exact sector correction and continuous monitored correction | citable conditional bridge | smooth-flow finite-time exactness no-go blocks naive overclaiming | still conditional and bridge-like rather than theorem-complete | conditional bridge | keep, but do not oversell |
 | Constrained-observation recoverability branch | exact/approximate/asymptotic/impossible recovery under coarse records | OCP-043 plus the exact-regime upper envelope and same-rank insufficiency theorem | same-record weaker-versus-stronger split; phase-loss and hidden-mode no-gos | broad universal PVRT failed; strongest surviving form is restricted-linear | strongest current theory-program branch in repo | yes, heavily |
+| Fiber-based recoverability / impossibility branch | common formal limits on recoverability, detectability, distinguishability, irrecoverability, and false-positive exactness claims across fields | universal fiber-factorization exactness plus OCP-049/OCP-050 anti-universal classifier theorems, OCP-051 noisy weaker-vs-stronger separation, OCP-052 family-enlargement false-positive theorem, and OCP-053 canonical model-mismatch instability theorem | one universal threshold law, one amount-only classifier, one family-blind exactness slogan, and one family-blind inverse-map robustness slogan all fail | strongest positive laws above the fiber level remain restricted by field or family | serious synthesis / limits branch | yes, but keep falsification-first |
+| Soliton nonlinear-wave candidate branch | quotient recoverability and projection-preservation/no-go on restricted one-soliton NLS families | symmetry non-identifiability no-go plus validated same-count opposite-verdict witnesses on tested families | direct linear minimal-augmentation transfer and broad universal bridge claims fail | strongest positive claims remain finite-grid validated/conditional rather than closed continuous theorems | conditional candidate branch (`B`) | yes, but only as a tightly bounded bridge lane |
 | Restricted-linear / design-engine layer | measurement sufficiency, minimal augmentation, and design diagnostics on restricted families | OCP-T6 restricted-linear minimal augmentation theorem | below-deficiency augmentation impossibility | limited to restricted finite-dimensional linear families | strongest practical theorem-to-tool branch | yes, heavily |
 | Structural Discovery subsystem | failure diagnosis, missing-structure detection, supported repair suggestions, and before/after validation | validated end-to-end diagnosis-and-repair demos across periodic, control, qubit, and restricted-linear families | no in-studio fix is promoted unless a theorem-backed or validated family-backed path exists | novelty is mostly engineering and theorem-surfacing rather than standalone mathematics | high-value subsystem | yes, as a practical research-system layer |
 | Discovery Mixer / Structural Composition Lab | typed composition, compatibility analysis, custom-input reduction, constrained random search, and augmentation discovery across supported families | validated typed composition plus before/after repair on user-built restricted-linear, periodic, control, and bounded-domain cases | unsupported symbolic or mixed-family inputs are rejected explicitly rather than silently approximated | theorem headroom is still limited by the supported family reductions; it is not a universal symbolic engine | high-value advanced lab | yes, as a serious engineering and theorem-surfacing subsystem |
@@ -31,6 +84,7 @@ The repo's current backbone is:
 - exact periodic projection as the clean continuous anchor,
 - asymptotic generator branch as the strongest finished continuous theorem branch,
 - constrained-observation and restricted-linear design layers as the strongest current open theorem/program branches,
+- fiber-based recoverability / impossibility as the cleanest statement of what part of recoverability theory is universal and what part fails to unify,
 - no-go layer as the main scope-control mechanism.
 
 ## Strongest Current Contribution Candidates

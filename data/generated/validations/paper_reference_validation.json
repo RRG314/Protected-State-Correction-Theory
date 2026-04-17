@@ -1,0 +1,180 @@
+{
+  "summary": {
+    "papers_checked": 4,
+    "total_urls": 11,
+    "failing_count": 0,
+    "failing": [],
+    "total_dois": 17,
+    "doi_failing_count": 0,
+    "doi_failing": []
+  },
+  "results": {
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/recoverability_paper_final.md": [
+      {
+        "url": "https://arxiv.org/abs/1711.08264",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://arxiv.org/abs/2307.08923",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://github.com/RRG314/Protected-State-Correction-Theory",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/",
+        "ok": true,
+        "status": 200
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/mhd_paper_upgraded.md": [
+      {
+        "url": "https://github.com/RRG314/MagnetoHydroDynamic-research",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://github.com/RRG314/Protected-State-Correction-Theory",
+        "ok": true,
+        "status": 200
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/bridge_paper.md": [
+      {
+        "url": "https://github.com/RRG314/Protected-State-Correction-Theory",
+        "ok": true,
+        "status": 200
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/ocp_core_paper.md": [
+      {
+        "url": "https://arxiv.org/abs/1711.08264",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://arxiv.org/abs/2307.08923",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://github.com/RRG314/Protected-State-Correction-Theory",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "url": "https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/",
+        "ok": true,
+        "status": 200
+      }
+    ]
+  },
+  "doi_results": {
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/recoverability_paper_final.md": [
+      {
+        "doi": "10.1016/0005-1098(94)90039-6",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      },
+      {
+        "doi": "10.1109/TAC.1977.1101601",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1109/TIT.2005.862083",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1109/TIT.2006.871582",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1115/1.3662552",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/mhd_paper_upgraded.md": [
+      {
+        "doi": "10.1006/jcph.2001.6961",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      },
+      {
+        "doi": "10.1111/j.1365-2966.2009.15500.x",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/bridge_paper.md": [
+      {
+        "doi": "10.1006/jcph.2001.6715",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      },
+      {
+        "doi": "10.1006/jcph.2001.6961",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      },
+      {
+        "doi": "10.1007/978-3-642-61623-5",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1016/j.cma.2005.10.010",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      },
+      {
+        "doi": "10.1090/S0025-5718-1968-0242392-2",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      }
+    ],
+    "/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/ocp_core_paper.md": [
+      {
+        "doi": "10.1109/TAC.1974.1100557",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1109/TAC.1977.1101601",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1109/TIT.2005.862083",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1109/TIT.2006.871582",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "doi": "10.1115/1.3662552",
+        "ok": true,
+        "status": 403,
+        "note": "doi resolver blocked automated request"
+      }
+    ]
+  }
+}

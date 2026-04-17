@@ -68,6 +68,37 @@ Best outputs:
 - restricted PVRT theorem-backed criteria in the finite-dimensional linear lane
 - weaker-versus-stronger protected-variable comparisons
 
+## Fiber-Based Recoverability / Impossibility Branch
+
+What it helps with:
+- distinguish what part of recoverability language is truly universal from what survives only on restricted families
+- explain detect-but-not-recover, weaker-versus-stronger, and exact-versus-asymptotic splits in one disciplined formal language
+- kill amount-only or rank-only overclaims before they spread into other branches
+
+Best outputs:
+- factorization/fiber exactness as the universal backbone
+- a precise detectable-only regime through target coarsening
+- the no-rank-only exact classifier theorem
+- the fixed-library same-budget anti-classifier theorem
+- the noisy weaker-versus-stronger separation bound
+- the family-enlargement false-positive theorem
+- the canonical model-mismatch instability theorem
+- field dictionaries that say where the mapping is exact, conditional, or analogy only
+
+## Soliton Nonlinear-Wave Candidate Branch
+
+What it helps with:
+- test whether structure-over-amount recoverability logic survives on a nonlinear quotient-manifold class
+- separate symmetry-orbit ambiguity from true non-identifiability under partial observations
+- diagnose when reduction/projection choices preserve or destroy a restricted coherent-state manifold
+
+Best outputs:
+- symmetry non-identifiability no-go on declared invariant observation classes
+- same-count opposite-verdict witness sets on tested one-soliton families
+- projection-preservation versus no-go summaries on explicit operator classes
+- explicit branch-admission boundaries showing what does not transfer from linear OCP design laws
+- explicit non-promotion boundary: self-organization anomalies remain in the standalone soliton repo unless theorem-grade overlap survives
+
 ## Restricted-Linear / Design-Engine Layer
 
 What it helps with:

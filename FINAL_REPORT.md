@@ -1,5 +1,73 @@
 # Final Report
 
+## Live Repo Alignment Update (2026-04-17)
+
+This final report includes the live-repo alignment and consolidation pass:
+- public identity now states OCP as foundation and recoverability/anti-classifier branches as major branch-limited theorem lanes;
+- descriptor-fiber quantitative results are integrated as a scoped branch layer, not as universal replacement theory;
+- front-door docs (`README`, `RESEARCH_MAP`, `STATUS`) are synchronized with theorem/no-go/validation surfaces;
+- workbench and figure/image surfaces were re-audited for branch-name, link, and status consistency.
+
+Alignment artifacts:
+- `docs/repo_cleanup/live_vs_current_repo_audit.md`
+- `docs/repo_cleanup/public_structure_consolidation_plan.md`
+- `docs/repo_cleanup/low_value_clutter_review.md`
+- `docs/app/live_workbench_and_asset_audit.md`
+- `docs/repo_cleanup/github_branch_and_sync_report.md`
+
+## Falsification/Repair Addendum (2026-04-17)
+
+This repository has undergone a full falsification/disproof/repair pass. Canonical outcomes are tracked in:
+- [docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [docs/falsification/CHANGELOG_FALSIFICATION_PASS.md](docs/falsification/CHANGELOG_FALSIFICATION_PASS.md)
+- [docs/falsification/falsification_validation_results.md](docs/falsification/falsification_validation_results.md)
+
+Status normalization applied in this pass:
+- `OCP-022`, `OCP-027`, `OCP-044` -> `PROVED ON SUPPORTED FAMILY`.
+- workbench benchmark-label mismatch repaired.
+- README professional-validation link consistency repaired.
+
+## Integration + Validation Update (2026-04-16)
+
+This report now includes the full integration/validation/theory-status pass requested after the lens investigation.
+
+Primary outcome:
+- operator theory remains the strongest overall foundation,
+- functional analysis remains the strongest continuous/PDE foundation,
+- geometry remains a theorem-support layer (not the foundation),
+- rank/count/budget-only exact classifiers remain falsified on supported classes,
+- bounded-domain obstruction plus restricted exact bounded family survives,
+- final theory status is `B` (partial branch-limited candidate), not a repo-wide universal theory promotion,
+- and soliton overlap is admitted only as a conditional candidate branch with explicit scope limits.
+
+Canonical pass outputs:
+- `docs/research-program/integration-audit.md`
+- `docs/research-program/integration-gap-list.md`
+- `docs/research-program/theorem-normalization-report.md`
+- `docs/validation/full-integration-validation-plan.md`
+- `docs/validation/full-integration-validation-results.md`
+- `docs/research-program/further-expansion-results.md`
+- `docs/references/integration-reference-audit.md`
+- `docs/references/branch-literature-map.md`
+- `docs/app/repo-workbench-consistency-report.md`
+- `docs/research-program/final-theory-status-decision.md`
+
+Soliton branch-admission addendum (2026-04-17):
+- `docs/soliton-branch/branch_admission_report.md`
+- `docs/soliton-branch/internal_ocp_alignment_report.md`
+- `docs/soliton-branch/status_normalization.md`
+- `docs/soliton-branch/literature_audit.md`
+- `docs/soliton-branch/stress_test_report.md`
+- `docs/soliton-branch/final_branch_decision.md`
+
+Cross-repo integration sync addendum (2026-04-17):
+- `docs/integration/cross_repo_audit.md`
+- `docs/integration/repo_scope_statement.md`
+- `docs/integration/public_vs_internal_map.md`
+- `docs/soliton_branch/overview.md`
+- `docs/soliton_branch/status_registry.md`
+- `docs/soliton_branch/final_branch_decision.md`
+
 ## 1. What Was Found In Local Files
 
 The local search again confirmed that the strongest usable OCP material was spread across:
@@ -25,6 +93,8 @@ This pass added major upgrades across the repo:
 8. a restricted bounded-domain exact theorem on the boundary-compatible finite-mode Hodge family
 9. a restricted-linear minimal augmentation theorem that turns design advice into an exact count
 10. a Discovery Mixer / Structural Composition Lab that turns those theorem-backed and family-backed branches into a typed composition, diagnostics, and repair surface
+11. a fiber-based recoverability / impossibility branch that keeps the universal exact core, formalizes detectable-only target hierarchies, proves no-rank-only and no-budget-only exact classifier theorems on the restricted-linear class, and now includes exact family-enlargement and canonical model-mismatch false-positive theorems
+12. a descriptor-fiber anti-classifier branch that quantitatively extracts finite-class anti-classifier limits through `DFMI`, `IDELB`, and compatibility-lift metrics, with explicit branch-limited status discipline
 
 The current extension pass also added:
 
@@ -62,6 +132,10 @@ The strongest new positive bounded-domain addition is:
 The strongest new observation-layer addition is:
 - the constrained-observation recoverability framework centered on the collapse modulus `κ_{M,p}` and on exact / approximate / asymptotic / impossible classification across quantum, periodic flow, and control examples
 
+The strongest new limits-branch addition is:
+- the fiber-based recoverability / impossibility framework, whose main surviving theorem-grade output is negative:
+  above the universal fiber/factorization level, exact recoverability cannot be classified by record amount alone, exactness on a smaller restricted family can fail immediately under honest family enlargement even on the supported finite-dimensional linear class, and exact identifiability of the true family does not imply robustness of a decoder built for the wrong restricted family
+
 The strongest current constrained-observation branch results now added on top of that are:
 - the adversarial lower bound `worst-case protected-variable error ≥ κ(η)/2`,
 - the restricted-linear exact-regime upper envelope `κ(δ) ≤ ||K||_2 δ`,
@@ -87,6 +161,21 @@ That branch now supports a real restricted **Protected-Variable Recoverability T
 - and the branch now has several theorem-grade restricted-linear core results.
 
 It still remains a useful formal and computational extension rather than a major standalone theorem program.
+
+The new fiber-based branch pushes that lesson one step further:
+- universal exactness survives cleanly as fiber compatibility,
+- detectable-only survives cleanly through target coarsening,
+- but stronger amount-only or rank-only universal classifiers fail,
+- that failure survives even inside a fixed unit-cost candidate library,
+- weaker noisy recovery can remain quantitatively separated from stronger-target impossibility on the same restricted-linear record,
+- exactness can fail under honest family enlargement,
+- and exact-data model mismatch can incur a closed-form target error even when every fixed true family remains exactly identifiable.
+
+The descriptor-fiber anti-classifier branch then adds a quantitative layer on top of those witnesses:
+- descriptor-fiber mixedness (`DFMI`) for ambiguity incidence,
+- irreducible descriptor-only error lower bound (`IDELB`),
+- compatibility lift (`CL`) from adding structural descriptors.
+This lane is promoted only as `PROVED ON SUPPORTED FAMILY` + `VALIDATED` on finite witness classes.
 
 ## 4. Strongest New Physics Results And Decisions
 
@@ -222,8 +311,8 @@ Current validation status:
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
 - tool qualification surface: `11` qualified modules and `21/21` known-answer matches on the qualified matrix
 - professional validation audit: `25/25` known-answer cases, `7/7` adversarial cases, and `10/10` live workflows
-- Node workbench test suite: `26 passed`
-- Python theorem/operator/example test suite: `128 passed`
+- Node workbench test suite: `29 passed`
+- Python theorem/operator/example test suite: `148 passed`
 
 Generated artifacts of note:
 - [data/generated/validations/operator_examples.json](data/generated/validations/operator_examples.json)
@@ -286,3 +375,34 @@ Do not promote or spend major time on:
 - any renaming that makes physics sound more dominant than the proofs justify
 - any claim that broad universal PVRT has been proved
 - any claim that the constrained-observation branch is already a major new theory rather than a promising formal/computational lane with a real restricted PVRT spine and several narrow threshold results
+
+## 13. Lens Integration And Theory-Formation Decision (2026-04-16)
+
+The completed lens investigation was integrated as a selective promotion pass, not a rebrand.
+
+Primary outcomes:
+- promoted operator-theory and functional-analysis payloads where they sharpen exactness/no-go/rate claims,
+- kept geometry as a theorem-support layer where it is computable and branch-valid,
+- explicitly demoted inverse-problem, information-theory, and dynamical framing where they weaken exact branch language,
+- kept theorem IDs and branch boundaries unchanged.
+
+Required lens-integration outputs are now tracked in:
+- [docs/research-program/lens-integration-map.md](docs/research-program/lens-integration-map.md)
+- [docs/research-program/lens-promotion-decisions.md](docs/research-program/lens-promotion-decisions.md)
+- [docs/research-program/theory-candidate-comparison.md](docs/research-program/theory-candidate-comparison.md)
+- [docs/validation/lens-integration-validation-plan.md](docs/validation/lens-integration-validation-plan.md)
+- [docs/validation/lens-integration-validation-results.md](docs/validation/lens-integration-validation-results.md)
+- [docs/references/lens-integration-reference-map.md](docs/references/lens-integration-reference-map.md)
+- [docs/references/theory-candidate-literature-positioning.md](docs/references/theory-candidate-literature-positioning.md)
+- [docs/research-program/final-theory-formation-decision.md](docs/research-program/final-theory-formation-decision.md)
+
+Validation used claim-type-matched testing and passed:
+- full validation run: passed,
+- Node consistency suite: `29 passed`,
+- Python theorem/operator/example suite: `148 passed`,
+- focused recheck (recoverability/unified/cfd/generator): `66 passed`,
+- focused workbench static recheck: `21 passed`.
+
+Final theory-formation verdict for this pass:
+- `B` (one partial theory candidate survives, still branch-limited),
+- no repo-identity rename is justified from this pass alone.

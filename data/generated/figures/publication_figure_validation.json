@@ -1,0 +1,13 @@
+{
+  "missing_assets": [],
+  "checks": {
+    "rowspace_exact_zero": true,
+    "rowspace_fail_positive": true,
+    "gamma_monotone": true,
+    "gamma_hits_zero": true,
+    "sheet_scaling_slope_positive": true,
+    "bridge_periodic_beats_bounded_error": true,
+    "bridge_divergence_reduced_both": true
+  },
+  "all_passed": true
+}

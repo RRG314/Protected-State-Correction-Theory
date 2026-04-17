@@ -1,0 +1,53 @@
+{
+  "recoverability_residuals": {
+    "exact": 0.0,
+    "fail": 1.0
+  },
+  "recoverability_gamma": {
+    "B": 1.0,
+    "values": [
+      2.0,
+      2.0,
+      0.0
+    ]
+  },
+  "recoverability_transition": {
+    "epsilon_approx": 0.1,
+    "residual_at_0": 0.0,
+    "residual_at_90": 1.0
+  },
+  "mhd_sheet_scaling": {
+    "deltas": [
+      0.4,
+      0.3,
+      0.22,
+      0.16,
+      0.12,
+      0.09,
+      0.07,
+      0.05
+    ],
+    "max_values": [
+      0.061613818806408184,
+      0.07380984755596837,
+      0.09570840424433297,
+      0.12834495059957363,
+      0.1691260432490831,
+      0.2240468955410641,
+      0.287125845851425,
+      0.40100408401752485
+    ],
+    "fit_slope": 0.01953408514421586,
+    "fit_intercept": 0.008297779518609941
+  },
+  "mhd_domain_behavior": {
+    "l2_log_at_0p2": 2.0002722601824128,
+    "l2_sqrt_at_0p2": 0.6343396393776386
+  },
+  "bridge_errors": {
+    "mean_div_after_periodic": 0.0,
+    "mean_div_after_bounded": 0.0,
+    "mean_error_periodic": 0.0,
+    "mean_error_bounded": 0.8161934667520057
+  }
+}

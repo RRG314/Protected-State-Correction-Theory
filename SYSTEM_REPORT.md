@@ -1,8 +1,70 @@
 # System Report
 
+## Live Repo Alignment Update (2026-04-17)
+
+This report now reflects the public-alignment pass for `RRG314/Protected-State-Correction-Theory`:
+- OCP remains the foundational backbone.
+- The repo identity is explicitly broader than exact correction alone.
+- Restricted-linear recoverability, fiber anti-classifier limits, and descriptor-fiber quantitative extraction are integrated as branch-limited theorem/validation lanes.
+- Workbench positioning remains theorem-linked and branch-aware.
+- Public-path naming is normalized away from stale exploratory labels in canonical front-door docs.
+
+Canonical entry points after this pass:
+- [README.md](README.md)
+- [RESEARCH_MAP.md](RESEARCH_MAP.md)
+- [STATUS.md](STATUS.md)
+- [docs/repo_cleanup/public_structure_consolidation_plan.md](docs/repo_cleanup/public_structure_consolidation_plan.md)
+
+## Falsification Addendum (2026-04-17)
+
+A full branch-by-branch falsification/disproof/repair pass was executed and is now the canonical correctness gate for this phase:
+- [docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
+- [docs/falsification/theorem_falsification_report.md](docs/falsification/theorem_falsification_report.md)
+- [docs/falsification/falsification_validation_results.md](docs/falsification/falsification_validation_results.md)
+- [docs/falsification/full_claim_audit.md](docs/falsification/full_claim_audit.md)
+- [docs/falsification/counterexample_catalog.md](docs/falsification/counterexample_catalog.md)
+
+Key normalization from this pass:
+- `OCP-022`, `OCP-027`, and `OCP-044` were narrowed from `PROVED` to `PROVED ON SUPPORTED FAMILY`.
+- workbench benchmark-label consistency defects were repaired.
+- README validation-link consistency defect was repaired.
+
 ## Executive Summary
 
-The repository now stands as a finished theory-first program with a real physics extension.
+The repository now stands as an integrated mathematics-first program with a real physics extension and a branch-limited theory candidate (`B`, not full repo-wide `C`).
+
+This integration/validation pass (2026-04-16) finalized:
+- operator-first and functional-analysis-first canonical language,
+- constrained/fiber anti-classifier and fragility limits as first-class no-go structure,
+- bounded-domain obstruction plus restricted exact Hodge-compatible lane,
+- workbench evidence-level normalization,
+- claim-type-matched full validation and reference-discipline audit.
+
+Primary pass artifacts:
+- [docs/research-program/integration-audit.md](docs/research-program/integration-audit.md)
+- [docs/research-program/integration-gap-list.md](docs/research-program/integration-gap-list.md)
+- [docs/research-program/theorem-normalization-report.md](docs/research-program/theorem-normalization-report.md)
+- [docs/validation/full-integration-validation-plan.md](docs/validation/full-integration-validation-plan.md)
+- [docs/validation/full-integration-validation-results.md](docs/validation/full-integration-validation-results.md)
+- [docs/research-program/further-expansion-results.md](docs/research-program/further-expansion-results.md)
+- [docs/references/integration-reference-audit.md](docs/references/integration-reference-audit.md)
+- [docs/app/repo-workbench-consistency-report.md](docs/app/repo-workbench-consistency-report.md)
+- [docs/research-program/final-theory-status-decision.md](docs/research-program/final-theory-status-decision.md)
+
+Soliton branch-admission addendum (2026-04-17):
+- [docs/soliton-branch/branch_admission_report.md](docs/soliton-branch/branch_admission_report.md)
+- [docs/soliton-branch/internal_ocp_alignment_report.md](docs/soliton-branch/internal_ocp_alignment_report.md)
+- [docs/soliton-branch/literature_audit.md](docs/soliton-branch/literature_audit.md)
+- [docs/soliton-branch/stress_test_report.md](docs/soliton-branch/stress_test_report.md)
+- [docs/soliton-branch/final_branch_decision.md](docs/soliton-branch/final_branch_decision.md)
+
+Canonical scope-sync addendum (2026-04-17):
+- [docs/integration/cross_repo_audit.md](docs/integration/cross_repo_audit.md)
+- [docs/integration/repo_scope_statement.md](docs/integration/repo_scope_statement.md)
+- [docs/integration/public_vs_internal_map.md](docs/integration/public_vs_internal_map.md)
+- [docs/soliton_branch/overview.md](docs/soliton_branch/overview.md)
+- [docs/soliton_branch/status_registry.md](docs/soliton_branch/status_registry.md)
+- [docs/soliton_branch/final_branch_decision.md](docs/soliton_branch/final_branch_decision.md)
 
 The strongest current picture is:
 - exact protected-state correction through orthogonal projectors,
@@ -14,6 +76,8 @@ The strongest current picture is:
 - a restricted PVRT theory-program layer extracted from the strongest constrained-observation results,
 - a strengthened restricted-linear collision-gap threshold theorem inside that recoverability layer,
 - a restricted-linear exact-regime stability envelope and same-rank insufficiency theorem inside that same branch,
+- a fiber-based recoverability / impossibility limits branch that keeps factorization/fiber exactness as the universal core while proving that rank-only and fixed-library budget-only exact classifiers already fail on the restricted-linear class, that restricted exactness can become a false positive under admissible-family enlargement, and that exact identifiability of the true restricted family does not imply robustness of a mismatched inverse map,
+- a descriptor-fiber anti-classifier branch that adds finite-class quantitative extraction (`DFMI`, `IDELB`, `CL`) on top of anti-classifier witness suites and is explicitly status-labeled as branch-limited (`PROVED ON SUPPORTED FAMILY` + `VALIDATED`),
 - a restricted-linear minimal augmentation theorem that gives the exact unrestricted measurement count needed for exact recovery on restricted linear families,
 - a design-engine layer that can suggest missing measurements, weaker targets, and architecture changes on restricted families,
 - a Structural Discovery subsystem that can diagnose failure, propose a supported repair, and validate before/after regime changes on multiple families,
@@ -22,21 +86,22 @@ The strongest current picture is:
 - asymptotic continuous correction through invariant-split generators,
 - a stronger physics lane through Maxwell/gauge projection and constraint-damping comparisons,
 - a visible branch-audit and open-problem program layer,
+- a conditional soliton nonlinear-wave candidate branch admitted only on restricted quotient-recoverability and projection-preservation overlap,
 - and a no-go layer strong enough to police overlap, mixing, sector ambiguity, insufficient correction image, finite-time overclaiming, and naive projector transplantation.
 
 ## Repository Inventory
 
 High-level file totals from the generated inventory:
-- tracked-like files: `334`
+- tracked-like files: `528`
 - GitHub/community files: `5`
 - root files: `19`
 - archive files: `8`
-- data files: `26`
-- docs files: `155`
+- data files: `49`
+- docs files: `292`
 - papers files: `6`
-- scripts files: `21`
-- source files: `39`
-- test files: `48`
+- scripts files: `29`
+- source files: `48`
+- test files: `65`
 - theory files: `7`
 
 Machine-readable inventory:
@@ -46,8 +111,9 @@ Machine-readable inventory:
 ## Claim Inventory
 
 Current registered claim totals from the regenerated claim registry:
-- total tracked claims: `47`
-- `PROVED`: `32`, including the constrained-observation baseline criteria, the robust lower bound, the nested restricted-linear collision-gap theorem, the restricted-linear exact-regime upper envelope, the same-rank insufficiency theorem, the restricted-linear minimal-complexity criterion, the new restricted-linear minimal augmentation theorem, the new bounded-domain finite-mode Hodge theorem, and the stronger periodic/control threshold generalizations
+- total tracked claims: `53`
+- `PROVED`: `35`
+- `PROVED ON SUPPORTED FAMILY`: `3` (`OCP-022`, `OCP-027`, `OCP-044`)
 - `CONDITIONAL`: `11`, including kept QEC/control/physics bridges and the observation-layer branch's stronger open targets
 - `DISPROVED`: bounded-domain naive projector transplant claim
 - `OPEN`: `1`
@@ -97,6 +163,20 @@ Primary claim artifacts:
 - [docs/theorem-candidates/pvrt-theorem-spine.md](docs/theorem-candidates/pvrt-theorem-spine.md)
 - [docs/impossibility-results/constrained-observation-no-go.md](docs/impossibility-results/constrained-observation-no-go.md)
 
+### Fiber-based recoverability / impossibility branch
+- [docs/fiber-based-recoverability-and-impossibility/overview.md](docs/fiber-based-recoverability-and-impossibility/overview.md)
+- [docs/fiber-based-recoverability-and-impossibility/fiber-formalism-core.md](docs/fiber-based-recoverability-and-impossibility/fiber-formalism-core.md)
+- [docs/fiber-based-recoverability-and-impossibility/field-dictionary-overview.md](docs/fiber-based-recoverability-and-impossibility/field-dictionary-overview.md)
+- [docs/fiber-based-recoverability-and-impossibility/theorem-candidates.md](docs/fiber-based-recoverability-and-impossibility/theorem-candidates.md)
+- [docs/fiber-based-recoverability-and-impossibility/no-go-counterexamples.md](docs/fiber-based-recoverability-and-impossibility/no-go-counterexamples.md)
+- [docs/fiber-based-recoverability-and-impossibility/literature-anchors.md](docs/fiber-based-recoverability-and-impossibility/literature-anchors.md)
+- [docs/fiber-based-recoverability-and-impossibility/final-report.md](docs/fiber-based-recoverability-and-impossibility/final-report.md)
+
+### Descriptor-fiber anti-classifier branch
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md](docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-status.md](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
+- [papers/descriptor-fiber-anti-classifier-branch.md](papers/descriptor-fiber-anti-classifier-branch.md)
+
 ### Workbench architecture layer
 - [docs/app/workbench-architecture.md](docs/app/workbench-architecture.md)
 - [docs/app/workbench-data-flow.md](docs/app/workbench-data-flow.md)
@@ -142,6 +222,8 @@ Primary claim artifacts:
 - [docs/research-program/open-problem-program.md](docs/research-program/open-problem-program.md)
 - [docs/research-program/theory-candidate-assessment.md](docs/research-program/theory-candidate-assessment.md)
 - [docs/research-program/usefulness-by-branch.md](docs/research-program/usefulness-by-branch.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md](docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md)
+- [docs/research-program/descriptor-fiber-anti-classifier-branch-status.md](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
 - [docs/research-program/cross-repo-expansion-2026-04-15.md](docs/research-program/cross-repo-expansion-2026-04-15.md)
 
 ## System Inventory
@@ -233,6 +315,45 @@ Status: `kept formal/computational branch with a restricted PVRT spine`
   - diagonal functional-interpolation threshold on the tested scalar-output control family,
   - same-record weaker-versus-stronger recovery splits,
   - corrected one-step / two-step / observer split in the toy control lane
+
+### 10b. Fiber-based recoverability / impossibility branch
+Status: `active theorem and falsification branch`
+- protected object: a chosen target map `p`
+- disturbance object: indistinguishable or structurally hidden target distinctions under the chosen record
+- operator: record map `M`, coarsened targets `q = φ ∘ p`, and restricted witness families
+- main value: says what part of recoverability/impossibility is genuinely universal and where stronger amount-only unification already fails
+- strongest surviving branch results:
+  - universal fiber-factorization exactness,
+  - detectable-only through target coarsening,
+  - no rank-only exact classifier theorem on the restricted-linear class,
+  - fixed-library same-budget anti-classifier theorem on the coordinate sensor library,
+  - noisy weaker-versus-stronger separation on the restricted-linear class,
+  - explicit finite, restricted-linear, periodic, and control witnesses separating exact, detectable-only, asymptotic, and impossible regimes
+
+### 10c. Soliton nonlinear-wave candidate branch
+Status: `conditional branch candidate`
+- protected object: quotient soliton parameters on restricted one-soliton families
+- disturbance object: non-identifiability fibers induced by partial observations and symmetry-invariant mappings
+- operator: observation map families and reduction/projection operators on the declared NLS class
+- main value: tests whether OCP structure-over-amount logic survives in a nonlinear quotient setting without forcing linear-theory transfer
+- strongest admitted branch outputs:
+  - symmetry non-identifiability no-go on declared invariant observation classes (`PROVED` on supported class),
+  - same-count opposite-verdict witness package on tested families (`VALIDATED`, continuous generalization `CONDITIONAL`),
+  - restricted projection-preservation vs no-go split on explicit operator classes (`VALIDATED`)
+- explicit non-promotions:
+  - direct transfer of linear minimal-augmentation law is rejected,
+  - broad universal OCP-soliton unification language remains analogy-only
+
+### 10d. Descriptor-fiber anti-classifier branch
+Status: `branch-limited quantitative extraction`
+- protected object: exact/fail verdict on supported witness classes
+- disturbance object: descriptor-fiber mixedness under amount-only summaries
+- operator: descriptor map and compatibility refinement map on generated witness suites
+- main value: quantify descriptor-only insufficiency and compatibility gain above anti-classifier witnesses without universal overreach
+- strongest outputs:
+  - descriptor-fiber purity criterion (`PROVED ON SUPPORTED FAMILY`),
+  - irreducible descriptor-only error lower bound (`PROVED ON SUPPORTED FAMILY`),
+  - computed `DFMI`/`IDELB`/`CL` summaries (`VALIDATED`)
 
 ### 11. Structural Discovery subsystem
 Status: `active theorem-linked engineering subsystem`
@@ -358,8 +479,8 @@ Validation status:
 - real browser smoke of the Benchmark / Validation Console and boundary repair flow: passed
 - tool qualification surface: `11` qualified modules and `21/21` known-answer matches on the qualified matrix
 - professional validation audit: `25/25` known-answer cases, `7/7` adversarial cases, and `10/10` live workflows
-- Node workbench tests: `26 passed`
-- Python theorem/operator/example tests: `128 passed`
+- Node workbench tests: `29 passed`
+- Python theorem/operator/example tests: `148 passed`
 
 Primary validation entry points:
 - [scripts/validate/run_all.sh](scripts/validate/run_all.sh)
@@ -441,3 +562,26 @@ Primary generated artifacts:
 ### Interactive path
 - [docs/workbench/index.html](docs/workbench/index.html)
 - [docs/references/citable-expansion-directions.md](docs/references/citable-expansion-directions.md)
+
+## Lens Integration Update (2026-04-16)
+
+This system report now includes the completed lens integration and theory-formation pass.
+
+Primary integration decision:
+- operator-theory and functional-analysis payloads were promoted where they sharpen branch theorems/no-gos,
+- geometry was kept only where theorem-bearing or computable-diagnostic,
+- inverse/information/dynamical overlays were demoted where decorative or branch-mismatched,
+- theorem IDs and branch boundaries were preserved.
+
+Theory-formation outcome:
+- partial candidate survives (`B`), not a universal new repo-level theory.
+
+Primary lens-integration records:
+- [docs/research-program/lens-integration-map.md](docs/research-program/lens-integration-map.md)
+- [docs/research-program/lens-promotion-decisions.md](docs/research-program/lens-promotion-decisions.md)
+- [docs/research-program/theory-candidate-comparison.md](docs/research-program/theory-candidate-comparison.md)
+- [docs/research-program/final-theory-formation-decision.md](docs/research-program/final-theory-formation-decision.md)
+- [docs/validation/lens-integration-validation-plan.md](docs/validation/lens-integration-validation-plan.md)
+- [docs/validation/lens-integration-validation-results.md](docs/validation/lens-integration-validation-results.md)
+- [docs/references/lens-integration-reference-map.md](docs/references/lens-integration-reference-map.md)
+- [docs/references/theory-candidate-literature-positioning.md](docs/references/theory-candidate-literature-positioning.md)
