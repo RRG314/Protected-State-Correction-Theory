@@ -39,6 +39,11 @@ Present one clean main-branch public story without deleting historically importa
 - `docs/app/module-theory-map.md`
 - `docs/app/benchmark-validation-console.md`
 
+### Image/Figure center
+- `docs/visuals/figure-index.html`
+- `docs/visuals/visual-gallery.html`
+- `docs/visuals/visual-guide.md`
+
 ### Papers
 - `papers/recoverability_paper_final.md`
 - `papers/ocp_core_paper.md`
@@ -84,6 +89,7 @@ Present one clean main-branch public story without deleting historically importa
 2. workbench overview
 3. module-theory map
 4. benchmark/validation console
+5. figure/image center (figure index + visual gallery)
 
 ### Paper-first reader
 1. recoverability

@@ -7,6 +7,7 @@ Date: 2026-04-17
 Audited public-facing surfaces:
 - workbench landing path and module docs,
 - Structural Discovery Studio / Discovery Mixer / Benchmark Console documentation,
+- image center / figure center surfaces,
 - static asset and figure references,
 - export/report path consistency,
 - branch naming consistency in app-facing docs.
@@ -18,6 +19,9 @@ Audited public-facing surfaces:
 - `docs/app/module-theory-map.md`
 - `docs/app/benchmark-validation-console.md`
 - `docs/workbench/lib/*`
+- `docs/visuals/figure-index.html`
+- `docs/visuals/visual-gallery.html`
+- `docs/visuals/visual-guide.md`
 - `docs/visuals/*`
 - `figures/*`
 
@@ -38,6 +42,7 @@ Audited public-facing surfaces:
 3. Publication figure validation checks passed with no missing assets.
 4. Markdown link checks passed.
 5. Workbench docs now align with theorem-linked branch framing.
+6. Figure Index (image center) and Visual Gallery paths resolve from canonical public docs.
 
 ### Naming/Status Consistency
 
@@ -46,9 +51,8 @@ Audited public-facing surfaces:
 
 ### Remaining Risk Notes
 
-1. Large repository working tree contains many pending files; staged publication should remain scoped to canonical public docs/artifacts.
-2. Historical app/report docs should stay demoted from front-door navigation.
+1. Historical app/report docs should stay demoted from front-door navigation.
 
 ## Conclusion
 
-Live workbench and asset surfaces are consistent with current canonical branch identity and pass path/asset validation for public release.
+Live workbench, image center, and asset surfaces are consistent with current canonical branch identity and pass path/asset validation for public release.

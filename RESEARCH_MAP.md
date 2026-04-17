@@ -52,14 +52,21 @@ This file is the public navigation map for the live repository.
 - [Module-theory map](docs/app/module-theory-map.md)
 - [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
 
-## 6. Validation and References
+## 6. Image / Figure Center
+
+- [Figure Index (image center)](docs/visuals/figure-index.html)
+- [Visual Gallery](docs/visuals/visual-gallery.html)
+- [Visual Guide](docs/visuals/visual-guide.md)
+- [Complete Visual Story](docs/visuals/ocp-complete-visual-story.html)
+
+## 7. Validation and References
 
 - [Master validation report](docs/validation/master_validation_report.md)
 - [Full falsification and repair report](docs/falsification/FULL_FALSIFICATION_AND_REPAIR_REPORT.md)
 - [Master reference map](docs/references/master_reference_map.md)
 - [BibTeX library](docs/references/protected-state-correction.bib)
 
-## 7. Companion Repositories
+## 8. Companion Repositories
 
 - [OCP main repository](https://github.com/RRG314/Protected-State-Correction-Theory)
 - [Soliton companion repository](https://github.com/RRG314/soliton-geometry-research)

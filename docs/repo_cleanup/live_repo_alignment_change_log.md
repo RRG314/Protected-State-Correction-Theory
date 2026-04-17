@@ -2,17 +2,15 @@
 
 Date: 2026-04-17
 
-## Updated Files
+## Front-Door / Identity Updates
 
 - `README.md`
 - `RESEARCH_MAP.md`
 - `STATUS.md`
 - `SYSTEM_REPORT.md`
 - `FINAL_REPORT.md`
-- `.gitignore`
-- `docs/research-program/README.md`
 
-## Added Files
+## Alignment and Consolidation Docs
 
 - `docs/repo_cleanup/live_vs_current_repo_audit.md`
 - `docs/repo_cleanup/public_structure_consolidation_plan.md`
@@ -20,34 +18,35 @@ Date: 2026-04-17
 - `docs/repo_cleanup/github_branch_and_sync_report.md`
 - `docs/repo_cleanup/live_repo_alignment_final_report.md`
 - `docs/repo_cleanup/live_repo_alignment_change_log.md`
+
+## Workbench / Image-Center Audit Updates
+
 - `docs/app/live_workbench_and_asset_audit.md`
 - `docs/validation/live_repo_alignment_validation_results.md`
 - `tests/examples/test_live_repo_alignment_frontdoor.py`
 
-## Existing Alignment Files Reused/Referenced
+## Image Center Organization Additions
 
-- `docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md`
-- `docs/research-program/descriptor-fiber-anti-classifier-branch-status.md`
-- `docs/research-program/descriptor-fiber-anti-classifier-branch-integration-report.md`
-- `docs/research-program/descriptor-fiber-anti-classifier-branch-finalization-report.md`
-- `docs/app/descriptor-fiber-anti-classifier-branch-workbench-consistency-report.md`
-- `docs/app/image_and_figure_surface_audit.md`
-- `docs/validation/descriptor-fiber-anti-classifier-branch-validation-results.md`
+Integrated image-center surfaces into canonical public organization:
+- `docs/visuals/figure-index.html`
+- `docs/visuals/visual-gallery.html`
+- `docs/visuals/visual-guide.md`
 
-## Cleanup Actions Implemented
+Updated references to those surfaces in:
+- `README.md`
+- `RESEARCH_MAP.md`
+- `docs/repo_cleanup/public_structure_consolidation_plan.md`
+- `docs/repo_cleanup/low_value_clutter_review.md`
+- `docs/app/live_workbench_and_asset_audit.md`
 
-1. Front-door docs rebuilt to one coherent public story.
-2. Canonical branch hierarchy clarified.
-3. Low-value layered materials demoted from front-door path (not deleted).
-4. `.DS_Store` ignore added to reduce repository noise.
+## Cleanup Actions
 
-## Validation Performed
+1. Canonical front-door narrative tightened.
+2. Branch-limited recoverability/anti-classifier lanes explicitly integrated.
+3. Low-value layered documents demoted from front-door path (not deleted).
+4. Workbench + image center treated as one validated public surface family.
 
-- link checks,
-- visual gallery checks,
-- publication figure checks,
-- workbench consistency tests,
-- front-door integration tests.
+## GitHub/Main Status
 
-See:
-- `docs/validation/live_repo_alignment_validation_results.md`
+- Consolidation merged and pushed to `main`.
+- `main` is synchronized with `origin/main`.

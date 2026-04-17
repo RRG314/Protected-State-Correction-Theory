@@ -18,9 +18,10 @@ Updated:
 
 Result:
 - OCP is clearly presented as the foundation,
-- recoverability/anti-classifier branches are clearly integrated,
+- recoverability/anti-classifier branches are integrated as major branch-limited lanes,
 - branch-limited status language is explicit,
-- nonclaims are explicit.
+- nonclaims are explicit,
+- image/figure center is now explicitly linked in public organization.
 
 ### 2. Report-level consistency
 
@@ -29,53 +30,55 @@ Updated:
 - `FINAL_REPORT.md`
 
 Result:
-- added live-alignment addenda,
-- synchronized wording with current branch identity and status discipline.
+- live-alignment addenda are present,
+- wording is synchronized with branch identity and status discipline.
 
 ### 3. Structure consolidation
 
-Added:
+Added/updated:
 - `docs/repo_cleanup/live_vs_current_repo_audit.md`
 - `docs/repo_cleanup/public_structure_consolidation_plan.md`
 - `docs/repo_cleanup/low_value_clutter_review.md`
 
 Result:
-- canonical vs supporting vs archive roles clarified,
-- one-main-branch public presentation strategy documented.
+- canonical vs supporting vs archive roles are explicit,
+- one-main-branch public presentation strategy is documented,
+- image center is explicitly classified as a supporting canonical surface.
 
-### 4. Workbench and asset alignment
+### 4. Workbench and image/asset alignment
 
-Added:
+Updated:
 - `docs/app/live_workbench_and_asset_audit.md`
 
 Result:
-- workbench, figures, and gallery surfaces revalidated,
-- branch naming and evidence labels checked.
+- workbench, figure, visual-gallery, and figure-index surfaces revalidated,
+- branch naming and evidence labels checked,
+- image center included in canonical public organization.
 
 ### 5. Git/GitHub branch and sync strategy
 
-Added:
+Updated:
 - `docs/repo_cleanup/github_branch_and_sync_report.md`
 
 Result:
-- clear main-branch consolidation strategy,
-- exact sync status documented,
-- scoped push instructions prepared.
+- `main` is the consolidated public narrative branch,
+- sync state is current and explicit,
+- no remaining push is required for this pass.
 
 ### 6. Validation
 
-Added:
+Updated:
 - `docs/validation/live_repo_alignment_validation_results.md`
 - test: `tests/examples/test_live_repo_alignment_frontdoor.py`
 
 Result:
 - front-door and path integrity checks pass,
-- consistency, visual, and workbench tests pass.
+- workbench + image center + figure assets pass validation gates.
 
 ## What Was Demoted (Not Deleted)
 
 1. Dated multi-pass research bundles from front-door navigation.
-2. Exploratory meta-theory narrative layer from canonical public path.
+2. Exploratory narrative layers not promoted to theorem-core status.
 3. Overlapping integration summaries where canonical spines already exist.
 
 ## What Stayed the Same Intentionally
@@ -86,6 +89,6 @@ Result:
 
 ## Main-Branch Consolidation Status
 
-- Public strategy target defined: one clean `main` branch presentation.
-- Current local tree still contains broad in-flight changes; scoped staging and PR merge to `main` remains required.
-- No blind bulk push was performed.
+- Public strategy target achieved: one clean `main` branch presentation.
+- Alignment and consolidation work is merged and pushed to live `main`.
+- No blind bulk deletion was performed.

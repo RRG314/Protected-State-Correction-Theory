@@ -40,8 +40,10 @@ This file defines official reading flows while preserving all historical/support
 2. `docs/app/workbench-overview.md`
 3. `docs/app/module-theory-map.md`
 4. `docs/app/benchmark-validation-console.md`
-5. `docs/app/tool-qualification-report.md`
-6. `docs/app/professional-validation-report.md`
+5. `docs/visuals/figure-index.html` (image center)
+6. `docs/visuals/visual-gallery.html`
+7. `docs/app/tool-qualification-report.md`
+8. `docs/app/professional-validation-report.md`
 
 ## 5. Validation/Reproducibility Path
 

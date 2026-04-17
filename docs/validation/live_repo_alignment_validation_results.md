@@ -9,6 +9,7 @@ This validation pass checked:
 - link/path integrity,
 - workbench/static consistency,
 - figure/image asset integrity,
+- image-center/figure-index path integrity,
 - branch-integration doc wiring.
 
 ## Commands and Results
@@ -43,4 +44,5 @@ Live alignment changes are validated for:
 - README/RESEARCH_MAP/STATUS front-door coherence,
 - canonical branch naming consistency,
 - workbench and figure/image surface integrity,
+- image-center (figure-index + visual-gallery + visual-guide) integrity,
 - stable test and validation baseline.

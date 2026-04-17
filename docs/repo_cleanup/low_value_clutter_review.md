@@ -29,6 +29,7 @@ A file is low-value for public front-door use if it:
 - branch audit + usefulness docs,
 - canonical paper set,
 - workbench overview/module map/benchmark console,
+- image/figure center (figure index + visual gallery + visual guide),
 - master validation + falsification reports,
 - references map and bib.
 

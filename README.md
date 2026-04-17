@@ -58,6 +58,13 @@ Canonical docs:
 - [Module-theory map](docs/app/module-theory-map.md)
 - [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
 
+## Image / Figure Center
+
+Canonical visual surfaces:
+- [Figure Index (image center)](docs/visuals/figure-index.html)
+- [Visual Gallery](docs/visuals/visual-gallery.html)
+- [Visual Guide](docs/visuals/visual-guide.md)
+
 ## Validation and References
 
 - [Master validation report](docs/validation/master_validation_report.md)

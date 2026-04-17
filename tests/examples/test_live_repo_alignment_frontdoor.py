@@ -15,6 +15,8 @@ def test_readme_frontdoor_identity_and_links() -> None:
     assert "protected-state correction and constrained-observation recoverability" in text.lower()
     assert "Descriptor-fiber anti-classifier branch paper" in text
     assert "https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/" in text
+    assert "[Figure Index (image center)](docs/visuals/figure-index.html)" in text
+    assert "[Visual Gallery](docs/visuals/visual-gallery.html)" in text
 
     relative_links = re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
     for link in relative_links:
@@ -28,6 +30,8 @@ def test_research_map_and_status_include_branch_limited_scope() -> None:
     research_map = _read(ROOT / "RESEARCH_MAP.md")
     assert "Descriptor-fiber quantitative lane" in research_map
     assert "Foundational OCP Spine" in research_map
+    assert "Figure Index (image center)" in research_map
+    assert "Visual Gallery" in research_map
 
     status = _read(ROOT / "STATUS.md")
     assert "theorem-first, branch-limited research program" in status
