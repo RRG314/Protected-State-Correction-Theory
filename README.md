@@ -41,6 +41,11 @@ That narrower question is still worth pursuing. It produces theorem statements, 
 
 This repo now also treats the standalone CFD and MHD repositories as first-class companion programs rather than trying to absorb those fields into one universal law.
 
+Cross-repo nonlinear scope note (2026-04-17):
+- soliton nonlinear discovery remains primary in the standalone `soliton-geometry-research` repo,
+- OCP keeps only a bounded structural overlap branch with explicit status labels,
+- see `docs/integration/cross_repo_audit.md`, `docs/integration/repo_scope_statement.md`, and `docs/soliton_branch/final_branch_decision.md`.
+
 ## What This Repository Now Supports
 
 This repository does **not** claim a universal theorem covering QEC, control, PDE correction, and optimization under one scalar law.
@@ -52,7 +57,12 @@ It now supports a narrower and stronger statement:
 - an exact periodic continuous projection anchor,
 - an asymptotic generator branch,
 - a theorem-grade no-go layer,
+- a fiber-based recoverability / impossibility limits branch that keeps the universal exact core, rejects amount-only overreach, and now carries explicit family-enlargement and canonical model-mismatch false-positive theorems,
 - and a physics extension that is real but not universal.
+
+Current theory-formation status (2026-04-16):
+- `B` (partial branch-limited theory candidate survives; no repo-wide universal promotion),
+- see [final theory status decision](docs/research-program/final-theory-status-decision.md).
 
 ## Strongest Current Results
 
@@ -114,19 +124,34 @@ The repository is organized so readers can enter from different angles:
 19. [PVRT Theory Program](docs/theory/advanced-directions/pvrt-theory-program.md)
 20. [PVRT Theorem Spine](docs/theorem-candidates/pvrt-theorem-spine.md)
 21. [PVRT Falsification Program](docs/theory/advanced-directions/pvrt-falsification-program.md)
-22. [Physics System Matrix](docs/physics/physics-system-matrix.md)
-23. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
-24. [Structural Discovery Overview](docs/structural-discovery/overview.md)
-25. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
-26. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
-27. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
-28. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
-29. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
-30. [Open-Problem Program](docs/research-program/open-problem-program.md)
-31. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
-32. [Restricted Flow Recoverability](docs/cfd/restricted-flow-recoverability.md)
-33. [MHD Closure and Observation Links](docs/mhd/closure-and-observation-links.md)
-34. [Cross-Repo Expansion Note](docs/research-program/cross-repo-expansion-2026-04-15.md)
+22. [Fiber-Based Recoverability and Impossibility Overview](docs/fiber-based-recoverability-and-impossibility/overview.md)
+23. [Fiber-Based Recoverability Formalism](docs/fiber-based-recoverability-and-impossibility/fiber-formalism-core.md)
+24. [Fiber-Based Recoverability Theorem Candidates](docs/fiber-based-recoverability-and-impossibility/theorem-candidates.md)
+25. [Fiber-Based Recoverability Final Report](docs/fiber-based-recoverability-and-impossibility/final-report.md)
+26. [Fiber-Based Recoverability Literature Anchors](docs/fiber-based-recoverability-and-impossibility/literature-anchors.md)
+27. [Physics System Matrix](docs/physics/physics-system-matrix.md)
+28. [CFD System Matrix](docs/cfd/cfd-system-matrix.md)
+29. [Structural Discovery Overview](docs/structural-discovery/overview.md)
+30. [Structural Discovery Formalism](docs/structural-discovery/formalism.md)
+31. [Structural Discovery Demo Walkthroughs](docs/structural-discovery/demo-walkthroughs.md)
+32. [Structural Discovery Export Guide](docs/structural-discovery/export-guide.md)
+33. [Research-Program Branch Audit](docs/research-program/branch-audit.md)
+34. [Ranked Contribution Roadmap](docs/research-program/ranked-roadmap.md)
+35. [Open-Problem Program](docs/research-program/open-problem-program.md)
+36. [Citable Expansion Directions](docs/references/citable-expansion-directions.md)
+37. [Restricted Flow Recoverability](docs/cfd/restricted-flow-recoverability.md)
+38. [MHD Closure and Observation Links](docs/mhd/closure-and-observation-links.md)
+39. [Cross-Repo Expansion Note](docs/research-program/cross-repo-expansion-2026-04-15.md)
+40. [Terminology Unification](docs/overview/terminology-unification.md)
+41. [Notation Unification](docs/overview/notation-unification.md)
+42. [Full Integration Validation Results](docs/validation/full-integration-validation-results.md)
+43. [Final Theory Status Decision](docs/research-program/final-theory-status-decision.md)
+44. [Full Integration Complete Report (2026-04-16)](docs/research-program/FULL_INTEGRATION_COMPLETE_REPORT_2026-04-16.md)
+45. [Visual Guide (equation-driven figures and animations)](docs/visuals/visual-guide.md)
+46. [Visual Gallery (HTML, all images on one page)](docs/visuals/visual-gallery.html)
+47. [Visual Atlas (single PDF document of all generated figures)](docs/visuals/generated/visual-atlas.pdf)
+48. [Complete Visual Story (tutorial narrative)](docs/visuals/ocp-complete-visual-story.html)
+49. [Figure Index (clickable/downloadable/citable)](docs/visuals/figure-index.html)
 
 ## What You Can Do With This Repository
 
@@ -144,6 +169,11 @@ Use it as a design system:
 Use it as a structural-discovery engine:
 - start from a failing setup, let the studio identify the structural blocker, inspect theorem-backed or family-backed fix cards, apply a supported fix, and compare before versus after.
 - use the bounded-domain architecture path to distinguish a wrong projector transplant from a real restricted bounded exact family.
+
+Use it as a recoverability-limits branch:
+- separate the universal exact core from the restricted theorem branches.
+- see where detectability survives but exact recovery fails.
+- see why rank/count/history/sensor amount alone cannot classify exact recoverability, even on restricted linear families.
 
 Use it as a composable discovery mixer:
 - assemble supported state families, targets, records, and architectures in the Discovery Mixer / Structural Composition Lab.
@@ -244,6 +274,14 @@ The strongest current theory-level promotion from that branch is a restricted, t
 - broad universal PVRT is rejected,
 - restricted finite-dimensional linear PVRT survives,
 - and it organizes the exactness, threshold, lower-bound, and same-record weaker-versus-stronger results without pretending to unify every branch under one scalar law.
+
+The repo also now has a separate **Fiber-Based Recoverability and Impossibility** limits branch, with the older unified name kept only as compatibility history.
+Its strongest current surviving results are:
+- exact recoverability as factorization through the record map,
+- detectable-only through target coarsening,
+- a no-rank-only exact classifier theorem,
+- a stronger fixed-library same-budget anti-classifier theorem,
+- and a noisy weaker-versus-stronger separation theorem on the restricted-linear class.
 
 Start here:
 
