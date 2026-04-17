@@ -1,128 +1,44 @@
 # Final Architecture
 
-## Plain-Language Summary
+The repository architecture is branch-structured and falsification-first. It is designed to separate what is broadly reusable from what is family-limited, and to keep that boundary visible in every major surface.
 
-The finished architecture is branch-structured and falsification-first.
+## Architectural hierarchy
 
-Primary branches:
-1. exact projector branch
-2. exact sector branch
-3. exact periodic continuous projection anchor
-4. asymptotic generator branch
-5. bounded-domain/Hodge restricted exactness + obstruction branch
-6. constrained-observation recoverability branch
-7. fiber-based recoverability / impossibility limits branch
-8. descriptor-fiber anti-classifier quantitative branch
-9. cross-branch no-go boundary layer
+At the top level, the program has three layers.
 
-This architecture is intentionally not a universal one-law system.
+1. Foundation: exact anchors, asymptotic anchors, and canonical no-go statements.
+2. Branch-limited strengthening: recoverability/anti-classifier/bounded-domain lanes with explicit assumptions.
+3. Tooling and validation: workbench and artifact pipelines that expose those results without changing their status.
 
-## 1. Exact Projector Branch
+This is intentionally not a single-law architecture.
 
-Objects:
-- protected subspace `S`
-- disturbance subspace `D`
-- projector `P_S`
+## Foundation layer
 
-Output:
-- one-step exact recovery on orthogonal split class
+The foundation combines exact projector and sector results with asymptotic generator structure and a mature impossibility layer. These results define the reference frame used to evaluate every later branch.
 
-## 2. Exact Sector Branch
+## Branch-limited strengthening layer
 
-Objects:
-- protected sector
-- disturbance sector family
-- sector projectors and sector-conditioned recovery
+The strongest strengthening lanes are:
 
-Output:
-- exact sector recovery under orthogonality/distinguishability assumptions
+- constrained-observation recoverability,
+- fiber-based limits and anti-classifier theorems,
+- descriptor-fiber quantitative extraction on supported witness classes,
+- bounded-domain/CFD compatibility and obstruction analysis.
 
-## 3. Exact Periodic Continuous Anchor
+These branches are valuable precisely because they are scoped. Their assumptions are part of the result, not an afterthought.
 
-Objects:
-- divergence-free protected component
-- gradient disturbance component
-- periodic Leray/Helmholtz projector
+## Tooling and validation layer
 
-Output:
-- exact periodic continuous correction anchor
+The workbench, benchmark console, and figure center are maintained as theorem-linked surfaces. They exist to make branch behavior inspectable and reproducible, not to claim universal symbolic coverage.
 
-## 4. Asymptotic Generator Branch
+## Architectural nonclaims
 
-Objects:
-- generator `K`
-- invariant split with stable disturbance restriction
-- semigroup `e^{-tK}`
+The architecture does not claim:
 
-Output:
-- asymptotic suppression
-- explicit no finite-time exactness boundary in smooth linear-flow class
-
-## 5. Bounded-Domain / Hodge Branch
-
-Objects:
-- bounded protected/disturbance classes
-- boundary compatibility constraints
-- domain-compatible Hodge/projector structures
-
-Output:
-- restricted bounded exact theorem (`OCP-044`)
-- bounded transplant and divergence-only no-go boundaries (`OCP-023`, `OCP-028`)
-
-## 6. Constrained-Observation Recoverability Branch
-
-Objects:
-- admissible family `A`
-- record map `M` (`O` in restricted-linear form)
-- protected target `p` (`L` in restricted-linear form)
-
-Output:
-- exact/approximate/asymptotic/impossible regime classification
-- row-space/kernel compatibility criteria
-- collision-gap threshold and minimal augmentation laws
-
-## 7. Fiber-Based Recoverability / Impossibility Limits Branch
-
-Objects:
-- fibers of observation map
-- target hierarchy/coarsening maps
-- restricted family-enlargement and mismatch witnesses
-
-Output:
-- universal exact core: factorization/fiber constancy
-- anti-classifier and false-positive limits above that core
-
-## 8. Descriptor-Fiber Anti-Classifier Quantitative Branch
-
-Objects:
-- finite witness sets with exact/fail labels
-- descriptor fibers
-- compatibility refinement descriptors
-
-Output:
-- finite-class purity criterion for descriptor-only exactness
-- irreducible descriptor-only error lower bound
-- computed branch diagnostics (`DFMI`, `IDELB`, `CL`)
-
-## 9. No-Go Boundary Layer
-
-Cross-branch no-go outputs prevent overreach in:
-- overlap ambiguity,
-- sector overlap,
-- finite-time exactness inflation,
-- boundary-oblivious bounded projections,
-- rank-only or budget-only exactness classifiers,
-- family-blind exactness and mismatch-robustness claims.
-
-## Architecture Claim Boundary
-
-The architecture does **not** claim:
-- one universal scalar recoverability/capacity law,
+- one universal scalar recoverability law,
 - one universal bounded-domain exact projection theorem,
-- one universal theorem unifying all branches beyond supported assumptions.
+- one universal cross-branch theorem that erases branch hypotheses.
 
-## Final Architectural Outcome
+## Final architectural statement
 
-The strongest honest statement is:
-
-> Protected-State Correction Theory is a theorem-first, branch-structured program with exact and asymptotic correction anchors, constrained-observation and fiber-limit recoverability structure, bounded-domain obstruction discipline, and a strong no-go layer that enforces scope control.
+Protected-State Correction Theory is best understood as a disciplined research system: a strong universal core for exactness/failure logic, branch-limited recoverability strengthening where assumptions are explicit, and a tooling layer that keeps evidence and status synchronized.

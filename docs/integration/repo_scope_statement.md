@@ -1,50 +1,41 @@
 # Repository Scope Statement (OCP)
 
-Date: 2026-04-16/17
+Date: 2026-04-17
 
-## Primary identity
+This repository is the home of record for OCP foundations and branch-limited recoverability theory. It keeps domain bridges only when structural overlap is explicit and status-labeled.
 
-OCP is a theorem-first protected-state correction and constrained-observation recoverability program.
+## Core identity
 
-Its center of gravity remains:
-- operator-theoretic exactness/no-go structure,
-- functional-analysis continuous/asymptotic structure,
-- restricted-family design theorems,
+The repository’s center of gravity is:
+
+- operator-theoretic exactness and no-go structure,
+- asymptotic generator structure,
+- constrained-observation recoverability,
 - anti-classifier and falsification discipline.
 
 ## Soliton overlap policy
 
-Soliton material is admitted only as a **bounded bridge branch** when it matches OCP structure explicitly.
+Soliton-related material is admissible only as a bounded bridge lane. The accepted overlap is structural, not program-merging.
 
-Allowed in OCP:
-- exact analogue: symmetry non-identifiability under invariant observations.
-- restricted analogue: same-count opposite-verdict and projection-preservation/no-go split.
-- conceptual parallel: narrow structural comparisons with explicit scope.
+- Exact analogue: symmetry non-identifiability under invariant observations.
+- Restricted analogue: same-count opposite-verdict and projection-preservation/no-go splits on supported families.
+- Conceptual parallel: limited comparison text with explicit non-promotion boundaries.
 
-Not allowed in OCP promotion:
-- direct import of nonlinear discovery anomalies as OCP theorems.
-- broad self-organization claims.
+Not admitted for OCP-core promotion:
+
+- broad self-organization claims,
+- direct import of nonlinear discovery anomalies as OCP theorems,
 - universal OCP↔soliton unification narratives.
 
 ## Home-of-record split
 
-- OCP remains home-of-record for OCP theorems/no-gos and branch-level design logic.
-- `soliton-geometry-research` remains home-of-record for direct nonlinear-wave experiments, anomaly mining, and soliton-first theorem work.
+- OCP repo: theorem/no-go core, recoverability branches, and theorem-linked tooling.
+- Soliton repo: direct nonlinear-wave experiments, anomaly mining, and soliton-first theorem development.
 
 ## Status discipline
 
-All soliton-bridge claims in OCP must be labeled as one of:
-- `PROVED`
-- `PROVED ON SUPPORTED FAMILY`
-- `CONDITIONAL`
-- `VALIDATED`
-- `OPEN`
-- `ARTIFACT RISK`
-- `REJECTED`
-- `ANALOGY ONLY`
+Bridge claims must be labeled with repository status classes (`PROVED`, `PROVED ON SUPPORTED FAMILY`, `CONDITIONAL`, `VALIDATED`, `OPEN`, `ARTIFACT RISK`, `REJECTED`, `ANALOGY ONLY`) and cannot inherit status from narrative similarity.
 
-## Current branch decision
+## Current decision
 
-Current OCP decision for soliton overlap:
-- `KEEP AS CONDITIONAL BRANCH CANDIDATE` (branch-limited, not repo-wide promotion).
-
+Soliton overlap remains a conditional bounded bridge lane, not a repo-wide promotion.

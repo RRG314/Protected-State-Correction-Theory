@@ -4,42 +4,38 @@
 [![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2f855a.svg)](LICENSE)
 
-A theorem-first research repository for **protected-state correction and constrained-observation recoverability**.
+A theorem-first research program for **protected-state correction and constrained-observation recoverability**.
 
-## Repository Identity
+## What This Repository Is
 
-This repository is centered on OCP as the foundational correction principle:
-- define a protected object,
-- model disturbance/ambiguity structure,
-- test whether an architecture preserves or recovers the protected object,
-- classify outcomes as exact, asymptotic, or impossible.
+This repository develops OCP (Orthogonal Correction Principle) as a formal framework for deciding when a protected object can be preserved or recovered in the presence of disturbance, ambiguity, or coarse observation. The work is organized around exact results, no-go results, and branch-limited extensions that are kept only when they remain mathematically honest.
 
-The repo is broader than the original exact-projector anchor. It now includes major branch-limited recoverability and anti-classifier results with strict status discipline.
+OCP is the backbone, but it is not the entire story. The current program also includes constrained-observation recoverability, anti-classifier limits, bounded-domain obstruction analysis, and a theorem-linked workbench used for diagnosis, comparison, and reproducible validation.
 
-## Current Strongest Branches
+## Program Structure
 
-1. **Foundational OCP branch (exact/asymptotic/no-go anchors)**
-2. **Restricted-linear recoverability branch** (row-space criterion, collision-gap thresholds, minimal augmentation)
-3. **Fiber-based limits branch** (factorization core, no rank-only and no fixed-budget-only exact classifiers, family-enlargement and model-mismatch failures)
-4. **Descriptor-fiber anti-classifier quantitative branch** (finite-class `DFMI`/`IDELB`/`CL` extraction)
-5. **Bounded-domain/CFD obstruction branch** (periodic exactness versus bounded mismatch, restricted bounded exact subcase)
-6. **Theorem-linked workbench branch** (Structural Discovery + Discovery Mixer + Benchmark Console)
+The program has a clear hierarchy.
 
-## Theory Status (Honest Scope)
+- Foundation: exact projector/sector anchors, continuous asymptotic generator results, and the core no-go layer.
+- Branch-limited strengthening: restricted-linear recoverability, anti-classifier/family-enlargement/mismatch theorems, and bounded-domain compatibility limits.
+- Quantitative extraction: descriptor-fiber diagnostics on supported finite witness classes.
+- Engineering surface: a workbench that exposes theorem-backed and validated branch behavior without claiming universal symbolic capability.
 
-- **Universal core (promoted):** factorization/fiber constancy exactness + collision impossibility.
-- **Branch-limited theorem package (promoted where scoped):** anti-classifier theorems, family-enlargement fragility, model-mismatch instability, bounded-domain compatibility obstructions.
-- **Not promoted:** universal amount-only laws, universal projection-preservation laws, universal emergence/correction equivalence.
+Current overall status remains branch-limited (`B`): the universal core is strong, but broader unification claims are not promoted.
 
-## Start Here
+## Where To Start
 
-- [Start Here](docs/overview/start-here.md)
-- [Final Architecture](docs/finalization/architecture-final.md)
-- [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
-- [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
-- [Canonical Reading Paths](docs/repo_cleanup/canonical_reading_paths.md)
+If you are new to the repository, start with these files in order:
 
-## Paper Set
+1. [Start Here](docs/overview/start-here.md)
+2. [Final Architecture](docs/finalization/architecture-final.md)
+3. [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
+4. [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
+5. [Canonical Reading Paths](docs/repo_cleanup/canonical_reading_paths.md)
+
+## Papers
+
+The active paper set is:
 
 - [Recoverability paper](papers/recoverability_paper_final.md)
 - [OCP core companion](papers/ocp_core_paper.md)
@@ -50,17 +46,17 @@ The repo is broader than the original exact-projector anchor. It now includes ma
 
 ## Workbench
 
-Primary entry:
-- [Protected-State Correction Workbench](docs/workbench/index.html)
+The workbench is a theorem-linked research surface, not a detached UI demo.
 
-Canonical docs:
+- [Protected-State Correction Workbench](docs/workbench/index.html)
 - [Workbench overview](docs/app/workbench-overview.md)
 - [Module-theory map](docs/app/module-theory-map.md)
 - [Benchmark / Validation Console](docs/app/benchmark-validation-console.md)
 
 ## Image / Figure Center
 
-Canonical visual surfaces:
+Visual artifacts are organized as a first-class supporting surface:
+
 - [Figure Index (image center)](docs/visuals/figure-index.html)
 - [Visual Gallery](docs/visuals/visual-gallery.html)
 - [Visual Guide](docs/visuals/visual-guide.md)
@@ -75,16 +71,15 @@ Canonical visual surfaces:
 
 ## Companion Repositories
 
+This repository keeps theorem-core OCP and its branch-limited recoverability program as the primary home of record. Companion repositories remain separate when they carry their own domain-first development cycle:
+
 - OCP main repo (this repo): [RRG314/Protected-State-Correction-Theory](https://github.com/RRG314/Protected-State-Correction-Theory)
 - Soliton companion: [RRG314/soliton-geometry-research](https://github.com/RRG314/soliton-geometry-research)
 - MHD companion: [RRG314/MagnetoHydroDynamic-research](https://github.com/RRG314/MagnetoHydroDynamic-research)
 
-## Nonclaims
+## Scope Limits
 
-This repository does not claim:
-- a universal correction law across all domains,
-- a universal amount-only recoverability classifier,
-- a universal physics unification theorem.
+This repository does not claim a universal correction law across all domains, a universal amount-only recoverability classifier, or a universal physics unification theorem.
 
 ## Author
 

@@ -1,8 +1,10 @@
 # Research Map
 
-This file is the public navigation map for the live repository.
+This map is the canonical navigation guide for the live public repository.
 
-## 1. Front Door
+## 1. Orientation and Front Door
+
+Start here if you are learning the repository:
 
 - [README.md](README.md)
 - [Start Here](docs/overview/start-here.md)
@@ -11,13 +13,15 @@ This file is the public navigation map for the live repository.
 
 ## 2. Foundational OCP Spine
 
+These files define the core theorem/no-go architecture:
+
 - [Final Architecture](docs/finalization/architecture-final.md)
 - [Final Theorem Spine](docs/finalization/theorem-spine-final.md)
 - [Final No-Go Spine](docs/finalization/no-go-spine-final.md)
 - [Proof Status Map](docs/overview/proof-status-map.md)
 - [Claim Registry](docs/overview/claim-registry.md)
 
-## 3. Major Branch-Limited Lanes
+## 3. Branch-Limited Recoverability and Limits
 
 ### Restricted-linear recoverability lane
 - [Constrained-observation theorems](docs/theorem-candidates/constrained-observation-theorems.md)
@@ -33,11 +37,11 @@ This file is the public navigation map for the live repository.
 - [Branch status](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
 - [Branch paper](papers/descriptor-fiber-anti-classifier-branch.md)
 
-### Bounded-domain/CFD obstruction lane
+### Bounded-domain / CFD obstruction lane
 - [Bounded vs periodic projection](docs/cfd/bounded-vs-periodic-projection.md)
 - [CFD projection results](docs/theorem-candidates/cfd-projection-results.md)
 
-## 4. Papers
+## 4. Paper Set
 
 - [Recoverability paper](papers/recoverability_paper_final.md)
 - [OCP core paper](papers/ocp_core_paper.md)
@@ -45,7 +49,7 @@ This file is the public navigation map for the live repository.
 - [MHD paper](papers/mhd_paper_upgraded.md)
 - [Unifying framework paper](papers/unifying_theory_framework_final.md)
 
-## 5. Workbench
+## 5. Workbench and Interactive Surfaces
 
 - [Workbench entry](docs/workbench/index.html)
 - [Workbench overview](docs/app/workbench-overview.md)

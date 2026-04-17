@@ -1,143 +1,44 @@
 # Protected-State Correction Workbench Overview
 
-## What It Is
+## What the Workbench Is For
 
-The Protected-State Correction Workbench is a static, theorem-linked research and engineering surface for:
+The workbench is the repository’s operational layer: it translates theorem and no-go structure into concrete decisions about architecture choice, recoverability, and redesign. It is designed for disciplined use, not broad symbolic exploration. Every module is expected to map to one of four evidence types: proved theorem behavior, proved no-go behavior, validated family-specific behavior, or explicitly conditional comparison behavior.
 
-- exact protected-state correction
-- asymptotic redesign
-- explicit no-go inspection
-- constrained-observation recoverability
-- structural failure diagnosis
-- typed structural composition
-- minimal supported augmentation
-- before/after validation
-- benchmark-driven reproducibility
+## How to Use It
 
-It is not a detached visualization layer.
-Each module is kept only if it corresponds to a proved theorem, a sharp no-go, a validated family-specific result, a disciplined conditional lane, or a real benchmark surface.
+Most users should start with the same sequence:
 
-## Main Entry Paths
+1. define the protected target and available record,
+2. run diagnosis to identify structural blockers,
+3. compare exact, asymptotic, and impossible regimes,
+4. test a supported redesign,
+5. export evidence for reproducibility.
 
-The workbench now has a task-first front door:
+This flow is implemented across three linked surfaces rather than one monolithic dashboard.
 
-- discover missing structure
-- compose a supported system
-- test recoverability
-- compare exact versus asymptotic correction
-- inspect no-go boundaries
-- run built-in benchmarks
-- open reusable templates
+## Core Surfaces and Their Roles
 
-This is meant to reduce friction for serious non-expert users without hiding the theorem layer from expert users.
+### Structural Discovery Studio
+The studio is the diagnosis-and-repair surface. It explains *why* a configuration fails, not just that it fails. It can surface missing structure, suggest supported fixes, and compare before/after outcomes using theorem-backed or validated branch logic.
 
-## Modules
+### Discovery Mixer / Structural Composition Lab
+The mixer is the composition surface. It lets users construct supported systems from typed components and immediately checks compatibility, support boundaries, and branch status. It is intentionally narrow: unsupported symbolic or mixed-family setups are rejected instead of being silently approximated.
 
-- Structural Discovery Studio
-- Discovery Mixer / Structural Composition Lab
-- Benchmark / Validation Console
-- Exact Projection Lab
-- QEC Sector Lab
-- MHD Projection Lab
-- CFD Projection Lab
-- Gauge Projection Lab
-- Continuous Generator Lab
-- No-Go Explorer
+### Benchmark / Validation Console
+The benchmark console is the trust surface. It exposes known cases, module-health checks, and reproducible exports so users can distinguish stable, validated behavior from exploratory use.
 
-## Structural Discovery Studio
+## Relationship to the Theory
 
-This is the main diagnosis-and-redesign surface.
+The workbench does not replace the theorem documents. It operationalizes them. The design principle is simple: if the repository does not have theorem or validated family support for a claim, the interface should not present that claim as solved.
 
-It now supports:
+## What the Workbench Does Not Claim
 
-- analytic conditioning / lower-bound checks
-- fixed-basis qubit weaker-versus-stronger target analysis
-- periodic support-threshold diagnosis and repair
-- diagonal finite-history diagnosis and repair
-- restricted-linear minimal augmentation logic
-- bounded-domain architecture diagnosis
-- before/after comparisons tied to theorem, no-go, or family-specific status
-- JSON, CSV, figure, report, and share-link export
+The workbench does not claim universal minimal redesign laws, universal bounded-domain exactness, or automatic theorem status for every suggested fix. It is a guided decision system tied to the repository’s explicit branch limits.
 
-## Discovery Mixer / Structural Composition Lab
+## Canonical Companion Docs
 
-This is the advanced composition-and-diagnostics surface.
-
-It now supports:
-
-- structured composition across restricted-linear, periodic modal, diagonal/history, and bounded-domain benchmark families
-- controlled custom matrix and symbolic-linear input inside supported classes only
-- immediate compatibility diagnostics on typed objects
-- structural verdicts for exact, approximate, asymptotic, impossible, and unsupported cases
-- missing-structure detection and ranked augmentation or redesign cards
-- seeded constrained random exploration with replayable cases
-- before/after repair comparison and exportable evidence
-
-The mixer is intentionally narrow.
-Its value comes from making supported families composable without pretending to solve arbitrary symbolic problems.
-
-## Benchmark / Validation Console
-
-This is the trust surface for the workbench.
-
-It exposes:
-
-- validated built-in repair demos
-- module-health benchmark rows
-- reproducibility-oriented scenario selection
-- linked descriptor-fiber anti-classifier metrics artifacts for supported witness classes
-- exportable benchmark snapshots
-- a clear split between theorem-backed, family-specific, and benchmark-guided surfaces
-
-Its qualification layer now also has a dedicated report:
-
+- [Module-theory map](module-theory-map.md)
+- [Benchmark / Validation Console](benchmark-validation-console.md)
 - [Tool Qualification And Known-Results Verification Report](tool-qualification-report.md)
 - [Professional Validation And Discovery Report](professional-validation-report.md)
-
-That report keeps three things separate on purpose:
-
-- tool qualification
-- known-result reproduction against expected answers
-- post-qualification discovery use
-
-## What The Workbench Can Do
-
-- classify a setup as exact, approximate, asymptotic, or impossible
-- classify a composition as exact, approximate, asymptotic, impossible, or unsupported
-- identify structural blockers
-- identify weaker targets that already survive
-- compute theorem-backed minimal augmentation counts where available
-- propose supported redesigns
-- apply supported redesigns in the studio
-- compare failing and repaired setups side by side
-- export evidence snapshots with provenance metadata
-
-## What It Does Not Claim
-
-- universal augmentation laws across arbitrary systems
-- exact minimal redesign outside the branches where the repo has a proved criterion or validated finite search
-- broad bounded-domain exactness beyond the restricted compatible families already documented
-- theorem status for every engineering suggestion shown in the UI
-
-## Evidence Levels In The UI
-
-Every promoted output should be read as one of:
-
-- theorem-backed
-- restricted exact theorem-backed
-- family-specific validated result
-- benchmark-guided empirical result
-- standard guidance outside the current theorem spine
-
-That evidence split is part of the feature, not an after-the-fact disclaimer.
-
-
-## Architecture And Extension Docs
-
 - [Workbench Architecture](workbench-architecture.md)
-- [Workbench Data Flow](workbench-data-flow.md)
-- [Workbench Extension Guide](workbench-extension-guide.md)
-- [Workbench Export Plumbing](workbench-export-plumbing.md)
-- [Workbench Validation Map](workbench-validation-map.md)
-- [Workbench Refactor Report](workbench-refactor-report.md)
-- [Workbench Refactor System Check](workbench-system-check-report.md)

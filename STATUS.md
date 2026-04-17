@@ -4,61 +4,39 @@
 
 Program class: **theorem-first, branch-limited research program**.
 
-Current overall theory class: **`B`**
-- strong universal core survives,
-- strongest additional claims are branch-limited,
-- no universal cross-domain promotion.
+Current overall theory class: **`B`**. The universal core is strong, but broader unification claims remain branch-limited or conditional.
 
-## Foundational Backbone (Promoted)
+## Foundation
 
-1. Exact projector/sector anchors.
-2. Asymptotic generator branch.
-3. Strong no-go spine (overlap, mixing, finite-time, bounded-domain mismatch).
-4. Universal fiber/factorization exactness core.
+The foundation combines exact finite-dimensional anchors, asymptotic generator structure, and a mature no-go layer. In practical terms, this means the repository can state both when correction works and when it cannot work under stated assumptions.
 
-## Major Branch-Limited Packages (Promoted Where Scoped)
+## Branch-Limited Strengthening
 
-1. Restricted-linear recoverability package:
-   - row-space exactness criterion,
-   - collision-gap thresholds,
-   - minimal augmentation theorem,
-   - same-rank insufficiency.
-2. Fiber-based anti-classifier package:
-   - no rank-only exact classifier,
-   - no fixed-budget-only exact classifier,
-   - family-enlargement false positives,
-   - model-mismatch instability.
+The strongest active branch-limited packages are:
+
+1. Restricted-linear recoverability:
+   row-space exactness criteria, collision-gap thresholds, minimal augmentation, and same-rank insufficiency.
+2. Fiber-based anti-classifier limits:
+   no rank-only exact classifier, no fixed-budget-only exact classifier, family-enlargement false positives, and model-mismatch instability.
 3. Descriptor-fiber quantitative package:
-   - finite-class descriptor-fiber purity,
-   - irreducible descriptor-only error lower bound,
-   - `DFMI` / `IDELB` / `CL` summaries.
-4. Bounded-domain/CFD branch:
-   - periodic exact anchor,
-   - bounded transplant no-go,
-   - restricted bounded exact subcase.
+   finite-class descriptor-fiber purity, irreducible descriptor-only error lower bound, and `DFMI` / `IDELB` / `CL` diagnostics.
+4. Bounded-domain / CFD branch:
+   periodic exact anchor, bounded transplant no-go, and a restricted bounded exact subcase.
 
 ## Workbench Status
 
-The workbench is **theorem-linked** and maintained as a branch-aware decision and diagnostics surface:
-- Structural Discovery Studio,
-- Discovery Mixer,
-- Benchmark / Validation Console.
+The workbench is maintained as a theorem-linked decision and diagnostics surface. It is designed to expose what is proved, what is validated on supported families, and what remains conditional, rather than to present a universal symbolic solver.
 
-It is not presented as a detached app or universal symbolic engine.
+## Conditional and Non-Promoted Areas
 
-## Conditional / Companion / Non-Promoted
+Soliton overlap is kept as a bounded conditional bridge. Physics extensions are kept where the operator structure is explicit and labeled conditional when they are comparator-level.
 
-- Soliton overlap: conditional, scope-limited bridge lane.
-- Physics bridges: kept where operator-compatible; conditional where asymptotic/comparator-only.
-- Not promoted:
-  - universal amount-only classifier law,
-  - universal projection-preservation law,
-  - universal emergence/correction equivalence,
-  - universal physics unification language.
+Not promoted:
+- universal amount-only classifier laws,
+- universal projection-preservation laws,
+- universal emergence/correction equivalence,
+- universal physics unification language.
 
-## Best Next Public-Facing Priority
+## Current Public-Facing Priority
 
-Keep main branch presentation clean and theorem-first:
-1. preserve canonical docs,
-2. keep branch labels/status discipline synchronized,
-3. demote/archive redundant layered pass reports from front-door paths.
+Keep the main branch coherent: preserve canonical docs, keep branch/status labels synchronized, and continue demoting redundant process-history text from front-door onboarding paths.

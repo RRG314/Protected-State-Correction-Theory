@@ -1,57 +1,24 @@
-# Module To Theory Map
+# Module to Theory Map
 
-| Workbench module | Main result or use | Status | Source code |
+This map shows how each workbench module is justified inside the theorem/validation structure. The point is not to inventory features; it is to make evidence boundaries visible.
+
+| Module | Primary role | Evidence class | Key sources |
 | --- | --- | --- | --- |
-| Structural Discovery Studio | constrained-observation branch, restricted PVRT spine, collision-gap diagnostics, minimal augmentation logic, weaker-versus-stronger target splits, periodic and control threshold laws, bounded-domain architecture diagnosis, before/after repair flow | active branch / theorem-backed restricted-linear core / family-level threshold and redesign surface | `src/ocp/recoverability.py`, `src/ocp/design.py`, `src/ocp/structural_discovery.py`, `docs/structural-discovery/*.md`, `docs/theory/advanced-directions/constrained-observation-*.md`, `docs/theory/advanced-directions/pvrt-*.md`, `docs/theorem-candidates/pvrt-theorem-spine.md`, `docs/workbench/lib/compute.js` |
-| Discovery Mixer / Structural Composition Lab | typed composition across supported families, controlled custom input, compatibility diagnostics, augmentation discovery, random constrained search, before/after repair comparison | theorem-backed restricted-linear core / family-specific validated composition surface / explicit unsupported handling | `src/ocp/discovery_mixer.py`, `docs/discovery-mixer/*.md`, `docs/workbench/lib/discoveryMixer.js`, `docs/workbench/app.js`, `docs/workbench/lib/state.js` |
-| Benchmark / Validation Console | validated repair demos, module-health checks, exportable reproducibility layer | validated benchmark and product surface | `scripts/compare/run_structural_discovery_examples.py`, `tests/consistency/workbench_static.test.mjs`, `docs/workbench/lib/compute.js`, `docs/workbench/lib/state.js` |
-| Exact Projection Lab | OCP-T1, OCP-N1 | proved | `src/ocp/core.py`, `docs/workbench/lib/compute.js` |
-| QEC Sector Lab | OCP-T5, QEC exact anchor | proved / conditional anchor | `src/ocp/sectors.py`, `src/ocp/qec.py`, `docs/workbench/lib/compute.js` |
-| MHD Projection Lab | periodic exact continuous anchor, GLM asymptotic branch | proved / conditional | `src/ocp/mhd.py`, `docs/workbench/lib/compute.js` |
-| CFD Projection Lab | periodic incompressible projection fit, restricted bounded Hodge exact subcase, divergence-only bounded no-go, bounded-domain transplant failure | proved / restricted exact / no-go | `src/ocp/cfd.py`, `docs/cfd/*.md`, `docs/workbench/lib/compute.js` |
-| Gauge Projection Lab | Maxwell / Coulomb-gauge exact-fit extension | kept physics extension | `docs/physics/maxwell-coulomb-gauge.md`, `docs/workbench/lib/compute.js` |
-| Continuous Generator Lab | OCP-T3, OCP-C2, OCP-N5, OCP-N7 | proved | `src/ocp/continuous.py`, `docs/workbench/lib/compute.js` |
-| No-Go Explorer | overlap, sector ambiguity, mixing, finite-time exactness failure, divergence-only no-go, bounded transplant failure | proved / rejected-bridge layer | `docs/impossibility-results/*.md`, `docs/physics/bounded-domain-projection-limits.md`, `docs/workbench/lib/compute.js` |
+| Structural Discovery Studio | Diagnose structural failure and compare supported repairs | theorem-backed + family-validated | `src/ocp/structural_discovery.py`, constrained-observation and PVRT docs |
+| Discovery Mixer / Structural Composition Lab | Compose supported families and check compatibility before interpretation | theorem-backed core + validated composition layer | `src/ocp/discovery_mixer.py`, `docs/discovery-mixer/*` |
+| Benchmark / Validation Console | Reproduce known outcomes and export benchmark evidence | validated benchmark layer | `tests/consistency/workbench_static.test.mjs`, `docs/workbench/lib/compute.js` |
+| Exact Projection Lab | Exact protected/disturbance projection anchor | proved | `src/ocp/core.py` |
+| QEC Sector Lab | Sector-conditioned exact recovery anchor | proved / conditional anchor | `src/ocp/sectors.py`, `src/ocp/qec.py` |
+| MHD Projection Lab | Periodic exact projection versus GLM asymptotic comparison | proved + conditional comparator | `src/ocp/mhd.py` |
+| CFD Projection Lab | Periodic exactness and bounded-domain obstruction behavior | proved / proved-on-supported-family / no-go | `src/ocp/cfd.py`, `docs/cfd/*` |
+| Gauge Projection Lab | Maxwell/Coulomb-gauge projector-compatible extension | conditional kept extension | `docs/physics/maxwell-coulomb-gauge.md` |
+| Continuous Generator Lab | Asymptotic correction and finite-time limitation behavior | proved | `src/ocp/continuous.py` |
+| No-Go Explorer | Surface canonical impossibility results across branches | proved no-go and rejected-bridge layer | `docs/impossibility-results/*`, `docs/physics/bounded-domain-projection-limits.md` |
 
-## Interpretation Rule
+## Evidence Rule
 
-Every module must state one of the following clearly:
+A module may expose only what its linked evidence supports. If a behavior is branch-limited or family-specific, the module must preserve that scope in its labels and exports.
 
-- proved theorem-backed result
-- restricted exact theorem-backed result
-- family-specific validated result
-- benchmark-guided empirical surface
-- standard-anchor reinterpretation
-- kept extension
-- rejected bridge or counterexample
+## Fiber/Descriptor-Fiber Coverage
 
-No workbench surface should imply a stronger status than the linked theorem or scope document supports.
-
-## Fiber-Based Branch Note
-
-The fiber-based recoverability / impossibility branch currently has **no standalone workbench module by design**.
-
-That is intentional.
-Its current honest UI presence is indirect:
-- Structural Discovery,
-- Structural Discovery (Threshold mode),
-- Structural Discovery (Boundary mode),
-- Benchmark / Validation Console,
-- and Discovery Mixer
-already expose the branch's supported witnesses on real families.
-
-The branch itself is a theorem/falsification layer, not a generic symbolic dashboard. Its workbench-facing value now appears through explicit fiber-structure explanations and family-restriction / model-mismatch / target-strength / discretization warnings in recoverability analysis and exports.
-
-## Descriptor-Fiber Anti-Classifier Branch Note
-
-The descriptor-fiber anti-classifier branch also has **no standalone module by design**.
-
-Its outputs are integrated into existing surfaces:
-- Structural Discovery (amount-only warning and compatibility-lift cues),
-- Discovery Mixer summaries (descriptor-insufficiency diagnostics),
-- Benchmark / Validation Console (finite witness-class invariant summaries).
-
-Status mapping for this branch in app surfaces:
-- theorem statements: `PROVED ON SUPPORTED FAMILY`,
-- computed summaries: `VALIDATED`,
-- broad interpretive cross-branch language: not promoted.
+Fiber-based and descriptor-fiber results are intentionally integrated into existing modules rather than split into standalone dashboards. Their current role is to sharpen diagnosis and classification boundaries, not to advertise a universal symbolic engine.

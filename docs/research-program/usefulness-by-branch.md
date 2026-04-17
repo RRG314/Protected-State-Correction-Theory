@@ -1,178 +1,39 @@
-# Usefulness By Branch
+# Usefulness by Branch
 
-## Purpose
+This document explains the practical value of each major branch in the repository. The goal is to clarify decision value, not to repeat theorem titles.
 
-This note records what each branch lets a user or researcher actually do.
+## Foundational OCP branch
 
-## Exact Branch
+Use this branch when you need the cleanest exact-versus-no-go baseline. It tells you whether a protected/disturbance decomposition supports exact correction at all and provides the formal language used across the rest of the repository.
 
-What it helps with:
-- certify when an orthogonal correction architecture is exact
-- diagnose overlap-based impossibility early
+## Exact sector / QEC anchor
 
-Best outputs:
-- direct projector construction
-- exact/no-go diagnosis
+Use this branch when disturbance is sector-structured and sector distinguishability is central. It is the strongest exact anchor beyond the plain projector case and provides the right model for sector overlap failure.
 
-## Exact Sector / QEC Branch
+## Continuous asymptotic branch
 
-What it helps with:
-- understand when sector-conditioned recovery is exact
-- diagnose sector ambiguity or overlap failure
+Use this branch when exact one-step correction is unavailable but invariant-split damping or observer-style asymptotic suppression is realistic. It gives architecture guidance: when to stop asking for finite-time exactness and switch to asymptotic design.
 
-Best outputs:
-- exact recovery operator on sector families
-- overlap-based no-go diagnosis
+## Restricted-linear recoverability branch
 
-## Exact Continuous Projection / CFD Branch
+Use this branch when records are constrained and you need explicit criteria for exactness, impossibility, or repair. This is the branch that most directly supports design questions such as “is this record enough?” and “what is the smallest augmentation that restores exactness?”
 
-What it helps with:
-- decide whether a projection-based correction operator is exact for the actual protected class
-- distinguish correct bounded-domain Hodge correction from bad transplants
+## Fiber-based anti-classifier branch
 
-Best outputs:
-- projector choice and compatibility diagnosis
-- boundary-sensitive exactness checks
+Use this branch when you need to prevent overclaiming from amount-only summaries. It is the main mechanism for showing why same-rank or same-budget systems can produce opposite exactness outcomes, and why family-enlargement or mismatch can create false confidence.
 
-## Asymptotic Generator Branch
+## Descriptor-fiber quantitative branch
 
-What it helps with:
-- decide when to use damping/observer-style correction instead of exact projection
-- diagnose whether mixing destroys protected-state preservation
+Use this branch when you need finite-class diagnostics that quantify descriptor insufficiency rather than only naming it. It is particularly useful for comparing amount-only descriptors to compatibility-enriched descriptors under explicit witness sets.
 
-Best outputs:
-- invariant-split or mixing diagnosis
-- asymptotic-versus-exact architecture choice
+## Bounded-domain / CFD obstruction branch
 
-## GLM / Constraint-Damping Branch
+Use this branch when moving from periodic theory to bounded domains. It gives the strongest guardrails against naive projector transfer and identifies where restricted bounded exactness is actually supported.
 
-What it helps with:
-- use asymptotic cleaning honestly as a comparator
-- avoid mislabeling damping schemes as exact correction
+## Structural Discovery and Discovery Mixer
 
-Best outputs:
-- asymptotic fit classification
-- residual-decay comparator against projector-based exact correction
+Use these surfaces when converting theory into decisions. They are valuable because they enforce supported-family boundaries while still giving practical guidance: diagnose failure, test repairs, compare regimes, and export reproducible evidence.
 
-## Constrained-Observation Recoverability Branch
+## Practical takeaway
 
-What it helps with:
-- tell whether a record is sufficient before building a correction architecture
-- identify exact, approximate, asymptotic, and impossible recovery regimes
-- show when weaker protected variables remain recoverable under the same record
-- falsify the claim that record amount alone determines exact recoverability
-
-Best outputs:
-- collision-gap and collapse diagnostics
-- exact/no-go threshold reports
-- restricted PVRT theorem-backed criteria in the finite-dimensional linear lane
-- weaker-versus-stronger protected-variable comparisons
-
-## Fiber-Based Recoverability / Impossibility Branch
-
-What it helps with:
-- distinguish what part of recoverability language is truly universal from what survives only on restricted families
-- explain detect-but-not-recover, weaker-versus-stronger, and exact-versus-asymptotic splits in one disciplined formal language
-- kill amount-only or rank-only overclaims before they spread into other branches
-
-Best outputs:
-- factorization/fiber exactness as the universal backbone
-- a precise detectable-only regime through target coarsening
-- the no-rank-only exact classifier theorem
-- the fixed-library same-budget anti-classifier theorem
-- the noisy weaker-versus-stronger separation bound
-- the family-enlargement false-positive theorem
-- the canonical model-mismatch instability theorem
-- field dictionaries that say where the mapping is exact, conditional, or analogy only
-
-## Descriptor-Fiber Anti-Classifier Branch
-
-What it helps with:
-- quantify when descriptor-only summaries are structurally incapable of exact classification on supported witness classes
-- compare amount-only descriptors against compatibility-augmented descriptors using one consistent finite-class metric layer
-- pressure-test branch claims before overpromoting count/rank/budget language
-
-Best outputs:
-- descriptor-fiber mixedness (`DFMI`)
-- irreducible descriptor-only error lower bound (`IDELB`)
-- compatibility lift (`CL`) from structural side-information
-- branch-limited quantitative evidence attached directly to anti-classifier witness artifacts
-
-## Soliton Nonlinear-Wave Candidate Branch
-
-What it helps with:
-- test whether structure-over-amount recoverability logic survives on a nonlinear quotient-manifold class
-- separate symmetry-orbit ambiguity from true non-identifiability under partial observations
-- diagnose when reduction/projection choices preserve or destroy a restricted coherent-state manifold
-
-Best outputs:
-- symmetry non-identifiability no-go on declared invariant observation classes
-- same-count opposite-verdict witness sets on tested one-soliton families
-- projection-preservation versus no-go summaries on explicit operator classes
-- explicit branch-admission boundaries showing what does not transfer from linear OCP design laws
-- explicit non-promotion boundary: self-organization anomalies remain in the standalone soliton repo unless theorem-grade overlap survives
-
-## Restricted-Linear / Design-Engine Layer
-
-What it helps with:
-- tell what extra measurements are needed
-- tell the minimum unrestricted measurement count needed for exact recovery
-- search candidate measurement sets
-
-Best outputs:
-- minimal augmentation counts
-- candidate measurement suggestions
-- nullspace witnesses and insufficiency diagnoses
-- exact-regime upper-bound estimates when the restricted family is already exact
-
-## Structural Discovery Subsystem
-
-What it helps with:
-- start from a failing setup and identify the structural reason for failure
-- compare the current design against a supported repair
-- decide whether to enrich the record, weaken the target, or switch architecture
-- generate demo-grade evidence that a proposed fix really changes the regime
-
-Best outputs:
-- missing-structure diagnosis
-- ranked fix cards with theorem / family / heuristic status
-- before/after regime comparisons
-- reusable demo scenarios and generated artifacts
-
-## Discovery Mixer / Structural Composition Lab
-
-What it helps with:
-- compose supported families, targets, records, and architectures instead of only replaying fixed demos
-- test whether a proposed composition is even structurally coherent before trusting downstream results
-- compare stronger and weaker targets under the same record
-- discover the smallest supported augmentation that repairs a user-built configuration
-- explore supported custom matrix and symbolic-linear input without pretending to support arbitrary symbolic physics
-
-Best outputs:
-- typed object inventory
-- compatibility and support diagnostics
-- theorem-backed or family-backed augmentation suggestions
-- reproducible random discovery cases
-- before/after repair evidence on user-built compositions
-
-## Practical Workbench / Studio Layer
-
-What it helps with:
-- route users by goal instead of by theorem name
-- make decisions about measurements, protected variables, and architectures
-
-Best outputs:
-- solvable / approximate / asymptotic / impossible classification
-- next-step suggestions grounded in the design and no-go layers
-
-## App / Engine-Facing Use
-
-The strongest justified app-facing use is now a recoverability and structural-discovery engine:
-- define the protected state or functional that really matters
-- define the coarse record actually available
-- check whether it is enough
-- identify what weaker target is still recoverable
-- identify what extra state or measurement is needed
-- route to exact projector, exact recovery, asymptotic observer, or structural redesign
-
-That is a real use even when the underlying math is standard-adjacent, because it turns theory into decisions.
+The repository is most useful when branches are used together with clear hierarchy: foundation first, branch-specific criteria second, tooling for decision support third. Skipping that hierarchy is the main way users overread results.
