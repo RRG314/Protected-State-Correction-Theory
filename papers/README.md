@@ -1,26 +1,13 @@
-# Papers Navigation
+# Papers
 
-This folder mixes canonical papers and supporting publication workflow files.
+This folder contains the repository’s paper-level writing and supporting publication material.
 
-## Canonical paper set (public-facing)
+The current canonical paper set is:
 
-1. [OCP core companion](./ocp_core_paper.md)
-2. [Recoverability paper](./recoverability_paper_final.md)
-3. [MHD closure paper](./mhd_paper_upgraded.md)
-4. [Bridge paper](./bridge_paper.md)
-5. [Descriptor-fiber anti-classifier branch paper](./descriptor-fiber-anti-classifier-branch.md)
+- `ocp_core_paper.md`
+- `recoverability_paper_final.md`
+- `mhd_paper_upgraded.md`
+- `bridge_paper.md`
+- `descriptor-fiber-anti-classifier-branch.md`
 
-## Conditional / exploratory papers
-
-- [Unifying theory framework (final)](./unifying_theory_framework_final.md)
-- [Meta theory interaction and limits](./meta_theory_interaction_and_limits.md)
-
-## Supporting publication workflow material
-
-Retained but non-front-door:
-- `papers/finalization/`
-- `papers/style/`
-- `papers/drafts/`
-- `papers/formats/`
-
-Use these for production workflows, not as primary scientific entry points.
+These files correspond to active branch lanes. Additional folders such as `papers/finalization/`, `papers/style/`, and `papers/formats/` are retained for production history and formatting workflow, but they are not the main scientific entry points.

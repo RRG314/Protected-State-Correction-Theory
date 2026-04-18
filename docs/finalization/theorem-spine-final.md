@@ -1,62 +1,19 @@
 # Final Theorem Spine
 
-This is the canonical positive theorem spine. It lists what is promoted as stable theorem content and clarifies how each block contributes to the larger program.
+This document records the promoted positive theorem spine and keeps each item tied to explicit scope.
 
-## 1. Exact anchors
+The exact finite-dimensional anchor consists of `OCP-002 (OCP-T1)` for exact orthogonal projection recovery, `OCP-019 (OCP-T5)` for exact sector recovery under declared orthogonality/distinguishability assumptions, and `OCP-016 (OCP-T4)` for the rank lower bound in exact linear correction.
 
-The exact anchor block establishes when one-step correction is possible under explicit structural assumptions.
+The asymptotic generator anchor consists of `OCP-013 (OCP-T3)` for invariant-split generators, `OCP-014 (OCP-C2)` for the self-adjoint PSD decay corollary, and `OCP-004 (OCP-T2)` for the continuous damping bridge.
 
-- `OCP-002 (OCP-T1)`: exact orthogonal projection recovery.
-- `OCP-019 (OCP-T5)`: exact sector recovery under orthogonality/distinguishability assumptions.
-- `OCP-016 (OCP-T4)`: rank lower bound for exact linear correction.
+The bounded-domain positive statement currently promoted is `OCP-044 (OCP-T7)`, which is proved on a supported finite-mode boundary-compatible Hodge class. It is a narrow exact result and should not be read as a full bounded-domain closure theorem.
 
-These results are the finite-dimensional backbone.
+The constrained-observation recoverability block includes `OCP-030` (observation-fiber exactness), `OCP-031` (restricted-linear kernel/row-space exactness), `OCP-043` (collision-gap threshold law), `OCP-045` (minimal augmentation), and `OCP-046` (exact-regime stability envelope).
 
-## 2. Asymptotic generator block
+The target-hierarchy positive anchor is `OCP-048`, which shows detectable-only structure through target coarsening on supported families.
 
-This block describes the strongest continuous-time positive results that survive the no-go layer.
+The descriptor-fiber quantitative layer is retained as branch-limited: it contributes DFMI/IDELB/CL diagnostics and finite-catalog theorem support, but it is not promoted as a universal theorem family.
 
-- `OCP-013 (OCP-T3)`: invariant-split generator theorem.
-- `OCP-014 (OCP-C2)`: self-adjoint PSD corollary with explicit decay control.
-- `OCP-004 (OCP-T2)`: basic continuous damping bridge.
+Claims not promoted into this spine include universal amount-only classifiers, universal scalar capacity laws, unrestricted bounded-domain exactness, and broad cross-branch unification claims.
 
-Together they define the repository’s exact-to-asymptotic transition logic.
-
-## 3. Bounded-domain restricted exactness
-
-- `OCP-044 (OCP-T7)`: boundary-compatible finite-mode Hodge projection (`PROVED ON SUPPORTED FAMILY`).
-
-This result is intentionally narrow and should be read as a solved subcase, not as a general bounded-domain closure.
-
-## 4. Restricted-linear recoverability block
-
-This block is the program’s main theorem-to-design lane under constrained observation.
-
-- `OCP-030`: observation-fiber exactness.
-- `OCP-031`: restricted-linear kernel/row-space exactness criterion.
-- `OCP-043`: collision-gap threshold law.
-- `OCP-045`: minimal augmentation theorem.
-- `OCP-046`: exact-regime stability envelope.
-
-## 5. Fiber-level positive hierarchy
-
-- `OCP-048`: detectable-only through target coarsening.
-
-This theorem is the clean positive anchor for target hierarchy without overpromoting universal recoverability laws.
-
-## 6. Descriptor-fiber quantitative layer
-
-On supported finite witness classes, the descriptor-fiber layer provides a purity criterion and an irreducible descriptor-only error lower bound, with computed `DFMI` / `IDELB` / `CL` diagnostics. This block remains explicitly branch-limited.
-
-## Non-promoted positive claims
-
-Not promoted as theorem-spine content:
-
-- universal scalar capacity laws,
-- universal rank/count/budget exactness classifiers,
-- universal bounded-domain exactness beyond supported families,
-- universal cross-branch unification statements.
-
-## Reading note
-
-Use this spine together with `docs/finalization/no-go-spine-final.md`; the program’s reliability depends on reading positive and negative structure together.
+Read this file together with `docs/finalization/no-go-spine-final.md`; the promoted positive statements are interpreted jointly with the promoted failure boundaries.

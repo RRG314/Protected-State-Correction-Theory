@@ -1,35 +1,9 @@
 # Quantum Measurement Design Lane
 
-Status: adjacent design-focused lane; branch-limited and non-foundational.
+This lane translates constrained-observation and target-recoverability ideas into quantum measurement design on narrow supported classes.
 
-## Purpose
+The practical questions are: which measurement settings preserve target-distinguishing structure, which settings collapse it, when an added setting restores recoverability, and how target-specific goals can diverge from global information-maximizing criteria.
 
-Translate the constrained-observation / recoverability mindset into quantum measurement-design questions:
-- which measurement settings preserve target-relevant distinguishability,
-- which settings collapse it,
-- when one added setting restores recoverability,
-- where global design criteria underperform target-specific goals.
+Current claim classes include restricted qubit tradeoff identities, conditioned-vs-shared recoverability analogs in context-indexed measurement families, and same-budget opposite-verdict allocation witnesses. The status map is explicit: theorem-grade only on declared classes, otherwise validated-only or known/reframed.
 
-## Active claim classes
-
-1. Restricted tradeoff identities on declared qubit classes.
-2. Conditioned-vs-invariant recoverability analogs in quantumized context families.
-3. Same-budget opposite-verdict witness behavior under measurement-allocation changes.
-
-## Evidence class boundaries
-
-- theorem-grade only on explicitly declared supported classes,
-- otherwise `VALIDATED / NUMERICAL ONLY` or `KNOWN / REFRAMED`.
-
-## Relation to other repo lanes
-
-- Constrained-observation core: supplies target/record/failure logic.
-- Context-sensitive recoverability: supplies conditioned vs invariant decoder framing.
-- TSIT-adjacent design lane: shares target-specific design perspective but remains distinct in quantum assumptions.
-
-## Nonclaims
-
-- no universal quantum recoverability law,
-- no claim that this supersedes QEC/tomography literature,
-- no promotion to theorem spine without stronger literature closure.
-
+This branch is adjacent to the core theorem spine. It is maintained for scoped design insight, not for foundational replacement claims.

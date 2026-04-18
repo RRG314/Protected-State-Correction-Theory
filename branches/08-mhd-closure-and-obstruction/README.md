@@ -1,25 +1,9 @@
 # Branch 08 — MHD Closure and Obstruction
 
-## What this branch is
-MHD closure lane focused on exact-family survivors and obstruction regimes under resistive/geometry constraints.
+This branch tracks where MHD correction/closure structure fits the OCP framework and where it does not. The useful split is between exact projection-style cleaning and asymptotic suppression-style cleaning.
 
-## Strongest results
-- Exact and conditional closure classification in declared family classes.
-- Obstruction and failure-family mapping under variable profiles.
-- Controlled bridge points to OCP projection and asymptotic correction language.
+The divergence-cleaning lane provides an exact continuous anchor on compatible families. GLM-style cleaning is treated as an asymptotic architecture, not as one-step exact correction. Closure and obstruction notes document what survives as theorem-level structure and what remains model-conditional.
 
-## Canonical documents
-- [Divergence cleaning in OCP](../../docs/mhd/divergence-cleaning-in-ocp.md)
-- [GLM and asymptotic correction](../../docs/mhd/glm-and-asymptotic-correction.md)
-- [Closure and observation links](../../docs/mhd/closure-and-observation-links.md)
-- [MHD paper](../../papers/mhd_paper_upgraded.md)
+Canonical references are `docs/mhd/divergence-cleaning-in-ocp.md`, `glm-and-asymptotic-correction.md`, `closure-and-observation-links.md`, and `papers/mhd_paper_upgraded.md`.
 
-## Key tests / artifacts
-- `tests/math/test_mhd_projection.py`
-- `data/generated/mhd/`
-
-## Open items
-- Promote only theorem-backed closure claims; keep reconnection/phenomenology broadening as validated-only until strengthened.
-
-## Shared infrastructure
-MHD branch uses shared analysis scripts and theorem-status labeling conventions.
+Claims in this branch remain scoped to declared family assumptions.

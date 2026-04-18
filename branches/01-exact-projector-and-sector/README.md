@@ -1,25 +1,9 @@
 # Branch 01 — Exact Projector and Sector
 
-## What this branch is
-Exact correction architecture for projector-compatible settings and sector-conditioned recovery structures.
+This branch covers the exact finite-dimensional lane, including projector-based correction and exact sector/QEC-style structure. It is where one-step exact recovery is characterized under explicit compatibility assumptions.
 
-## Strongest results
-- Exact projector theorem family.
-- Sector-conditioned exact recovery theorem package.
-- Sector-overlap detection impossibility boundary.
+The branch includes both the exact projector family and the exact sector family. The useful way to read it is as a paired result: projector geometry gives the correction mechanism, and sector structure clarifies when distinguishability survives inside that mechanism.
 
-## Canonical documents
-- [Central theorem](../../docs/theorem-candidates/central-theorem.md)
-- [Sector recovery theorems](../../docs/theorem-candidates/sector-recovery-theorems.md)
-- [Capacity and structure bounds](../../docs/theorem-candidates/capacity-theorems.md)
-- [Advanced no-go results](../../docs/impossibility-results/advanced-no-go-results.md)
+Canonical references are `docs/theorem-candidates/central-theorem.md`, `docs/theorem-candidates/sector-recovery-theorems.md`, and `docs/theorem-candidates/capacity-theorems.md`, with supporting impossibility boundaries in `docs/impossibility-results/advanced-no-go-results.md`.
 
-## Key tests / artifacts
-- `tests/math/test_sector_recovery.py`
-- `tests/math/test_capacity.py`
-
-## Open items
-- Extend exact-sector guarantees beyond current declared compatibility assumptions.
-
-## Shared infrastructure
-Use centralized math kernels and theorem-linked tests from `src/ocp` and `tests/math`.
+This branch is finite-dimensional by design; it should not be read as a statement about arbitrary continuous systems.

@@ -1,43 +1,18 @@
 # Quantum Measurement Alignment (Branch-Limited)
 
-This note defines the scope of the quantum measurement-alignment lane after correction and falsification.
+This note defines the surviving quantum alignment lane after audit and correction.
 
-## What this lane is
+The lane is a narrow measurement-design extension of the recoverability program. It uses quantum Fisher and measurement-induced classical Fisher structure to express target-sensitive compatibility on declared qubit classes.
 
-A narrow quantum measurement-design extension of the recoverability program focused on target-sensitive Fisher compatibility under explicit assumptions.
+Core objects are `F_Q` (quantum Fisher matrix), `F_M` (measurement-induced classical Fisher matrix), and branch-level alignment quantities such as `sqrt(F_M/F_Q)` in scalar settings or `trace(F_Q^{-1}F_M)` in matrix settings.
 
-## What this lane is not
+What survives as theorem-level content is restricted. On declared pure-qubit classes with the stated assumptions, exact tradeoff identities hold and are marked `PROVED ON RESTRICTED CLASS`. Beyond that class, extension behavior is mixed: some patterns remain as inequalities or empirical trends, and several scalar identity forms collapse.
 
-- not a new quantum foundation,
-- not a replacement for standard quantum estimation theory,
-- not a universal theorem package across all dimensions and measurement classes.
+This lane should be read as a scoped design-analysis extension. It is not a replacement for standard quantum estimation theory and not a universal quantum recoverability law.
 
-## Canonical objects
-
-- `F_Q`: quantum Fisher information matrix.
-- `F_M`: classical Fisher information matrix induced by a measurement.
-- `alpha_Q`: ratio notation layer in scalar settings (`sqrt(F_M/F_Q)`).
-- restricted tradeoff metric: `trace(F_Q^{-1} F_M)`.
-
-## Surviving restricted result
-
-On declared qubit classes, one obtains exact tradeoff identities in matrix/trace form, with diagonal-coordinate scalar corollaries where assumptions apply.
-
-Status:
-- `PROVED ON RESTRICTED CLASS`.
-
-## Failure boundaries
-
-The exact scalar conservation statement does not transfer universally to:
-- non-diagonal scalar coordinate expressions,
-- generic mixed-state and unsharp-measurement settings,
-- higher-dimensional systems.
-
-## Canonical references in this repo
-
+Canonical supporting files:
 - `docs/physics/quantum_alignment_audit.md`
 - `docs/physics/quantum_alignment_corrections.md`
 - `docs/physics/quantum_alignment_theorem_candidates.md`
 - `docs/physics/quantum_alignment_generalization_report.md`
 - `docs/references/quantum_alignment_literature_audit.md`
-

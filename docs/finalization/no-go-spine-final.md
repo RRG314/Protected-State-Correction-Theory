@@ -1,37 +1,13 @@
 # Final No-Go Spine
 
-The no-go spine is a primary output of the repository, not a secondary disclaimer. It controls scope by showing where exactness claims fail under explicit structural violations.
+This document records the promoted impossibility spine. It is not secondary to the theorem spine; it defines the boundaries that keep positive statements exact and review-safe.
 
-## 1. Core exact/continuous no-go results
+The core exact/continuous no-go block includes `OCP-003 (OCP-N1)` for overlap-induced non-uniqueness, `OCP-015 (OCP-N5)` for mixing obstruction in linear flows, `OCP-020 (OCP-N7)` for no finite-time exact annihilation in smooth linear flows, and `OCP-021 (OCP-N8)` for sector-overlap failure of unique exact detection.
 
-- `OCP-003 (OCP-N1)`: overlap destroys exact single-valued recovery.
-- `OCP-015 (OCP-N5)`: mixing obstruction for linear flows.
-- `OCP-020 (OCP-N7)`: no finite-time exact annihilation in smooth linear flows.
-- `OCP-021 (OCP-N8)`: sector overlap destroys unique exact detection.
+The bounded-domain/PDE no-go block includes `OCP-023`, which disproves naive periodic-projector transfer to bounded domains, and `OCP-028`, which rules out divergence-only bounded recovery for nontrivial protected classes.
 
-These results keep exact and asymptotic claims from being conflated.
+The recoverability anti-classifier block includes `OCP-047` (same-rank insufficiency), `OCP-049` (no rank-only exact classifier), `OCP-050` (no fixed-budget exact classifier), `OCP-052` (family-enlargement false positives), and `OCP-053` (model-mismatch instability). Descriptor-fiber quantitative mixedness extends this block on supported catalogs.
 
-## 2. Bounded-domain/PDE no-go layer
+Program-boundary control currently includes `OCP-009`, which remains unproved as a universal scalar correction-capacity law and is therefore not promoted.
 
-- `OCP-023`: naive periodic-projector transplant to bounded domains is disproved.
-- `OCP-028`: divergence-only bounded recovery is impossible for nontrivial protected classes.
-
-This block is the repository’s main guardrail against boundary-oblivious argument transfer.
-
-## 3. Recoverability anti-classifier and fragility layer
-
-- `OCP-047`: same-rank insufficiency.
-- `OCP-049`: no rank-only exact classifier.
-- `OCP-050`: no fixed-budget-only exact classifier.
-- `OCP-052`: family-enlargement false positives.
-- `OCP-053`: canonical model-mismatch instability.
-
-Descriptor-fiber mixedness (`IDELB > 0`) on supported witness classes extends this logic quantitatively.
-
-## 4. Program-boundary no-go
-
-- `OCP-009`: universal scalar correction-capacity law remains unproved and unsupported as a promoted claim.
-
-## Why this spine matters
-
-The no-go spine blocks the most common overreach patterns in this program: amount-only classification, boundary-insensitive transfer, family-blind exactness claims, and mismatch-robustness assumptions. It is the mechanism that keeps the branch structure honest.
+The practical role of this spine is to prevent four recurrent overreach errors: amount-only classification, boundary-insensitive theorem transfer, family-blind exactness claims, and mismatch-robustness assumptions without proof.

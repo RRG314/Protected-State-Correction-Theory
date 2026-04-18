@@ -1,27 +1,9 @@
 # Branch 00 — Core OCP
 
-## What this branch is
-Canonical theorem-first backbone for the Orthogonal Correction Principle (OCP): exact projection structure, asymptotic correction architecture, and core impossibility boundaries.
+This branch contains the program’s foundational structure: exact correction anchors, asymptotic generator anchors, and the core no-go constraints that keep later branches scoped.
 
-## Strongest results
-- Exact orthogonal projection recovery on protected/disturbance splits.
-- Core no-go when protected and disturbance structure overlap.
-- Formal exact-vs-asymptotic separation.
+The central objects are a protected component, a disturbance component, and a correction map. In the exact finite-dimensional setting, correction is modeled by projector structure; in continuous settings, asymptotic suppression is modeled by generator structure. The branch is intentionally minimal, because these are the claims that every other branch inherits.
 
-## Canonical documents
-- [Start Here](../../docs/overview/start-here.md)
-- [Architecture (final)](../../docs/finalization/architecture-final.md)
-- [Theorem spine (final)](../../docs/finalization/theorem-spine-final.md)
-- [No-go spine (final)](../../docs/finalization/no-go-spine-final.md)
-- [Core companion paper](../../papers/ocp_core_paper.md)
+The strongest current references are `docs/finalization/architecture-final.md`, `docs/finalization/theorem-spine-final.md`, and `docs/finalization/no-go-spine-final.md`, together with `papers/ocp_core_paper.md`.
 
-## Key tests / artifacts
-- `tests/math/test_core_projectors.py`
-- `tests/math/test_continuous_generators.py`
-- `tests/math/test_capacity.py`
-
-## Open items
-- Keep core statements minimal and branch-stable; avoid universal extension claims without branch-specific proof.
-
-## Shared infrastructure
-Code, tests, scripts, and generated artifacts remain centralized in `src/`, `tests/`, `scripts/`, and `data/generated/`.
+Use this branch first when you need the baseline theorem language and status labels before moving into recoverability, augmentation, or physics extensions.

@@ -1,36 +1,9 @@
 # Discovery Mixer / Structural Composition Lab
 
-## Purpose
+The Discovery Mixer is the composition surface for users who need to build systems before diagnosing them.
 
-The Discovery Mixer is the advanced composition surface in the workbench.
+It allows typed construction of supported families, targets, records, and correction architectures, then checks compatibility and regime status before any redesign step. The mixer and the structural studio are complementary: the mixer is composition-first, while the studio is diagnosis-first.
 
-It lets a user assemble supported system families, targets, records, and correction architectures, then asks:
+Scope is intentionally strict. Unsupported or incoherent mixed-family configurations are rejected explicitly, because silent coercion produces misleading recoverability conclusions.
 
-- is this composition coherent?
-- is the requested target compatible with the current record?
-- what regime does the current setup support?
-- what exact structure is missing?
-- what is the smallest supported change that repairs it?
-
-## Main Workflow
-
-1. Choose mixer mode: structured, controlled custom input, random exploration, or demo.
-2. Build the composition using supported family-specific controls.
-3. Inspect the regime badge and compatibility diagnostics.
-4. Read the root-cause and missing-structure panels.
-5. Apply a supported recommendation when one is available.
-6. Compare before versus after.
-7. Export a report, JSON payload, or CSV summary.
-
-## What Makes It Different From The Structural Discovery Studio
-
-The Structural Discovery Studio starts from a prepared scenario family and routes the user toward diagnosis and repair.
-
-The Discovery Mixer starts one level earlier.
-It lets the user compose the objects themselves, including supported custom matrices and symbolic-linear functionals, and then asks whether the composition is valid before moving to redesign.
-
-## Scope Discipline
-
-The mixer is intentionally typed.
-It does not claim general symbolic-math support.
-Unsupported or mixed-family custom input is rejected explicitly.
+This module is useful when testing hypothesis variants under the same branch assumptions, especially in restricted-linear, context-sensitive, and descriptor-lift workflows.

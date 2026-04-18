@@ -1,44 +1,15 @@
-# Protected-State Correction Workbench Overview
+# Workbench Overview
 
-## What the Workbench Is For
+The workbench is the operational surface for the theorem program. It is used to test recoverability conditions, identify structural blockers, and apply supported repair operations on declared families.
 
-The workbench is the repository’s operational layer: it translates theorem and no-go structure into concrete decisions about architecture choice, recoverability, and redesign. It is designed for disciplined use, not broad symbolic exploration. Every module is expected to map to one of four evidence types: proved theorem behavior, proved no-go behavior, validated family-specific behavior, or explicitly conditional comparison behavior.
+The workflow is simple: define the target and record, run diagnosis, inspect exact/conditional/fail regime status, try a supported repair, and export reproducible evidence. The interface is designed to preserve branch scope, so unsupported mixed-family claims are rejected rather than silently approximated.
 
-## How to Use It
+Three surfaces carry most of the work. The Structural Discovery Studio handles diagnosis and repair comparison. The Discovery Mixer handles typed composition and compatibility checks before interpretation. The Benchmark/Validation Console tracks known-answer behavior and export integrity.
 
-Most users should start with the same sequence:
+The workbench does not replace theorem documents. It implements them. If a claim is not theorem-backed or benchmark-validated on a declared family, the interface is expected to label it as conditional or exploratory.
 
-1. define the protected target and available record,
-2. run diagnosis to identify structural blockers,
-3. compare exact, asymptotic, and impossible regimes,
-4. test a supported redesign,
-5. export evidence for reproducibility.
-
-This flow is implemented across three linked surfaces rather than one monolithic dashboard.
-
-## Core Surfaces and Their Roles
-
-### Structural Discovery Studio
-The studio is the diagnosis-and-repair surface. It explains *why* a configuration fails, not just that it fails. It can surface missing structure, suggest supported fixes, and compare before/after outcomes using theorem-backed or validated branch logic.
-
-### Discovery Mixer / Structural Composition Lab
-The mixer is the composition surface. It lets users construct supported systems from typed components and immediately checks compatibility, support boundaries, and branch status. It is intentionally narrow: unsupported symbolic or mixed-family setups are rejected instead of being silently approximated.
-
-### Benchmark / Validation Console
-The benchmark console is the trust surface. It exposes known cases, module-health checks, and reproducible exports so users can distinguish stable, validated behavior from exploratory use.
-
-## Relationship to the Theory
-
-The workbench does not replace the theorem documents. It operationalizes them. The design principle is simple: if the repository does not have theorem or validated family support for a claim, the interface should not present that claim as solved.
-
-## What the Workbench Does Not Claim
-
-The workbench does not claim universal minimal redesign laws, universal bounded-domain exactness, or automatic theorem status for every suggested fix. It is a guided decision system tied to the repository’s explicit branch limits.
-
-## Canonical Companion Docs
-
-- [Module-theory map](module-theory-map.md)
-- [Benchmark / Validation Console](benchmark-validation-console.md)
-- [Tool Qualification And Known-Results Verification Report](tool-qualification-report.md)
-- [Professional Validation And Discovery Report](professional-validation-report.md)
-- [Workbench Architecture](workbench-architecture.md)
+Companion docs:
+- `docs/app/module-theory-map.md`
+- `docs/app/benchmark-validation-console.md`
+- `docs/app/tool-qualification-report.md`
+- `docs/app/professional-validation-report.md`

@@ -1,44 +1,32 @@
 # Final Architecture
 
-The repository architecture is branch-structured and falsification-first. It is designed to separate what is broadly reusable from what is family-limited, and to keep that boundary visible in every major surface.
+The repository is organized as a branch-first research program with one stable theorem backbone and several scoped extension lanes. The architecture is designed to keep assumptions visible, so each promoted claim can be traced to a declared family and an explicit failure boundary.
 
-## Architectural hierarchy
+The top level has three layers. The foundation layer contains exact projector/sector structure, asymptotic generator structure, and canonical no-go constraints. The branch-strengthening layer develops constrained observation, fiber-based impossibility, augmentation design, invariants, and domain-sensitive PDE branches. The tooling layer exposes these results through workbench and benchmark surfaces without changing claim status.
 
-At the top level, the program has three layers.
-
-1. Foundation: exact anchors, asymptotic anchors, and canonical no-go statements.
-2. Branch-limited strengthening: recoverability/anti-classifier/bounded-domain lanes with explicit assumptions.
-3. Tooling and validation: workbench and artifact pipelines that expose those results without changing their status.
-
-This is intentionally not a single-law architecture.
+This architecture is intentionally not a single-law architecture. The same mathematical language is reused across branches, but promotion is branch-limited and evidence-labeled.
 
 ## Foundation layer
 
-The foundation combines exact projector and sector results with asymptotic generator structure and a mature impossibility layer. These results define the reference frame used to evaluate every later branch.
+The foundation combines finite-dimensional exact anchors, continuous asymptotic anchors, and no-go constraints. These provide the default interpretation frame for later branches.
 
-## Branch-limited strengthening layer
+Core references:
+- `docs/finalization/theorem-spine-final.md`
+- `docs/finalization/no-go-spine-final.md`
+- `papers/ocp_core_paper.md`
 
-The strongest strengthening lanes are:
+## Branch-strengthening layer
 
-- constrained-observation recoverability,
-- fiber-based limits and anti-classifier theorems,
-- descriptor-fiber quantitative extraction on supported witness classes,
-- bounded-domain/CFD compatibility and obstruction analysis.
-
-These branches are valuable precisely because they are scoped. Their assumptions are part of the result, not an afterthought.
+The strongest strengthening lanes currently are constrained-observation recoverability, fiber/anti-classifier structure, restricted positive recoverability and augmentation, invariant and context-coherence analysis, bounded-domain CFD behavior, and MHD closure/obstruction analysis. Each lane is useful because it stays explicit about admissible classes and transfer limits.
 
 ## Tooling and validation layer
 
-The workbench, benchmark console, and figure center are maintained as theorem-linked surfaces. They exist to make branch behavior inspectable and reproducible, not to claim universal symbolic coverage.
+The workbench and discovery systems are operational interfaces for theorem-linked diagnostics, regime comparison, and supported repairs. They are not treated as theorem generators. Tool output is interpreted through the same status map used in the branch docs.
 
 ## Architectural nonclaims
 
-The architecture does not claim:
+The architecture does not assert a universal scalar recoverability law, a universal bounded-domain projector law, or a universal cross-branch invariant replacing fiber/row-space exactness. Those statements are either disproved, unsupported, or still open.
 
-- one universal scalar recoverability law,
-- one universal bounded-domain exact projection theorem,
-- one universal cross-branch theorem that erases branch hypotheses.
+## Final statement
 
-## Final architectural statement
-
-Protected-State Correction Theory is best understood as a disciplined research system: a strong universal core for exactness/failure logic, branch-limited recoverability strengthening where assumptions are explicit, and a tooling layer that keeps evidence and status synchronized.
+The repository should be read as a disciplined program: stable theorem/no-go backbone first, scoped branch extensions second, and tooling third. The branch boundaries are part of the mathematics, not editorial overhead.

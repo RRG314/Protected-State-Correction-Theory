@@ -1,25 +1,9 @@
 # Branch 02 — Generator and Asymptotic
 
-## What this branch is
-Asymptotic correction branch: generator-based suppression of disturbance while preserving protected structure.
+This branch studies correction by evolution rather than one-step projection. The main question is when a generator suppresses disturbance asymptotically while preserving the protected component.
 
-## Strongest results
-- Invariant-split generator theorem family.
-- Mixing no-go for linear flows.
-- Domain-specific asymptotic instantiations (GLM / damping style lanes).
+The strongest statements are the invariant-split generator theorem family and associated no-go boundaries for finite-time exact annihilation in smooth linear flows. The branch also hosts practical links to damping-style constructions used in PDE contexts.
 
-## Canonical documents
-- [Generator theorems](../../docs/theorem-candidates/generator-theorems.md)
-- [No-go results](../../docs/impossibility-results/no-go-results.md)
-- [GLM and asymptotic correction](../../docs/mhd/glm-and-asymptotic-correction.md)
-- [Numerical relativity damping note](../../docs/physics/numerical-relativity-constraint-damping.md)
+Primary references are `docs/theorem-candidates/generator-theorems.md`, `docs/impossibility-results/no-go-results.md`, and `docs/mhd/glm-and-asymptotic-correction.md`.
 
-## Key tests / artifacts
-- `tests/math/test_continuous_generators.py`
-- `tests/examples/test_glm_decay.py`
-
-## Open items
-- Expand robustness constants and nonlinear stability boundaries with the same proof discipline.
-
-## Shared infrastructure
-Run branch computations from shared linear algebra and generated validation snapshot infrastructure.
+Interpret this lane as asymptotic architecture, not exact projector replacement.

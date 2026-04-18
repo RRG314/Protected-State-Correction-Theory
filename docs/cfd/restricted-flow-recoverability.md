@@ -1,35 +1,15 @@
 # Restricted Flow Recoverability
 
-This note states the cleanest CFD-facing lesson from the recoverability branch.
+This note states the recoverability criterion used in restricted CFD-style linear families.
 
-## Main point
-
-On restricted modal or linear flow families, exact recoverability is not controlled by raw information amount alone.
-It is controlled by whether the record resolves the protected flow quantity.
-
-In the simplest restricted-linear form:
-- state family: `x in A_B = {F z : ||z||_inf <= B}`
-- record: `y = O F z`
-- protected variable: `p(x) = L F z`
-
-Exact recovery is possible iff
+For `x = Fz`, record `y = OFz`, and target `LFz`, exact target recovery from the record exists if and only if
 
 $$
-\operatorname{row}(L F) \subseteq \operatorname{row}(O F).
+\operatorname{row}(LF) \subseteq \operatorname{row}(OF)
 $$
 
-This is the clean row-space form of the same fact that appears as a support-threshold law on the periodic modal CFD family.
+or equivalently `ker(OF) ⊆ ker(LF)`.
 
-## What this does not mean
+The point is structural, not amount-only: recoverability is controlled by compatibility between target and record geometry on the declared family. Equal rank or equal measurement count does not settle the question.
 
-It does **not** mean that arbitrary CFD state estimation is solved by rank language.
-The statement is restricted to explicit finite-dimensional admissible families.
-
-## Why the new CFD repo exists
-
-The standalone CFD repo takes this restricted theorem spine and re-expresses it in CFD-first language:
-- periodic projection
-- bounded-domain failure
-- modal flow functionals
-- sensor / observation sufficiency
-- exact versus asymptotic cleaning
+This criterion is branch-limited and should not be misread as a universal CFD observability theorem.

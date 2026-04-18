@@ -1,67 +1,35 @@
 # Main Contributions
 
-This page is the public contribution index for the repository.
+This page summarizes the strongest current contributions and where they live in the repository.
 
-## 1. Core OCP theorem/no-go backbone
+## Core theorem and no-go spine
 
-- [Architecture (final)](../finalization/architecture-final.md)
-- [Theorem spine (final)](../finalization/theorem-spine-final.md)
-- [No-go spine (final)](../finalization/no-go-spine-final.md)
-- Paper: [OCP core companion](../../papers/ocp_core_paper.md)
+The core OCP architecture and its promoted theorem/no-go statements are in `docs/finalization/`. The canonical entry files are `architecture-final.md`, `theorem-spine-final.md`, and `no-go-spine-final.md`, with paper-level presentation in `papers/ocp_core_paper.md`.
 
-## 2. Constrained-observation / PVRT recoverability
+## Constrained observation and recoverability
 
-- [Constrained-observation theorems](../theorem-candidates/constrained-observation-theorems.md)
-- [PVRT theorem spine](../theorem-candidates/pvrt-theorem-spine.md)
-- Paper: [Recoverability paper](../../papers/recoverability_paper_final.md)
+The recoverability branch formalizes exactness under constrained records, restricted-linear criteria, and threshold/repair structure. The key docs are `docs/theorem-candidates/constrained-observation-theorems.md`, `docs/theorem-candidates/pvrt-theorem-spine.md`, and `papers/recoverability_paper_final.md`.
 
-## 3. Fiber anti-classifier and opposite-verdict package
+## Fiber no-go and anti-classifier structure
 
-- [Fiber branch overview](../fiber-based-recoverability-and-impossibility/overview.md)
-- [No-go counterexamples](../fiber-based-recoverability-and-impossibility/no-go-counterexamples.md)
-- [Descriptor-fiber branch overview](../research-program/descriptor-fiber-anti-classifier-branch-overview.md)
-- Paper: [Descriptor-fiber anti-classifier branch](../../papers/descriptor-fiber-anti-classifier-branch.md)
+The fiber branch provides the cleanest impossibility and opposite-verdict families when amount-only descriptors are held fixed. Canonical documents are under `docs/fiber-based-recoverability-and-impossibility/`, with branch-level synthesis in `papers/descriptor-fiber-anti-classifier-branch.md`.
 
-## 4. Positive recoverability (restricted) and design
+## Positive recoverability and augmentation design
 
-- [Positive class definitions](../research-program/positive_class_definitions.md)
-- [Positive theorem candidates](../research-program/positive_theorem_candidates.md)
-- [Positive no-go boundaries](../research-program/positive_no_go_boundaries.md)
-- [Positive framework master report](../research-program/positive_recoverability_master_report.md)
+The restricted positive package is documented in `docs/research-program/positive_class_definitions.md`, `positive_theorem_candidates.md`, `positive_no_go_boundaries.md`, and `positive_recoverability_master_report.md`.
 
-## 5. Invariants and augmentation program
+## Invariant and augmentation program
 
-- [Invariant formal audit](../research-program/invariant_formal_audit.md)
-- [Invariant theorem spine draft](../research-program/invariant_theorem_spine_draft.md)
-- [Invariant no-go spine draft](../research-program/invariant_no_go_spine_draft.md)
-- [Invariant formalization + BH placement master report](../research-program/invariant_formalization_and_bh_placement_master_report.md)
+Current invariant results are organized in `docs/research-program/invariant_*` files, centered on `CID`, `delta_free`, `delta_C`, and descriptor-lift diagnostics. The main synthesis is `invariant_formalization_and_bh_placement_master_report.md`.
 
-## 6. CFD bounded-domain projection and limits
+## CFD and MHD domain branches
 
-- [Incompressible projection](../cfd/incompressible-projection.md)
-- [Bounded vs periodic projection](../cfd/bounded-vs-periodic-projection.md)
-- [CFD theorem results](../theorem-candidates/cfd-projection-results.md)
+The CFD branch separates periodic/Helmholtz exactness from bounded-domain/Hodge limits and repairable subfamilies. The MHD branch develops divergence-cleaning and closure/obstruction structure. Canonical docs live in `docs/cfd/`, `docs/mhd/`, and `papers/mhd_paper_upgraded.md`.
 
-## 7. MHD closure and obstruction
+## Workbench and discovery systems
 
-- [Divergence cleaning in OCP](../mhd/divergence-cleaning-in-ocp.md)
-- [Closure and observation links](../mhd/closure-and-observation-links.md)
-- Paper: [MHD closure paper](../../papers/mhd_paper_upgraded.md)
+The workbench is a theorem-linked analysis surface. Start with `docs/app/workbench-overview.md`, `docs/app/module-theory-map.md`, and `docs/app/benchmark-validation-console.md`, then use `docs/workbench/index.html` for the interface.
 
-## 8. Workbench and discovery systems
+## Physics extensions
 
-- [Workbench](../workbench/index.html)
-- [Workbench overview](../app/workbench-overview.md)
-- [Module-theory map](../app/module-theory-map.md)
-- [Benchmark/validation console](../app/benchmark-validation-console.md)
-
-## 9. Physics extensions (narrow and scoped)
-
-- [Quantum measurement alignment](../physics/quantum_measurement_alignment.md)
-- [Quantum alignment master report](../research-program/quantum_alignment_master_report.md)
-- [BH/cosmology claim audit](../physics/bh_cosmology_claim_audit.md)
-
-## Branch-first navigation
-
-Use the branch landing pages for complete scope/test/artifact pointers:
-- [branches/](../../branches/)
+Physics notes are branch-limited extensions. Quantum and BH/cosmology materials are kept with explicit status labels in `docs/physics/` and are not promoted to core theorem spine without separate support.

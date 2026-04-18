@@ -1,28 +1,9 @@
 # Branch 10 — Workbench and Discovery Systems
 
-## What this branch is
-Engineering and tooling layer for theorem-linked analysis, discovery workflows, and reproducible diagnostics.
+This branch covers the repository’s interactive analysis and discovery tooling. The tools are designed to test and apply existing theorem/validation structure, not to generate unscoped claims.
 
-## Strongest results
-- Live workbench with theorem-aware analysis modules.
-- Discovery mixer and structural discovery layers.
-- Validation surfaces linking generated outputs to branch claims.
+The workbench surfaces diagnosis, regime comparison, and supported repair operations. The discovery systems support composition and stress testing on declared families with reproducible exports.
 
-## Canonical documents
-- [Workbench app](../../docs/workbench/index.html)
-- [Workbench overview](../../docs/app/workbench-overview.md)
-- [Module-theory map](../../docs/app/module-theory-map.md)
-- [Benchmark / validation console](../../docs/app/benchmark-validation-console.md)
-- [Tool qualification report](../../docs/app/tool-qualification-report.md)
+Start with `docs/app/workbench-overview.md`, `docs/app/module-theory-map.md`, and `docs/app/benchmark-validation-console.md`, then use `docs/workbench/index.html` for the interface.
 
-## Key tests / artifacts
-- `tests/consistency/`
-- `tests/examples/test_workbench_examples_consistency.py`
-- `tests/examples/test_generated_artifact_consistency.py`
-- `data/generated/validations/`
-
-## Open items
-- Keep scope controls explicit: supported-family diagnostics, not free-form symbolic theorem proving.
-
-## Shared infrastructure
-Workbench code remains centralized in `docs/workbench/lib/` and shared compare/validate scripts.
+Interpret all outputs through branch status labels: proved, proved-on-supported-family, validated, conditional, or open.

@@ -1,67 +1,73 @@
-# Protected-State Correction Theory (OCP)
+# Protected-State Correction and Recoverability
 
-A theorem-first research repository on exact recoverability, impossibility boundaries, augmentation/repair, and branch-limited physics/control extensions.
+_Program identity: Protected-State Correction Theory (OCP)._ 
 
-## What This Repo Is
+This repository studies one recurring technical question across several fields:
 
-This repository develops the Orthogonal Correction Principle (OCP) and related recoverability programs with strict status discipline:
-- exact theorem claims,
-- explicit no-go claims,
-- validated-only computational findings,
-- and noncanonical exploratory lanes kept separate from core promotion.
+**when can a system remove unwanted components without disturbing what must be preserved?**
 
-## Branch-First Navigation
+That question appears in quantum error correction, control and observability, projection methods in CFD and MHD, and reconstruction from constrained measurements. The project isolates the shared structure behind those settings and states exact success and failure conditions with explicit scope.
 
-Start from the branch map:
+## Overview
 
-- [00 Core OCP](./branches/00-core-ocp/README.md)
-- [01 Exact Projector and Sector](./branches/01-exact-projector-and-sector/README.md)
-- [02 Generator and Asymptotic](./branches/02-generator-and-asymptotic/README.md)
-- [03 Constrained Observation and PVRT](./branches/03-constrained-observation-and-pvrt/README.md)
-- [04 Fiber Recoverability and No-Go](./branches/04-fiber-recoverability-and-no-go/README.md)
-- [05 Positive Recoverability and Design](./branches/05-positive-recoverability-and-design/README.md)
-- [06 Invariants and Augmentation](./branches/06-invariants-and-augmentation/README.md)
-- [07 CFD Bounded Domain](./branches/07-cfd-bounded-domain/README.md)
-- [08 MHD Closure and Obstruction](./branches/08-mhd-closure-and-obstruction/README.md)
-- [09 Physics Extension](./branches/09-physics-extension/README.md)
-- [10 Workbench and Discovery Systems](./branches/10-workbench-and-discovery-systems/README.md)
+The program is theorem-first. For each branch, it defines a protected target, describes the disturbance or ambiguity class, and asks whether recovery from the available record is exact, impossible, or repairable by minimal augmentation. Whenever exact theorems are not available, results are labeled as restricted-family, validated, conditional, or open.
 
-## Strongest Current Contributions
+## Core Structure
 
-- Exact OCP backbone: projection/generator/no-go spine.
-- Constrained-observation recoverability and PVRT threshold package.
-- Fiber anti-classifier and same-descriptor opposite-verdict witness families.
-- Restricted positive recoverability/design package.
-- Invariant stack around `CID`, `delta_free`, `delta_C` (supported-family scope).
-- CFD bounded-domain projection limits and MHD closure/obstruction lane.
+Most branches use four objects: a state space, a target map, a record map, and a correction or decoder map. The central question is whether the target factors through the record. In fiber language, exact recoverability holds exactly when the target is constant on observation fibers.
 
-See the public contribution index:  
-- [Main Contributions](./docs/overview/main-contributions.md)
+In the restricted linear setting with `x = Fz`, `y = OFz`, and target `LFz`, exact linear recovery exists if and only if
 
-## Papers
+$$
+\ker(OF) \subseteq \ker(LF)
+\quad\text{equivalently}\quad
+\operatorname{row}(LF) \subseteq \operatorname{row}(OF).
+$$
 
+When this fails, minimal free augmentation is
+
+$$
+\delta(O,L;F)=\operatorname{rank}\!\begin{bmatrix}OF\\LF\end{bmatrix}-\operatorname{rank}(OF).
+$$
+
+## Main Results
+
+The repository combines positive and negative results. On supported classes, exact recoverability and minimal-repair laws are explicit. The no-go side is equally central: same rank or same measurement count does not guarantee recoverability, and no rank-only or fixed-budget exact classifier survives. This is why the program emphasizes compatibility structure over amount-only summaries.
+
+The current quantitative layer adds context-sensitive and descriptor-fiber diagnostics (`CID`, `delta_free`, `delta_C`, `DFMI`, `IDELB`, `CL`) where they improve classification on declared families.
+
+## Branches
+
+The repo is organized as a branch-first research program:
+
+- [Core OCP backbone](./branches/00-core-ocp/README.md)
+- [Exact projector and exact sector/QEC branch](./branches/01-exact-projector-and-sector/README.md)
+- [Asymptotic generator branch](./branches/02-generator-and-asymptotic/README.md)
+- [Constrained-observation and recoverability branch](./branches/03-constrained-observation-and-pvrt/README.md)
+- [Fiber-based recoverability and impossibility branch](./branches/04-fiber-recoverability-and-no-go/README.md)
+- [Restricted-linear augmentation/design branch](./branches/05-positive-recoverability-and-design/README.md)
+- [Invariant and augmentation analysis branch](./branches/06-invariants-and-augmentation/README.md)
+- [Periodic/Helmholtz and bounded-domain/Hodge CFD branch](./branches/07-cfd-bounded-domain/README.md)
+- [MHD closure and obstruction branch](./branches/08-mhd-closure-and-obstruction/README.md)
+- [Physics extension branch](./branches/09-physics-extension/README.md)
+- [Workbench and discovery systems](./branches/10-workbench-and-discovery-systems/README.md)
+
+## Workbench
+
+The workbench is an interface for testing recoverability conditions, diagnosing structural failure, and applying supported repair operations. It is tied to the theorem layer and benchmark catalogs; it is not treated as an independent source of mathematical claims.
+
+## Scope
+
+Theorems are branch-limited by design. Exact results are proved on explicitly defined classes, broader claims are promoted only when they survive counterexample pressure, and exploratory physics extensions are kept separate from the core spine. The repository does not claim a universal recoverability law across all systems.
+
+## Use Cases
+
+Typical uses include recoverability diagnosis for a fixed measurement design, minimal augmentation planning, anti-classifier counterexample construction, bounded-domain projection failure analysis, and branch-limited physics interpretation where theorem status is explicit.
+
+## Papers and Contributions
+
+- [Main contributions](./docs/overview/main-contributions.md)
 - [Papers index](./papers/README.md)
-- [OCP core paper](./papers/ocp_core_paper.md)
-- [Recoverability paper](./papers/recoverability_paper_final.md)
-- [MHD closure paper](./papers/mhd_paper_upgraded.md)
-- [Bridge paper](./papers/bridge_paper.md)
-
-## Shared Infrastructure
-
-- Source code: `src/`
-- Tests: `tests/`
-- Repro scripts: `scripts/`
-- Generated artifacts: `data/generated/`
-- Workbench: [docs/workbench/index.html](./docs/workbench/index.html)
-
-## Scope Discipline
-
-This repository does **not** claim:
-- a universal recoverability classifier based only on amount descriptors,
-- a universal cross-branch invariant replacing fiber/row-space exactness,
-- a universal quantum/black-hole foundation theory.
-
-Branch-level claims remain scoped and status-labeled.
 
 ## License
 

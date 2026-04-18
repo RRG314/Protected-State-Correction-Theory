@@ -1,26 +1,9 @@
 # Branch 03 — Constrained Observation and PVRT
 
-## What this branch is
-Target recoverability under coarse/constrained observation, including restricted-linear exactness and threshold laws.
+This branch develops target recoverability when only constrained records are available. It formalizes when a target can be reconstructed exactly from observation fibers and when observation structure is insufficient.
 
-## Strongest results
-- Fiber/factorization exactness formulation for protected-variable recovery.
-- Restricted-linear kernel/row-space exactness criteria.
-- Collision-gap and threshold laws on supported families.
+The key results combine fiber/factorization exactness with restricted-linear kernel/row-space criteria and threshold behavior in supported families. This is the main bridge from theorem statements to measurable recoverability diagnostics.
 
-## Canonical documents
-- [Constrained-observation theorems](../../docs/theorem-candidates/constrained-observation-theorems.md)
-- [PVRT theorem spine](../../docs/theorem-candidates/pvrt-theorem-spine.md)
-- [Constrained-observation no-go](../../docs/impossibility-results/constrained-observation-no-go.md)
-- [Formal core definitions](../../docs/research-program/formal_core_definitions.md)
+Canonical references are `docs/theorem-candidates/constrained-observation-theorems.md`, `docs/theorem-candidates/pvrt-theorem-spine.md`, and `docs/impossibility-results/constrained-observation-no-go.md`.
 
-## Key tests / artifacts
-- `tests/math/test_recoverability.py`
-- `tests/examples/test_generated_artifact_consistency.py`
-- `data/generated/recoverability/`
-
-## Open items
-- Extend supported-family theorems to broader structured families without losing exact scope labels.
-
-## Shared infrastructure
-Use shared simulation and catalog scripts in `scripts/compare/` and `scripts/context_sensitive/`.
+The branch is intentionally scoped to declared families; it does not claim universal observability classification.
