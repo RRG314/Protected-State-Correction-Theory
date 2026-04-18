@@ -1,0 +1,111 @@
+{
+  "status_label": "EXPLORATION / NON-PROMOTED",
+  "system_count": 16,
+  "family_counts": {
+    "restricted-linear": 4,
+    "periodic-cfd": 6,
+    "bounded-cfd": 3,
+    "mhd-proxy": 3
+  },
+  "anomaly_count": 16,
+  "anomaly_types": [
+    "augmentation_threshold_dls_drop",
+    "high_dls_small_delta",
+    "low_rank_low_dls",
+    "rank_predicts_success_but_dls_high"
+  ],
+  "correlations": {
+    "DLS vs rank": -0.5706858874494752,
+    "DLS vs kappa_0": 0.9943660414407173,
+    "DLS vs Gamma_r": 0.9943660414407173,
+    "DLS vs delta": 0.9514629866470025
+  },
+  "threshold_events": [
+    {
+      "series_key": "periodic_modal_full_modal_coefficients",
+      "from_system": "periodic_modal_cutoff_2_full_modal_coefficients",
+      "to_system": "periodic_modal_cutoff_4_full_modal_coefficients",
+      "dls_drop": 1.0,
+      "delta_drop": 2.0
+    },
+    {
+      "series_key": "bounded_cfd_observation_family",
+      "from_system": "bounded_cfd_divergence_only_bounded_observation",
+      "to_system": "bounded_cfd_full_bounded_state_observation",
+      "dls_drop": 1.0,
+      "delta_drop": 2.0
+    },
+    {
+      "series_key": "mhd_observation_family",
+      "from_system": "mhd_mhd_divergence_only_observation",
+      "to_system": "mhd_mhd_full_field_observation",
+      "dls_drop": 1.0,
+      "delta_drop": 2.0
+    },
+    {
+      "series_key": "periodic_modal_low_mode_sum",
+      "from_system": "periodic_modal_cutoff_1_low_mode_sum",
+      "to_system": "periodic_modal_cutoff_2_low_mode_sum",
+      "dls_drop": 0.6923076923076923,
+      "delta_drop": 1.0
+    },
+    {
+      "series_key": "periodic_modal_full_modal_coefficients",
+      "from_system": "periodic_modal_cutoff_1_full_modal_coefficients",
+      "to_system": "periodic_modal_cutoff_2_full_modal_coefficients",
+      "dls_drop": 0.0,
+      "delta_drop": 1.0
+    },
+    {
+      "series_key": "periodic_modal_low_mode_sum",
+      "from_system": "periodic_modal_cutoff_2_low_mode_sum",
+      "to_system": "periodic_modal_cutoff_4_low_mode_sum",
+      "dls_drop": 0.0,
+      "delta_drop": 0.0
+    },
+    {
+      "series_key": "bounded_cfd_observation_family",
+      "from_system": "bounded_cfd_full_bounded_state_observation",
+      "to_system": "bounded_cfd_protected_projected_bounded_observation",
+      "dls_drop": 0.0,
+      "delta_drop": 0.0
+    },
+    {
+      "series_key": "mhd_observation_family",
+      "from_system": "mhd_mhd_full_field_observation",
+      "to_system": "mhd_mhd_Helmholtz_projected_observation",
+      "dls_drop": 0.0,
+      "delta_drop": 0.0
+    },
+    {
+      "series_key": "restricted_linear_same_rank_n5_r2_k2",
+      "from_system": "restricted_linear_same_rank_exact_n5_r2_k2",
+      "to_system": "restricted_linear_same_rank_fail_n5_r2_k2",
+      "dls_drop": -0.6923076923076923,
+      "delta_drop": -1.0
+    },
+    {
+      "series_key": "restricted_linear_same_rank_n6_r2_k3",
+      "from_system": "restricted_linear_same_rank_exact_n6_r2_k3",
+      "to_system": "restricted_linear_same_rank_fail_n6_r2_k3",
+      "dls_drop": -0.6923076923076923,
+      "delta_drop": -1.0
+    }
+  ],
+  "lane_value_assessment": "adds exploratory predictive signal (non-promoted)",
+  "plot_files": [
+    "figures/indistinguishability/dls_vs_rank.png",
+    "figures/indistinguishability/dls_vs_rank.pdf",
+    "figures/indistinguishability/dls_vs_delta.png",
+    "figures/indistinguishability/dls_vs_delta.pdf",
+    "figures/indistinguishability/fiber_size_histogram.png",
+    "figures/indistinguishability/fiber_size_histogram.pdf",
+    "figures/indistinguishability/mixed_vs_pure_distribution.png",
+    "figures/indistinguishability/mixed_vs_pure_distribution.pdf"
+  ],
+  "notes": [
+    "Exploration lane only.",
+    "No theorem promotion and no theorem-spine edits were applied.",
+    "Metrics are finite-family diagnostics, not universal classifiers."
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "program_status": "EXPLORATION / NON-PROMOTED",
+  "lane_count": 28,
+  "anomaly_count": 10,
+  "status_counts": {
+    "VALIDATED": 6,
+    "REDUNDANT": 6,
+    "ANALOGY ONLY": 3,
+    "REJECTED": 9,
+    "CONDITIONAL": 4
+  },
+  "top_priority_lanes": [
+    "Causal inference / invariant prediction",
+    "Network information theory / multi-terminal settings",
+    "Willems\u2019 fundamental lemma / data-driven control",
+    "Quantum Fisher information / Cram\u00e9r-Rao structure",
+    "Magnetic reconnection extension"
+  ],
+  "lanes_strengthening_repo_now": [
+    "Network information theory / multi-terminal settings",
+    "Willems\u2019 fundamental lemma / data-driven control",
+    "Causal inference / invariant prediction"
+  ],
+  "lanes_redundant_or_rejected": [
+    "Ergodic theory / mixing",
+    "Tropical geometry",
+    "p-adic analysis",
+    "Holography / black hole information / AdS-CFT",
+    "BRST cohomology / gauge theory",
+    "Non-equilibrium statistical mechanics / Jarzynski-type",
+    "Algebraic geometry codes",
+    "Kolmogorov complexity",
+    "Port-Hamiltonian systems / passivity",
+    "Arithmetic dynamics and p-adic dynamics",
+    "Langlands / Hecke-operator comparisons",
+    "Motivic periods",
+    "Diophantine heights",
+    "Topological data analysis of neural networks"
+  ],
+  "computed_lane_tests": {
+    "sheaf": {
+      "local_chart_1": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 4.710277376051325e-16,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "local_chart_2": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 4.710277376051325e-16,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "global_target": {
+        "exact": false,
+        "dls": 1.0,
+        "kappa0": 2.0,
+        "percent_mixed": 36.8421052631579,
+        "rowspace_residual": 0.5773502691896258,
+        "rank_observation": 2.0,
+        "rank_target": 1.0
+      }
+    },
+    "network_info": {
+      "exact": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 0.0,
+        "rank_observation": 2.0,
+        "rank_target": 2.0
+      },
+      "fail": {
+        "exact": false,
+        "dls": 0.75,
+        "kappa0": 2.0,
+        "percent_mixed": 100.0,
+        "rowspace_residual": 1.0,
+        "rank_observation": 2.0,
+        "rank_target": 2.0
+      }
+    },
+    "causal_inference": {
+      "observational": {
+        "exact": false,
+        "dls": 1.0,
+        "kappa0": 2.0,
+        "percent_mixed": 60.0,
+        "rowspace_residual": 0.7071067811865476,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "interventional": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 0.0,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "augmented": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 2.220446049250313e-16,
+        "rank_observation": 2.0,
+        "rank_target": 1.0
+      }
+    },
+    "willems": {
+      "exciting_data": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 9.992007221626409e-16,
+        "rank_observation": 2.0,
+        "rank_target": 2.0
+      },
+      "rank_deficient_data": {
+        "exact": false,
+        "dls": 1.0,
+        "kappa0": 2.8284271247461903,
+        "percent_mixed": 60.0,
+        "rowspace_residual": 1.0,
+        "rank_observation": 1.0,
+        "rank_target": 2.0
+      }
+    },
+    "hinf": {
+      "split_preserving_leakage": 0.0,
+      "mixing_leakage": 0.6321205588285577
+    },
+    "random_ensemble": {
+      "ensemble_stats": [
+        {
+          "k": 2,
+          "combo_count": 15,
+          "exact_probability": 0.06666666666666667,
+          "mean_dls": 0.7200000000000002,
+          "max_dls": 0.9
+        },
+        {
+          "k": 3,
+          "combo_count": 20,
+          "exact_probability": 0.2,
+          "mean_dls": 0.6,
+          "max_dls": 0.9230769230769231
+        },
+        {
+          "k": 4,
+          "combo_count": 15,
+          "exact_probability": 0.4,
+          "mean_dls": 0.4666666666666667,
+          "max_dls": 1.0
+        }
+      ]
+    },
+    "reconnection": {
+      "sheet_profile_sweep": [
+        {
+          "eps": 0.12,
+          "sheet_concentration_top5": 0.5869863214804755
+        },
+        {
+          "eps": 0.06,
+          "sheet_concentration_top5": 0.6686212015202909
+        },
+        {
+          "eps": 0.03,
+          "sheet_concentration_top5": 0.8020031874913885
+        }
+      ]
+    },
+    "qfi": {
+      "mean_fi_phase_blind_measurement": 0.0,
+      "mean_fi_phase_sensitive_measurement": 1.0,
+      "min_fi_phase_sensitive_measurement": 0.9999999999999997
+    },
+    "polar": {
+      "depth": 6,
+      "leaf_count": 64,
+      "fraction_near_good_p_lt_0_1": 0.34375,
+      "fraction_near_bad_p_gt_0_9": 0.34375,
+      "median_p": 0.5
+    },
+    "tda": {
+      "point_count": 16,
+      "mst_max_edge": 2.3407883161081444,
+      "mst_median_edge": 0.0,
+      "cluster_separation_ratio": 2340788316108.1445
+    },
+    "symplectic": {
+      "exact_before": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 0.0,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "exact_after": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 1.5700924586837752e-16,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "fail_before": {
+        "exact": false,
+        "dls": 1.0,
+        "kappa0": 2.0,
+        "percent_mixed": 60.0,
+        "rowspace_residual": 0.7071067811865476,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "fail_after": {
+        "exact": false,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 0.7071067811865476,
+        "rank_observation": 1.0,
+        "rank_target": 1.0
+      },
+      "verdict_preserved": true
+    },
+    "port_hamiltonian": {
+      "max_disturbance_energy_growth": -0.8533930378696498
+    },
+    "behavioral": {
+      "behavioral_exact_case": {
+        "exact": true,
+        "dls": 0.0,
+        "kappa0": 0.0,
+        "percent_mixed": 0.0,
+        "rowspace_residual": 0.0,
+        "rank_observation": 2.0,
+        "rank_target": 1.0
+      },
+      "behavioral_fail_case": {
+        "exact": false,
+        "dls": 1.0,
+        "kappa0": 2.0,
+        "percent_mixed": 100.0,
+        "rowspace_residual": 1.0,
+        "rank_observation": 2.0,
+        "rank_target": 1.0
+      }
+    }
+  },
+  "critical_nonclaims": [
+    "No theorem spine changes were made in this pass.",
+    "No lane was promoted to theorem status.",
+    "Advanced-language imports without witness-level gain were rejected or demoted."
+  ],
+  "surviving_unifying_pattern": "Across retained lanes, exactness tracks compatibility between target structure and record structure; descriptor-only amount/rank summaries remain insufficient without structural alignment."
+}

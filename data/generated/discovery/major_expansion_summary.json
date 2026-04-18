@@ -1,0 +1,390 @@
+{
+  "status": "EXPLORATION / NON-PROMOTED",
+  "selected_top2_lanes": [
+    "Causal inference / invariant prediction",
+    "Willems\u2019 fundamental lemma / data-driven control"
+  ],
+  "deferred_lanes": [
+    "Network information theory / multi-terminal settings",
+    "Quantum Fisher information / Cram\u00e9r-Rao structure",
+    "Magnetic reconnection extension"
+  ],
+  "major_candidate": {
+    "candidate_name": "context_invariant_recoverability",
+    "candidate_title": "Context-Invariant Recoverability and Shared Augmentation Threshold Package",
+    "candidate_type": "Hybrid candidate (branch-limited theorem + application)",
+    "status": "CONDITIONAL MAJOR CANDIDATE",
+    "core_definitions": {
+      "conditioned_exactness": "Each context admits an exact decoder, potentially context-specific.",
+      "context_invariant_exactness": "A single decoder recovers the target across all contexts.",
+      "context_invariance_gap": "Maximum context residual under the best shared decoder (0 iff invariant exactness).",
+      "shared_augmentation_threshold": "Minimal number of shared rows needed to restore context-invariant exactness."
+    },
+    "theorem_candidates": [
+      {
+        "id": "CIR-T1",
+        "statement": "There exist finite restricted-linear families where conditioned exactness holds while context-invariant exactness fails.",
+        "status": "PROVED ON SUPPORTED FAMILY",
+        "witness": "causal contexts [1,0], [2,0], target [1,0]"
+      },
+      {
+        "id": "CIR-T2",
+        "statement": "No classifier using only context-count and rank descriptors can decide context-invariant exactness on the canonical scaling family.",
+        "status": "PROVED ON SUPPORTED FAMILY",
+        "witness": "descriptor-matched exact and fail context pairs in both causal and Willems families"
+      },
+      {
+        "id": "CIR-T3",
+        "statement": "Shared augmentation threshold can be strictly positive even when conditioned exactness already holds.",
+        "status": "PROVED ON SUPPORTED FAMILY",
+        "witness": "minimal_shared_rows=1 in both causal and Willems canonical pairs"
+      }
+    ],
+    "no_go_candidates": [
+      {
+        "id": "CIR-N1",
+        "statement": "Conditioned exactness does not imply context-invariant exactness.",
+        "status": "PROVED ON SUPPORTED FAMILY"
+      },
+      {
+        "id": "CIR-N2",
+        "statement": "Stacked single-context exactness is insufficient to certify context-invariant exactness.",
+        "status": "VALIDATED"
+      }
+    ],
+    "validated_regime_results": [
+      "same-rank observational vs interventional opposite verdict in causal lane",
+      "same-sample same-rank opposite verdict in Willems lane",
+      "one-row shared augmentation threshold in both selected lanes"
+    ],
+    "new_relative_to_repo": [
+      "explicit multi-context exactness split: conditioned vs context-invariant",
+      "context-invariance gap as a branch-level diagnostic above count/rank summaries",
+      "shared augmentation threshold law tied to multi-context compatibility"
+    ],
+    "likely_reframing_only": [
+      "global fiber/factorization logic still underlies the new package",
+      "some statements can be rewritten as lifted linear compatibility constraints"
+    ],
+    "descriptor_match_checks": {
+      "causal_descriptor_matched_opposite_verdict": true,
+      "willems_descriptor_matched_opposite_verdict": true
+    }
+  },
+  "falsification_counterattack": {
+    "attack_1_implied_by_existing_factorization": {
+      "test": "Translate invariant requirement to existing fiber language and check whether claims are purely renaming.",
+      "result": "PARTIAL",
+      "details": "Core logic is compatible with fiber/factorization foundations, but the conditioned-vs-invariant split and shared threshold are not explicit in the current theorem package."
+    },
+    "attack_2_reduces_to_single_rowspace_inclusion": {
+      "test": "Check stacked row-space exactness on fail contexts.",
+      "causal_stacked_exact": true,
+      "willems_stacked_exact": true,
+      "result": "SURVIVED",
+      "details": "Both stacked checks are exact while context-invariant exactness fails, so stacked single-context criteria alone are insufficient."
+    },
+    "attack_3_small_family_overfit": {
+      "test": "Extend fail families with additional scaled contexts and retest invariant exactness.",
+      "result": "SURVIVED",
+      "details": "Adding additional scaled contexts preserves conditioned exactness and invariant failure in the canonical family."
+    },
+    "attack_4_descriptor_choice_fragility": {
+      "test": "Check descriptor-matched opposite verdict pairs.",
+      "result": "SURVIVED",
+      "details": "Exact and fail families share the same rank/count descriptor yet split on invariant exactness."
+    },
+    "attack_5_application_only_no_math": {
+      "test": "Require theorem/no-go statements with explicit witnesses and proof sketches.",
+      "result": "SURVIVED_ON_SUPPORTED_FAMILY",
+      "details": "Three branch-limited proved-on-family statements were extracted; broader generalization remains open."
+    }
+  },
+  "final_recommendation": "KEEP AS CONDITIONAL MAJOR CANDIDATE",
+  "lane_evidence": {
+    "causal": {
+      "name": "Causal inference / invariant prediction",
+      "translation": {
+        "admissible_family": "environment-indexed linear families of latent causes/confounders",
+        "target": "cause-specific functional",
+        "record_map": "environment-specific observational/interventional measurement rows",
+        "disturbance": "confounding and environment-dependent scaling",
+        "compatibility": "existence of one environment-invariant decoder",
+        "exactness": "single decoder recovers target across all environments",
+        "impossibility": "cross-environment decoder incompatibility despite per-environment exactness",
+        "augmentation": "shared intervention/measurement row that restores invariance"
+      },
+      "triage_evidence": {
+        "same_rank_observational_vs_interventional": {
+          "observational": {
+            "exact": false,
+            "rank_observation": 1,
+            "rank_target": 1,
+            "rowspace_residual": 0.7071067811865476,
+            "dls": 1.0,
+            "kappa_0": 2.0,
+            "percent_mixed": 60.0
+          },
+          "interventional": {
+            "exact": true,
+            "rank_observation": 1,
+            "rank_target": 1,
+            "rowspace_residual": 0.0,
+            "dls": 0.0,
+            "kappa_0": 0.0,
+            "percent_mixed": 0.0
+          }
+        },
+        "context_invariant_fail_case": {
+          "conditioned_exact": true,
+          "invariant_exact": false,
+          "invariant_residual_max_context": 0.40000000000000013,
+          "system_matrix_rank": 1
+        },
+        "context_invariant_exact_case": {
+          "conditioned_exact": true,
+          "invariant_exact": true,
+          "invariant_residual_max_context": 2.220446049250313e-16,
+          "system_matrix_rank": 1
+        },
+        "shared_augmentation": {
+          "minimal_shared_rows": 1,
+          "successful_row_indices": [
+            0
+          ],
+          "invariant_exact_after_augmentation": true,
+          "post_aug_invariant_residual": 2.220446049250313e-16
+        },
+        "stacked_single_context_check": {
+          "stacked_exact": true,
+          "stacked_residual": 2.220446049250313e-16
+        },
+        "descriptor_pair": {
+          "exact_descriptor": {
+            "context_count": 2,
+            "record_dimension": 1,
+            "coefficient_dimension": 2,
+            "target_rank": 1,
+            "total_observation_rank": 1,
+            "context_1_rank": 1,
+            "context_2_rank": 1
+          },
+          "fail_descriptor": {
+            "context_count": 2,
+            "record_dimension": 1,
+            "coefficient_dimension": 2,
+            "target_rank": 1,
+            "total_observation_rank": 1,
+            "context_1_rank": 1,
+            "context_2_rank": 1
+          },
+          "same_descriptor": true
+        }
+      },
+      "deep_claims": [
+        {
+          "claim_id": "CIR-C1",
+          "statement": "Same-rank observational and interventional measurements can produce opposite exactness verdicts.",
+          "status": "VALIDATED",
+          "evidence": "observational rank=1 exact=false vs interventional rank=1 exact=true"
+        },
+        {
+          "claim_id": "CIR-C2",
+          "statement": "Conditioned exactness (each context exact) does not imply context-invariant exactness (single shared decoder).",
+          "status": "PROVED ON SUPPORTED FAMILY",
+          "evidence": "contexts [1,0] and [2,0] each recover target [1,0], but no common scalar decoder exists"
+        },
+        {
+          "claim_id": "CIR-C3",
+          "statement": "A one-row shared intervention can collapse context-invariant failure to exactness in the canonical causal family.",
+          "status": "PROVED ON SUPPORTED FAMILY",
+          "evidence": "minimal_shared_rows=1 with candidate row [1,0]"
+        }
+      ]
+    },
+    "network": {
+      "name": "Network information theory / multi-terminal settings",
+      "translation": {
+        "admissible_family": "distributed terminal observation maps with fixed total terminal budget",
+        "target": "joint protected state components",
+        "record_map": "concatenated terminal records",
+        "disturbance": "terminal allocation mismatch and blind terminal directions",
+        "compatibility": "joint row-space compatibility of terminal bundle",
+        "exactness": "global decoder for all protected coordinates",
+        "impossibility": "terminal arrangement yields mixed fibers despite same total rank",
+        "augmentation": "add terminal channel aligned with missing protected direction"
+      },
+      "triage_evidence": {
+        "same_budget_same_rank_pair": {
+          "exact": {
+            "exact": true,
+            "rank_observation": 2,
+            "rank_target": 2,
+            "rowspace_residual": 0.0,
+            "dls": 0.0,
+            "kappa_0": 0.0,
+            "percent_mixed": 0.0
+          },
+          "fail": {
+            "exact": false,
+            "rank_observation": 2,
+            "rank_target": 2,
+            "rowspace_residual": 1.0,
+            "dls": 0.75,
+            "kappa_0": 2.0,
+            "percent_mixed": 100.0
+          }
+        }
+      }
+    },
+    "willems": {
+      "name": "Willems\u2019 fundamental lemma / data-driven control",
+      "translation": {
+        "admissible_family": "trajectory libraries indexed by experiment context",
+        "target": "state/output functionals to reconstruct from data",
+        "record_map": "data matrix rows (trajectory-derived records)",
+        "disturbance": "poor excitation directionality and context scaling mismatch",
+        "compatibility": "shared decoder consistency across data contexts",
+        "exactness": "single map from records to target across experiment contexts",
+        "impossibility": "same data volume and same rank but incompatible directional support",
+        "augmentation": "shared excitation row improving context-invariant richness"
+      },
+      "triage_evidence": {
+        "same_budget_same_rank_pair": {
+          "exact": {
+            "exact": true,
+            "rank_observation": 2,
+            "rank_target": 2,
+            "rowspace_residual": 9.18873053048877e-16,
+            "dls": 0.0,
+            "kappa_0": 0.0,
+            "percent_mixed": 0.0
+          },
+          "fail": {
+            "exact": false,
+            "rank_observation": 2,
+            "rank_target": 2,
+            "rowspace_residual": 1.0,
+            "dls": 1.0,
+            "kappa_0": 2.0,
+            "percent_mixed": 100.0
+          }
+        },
+        "context_invariant_fail_case": {
+          "conditioned_exact": true,
+          "invariant_exact": false,
+          "invariant_residual_max_context": 0.40000000000000013,
+          "system_matrix_rank": 4
+        },
+        "context_invariant_exact_case": {
+          "conditioned_exact": true,
+          "invariant_exact": true,
+          "invariant_residual_max_context": 3.1401849173675503e-16,
+          "system_matrix_rank": 4
+        },
+        "shared_augmentation": {
+          "minimal_shared_rows": 1,
+          "successful_row_indices": [
+            0
+          ],
+          "invariant_exact_after_augmentation": true,
+          "post_aug_invariant_residual": 3.779466347552191e-16
+        },
+        "stacked_single_context_check": {
+          "stacked_exact": true,
+          "stacked_residual": 4.002966042486721e-16
+        },
+        "descriptor_pair": {
+          "exact_descriptor": {
+            "context_count": 2,
+            "record_dimension": 2,
+            "coefficient_dimension": 2,
+            "target_rank": 2,
+            "total_observation_rank": 2,
+            "context_1_rank": 2,
+            "context_2_rank": 2
+          },
+          "fail_descriptor": {
+            "context_count": 2,
+            "record_dimension": 2,
+            "coefficient_dimension": 2,
+            "target_rank": 2,
+            "total_observation_rank": 2,
+            "context_1_rank": 2,
+            "context_2_rank": 2
+          },
+          "same_descriptor": true
+        }
+      },
+      "deep_claims": [
+        {
+          "claim_id": "CIR-W1",
+          "statement": "Same sample budget and same observation rank can still split into exact and impossible recoverability in trajectory-data settings.",
+          "status": "VALIDATED",
+          "evidence": "H_exact rank=2 exact=true, H_fail rank=2 exact=false, both with 4 rows"
+        },
+        {
+          "claim_id": "CIR-W2",
+          "statement": "Per-context exactness of data maps does not imply context-invariant exactness for a shared decoder.",
+          "status": "PROVED ON SUPPORTED FAMILY",
+          "evidence": "context pair I and diag(2,1) for target I is individually exact but jointly incompatible under one decoder"
+        },
+        {
+          "claim_id": "CIR-W3",
+          "statement": "A one-row shared excitation augmentation restores invariant exactness in the canonical two-context data family.",
+          "status": "PROVED ON SUPPORTED FAMILY",
+          "evidence": "minimal_shared_rows=1 with candidate row [1,0]"
+        }
+      ]
+    },
+    "qfi": {
+      "name": "Quantum Fisher information / Cram\u00e9r-Rao structure",
+      "translation": {
+        "admissible_family": "parametric qubit states",
+        "target": "phase parameter",
+        "record_map": "chosen POVM/basis statistics",
+        "disturbance": "phase-blind measurement design",
+        "compatibility": "measurement sensitivity to target parameter",
+        "exactness": "exact parameter distinguishability in chosen model",
+        "impossibility": "zero FI under phase-blind basis",
+        "augmentation": "basis redesign rather than record count increase"
+      },
+      "triage_evidence": {
+        "mean_fi_blind": 0.0,
+        "mean_fi_sensitive": 1.0,
+        "min_fi_sensitive": 0.9999999999999997
+      }
+    },
+    "reconnection": {
+      "name": "Magnetic reconnection extension",
+      "translation": {
+        "admissible_family": "sheet-profile MHD-like fields parameterized by width",
+        "target": "defect-localization profile",
+        "record_map": "grid current-density diagnostics",
+        "disturbance": "sheet narrowing and perturbation modes",
+        "compatibility": "closure quality under localization",
+        "exactness": "closure-consistent regime with low concentration defects",
+        "impossibility": "concentrated defects where closure mismatch dominates",
+        "augmentation": "localized diagnostics and adaptive refinement"
+      },
+      "triage_evidence": {
+        "sheet_profile_sweep": [
+          {
+            "eps": 0.12,
+            "sheet_concentration_top5": 0.5869863214804755
+          },
+          {
+            "eps": 0.06,
+            "sheet_concentration_top5": 0.6686212015202909
+          },
+          {
+            "eps": 0.03,
+            "sheet_concentration_top5": 0.8020031874913885
+          }
+        ],
+        "concentration_gain": 0.21501686601091308
+      }
+    }
+  },
+  "anomaly_count": 7
+}

@@ -1,0 +1,6 @@
+lane,theorem_potential,no_go_potential,anomaly_potential,application_importance,compatibility_with_current_repo,novelty_plausibility,implementation_tractability,risk_collapsing_into_existing_results,weighted_score,selected_for_deep_development,selection_reason,defer_reason
+Causal inference / invariant prediction,5,4,5,5,5,4,5,2,31,True,Top weighted score with strongest combined theorem/no-go potential and direct branch compatibility.,
+Willems’ fundamental lemma / data-driven control,5,4,4,5,5,4,4,2,29,True,Top weighted score with strongest combined theorem/no-go potential and direct branch compatibility.,
+Network information theory / multi-terminal settings,4,4,4,4,5,3,4,3,25,False,,"Strong comparator lane, but causal+Willems jointly gave a tighter path to one new common mathematical package this pass."
+Quantum Fisher information / Cramér-Rao structure,3,3,3,4,4,3,4,4,20,False,,"High diagnostic value but current gain is primarily estimation-bound benchmarking, not core theorem extraction."
+Magnetic reconnection extension,2,2,4,4,4,3,3,4,18,False,,"Produced validated regime diagnostics, but no theorem-grade core extension in the current extraction window."

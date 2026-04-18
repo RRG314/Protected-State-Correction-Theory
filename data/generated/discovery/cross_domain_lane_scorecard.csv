@@ -1,0 +1,29 @@
+lane,theorem_gain,no_go_gain,anomaly_gain,pattern_gain,compatibility_with_repo,implementation_cost,literature_risk,integration_recommendation,final_status
+Sheaf cohomology,1,2,1,2,4,2,3,VALIDATED BENCHMARK LANE ONLY,VALIDATED
+Persistent homology / TDA,0,0,2,3,3,2,2,VALIDATED BENCHMARK LANE ONLY,VALIDATED
+Ergodic theory / mixing,0,1,0,1,3,2,3,REDUNDANT / REJECT,REDUNDANT
+Tropical geometry,0,0,0,0,2,4,4,REDUNDANT / REJECT,REDUNDANT
+Random matrix theory / random observation ensembles,1,1,2,2,4,2,2,VALIDATED BENCHMARK LANE ONLY,VALIDATED
+Symplectic geometry,0,0,0,1,2,3,3,KEEP AS CONDITIONAL EXPLORATION,ANALOGY ONLY
+p-adic analysis,0,0,0,0,1,4,4,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Topological phases of matter / SPT states,0,0,0,0,2,4,4,KEEP AS CONDITIONAL EXPLORATION,ANALOGY ONLY
+Holography / black hole information / AdS-CFT,0,0,0,0,1,5,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+BRST cohomology / gauge theory,0,0,0,0,2,4,4,REDUNDANT / REJECT,REDUNDANT
+Magnetic reconnection extension,1,1,3,3,4,2,2,KEEP AS CONDITIONAL EXPLORATION,VALIDATED
+Non-equilibrium statistical mechanics / Jarzynski-type,0,0,0,0,1,4,4,REDUNDANT / REJECT,REDUNDANT
+Network information theory / multi-terminal settings,3,3,4,3,5,2,2,KEEP AS CONDITIONAL EXPLORATION,CONDITIONAL
+Polar codes / channel polarization,1,1,1,2,3,2,3,VALIDATED BENCHMARK LANE ONLY,VALIDATED
+Algebraic geometry codes,0,0,0,0,2,5,4,REDUNDANT / REJECT,REJECTED
+Kolmogorov complexity,0,0,0,0,1,4,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Quantum Fisher information / Cramér-Rao structure,2,2,3,2,4,2,3,KEEP AS CONDITIONAL EXPLORATION,CONDITIONAL
+H-infinity robust control,1,2,2,2,4,2,2,VALIDATED BENCHMARK LANE ONLY,VALIDATED
+Port-Hamiltonian systems / passivity,0,1,0,1,3,2,2,REDUNDANT / REJECT,REDUNDANT
+Willems’ fundamental lemma / data-driven control,3,3,4,3,5,2,2,KEEP AS CONDITIONAL EXPLORATION,CONDITIONAL
+Behavioral systems theory,0,1,1,2,4,1,2,VALIDATED BENCHMARK LANE ONLY,REDUNDANT
+Arithmetic dynamics and p-adic dynamics,0,0,0,0,1,5,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Langlands / Hecke-operator comparisons,0,0,0,0,0,5,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Motivic periods,0,0,0,0,0,5,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Diophantine heights,0,0,0,0,0,5,5,PRESTIGE-ONLY / DO NOT INTEGRATE,REJECTED
+Causal inference / invariant prediction,4,3,4,4,5,2,2,KEEP AS CONDITIONAL EXPLORATION,CONDITIONAL
+Topological data analysis of neural networks,0,0,0,0,1,4,4,REDUNDANT / REJECT,REJECTED
+Homological algebra for error correction,1,1,0,1,3,3,3,VALIDATED BENCHMARK LANE ONLY,ANALOGY ONLY

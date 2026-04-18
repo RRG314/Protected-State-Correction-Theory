@@ -1,0 +1,11 @@
+anomaly_id,lane,system_id,witness_type,severity,details,status
+sheaf_local_exact_global_obstructed,Sheaf cohomology,two_chart_gauge_shift,local-to-global compatibility failure,LOW,"local exactness true on both charts, global rowspace residual=0.577",VALIDATED
+network_same_budget_opposite_verdict,Network information theory / multi-terminal,network_two_terminal_same_rank_pair,same-total-rank opposite exactness,HIGH,"exact DLS=0.000, fail DLS=0.750, same terminal count and same aggregate observation rank",VALIDATED
+causal_same_count_opposite_identifiability,Causal inference / invariant prediction,causal_observational_vs_interventional,same-measurement-count opposite identifiability,HIGH,"observational DLS=1.000, interventional DLS=0.000, augmented DLS=0.000",VALIDATED
+willems_same_data_volume_opposite_exactness,Willems’ fundamental lemma / data-driven control,willems_excitation_pair,same-sample-budget opposite verdict,HIGH,"persistently-exciting rank=2, DLS=0.000; rank-deficient rank=1, DLS=1.000",VALIDATED
+hinf_mixing_leakage_gap,H-infinity robust control,generator_split_vs_mixing,worst-case disturbance leakage gap,MEDIUM,"split-preserving leakage=0.000000, mixing leakage=0.632121",VALIDATED
+random_ensemble_avg_vs_worst_case_gap,Random matrix / random observation ensembles,coordinate_subset_ensemble_n6_r2,ensemble threshold with persistent worst-case failures,MEDIUM,"k=2 exact_prob=0.067, k=4 exact_prob=0.400, while deterministic opposite-verdict witnesses persist",VALIDATED
+reconnection_sheet_concentration_ramp,Magnetic reconnection extension,current_sheet_eps_sweep,defect localization concentration threshold,MEDIUM,eps=0.12 concentration=0.587 -> eps=0.03 concentration=0.802,VALIDATED
+qfi_same_budget_opposite_information,Quantum Fisher information / Cramér-Rao,qubit_phase_measurement_pair,same-count opposite Fisher information,HIGH,"phase-blind FI=0.000, phase-sensitive FI=1.000",VALIDATED
+polarization_threshold_split,Polar codes / channel polarization,bec_polarization_depth6,threshold split into near-good and near-bad channels,LOW,"good=0.344, bad=0.344",VALIDATED
+tda_cluster_gap_in_witness_space,Persistent homology / TDA,indistinguishability_point_cloud,0D persistence proxy cluster gap,LOW,MST max/median edge ratio=2340788316108.145,VALIDATED
