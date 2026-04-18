@@ -1,0 +1,10 @@
+anomaly_id,anomaly_type,descriptor_signature,witness_ids,why_it_matters,status,robustness,notes
+QA001,same_descriptor_opposite_verdict,dim2|m1|ctx1|target_phase_sign,QW001;QW002,Amount-like descriptors do not classify target recoverability.,PROVED ON SUPPORTED FAMILY,high,anti-classifier quantum analog
+QA002,same_descriptor_opposite_verdict,dim4|m2|ctx2|target_zz_corr,QW009;QW010,Amount-like descriptors do not classify target recoverability.,PROVED ON SUPPORTED FAMILY,high,anti-classifier quantum analog
+QA003,same_descriptor_opposite_verdict,dim2|m1|ctx1|target_phase_sign|dephase_sweep,QW011;QW012;QW013;QW014;QW015;QW016;QW017,Amount-like descriptors do not classify target recoverability.,PROVED ON SUPPORTED FAMILY,high,anti-classifier quantum analog
+QA004,basis_sensitive_split,mixed,QW001;QW002,Same qubit dimension and one measurement setting can fail or succeed depending on basis-target alignment.,PROVED ON SUPPORTED FAMILY,high,Beyond QEC anchor; still close to standard state discrimination
+QA005,conditioned_vs_invariant_split,mixed,QW005;QW006;QW007;QW008,Per-context exactness can coexist with shared-decoder failure under context gain mismatch.,PROVED ON SUPPORTED FAMILY,high,Context-sensitive recoverability quantumized
+QA006,one_added_measurement_restoration,mixed,QW003;QW004,Adding one complementary basis can restore full discrete phase recovery in sampled family.,PROVED ON SUPPORTED FAMILY,medium,Finite sampled family only
+QA007,distributed_allocation_split,mixed,QW009;QW010,Same distributed budget can fail or succeed depending on measurement allocation geometry.,PROVED ON SUPPORTED FAMILY,high,Multipartite allocation analog
+QA008,decoherence_threshold,mixed,QW011;QW012;QW013;QW014;QW015;QW016;QW017,Target recoverability degrades with dephasing and collapses at complete dephasing in this channel family.,PROVED ON SUPPORTED FAMILY,medium,Known in substance; used as fragility anchor
+QA009,fisher_design_failure,mixed,QW019;QW020;QW021;QW022;QW023;QW024,Phase-blind and phase-sensitive measurements have same setting count but sharply different target FI.,VALIDATED / EMPIRICAL ONLY,high,Design-side conditional lane

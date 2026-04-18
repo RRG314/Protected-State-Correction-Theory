@@ -1,0 +1,14 @@
+# New Math Overlap Table
+
+| Candidate result/object | Nearest area | Overlap level | What is not new | What may still be new | Status | Safe wording |
+|---|---|---|---|---|---|---|
+| Conditioned-vs-invariant split | multi-context identifiability/compatibility | medium-high | consistency mismatch mechanisms | strict scoped theorem/no-go packaging with explicit catalogs | `PROVED ON SUPPORTED FAMILY`, `PLAUSIBLY DISTINCT` | “context-invariant failure despite per-context exactness on declared family” |
+| Descriptor-only insufficiency | anti-classifier/identifiability insufficiency | medium-high | amount-only summaries failing in principle | reproducible finite witness corpus with branch discipline | `PROVED ON SUPPORTED FAMILY`, `PLAUSIBLY DISTINCT` | “no rank/count/budget-only classifier on supported witness classes” |
+| Shared augmentation threshold | sensor/design completion | medium | adding measurements improves recoverability | shared-across-context threshold formalization with admissibility dependence | `PROVED ON SUPPORTED FAMILY` (existence), `OPEN` (closed-form law) | “positive threshold exists under declared augmentation class” |
+| SDCO/CLE equivalence | linear system feasibility | high | standard lifted equation consistency | canonical normalization in current repo notation | `PROVED`, `REDUCES TO EXISTING OCP LOGIC` | “equivalent formulation of shared decoder feasibility” |
+| CID/defect functional | minimax compatibility residual | high | residual-based compatibility metrics | practical severity ranking in branch artifacts | `VALIDATED / EMPIRICAL ONLY`, `REDUCES TO EXISTING OCP LOGIC` | “quantitative diagnostic, not distinct theorem object” |
+| Projection stack residual | projection methods | very high | standard row-space projection | none beyond branch-specific diagnostics | `ALREADY KNOWN IN SUBSTANCE` | “baseline projection proxy only” |
+| Projection-sufficiency failure | multi-context compatibility | medium | projection vs consistency distinctions known | explicit large witness count in current corpus | `PROVED ON SUPPORTED FAMILY` | “stack projection alone insufficient for shared exactness” |
+| CFD geometry split | bounded inverse/design geometry | medium | geometry dependence is known direction | descriptor-matched opposite-verdict witness package in this branch | `PROVED ON SUPPORTED FAMILY`, `PLAUSIBLY DISTINCT` | “finite bounded-family geometry-sensitive exactness split” |
+| MHD variable-eta obstruction (restricted classes) | resistive MHD closure | medium | general area is established | explicit restricted theorem set and survivor/obstruction separation | `PROVED ON SUPPORTED FAMILY`, `PLAUSIBLY DISTINCT` | “restricted-class obstruction/survivor theorems only” |
+| Broad new operator/projection/equation theory claim | operator theory | very high conflict | mostly restatements | none surviving this pass | `DISPROVED / COLLAPSED` | “no broad new operator theory claim” |

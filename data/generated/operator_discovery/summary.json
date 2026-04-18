@@ -1,0 +1,16 @@
+{
+  "seed": 20260418,
+  "witness_rows": 1000,
+  "anomaly_rows": 26,
+  "invariant_exact_count": 73,
+  "local_exact_global_fail_count": 267,
+  "same_descriptor_groups": 23,
+  "mode_counts": {
+    "redundant": 109,
+    "local_only": 291,
+    "shared_exact": 248,
+    "geometry_split": 58,
+    "mixed_random": 177,
+    "drift_prone": 117
+  }
+}

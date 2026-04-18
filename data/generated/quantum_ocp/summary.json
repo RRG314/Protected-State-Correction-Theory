@@ -1,0 +1,17 @@
+{
+  "seed": 20260418,
+  "witness_count": 24,
+  "anomaly_count": 9,
+  "exact_recoverable_count": 16,
+  "descriptor_opposite_count": 3,
+  "domains_touched": [
+    "A,B,F",
+    "A,B,F,E",
+    "A,B,G",
+    "C,F,G",
+    "D,C",
+    "E,G",
+    "H,C",
+    "I,E,B"
+  ]
+}
