@@ -1,0 +1,1930 @@
+anomaly_id,anomaly_type,descriptor_signature,family_count,shared_exact_values,evidence_families,severity,notes
+mc_a_0,same_descriptor_opposite_shared_verdict,n7|k3|m2|r2|b6,29,"0,1",ctxfam_2;ctxfam_49;ctxfam_50;ctxfam_132;ctxfam_232;ctxfam_264;ctxfam_474;ctxfam_476,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_1,same_descriptor_opposite_shared_verdict,n5|k4|m2|r2|b8,32,"0,1",ctxfam_3;ctxfam_16;ctxfam_60;ctxfam_107;ctxfam_114;ctxfam_282;ctxfam_466;ctxfam_501,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_2,same_descriptor_opposite_shared_verdict,n5|k2|m2|r3|b4,45,"0,1",ctxfam_4;ctxfam_71;ctxfam_103;ctxfam_130;ctxfam_134;ctxfam_213;ctxfam_272;ctxfam_284,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_3,same_descriptor_opposite_shared_verdict,n7|k4|m2|r2|b8,32,"0,1",ctxfam_7;ctxfam_9;ctxfam_99;ctxfam_160;ctxfam_178;ctxfam_183;ctxfam_251;ctxfam_297,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_4,same_descriptor_opposite_shared_verdict,n4|k2|m2|r3|b4,49,"0,1",ctxfam_10;ctxfam_44;ctxfam_65;ctxfam_83;ctxfam_98;ctxfam_122;ctxfam_124;ctxfam_152,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_5,same_descriptor_opposite_shared_verdict,n6|k2|m2|r3|b4,43,"0,1",ctxfam_17;ctxfam_33;ctxfam_176;ctxfam_187;ctxfam_205;ctxfam_256;ctxfam_263;ctxfam_360,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_6,same_descriptor_opposite_shared_verdict,n6|k3|m2|r4|b6,43,"0,1",ctxfam_19;ctxfam_46;ctxfam_216;ctxfam_248;ctxfam_291;ctxfam_489;ctxfam_619;ctxfam_675,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_7,same_descriptor_opposite_shared_verdict,n5|k3|m2|r4|b6,49,"0,1",ctxfam_22;ctxfam_32;ctxfam_77;ctxfam_113;ctxfam_179;ctxfam_189;ctxfam_204;ctxfam_230,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_8,same_descriptor_opposite_shared_verdict,n5|k5|m2|r2|b10,37,"0,1",ctxfam_23;ctxfam_69;ctxfam_286;ctxfam_302;ctxfam_304;ctxfam_327;ctxfam_385;ctxfam_388,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_9,same_descriptor_opposite_shared_verdict,n4|k5|m2|r2|b10,25,"0,1",ctxfam_25;ctxfam_81;ctxfam_275;ctxfam_277;ctxfam_357;ctxfam_377;ctxfam_617;ctxfam_618,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_10,same_descriptor_opposite_shared_verdict,n4|k2|m2|r2|b4,39,"0,1",ctxfam_26;ctxfam_55;ctxfam_62;ctxfam_131;ctxfam_173;ctxfam_190;ctxfam_234;ctxfam_273,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_11,same_descriptor_opposite_shared_verdict,n4|k3|m2|r2|b6,32,"0,1",ctxfam_27;ctxfam_34;ctxfam_57;ctxfam_155;ctxfam_161;ctxfam_172;ctxfam_219;ctxfam_246,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_12,same_descriptor_opposite_shared_verdict,n7|k3|m2|r4|b6,41,"0,1",ctxfam_35;ctxfam_73;ctxfam_75;ctxfam_137;ctxfam_193;ctxfam_243;ctxfam_268;ctxfam_431,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_13,same_descriptor_opposite_shared_verdict,n6|k3|m2|r2|b6,38,"0,1",ctxfam_36;ctxfam_141;ctxfam_231;ctxfam_290;ctxfam_317;ctxfam_372;ctxfam_533;ctxfam_546,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_14,same_descriptor_opposite_shared_verdict,n7|k5|m2|r2|b10,30,"0,1",ctxfam_38;ctxfam_78;ctxfam_149;ctxfam_241;ctxfam_267;ctxfam_384;ctxfam_413;ctxfam_417,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_15,same_descriptor_opposite_shared_verdict,n4|k4|m2|r2|b8,27,"0,1",ctxfam_39;ctxfam_119;ctxfam_199;ctxfam_226;ctxfam_361;ctxfam_482;ctxfam_570;ctxfam_572,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_16,same_descriptor_opposite_shared_verdict,n5|k3|m2|r2|b6,33,"0,1",ctxfam_53;ctxfam_203;ctxfam_210;ctxfam_311;ctxfam_341;ctxfam_347;ctxfam_382;ctxfam_424,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_17,same_descriptor_opposite_shared_verdict,n7|k2|m2|r3|b4,35,"0,1",ctxfam_61;ctxfam_95;ctxfam_110;ctxfam_156;ctxfam_165;ctxfam_198;ctxfam_229;ctxfam_245,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_18,same_descriptor_opposite_shared_verdict,n6|k2|m2|r2|b4,31,"0,1",ctxfam_63;ctxfam_76;ctxfam_93;ctxfam_97;ctxfam_127;ctxfam_143;ctxfam_157;ctxfam_319,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_19,same_descriptor_opposite_shared_verdict,n6|k5|m2|r2|b10,36,"0,1",ctxfam_89;ctxfam_217;ctxfam_220;ctxfam_227;ctxfam_312;ctxfam_339;ctxfam_461;ctxfam_483,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_20,same_descriptor_opposite_shared_verdict,n6|k4|m2|r2|b8,42,"0,1",ctxfam_101;ctxfam_182;ctxfam_200;ctxfam_214;ctxfam_254;ctxfam_271;ctxfam_274;ctxfam_307,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_21,same_descriptor_opposite_shared_verdict,n5|k2|m2|r2|b4,27,"0,1",ctxfam_145;ctxfam_292;ctxfam_356;ctxfam_359;ctxfam_366;ctxfam_394;ctxfam_442;ctxfam_467,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_22,same_descriptor_opposite_shared_verdict,n7|k2|m2|r2|b4,35,"0,1",ctxfam_294;ctxfam_369;ctxfam_406;ctxfam_541;ctxfam_545;ctxfam_562;ctxfam_601;ctxfam_613,high,same rank/count/budget signature with opposite invariant verdict
+mc_a_23,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_3,medium,threshold=3
+mc_a_24,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_4,high,context-invariance gap
+mc_a_25,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_4,medium,threshold=1
+mc_a_26,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_6,high,context-invariance gap
+mc_a_27,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_6,medium,threshold=1
+mc_a_28,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_8,high,context-invariance gap
+mc_a_29,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_8,medium,threshold=1
+mc_a_30,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_10,high,context-invariance gap
+mc_a_31,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_10,medium,threshold=1
+mc_a_32,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_11,medium,threshold=3
+mc_a_33,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_13,high,context-invariance gap
+mc_a_34,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_13,medium,threshold=1
+mc_a_35,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_14,medium,threshold=4
+mc_a_36,family_enlargement_flip,n5|k4|m2|r2|b8,1,1->0,ctxfam_16,medium,shared verdict changed after adding one context
+mc_a_37,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_17,high,context-invariance gap
+mc_a_38,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_17,medium,threshold=1
+mc_a_39,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_18,medium,threshold=4
+mc_a_40,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_19,high,context-invariance gap
+mc_a_41,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_19,medium,threshold=1
+mc_a_42,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_21,high,context-invariance gap
+mc_a_43,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_21,medium,threshold=1
+mc_a_44,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_23,medium,shared verdict changed after adding one context
+mc_a_45,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_24,medium,threshold=4
+mc_a_46,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_25,medium,shared verdict changed after adding one context
+mc_a_47,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_26,medium,threshold=2
+mc_a_48,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_27,medium,threshold=2
+mc_a_49,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_28,high,context-invariance gap
+mc_a_50,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_28,medium,threshold=1
+mc_a_51,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_29,medium,threshold=4
+mc_a_52,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_30,medium,threshold=2
+mc_a_53,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_32,high,context-invariance gap
+mc_a_54,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_32,medium,threshold=1
+mc_a_55,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_34,medium,threshold=2
+mc_a_56,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_35,high,context-invariance gap
+mc_a_57,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_35,medium,threshold=1
+mc_a_58,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_36,medium,shared verdict changed after adding one context
+mc_a_59,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_37,medium,threshold=3
+mc_a_60,positive_shared_augmentation_threshold,n6|k5|m2|r1|b10,1,0,ctxfam_40,medium,threshold=4
+mc_a_61,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_41,medium,threshold=4
+mc_a_62,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_42,medium,threshold=4
+mc_a_63,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_44,high,context-invariance gap
+mc_a_64,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_44,medium,threshold=1
+mc_a_65,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_45,high,context-invariance gap
+mc_a_66,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_45,medium,threshold=1
+mc_a_67,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_46,high,context-invariance gap
+mc_a_68,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_46,medium,threshold=1
+mc_a_69,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_51,medium,threshold=3
+mc_a_70,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_52,high,context-invariance gap
+mc_a_71,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_52,medium,threshold=1
+mc_a_72,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_53,medium,threshold=3
+mc_a_73,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_55,medium,threshold=2
+mc_a_74,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_57,medium,threshold=2
+mc_a_75,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_58,medium,threshold=3
+mc_a_76,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_59,medium,threshold=3
+mc_a_77,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_60,medium,threshold=3
+mc_a_78,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_61,high,context-invariance gap
+mc_a_79,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_61,medium,threshold=1
+mc_a_80,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_62,medium,shared verdict changed after adding one context
+mc_a_81,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_63,medium,threshold=4
+mc_a_82,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_64,high,context-invariance gap
+mc_a_83,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_64,medium,threshold=1
+mc_a_84,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_65,high,context-invariance gap
+mc_a_85,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_65,medium,threshold=2
+mc_a_86,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_66,medium,threshold=3
+mc_a_87,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_67,high,context-invariance gap
+mc_a_88,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_67,medium,threshold=2
+mc_a_89,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_68,high,context-invariance gap
+mc_a_90,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_68,medium,threshold=1
+mc_a_91,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_69,medium,threshold=2
+mc_a_92,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_71,medium,threshold=4
+mc_a_93,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_73,high,context-invariance gap
+mc_a_94,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_73,medium,threshold=1
+mc_a_95,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_74,medium,threshold=3
+mc_a_96,family_enlargement_flip,n7|k3|m2|r4|b6,1,1->0,ctxfam_75,medium,shared verdict changed after adding one context
+mc_a_97,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_76,medium,threshold=3
+mc_a_98,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_77,high,context-invariance gap
+mc_a_99,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_77,medium,threshold=1
+mc_a_100,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_80,medium,threshold=2
+mc_a_101,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_81,medium,threshold=2
+mc_a_102,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_82,medium,threshold=3
+mc_a_103,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_83,high,context-invariance gap
+mc_a_104,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_83,medium,threshold=2
+mc_a_105,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_84,medium,threshold=3
+mc_a_106,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_86,medium,threshold=2
+mc_a_107,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_87,high,context-invariance gap
+mc_a_108,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_87,medium,threshold=2
+mc_a_109,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_89,medium,threshold=3
+mc_a_110,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_90,high,context-invariance gap
+mc_a_111,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_90,medium,threshold=1
+mc_a_112,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_91,medium,threshold=3
+mc_a_113,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_92,high,context-invariance gap
+mc_a_114,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_92,medium,threshold=2
+mc_a_115,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_93,medium,threshold=4
+mc_a_116,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_94,medium,threshold=3
+mc_a_117,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_95,high,context-invariance gap
+mc_a_118,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_95,medium,threshold=1
+mc_a_119,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_96,high,context-invariance gap
+mc_a_120,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_96,medium,threshold=2
+mc_a_121,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_97,medium,threshold=3
+mc_a_122,family_enlargement_flip,n4|k2|m2|r3|b4,1,1->0,ctxfam_98,medium,shared verdict changed after adding one context
+mc_a_123,family_enlargement_flip,n7|k4|m2|r2|b8,1,1->0,ctxfam_99,medium,shared verdict changed after adding one context
+mc_a_124,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_100,medium,threshold=3
+mc_a_125,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_101,medium,threshold=4
+mc_a_126,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_103,medium,threshold=4
+mc_a_127,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_104,high,context-invariance gap
+mc_a_128,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_104,medium,threshold=2
+mc_a_129,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_105,high,context-invariance gap
+mc_a_130,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_105,medium,threshold=1
+mc_a_131,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_106,medium,threshold=2
+mc_a_132,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_107,medium,threshold=2
+mc_a_133,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_108,high,context-invariance gap
+mc_a_134,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_108,medium,threshold=1
+mc_a_135,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_109,medium,threshold=4
+mc_a_136,family_enlargement_flip,n7|k2|m2|r3|b4,1,1->0,ctxfam_110,medium,shared verdict changed after adding one context
+mc_a_137,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_112,high,context-invariance gap
+mc_a_138,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_112,medium,threshold=1
+mc_a_139,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_113,high,context-invariance gap
+mc_a_140,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_113,medium,threshold=2
+mc_a_141,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_114,medium,threshold=3
+mc_a_142,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_115,high,context-invariance gap
+mc_a_143,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_115,medium,threshold=1
+mc_a_144,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_118,high,context-invariance gap
+mc_a_145,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_118,medium,threshold=1
+mc_a_146,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_119,medium,threshold=2
+mc_a_147,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_120,medium,threshold=3
+mc_a_148,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_122,high,context-invariance gap
+mc_a_149,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_122,medium,threshold=1
+mc_a_150,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_123,high,context-invariance gap
+mc_a_151,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_123,medium,threshold=1
+mc_a_152,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_124,high,context-invariance gap
+mc_a_153,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_124,medium,threshold=1
+mc_a_154,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_126,medium,threshold=2
+mc_a_155,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_127,medium,threshold=3
+mc_a_156,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_128,medium,threshold=3
+mc_a_157,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_129,medium,threshold=4
+mc_a_158,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_130,high,context-invariance gap
+mc_a_159,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_130,medium,threshold=1
+mc_a_160,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_131,medium,threshold=2
+mc_a_161,family_enlargement_flip,n7|k3|m2|r2|b6,1,1->0,ctxfam_132,medium,shared verdict changed after adding one context
+mc_a_162,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_133,medium,threshold=3
+mc_a_163,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_134,medium,threshold=4
+mc_a_164,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_135,high,context-invariance gap
+mc_a_165,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_135,medium,threshold=1
+mc_a_166,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_136,high,context-invariance gap
+mc_a_167,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_136,medium,threshold=1
+mc_a_168,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_137,high,context-invariance gap
+mc_a_169,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_137,medium,threshold=2
+mc_a_170,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_138,high,context-invariance gap
+mc_a_171,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_138,medium,threshold=2
+mc_a_172,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_139,high,context-invariance gap
+mc_a_173,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_139,medium,threshold=1
+mc_a_174,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_141,medium,threshold=4
+mc_a_175,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_142,high,context-invariance gap
+mc_a_176,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_142,medium,threshold=1
+mc_a_177,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_143,medium,threshold=4
+mc_a_178,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_145,medium,threshold=3
+mc_a_179,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_147,medium,threshold=3
+mc_a_180,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_148,high,context-invariance gap
+mc_a_181,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_148,medium,threshold=1
+mc_a_182,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_150,high,context-invariance gap
+mc_a_183,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_150,medium,threshold=1
+mc_a_184,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_151,medium,threshold=4
+mc_a_185,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_152,medium,threshold=2
+mc_a_186,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_154,medium,threshold=3
+mc_a_187,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_155,medium,threshold=2
+mc_a_188,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_156,high,context-invariance gap
+mc_a_189,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_156,medium,threshold=2
+mc_a_190,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_157,medium,threshold=4
+mc_a_191,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_158,high,context-invariance gap
+mc_a_192,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_158,medium,threshold=1
+mc_a_193,positive_shared_augmentation_threshold,n7|k4|m2|r7|b8,1,0,ctxfam_159,medium,threshold=4
+mc_a_194,positive_shared_augmentation_threshold,n7|k4|m2|r2|b8,1,0,ctxfam_160,medium,threshold=3
+mc_a_195,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_161,medium,threshold=2
+mc_a_196,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_162,medium,threshold=3
+mc_a_197,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_163,high,context-invariance gap
+mc_a_198,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_163,medium,threshold=1
+mc_a_199,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_164,high,context-invariance gap
+mc_a_200,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_164,medium,threshold=1
+mc_a_201,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_165,high,context-invariance gap
+mc_a_202,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_165,medium,threshold=2
+mc_a_203,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_166,high,context-invariance gap
+mc_a_204,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_166,medium,threshold=1
+mc_a_205,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_167,medium,threshold=3
+mc_a_206,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_169,high,context-invariance gap
+mc_a_207,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_169,medium,threshold=1
+mc_a_208,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_170,high,context-invariance gap
+mc_a_209,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_170,medium,threshold=1
+mc_a_210,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_171,medium,threshold=3
+mc_a_211,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_172,medium,threshold=2
+mc_a_212,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_173,medium,threshold=2
+mc_a_213,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_174,medium,threshold=4
+mc_a_214,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_175,medium,threshold=3
+mc_a_215,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_176,high,context-invariance gap
+mc_a_216,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_176,medium,threshold=1
+mc_a_217,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_179,high,context-invariance gap
+mc_a_218,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_179,medium,threshold=2
+mc_a_219,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_180,medium,threshold=2
+mc_a_220,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_181,medium,threshold=2
+mc_a_221,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_182,medium,threshold=3
+mc_a_222,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_185,medium,threshold=3
+mc_a_223,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_186,medium,threshold=3
+mc_a_224,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_187,high,context-invariance gap
+mc_a_225,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_187,medium,threshold=1
+mc_a_226,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_188,medium,threshold=3
+mc_a_227,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_189,high,context-invariance gap
+mc_a_228,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_189,medium,threshold=1
+mc_a_229,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_190,medium,threshold=2
+mc_a_230,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_191,medium,threshold=2
+mc_a_231,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_192,high,context-invariance gap
+mc_a_232,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_192,medium,threshold=1
+mc_a_233,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_193,high,context-invariance gap
+mc_a_234,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_193,medium,threshold=1
+mc_a_235,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_195,medium,threshold=2
+mc_a_236,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_196,medium,threshold=2
+mc_a_237,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_197,high,context-invariance gap
+mc_a_238,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_197,medium,threshold=2
+mc_a_239,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_198,high,context-invariance gap
+mc_a_240,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_198,medium,threshold=2
+mc_a_241,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_199,medium,threshold=2
+mc_a_242,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_200,medium,threshold=4
+mc_a_243,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_202,high,context-invariance gap
+mc_a_244,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_202,medium,threshold=2
+mc_a_245,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_203,medium,threshold=3
+mc_a_246,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_204,high,context-invariance gap
+mc_a_247,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_204,medium,threshold=2
+mc_a_248,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_205,high,context-invariance gap
+mc_a_249,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_205,medium,threshold=1
+mc_a_250,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_206,medium,threshold=3
+mc_a_251,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_208,medium,threshold=2
+mc_a_252,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_210,medium,threshold=3
+mc_a_253,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_213,medium,threshold=4
+mc_a_254,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_214,medium,shared verdict changed after adding one context
+mc_a_255,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_215,high,context-invariance gap
+mc_a_256,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_215,medium,threshold=2
+mc_a_257,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_217,medium,threshold=4
+mc_a_258,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_218,high,context-invariance gap
+mc_a_259,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_218,medium,threshold=2
+mc_a_260,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_219,medium,threshold=2
+mc_a_261,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_220,medium,threshold=4
+mc_a_262,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_221,medium,threshold=4
+mc_a_263,positive_shared_augmentation_threshold,n7|k4|m2|r7|b8,1,0,ctxfam_224,medium,threshold=4
+mc_a_264,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_226,medium,threshold=2
+mc_a_265,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_227,medium,threshold=4
+mc_a_266,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_228,medium,threshold=2
+mc_a_267,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_229,high,context-invariance gap
+mc_a_268,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_229,medium,threshold=1
+mc_a_269,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_230,high,context-invariance gap
+mc_a_270,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_230,medium,threshold=1
+mc_a_271,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_231,medium,threshold=4
+mc_a_272,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_233,medium,threshold=3
+mc_a_273,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_234,medium,shared verdict changed after adding one context
+mc_a_274,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_236,high,context-invariance gap
+mc_a_275,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_236,medium,threshold=1
+mc_a_276,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_237,high,context-invariance gap
+mc_a_277,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_237,medium,threshold=2
+mc_a_278,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_239,medium,threshold=3
+mc_a_279,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_240,medium,threshold=3
+mc_a_280,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_242,high,context-invariance gap
+mc_a_281,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_242,medium,threshold=2
+mc_a_282,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_243,high,context-invariance gap
+mc_a_283,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_243,medium,threshold=1
+mc_a_284,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_244,medium,threshold=2
+mc_a_285,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_245,high,context-invariance gap
+mc_a_286,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_245,medium,threshold=1
+mc_a_287,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_246,medium,threshold=2
+mc_a_288,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_247,high,context-invariance gap
+mc_a_289,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_247,medium,threshold=1
+mc_a_290,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_248,high,context-invariance gap
+mc_a_291,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_248,medium,threshold=2
+mc_a_292,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_249,high,context-invariance gap
+mc_a_293,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_249,medium,threshold=2
+mc_a_294,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_250,medium,threshold=4
+mc_a_295,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_254,medium,threshold=4
+mc_a_296,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_258,medium,threshold=3
+mc_a_297,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_259,medium,threshold=4
+mc_a_298,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_260,medium,threshold=2
+mc_a_299,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_262,high,context-invariance gap
+mc_a_300,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_262,medium,threshold=1
+mc_a_301,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_263,high,context-invariance gap
+mc_a_302,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_263,medium,threshold=2
+mc_a_303,family_enlargement_flip,n7|k3|m2|r2|b6,1,1->0,ctxfam_264,medium,shared verdict changed after adding one context
+mc_a_304,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_265,medium,threshold=3
+mc_a_305,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_266,medium,threshold=3
+mc_a_306,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_268,high,context-invariance gap
+mc_a_307,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_268,medium,threshold=1
+mc_a_308,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_269,high,context-invariance gap
+mc_a_309,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_269,medium,threshold=1
+mc_a_310,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_271,medium,threshold=4
+mc_a_311,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_272,high,context-invariance gap
+mc_a_312,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_272,medium,threshold=1
+mc_a_313,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_273,medium,threshold=2
+mc_a_314,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_274,medium,shared verdict changed after adding one context
+mc_a_315,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_275,medium,threshold=2
+mc_a_316,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_276,high,context-invariance gap
+mc_a_317,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_276,medium,threshold=1
+mc_a_318,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_277,medium,shared verdict changed after adding one context
+mc_a_319,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_278,medium,threshold=3
+mc_a_320,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_279,medium,threshold=4
+mc_a_321,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_280,medium,threshold=2
+mc_a_322,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_281,medium,threshold=4
+mc_a_323,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_282,medium,threshold=1
+mc_a_324,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_284,high,context-invariance gap
+mc_a_325,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_284,medium,threshold=1
+mc_a_326,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_285,medium,threshold=3
+mc_a_327,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_286,medium,threshold=3
+mc_a_328,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_287,medium,threshold=2
+mc_a_329,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_288,high,context-invariance gap
+mc_a_330,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_288,medium,threshold=2
+mc_a_331,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_290,medium,shared verdict changed after adding one context
+mc_a_332,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_291,high,context-invariance gap
+mc_a_333,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_291,medium,threshold=1
+mc_a_334,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_292,medium,threshold=3
+mc_a_335,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_293,high,context-invariance gap
+mc_a_336,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_293,medium,threshold=1
+mc_a_337,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_296,high,context-invariance gap
+mc_a_338,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_296,medium,threshold=1
+mc_a_339,family_enlargement_flip,n7|k4|m2|r2|b8,1,1->0,ctxfam_297,medium,shared verdict changed after adding one context
+mc_a_340,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_298,medium,threshold=2
+mc_a_341,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_299,medium,threshold=3
+mc_a_342,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_300,medium,threshold=2
+mc_a_343,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_301,high,context-invariance gap
+mc_a_344,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_301,medium,threshold=1
+mc_a_345,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_302,medium,shared verdict changed after adding one context
+mc_a_346,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_303,medium,threshold=4
+mc_a_347,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_304,medium,threshold=3
+mc_a_348,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_305,high,context-invariance gap
+mc_a_349,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_305,medium,threshold=1
+mc_a_350,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_306,high,context-invariance gap
+mc_a_351,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_306,medium,threshold=2
+mc_a_352,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_307,medium,threshold=4
+mc_a_353,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_309,high,context-invariance gap
+mc_a_354,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_309,medium,threshold=1
+mc_a_355,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_310,medium,threshold=3
+mc_a_356,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_311,medium,threshold=2
+mc_a_357,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_312,medium,shared verdict changed after adding one context
+mc_a_358,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_313,high,context-invariance gap
+mc_a_359,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_313,medium,threshold=1
+mc_a_360,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_314,medium,threshold=4
+mc_a_361,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_315,medium,threshold=4
+mc_a_362,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_316,high,context-invariance gap
+mc_a_363,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_316,medium,threshold=1
+mc_a_364,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_317,medium,threshold=4
+mc_a_365,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_318,high,context-invariance gap
+mc_a_366,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_318,medium,threshold=1
+mc_a_367,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_319,medium,threshold=4
+mc_a_368,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_320,high,context-invariance gap
+mc_a_369,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_320,medium,threshold=1
+mc_a_370,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_321,medium,threshold=3
+mc_a_371,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_322,medium,threshold=3
+mc_a_372,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_323,high,context-invariance gap
+mc_a_373,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_323,medium,threshold=1
+mc_a_374,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_326,medium,threshold=4
+mc_a_375,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_327,medium,shared verdict changed after adding one context
+mc_a_376,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_330,medium,threshold=3
+mc_a_377,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_331,high,context-invariance gap
+mc_a_378,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_331,medium,threshold=2
+mc_a_379,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_332,medium,threshold=4
+mc_a_380,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_334,high,context-invariance gap
+mc_a_381,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_334,medium,threshold=1
+mc_a_382,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_335,high,context-invariance gap
+mc_a_383,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_335,medium,threshold=1
+mc_a_384,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_337,medium,shared verdict changed after adding one context
+mc_a_385,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_338,medium,threshold=4
+mc_a_386,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_339,medium,threshold=4
+mc_a_387,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_340,high,context-invariance gap
+mc_a_388,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_340,medium,threshold=1
+mc_a_389,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_341,medium,threshold=3
+mc_a_390,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_342,medium,threshold=2
+mc_a_391,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_344,high,context-invariance gap
+mc_a_392,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_344,medium,threshold=1
+mc_a_393,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_345,high,context-invariance gap
+mc_a_394,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_345,medium,threshold=2
+mc_a_395,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_346,high,context-invariance gap
+mc_a_396,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_346,medium,threshold=1
+mc_a_397,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_347,medium,threshold=2
+mc_a_398,positive_shared_augmentation_threshold,n7|k3|m2|r6|b6,1,0,ctxfam_349,medium,threshold=4
+mc_a_399,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_352,high,context-invariance gap
+mc_a_400,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_352,medium,threshold=2
+mc_a_401,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_353,medium,threshold=4
+mc_a_402,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_354,medium,threshold=4
+mc_a_403,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_356,medium,threshold=3
+mc_a_404,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_357,medium,threshold=2
+mc_a_405,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_358,medium,threshold=3
+mc_a_406,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_359,medium,threshold=3
+mc_a_407,family_enlargement_flip,n6|k2|m2|r3|b4,1,1->0,ctxfam_360,medium,shared verdict changed after adding one context
+mc_a_408,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_361,medium,threshold=2
+mc_a_409,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_363,medium,threshold=3
+mc_a_410,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_364,high,context-invariance gap
+mc_a_411,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_364,medium,threshold=1
+mc_a_412,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_365,medium,threshold=3
+mc_a_413,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_366,medium,threshold=3
+mc_a_414,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_367,medium,threshold=3
+mc_a_415,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_368,high,context-invariance gap
+mc_a_416,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_368,medium,threshold=1
+mc_a_417,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_370,medium,threshold=3
+mc_a_418,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_372,medium,threshold=4
+mc_a_419,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_373,high,context-invariance gap
+mc_a_420,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_373,medium,threshold=2
+mc_a_421,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_374,medium,threshold=2
+mc_a_422,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_375,high,context-invariance gap
+mc_a_423,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_375,medium,threshold=1
+mc_a_424,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_376,medium,threshold=4
+mc_a_425,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_378,medium,threshold=4
+mc_a_426,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_379,medium,threshold=4
+mc_a_427,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_381,high,context-invariance gap
+mc_a_428,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_381,medium,threshold=1
+mc_a_429,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_382,medium,threshold=3
+mc_a_430,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_383,high,context-invariance gap
+mc_a_431,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_383,medium,threshold=1
+mc_a_432,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_385,medium,shared verdict changed after adding one context
+mc_a_433,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_386,medium,threshold=3
+mc_a_434,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_387,medium,threshold=4
+mc_a_435,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_388,medium,threshold=3
+mc_a_436,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_389,medium,threshold=2
+mc_a_437,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_391,medium,threshold=3
+mc_a_438,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_392,high,context-invariance gap
+mc_a_439,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_392,medium,threshold=1
+mc_a_440,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_393,medium,threshold=4
+mc_a_441,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_394,medium,threshold=3
+mc_a_442,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_395,high,context-invariance gap
+mc_a_443,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_395,medium,threshold=2
+mc_a_444,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_397,medium,shared verdict changed after adding one context
+mc_a_445,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_399,medium,threshold=2
+mc_a_446,positive_shared_augmentation_threshold,n7|k3|m2|r6|b6,1,0,ctxfam_400,medium,threshold=3
+mc_a_447,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_401,high,context-invariance gap
+mc_a_448,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_401,medium,threshold=1
+mc_a_449,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_402,medium,threshold=2
+mc_a_450,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_403,high,context-invariance gap
+mc_a_451,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_403,medium,threshold=2
+mc_a_452,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_404,high,context-invariance gap
+mc_a_453,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_404,medium,threshold=2
+mc_a_454,family_enlargement_flip,n4|k3|m2|r2|b6,1,1->0,ctxfam_405,medium,shared verdict changed after adding one context
+mc_a_455,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_408,medium,threshold=2
+mc_a_456,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_409,high,context-invariance gap
+mc_a_457,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_409,medium,threshold=1
+mc_a_458,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_410,high,context-invariance gap
+mc_a_459,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_410,medium,threshold=1
+mc_a_460,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_411,medium,threshold=3
+mc_a_461,family_enlargement_flip,n7|k5|m2|r2|b10,1,1->0,ctxfam_413,medium,shared verdict changed after adding one context
+mc_a_462,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_414,high,context-invariance gap
+mc_a_463,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_414,medium,threshold=1
+mc_a_464,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_415,medium,shared verdict changed after adding one context
+mc_a_465,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_416,high,context-invariance gap
+mc_a_466,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_416,medium,threshold=2
+mc_a_467,positive_shared_augmentation_threshold,n7|k5|m2|r2|b10,1,0,ctxfam_417,medium,threshold=4
+mc_a_468,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_418,medium,threshold=4
+mc_a_469,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_419,medium,threshold=3
+mc_a_470,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_421,high,context-invariance gap
+mc_a_471,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_421,medium,threshold=2
+mc_a_472,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_422,medium,threshold=3
+mc_a_473,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_423,medium,threshold=4
+mc_a_474,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_424,medium,threshold=3
+mc_a_475,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_426,high,context-invariance gap
+mc_a_476,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_426,medium,threshold=1
+mc_a_477,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_427,high,context-invariance gap
+mc_a_478,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_427,medium,threshold=1
+mc_a_479,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_428,medium,threshold=3
+mc_a_480,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_429,high,context-invariance gap
+mc_a_481,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_429,medium,threshold=2
+mc_a_482,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_431,high,context-invariance gap
+mc_a_483,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_431,medium,threshold=2
+mc_a_484,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_432,medium,threshold=3
+mc_a_485,positive_shared_augmentation_threshold,n7|k2|m2|r4|b4,1,0,ctxfam_434,medium,threshold=4
+mc_a_486,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_435,medium,threshold=3
+mc_a_487,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_436,high,context-invariance gap
+mc_a_488,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_436,medium,threshold=1
+mc_a_489,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_437,high,context-invariance gap
+mc_a_490,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_437,medium,threshold=1
+mc_a_491,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_439,medium,threshold=2
+mc_a_492,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_440,medium,threshold=2
+mc_a_493,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_441,high,context-invariance gap
+mc_a_494,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_441,medium,threshold=1
+mc_a_495,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_442,medium,threshold=3
+mc_a_496,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_443,medium,threshold=3
+mc_a_497,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_444,high,context-invariance gap
+mc_a_498,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_444,medium,threshold=1
+mc_a_499,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_445,medium,threshold=1
+mc_a_500,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_446,high,context-invariance gap
+mc_a_501,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_446,medium,threshold=1
+mc_a_502,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_447,high,context-invariance gap
+mc_a_503,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_447,medium,threshold=1
+mc_a_504,positive_shared_augmentation_threshold,n6|k2|m2|r1|b4,1,0,ctxfam_450,medium,threshold=3
+mc_a_505,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_451,high,context-invariance gap
+mc_a_506,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_451,medium,threshold=1
+mc_a_507,family_enlargement_flip,n7|k2|m2|r3|b4,1,1->0,ctxfam_452,medium,shared verdict changed after adding one context
+mc_a_508,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_453,medium,threshold=2
+mc_a_509,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_454,high,context-invariance gap
+mc_a_510,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_454,medium,threshold=1
+mc_a_511,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_455,high,context-invariance gap
+mc_a_512,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_455,medium,threshold=1
+mc_a_513,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_456,medium,threshold=2
+mc_a_514,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_459,high,context-invariance gap
+mc_a_515,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_459,medium,threshold=1
+mc_a_516,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_460,medium,threshold=2
+mc_a_517,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_461,medium,threshold=4
+mc_a_518,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_462,medium,threshold=4
+mc_a_519,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_463,medium,threshold=3
+mc_a_520,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_464,medium,threshold=2
+mc_a_521,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_465,medium,threshold=4
+mc_a_522,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_466,medium,threshold=2
+mc_a_523,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_467,medium,threshold=2
+mc_a_524,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_468,medium,threshold=2
+mc_a_525,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_469,medium,threshold=4
+mc_a_526,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_471,high,context-invariance gap
+mc_a_527,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_471,medium,threshold=2
+mc_a_528,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_472,high,context-invariance gap
+mc_a_529,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_472,medium,threshold=1
+mc_a_530,positive_shared_augmentation_threshold,n7|k3|m2|r2|b6,1,0,ctxfam_474,medium,threshold=4
+mc_a_531,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_475,high,context-invariance gap
+mc_a_532,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_475,medium,threshold=2
+mc_a_533,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_478,medium,threshold=3
+mc_a_534,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_479,high,context-invariance gap
+mc_a_535,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_479,medium,threshold=1
+mc_a_536,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_480,high,context-invariance gap
+mc_a_537,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_480,medium,threshold=1
+mc_a_538,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_482,medium,threshold=2
+mc_a_539,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_483,medium,threshold=3
+mc_a_540,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_484,medium,shared verdict changed after adding one context
+mc_a_541,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_485,medium,threshold=3
+mc_a_542,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_486,high,context-invariance gap
+mc_a_543,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_486,medium,threshold=1
+mc_a_544,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_488,medium,threshold=4
+mc_a_545,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_489,high,context-invariance gap
+mc_a_546,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_489,medium,threshold=2
+mc_a_547,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_490,high,context-invariance gap
+mc_a_548,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_490,medium,threshold=1
+mc_a_549,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_491,high,context-invariance gap
+mc_a_550,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_491,medium,threshold=1
+mc_a_551,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_492,medium,threshold=4
+mc_a_552,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_493,medium,threshold=4
+mc_a_553,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_494,medium,threshold=2
+mc_a_554,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_495,medium,threshold=3
+mc_a_555,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_496,medium,threshold=4
+mc_a_556,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_497,high,context-invariance gap
+mc_a_557,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_497,medium,threshold=1
+mc_a_558,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_499,medium,threshold=3
+mc_a_559,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_500,medium,threshold=4
+mc_a_560,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_501,medium,threshold=3
+mc_a_561,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_503,medium,threshold=3
+mc_a_562,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_504,medium,threshold=4
+mc_a_563,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_505,medium,threshold=3
+mc_a_564,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_506,medium,threshold=4
+mc_a_565,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_507,medium,threshold=3
+mc_a_566,family_enlargement_flip,n5|k4|m2|r2|b8,1,1->0,ctxfam_509,medium,shared verdict changed after adding one context
+mc_a_567,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_510,medium,threshold=4
+mc_a_568,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_511,medium,threshold=2
+mc_a_569,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_512,medium,threshold=2
+mc_a_570,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_514,medium,threshold=2
+mc_a_571,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_515,medium,threshold=2
+mc_a_572,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_517,medium,threshold=4
+mc_a_573,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_518,medium,threshold=3
+mc_a_574,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_519,high,context-invariance gap
+mc_a_575,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_519,medium,threshold=1
+mc_a_576,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_520,medium,threshold=3
+mc_a_577,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_521,medium,threshold=4
+mc_a_578,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_522,medium,threshold=4
+mc_a_579,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_523,high,context-invariance gap
+mc_a_580,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_523,medium,threshold=1
+mc_a_581,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_524,high,context-invariance gap
+mc_a_582,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_524,medium,threshold=1
+mc_a_583,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_525,medium,shared verdict changed after adding one context
+mc_a_584,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_526,medium,threshold=3
+mc_a_585,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_527,high,context-invariance gap
+mc_a_586,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_527,medium,threshold=1
+mc_a_587,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_528,medium,threshold=3
+mc_a_588,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_530,medium,threshold=4
+mc_a_589,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_531,high,context-invariance gap
+mc_a_590,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_531,medium,threshold=1
+mc_a_591,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_533,medium,threshold=4
+mc_a_592,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_535,medium,threshold=2
+mc_a_593,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_536,high,context-invariance gap
+mc_a_594,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_536,medium,threshold=1
+mc_a_595,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_537,medium,threshold=4
+mc_a_596,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_538,medium,threshold=4
+mc_a_597,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_542,medium,threshold=2
+mc_a_598,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_543,high,context-invariance gap
+mc_a_599,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_543,medium,threshold=1
+mc_a_600,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_544,medium,threshold=3
+mc_a_601,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_546,medium,threshold=4
+mc_a_602,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_547,medium,threshold=3
+mc_a_603,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_548,medium,threshold=3
+mc_a_604,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_550,high,context-invariance gap
+mc_a_605,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_550,medium,threshold=1
+mc_a_606,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_551,high,context-invariance gap
+mc_a_607,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_551,medium,threshold=1
+mc_a_608,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_552,medium,threshold=2
+mc_a_609,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_555,medium,threshold=4
+mc_a_610,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_556,medium,threshold=4
+mc_a_611,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_557,medium,threshold=4
+mc_a_612,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_558,high,context-invariance gap
+mc_a_613,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_558,medium,threshold=1
+mc_a_614,family_enlargement_flip,n7|k2|m2|r2|b4,1,1->0,ctxfam_562,medium,shared verdict changed after adding one context
+mc_a_615,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_563,high,context-invariance gap
+mc_a_616,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_563,medium,threshold=1
+mc_a_617,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_564,medium,threshold=2
+mc_a_618,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_565,medium,threshold=4
+mc_a_619,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_566,medium,threshold=3
+mc_a_620,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_567,medium,threshold=3
+mc_a_621,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_568,high,context-invariance gap
+mc_a_622,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_568,medium,threshold=2
+mc_a_623,family_enlargement_flip,n6|k2|m2|r2|b4,1,1->0,ctxfam_569,medium,shared verdict changed after adding one context
+mc_a_624,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_570,medium,threshold=2
+mc_a_625,family_enlargement_flip,n7|k3|m2|r2|b6,1,1->0,ctxfam_571,medium,shared verdict changed after adding one context
+mc_a_626,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_573,medium,threshold=4
+mc_a_627,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_574,medium,shared verdict changed after adding one context
+mc_a_628,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_576,medium,threshold=4
+mc_a_629,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_577,high,context-invariance gap
+mc_a_630,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_577,medium,threshold=1
+mc_a_631,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_578,high,context-invariance gap
+mc_a_632,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_578,medium,threshold=1
+mc_a_633,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_580,high,context-invariance gap
+mc_a_634,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_580,medium,threshold=2
+mc_a_635,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_581,medium,threshold=2
+mc_a_636,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_582,high,context-invariance gap
+mc_a_637,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_582,medium,threshold=1
+mc_a_638,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_583,medium,threshold=3
+mc_a_639,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_584,high,context-invariance gap
+mc_a_640,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_584,medium,threshold=1
+mc_a_641,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_585,high,context-invariance gap
+mc_a_642,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_585,medium,threshold=1
+mc_a_643,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_586,high,context-invariance gap
+mc_a_644,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_586,medium,threshold=1
+mc_a_645,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_587,medium,threshold=1
+mc_a_646,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_588,high,context-invariance gap
+mc_a_647,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_588,medium,threshold=1
+mc_a_648,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_589,high,context-invariance gap
+mc_a_649,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_589,medium,threshold=1
+mc_a_650,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_590,medium,threshold=3
+mc_a_651,family_enlargement_flip,n5|k3|m2|r2|b6,1,1->0,ctxfam_591,medium,shared verdict changed after adding one context
+mc_a_652,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_592,medium,threshold=4
+mc_a_653,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_593,medium,threshold=2
+mc_a_654,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_594,medium,threshold=4
+mc_a_655,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_596,medium,threshold=4
+mc_a_656,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_598,medium,threshold=3
+mc_a_657,family_enlargement_flip,n5|k3|m2|r4|b6,1,1->0,ctxfam_599,medium,shared verdict changed after adding one context
+mc_a_658,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_600,medium,threshold=3
+mc_a_659,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_602,medium,threshold=3
+mc_a_660,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_603,medium,threshold=3
+mc_a_661,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_604,medium,threshold=4
+mc_a_662,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_606,high,context-invariance gap
+mc_a_663,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_606,medium,threshold=1
+mc_a_664,family_enlargement_flip,n7|k5|m2|r2|b10,1,1->0,ctxfam_610,medium,shared verdict changed after adding one context
+mc_a_665,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_615,medium,threshold=3
+mc_a_666,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_616,medium,threshold=2
+mc_a_667,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_618,medium,threshold=2
+mc_a_668,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_619,high,context-invariance gap
+mc_a_669,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_619,medium,threshold=1
+mc_a_670,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_620,medium,threshold=4
+mc_a_671,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_621,high,context-invariance gap
+mc_a_672,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_621,medium,threshold=2
+mc_a_673,family_enlargement_flip,n5|k2|m2|r3|b4,1,1->0,ctxfam_622,medium,shared verdict changed after adding one context
+mc_a_674,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_624,high,context-invariance gap
+mc_a_675,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_624,medium,threshold=1
+mc_a_676,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_625,medium,threshold=3
+mc_a_677,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_626,medium,threshold=4
+mc_a_678,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_627,medium,shared verdict changed after adding one context
+mc_a_679,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_628,medium,threshold=2
+mc_a_680,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_629,high,context-invariance gap
+mc_a_681,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_629,medium,threshold=1
+mc_a_682,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_630,medium,threshold=2
+mc_a_683,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_631,high,context-invariance gap
+mc_a_684,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_631,medium,threshold=2
+mc_a_685,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_632,medium,threshold=2
+mc_a_686,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_634,high,context-invariance gap
+mc_a_687,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_634,medium,threshold=2
+mc_a_688,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_636,medium,threshold=3
+mc_a_689,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_637,medium,threshold=3
+mc_a_690,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_638,medium,threshold=3
+mc_a_691,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_639,high,context-invariance gap
+mc_a_692,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_639,medium,threshold=2
+mc_a_693,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_640,medium,threshold=2
+mc_a_694,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_641,medium,threshold=3
+mc_a_695,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_642,medium,threshold=2
+mc_a_696,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_644,medium,threshold=4
+mc_a_697,family_enlargement_flip,n6|k2|m2|r2|b4,1,1->0,ctxfam_645,medium,shared verdict changed after adding one context
+mc_a_698,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_646,high,context-invariance gap
+mc_a_699,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_646,medium,threshold=1
+mc_a_700,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_647,high,context-invariance gap
+mc_a_701,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_647,medium,threshold=2
+mc_a_702,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_648,medium,threshold=3
+mc_a_703,family_enlargement_flip,n5|k3|m2|r4|b6,1,1->0,ctxfam_650,medium,shared verdict changed after adding one context
+mc_a_704,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_652,medium,threshold=4
+mc_a_705,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_653,medium,threshold=2
+mc_a_706,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_654,high,context-invariance gap
+mc_a_707,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_654,medium,threshold=2
+mc_a_708,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_655,high,context-invariance gap
+mc_a_709,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_655,medium,threshold=1
+mc_a_710,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_656,medium,threshold=2
+mc_a_711,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_657,high,context-invariance gap
+mc_a_712,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_657,medium,threshold=1
+mc_a_713,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_658,medium,threshold=3
+mc_a_714,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_659,medium,threshold=2
+mc_a_715,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_660,medium,threshold=4
+mc_a_716,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_661,medium,shared verdict changed after adding one context
+mc_a_717,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_662,high,context-invariance gap
+mc_a_718,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_662,medium,threshold=1
+mc_a_719,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_663,high,context-invariance gap
+mc_a_720,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_663,medium,threshold=2
+mc_a_721,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_664,medium,threshold=3
+mc_a_722,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_665,medium,threshold=2
+mc_a_723,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_666,high,context-invariance gap
+mc_a_724,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_666,medium,threshold=1
+mc_a_725,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_667,high,context-invariance gap
+mc_a_726,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_667,medium,threshold=2
+mc_a_727,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_668,medium,shared verdict changed after adding one context
+mc_a_728,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_669,medium,threshold=4
+mc_a_729,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_670,medium,threshold=2
+mc_a_730,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_671,medium,threshold=4
+mc_a_731,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_672,high,context-invariance gap
+mc_a_732,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_672,medium,threshold=2
+mc_a_733,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_673,medium,threshold=2
+mc_a_734,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_674,high,context-invariance gap
+mc_a_735,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_674,medium,threshold=2
+mc_a_736,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_676,medium,threshold=4
+mc_a_737,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_677,high,context-invariance gap
+mc_a_738,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_677,medium,threshold=2
+mc_a_739,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_681,medium,threshold=2
+mc_a_740,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_682,high,context-invariance gap
+mc_a_741,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_682,medium,threshold=2
+mc_a_742,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_683,medium,threshold=3
+mc_a_743,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_686,medium,threshold=3
+mc_a_744,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_687,high,context-invariance gap
+mc_a_745,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_687,medium,threshold=1
+mc_a_746,family_enlargement_flip,n4|k2|m2|r3|b4,1,1->0,ctxfam_688,medium,shared verdict changed after adding one context
+mc_a_747,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_689,medium,threshold=3
+mc_a_748,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_690,high,context-invariance gap
+mc_a_749,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_690,medium,threshold=1
+mc_a_750,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_691,medium,threshold=4
+mc_a_751,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_692,medium,threshold=4
+mc_a_752,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_693,medium,threshold=4
+mc_a_753,positive_shared_augmentation_threshold,n6|k5|m2|r1|b10,1,0,ctxfam_694,medium,threshold=4
+mc_a_754,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_695,medium,threshold=3
+mc_a_755,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_697,medium,threshold=2
+mc_a_756,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_698,medium,threshold=4
+mc_a_757,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_700,medium,threshold=1
+mc_a_758,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_701,medium,threshold=3
+mc_a_759,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_702,medium,shared verdict changed after adding one context
+mc_a_760,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_703,medium,threshold=4
+mc_a_761,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_704,high,context-invariance gap
+mc_a_762,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_704,medium,threshold=2
+mc_a_763,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_705,medium,threshold=3
+mc_a_764,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_707,high,context-invariance gap
+mc_a_765,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_707,medium,threshold=1
+mc_a_766,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_708,high,context-invariance gap
+mc_a_767,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_708,medium,threshold=1
+mc_a_768,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_709,high,context-invariance gap
+mc_a_769,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_709,medium,threshold=1
+mc_a_770,positive_shared_augmentation_threshold,n7|k4|m2|r2|b8,1,0,ctxfam_710,medium,threshold=4
+mc_a_771,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_711,medium,threshold=4
+mc_a_772,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_712,high,context-invariance gap
+mc_a_773,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_712,medium,threshold=2
+mc_a_774,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_713,medium,threshold=3
+mc_a_775,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_714,medium,threshold=3
+mc_a_776,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_715,medium,shared verdict changed after adding one context
+mc_a_777,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_716,medium,threshold=3
+mc_a_778,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_717,medium,threshold=2
+mc_a_779,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_718,medium,threshold=2
+mc_a_780,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_719,medium,threshold=3
+mc_a_781,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_720,medium,threshold=3
+mc_a_782,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_721,medium,threshold=4
+mc_a_783,positive_shared_augmentation_threshold,n5|k2|m2|r1|b4,1,0,ctxfam_722,medium,threshold=4
+mc_a_784,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_723,medium,threshold=3
+mc_a_785,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_724,medium,threshold=3
+mc_a_786,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_725,medium,threshold=4
+mc_a_787,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_726,high,context-invariance gap
+mc_a_788,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_726,medium,threshold=1
+mc_a_789,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_727,medium,threshold=3
+mc_a_790,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_730,high,context-invariance gap
+mc_a_791,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_730,medium,threshold=1
+mc_a_792,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_731,medium,threshold=2
+mc_a_793,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_732,high,context-invariance gap
+mc_a_794,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_732,medium,threshold=1
+mc_a_795,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_734,medium,threshold=4
+mc_a_796,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_735,high,context-invariance gap
+mc_a_797,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_735,medium,threshold=1
+mc_a_798,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_736,medium,threshold=3
+mc_a_799,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_737,high,context-invariance gap
+mc_a_800,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_737,medium,threshold=1
+mc_a_801,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_739,medium,threshold=1
+mc_a_802,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_740,medium,threshold=4
+mc_a_803,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_741,high,context-invariance gap
+mc_a_804,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_741,medium,threshold=2
+mc_a_805,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_743,high,context-invariance gap
+mc_a_806,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_743,medium,threshold=1
+mc_a_807,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_744,medium,threshold=2
+mc_a_808,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_745,medium,threshold=4
+mc_a_809,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_746,high,context-invariance gap
+mc_a_810,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_746,medium,threshold=1
+mc_a_811,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_747,medium,threshold=3
+mc_a_812,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_748,high,context-invariance gap
+mc_a_813,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_748,medium,threshold=2
+mc_a_814,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_749,high,context-invariance gap
+mc_a_815,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_749,medium,threshold=1
+mc_a_816,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_750,medium,threshold=2
+mc_a_817,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_751,high,context-invariance gap
+mc_a_818,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_751,medium,threshold=2
+mc_a_819,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_752,medium,threshold=4
+mc_a_820,positive_shared_augmentation_threshold,n7|k4|m2|r7|b8,1,0,ctxfam_753,medium,threshold=4
+mc_a_821,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_755,medium,threshold=3
+mc_a_822,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_757,medium,threshold=3
+mc_a_823,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_759,medium,threshold=4
+mc_a_824,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_760,medium,threshold=2
+mc_a_825,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_761,medium,threshold=3
+mc_a_826,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_762,medium,threshold=3
+mc_a_827,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_763,medium,threshold=3
+mc_a_828,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_764,medium,threshold=3
+mc_a_829,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_765,high,context-invariance gap
+mc_a_830,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_765,medium,threshold=1
+mc_a_831,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_766,medium,threshold=4
+mc_a_832,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_767,high,context-invariance gap
+mc_a_833,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_767,medium,threshold=1
+mc_a_834,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_768,high,context-invariance gap
+mc_a_835,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_768,medium,threshold=1
+mc_a_836,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_769,high,context-invariance gap
+mc_a_837,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_769,medium,threshold=1
+mc_a_838,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_770,medium,threshold=4
+mc_a_839,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_771,high,context-invariance gap
+mc_a_840,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_771,medium,threshold=1
+mc_a_841,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_772,medium,threshold=3
+mc_a_842,positive_shared_augmentation_threshold,n7|k2|m2|r4|b4,1,0,ctxfam_773,medium,threshold=3
+mc_a_843,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_774,medium,threshold=3
+mc_a_844,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_775,high,context-invariance gap
+mc_a_845,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_775,medium,threshold=1
+mc_a_846,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_777,medium,threshold=3
+mc_a_847,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_778,medium,threshold=3
+mc_a_848,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_779,medium,threshold=2
+mc_a_849,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_780,medium,threshold=4
+mc_a_850,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_781,medium,threshold=3
+mc_a_851,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_782,medium,threshold=3
+mc_a_852,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_783,medium,threshold=3
+mc_a_853,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_784,medium,threshold=3
+mc_a_854,family_enlargement_flip,n5|k4|m2|r2|b8,1,1->0,ctxfam_785,medium,shared verdict changed after adding one context
+mc_a_855,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_788,medium,threshold=3
+mc_a_856,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_789,medium,threshold=2
+mc_a_857,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_790,high,context-invariance gap
+mc_a_858,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_790,medium,threshold=1
+mc_a_859,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_791,medium,threshold=2
+mc_a_860,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_792,high,context-invariance gap
+mc_a_861,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_792,medium,threshold=2
+mc_a_862,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_793,medium,threshold=3
+mc_a_863,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_794,medium,threshold=2
+mc_a_864,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_795,high,context-invariance gap
+mc_a_865,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_795,medium,threshold=2
+mc_a_866,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_796,medium,threshold=3
+mc_a_867,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_797,high,context-invariance gap
+mc_a_868,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_797,medium,threshold=1
+mc_a_869,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_798,medium,threshold=2
+mc_a_870,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_800,medium,threshold=3
+mc_a_871,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_802,high,context-invariance gap
+mc_a_872,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_802,medium,threshold=2
+mc_a_873,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_808,medium,threshold=4
+mc_a_874,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_809,high,context-invariance gap
+mc_a_875,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_809,medium,threshold=2
+mc_a_876,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_810,medium,threshold=2
+mc_a_877,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_811,medium,threshold=3
+mc_a_878,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_813,high,context-invariance gap
+mc_a_879,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_813,medium,threshold=2
+mc_a_880,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_814,high,context-invariance gap
+mc_a_881,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_814,medium,threshold=1
+mc_a_882,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_816,medium,threshold=4
+mc_a_883,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_818,medium,threshold=4
+mc_a_884,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_819,high,context-invariance gap
+mc_a_885,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_819,medium,threshold=2
+mc_a_886,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_820,medium,threshold=2
+mc_a_887,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_821,medium,threshold=4
+mc_a_888,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_822,high,context-invariance gap
+mc_a_889,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_822,medium,threshold=1
+mc_a_890,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_824,high,context-invariance gap
+mc_a_891,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_824,medium,threshold=1
+mc_a_892,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_825,high,context-invariance gap
+mc_a_893,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_825,medium,threshold=2
+mc_a_894,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_826,medium,threshold=4
+mc_a_895,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_827,high,context-invariance gap
+mc_a_896,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_827,medium,threshold=2
+mc_a_897,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_828,medium,threshold=4
+mc_a_898,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_829,high,context-invariance gap
+mc_a_899,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_829,medium,threshold=2
+mc_a_900,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_832,high,context-invariance gap
+mc_a_901,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_832,medium,threshold=1
+mc_a_902,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_833,high,context-invariance gap
+mc_a_903,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_833,medium,threshold=1
+mc_a_904,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_834,medium,threshold=4
+mc_a_905,positive_shared_augmentation_threshold,n6|k2|m2|r1|b4,1,0,ctxfam_835,medium,threshold=3
+mc_a_906,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_836,high,context-invariance gap
+mc_a_907,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_836,medium,threshold=1
+mc_a_908,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_837,medium,threshold=4
+mc_a_909,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_838,medium,threshold=2
+mc_a_910,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_839,medium,threshold=4
+mc_a_911,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_840,high,context-invariance gap
+mc_a_912,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_840,medium,threshold=2
+mc_a_913,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_842,high,context-invariance gap
+mc_a_914,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_842,medium,threshold=1
+mc_a_915,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_844,high,context-invariance gap
+mc_a_916,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_844,medium,threshold=1
+mc_a_917,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_845,medium,threshold=4
+mc_a_918,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_846,high,context-invariance gap
+mc_a_919,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_846,medium,threshold=1
+mc_a_920,positive_shared_augmentation_threshold,n6|k3|m2|r5|b6,1,0,ctxfam_847,medium,threshold=4
+mc_a_921,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_848,medium,shared verdict changed after adding one context
+mc_a_922,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_849,medium,shared verdict changed after adding one context
+mc_a_923,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_850,medium,threshold=3
+mc_a_924,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_851,high,context-invariance gap
+mc_a_925,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_851,medium,threshold=1
+mc_a_926,conditioned_exact_invariant_fail,n4|k3|m2|r3|b6,1,0,ctxfam_853,high,context-invariance gap
+mc_a_927,positive_shared_augmentation_threshold,n4|k3|m2|r3|b6,1,0,ctxfam_853,medium,threshold=2
+mc_a_928,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_856,high,context-invariance gap
+mc_a_929,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_856,medium,threshold=1
+mc_a_930,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_857,high,context-invariance gap
+mc_a_931,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_857,medium,threshold=2
+mc_a_932,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_858,medium,threshold=4
+mc_a_933,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_859,medium,threshold=1
+mc_a_934,positive_shared_augmentation_threshold,n7|k2|m2|r4|b4,1,0,ctxfam_860,medium,threshold=3
+mc_a_935,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_861,high,context-invariance gap
+mc_a_936,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_861,medium,threshold=1
+mc_a_937,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_862,medium,threshold=4
+mc_a_938,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_863,medium,threshold=4
+mc_a_939,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_865,high,context-invariance gap
+mc_a_940,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_865,medium,threshold=2
+mc_a_941,positive_shared_augmentation_threshold,n7|k3|m2|r2|b6,1,0,ctxfam_866,medium,threshold=4
+mc_a_942,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_867,medium,threshold=3
+mc_a_943,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_868,high,context-invariance gap
+mc_a_944,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_868,medium,threshold=1
+mc_a_945,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_869,medium,threshold=3
+mc_a_946,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_870,medium,shared verdict changed after adding one context
+mc_a_947,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_873,high,context-invariance gap
+mc_a_948,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_873,medium,threshold=2
+mc_a_949,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_874,medium,threshold=4
+mc_a_950,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_875,high,context-invariance gap
+mc_a_951,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_875,medium,threshold=2
+mc_a_952,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_876,medium,threshold=3
+mc_a_953,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_878,high,context-invariance gap
+mc_a_954,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_878,medium,threshold=1
+mc_a_955,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_879,medium,threshold=3
+mc_a_956,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_880,medium,threshold=4
+mc_a_957,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_882,medium,shared verdict changed after adding one context
+mc_a_958,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_883,high,context-invariance gap
+mc_a_959,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_883,medium,threshold=1
+mc_a_960,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_884,medium,threshold=3
+mc_a_961,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_885,medium,threshold=3
+mc_a_962,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_886,medium,shared verdict changed after adding one context
+mc_a_963,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_887,high,context-invariance gap
+mc_a_964,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_887,medium,threshold=1
+mc_a_965,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_888,high,context-invariance gap
+mc_a_966,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_888,medium,threshold=2
+mc_a_967,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_889,medium,threshold=2
+mc_a_968,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_890,high,context-invariance gap
+mc_a_969,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_890,medium,threshold=1
+mc_a_970,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_891,medium,threshold=3
+mc_a_971,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_892,medium,shared verdict changed after adding one context
+mc_a_972,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_893,medium,threshold=4
+mc_a_973,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_894,medium,threshold=2
+mc_a_974,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_896,high,context-invariance gap
+mc_a_975,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_896,medium,threshold=2
+mc_a_976,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_898,medium,threshold=4
+mc_a_977,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_899,medium,threshold=3
+mc_a_978,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_900,high,context-invariance gap
+mc_a_979,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_900,medium,threshold=2
+mc_a_980,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_901,high,context-invariance gap
+mc_a_981,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_901,medium,threshold=1
+mc_a_982,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_902,medium,threshold=4
+mc_a_983,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_903,medium,threshold=2
+mc_a_984,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_904,medium,threshold=4
+mc_a_985,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_905,high,context-invariance gap
+mc_a_986,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_905,medium,threshold=2
+mc_a_987,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_906,high,context-invariance gap
+mc_a_988,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_906,medium,threshold=1
+mc_a_989,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_907,high,context-invariance gap
+mc_a_990,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_907,medium,threshold=1
+mc_a_991,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_908,medium,threshold=3
+mc_a_992,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_909,medium,threshold=3
+mc_a_993,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_911,medium,threshold=3
+mc_a_994,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_913,medium,threshold=4
+mc_a_995,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_915,medium,threshold=3
+mc_a_996,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_917,high,context-invariance gap
+mc_a_997,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_917,medium,threshold=1
+mc_a_998,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_918,high,context-invariance gap
+mc_a_999,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_918,medium,threshold=1
+mc_a_1000,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_919,medium,threshold=3
+mc_a_1001,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_920,high,context-invariance gap
+mc_a_1002,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_920,medium,threshold=1
+mc_a_1003,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_921,high,context-invariance gap
+mc_a_1004,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_921,medium,threshold=2
+mc_a_1005,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_922,medium,threshold=3
+mc_a_1006,family_enlargement_flip,n4|k3|m2|r2|b6,1,1->0,ctxfam_923,medium,shared verdict changed after adding one context
+mc_a_1007,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_925,high,context-invariance gap
+mc_a_1008,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_925,medium,threshold=1
+mc_a_1009,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_926,medium,threshold=3
+mc_a_1010,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_927,high,context-invariance gap
+mc_a_1011,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_927,medium,threshold=1
+mc_a_1012,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_929,medium,threshold=4
+mc_a_1013,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_930,high,context-invariance gap
+mc_a_1014,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_930,medium,threshold=2
+mc_a_1015,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_931,medium,shared verdict changed after adding one context
+mc_a_1016,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_932,medium,threshold=3
+mc_a_1017,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_933,medium,threshold=3
+mc_a_1018,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_934,high,context-invariance gap
+mc_a_1019,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_934,medium,threshold=1
+mc_a_1020,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_935,high,context-invariance gap
+mc_a_1021,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_935,medium,threshold=1
+mc_a_1022,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_936,medium,threshold=4
+mc_a_1023,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_937,high,context-invariance gap
+mc_a_1024,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_937,medium,threshold=1
+mc_a_1025,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_938,medium,threshold=3
+mc_a_1026,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_940,medium,threshold=3
+mc_a_1027,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_942,medium,threshold=3
+mc_a_1028,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_944,medium,threshold=3
+mc_a_1029,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_945,high,context-invariance gap
+mc_a_1030,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_945,medium,threshold=2
+mc_a_1031,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_946,medium,threshold=4
+mc_a_1032,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_947,medium,threshold=3
+mc_a_1033,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_948,medium,shared verdict changed after adding one context
+mc_a_1034,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_951,high,context-invariance gap
+mc_a_1035,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_951,medium,threshold=2
+mc_a_1036,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_952,medium,threshold=3
+mc_a_1037,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_953,high,context-invariance gap
+mc_a_1038,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_953,medium,threshold=1
+mc_a_1039,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_954,high,context-invariance gap
+mc_a_1040,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_954,medium,threshold=1
+mc_a_1041,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_955,medium,threshold=2
+mc_a_1042,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_956,medium,threshold=4
+mc_a_1043,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_957,medium,threshold=2
+mc_a_1044,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_958,medium,threshold=2
+mc_a_1045,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_961,medium,threshold=2
+mc_a_1046,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_962,medium,threshold=2
+mc_a_1047,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_963,medium,threshold=3
+mc_a_1048,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_964,medium,threshold=3
+mc_a_1049,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_966,high,context-invariance gap
+mc_a_1050,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_966,medium,threshold=1
+mc_a_1051,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_967,medium,threshold=3
+mc_a_1052,conditioned_exact_invariant_fail,n4|k3|m2|r3|b6,1,0,ctxfam_968,high,context-invariance gap
+mc_a_1053,positive_shared_augmentation_threshold,n4|k3|m2|r3|b6,1,0,ctxfam_968,medium,threshold=1
+mc_a_1054,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_969,high,context-invariance gap
+mc_a_1055,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_969,medium,threshold=2
+mc_a_1056,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_970,high,context-invariance gap
+mc_a_1057,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_970,medium,threshold=2
+mc_a_1058,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_974,medium,threshold=3
+mc_a_1059,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_975,medium,threshold=4
+mc_a_1060,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_976,medium,threshold=2
+mc_a_1061,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_977,medium,threshold=4
+mc_a_1062,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_979,medium,threshold=4
+mc_a_1063,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_980,high,context-invariance gap
+mc_a_1064,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_980,medium,threshold=1
+mc_a_1065,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_982,high,context-invariance gap
+mc_a_1066,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_982,medium,threshold=2
+mc_a_1067,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_984,high,context-invariance gap
+mc_a_1068,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_984,medium,threshold=1
+mc_a_1069,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_985,medium,threshold=3
+mc_a_1070,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_987,high,context-invariance gap
+mc_a_1071,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_987,medium,threshold=2
+mc_a_1072,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_988,high,context-invariance gap
+mc_a_1073,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_988,medium,threshold=2
+mc_a_1074,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_989,medium,threshold=4
+mc_a_1075,family_enlargement_flip,n5|k3|m2|r2|b6,1,1->0,ctxfam_990,medium,shared verdict changed after adding one context
+mc_a_1076,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_991,high,context-invariance gap
+mc_a_1077,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_991,medium,threshold=2
+mc_a_1078,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_993,high,context-invariance gap
+mc_a_1079,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_993,medium,threshold=1
+mc_a_1080,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_994,medium,threshold=4
+mc_a_1081,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_995,medium,threshold=2
+mc_a_1082,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_997,high,context-invariance gap
+mc_a_1083,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_997,medium,threshold=2
+mc_a_1084,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_999,medium,threshold=2
+mc_a_1085,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1000,medium,threshold=3
+mc_a_1086,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1002,high,context-invariance gap
+mc_a_1087,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1002,medium,threshold=1
+mc_a_1088,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1004,medium,threshold=4
+mc_a_1089,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1006,high,context-invariance gap
+mc_a_1090,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1006,medium,threshold=1
+mc_a_1091,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_1007,medium,shared verdict changed after adding one context
+mc_a_1092,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1008,high,context-invariance gap
+mc_a_1093,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1008,medium,threshold=1
+mc_a_1094,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1009,medium,threshold=1
+mc_a_1095,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_1010,medium,threshold=2
+mc_a_1096,positive_shared_augmentation_threshold,n7|k3|m2|r2|b6,1,0,ctxfam_1011,medium,threshold=2
+mc_a_1097,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1012,high,context-invariance gap
+mc_a_1098,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1012,medium,threshold=2
+mc_a_1099,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1013,medium,threshold=4
+mc_a_1100,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1015,medium,threshold=3
+mc_a_1101,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1016,medium,threshold=4
+mc_a_1102,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_1017,medium,threshold=2
+mc_a_1103,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1018,medium,threshold=3
+mc_a_1104,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1019,medium,threshold=4
+mc_a_1105,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1020,high,context-invariance gap
+mc_a_1106,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1020,medium,threshold=1
+mc_a_1107,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1021,high,context-invariance gap
+mc_a_1108,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1021,medium,threshold=1
+mc_a_1109,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1023,medium,threshold=3
+mc_a_1110,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1024,medium,threshold=4
+mc_a_1111,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1025,medium,threshold=3
+mc_a_1112,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1026,medium,threshold=2
+mc_a_1113,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1029,high,context-invariance gap
+mc_a_1114,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1029,medium,threshold=1
+mc_a_1115,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1030,medium,threshold=4
+mc_a_1116,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1031,medium,threshold=3
+mc_a_1117,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1032,high,context-invariance gap
+mc_a_1118,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1032,medium,threshold=1
+mc_a_1119,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1035,medium,threshold=4
+mc_a_1120,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1036,high,context-invariance gap
+mc_a_1121,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1036,medium,threshold=1
+mc_a_1122,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1037,high,context-invariance gap
+mc_a_1123,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1037,medium,threshold=2
+mc_a_1124,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1038,medium,threshold=3
+mc_a_1125,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1040,medium,threshold=2
+mc_a_1126,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1042,medium,threshold=4
+mc_a_1127,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1043,medium,threshold=3
+mc_a_1128,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1044,medium,threshold=4
+mc_a_1129,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1045,high,context-invariance gap
+mc_a_1130,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1045,medium,threshold=2
+mc_a_1131,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1046,medium,threshold=4
+mc_a_1132,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1047,high,context-invariance gap
+mc_a_1133,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1047,medium,threshold=2
+mc_a_1134,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1049,medium,threshold=2
+mc_a_1135,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1050,medium,threshold=2
+mc_a_1136,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1051,high,context-invariance gap
+mc_a_1137,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1051,medium,threshold=1
+mc_a_1138,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1052,high,context-invariance gap
+mc_a_1139,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1052,medium,threshold=1
+mc_a_1140,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1053,high,context-invariance gap
+mc_a_1141,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1053,medium,threshold=1
+mc_a_1142,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1054,medium,threshold=3
+mc_a_1143,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1056,medium,threshold=4
+mc_a_1144,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1058,high,context-invariance gap
+mc_a_1145,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1058,medium,threshold=1
+mc_a_1146,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1060,medium,threshold=3
+mc_a_1147,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1061,medium,threshold=3
+mc_a_1148,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1062,medium,threshold=2
+mc_a_1149,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1063,medium,threshold=3
+mc_a_1150,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1064,high,context-invariance gap
+mc_a_1151,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1064,medium,threshold=1
+mc_a_1152,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1065,medium,threshold=2
+mc_a_1153,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_1066,medium,threshold=2
+mc_a_1154,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1067,high,context-invariance gap
+mc_a_1155,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1067,medium,threshold=1
+mc_a_1156,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1069,medium,threshold=4
+mc_a_1157,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1070,high,context-invariance gap
+mc_a_1158,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1070,medium,threshold=1
+mc_a_1159,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1071,medium,threshold=4
+mc_a_1160,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1073,medium,threshold=4
+mc_a_1161,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1074,medium,threshold=1
+mc_a_1162,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1076,medium,threshold=4
+mc_a_1163,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1078,high,context-invariance gap
+mc_a_1164,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1078,medium,threshold=1
+mc_a_1165,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1079,high,context-invariance gap
+mc_a_1166,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1079,medium,threshold=1
+mc_a_1167,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1082,medium,threshold=3
+mc_a_1168,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_1084,medium,threshold=2
+mc_a_1169,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1087,medium,threshold=2
+mc_a_1170,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1088,medium,threshold=2
+mc_a_1171,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1089,medium,threshold=4
+mc_a_1172,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1090,high,context-invariance gap
+mc_a_1173,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1090,medium,threshold=1
+mc_a_1174,family_enlargement_flip,n7|k5|m2|r2|b10,1,1->0,ctxfam_1092,medium,shared verdict changed after adding one context
+mc_a_1175,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1093,high,context-invariance gap
+mc_a_1176,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1093,medium,threshold=1
+mc_a_1177,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1094,high,context-invariance gap
+mc_a_1178,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1094,medium,threshold=2
+mc_a_1179,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1095,high,context-invariance gap
+mc_a_1180,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1095,medium,threshold=2
+mc_a_1181,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1097,high,context-invariance gap
+mc_a_1182,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1097,medium,threshold=2
+mc_a_1183,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1099,medium,threshold=3
+mc_a_1184,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1100,high,context-invariance gap
+mc_a_1185,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1100,medium,threshold=1
+mc_a_1186,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1102,high,context-invariance gap
+mc_a_1187,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1102,medium,threshold=1
+mc_a_1188,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1103,medium,threshold=4
+mc_a_1189,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1104,high,context-invariance gap
+mc_a_1190,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1104,medium,threshold=2
+mc_a_1191,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1105,high,context-invariance gap
+mc_a_1192,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1105,medium,threshold=1
+mc_a_1193,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1106,medium,threshold=4
+mc_a_1194,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_1107,medium,shared verdict changed after adding one context
+mc_a_1195,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_1108,medium,threshold=3
+mc_a_1196,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1110,high,context-invariance gap
+mc_a_1197,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1110,medium,threshold=1
+mc_a_1198,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1112,high,context-invariance gap
+mc_a_1199,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1112,medium,threshold=1
+mc_a_1200,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1114,high,context-invariance gap
+mc_a_1201,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1114,medium,threshold=2
+mc_a_1202,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1115,high,context-invariance gap
+mc_a_1203,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1115,medium,threshold=1
+mc_a_1204,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1116,medium,threshold=4
+mc_a_1205,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1117,high,context-invariance gap
+mc_a_1206,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1117,medium,threshold=2
+mc_a_1207,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1119,medium,threshold=1
+mc_a_1208,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1120,high,context-invariance gap
+mc_a_1209,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1120,medium,threshold=2
+mc_a_1210,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1122,high,context-invariance gap
+mc_a_1211,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1122,medium,threshold=2
+mc_a_1212,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1123,medium,threshold=4
+mc_a_1213,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1124,high,context-invariance gap
+mc_a_1214,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1124,medium,threshold=2
+mc_a_1215,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1126,medium,threshold=4
+mc_a_1216,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1127,high,context-invariance gap
+mc_a_1217,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1127,medium,threshold=1
+mc_a_1218,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1128,medium,threshold=3
+mc_a_1219,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1129,high,context-invariance gap
+mc_a_1220,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1129,medium,threshold=1
+mc_a_1221,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1131,medium,threshold=2
+mc_a_1222,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1132,high,context-invariance gap
+mc_a_1223,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1132,medium,threshold=1
+mc_a_1224,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1133,high,context-invariance gap
+mc_a_1225,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1133,medium,threshold=2
+mc_a_1226,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1134,medium,threshold=2
+mc_a_1227,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1135,high,context-invariance gap
+mc_a_1228,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1135,medium,threshold=1
+mc_a_1229,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_1136,medium,threshold=4
+mc_a_1230,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1138,medium,threshold=3
+mc_a_1231,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1142,medium,threshold=2
+mc_a_1232,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1143,medium,threshold=3
+mc_a_1233,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1144,high,context-invariance gap
+mc_a_1234,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1144,medium,threshold=1
+mc_a_1235,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1145,high,context-invariance gap
+mc_a_1236,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1145,medium,threshold=2
+mc_a_1237,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1146,high,context-invariance gap
+mc_a_1238,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1146,medium,threshold=1
+mc_a_1239,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_1147,medium,threshold=4
+mc_a_1240,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1149,high,context-invariance gap
+mc_a_1241,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1149,medium,threshold=1
+mc_a_1242,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1150,medium,threshold=3
+mc_a_1243,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1151,high,context-invariance gap
+mc_a_1244,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1151,medium,threshold=1
+mc_a_1245,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1152,high,context-invariance gap
+mc_a_1246,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1152,medium,threshold=1
+mc_a_1247,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1153,medium,threshold=3
+mc_a_1248,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1154,medium,threshold=4
+mc_a_1249,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1155,medium,threshold=3
+mc_a_1250,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1157,medium,threshold=2
+mc_a_1251,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1159,medium,threshold=4
+mc_a_1252,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_1160,medium,threshold=2
+mc_a_1253,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1162,medium,threshold=3
+mc_a_1254,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1164,medium,threshold=3
+mc_a_1255,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1165,high,context-invariance gap
+mc_a_1256,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1165,medium,threshold=1
+mc_a_1257,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1167,medium,threshold=2
+mc_a_1258,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1170,medium,threshold=3
+mc_a_1259,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_1171,medium,shared verdict changed after adding one context
+mc_a_1260,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1172,medium,threshold=3
+mc_a_1261,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1173,high,context-invariance gap
+mc_a_1262,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1173,medium,threshold=2
+mc_a_1263,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1174,medium,threshold=3
+mc_a_1264,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_1175,medium,threshold=4
+mc_a_1265,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1176,medium,threshold=4
+mc_a_1266,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1177,medium,threshold=3
+mc_a_1267,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_1178,medium,threshold=4
+mc_a_1268,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1180,medium,threshold=2
+mc_a_1269,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1181,medium,threshold=2
+mc_a_1270,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1182,high,context-invariance gap
+mc_a_1271,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1182,medium,threshold=1
+mc_a_1272,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1183,medium,threshold=3
+mc_a_1273,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1184,high,context-invariance gap
+mc_a_1274,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1184,medium,threshold=1
+mc_a_1275,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1185,medium,threshold=2
+mc_a_1276,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1186,high,context-invariance gap
+mc_a_1277,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1186,medium,threshold=1
+mc_a_1278,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1188,medium,threshold=3
+mc_a_1279,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1190,medium,threshold=2
+mc_a_1280,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1192,medium,threshold=3
+mc_a_1281,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_1193,medium,threshold=3
+mc_a_1282,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_1194,medium,threshold=4
+mc_a_1283,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1195,high,context-invariance gap
+mc_a_1284,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1195,medium,threshold=1
+mc_a_1285,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1196,high,context-invariance gap
+mc_a_1286,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1196,medium,threshold=1
+mc_a_1287,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1197,high,context-invariance gap
+mc_a_1288,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1197,medium,threshold=1
+mc_a_1289,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1198,medium,threshold=4
+mc_a_1290,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1199,medium,threshold=2
+mc_a_1291,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1200,high,context-invariance gap
+mc_a_1292,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1200,medium,threshold=1
+mc_a_1293,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1201,medium,threshold=2
+mc_a_1294,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1202,high,context-invariance gap
+mc_a_1295,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1202,medium,threshold=1
+mc_a_1296,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1203,medium,threshold=3
+mc_a_1297,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1204,high,context-invariance gap
+mc_a_1298,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1204,medium,threshold=2
+mc_a_1299,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1205,high,context-invariance gap
+mc_a_1300,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1205,medium,threshold=1
+mc_a_1301,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1206,medium,threshold=3
+mc_a_1302,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1207,medium,threshold=2
+mc_a_1303,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1208,high,context-invariance gap
+mc_a_1304,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1208,medium,threshold=2
+mc_a_1305,family_enlargement_flip,n5|k2|m2|r2|b4,1,1->0,ctxfam_1209,medium,shared verdict changed after adding one context
+mc_a_1306,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1210,medium,threshold=4
+mc_a_1307,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1211,high,context-invariance gap
+mc_a_1308,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1211,medium,threshold=1
+mc_a_1309,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1212,medium,threshold=2
+mc_a_1310,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1213,high,context-invariance gap
+mc_a_1311,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1213,medium,threshold=1
+mc_a_1312,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1214,high,context-invariance gap
+mc_a_1313,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1214,medium,threshold=1
+mc_a_1314,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1215,medium,threshold=2
+mc_a_1315,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1216,high,context-invariance gap
+mc_a_1316,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1216,medium,threshold=1
+mc_a_1317,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1218,medium,threshold=3
+mc_a_1318,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1220,high,context-invariance gap
+mc_a_1319,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1220,medium,threshold=2
+mc_a_1320,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1221,medium,threshold=4
+mc_a_1321,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1222,high,context-invariance gap
+mc_a_1322,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1222,medium,threshold=1
+mc_a_1323,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1223,high,context-invariance gap
+mc_a_1324,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1223,medium,threshold=1
+mc_a_1325,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1224,high,context-invariance gap
+mc_a_1326,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1224,medium,threshold=1
+mc_a_1327,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1227,high,context-invariance gap
+mc_a_1328,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1227,medium,threshold=1
+mc_a_1329,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1228,high,context-invariance gap
+mc_a_1330,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1228,medium,threshold=2
+mc_a_1331,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1229,high,context-invariance gap
+mc_a_1332,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1229,medium,threshold=1
+mc_a_1333,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1230,high,context-invariance gap
+mc_a_1334,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1230,medium,threshold=2
+mc_a_1335,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1231,medium,threshold=3
+mc_a_1336,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1232,high,context-invariance gap
+mc_a_1337,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1232,medium,threshold=1
+mc_a_1338,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1233,medium,threshold=4
+mc_a_1339,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1234,medium,threshold=3
+mc_a_1340,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1235,high,context-invariance gap
+mc_a_1341,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1235,medium,threshold=1
+mc_a_1342,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1237,high,context-invariance gap
+mc_a_1343,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1237,medium,threshold=2
+mc_a_1344,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1238,medium,threshold=3
+mc_a_1345,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1239,high,context-invariance gap
+mc_a_1346,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1239,medium,threshold=1
+mc_a_1347,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1240,medium,threshold=3
+mc_a_1348,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1241,medium,threshold=3
+mc_a_1349,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1243,medium,threshold=2
+mc_a_1350,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_1244,medium,threshold=3
+mc_a_1351,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1245,medium,threshold=3
+mc_a_1352,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_1246,medium,threshold=4
+mc_a_1353,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1247,medium,threshold=2
+mc_a_1354,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1248,medium,threshold=3
+mc_a_1355,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_1249,medium,threshold=3
+mc_a_1356,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1250,high,context-invariance gap
+mc_a_1357,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1250,medium,threshold=1
+mc_a_1358,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1251,high,context-invariance gap
+mc_a_1359,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1251,medium,threshold=2
+mc_a_1360,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1253,high,context-invariance gap
+mc_a_1361,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1253,medium,threshold=1
+mc_a_1362,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1256,medium,threshold=2
+mc_a_1363,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1257,medium,threshold=3
+mc_a_1364,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1258,medium,threshold=4
+mc_a_1365,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1259,medium,threshold=3
+mc_a_1366,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1261,medium,threshold=2
+mc_a_1367,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1262,high,context-invariance gap
+mc_a_1368,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1262,medium,threshold=1
+mc_a_1369,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1263,high,context-invariance gap
+mc_a_1370,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1263,medium,threshold=1
+mc_a_1371,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1264,high,context-invariance gap
+mc_a_1372,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1264,medium,threshold=1
+mc_a_1373,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1266,high,context-invariance gap
+mc_a_1374,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1266,medium,threshold=1
+mc_a_1375,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1269,medium,threshold=2
+mc_a_1376,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1270,medium,threshold=3
+mc_a_1377,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1273,high,context-invariance gap
+mc_a_1378,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1273,medium,threshold=1
+mc_a_1379,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1274,high,context-invariance gap
+mc_a_1380,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1274,medium,threshold=1
+mc_a_1381,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1275,high,context-invariance gap
+mc_a_1382,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1275,medium,threshold=1
+mc_a_1383,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1276,medium,threshold=3
+mc_a_1384,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1277,high,context-invariance gap
+mc_a_1385,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1277,medium,threshold=1
+mc_a_1386,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1278,high,context-invariance gap
+mc_a_1387,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1278,medium,threshold=1
+mc_a_1388,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1279,medium,threshold=3
+mc_a_1389,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1280,medium,threshold=2
+mc_a_1390,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1282,medium,threshold=4
+mc_a_1391,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1283,medium,threshold=3
+mc_a_1392,positive_shared_augmentation_threshold,n7|k3|m2|r6|b6,1,0,ctxfam_1285,medium,threshold=4
+mc_a_1393,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1286,high,context-invariance gap
+mc_a_1394,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1286,medium,threshold=1
+mc_a_1395,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_1287,medium,shared verdict changed after adding one context
+mc_a_1396,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1288,high,context-invariance gap
+mc_a_1397,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1288,medium,threshold=2
+mc_a_1398,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1289,high,context-invariance gap
+mc_a_1399,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1289,medium,threshold=1
+mc_a_1400,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1290,high,context-invariance gap
+mc_a_1401,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1290,medium,threshold=2
+mc_a_1402,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1292,medium,threshold=2
+mc_a_1403,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1293,high,context-invariance gap
+mc_a_1404,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1293,medium,threshold=2
+mc_a_1405,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1294,medium,threshold=4
+mc_a_1406,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1295,medium,threshold=4
+mc_a_1407,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1296,medium,threshold=3
+mc_a_1408,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1297,medium,threshold=2
+mc_a_1409,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1298,high,context-invariance gap
+mc_a_1410,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1298,medium,threshold=1
+mc_a_1411,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1300,high,context-invariance gap
+mc_a_1412,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1300,medium,threshold=1
+mc_a_1413,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1301,medium,threshold=4
+mc_a_1414,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1302,medium,threshold=3
+mc_a_1415,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1303,medium,threshold=3
+mc_a_1416,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1304,medium,threshold=4
+mc_a_1417,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1305,medium,threshold=4
+mc_a_1418,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1308,medium,threshold=3
+mc_a_1419,family_enlargement_flip,n6|k3|m2|r4|b6,1,1->0,ctxfam_1309,medium,shared verdict changed after adding one context
+mc_a_1420,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1310,medium,threshold=3
+mc_a_1421,family_enlargement_flip,n5|k2|m2|r2|b4,1,1->0,ctxfam_1311,medium,shared verdict changed after adding one context
+mc_a_1422,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1312,medium,threshold=3
+mc_a_1423,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_1314,medium,threshold=3
+mc_a_1424,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1315,medium,threshold=3
+mc_a_1425,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1316,medium,threshold=4
+mc_a_1426,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1317,medium,threshold=4
+mc_a_1427,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1319,medium,threshold=3
+mc_a_1428,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1322,medium,threshold=4
+mc_a_1429,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1323,medium,threshold=4
+mc_a_1430,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1324,medium,threshold=3
+mc_a_1431,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1325,medium,threshold=4
+mc_a_1432,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1326,high,context-invariance gap
+mc_a_1433,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1326,medium,threshold=2
+mc_a_1434,positive_shared_augmentation_threshold,n7|k3|m2|r1|b6,1,0,ctxfam_1327,medium,threshold=4
+mc_a_1435,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1328,medium,threshold=2
+mc_a_1436,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1329,high,context-invariance gap
+mc_a_1437,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1329,medium,threshold=2
+mc_a_1438,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1330,high,context-invariance gap
+mc_a_1439,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1330,medium,threshold=1
+mc_a_1440,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1333,high,context-invariance gap
+mc_a_1441,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1333,medium,threshold=1
+mc_a_1442,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1334,high,context-invariance gap
+mc_a_1443,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1334,medium,threshold=1
+mc_a_1444,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1335,medium,threshold=4
+mc_a_1445,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1340,medium,threshold=2
+mc_a_1446,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1341,medium,threshold=3
+mc_a_1447,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1343,medium,threshold=3
+mc_a_1448,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1344,high,context-invariance gap
+mc_a_1449,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1344,medium,threshold=1
+mc_a_1450,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1345,high,context-invariance gap
+mc_a_1451,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1345,medium,threshold=2
+mc_a_1452,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1347,high,context-invariance gap
+mc_a_1453,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1347,medium,threshold=1
+mc_a_1454,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1348,high,context-invariance gap
+mc_a_1455,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1348,medium,threshold=1
+mc_a_1456,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1349,high,context-invariance gap
+mc_a_1457,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1349,medium,threshold=1
+mc_a_1458,family_enlargement_flip,n5|k5|m2|r2|b10,1,1->0,ctxfam_1350,medium,shared verdict changed after adding one context
+mc_a_1459,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1351,medium,threshold=4
+mc_a_1460,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1353,medium,threshold=3
+mc_a_1461,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1354,medium,threshold=4
+mc_a_1462,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1355,medium,threshold=4
+mc_a_1463,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1356,medium,threshold=3
+mc_a_1464,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1357,high,context-invariance gap
+mc_a_1465,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1357,medium,threshold=2
+mc_a_1466,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1358,medium,threshold=4
+mc_a_1467,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1359,high,context-invariance gap
+mc_a_1468,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1359,medium,threshold=1
+mc_a_1469,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1361,medium,threshold=2
+mc_a_1470,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1362,high,context-invariance gap
+mc_a_1471,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1362,medium,threshold=2
+mc_a_1472,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1363,medium,threshold=3
+mc_a_1473,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1364,medium,threshold=4
+mc_a_1474,family_enlargement_flip,n5|k2|m2|r3|b4,1,1->0,ctxfam_1366,medium,shared verdict changed after adding one context
+mc_a_1475,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1369,high,context-invariance gap
+mc_a_1476,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1369,medium,threshold=1
+mc_a_1477,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1370,medium,threshold=1
+mc_a_1478,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1372,high,context-invariance gap
+mc_a_1479,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1372,medium,threshold=1
+mc_a_1480,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1373,high,context-invariance gap
+mc_a_1481,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1373,medium,threshold=1
+mc_a_1482,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1374,medium,threshold=4
+mc_a_1483,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1376,medium,threshold=4
+mc_a_1484,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1377,high,context-invariance gap
+mc_a_1485,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1377,medium,threshold=1
+mc_a_1486,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1378,medium,threshold=3
+mc_a_1487,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1380,medium,threshold=2
+mc_a_1488,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1381,medium,threshold=2
+mc_a_1489,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1382,medium,threshold=4
+mc_a_1490,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1384,high,context-invariance gap
+mc_a_1491,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1384,medium,threshold=1
+mc_a_1492,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1386,medium,threshold=3
+mc_a_1493,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1387,medium,threshold=1
+mc_a_1494,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1388,medium,threshold=3
+mc_a_1495,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1389,medium,threshold=3
+mc_a_1496,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1390,medium,threshold=3
+mc_a_1497,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1392,high,context-invariance gap
+mc_a_1498,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1392,medium,threshold=2
+mc_a_1499,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1393,high,context-invariance gap
+mc_a_1500,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1393,medium,threshold=2
+mc_a_1501,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1395,high,context-invariance gap
+mc_a_1502,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1395,medium,threshold=1
+mc_a_1503,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_1396,medium,shared verdict changed after adding one context
+mc_a_1504,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1397,medium,threshold=2
+mc_a_1505,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1398,medium,threshold=4
+mc_a_1506,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1399,medium,threshold=2
+mc_a_1507,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1400,medium,threshold=4
+mc_a_1508,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1403,medium,threshold=2
+mc_a_1509,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1404,high,context-invariance gap
+mc_a_1510,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1404,medium,threshold=1
+mc_a_1511,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_1405,medium,threshold=4
+mc_a_1512,positive_shared_augmentation_threshold,n7|k3|m2|r6|b6,1,0,ctxfam_1406,medium,threshold=4
+mc_a_1513,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1407,medium,threshold=3
+mc_a_1514,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_1410,medium,shared verdict changed after adding one context
+mc_a_1515,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1411,medium,threshold=2
+mc_a_1516,family_enlargement_flip,n7|k4|m2|r2|b8,1,1->0,ctxfam_1412,medium,shared verdict changed after adding one context
+mc_a_1517,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1413,medium,threshold=3
+mc_a_1518,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1414,high,context-invariance gap
+mc_a_1519,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1414,medium,threshold=1
+mc_a_1520,family_enlargement_flip,n6|k5|m2|r2|b10,1,1->0,ctxfam_1415,medium,shared verdict changed after adding one context
+mc_a_1521,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_1416,medium,shared verdict changed after adding one context
+mc_a_1522,family_enlargement_flip,n7|k3|m2|r4|b6,1,1->0,ctxfam_1417,medium,shared verdict changed after adding one context
+mc_a_1523,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1419,high,context-invariance gap
+mc_a_1524,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1419,medium,threshold=1
+mc_a_1525,positive_shared_augmentation_threshold,n7|k2|m2|r2|b4,1,0,ctxfam_1420,medium,threshold=4
+mc_a_1526,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1421,high,context-invariance gap
+mc_a_1527,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1421,medium,threshold=1
+mc_a_1528,family_enlargement_flip,n6|k2|m2|r2|b4,1,1->0,ctxfam_1422,medium,shared verdict changed after adding one context
+mc_a_1529,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1423,medium,threshold=4
+mc_a_1530,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1424,high,context-invariance gap
+mc_a_1531,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1424,medium,threshold=2
+mc_a_1532,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1425,high,context-invariance gap
+mc_a_1533,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1425,medium,threshold=1
+mc_a_1534,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1428,high,context-invariance gap
+mc_a_1535,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1428,medium,threshold=1
+mc_a_1536,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1429,medium,threshold=3
+mc_a_1537,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1430,high,context-invariance gap
+mc_a_1538,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1430,medium,threshold=2
+mc_a_1539,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1434,medium,threshold=3
+mc_a_1540,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1435,medium,threshold=4
+mc_a_1541,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1436,medium,threshold=3
+mc_a_1542,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1437,medium,threshold=4
+mc_a_1543,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1439,medium,threshold=3
+mc_a_1544,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1440,medium,threshold=3
+mc_a_1545,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1441,medium,threshold=3
+mc_a_1546,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1442,high,context-invariance gap
+mc_a_1547,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1442,medium,threshold=1
+mc_a_1548,positive_shared_augmentation_threshold,n4|k3|m2|r1|b6,1,0,ctxfam_1443,medium,threshold=3
+mc_a_1549,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1444,medium,threshold=4
+mc_a_1550,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1445,medium,threshold=4
+mc_a_1551,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1447,medium,threshold=2
+mc_a_1552,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1448,medium,threshold=3
+mc_a_1553,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1449,high,context-invariance gap
+mc_a_1554,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1449,medium,threshold=1
+mc_a_1555,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1451,medium,threshold=3
+mc_a_1556,family_enlargement_flip,n4|k2|m2|r3|b4,1,1->0,ctxfam_1452,medium,shared verdict changed after adding one context
+mc_a_1557,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1453,medium,threshold=4
+mc_a_1558,positive_shared_augmentation_threshold,n4|k5|m2|r1|b10,1,0,ctxfam_1454,medium,threshold=3
+mc_a_1559,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1455,medium,threshold=2
+mc_a_1560,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1456,medium,threshold=2
+mc_a_1561,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1457,high,context-invariance gap
+mc_a_1562,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1457,medium,threshold=1
+mc_a_1563,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1458,high,context-invariance gap
+mc_a_1564,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1458,medium,threshold=1
+mc_a_1565,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1459,high,context-invariance gap
+mc_a_1566,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1459,medium,threshold=2
+mc_a_1567,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1460,high,context-invariance gap
+mc_a_1568,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1460,medium,threshold=1
+mc_a_1569,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1463,medium,threshold=4
+mc_a_1570,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1465,medium,threshold=3
+mc_a_1571,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1466,high,context-invariance gap
+mc_a_1572,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1466,medium,threshold=1
+mc_a_1573,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1467,medium,threshold=4
+mc_a_1574,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1469,high,context-invariance gap
+mc_a_1575,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1469,medium,threshold=1
+mc_a_1576,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1470,high,context-invariance gap
+mc_a_1577,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1470,medium,threshold=1
+mc_a_1578,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1471,medium,threshold=4
+mc_a_1579,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1472,medium,threshold=3
+mc_a_1580,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1473,medium,threshold=4
+mc_a_1581,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1475,high,context-invariance gap
+mc_a_1582,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1475,medium,threshold=2
+mc_a_1583,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1477,medium,threshold=3
+mc_a_1584,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1478,high,context-invariance gap
+mc_a_1585,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1478,medium,threshold=1
+mc_a_1586,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1479,high,context-invariance gap
+mc_a_1587,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1479,medium,threshold=1
+mc_a_1588,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1480,high,context-invariance gap
+mc_a_1589,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1480,medium,threshold=1
+mc_a_1590,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1481,high,context-invariance gap
+mc_a_1591,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1481,medium,threshold=2
+mc_a_1592,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1482,medium,threshold=4
+mc_a_1593,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1483,medium,threshold=3
+mc_a_1594,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1484,high,context-invariance gap
+mc_a_1595,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1484,medium,threshold=1
+mc_a_1596,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1486,medium,threshold=3
+mc_a_1597,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1487,medium,threshold=3
+mc_a_1598,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1488,high,context-invariance gap
+mc_a_1599,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1488,medium,threshold=1
+mc_a_1600,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1490,medium,threshold=3
+mc_a_1601,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1492,medium,threshold=4
+mc_a_1602,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1493,high,context-invariance gap
+mc_a_1603,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1493,medium,threshold=2
+mc_a_1604,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1495,medium,threshold=3
+mc_a_1605,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1498,medium,threshold=3
+mc_a_1606,family_enlargement_flip,n5|k3|m2|r2|b6,1,1->0,ctxfam_1499,medium,shared verdict changed after adding one context
+mc_a_1607,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1500,high,context-invariance gap
+mc_a_1608,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1500,medium,threshold=1
+mc_a_1609,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1501,high,context-invariance gap
+mc_a_1610,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1501,medium,threshold=1
+mc_a_1611,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1502,medium,threshold=4
+mc_a_1612,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1506,medium,threshold=4
+mc_a_1613,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1508,high,context-invariance gap
+mc_a_1614,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1508,medium,threshold=1
+mc_a_1615,positive_shared_augmentation_threshold,n7|k5|m2|r2|b10,1,0,ctxfam_1510,medium,threshold=4
+mc_a_1616,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1511,medium,threshold=4
+mc_a_1617,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1512,high,context-invariance gap
+mc_a_1618,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1512,medium,threshold=1
+mc_a_1619,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1514,high,context-invariance gap
+mc_a_1620,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1514,medium,threshold=1
+mc_a_1621,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1515,medium,threshold=2
+mc_a_1622,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1516,high,context-invariance gap
+mc_a_1623,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1516,medium,threshold=2
+mc_a_1624,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1518,high,context-invariance gap
+mc_a_1625,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1518,medium,threshold=2
+mc_a_1626,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1519,high,context-invariance gap
+mc_a_1627,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1519,medium,threshold=2
+mc_a_1628,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1520,high,context-invariance gap
+mc_a_1629,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1520,medium,threshold=1
+mc_a_1630,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1521,medium,threshold=2
+mc_a_1631,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1523,medium,threshold=2
+mc_a_1632,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1524,high,context-invariance gap
+mc_a_1633,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1524,medium,threshold=2
+mc_a_1634,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1525,medium,threshold=4
+mc_a_1635,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1526,high,context-invariance gap
+mc_a_1636,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1526,medium,threshold=2
+mc_a_1637,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1527,high,context-invariance gap
+mc_a_1638,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1527,medium,threshold=1
+mc_a_1639,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1528,medium,threshold=4
+mc_a_1640,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1529,medium,threshold=2
+mc_a_1641,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1530,medium,threshold=2
+mc_a_1642,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1531,high,context-invariance gap
+mc_a_1643,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1531,medium,threshold=1
+mc_a_1644,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1535,high,context-invariance gap
+mc_a_1645,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1535,medium,threshold=2
+mc_a_1646,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1536,medium,threshold=4
+mc_a_1647,family_enlargement_flip,n5|k3|m2|r2|b6,1,1->0,ctxfam_1537,medium,shared verdict changed after adding one context
+mc_a_1648,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1538,medium,threshold=3
+mc_a_1649,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1539,medium,threshold=4
+mc_a_1650,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1540,medium,threshold=4
+mc_a_1651,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1541,high,context-invariance gap
+mc_a_1652,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1541,medium,threshold=2
+mc_a_1653,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1543,medium,threshold=3
+mc_a_1654,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1544,medium,threshold=4
+mc_a_1655,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1545,high,context-invariance gap
+mc_a_1656,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1545,medium,threshold=2
+mc_a_1657,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1546,high,context-invariance gap
+mc_a_1658,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1546,medium,threshold=1
+mc_a_1659,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1547,medium,threshold=3
+mc_a_1660,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1549,high,context-invariance gap
+mc_a_1661,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1549,medium,threshold=1
+mc_a_1662,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1551,medium,threshold=3
+mc_a_1663,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1552,high,context-invariance gap
+mc_a_1664,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1552,medium,threshold=2
+mc_a_1665,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1553,medium,threshold=2
+mc_a_1666,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1555,medium,threshold=1
+mc_a_1667,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1556,medium,threshold=3
+mc_a_1668,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1559,medium,threshold=2
+mc_a_1669,family_enlargement_flip,n4|k4|m2|r2|b8,1,1->0,ctxfam_1560,medium,shared verdict changed after adding one context
+mc_a_1670,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1561,medium,threshold=3
+mc_a_1671,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1563,high,context-invariance gap
+mc_a_1672,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1563,medium,threshold=2
+mc_a_1673,family_enlargement_flip,n4|k2|m2|r2|b4,1,1->0,ctxfam_1564,medium,shared verdict changed after adding one context
+mc_a_1674,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1565,medium,threshold=4
+mc_a_1675,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1566,medium,threshold=3
+mc_a_1676,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1567,medium,threshold=2
+mc_a_1677,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1568,medium,threshold=2
+mc_a_1678,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1569,medium,threshold=2
+mc_a_1679,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1570,medium,threshold=4
+mc_a_1680,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1571,medium,threshold=3
+mc_a_1681,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1572,high,context-invariance gap
+mc_a_1682,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1572,medium,threshold=1
+mc_a_1683,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1573,high,context-invariance gap
+mc_a_1684,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1573,medium,threshold=1
+mc_a_1685,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1574,medium,threshold=4
+mc_a_1686,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1575,medium,threshold=4
+mc_a_1687,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1576,medium,threshold=4
+mc_a_1688,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1577,high,context-invariance gap
+mc_a_1689,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1577,medium,threshold=1
+mc_a_1690,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1578,medium,threshold=2
+mc_a_1691,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1579,medium,threshold=3
+mc_a_1692,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1580,high,context-invariance gap
+mc_a_1693,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1580,medium,threshold=1
+mc_a_1694,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1581,high,context-invariance gap
+mc_a_1695,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1581,medium,threshold=2
+mc_a_1696,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1582,medium,threshold=4
+mc_a_1697,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1583,medium,threshold=3
+mc_a_1698,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1584,medium,threshold=4
+mc_a_1699,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1585,medium,threshold=2
+mc_a_1700,positive_shared_augmentation_threshold,n5|k3|m2|r1|b6,1,0,ctxfam_1586,medium,threshold=3
+mc_a_1701,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1588,medium,threshold=3
+mc_a_1702,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1589,high,context-invariance gap
+mc_a_1703,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1589,medium,threshold=1
+mc_a_1704,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1590,medium,threshold=3
+mc_a_1705,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1591,medium,threshold=4
+mc_a_1706,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1592,medium,threshold=2
+mc_a_1707,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1593,high,context-invariance gap
+mc_a_1708,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1593,medium,threshold=1
+mc_a_1709,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1594,medium,threshold=4
+mc_a_1710,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1595,high,context-invariance gap
+mc_a_1711,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1595,medium,threshold=1
+mc_a_1712,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1596,medium,threshold=2
+mc_a_1713,family_enlargement_flip,n6|k2|m2|r2|b4,1,1->0,ctxfam_1598,medium,shared verdict changed after adding one context
+mc_a_1714,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1599,medium,threshold=4
+mc_a_1715,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1601,high,context-invariance gap
+mc_a_1716,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1601,medium,threshold=1
+mc_a_1717,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1602,medium,threshold=3
+mc_a_1718,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1603,medium,threshold=2
+mc_a_1719,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1604,high,context-invariance gap
+mc_a_1720,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1604,medium,threshold=2
+mc_a_1721,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1605,high,context-invariance gap
+mc_a_1722,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1605,medium,threshold=1
+mc_a_1723,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1606,high,context-invariance gap
+mc_a_1724,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1606,medium,threshold=1
+mc_a_1725,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1607,medium,threshold=4
+mc_a_1726,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1609,medium,threshold=3
+mc_a_1727,positive_shared_augmentation_threshold,n6|k2|m2|r2|b4,1,0,ctxfam_1610,medium,threshold=4
+mc_a_1728,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1611,medium,threshold=3
+mc_a_1729,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1612,high,context-invariance gap
+mc_a_1730,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1612,medium,threshold=2
+mc_a_1731,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_1613,medium,shared verdict changed after adding one context
+mc_a_1732,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1614,medium,threshold=2
+mc_a_1733,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1615,medium,threshold=3
+mc_a_1734,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1616,medium,threshold=1
+mc_a_1735,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1618,medium,threshold=2
+mc_a_1736,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1619,medium,threshold=3
+mc_a_1737,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1620,high,context-invariance gap
+mc_a_1738,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1620,medium,threshold=1
+mc_a_1739,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1622,medium,threshold=3
+mc_a_1740,family_enlargement_flip,n7|k3|m2|r2|b6,1,1->0,ctxfam_1623,medium,shared verdict changed after adding one context
+mc_a_1741,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1624,high,context-invariance gap
+mc_a_1742,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1624,medium,threshold=1
+mc_a_1743,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1626,high,context-invariance gap
+mc_a_1744,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1626,medium,threshold=1
+mc_a_1745,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_1627,medium,threshold=3
+mc_a_1746,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1628,high,context-invariance gap
+mc_a_1747,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1628,medium,threshold=1
+mc_a_1748,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1630,medium,threshold=2
+mc_a_1749,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1631,high,context-invariance gap
+mc_a_1750,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1631,medium,threshold=2
+mc_a_1751,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1632,medium,threshold=4
+mc_a_1752,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1633,medium,threshold=2
+mc_a_1753,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1634,high,context-invariance gap
+mc_a_1754,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1634,medium,threshold=1
+mc_a_1755,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1636,high,context-invariance gap
+mc_a_1756,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1636,medium,threshold=1
+mc_a_1757,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1637,medium,threshold=2
+mc_a_1758,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1638,medium,threshold=4
+mc_a_1759,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1639,medium,threshold=4
+mc_a_1760,positive_shared_augmentation_threshold,n5|k4|m2|r2|b8,1,0,ctxfam_1640,medium,threshold=3
+mc_a_1761,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1641,medium,threshold=4
+mc_a_1762,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1642,high,context-invariance gap
+mc_a_1763,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1642,medium,threshold=1
+mc_a_1764,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1644,medium,threshold=2
+mc_a_1765,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1645,high,context-invariance gap
+mc_a_1766,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1645,medium,threshold=1
+mc_a_1767,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1646,medium,threshold=2
+mc_a_1768,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1647,high,context-invariance gap
+mc_a_1769,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1647,medium,threshold=1
+mc_a_1770,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1650,medium,threshold=4
+mc_a_1771,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1651,high,context-invariance gap
+mc_a_1772,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1651,medium,threshold=2
+mc_a_1773,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1652,high,context-invariance gap
+mc_a_1774,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1652,medium,threshold=1
+mc_a_1775,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1654,medium,threshold=4
+mc_a_1776,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1655,medium,threshold=2
+mc_a_1777,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1656,medium,threshold=3
+mc_a_1778,family_enlargement_flip,n6|k4|m2|r2|b8,1,1->0,ctxfam_1657,medium,shared verdict changed after adding one context
+mc_a_1779,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1658,medium,threshold=3
+mc_a_1780,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1659,high,context-invariance gap
+mc_a_1781,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1659,medium,threshold=2
+mc_a_1782,family_enlargement_flip,n7|k3|m2|r4|b6,1,1->0,ctxfam_1660,medium,shared verdict changed after adding one context
+mc_a_1783,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1661,medium,threshold=3
+mc_a_1784,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1662,medium,threshold=4
+mc_a_1785,positive_shared_augmentation_threshold,n4|k2|m2|r1|b4,1,0,ctxfam_1663,medium,threshold=2
+mc_a_1786,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1664,medium,threshold=3
+mc_a_1787,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1665,medium,threshold=3
+mc_a_1788,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1666,high,context-invariance gap
+mc_a_1789,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1666,medium,threshold=2
+mc_a_1790,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1667,medium,threshold=4
+mc_a_1791,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1668,high,context-invariance gap
+mc_a_1792,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1668,medium,threshold=1
+mc_a_1793,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1669,medium,threshold=4
+mc_a_1794,positive_shared_augmentation_threshold,n4|k4|m2|r1|b8,1,0,ctxfam_1670,medium,threshold=2
+mc_a_1795,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1671,medium,threshold=2
+mc_a_1796,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1672,medium,threshold=4
+mc_a_1797,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1674,medium,threshold=3
+mc_a_1798,positive_shared_augmentation_threshold,n5|k2|m2|r2|b4,1,0,ctxfam_1675,medium,threshold=3
+mc_a_1799,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1676,medium,threshold=2
+mc_a_1800,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1677,medium,threshold=3
+mc_a_1801,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1678,medium,threshold=4
+mc_a_1802,positive_shared_augmentation_threshold,n5|k2|m2|r4|b4,1,0,ctxfam_1679,medium,threshold=3
+mc_a_1803,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_1681,medium,shared verdict changed after adding one context
+mc_a_1804,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1683,medium,threshold=4
+mc_a_1805,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1685,medium,threshold=1
+mc_a_1806,positive_shared_augmentation_threshold,n4|k3|m2|r2|b6,1,0,ctxfam_1686,medium,threshold=2
+mc_a_1807,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1689,high,context-invariance gap
+mc_a_1808,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1689,medium,threshold=1
+mc_a_1809,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1690,medium,threshold=2
+mc_a_1810,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1691,medium,threshold=3
+mc_a_1811,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1692,high,context-invariance gap
+mc_a_1812,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1692,medium,threshold=1
+mc_a_1813,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1695,medium,threshold=4
+mc_a_1814,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1696,high,context-invariance gap
+mc_a_1815,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1696,medium,threshold=1
+mc_a_1816,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1697,high,context-invariance gap
+mc_a_1817,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1697,medium,threshold=1
+mc_a_1818,positive_shared_augmentation_threshold,n4|k4|m2|r2|b8,1,0,ctxfam_1698,medium,threshold=2
+mc_a_1819,family_enlargement_flip,n7|k3|m2|r2|b6,1,1->0,ctxfam_1700,medium,shared verdict changed after adding one context
+mc_a_1820,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1703,high,context-invariance gap
+mc_a_1821,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1703,medium,threshold=2
+mc_a_1822,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1705,medium,threshold=3
+mc_a_1823,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1706,high,context-invariance gap
+mc_a_1824,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1706,medium,threshold=2
+mc_a_1825,conditioned_exact_invariant_fail,n4|k3|m2|r4|b6,1,0,ctxfam_1707,high,context-invariance gap
+mc_a_1826,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1707,medium,threshold=1
+mc_a_1827,positive_shared_augmentation_threshold,n5|k5|m2|r1|b10,1,0,ctxfam_1709,medium,threshold=2
+mc_a_1828,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1711,medium,threshold=3
+mc_a_1829,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1712,medium,threshold=4
+mc_a_1830,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1713,medium,threshold=4
+mc_a_1831,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1714,medium,threshold=3
+mc_a_1832,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1715,medium,threshold=4
+mc_a_1833,family_enlargement_flip,n7|k4|m2|r2|b8,1,1->0,ctxfam_1716,medium,shared verdict changed after adding one context
+mc_a_1834,positive_shared_augmentation_threshold,n6|k4|m2|r6|b8,1,0,ctxfam_1717,medium,threshold=4
+mc_a_1835,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1719,medium,threshold=4
+mc_a_1836,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1721,high,context-invariance gap
+mc_a_1837,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1721,medium,threshold=2
+mc_a_1838,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1722,medium,threshold=3
+mc_a_1839,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1725,high,context-invariance gap
+mc_a_1840,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1725,medium,threshold=1
+mc_a_1841,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1727,high,context-invariance gap
+mc_a_1842,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1727,medium,threshold=1
+mc_a_1843,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1728,high,context-invariance gap
+mc_a_1844,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1728,medium,threshold=2
+mc_a_1845,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1729,high,context-invariance gap
+mc_a_1846,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1729,medium,threshold=1
+mc_a_1847,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1730,medium,threshold=4
+mc_a_1848,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1731,high,context-invariance gap
+mc_a_1849,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1731,medium,threshold=2
+mc_a_1850,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1732,medium,threshold=4
+mc_a_1851,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1733,medium,threshold=4
+mc_a_1852,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1734,medium,threshold=4
+mc_a_1853,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1735,high,context-invariance gap
+mc_a_1854,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1735,medium,threshold=1
+mc_a_1855,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1736,high,context-invariance gap
+mc_a_1856,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1736,medium,threshold=2
+mc_a_1857,conditioned_exact_invariant_fail,n6|k5|m2|r6|b10,1,0,ctxfam_1737,high,context-invariance gap
+mc_a_1858,positive_shared_augmentation_threshold,n6|k5|m2|r6|b10,1,0,ctxfam_1737,medium,threshold=2
+mc_a_1859,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1738,medium,threshold=2
+mc_a_1860,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1739,medium,threshold=4
+mc_a_1861,family_enlargement_flip,n6|k3|m2|r2|b6,1,1->0,ctxfam_1740,medium,shared verdict changed after adding one context
+mc_a_1862,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1741,medium,threshold=3
+mc_a_1863,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1742,high,context-invariance gap
+mc_a_1864,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1742,medium,threshold=2
+mc_a_1865,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1743,medium,threshold=3
+mc_a_1866,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1744,medium,threshold=3
+mc_a_1867,positive_shared_augmentation_threshold,n5|k5|m2|r2|b10,1,0,ctxfam_1748,medium,threshold=3
+mc_a_1868,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1750,high,context-invariance gap
+mc_a_1869,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1750,medium,threshold=1
+mc_a_1870,family_enlargement_flip,n5|k2|m2|r3|b4,1,1->0,ctxfam_1751,medium,shared verdict changed after adding one context
+mc_a_1871,positive_shared_augmentation_threshold,n6|k4|m2|r2|b8,1,0,ctxfam_1752,medium,threshold=4
+mc_a_1872,positive_shared_augmentation_threshold,n5|k3|m2|r5|b6,1,0,ctxfam_1753,medium,threshold=3
+mc_a_1873,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1755,high,context-invariance gap
+mc_a_1874,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1755,medium,threshold=2
+mc_a_1875,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1757,high,context-invariance gap
+mc_a_1876,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1757,medium,threshold=1
+mc_a_1877,positive_shared_augmentation_threshold,n6|k3|m2|r6|b6,1,0,ctxfam_1758,medium,threshold=4
+mc_a_1878,conditioned_exact_invariant_fail,n7|k3|m2|r4|b6,1,0,ctxfam_1759,high,context-invariance gap
+mc_a_1879,positive_shared_augmentation_threshold,n7|k3|m2|r4|b6,1,0,ctxfam_1759,medium,threshold=1
+mc_a_1880,positive_shared_augmentation_threshold,n4|k2|m2|r4|b4,1,0,ctxfam_1760,medium,threshold=2
+mc_a_1881,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1761,medium,threshold=3
+mc_a_1882,conditioned_exact_invariant_fail,n4|k5|m2|r4|b10,1,0,ctxfam_1762,high,context-invariance gap
+mc_a_1883,positive_shared_augmentation_threshold,n4|k5|m2|r4|b10,1,0,ctxfam_1762,medium,threshold=1
+mc_a_1884,conditioned_exact_invariant_fail,n7|k5|m2|r6|b10,1,0,ctxfam_1763,high,context-invariance gap
+mc_a_1885,positive_shared_augmentation_threshold,n7|k5|m2|r6|b10,1,0,ctxfam_1763,medium,threshold=2
+mc_a_1886,positive_shared_augmentation_threshold,n5|k4|m2|r1|b8,1,0,ctxfam_1764,medium,threshold=4
+mc_a_1887,positive_shared_augmentation_threshold,n4|k5|m2|r2|b10,1,0,ctxfam_1765,medium,threshold=2
+mc_a_1888,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1766,high,context-invariance gap
+mc_a_1889,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1766,medium,threshold=2
+mc_a_1890,conditioned_exact_invariant_fail,n6|k2|m2|r3|b4,1,0,ctxfam_1767,high,context-invariance gap
+mc_a_1891,positive_shared_augmentation_threshold,n6|k2|m2|r3|b4,1,0,ctxfam_1767,medium,threshold=1
+mc_a_1892,positive_shared_augmentation_threshold,n6|k2|m2|r4|b4,1,0,ctxfam_1768,medium,threshold=3
+mc_a_1893,conditioned_exact_invariant_fail,n4|k2|m2|r3|b4,1,0,ctxfam_1769,high,context-invariance gap
+mc_a_1894,positive_shared_augmentation_threshold,n4|k2|m2|r3|b4,1,0,ctxfam_1769,medium,threshold=2
+mc_a_1895,positive_shared_augmentation_threshold,n4|k3|m2|r4|b6,1,0,ctxfam_1770,medium,threshold=3
+mc_a_1896,family_enlargement_flip,n4|k3|m2|r2|b6,1,1->0,ctxfam_1772,medium,shared verdict changed after adding one context
+mc_a_1897,conditioned_exact_invariant_fail,n6|k3|m2|r4|b6,1,0,ctxfam_1773,high,context-invariance gap
+mc_a_1898,positive_shared_augmentation_threshold,n6|k3|m2|r4|b6,1,0,ctxfam_1773,medium,threshold=1
+mc_a_1899,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1775,medium,threshold=4
+mc_a_1900,conditioned_exact_invariant_fail,n5|k3|m2|r4|b6,1,0,ctxfam_1776,high,context-invariance gap
+mc_a_1901,positive_shared_augmentation_threshold,n5|k3|m2|r4|b6,1,0,ctxfam_1776,medium,threshold=1
+mc_a_1902,conditioned_exact_invariant_fail,n7|k2|m2|r3|b4,1,0,ctxfam_1777,high,context-invariance gap
+mc_a_1903,positive_shared_augmentation_threshold,n7|k2|m2|r3|b4,1,0,ctxfam_1777,medium,threshold=1
+mc_a_1904,conditioned_exact_invariant_fail,n5|k2|m2|r3|b4,1,0,ctxfam_1779,high,context-invariance gap
+mc_a_1905,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1779,medium,threshold=1
+mc_a_1906,positive_shared_augmentation_threshold,n4|k2|m2|r2|b4,1,0,ctxfam_1780,medium,threshold=2
+mc_a_1907,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1781,high,context-invariance gap
+mc_a_1908,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1781,medium,threshold=1
+mc_a_1909,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1782,medium,threshold=1
+mc_a_1910,family_enlargement_flip,n7|k5|m2|r2|b10,1,1->0,ctxfam_1785,medium,shared verdict changed after adding one context
+mc_a_1911,conditioned_exact_invariant_fail,n6|k4|m2|r5|b8,1,0,ctxfam_1786,high,context-invariance gap
+mc_a_1912,positive_shared_augmentation_threshold,n6|k4|m2|r5|b8,1,0,ctxfam_1786,medium,threshold=1
+mc_a_1913,conditioned_exact_invariant_fail,n4|k4|m2|r4|b8,1,0,ctxfam_1787,high,context-invariance gap
+mc_a_1914,positive_shared_augmentation_threshold,n4|k4|m2|r4|b8,1,0,ctxfam_1787,medium,threshold=2
+mc_a_1915,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1788,medium,threshold=4
+mc_a_1916,family_enlargement_flip,n5|k2|m2|r2|b4,1,1->0,ctxfam_1789,medium,shared verdict changed after adding one context
+mc_a_1917,conditioned_exact_invariant_fail,n7|k4|m2|r5|b8,1,0,ctxfam_1791,high,context-invariance gap
+mc_a_1918,positive_shared_augmentation_threshold,n7|k4|m2|r5|b8,1,0,ctxfam_1791,medium,threshold=1
+mc_a_1919,family_enlargement_flip,n4|k5|m2|r2|b10,1,1->0,ctxfam_1792,medium,shared verdict changed after adding one context
+mc_a_1920,positive_shared_augmentation_threshold,n5|k2|m2|r3|b4,1,0,ctxfam_1793,medium,threshold=4
+mc_a_1921,positive_shared_augmentation_threshold,n6|k3|m2|r2|b6,1,0,ctxfam_1794,medium,threshold=4
+mc_a_1922,conditioned_exact_invariant_fail,n5|k5|m2|r5|b10,1,0,ctxfam_1795,high,context-invariance gap
+mc_a_1923,positive_shared_augmentation_threshold,n5|k5|m2|r5|b10,1,0,ctxfam_1795,medium,threshold=2
+mc_a_1924,positive_shared_augmentation_threshold,n6|k5|m2|r2|b10,1,0,ctxfam_1796,medium,threshold=3
+mc_a_1925,positive_shared_augmentation_threshold,n7|k5|m2|r7|b10,1,0,ctxfam_1797,medium,threshold=4
+mc_a_1926,positive_shared_augmentation_threshold,n5|k3|m2|r2|b6,1,0,ctxfam_1798,medium,threshold=3
+mc_a_1927,conditioned_exact_invariant_fail,n5|k4|m2|r5|b8,1,0,ctxfam_1799,high,context-invariance gap
+mc_a_1928,positive_shared_augmentation_threshold,n5|k4|m2|r5|b8,1,0,ctxfam_1799,medium,threshold=1

@@ -1,0 +1,49 @@
+{
+  "status": "EXPLORATION / NON-PROMOTED",
+  "seed": 20260418,
+  "witness_count": 4560,
+  "anomaly_count": 1669,
+  "threshold_count": 4950,
+  "formation_witness_count": 560,
+  "persistence_anomaly_count": 607,
+  "families": {
+    "single_context": 700,
+    "multi_context_shared": 550,
+    "multi_terminal_allocation": 550,
+    "intervention_split": 700,
+    "design_conflict": 640,
+    "formation_bridge": 1120,
+    "persistence_bridge": 300
+  },
+  "anomalies_by_type": {
+    "same_descriptor_opposite_verdict": 281,
+    "design_failure_conflict": 38,
+    "intervention_vs_observation_split": 210,
+    "threshold_flip": 390,
+    "formation_without_recoverability": 143,
+    "context_drift_flip": 223,
+    "local_exact_global_fail": 224,
+    "model_mismatch_instability": 152,
+    "noise_fragility_flip": 8
+  },
+  "anomalies_by_family": {
+    "multi_context_shared": 455,
+    "multi_terminal_allocation": 45,
+    "intervention_split": 283,
+    "design_conflict": 70,
+    "formation_bridge": 261,
+    "persistence_bridge": 173,
+    "single_context": 382
+  },
+  "key_support_counts": {
+    "conditioned_vs_invariant_split_support": 224,
+    "amount_only_insufficiency_support": 281,
+    "design_failure_support": 38,
+    "intervention_split_support": 210,
+    "threshold_flip_support": 390
+  },
+  "notes": {
+    "scope": "finite/synthetic linear and context-structured families",
+    "promotion": "no theorem-spine promotion"
+  }
+}

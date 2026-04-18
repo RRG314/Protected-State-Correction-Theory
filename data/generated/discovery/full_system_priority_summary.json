@@ -1,0 +1,82 @@
+{
+  "as_of": "2026-04-18",
+  "program_focus": "falsification-first clear-new-results pipeline",
+  "top_priorities": [
+    {
+      "priority": "P0",
+      "item": "Prove shared augmentation threshold criteria in context-sensitive recoverability",
+      "target_branch": "context-sensitive recoverability",
+      "status": "CONDITIONAL",
+      "promotion_effect": "moves near-core package toward promotion-grade theorem status"
+    },
+    {
+      "priority": "P0",
+      "item": "Finalize anti-classifier theorem/no-go manuscript framing",
+      "target_branch": "OCP core",
+      "status": "PROVED ON SUPPORTED FAMILY",
+      "promotion_effect": "strengthens publishable canonical spine"
+    },
+    {
+      "priority": "P1",
+      "item": "Extend restricted MHD mixed/toroidal theorem families",
+      "target_branch": "MHD closure/obstruction",
+      "status": "PROVED ON SUPPORTED FAMILY",
+      "promotion_effect": "expands strongest non-OCP theorem lane without scope inflation"
+    },
+    {
+      "priority": "P1",
+      "item": "Add noisy-stability bounds to CFD geometry-sensitive recoverability laws",
+      "target_branch": "CFD bounded-domain",
+      "status": "PROVED ON SUPPORTED FAMILY",
+      "promotion_effect": "converts finite witness branch into broader robust theorem package"
+    }
+  ],
+  "supporting_lanes": [
+    {
+      "branch": "TSIT",
+      "placement": "adjacent application layer",
+      "status": "VALIDATED / EMPIRICAL ONLY",
+      "guardrail": "do not present alpha as independent foundational novelty"
+    },
+    {
+      "branch": "Indistinguishability diagnostics",
+      "placement": "diagnostic support lane",
+      "status": "VALIDATED / EMPIRICAL ONLY",
+      "guardrail": "retain non-promotion labeling unless theorem gain is proven"
+    },
+    {
+      "branch": "RGE ecosystem",
+      "placement": "engineering support layer",
+      "status": "supporting",
+      "guardrail": "avoid theorem-level novelty claims from validation-only evidence"
+    }
+  ],
+  "freeze_or_spin_off": [
+    {
+      "branch": "Soliton self-organization superiority sublane",
+      "decision": "FREEZE",
+      "reason": "artifact-risk and benchmark sensitivity"
+    },
+    {
+      "branch": "TorchRGE counter-mode branch",
+      "decision": "FREEZE",
+      "reason": "bias concerns plus immature test coverage"
+    },
+    {
+      "branch": "SDS/black-hole/thermodynamic extracted bundle",
+      "decision": "SPIN OFF",
+      "reason": "outside canonical theorem-test harness"
+    },
+    {
+      "branch": "Broad universal structure-formation narrative",
+      "decision": "KILL (for now)",
+      "reason": "failed coherence pressure as universal claim"
+    }
+  ],
+  "core_claim": "Across branches, compatibility geometry controls exactness while amount-like descriptors repeatedly fail as classifiers.",
+  "operational_artifacts": [
+    "data/generated/discovery/full_system_top_results_scorecard.csv",
+    "data/generated/discovery/full_system_branch_action_matrix.csv",
+    "data/generated/discovery/full_system_anomaly_catalog.csv"
+  ]
+}

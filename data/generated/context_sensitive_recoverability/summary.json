@@ -1,0 +1,35 @@
+{
+  "status": "EXPLORATION / NON-PROMOTED",
+  "seed": 20260418,
+  "main_track": {
+    "multicontext_families": 1800,
+    "local_exact_global_fail_count": 506,
+    "shared_exact_count": 113,
+    "rank_only_mismatch_count": 668,
+    "budget_only_mismatch_count": 1306,
+    "family_enlargement_flip_count": 94,
+    "augmentation_catalog_rows": 506,
+    "anomaly_rows": 1929,
+    "anomaly_type_counts": {
+      "same_descriptor_opposite_shared_verdict": 23,
+      "positive_shared_augmentation_threshold": 1306,
+      "conditioned_exact_invariant_fail": 506,
+      "family_enlargement_flip": 94
+    }
+  },
+  "secondary_track": {
+    "formation_rows": 980,
+    "mechanism_counts": {
+      "constraint_generation": 140,
+      "symmetry_breaking": 140,
+      "context_conditioned_differentiation": 140,
+      "intervention_generated_structure": 140,
+      "feedback_induced_structure": 140,
+      "local_to_global_organization": 140,
+      "optimization_induced_structure": 140
+    },
+    "structure_created_count": 397,
+    "post_local_not_shared_count": 280,
+    "shared_recoverability_decrease_count": 0
+  }
+}
