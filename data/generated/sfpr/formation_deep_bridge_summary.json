@@ -1,0 +1,27 @@
+{
+  "seed": 20260418,
+  "operator_witness_rows": 300,
+  "operator_anomaly_rows": 87,
+  "lift_direct_consistent_count": 300,
+  "same_descriptor_opposite_count": 59,
+  "restricted_gap_count": 0,
+  "library_defect_count": 14,
+  "library_gain_not_sufficient_count": 14,
+  "formation_bridge_summary": {
+    "seed": 20260418,
+    "bridge_rows": 180,
+    "mechanism_counts": {
+      "constraint_generation": 36,
+      "context_drift": 36,
+      "intervention_cleaning": 36,
+      "optimization_induced": 36,
+      "context_conditioned_differentiation": 36
+    },
+    "local_gain_shared_loss_count": 0,
+    "threshold_worsened_count": 53,
+    "threshold_improved_count": 0,
+    "post_local_not_shared_count": 65,
+    "status": "EXPLORATION / NON-PROMOTED"
+  },
+  "status": "EXPLORATION / NON-PROMOTED"
+}

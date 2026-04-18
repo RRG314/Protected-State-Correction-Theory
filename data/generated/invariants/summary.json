@@ -1,0 +1,31 @@
+{
+  "seed": 20260418,
+  "witness_rows": 34,
+  "stress_rows": 18,
+  "system_rows": 32,
+  "meta_rows": 2,
+  "family_counts": {
+    "compatibility_exact": 8,
+    "context_pair": 8,
+    "same_rank_single_context": 16
+  },
+  "stress_counts": {
+    "target_mismatch": 6,
+    "family_enlargement": 6,
+    "observation_noise": 6
+  },
+  "context_pair_generation": {
+    "target_pairs": 4,
+    "achieved_pairs": 4,
+    "attempts": 4,
+    "max_attempts": 800
+  },
+  "descriptor_meta": {
+    "amount_dfmi": 0.34782608695652173,
+    "amount_idelb": 0.25,
+    "lift_dfmi": 0.0,
+    "lift_idelb": 0.0,
+    "compatibility_lift": 0.25
+  },
+  "status": "EXPLORATION / NON-PROMOTED"
+}

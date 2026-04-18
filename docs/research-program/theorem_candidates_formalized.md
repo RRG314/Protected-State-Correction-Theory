@@ -52,7 +52,7 @@ Scope:
 
 Evidence:
 - context-sensitive anomalies: `23` same-descriptor opposite shared-verdict groups.
-- operator anomalies: `23` same-descriptor opposite invariant-verdict groups.
+- operator anomalies: `23` opposite groups in base operator pass, `59` groups in agreement-operator continuation pass.
 
 Proof sketch:
 - Exhibit descriptor-matched groups with opposite exactness; any deterministic descriptor-only classifier must err.
@@ -182,6 +182,35 @@ Status:
 
 Novelty classification:
 - `CLOSE PRIOR ART / REPACKAGED` with useful branch-limited extraction.
+
+## T8. Candidate-Library Defect Feasibility Law (Agreement Continuation)
+
+Statement:
+Let `G` be the agreement-lift matrix for context family `{M_c}`, target `L`, and finite admissible shared-row library `C`.
+Define
+`delta_C = rank([G; C; L]) - rank([G; C])`.
+Then full-library constrained exact shared recoverability is feasible iff `delta_C = 0`.
+
+Scope:
+- finite linear context families,
+- augmentation restricted to rows from declared finite candidate library.
+
+Evidence:
+- agreement continuation catalog: `300` witness families,
+- `14` explicit `delta_C > 0` impossibility cases,
+- exact consistency between `delta_C = 0` and full-pool augmented exactness in tested families.
+
+Proof sketch:
+1. `delta_C = 0` iff `row(L) subseteq row([G; C])` by rank-inclusion equivalence.
+2. If inclusion holds, a decoder exists over full augmented rows by linear solvability.
+3. If inclusion fails (`delta_C > 0`), no subset of `C` can repair exactness since subset rowspace is contained in full-library rowspace.
+
+Status:
+- `PROVED ON RESTRICTED CLASS`.
+
+Novelty classification:
+- `PLAUSIBLY DISTINCT` as a constrained-design no-go/feasibility packaging,
+- high overlap risk with known rank-feasibility principles in systems/design literature.
 
 ## Immediate theorem push priorities
 

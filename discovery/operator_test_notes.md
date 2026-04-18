@@ -4,6 +4,7 @@ Status: explicit mapping between computational tests and mathematical questions.
 Data:
 - `data/generated/operator_discovery/operator_witness_catalog.csv`
 - `data/generated/operator_discovery/operator_anomaly_catalog.csv`
+- `data/generated/context_sensitive_recoverability/agreement_operator_witness_catalog.csv`
 
 ## Test OT1 — Shared Decoder Feasibility
 
@@ -103,8 +104,23 @@ Justified conclusion:
 Not justified:
 - independent theorem power beyond fiber-collision logic.
 
+## Test OT8 — Candidate-Library Defect Feasibility
+
+Question:
+- Can a declared candidate row library restore invariant exactness at all?
+
+Measured quantity:
+- `delta_C = rank([G;C;L]) - rank([G;C])` and full-library exactness check.
+
+Justified conclusion:
+- `delta_C=0` is an exact full-pool feasibility criterion in the supported linear class.
+- `delta_C>0` is an impossibility certificate for that library.
+
+Not justified:
+- claims about minimal restricted row count without additional combinatorial bounds.
+
 ## Summary of Test Correctness
 
 - Most tests answer correct theorem/no-go questions for the declared linear supported class.
 - Main overreach risks are scope inflation and novelty inflation, not metric mismatch.
-- Safe usage: theorem statements for split/no-go existence, diagnostic usage for conditioning/collapse/projection gain.
+- Safe usage: theorem statements for split/no-go existence and candidate-library defect feasibility; diagnostic usage for conditioning/collapse/projection gain.

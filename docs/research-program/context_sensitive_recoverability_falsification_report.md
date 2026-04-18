@@ -46,6 +46,7 @@ Verdict: `SURVIVES`.
 
 Evidence:
 - opposite shared-verdict descriptor groups persist,
+- agreement-operator continuation increased opposite groups to `59`,
 - family enlargement induces additional flips instead of removing the effect.
 
 Scope caveat:
@@ -75,12 +76,24 @@ Reason:
 - Some anomalies are re-encodings of known anti-classifier behavior.
 - Strongest additive theorem power remains narrow (conditioned-vs-invariant split, shared-threshold packaging).
 
+## Attack 7
+
+Question:
+Does constrained augmentation reduce to raw candidate-library amount (`library_rank_gain`)?
+
+Verdict: `SURVIVES` (amount-only claim fails).
+
+Reason:
+- continuation pass produced `14` cases where `library_rank_gain >= free_threshold` but constrained repair still fails.
+- positive candidate-library defect (`delta_C > 0`) provides exact impossibility certificate in those cases.
+
 ## Final Falsification Outcome
 
 - Strongly surviving main-track core:
   1. conditioned-vs-invariant split on supported families,
   2. positive shared augmentation threshold existence,
-  3. multi-context opposite-verdict no-go catalog.
+  3. multi-context opposite-verdict no-go catalog,
+  4. constrained candidate-library defect no-go (`delta_C > 0`).
 
 - Collapsed/limited parts:
   1. claims of broad novelty beyond OCP row-space/fiber core,

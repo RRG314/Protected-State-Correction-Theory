@@ -75,7 +75,25 @@ Status:
 - `PROVED ON SUPPORTED FAMILY`.
 - novelty: `PLAUSIBLY DISTINCT` in branch scope.
 
+## E6. Candidate-Library Defect Equation (Constrained Augmentation)
+
+Equation:
+`delta_C = rank([G; C; L]) - rank([G; C])`, where `G` is agreement-lifted observation.
+
+Claim tested:
+- `delta_C = 0` iff full-library constrained exact shared recovery is feasible.
+
+Result:
+- holds in supported finite linear class.
+
+Status:
+- `PROVED ON RESTRICTED CLASS`.
+
+Limits:
+- scoped to finite linear families and declared candidate libraries.
+- not a universal novelty claim beyond rank-inclusion logic.
+
 ## Equation Discovery Verdict
 
-- Best equation-level contribution in this pass is not a brand-new equation but theorem-focused formalization of CLE + augmentation feasibility with sharp scope control.
+- Best equation-level contribution is still scoped formalization, now including constrained-library defect feasibility (`delta_C`) in addition to CLE and augmentation equations.
 - New universal equation did not survive.

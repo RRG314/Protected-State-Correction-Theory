@@ -70,27 +70,46 @@ Given augmentation class `A`, define
 `r_*(F,t;A) = min r >= 0` such that there exists `U in A` with invariant exactness for `{M'_c}`.
 If none exists in `A`, set `r_* = +infty`.
 
-## 11. Opposite-Verdict Witness Family
+## 11. Agreement-Lift and Free Threshold Objects
+
+For contexts `{M_c}`, define the agreement subspace
+`A_ctx = { d : d(M_c-M_1)=0 for all c }`.
+Let `Q` be a row basis of `A_ctx` and `G = Q M_1`.
+
+Free (unconstrained) shared-threshold:
+`r_free^*(F,t) = rank([G; t]) - rank(G)`.
+
+## 12. Candidate-Library Defect (Constrained Feasibility)
+
+For finite candidate library rows `C`,
+define
+`delta_C(F,t) = rank([G; C; t]) - rank([G; C])`.
+
+Interpretation:
+- `delta_C = 0`: full-library constrained feasibility holds,
+- `delta_C > 0`: constrained impossibility for that library.
+
+## 13. Opposite-Verdict Witness Family
 
 A descriptor map `a: F -> D` is descriptor-only when it uses amount-like summaries (for example `rank(M_stack)`, total budget `k*m`, context count `k`).
 An opposite-verdict witness pair is `(F_1,F_2)` such that:
 - `a(F_1)=a(F_2)`,
 - invariant exactness differs.
 
-## 12. Amount-Only Descriptor Class
+## 14. Amount-Only Descriptor Class
 
 The base descriptor class used in this pass is:
 `D_amt = (n, k, m, rank(M_stack), k*m)`.
 No theorem in this pass assumes `D_amt` is complete.
 It is tested as a potential classifier and often fails.
 
-## 13. Domain-Geometry Variant (CFD/MHD-facing)
+## 15. Domain-Geometry Variant (CFD/MHD-facing)
 
 For domain-labeled families, include a geometry/domain tag `g` in the family metadata:
 `F_g = (X_g, C, T, M_g, A_g)`.
 Descriptor matches across distinct `g` do not imply equal exactness.
 
-## 14. Exact Scope Boundaries
+## 16. Exact Scope Boundaries
 
 These definitions are canonical for the current theorem program only on declared supported families.
 They do not imply unrestricted nonlinear/infinite-dimensional/global-physics claims.

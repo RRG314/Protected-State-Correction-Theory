@@ -15,6 +15,7 @@ Result:
 
 Reason:
 - SDCO, CID/CCD, and CLE are mathematically equivalent reformulations of shared decoder feasibility in the linear class.
+- CLDO (`delta_C`) remains a constrained-library feasibility certificate, not a broad new operator family.
 
 ## Attack 2
 
@@ -26,7 +27,7 @@ Result:
 
 Reason:
 - CLE/CID collapse to existing compatibility logic.
-- augmentation feasibility equation remains a useful scoped extension due explicit shared-augmentation admissibility constraints.
+- augmentation feasibility and `delta_C` equations remain useful scoped extensions due explicit shared-augmentation admissibility constraints.
 
 ## Attack 3
 
@@ -50,7 +51,7 @@ Result:
 
 Reason:
 - most operators are diagnostics/reparameterizations.
-- strongest additive signal is augmentation-threshold structure, still conditional for closed-form laws.
+- strongest additive signal is augmentation-threshold structure plus candidate-library defect no-go certificates.
 
 ## Attack 5
 
@@ -78,7 +79,8 @@ Result:
 What survived as serious math now:
 - theorem package around conditioned-vs-invariant split,
 - descriptor-only insufficiency,
-- positive augmentation threshold existence on supported families.
+- positive augmentation threshold existence on supported families,
+- constrained candidate-library feasibility/impossibility equation (`delta_C`).
 
 What did not survive as new operator math:
 - claims of genuinely new operator/projection/equation classes independent of existing OCP compatibility logic.

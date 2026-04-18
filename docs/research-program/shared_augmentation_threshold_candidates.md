@@ -64,6 +64,31 @@ Assessment:
 - Not a replacement for existing `delta` logic.
 - Additive only when shared decoder constraints matter.
 
+## Candidate B5 — Candidate-Library Defect Feasibility Law
+
+Objects (agreement-lift form):
+- `G = Q M_1` (agreement-lifted matrix),
+- candidate library `C`,
+- defect `delta_C = rank([G; C; t]) - rank([G; C])`.
+
+Statement:
+Full-library constrained augmentation is feasible iff `delta_C = 0`.
+
+Status:
+- `PROVED ON RESTRICTED CLASS`.
+
+Current continuation evidence:
+- `14` explicit `delta_C > 0` impossibility cases in
+  `data/generated/context_sensitive_recoverability/agreement_operator_witness_catalog.csv`.
+
+## Candidate B6 — Library Gain Insufficiency
+
+Statement:
+`library_rank_gain >= r_free^*` is necessary but not sufficient for constrained augmentation feasibility.
+
+Status:
+- `PROVED ON RESTRICTED CLASS` (deterministic counterexample + continuation sweep).
+
 ## Counterpressure / Falsification Notes
 
 1. If augmentation class allows adding `t` directly as a row, thresholds collapse trivially to `1` in many families.

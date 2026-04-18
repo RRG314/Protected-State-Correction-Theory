@@ -1,0 +1,117 @@
+stress_id,source,base_id,stress_type,descriptor_signature,before_local_exact,before_shared_exact,after_local_exact,after_shared_exact,before_cid,after_cid,before_delta_free,after_delta_free,fragility_flag,severity,status_label,note
+dst_0,invariant_stress,inv_0,target_mismatch,,1,1,0,0,1.5593618942426743e-13,10.425780678175284,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_1,invariant_stress,inv_0,family_enlargement,,1,1,0,0,1.5593618942426743e-13,52.94151757851489,0,3,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_2,invariant_stress,inv_0,observation_noise,,1,1,0,0,1.5593618942426743e-13,0.2838433161455468,0,3,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_3,invariant_stress,inv_1,target_mismatch,,1,1,0,0,4.044931175230247e-14,6.023610002733238,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_4,invariant_stress,inv_1,family_enlargement,,1,1,0,0,4.044931175230247e-14,21.164059072217785,0,2,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_5,invariant_stress,inv_1,observation_noise,,1,1,0,0,4.044931175230247e-14,0.1769898704993228,0,2,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_6,invariant_stress,inv_2,target_mismatch,,1,1,0,0,2.0326482703839956e-14,6.9788878628968725,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_7,invariant_stress,inv_2,family_enlargement,,1,1,0,0,2.0326482703839956e-14,17.369580608850118,0,2,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_8,invariant_stress,inv_2,observation_noise,,1,1,0,0,2.0326482703839956e-14,0.03968770104024968,0,2,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_9,invariant_stress,inv_3,target_mismatch,,1,1,0,0,2.715511106784476e-14,4.958051013434457,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_10,invariant_stress,inv_3,family_enlargement,,1,1,0,0,2.715511106784476e-14,25.81765344826653,0,3,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_11,invariant_stress,inv_3,observation_noise,,1,1,0,0,2.715511106784476e-14,0.053285838579440636,0,3,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_12,invariant_stress,inv_4,target_mismatch,,1,1,0,0,8.196905236120315e-14,1.1212964068272047,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_13,invariant_stress,inv_4,family_enlargement,,1,1,0,0,8.196905236120315e-14,24.159578447988235,0,3,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_14,invariant_stress,inv_4,observation_noise,,1,1,0,0,8.196905236120315e-14,0.33219952091734767,0,3,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_15,invariant_stress,inv_5,target_mismatch,,1,1,0,0,6.748777200247693e-14,7.0314483265511365,0,1,1,high,VALIDATED / NUMERICAL ONLY,model-mismatch stress
+dst_16,invariant_stress,inv_5,family_enlargement,,1,1,0,0,6.748777200247693e-14,56.9363138796684,0,3,1,high,VALIDATED / NUMERICAL ONLY,enlargement stress
+dst_17,invariant_stress,inv_5,observation_noise,,1,1,0,0,6.748777200247693e-14,0.554812291032957,0,3,1,high,VALIDATED / NUMERICAL ONLY,noise stress
+dst_18,model_mismatch_stress,beta=0.5,model_mismatch,dim2|dist0.3162277660168381,1,1,,,,,,,1,medium,VALIDATED / NUMERICAL ONLY,off-family decoder error under subspace mismatch
+dst_19,model_mismatch_stress,beta=1.0,model_mismatch,dim2|dist0.0,1,1,,,,,,,0,medium,VALIDATED / NUMERICAL ONLY,off-family decoder error under subspace mismatch
+dst_20,model_mismatch_stress,beta=2.0,model_mismatch,dim2|dist0.3162277660168378,1,1,,,,,,,1,medium,VALIDATED / NUMERICAL ONLY,off-family decoder error under subspace mismatch
+dst_21,family_enlargement_false_positive,family_enlargement_case,family_enlargement,small2|large3,,1,,0,,,,,1,high,PROVED ON SUPPORTED FAMILY,narrow-family exactness fails on enlarged family
+dst_22,multicontext_enlargement_flip,ctxfam_16,family_enlargement,n5|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_23,multicontext_enlargement_flip,ctxfam_23,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_24,multicontext_enlargement_flip,ctxfam_25,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_25,multicontext_enlargement_flip,ctxfam_36,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_26,multicontext_enlargement_flip,ctxfam_62,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_27,multicontext_enlargement_flip,ctxfam_75,family_enlargement,n7|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_28,multicontext_enlargement_flip,ctxfam_98,family_enlargement,n4|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_29,multicontext_enlargement_flip,ctxfam_99,family_enlargement,n7|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_30,multicontext_enlargement_flip,ctxfam_110,family_enlargement,n7|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_31,multicontext_enlargement_flip,ctxfam_132,family_enlargement,n7|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_32,multicontext_enlargement_flip,ctxfam_214,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_33,multicontext_enlargement_flip,ctxfam_234,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_34,multicontext_enlargement_flip,ctxfam_264,family_enlargement,n7|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_35,multicontext_enlargement_flip,ctxfam_274,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_36,multicontext_enlargement_flip,ctxfam_277,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_37,multicontext_enlargement_flip,ctxfam_290,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_38,multicontext_enlargement_flip,ctxfam_297,family_enlargement,n7|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_39,multicontext_enlargement_flip,ctxfam_302,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_40,multicontext_enlargement_flip,ctxfam_312,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_41,multicontext_enlargement_flip,ctxfam_327,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_42,multicontext_enlargement_flip,ctxfam_337,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_43,multicontext_enlargement_flip,ctxfam_360,family_enlargement,n6|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_44,multicontext_enlargement_flip,ctxfam_385,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_45,multicontext_enlargement_flip,ctxfam_397,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_46,multicontext_enlargement_flip,ctxfam_405,family_enlargement,n4|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_47,multicontext_enlargement_flip,ctxfam_413,family_enlargement,n7|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_48,multicontext_enlargement_flip,ctxfam_415,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_49,multicontext_enlargement_flip,ctxfam_452,family_enlargement,n7|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_50,multicontext_enlargement_flip,ctxfam_484,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_51,multicontext_enlargement_flip,ctxfam_509,family_enlargement,n5|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_52,multicontext_enlargement_flip,ctxfam_525,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_53,multicontext_enlargement_flip,ctxfam_562,family_enlargement,n7|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_54,multicontext_enlargement_flip,ctxfam_569,family_enlargement,n6|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_55,multicontext_enlargement_flip,ctxfam_571,family_enlargement,n7|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_56,multicontext_enlargement_flip,ctxfam_574,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_57,multicontext_enlargement_flip,ctxfam_591,family_enlargement,n5|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_58,multicontext_enlargement_flip,ctxfam_599,family_enlargement,n5|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_59,multicontext_enlargement_flip,ctxfam_610,family_enlargement,n7|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_60,multicontext_enlargement_flip,ctxfam_622,family_enlargement,n5|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_61,multicontext_enlargement_flip,ctxfam_627,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_62,multicontext_enlargement_flip,ctxfam_645,family_enlargement,n6|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_63,multicontext_enlargement_flip,ctxfam_650,family_enlargement,n5|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_64,multicontext_enlargement_flip,ctxfam_661,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_65,multicontext_enlargement_flip,ctxfam_668,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_66,multicontext_enlargement_flip,ctxfam_688,family_enlargement,n4|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_67,multicontext_enlargement_flip,ctxfam_702,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_68,multicontext_enlargement_flip,ctxfam_715,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_69,multicontext_enlargement_flip,ctxfam_785,family_enlargement,n5|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_70,multicontext_enlargement_flip,ctxfam_848,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_71,multicontext_enlargement_flip,ctxfam_849,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_72,multicontext_enlargement_flip,ctxfam_870,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_73,multicontext_enlargement_flip,ctxfam_882,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_74,multicontext_enlargement_flip,ctxfam_886,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_75,multicontext_enlargement_flip,ctxfam_892,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_76,multicontext_enlargement_flip,ctxfam_923,family_enlargement,n4|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_77,multicontext_enlargement_flip,ctxfam_931,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_78,multicontext_enlargement_flip,ctxfam_948,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_79,multicontext_enlargement_flip,ctxfam_990,family_enlargement,n5|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_80,multicontext_enlargement_flip,ctxfam_1007,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_81,multicontext_enlargement_flip,ctxfam_1092,family_enlargement,n7|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_82,multicontext_enlargement_flip,ctxfam_1107,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_83,multicontext_enlargement_flip,ctxfam_1171,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_84,multicontext_enlargement_flip,ctxfam_1209,family_enlargement,n5|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_85,multicontext_enlargement_flip,ctxfam_1287,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_86,multicontext_enlargement_flip,ctxfam_1309,family_enlargement,n6|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_87,multicontext_enlargement_flip,ctxfam_1311,family_enlargement,n5|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_88,multicontext_enlargement_flip,ctxfam_1350,family_enlargement,n5|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_89,multicontext_enlargement_flip,ctxfam_1366,family_enlargement,n5|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_90,multicontext_enlargement_flip,ctxfam_1396,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_91,multicontext_enlargement_flip,ctxfam_1410,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_92,multicontext_enlargement_flip,ctxfam_1412,family_enlargement,n7|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_93,multicontext_enlargement_flip,ctxfam_1415,family_enlargement,n6|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_94,multicontext_enlargement_flip,ctxfam_1416,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_95,multicontext_enlargement_flip,ctxfam_1417,family_enlargement,n7|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_96,multicontext_enlargement_flip,ctxfam_1422,family_enlargement,n6|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_97,multicontext_enlargement_flip,ctxfam_1452,family_enlargement,n4|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_98,multicontext_enlargement_flip,ctxfam_1499,family_enlargement,n5|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_99,multicontext_enlargement_flip,ctxfam_1537,family_enlargement,n5|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_100,multicontext_enlargement_flip,ctxfam_1560,family_enlargement,n4|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_101,multicontext_enlargement_flip,ctxfam_1564,family_enlargement,n4|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_102,multicontext_enlargement_flip,ctxfam_1598,family_enlargement,n6|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_103,multicontext_enlargement_flip,ctxfam_1613,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_104,multicontext_enlargement_flip,ctxfam_1623,family_enlargement,n7|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_105,multicontext_enlargement_flip,ctxfam_1657,family_enlargement,n6|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_106,multicontext_enlargement_flip,ctxfam_1660,family_enlargement,n7|k3|m2|r4|b6,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_107,multicontext_enlargement_flip,ctxfam_1681,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_108,multicontext_enlargement_flip,ctxfam_1700,family_enlargement,n7|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_109,multicontext_enlargement_flip,ctxfam_1716,family_enlargement,n7|k4|m2|r2|b8,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_110,multicontext_enlargement_flip,ctxfam_1740,family_enlargement,n6|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_111,multicontext_enlargement_flip,ctxfam_1751,family_enlargement,n5|k2|m2|r3|b4,1,1,1,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_112,multicontext_enlargement_flip,ctxfam_1772,family_enlargement,n4|k3|m2|r2|b6,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_113,multicontext_enlargement_flip,ctxfam_1785,family_enlargement,n7|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_114,multicontext_enlargement_flip,ctxfam_1789,family_enlargement,n5|k2|m2|r2|b4,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict
+dst_115,multicontext_enlargement_flip,ctxfam_1792,family_enlargement,n4|k5|m2|r2|b10,1,1,0,0,0.0,,0,,1,high,VALIDATED / NUMERICAL ONLY,context-family enlargement changed shared verdict

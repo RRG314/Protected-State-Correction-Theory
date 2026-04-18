@@ -70,6 +70,21 @@ Overlap assessment:
 Classification:
 - `REDUCES TO EXISTING OCP LOGIC`.
 
+## 5b. Candidate-Library Defect Equation (`delta_C`)
+
+Nearest literature zones:
+- constrained observability completion,
+- sensor-library feasibility in design/control settings,
+- rank-inclusion certificates for recoverability completion.
+
+Overlap assessment:
+- rank-defect style feasibility logic is likely close to known linear-systems feasibility principles.
+- current additive value is explicit placement inside shared context-invariant augmentation with branch-tested counterexamples to rank-gain sufficiency.
+
+Classification:
+- `PLAUSIBLY DISTINCT` as scoped constrained-design packaging,
+- high prior-art collision risk if phrased as broad novelty.
+
 ## 6. CFD Geometry-Sensitive Split
 
 Nearest literature zones:

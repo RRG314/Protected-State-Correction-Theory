@@ -1,0 +1,22 @@
+{
+  "seed": 20260418,
+  "witness_rows": 253,
+  "counterexample_rows": 152,
+  "witness_type_counts": {
+    "A": 70,
+    "B": 90,
+    "C": 45,
+    "D": 45,
+    "E": 1,
+    "F": 1,
+    "G": 1
+  },
+  "counterexample_type_counts": {
+    "descriptor_only_failure": 45,
+    "model_mismatch_failure": 50,
+    "family_enlargement_false_positive": 53,
+    "nonlinear_measurement_collision": 4
+  },
+  "invariant_exact_witness_count": 117,
+  "status": "EXPLORATION / NON-PROMOTED"
+}

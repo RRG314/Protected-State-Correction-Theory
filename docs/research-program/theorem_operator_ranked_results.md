@@ -18,13 +18,14 @@ Status:
 ## 2. Strongest no-go theorem
 
 Result:
-- no rank/count/budget-only exact classifier on supported witness families.
+- candidate-library defect impossibility + no amount-only exact classifier.
 
 Why it matters:
-- blocks common over-simplified classifier claims and anchors anti-classifier spine.
+- blocks both descriptor-only and library-amount-only shortcuts:
+  `delta_C > 0` forbids repair even when raw rank gain looks sufficient.
 
 Status:
-- `PROVED ON SUPPORTED FAMILY`.
+- `PROVED ON RESTRICTED CLASS` (library defect law) + `PROVED ON SUPPORTED FAMILY` (descriptor anti-classifier).
 
 ## 3. Strongest supported-family theorem outside context core
 
@@ -64,10 +65,10 @@ Status:
 ## 6. Strongest candidate equation needing one more proof step
 
 Result:
-- augmentation feasibility threshold equation (`r_*` law under fixed admissibility class).
+- constrained augmentation threshold closure (`r_*` bounds under fixed admissibility class).
 
 Needed next step:
-- derive necessary/sufficient condition for `r*=1` and lower bounds for `r*>1`.
+- derive necessary/sufficient condition for `r*=1` and tight lower/upper bounds for `r*>1` in library-constrained settings.
 
 Status:
 - `CONDITIONAL` / `OPEN` for closed-form law.
@@ -86,5 +87,5 @@ Status:
 ## Priority ranking for immediate paper development
 
 1. Context-sensitive split + anti-classifier no-go package.
-2. Shared augmentation threshold bounds (proof closure bottleneck).
+2. Shared augmentation threshold bounds + candidate-library defect characterization.
 3. Restricted MHD obstruction/survivor theorem package (with strict scope).

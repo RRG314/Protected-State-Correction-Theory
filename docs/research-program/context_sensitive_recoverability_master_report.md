@@ -39,9 +39,12 @@ Current status:
 - positive threshold existence: `PROVED ON SUPPORTED FAMILY`
 - threshold distribution in current class: `r*=1` (`347`), `r*=2` (`159`)
 - exact closed-form law: `CONDITIONAL / OPEN`
+- constrained-library defect law (`delta_C`) for full-pool feasibility: `PROVED ON RESTRICTED CLASS`
+- library gain insufficiency counterexample: `PROVED ON RESTRICTED CLASS`
 
 Key caveat:
 - threshold depends on admissible augmentation class.
+- `library_rank_gain` can match/exceed free-threshold rank need and still fail due direction mismatch (`delta_C > 0`).
 
 ## 3) Multi-Context Failure / Opposite-Verdict Package
 
@@ -69,7 +72,8 @@ Evidence:
 
 1. disciplined packaging of contextwise-vs-invariant recoverability split,
 2. explicit shared augmentation threshold catalogs with scope labels,
-3. reproducible multi-context opposite-verdict anomaly families.
+3. constrained augmentation-library no-go certificates (`delta_C > 0`),
+4. reproducible multi-context opposite-verdict anomaly families.
 
 ## Secondary Formation Track Outcome
 
@@ -110,3 +114,15 @@ Reason:
 - formation should continue separately but should not gate narrow-theory formalization.
 
 Secondary policy (non-competing): keep formation entirely separate for now unless one bridge theorem reaches proof-level support.
+
+## Continuation Addendum (2026-04-18, deep pass)
+
+Artifacts:
+- `data/generated/context_sensitive_recoverability/agreement_operator_witness_catalog.csv` (`300` rows)
+- `data/generated/context_sensitive_recoverability/agreement_operator_anomaly_catalog.csv` (`87` rows)
+
+Continuation highlights:
+1. agreement-lift/direct solver consistency remained exact (`300/300`),
+2. descriptor opposite-verdict persistence strengthened (`59` groups),
+3. candidate-library defect no-go produced explicit impossibility cases (`14`),
+4. library-rank-gain insufficiency matched the same `14` cases (amount-only library metrics fail).

@@ -1,0 +1,192 @@
+{
+  "single_parameter": {
+    "state_family": "|psi(theta)>=cos(theta/2)|0>+sin(theta/2)|1>",
+    "analytic_FQ": 1.0,
+    "analytic_FM_Z": "1 for theta in (0,pi), endpoint limit 1",
+    "analytic_FM_X": "1 for theta in (0,pi), endpoint/interior singular-point limits 1",
+    "blind_spots": "none in FI sense for this parameterization"
+  },
+  "two_parameter_point": {
+    "theta_1": 1.0471975511965976,
+    "theta_2": 0.7853981633974483,
+    "qfim": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.75
+      ]
+    ],
+    "sld_commutator_fro_norm": 2.4494897447111748,
+    "sld_commutator_op_norm": 1.7320508089321773,
+    "random_search_best_min_alpha_over_500": 0.7047484053888309,
+    "random_search_best_pair": [
+      0.7047484053888309,
+      0.7094573173221206
+    ],
+    "balanced_constructed_pair": [
+      0.7071067811865475,
+      0.7071067811865475
+    ],
+    "balanced_constructed_min_alpha": 0.7071067811865475,
+    "theoretical_max_balanced_min_alpha": 0.7071067811865475,
+    "balanced_identity_check": 0.9999999999999998
+  },
+  "generalization_cases": [
+    {
+      "case_id": "G0",
+      "extension": "restricted_identity_projective",
+      "state_class": "pure qubit",
+      "measurement_class": "single projective 2-outcome",
+      "parameter_class": "2-parameter, diagonal QFIM",
+      "n_samples": 2000,
+      "metric_name": "alpha_1_sq_plus_alpha_2_sq",
+      "metric_mean": 1.0,
+      "metric_std": 3.633200395316955e-15,
+      "metric_min": 0.9999999999999301,
+      "metric_max": 1.000000000000078,
+      "expected_relation": "= 1",
+      "observed_relation": "within 1e-12 of 1 in Monte Carlo",
+      "status": "PROVED ON RESTRICTED CLASS",
+      "notes": "This is the corrected core identity class."
+    },
+    {
+      "case_id": "G1",
+      "extension": "rank1_povm_extension",
+      "state_class": "pure qubit",
+      "measurement_class": "rank-1 qubit POVM (4-outcome)",
+      "parameter_class": "2-parameter, diagonal QFIM",
+      "n_samples": 800,
+      "metric_name": "alpha_1_sq_plus_alpha_2_sq",
+      "metric_mean": 1.0,
+      "metric_std": 4.8702138375122135e-15,
+      "metric_min": 0.9999999999999493,
+      "metric_max": 1.0000000000001235,
+      "expected_relation": "= 1",
+      "observed_relation": "within 1e-12 of 1 in Monte Carlo",
+      "status": "PROVED ON RESTRICTED CLASS",
+      "notes": "Extends beyond projective measurements to rank-1 POVMs."
+    },
+    {
+      "case_id": "G2",
+      "extension": "mixed_state_projective",
+      "state_class": "mixed qubit",
+      "measurement_class": "single projective 2-outcome",
+      "parameter_class": "2-parameter orientation",
+      "n_samples": 1200,
+      "metric_name": "alpha_1_sq_plus_alpha_2_sq",
+      "metric_mean": 0.7476962431642338,
+      "metric_std": 0.26376652885639207,
+      "metric_min": 0.0021084157141566134,
+      "metric_max": 0.9999986602472879,
+      "expected_relation": "<= 1 (strictly <1 away from pure/radial edge cases)",
+      "observed_relation": "strictly below 1 in sampled interior",
+      "status": "PROVED ON RESTRICTED CLASS",
+      "notes": "Equality collapses; inequality survives on sampled class."
+    },
+    {
+      "case_id": "G3",
+      "extension": "nonprojective_unsharp_povm",
+      "state_class": "pure qubit",
+      "measurement_class": "two-outcome unsharp POVM",
+      "parameter_class": "2-parameter, diagonal QFIM",
+      "n_samples": 900,
+      "metric_name": "alpha_1_sq_plus_alpha_2_sq",
+      "metric_mean": 0.32055812472006767,
+      "metric_std": 0.24899455416168464,
+      "metric_min": 0.0025663793130579543,
+      "metric_max": 0.8869313587554919,
+      "expected_relation": "< 1 for eta < 1",
+      "observed_relation": "strictly below 1 in sampled interior",
+      "status": "PROVED ON RESTRICTED CLASS",
+      "notes": "Projectivity is a structural condition for the exact conservation identity."
+    },
+    {
+      "case_id": "G4",
+      "extension": "nondiagonal_qfim_diagratio",
+      "state_class": "pure qubit",
+      "measurement_class": "single projective 2-outcome",
+      "parameter_class": "2-parameter, non-diagonal QFIM",
+      "n_samples": 1600,
+      "metric_name": "J11_over_F11_plus_J22_over_F22",
+      "metric_mean": 0.9883793202731528,
+      "metric_std": 0.37424134296261274,
+      "metric_min": 0.3202369230782427,
+      "metric_max": 1.6737645145093083,
+      "expected_relation": "not constant",
+      "observed_relation": "varies significantly across contexts",
+      "status": "DISPROVED",
+      "notes": "The diagonal-coordinate alpha sum does not survive non-diagonal parameterization."
+    },
+    {
+      "case_id": "G5",
+      "extension": "nondiagonal_qfim_trace_identity",
+      "state_class": "pure qubit",
+      "measurement_class": "single projective 2-outcome",
+      "parameter_class": "2-parameter, non-diagonal QFIM",
+      "n_samples": 1600,
+      "metric_name": "trace(FQ_inv_times_FM)",
+      "metric_mean": 1.0,
+      "metric_std": 2.933761716688529e-15,
+      "metric_min": 0.9999999999999127,
+      "metric_max": 1.0000000000000355,
+      "expected_relation": "= 1",
+      "observed_relation": "within 1e-12 of 1 in Monte Carlo",
+      "status": "PROVED ON RESTRICTED CLASS",
+      "notes": "Coordinate-invariant replacement survives."
+    },
+    {
+      "case_id": "G6",
+      "extension": "higher_dimensional_qutrit",
+      "state_class": "pure qutrit",
+      "measurement_class": "computational projective (3-outcome)",
+      "parameter_class": "2-parameter",
+      "n_samples": 900,
+      "metric_name": "trace(FQ_inv_times_FM)",
+      "metric_mean": 1.0195235380096113,
+      "metric_std": 0.4069952890824651,
+      "metric_min": 0.011741395969126999,
+      "metric_max": 1.9786667766745278,
+      "expected_relation": "not fixed at 1",
+      "observed_relation": "varies over approximately [0,2] in sampled class",
+      "status": "DISPROVED",
+      "notes": "The qubit conservation constant does not transfer directly to d>2."
+    },
+    {
+      "case_id": "G7",
+      "extension": "more_than_two_parameters",
+      "state_class": "mixed qubit",
+      "measurement_class": "single projective 2-outcome",
+      "parameter_class": "3-parameter (r,theta,phi)",
+      "n_samples": 1000,
+      "metric_name": "trace(FQ_inv_times_FM)",
+      "metric_mean": 1.0,
+      "metric_std": 4.48796586234659e-16,
+      "metric_min": 0.9999999999999984,
+      "metric_max": 1.000000000000002,
+      "expected_relation": "unknown in this pass",
+      "observed_relation": "numerically concentrated at 1 in sampled class",
+      "status": "VALIDATED / NUMERICAL ONLY",
+      "notes": "Possible qubit-specific extension; kept conditional pending proof and literature check."
+    },
+    {
+      "case_id": "G8",
+      "extension": "higher_dimensional_more_than_two_parameters",
+      "state_class": "pure qutrit",
+      "measurement_class": "random projective basis (3-outcome)",
+      "parameter_class": "3-parameter",
+      "n_samples": 900,
+      "metric_name": "trace(FQ_inv_times_FM)",
+      "metric_mean": 1.5204942211710262,
+      "metric_std": 0.29347867050321275,
+      "metric_min": 1.0016016263095515,
+      "metric_max": 1.9989247979335336,
+      "expected_relation": "no fixed qubit-style constant expected",
+      "observed_relation": "varies significantly across sampled states and measurements",
+      "status": "VALIDATED / NUMERICAL ONLY",
+      "notes": "No conserved constant analogous to the qubit identity observed."
+    }
+  ]
+}

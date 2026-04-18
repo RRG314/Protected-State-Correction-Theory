@@ -29,6 +29,9 @@ The Descriptor-fiber anti-classifier branch adds finite-class quantitative diagn
 ### Adjacent TSIT quantitative extension lane
 The TSIT lane is retained as an adjacent quantitative extension, not as a theorem-spine branch. It adds target-specific design/allocation/context diagnostics with strong witness evidence but high overlap with existing OCP row-space/fiber logic, so its placement remains `EXPLORATION / NON-PROMOTED` (Option D).
 
+### Quantum measurement-alignment design lane
+This lane is retained as a narrow quantum measurement-design sub-branch. It contributes corrected restricted-class tradeoff identities, explicit failure boundaries, and target-sensitive design diagnostics. It is kept branch-limited because literature overlap is high and no universal novelty claim is supported.
+
 ### Bounded-domain / CFD obstruction lane
 This lane keeps periodic exactness and bounded-domain failures in the same analytical frame. It is especially important for preventing false transfer from periodic projector results to bounded settings.
 

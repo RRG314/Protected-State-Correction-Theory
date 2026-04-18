@@ -16,6 +16,7 @@ Single branch-indexed map from repo branches to canonical literature anchors and
 | Asymptotic generator | invariant split, spectral abscissa/gap, semigroup decay | Pazy; Engel-Nagel; Davis-Kahan | standard functional-analytic machinery with repo branch-level theorem/no-go integration (`OCP-013`, `OCP-014`, `OCP-015`, `OCP-020`) |
 | Constrained-observation / recoverability | record map, target map, fiber constancy, row-space/kernel alignment | Björck-Golub; Davis-Kahan; Donoho; Candès-Romberg-Tao | mixture: known core + repo integrated theorem package (`OCP-030`–`OCP-047`) |
 | Fiber/unified limits | target hierarchy, anti-classifier, family-enlargement and mismatch fragility | Shannon; Hamming; Villaverde et al.; Alberti-Capdeboscq-Privat | strongest plausibly literature-distinct integrated package on restricted-linear classes (`OCP-048`–`OCP-053`) |
+| Quantum measurement-alignment lane | target-specific measurement FI, restricted qubit tradeoff identities, context-sensitive measurement design | Helstrom; Braunstein-Caves; Holevo; Matsumoto; Gill-Massar | branch-limited extension: corrected restricted theorem packaging + high literature-overlap risk (`KNOWN/REFRAMED` with restricted proofs) |
 
 ## Discipline Rules Used
 

@@ -12,6 +12,7 @@ This audit checks whether each major test answers the intended mathematical ques
 | Shared decoder feasibility | Is there one decoder for all contexts? | max residual from stacked linear system (`CID`) | Strong | partly definitional | keep + document as characterization |
 | Descriptor insufficiency | Can rank/budget classify shared exactness? | predictor mismatch counts + opposite signature groups | Strong | descriptor signature discretization | keep + add alternative signatures next pass |
 | Shared augmentation threshold | Minimal shared rows needed for invariant exactness | constrained combinational search over measurement-library pool | Moderate | pool dependence; finite search horizon (`<=4`) | keep with explicit class restriction |
+| Candidate-library defect feasibility | Is constrained augmentation feasible for a declared row library? | `delta_C = rank([G;C;L]) - rank([G;C])` plus full-pool exactness check | Strong | linear/restricted scope only | keep + formalize as no-go certificate |
 | Family enlargement fragility | Does adding one context flip invariant verdict? | `shared_exact` vs `enlarged_shared_exact` | Moderate | extra-context generator choice | keep + add multiple enlargement protocols |
 | Formation structure creation | Does mechanism create target-relevant structure? | alignment/DLS deltas and recoverability deltas | Weak-to-moderate | constructive mechanism bias | keep as secondary-only |
 | Formation-recoverability bridge | Do formation events change context gap/threshold behavior? | pre/post local/shared/threshold comparisons | Moderate | route templates are synthetic | keep as exploratory only |
@@ -20,13 +21,15 @@ This audit checks whether each major test answers the intended mathematical ques
 
 1. Main-track split tests are conceptually aligned with theorem questions.
 2. Augmentation threshold is mathematically relevant, but threshold values depend on admissible augmentation class.
-3. Formation tests remain vulnerable to setup artifacts and cannot support promotion claims yet.
+3. Candidate-library defect tests directly match the intended feasibility question and avoid search-horizon artifacts.
+4. Formation tests remain vulnerable to setup artifacts and cannot support promotion claims yet.
 
 ## Specific Weaknesses Detected
 
 1. If direct target-row augmentation is allowed, thresholds trivialize; this was explicitly blocked in this pass.
 2. Formation generators include high-control templates that can manufacture positive outcomes.
 3. No non-synthetic benchmark family was used in this pass.
+4. Library-defect law is exact for full-pool feasibility but does not by itself deliver minimal-row formulas.
 
 ## Redesign Steps Applied in This Pass
 
@@ -39,6 +42,7 @@ This audit checks whether each major test answers the intended mathematical ques
 1. Add adversarially generated contexts that preserve descriptors while randomizing geometry.
 2. Add benchmark families from non-synthetic datasets or domain simulators.
 3. Add proof-backed lower bounds for augmentation threshold to reduce dependence on search catalogs.
+4. Extend candidate-library tests to non-synthetic measurement libraries from benchmark domains.
 
 ## Audit Conclusion
 

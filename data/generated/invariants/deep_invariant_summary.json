@@ -1,0 +1,18 @@
+{
+  "deep_catalog_rows": 2640,
+  "deep_stress_rows": 116,
+  "sources": [
+    "agreement_operator_witness",
+    "augmentation_threshold",
+    "invariant_meta_descriptor",
+    "invariant_witness",
+    "multicontext_witness"
+  ],
+  "stress_sources": [
+    "family_enlargement_false_positive",
+    "invariant_stress",
+    "model_mismatch_stress",
+    "multicontext_enlargement_flip"
+  ],
+  "status": "EXPLORATION / NON-PROMOTED"
+}

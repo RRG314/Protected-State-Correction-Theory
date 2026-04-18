@@ -2,6 +2,7 @@
 
 Status: discovery-track operator candidates with falsification labels.
 Primary data: `data/generated/operator_discovery/operator_witness_catalog.csv` (1000 rows), `operator_anomaly_catalog.csv` (26 rows).
+Continuation data: `data/generated/context_sensitive_recoverability/agreement_operator_witness_catalog.csv` (300 rows).
 
 ## O1. Shared Decoder Compatibility Operator (SDCO)
 
@@ -96,10 +97,35 @@ Status:
 - `VALIDATED / EMPIRICAL ONLY`.
 - `DISPROVED` as exact classifier.
 
+## O6. Candidate-Library Defect Operator (CLDO)
+
+Definition:
+For agreement-lifted matrix `G`, target `L`, and admissible row library `C`:
+`CLDO = delta_C = rank([G; C; L]) - rank([G; C])`.
+
+Problem addressed:
+- certify whether constrained augmentation libraries can, in principle, restore shared exactness.
+
+Observed utility:
+- exact full-library feasibility certificate in supported linear class,
+- detects impossible libraries even when raw library rank gain is high.
+
+Continuation evidence:
+- `14` `delta_C > 0` impossibility cases,
+- `14` cases with `library_rank_gain >= free_threshold` but still infeasible.
+
+Reduction check:
+- linear-algebraic rank inclusion test; not a broad standalone operator theory.
+
+Status:
+- Mathematical: `PROVED ON RESTRICTED CLASS`.
+- Novelty: `PLAUSIBLY DISTINCT` as constrained-design no-go packaging.
+
 ## Operator Candidate Decision
 
 Keep:
-- AGO, CIO, CCD as practical diagnostics tied to theorem package.
+- AGO, CIO, CCD as practical diagnostics tied to theorem package,
+- CLDO as a strict constrained augmentation feasibility/impossibility certificate.
 
 Do not promote as novel math objects yet:
 - SDCO, CCD, CIO (all largely reformulations of compatibility/fiber logic).

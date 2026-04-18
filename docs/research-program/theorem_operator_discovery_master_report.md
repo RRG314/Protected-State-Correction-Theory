@@ -24,7 +24,8 @@ Final class: **CONDITIONAL THEOREM PACKAGE + OPERATOR CANDIDATES**.
 Interpretation:
 - theorem/no-go core is strong and sharpened,
 - operator/projection/equation discovery yielded useful diagnostics,
-- no broad genuinely new operator theory survived.
+- no broad genuinely new operator theory survived,
+- constrained candidate-library no-go equations survived as branch-useful additions.
 
 ## 1. What exact theorem package should be pushed now?
 
@@ -41,8 +42,9 @@ Scope label:
 Push now:
 1. no amount-only exact classifier,
 2. projection-sufficiency failure for shared decoder feasibility,
-3. bounded-domain divergence-only insufficiency (CFD branch),
-4. restricted variable-`eta` obstruction (MHD branch).
+3. candidate-library defect impossibility (`delta_C > 0`) and rank-gain insufficiency,
+4. bounded-domain divergence-only insufficiency (CFD branch),
+5. restricted variable-`eta` obstruction (MHD branch).
 
 ## 3. Did any genuinely new operator survive?
 
@@ -52,6 +54,7 @@ Short answer:
 Detail:
 - AGO is useful and somewhat additive computationally,
 - SDCO/CLE/CID mostly reduce to existing feasibility/compatibility logic.
+- `delta_C` (candidate-library defect) is a useful constrained-design operator with exact feasibility meaning on supported linear families.
 
 ## 4. Did any genuinely new projection method survive?
 
@@ -60,8 +63,9 @@ What survived is a strong negative: stack row-space projection is insufficient f
 
 ## 5. Did any genuinely new equation survive?
 
-No broad new equation survived.
-The main equation outcome is formalization of context-lift feasibility and augmentation-threshold equations with strict scope.
+No broad universal new equation survived.
+The strongest equation-level survivor is constrained-library defect feasibility:
+`delta_C = rank([G; C; L]) - rank([G; C])`, with exact feasibility criterion `delta_C = 0` on supported families.
 
 ## 6. What collapsed into existing OCP logic?
 
@@ -107,11 +111,18 @@ From `data/generated/operator_discovery/summary.json` and catalogs:
 - same-descriptor opposite-verdict groups: `23`,
 - projection-sufficient-but-invariant-fail cases: `491`.
 
+From agreement continuation artifacts:
+- witness rows: `300`,
+- anomaly rows: `87`,
+- same-descriptor opposite-verdict groups: `59`,
+- candidate-library defect impossibility cases: `14`,
+- library-gain-not-sufficient cases: `14`.
+
 ## Best serious next move after theorem/operator discovery
 
 Recommendation: **(2) push augmentation theorem and bounds before all else**.
 
 Reason:
 - split and anti-classifier theorem package is already strong on supported families,
-- promotion bottleneck is closed-form/tight augmentation threshold characterization,
+- promotion bottleneck is closed-form/tight augmentation threshold characterization, including constrained candidate-library bounds,
 - operator discovery did not produce stronger immediate publishable novelty than that theorem closure step.

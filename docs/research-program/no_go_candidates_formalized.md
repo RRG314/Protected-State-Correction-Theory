@@ -44,7 +44,7 @@ Status:
 - `PROVED ON SUPPORTED FAMILY`.
 
 Evidence:
-- `23` same-descriptor opposite-verdict groups in both main and operator catalogs.
+- `23` groups in base catalogs and `59` groups in agreement-operator continuation catalog.
 
 Novelty:
 - `PLAUSIBLY DISTINCT` finite-class no-go corpus.
@@ -116,12 +116,37 @@ Status:
 Evidence:
 - full-system falsification outputs and theorem ranking decisions.
 
+## N9. Positive Candidate-Library Defect Implies Repair Impossibility
+
+Statement:
+For agreement-lift matrix `G`, target `L`, and candidate library `C`, if
+`delta_C = rank([G; C; L]) - rank([G; C]) > 0`,
+then no augmentation using rows from `C` can restore invariant exactness.
+
+Status:
+- `PROVED ON RESTRICTED CLASS`.
+
+Evidence:
+- agreement continuation catalog: `14` explicit impossibility cases with `delta_C > 0`.
+
+## N10. Library Rank Gain Is Not Sufficient
+
+Statement:
+`rank([G; C]) - rank(G) >= r_free^*` is not sufficient for candidate-library feasibility.
+
+Status:
+- `PROVED ON RESTRICTED CLASS`.
+
+Evidence:
+- deterministic unit-test counterexample plus `14` catalog cases where gain bound holds but `delta_C > 0`.
+
 ## No-go package to push now
 
 Primary no-go package:
 1. N2 conditioned-vs-invariant split,
 2. N3 no amount-only exact classifier,
-3. N4 projection-sufficiency failure for shared decoder feasibility.
+3. N4 projection-sufficiency failure for shared decoder feasibility,
+4. N9/N10 candidate-library impossibility and gain-insufficiency laws.
 
 Secondary branch no-go package:
 - N5 (CFD bounded divergence-only insufficiency),
