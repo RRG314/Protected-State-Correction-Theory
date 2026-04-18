@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-04-18T02:38:04.698466+00:00",
+  "witness_count": 3502,
+  "anomaly_count": 1988,
+  "counts_by_direction": {
+    "target_specific_design": 1040,
+    "distributed_allocation": 560,
+    "approx_threshold": 840,
+    "context_intervention": 162,
+    "same_fisher_same_rank": 280,
+    "target_lossless_landscape": 620
+  },
+  "anomalies_by_direction": {
+    "target_specific_design": 780,
+    "distributed_allocation": 280,
+    "approx_threshold": 420,
+    "context_intervention": 80,
+    "same_fisher_same_rank": 140,
+    "target_lossless_landscape": 288
+  },
+  "key_rates": {
+    "design_trials": 260,
+    "dopt_conflict_count": 260,
+    "aopt_conflict_count": 260,
+    "eopt_conflict_count": 260,
+    "allocation_trials": 280,
+    "allocation_split_count": 280,
+    "threshold_trials": 420,
+    "one_measurement_flip_count": 420,
+    "causal_c_values": 81,
+    "causal_split_count": 80,
+    "fisher_pair_trials": 140,
+    "fisher_equal_split_count": 140,
+    "compression_trials": 620,
+    "compression_exact_count": 310,
+    "compression_same_budget_opposite_count": 288
+  },
+  "status": "EXPLORATION / NON-PROMOTED"
+}

@@ -9,6 +9,7 @@ What changed in substance is not a theory reset; it is a consolidation of struct
 - OCP remains the foundational spine.
 - Recoverability/anti-classifier branches are integrated as major branch-limited lanes.
 - Descriptor-fiber quantitative work is kept as a scoped branch layer.
+- TSIT target-structured diagnostics are retained as an adjacent quantitative extension (`EXPLORATION / NON-PROMOTED`), without theorem-spine promotion.
 - Workbench and visual surfaces are explicitly tied to theorem and validation structure.
 - Canonical onboarding now emphasizes explanation and hierarchy over process-log accumulation.
 

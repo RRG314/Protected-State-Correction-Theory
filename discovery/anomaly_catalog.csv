@@ -1,0 +1,19 @@
+anomaly_id,anomaly_type,lane,systems,why_it_matters,evidence
+same_descriptor_split_0,same_descriptor_opposite_verdict,causal_inference,causal_obs_0;causal_itv_0;causal_obs_1;causal_itv_1,Rank/count descriptor fails to classify recoverability.,causal_inference|1|1|1|1|1
+same_descriptor_split_1,same_descriptor_opposite_verdict,causal_inference,causal_ctx_fail_0;causal_ctx_exact_0;causal_ctx_fail_1;causal_ctx_exact_1,Rank/count descriptor fails to classify recoverability.,causal_inference|1|1|1|1|2
+same_descriptor_split_2,same_descriptor_opposite_verdict,multi_terminal,multi_terminal_1;multi_terminal_2;multi_terminal_3;multi_terminal_4,Rank/count descriptor fails to classify recoverability.,multi_terminal|2|2|2|2|1
+same_descriptor_split_3,same_descriptor_opposite_verdict,willems_data_driven,willems_data_5;willems_data_8;willems_data_11;willems_data_27,Rank/count descriptor fails to classify recoverability.,willems_data_driven|4|2|2|1|1
+same_descriptor_split_4,same_descriptor_opposite_verdict,willems_data_driven,willems_ctx_fail_0;willems_ctx_exact_0;willems_ctx_fail_1;willems_ctx_exact_1,Rank/count descriptor fails to classify recoverability.,willems_data_driven|2|2|2|1|2
+same_descriptor_split_5,same_descriptor_opposite_verdict,measurement_sensitivity,fisher_0;fisher_1;fisher_2;fisher_3,Rank/count descriptor fails to classify recoverability.,measurement_sensitivity|1|1|1|1|1
+same_descriptor_split_6,same_descriptor_opposite_verdict,target_lattice,lattice_obs_a_weak_0;lattice_obs_a_weak_1;lattice_obs_a_weak_2;lattice_obs_b_weak_0,Rank/count descriptor fails to classify recoverability.,target_lattice|1|1|1|1|1
+same_descriptor_split_7,same_descriptor_opposite_verdict,multi_terminal,threshold_chain_good_2;threshold_chain_bad_2,Rank/count descriptor fails to classify recoverability.,multi_terminal|2|2|2|1|1
+same_descriptor_split_8,same_descriptor_opposite_verdict,multi_terminal,threshold_chain_good_3;threshold_chain_bad_3,Rank/count descriptor fails to classify recoverability.,multi_terminal|3|3|2|1|1
+threshold_flip_chain_good_1_2,one_measurement_flip,multi_terminal,threshold_chain_good_1->threshold_chain_good_2,Single-measurement increments can trigger discontinuous exactness transitions.,exact 0 -> 1
+intervention_lift_causal_obs_0,intervention_vs_observation,causal_inference,causal_obs_0|causal_itv_0,Measurement type dominates measurement count.,"residual_obs=0.09950371902099892, residual_itv=0.0"
+intervention_lift_causal_obs_1,intervention_vs_observation,causal_inference,causal_obs_1|causal_itv_1,Measurement type dominates measurement count.,"residual_obs=0.19611613513818404, residual_itv=0.0"
+intervention_lift_causal_obs_2,intervention_vs_observation,causal_inference,causal_obs_2|causal_itv_2,Measurement type dominates measurement count.,"residual_obs=0.4472135954999579, residual_itv=0.0"
+intervention_lift_causal_obs_3,intervention_vs_observation,causal_inference,causal_obs_3|causal_itv_3,Measurement type dominates measurement count.,"residual_obs=0.7071067811865476, residual_itv=0.0"
+intervention_lift_causal_obs_4,intervention_vs_observation,causal_inference,causal_obs_4|causal_itv_4,Measurement type dominates measurement count.,"residual_obs=0.8944271909999159, residual_itv=0.0"
+intervention_lift_causal_obs_5,intervention_vs_observation,causal_inference,causal_obs_5|causal_itv_5,Measurement type dominates measurement count.,"residual_obs=0.970142500145332, residual_itv=0.0"
+distributed_arrangement_16,distributed_structure_over_amount,multi_terminal,multi_terminal_1|multi_terminal_45,Same total information budget/rank but different partition leads to opposite outcomes.,count=2|rank=2|target=2
+fisher_sensitivity_split_17,measurement_type_over_count,measurement_sensitivity,fisher_0|fisher_3,Same count but very different sensitivity floor produces opposite recoverability verdict.,fisher_min 0.0000 vs 1.0000

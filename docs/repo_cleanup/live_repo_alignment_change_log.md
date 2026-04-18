@@ -1,6 +1,6 @@
 # Live Repo Alignment Change Log
 
-Date: 2026-04-17
+Date: 2026-04-18
 
 ## Front-Door / Identity Updates
 
@@ -50,3 +50,11 @@ Updated references to those surfaces in:
 
 - Consolidation merged and pushed to `main`.
 - `main` is synchronized with `origin/main`.
+
+## TSIT Option D Follow-Up Additions
+
+- Added adjacent TSIT lane docs under `docs/research-program/adjacent-directions/`.
+- Added TSIT positioning/status/integration/finalization docs under `docs/research-program/`.
+- Added mirrored TSIT artifacts under `data/generated/tsit-extension/`.
+- Updated front-door and branch-map docs to include TSIT at non-promoted scope.
+- Added `docs/repo_cleanup/tsit-quantitative-extension-change-log.md`.

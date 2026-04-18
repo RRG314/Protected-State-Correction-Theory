@@ -48,6 +48,7 @@ Audited public-facing surfaces:
 
 1. No stale primary `meta theory` naming found in canonical workbench entry docs.
 2. Descriptor-fiber branch is presented as branch-limited and non-standalone in module mapping, consistent with repo status discipline.
+3. TSIT is presented as an adjacent quantitative extension (`EXPLORATION / NON-PROMOTED`) in docs and is not exposed as a promoted workbench theorem lane.
 
 ### Remaining Risk Notes
 

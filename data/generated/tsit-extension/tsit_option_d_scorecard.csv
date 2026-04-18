@@ -1,0 +1,7 @@
+direction,witness_count,anomaly_count,placement_class,status
+target_specific_design,1040,780,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED
+distributed_allocation,560,280,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED
+approx_threshold,840,420,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED
+context_intervention,162,80,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED
+same_fisher_same_rank,280,140,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED
+target_lossless_landscape,620,288,adjacent_quantitative_extension,EXPLORATION/NON-PROMOTED

@@ -26,6 +26,10 @@ Use this branch when you need to prevent overclaiming from amount-only summaries
 
 Use this branch when you need finite-class diagnostics that quantify descriptor insufficiency rather than only naming it. It is particularly useful for comparing amount-only descriptors to compatibility-enriched descriptors under explicit witness sets.
 
+## Adjacent TSIT quantitative extension lane
+
+Use this lane when the decision problem is explicitly target-specific and you need to compare design/allocation/context choices under fixed information budgets. It is useful for diagnostic and benchmark leverage, but it does not replace core recoverability criteria and remains non-promoted.
+
 ## Bounded-domain / CFD obstruction branch
 
 Use this branch when moving from periodic theory to bounded domains. It gives the strongest guardrails against naive projector transfer and identifies where restricted bounded exactness is actually supported.

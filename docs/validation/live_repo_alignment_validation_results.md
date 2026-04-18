@@ -1,6 +1,6 @@
 # Live Repo Alignment Validation Results
 
-Date: 2026-04-17
+Date: 2026-04-18
 
 ## Validation Scope
 
@@ -46,3 +46,25 @@ Live alignment changes are validated for:
 - workbench and figure/image surface integrity,
 - image-center (figure-index + visual-gallery + visual-guide) integrity,
 - stable test and validation baseline.
+
+## Option D TSIT Follow-Up Validation (2026-04-18)
+
+Additional checks run during TSIT Option D adjacent-lane integration:
+
+1. `python3 scripts/validate/check_links.py`
+   - **PASS**
+2. `python3 scripts/validate/check_naming.py`
+   - **PASS**
+3. `python3 scripts/validate/check_visual_gallery.py`
+   - **PASS**
+4. `python3 scripts/figures/validate_publication_figures.py`
+   - **PASS**
+5. `python3 scripts/validate/check_workbench_static.py`
+   - **PASS**
+6. `node --test tests/consistency/*.mjs`
+   - **PASS** (`29/29`)
+7. `bash scripts/validate/run_all.sh`
+   - **PASS** (python + node + pytest suite, including `191 passed` pytest aggregate)
+
+Follow-up conclusion:
+- TSIT Option D documentation and artifact wiring did not break links, naming, workbench static integrity, image-center references, or consistency test surfaces.

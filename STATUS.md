@@ -22,6 +22,8 @@ The strongest active branch-limited packages are:
    finite-class descriptor-fiber purity, irreducible descriptor-only error lower bound, and `DFMI` / `IDELB` / `CL` diagnostics.
 4. Bounded-domain / CFD branch:
    periodic exact anchor, bounded transplant no-go, and a restricted bounded exact subcase.
+5. Adjacent TSIT quantitative extension:
+   target-specific design/allocation/context diagnostics retained as `EXPLORATION / NON-PROMOTED` under Option D placement.
 
 ## Workbench Status
 
@@ -30,6 +32,7 @@ The workbench is maintained as a theorem-linked decision and diagnostics surface
 ## Conditional and Non-Promoted Areas
 
 Soliton overlap is kept as a bounded conditional bridge. Physics extensions are kept where the operator structure is explicit and labeled conditional when they are comparator-level.
+TSIT is kept as an adjacent quantitative extension lane and is explicitly not promoted into the theorem spine.
 
 Not promoted:
 - universal amount-only classifier laws,

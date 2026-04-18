@@ -37,6 +37,11 @@ These files define the core theorem/no-go architecture:
 - [Branch status](docs/research-program/descriptor-fiber-anti-classifier-branch-status.md)
 - [Branch paper](papers/descriptor-fiber-anti-classifier-branch.md)
 
+### Adjacent TSIT quantitative extension lane (`EXPLORATION / NON-PROMOTED`)
+- [TSIT positioning decision](docs/research-program/tsit_repo_positioning_report.md)
+- [TSIT quantitative extension](docs/research-program/adjacent-directions/tsit_quantitative_extension.md)
+- [TSIT claim status table](docs/research-program/adjacent-directions/tsit_claim_status_table.md)
+
 ### Bounded-domain / CFD obstruction lane
 - [Bounded vs periodic projection](docs/cfd/bounded-vs-periodic-projection.md)
 - [CFD projection results](docs/theorem-candidates/cfd-projection-results.md)

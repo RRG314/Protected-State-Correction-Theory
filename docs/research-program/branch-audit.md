@@ -26,6 +26,9 @@ This branch gives the cleanest statement of what survives as a universal core (f
 ### Descriptor-fiber anti-classifier branch
 The Descriptor-fiber anti-classifier branch adds finite-class quantitative diagnostics (`DFMI`, `IDELB`, `CL`) above anti-classifier witnesses. It is useful and active, but intentionally kept branch-limited.
 
+### Adjacent TSIT quantitative extension lane
+The TSIT lane is retained as an adjacent quantitative extension, not as a theorem-spine branch. It adds target-specific design/allocation/context diagnostics with strong witness evidence but high overlap with existing OCP row-space/fiber logic, so its placement remains `EXPLORATION / NON-PROMOTED` (Option D).
+
 ### Bounded-domain / CFD obstruction lane
 This lane keeps periodic exactness and bounded-domain failures in the same analytical frame. It is especially important for preventing false transfer from periodic projector results to bounded settings.
 

@@ -25,6 +25,8 @@ The architecture is deliberately hierarchical.
   exact projector/sector anchors, continuous asymptotic generator structure, and the core no-go spine.
 - Branch-limited strengthening:
   restricted-linear recoverability, fiber-based anti-classifier theorems, descriptor-fiber quantitative extraction, and bounded-domain/CFD obstruction analysis.
+- Adjacent quantitative extension:
+  TSIT target-specific diagnostics retained as an application-facing non-promoted lane with explicit reduction checks against OCP core math.
 - Product surface:
   workbench modules that expose theorem-backed and validated branch behavior with explicit evidence labels.
 
@@ -49,6 +51,9 @@ This branch adds finite-class diagnostics (`DFMI`, `IDELB`, `CL`) above anti-cla
 
 ### Bounded-domain / CFD-facing obstruction branch
 This branch keeps periodic exactness and bounded-domain failure modes in one disciplined lane, with restricted bounded exact subcases where assumptions are explicit.
+
+### Adjacent TSIT quantitative extension lane
+This lane keeps target-specific design and allocation diagnostics where witness evidence is strong, while explicitly not promoting TSIT to core-theorem status. It is maintained for quantitative decision value and falsification leverage only.
 
 ## Workbench and Image Center
 

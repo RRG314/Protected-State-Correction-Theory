@@ -22,6 +22,7 @@ Date: 2026-04-17
 
 - No stale `meta theory` naming detected on canonical app/figure surfaces in this pass.
 - Descriptor-fiber branch naming is now carried in docs and branch maps, not as a disconnected image surface label.
+- TSIT is represented in docs as an Option D adjacent quantitative extension only; no unsupported TSIT theorem labels are exposed on workbench/image-center surfaces.
 
 ## Figure Path and Asset Integrity Findings
 

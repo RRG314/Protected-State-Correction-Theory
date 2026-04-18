@@ -19,6 +19,7 @@ The program has a clear hierarchy.
 - Foundation: exact projector/sector anchors, continuous asymptotic generator results, and the core no-go layer.
 - Branch-limited strengthening: restricted-linear recoverability, anti-classifier/family-enlargement/mismatch theorems, and bounded-domain compatibility limits.
 - Quantitative extraction: descriptor-fiber diagnostics on supported finite witness classes.
+- Adjacent quantitative extensions: target-structured information diagnostics (TSIT) kept as exploration/non-promoted, with explicit overlap controls against core OCP/fiber math.
 - Engineering surface: a workbench that exposes theorem-backed and validated branch behavior without claiming universal symbolic capability.
 
 Current overall status remains branch-limited (`B`): the universal core is strong, but broader unification claims are not promoted.
@@ -43,6 +44,14 @@ The active paper set is:
 - [MHD closure paper](papers/mhd_paper_upgraded.md)
 - [Unifying framework paper](papers/unifying_theory_framework_final.md)
 - [Descriptor-fiber anti-classifier branch paper](papers/descriptor-fiber-anti-classifier-branch.md)
+
+## Adjacent Quantitative Extensions
+
+The repository keeps one active adjacent extension lane for target-specific diagnostics where practical value survived falsification but core-theorem promotion did not.
+
+- [TSIT quantitative extension (Option D, non-promoted)](docs/research-program/adjacent-directions/tsit_quantitative_extension.md)
+- [TSIT claim status table](docs/research-program/adjacent-directions/tsit_claim_status_table.md)
+- [TSIT witness catalog reference](docs/research-program/adjacent-directions/tsit_witness_catalog_reference.md)
 
 ## Workbench
 

@@ -19,6 +19,7 @@ One authoritative map of where to read each topic first.
 | Universal core | `docs/unifying_theory/final_universal_core_theorems.md` | `docs/unifying_theory/universal_core_refinement_report.md` | Canonical |
 | Branch-limited package | `docs/unifying_theory/branch_limited_strengthening_final.md` | `docs/unifying_theory/canonical_witnesses_and_counterexamples.md` | Canonical |
 | Descriptor-fiber anti-classifier branch | `docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md` | `docs/research-program/descriptor-fiber-anti-classifier-branch-status.md`, `papers/descriptor-fiber-anti-classifier-branch.md` | Canonical branch-limited lane |
+| TSIT adjacent quantitative extension | `docs/research-program/adjacent-directions/tsit_quantitative_extension.md` | `docs/research-program/adjacent-directions/tsit_claim_status_table.md`, `docs/research-program/tsit_repo_positioning_report.md`, `data/generated/tsit-extension/tsit_positioning_summary.json` | Canonical adjacent lane (non-promoted) |
 | Workbench overview | `docs/app/workbench-overview.md` | `docs/app/module-theory-map.md`, `docs/workbench/index.html` | Canonical |
 | Image/Figure center | `docs/visuals/figure-index.html` | `docs/visuals/visual-gallery.html`, `docs/visuals/visual-guide.md` | Canonical supporting |
 | Validation summary | `docs/validation/master_validation_report.md` | `validation_summary.json`, `docs/app/tool-qualification-report.md` | Canonical |

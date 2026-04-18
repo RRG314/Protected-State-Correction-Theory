@@ -1,6 +1,6 @@
 # Live Repo Alignment Final Report
 
-Date: 2026-04-17
+Date: 2026-04-18
 Repository: `RRG314/Protected-State-Correction-Theory`
 
 ## Objective
@@ -92,3 +92,11 @@ Result:
 - Public strategy target achieved: one clean `main` branch presentation.
 - Alignment and consolidation work is merged and pushed to live `main`.
 - No blind bulk deletion was performed.
+
+## Option D Addendum (TSIT Adjacent Lane)
+
+Follow-up alignment applied in this pass:
+1. TSIT was placed as an adjacent quantitative extension (`EXPLORATION / NON-PROMOTED`), not as a theorem-spine branch.
+2. Front-door, branch-map, and status docs were synchronized to reflect that scope.
+3. Mirrored TSIT artifacts were added under `data/generated/tsit-extension/`.
+4. Workbench/image-center surfaces were checked to ensure no unsupported promotion labels were introduced.

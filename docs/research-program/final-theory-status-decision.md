@@ -43,6 +43,7 @@ Regimes:
 - bounded-domain obstruction + restricted exactness packaged cleanly,
 - stronger anti-classifier and fragility theorem package kept branch-scoped,
 - descriptor-fiber anti-classifier quantitative extraction lane added as branch-limited finite-class support (not promoted to universal core),
+- TSIT target-structured diagnostics placed as Option D adjacent quantitative extension (`EXPLORATION / NON-PROMOTED`) without theorem-spine promotion,
 - workbench evidence taxonomy aligned with theorem/no-go status,
 - references/literature positioning tightened for promoted claims.
 

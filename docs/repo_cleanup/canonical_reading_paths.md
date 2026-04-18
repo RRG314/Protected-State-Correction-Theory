@@ -61,9 +61,10 @@ This file defines official reading flows while preserving all historical/support
 3. `docs/research-program/branch-audit.md`
 4. `docs/research-program/usefulness-by-branch.md`
 5. `docs/research-program/descriptor-fiber-anti-classifier-branch-overview.md`
-6. `docs/unifying_theory/final_theory_refinement_master_report.md`
-7. `docs/research-program/geometry-pass-2026-04-16/`
-8. `docs/research-program/soliton-geometry-discovery-2026-04-16/`
+6. `docs/research-program/adjacent-directions/tsit_quantitative_extension.md`
+7. `docs/unifying_theory/final_theory_refinement_master_report.md`
+8. `docs/research-program/geometry-pass-2026-04-16/`
+9. `docs/research-program/soliton-geometry-discovery-2026-04-16/`
 
 ## Role Labels
 
