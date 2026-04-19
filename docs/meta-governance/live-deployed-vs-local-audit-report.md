@@ -8,8 +8,8 @@ Local workspace: `/Users/stevenreid/Documents/New project/repos/ocp-research-pro
 
 - Live deployed baseline: `origin/main` at `cf4e99ad4901edf3340f128c626dcd7fb0292f02` (`v1.1.0`)
 - Local push-prep branch: `steven/push-cleanup-audit`
-- Local HEAD at audit time: `3da3b9bb79502bc44f4d72441629fe294a46a029`
-- Divergence: local is ahead of `origin/main` by 12 commits, behind by 0
+- Local HEAD at audit time: `6e3a68dd643f3e9b972ebbf5f1f8d6a8db8ea730`
+- Divergence: local is ahead of `origin/main` by 13 commits, behind by 0
 
 ## Commit Delta (local ahead stack)
 
@@ -25,19 +25,20 @@ Local workspace: `/Users/stevenreid/Documents/New project/repos/ocp-research-pro
 10. `c027857` architecture moves and internalization commit
 11. `4fd61f6` canonical routing/public surface cleanup commit
 12. `3da3b9b` writing normalization across active docs
+13. `6e3a68d` live-vs-local and push-readiness reporting
 
 ## Diff Scale vs Live
 
 `origin/main...HEAD` statistics:
 
-- 483 files changed
-- 7157 insertions
+- 485 files changed
+- 7361 insertions
 - 1282 deletions
-- status mix includes heavy rename volume (`R100=214`) plus additions (`A=168`) and edits (`M=52`)
+- status mix includes heavy rename volume (`R100=214`) plus additions (`A=170`) and edits (`M=52`)
 
 Top touched areas (by changed path count):
 
-- `docs/meta-governance` (300)
+- `docs/meta-governance` (302)
 - `docs/archive` (45)
 - `docs/methods-diagnostics` (20)
 - `data/imported` (17)
@@ -87,14 +88,14 @@ Difference:
 
 ## Current Push Readiness State
 
-- Working tree status at audit completion: clean except this report and the push-readiness report added in this pass
+- Working tree status at audit completion: clean
 - Generated artifact churn from validation was intentionally restored before staging
 - No broad unstaged delete/add move chaos remains
 
 ## Remaining Gaps and Risks Before Push
 
 1. Review size risk remains high.
-   - The branch is still a large 12-commit stack over `origin/main`.
+   - The branch is still a large 13-commit stack over `origin/main`.
 2. Internal governance volume is large.
    - `docs/meta-governance/internal/*` is extensive; review messaging must clarify why it exists.
 3. Rename-heavy diff may still look noisy on GitHub in some sections.
