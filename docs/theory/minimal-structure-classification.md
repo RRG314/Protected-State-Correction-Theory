@@ -5,9 +5,9 @@
 This document classifies recovery architecture by structural ingredients, not by count/rank/budget slogans alone.
 
 Primary implementation:
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`data/generated/next-phase/structure_classes.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/structure_classes.csv)
-- [`data/generated/next-phase/quantitative_profiles.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/quantitative_profiles.csv)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`data/generated/next-phase/structure_classes.csv`](../../data/generated/next-phase/structure_classes.csv)
+- [`data/generated/next-phase/quantitative_profiles.csv`](../../data/generated/next-phase/quantitative_profiles.csv)
 
 ## Core Invariants
 

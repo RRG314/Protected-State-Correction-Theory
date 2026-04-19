@@ -1,7 +1,7 @@
 # Push Readiness Execution Report
 
 Date: 2026-04-19  
-Repository: `/Users/stevenreid/Documents/New project/repos/ocp-research-program`
+Repository: `.`
 
 ## 1. Starting state
 

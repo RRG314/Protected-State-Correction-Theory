@@ -2,7 +2,7 @@
 
 Date: 2026-04-19  
 Repo: `RRG314/Protected-State-Correction-Theory`  
-Local workspace: `/Users/stevenreid/Documents/New project/repos/ocp-research-program`
+Local workspace: `.`
 
 ## Baseline
 

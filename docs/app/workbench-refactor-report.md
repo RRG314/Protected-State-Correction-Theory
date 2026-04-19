@@ -2,18 +2,18 @@
 
 ## What moved
 - domain metadata out of `app.js` into:
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/workbenchCatalog.js`
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/defaultState.js`
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/discoveryMixerCatalog.js`
+  - `docs/workbench/lib/domain/workbenchCatalog.js`
+  - `docs/workbench/lib/domain/defaultState.js`
+  - `docs/workbench/lib/domain/discoveryMixerCatalog.js`
 - chart and matrix rendering out of `app.js` into:
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/ui/charts.js`
+  - `docs/workbench/lib/ui/charts.js`
 - analysis dispatch out of `app.js` into:
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/analysisDispatcher.js`
+  - `docs/workbench/lib/app/analysisDispatcher.js`
 - scenario persistence/share-state/export plumbing out of `app.js` into:
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioSerialization.js`
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioExports.js`
-  - `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioStore.js`
-- engine logic out of the old monolithic compute path into focused engine modules under `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine`
+  - `docs/workbench/lib/app/scenarioSerialization.js`
+  - `docs/workbench/lib/app/scenarioExports.js`
+  - `docs/workbench/lib/app/scenarioStore.js`
+- engine logic out of the old monolithic compute path into focused engine modules under `docs/workbench/lib/engine`
 
 ## What was split
 - `compute.js` -> thin public facade + engine modules

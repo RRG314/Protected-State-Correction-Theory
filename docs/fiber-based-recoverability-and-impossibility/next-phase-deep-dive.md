@@ -7,11 +7,11 @@
 - Architecture: restricted-linear observation and decoder with explicit admissible-family scope.
 
 Core sources:
-- [`src/ocp/recoverability.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/recoverability.py)
-- [`src/ocp/fiber_limits.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/fiber_limits.py)
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`data/generated/next-phase/quantitative_profiles.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/quantitative_profiles.csv)
-- [`data/generated/next-phase/fragility_rank_deficient.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_rank_deficient.csv)
+- [`src/ocp/recoverability.py`](../../src/ocp/recoverability.py)
+- [`src/ocp/fiber_limits.py`](../../src/ocp/fiber_limits.py)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`data/generated/next-phase/quantitative_profiles.csv`](../../data/generated/next-phase/quantitative_profiles.csv)
+- [`data/generated/next-phase/fragility_rank_deficient.csv`](../../data/generated/next-phase/fragility_rank_deficient.csv)
 
 ## Starting Anchors
 
@@ -53,9 +53,9 @@ Status: `DISPROVED`.
 - augmentation-repairable non-exact cases show positive `delta` with clear alignment defect.
 
 See:
-- [`quantitative_profiles.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/quantitative_profiles.csv)
-- [`fragility_rank_deficient.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_rank_deficient.csv)
-- [`fragility_full_rank.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_full_rank.csv)
+- [`quantitative_profiles.csv`](../../data/generated/next-phase/quantitative_profiles.csv)
+- [`fragility_rank_deficient.csv`](../../data/generated/next-phase/fragility_rank_deficient.csv)
+- [`fragility_full_rank.csv`](../../data/generated/next-phase/fragility_full_rank.csv)
 
 ## Literature Positioning
 

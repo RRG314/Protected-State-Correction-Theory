@@ -3,7 +3,7 @@
 This report records the post-refactor verification pass used to confirm that the architectural changes preserved real behavior.
 
 ## Checked surfaces
-- syntax check for `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/app.js`
+- syntax check for `docs/workbench/app.js`
 - static workbench regression suite
 - discovery mixer regression suite
 - scenario store regression suite

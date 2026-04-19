@@ -1,16 +1,16 @@
 # Workbench Architecture
 
-The workbench now follows a layered static-web architecture inside `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench`.
+The workbench now follows a layered static-web architecture inside `docs/workbench`.
 
 ## Layer map
 
 ### Layer A — Domain model
 Files:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/defaultState.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/resultModel.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/templates.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/workbenchCatalog.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/discoveryMixerCatalog.js`
+- `docs/workbench/lib/domain/defaultState.js`
+- `docs/workbench/lib/domain/resultModel.js`
+- `docs/workbench/lib/domain/templates.js`
+- `docs/workbench/lib/domain/workbenchCatalog.js`
+- `docs/workbench/lib/domain/discoveryMixerCatalog.js`
 
 Responsibilities:
 - scenario defaults
@@ -21,14 +21,14 @@ Responsibilities:
 
 ### Layer B — Engine layer
 Files:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/core/linearAlgebra.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/exactLabs.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/recoverabilityEngine.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/benchmarkConsole.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/physicsEngine.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/continuousEngine.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/noGoEngine.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/discoveryMixerEngine.js`
+- `docs/workbench/lib/engine/core/linearAlgebra.js`
+- `docs/workbench/lib/engine/exactLabs.js`
+- `docs/workbench/lib/engine/recoverabilityEngine.js`
+- `docs/workbench/lib/engine/benchmarkConsole.js`
+- `docs/workbench/lib/engine/physicsEngine.js`
+- `docs/workbench/lib/engine/continuousEngine.js`
+- `docs/workbench/lib/engine/noGoEngine.js`
+- `docs/workbench/lib/engine/discoveryMixerEngine.js`
 
 Responsibilities:
 - theorem-backed and family-specific calculations
@@ -38,13 +38,13 @@ Responsibilities:
 - discovery-mixer structural analysis
 
 The public entrypoints remain thin facades:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/compute.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/discoveryMixer.js`
+- `docs/workbench/lib/compute.js`
+- `docs/workbench/lib/discoveryMixer.js`
 
 ### Layer C — Data and artifact layer
 Files:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/data/validationSnapshot.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/generatedValidationSnapshot.js`
+- `docs/workbench/lib/data/validationSnapshot.js`
+- `docs/workbench/lib/generatedValidationSnapshot.js`
 
 Responsibilities:
 - generated validation snapshot loading
@@ -53,11 +53,11 @@ Responsibilities:
 
 ### Layer D — Application and orchestration layer
 Files:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/analysisDispatcher.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioSerialization.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioExports.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioStore.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/app.js`
+- `docs/workbench/lib/app/analysisDispatcher.js`
+- `docs/workbench/lib/app/scenarioSerialization.js`
+- `docs/workbench/lib/app/scenarioExports.js`
+- `docs/workbench/lib/app/scenarioStore.js`
+- `docs/workbench/app.js`
 
 Responsibilities:
 - scenario persistence and share-state
@@ -69,9 +69,9 @@ Responsibilities:
 
 ### Layer E — Presentation layer
 Files:
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/ui/charts.js`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/styles.css`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/index.html`
+- `docs/workbench/lib/ui/charts.js`
+- `docs/workbench/styles.css`
+- `docs/workbench/index.html`
 
 Responsibilities:
 - chart SVG generation

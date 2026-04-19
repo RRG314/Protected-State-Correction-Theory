@@ -7,9 +7,9 @@
 - Observation/correction architecture: periodic projection transplant vs bounded-domain Hodge-compatible correction.
 
 Core sources:
-- [`src/ocp/cfd.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/cfd.py)
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`data/generated/next-phase/cfd_deep_dive.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/cfd_deep_dive.csv)
+- [`src/ocp/cfd.py`](../../src/ocp/cfd.py)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`data/generated/next-phase/cfd_deep_dive.csv`](../../data/generated/next-phase/cfd_deep_dive.csv)
 
 ## Starting Anchors
 

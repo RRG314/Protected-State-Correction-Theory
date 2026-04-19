@@ -1,7 +1,7 @@
 # Current Repo Structure Audit for Rewrite
 
-Date: 2026-04-19  
-Scope audited: `/Users/stevenreid/Documents/New project/repos/ocp-research-program`  
+Date: 2026-04-19
+Scope audited: `.`
 Mode: audit only (no broad restructure in this pass)
 
 ## 1. Executive Verdict
@@ -34,40 +34,40 @@ Single biggest architectural problem:
 
 ### Major theory docs currently used as anchors
 
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/finalization/theorem-spine-final.md`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/finalization/no-go-spine-final.md`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/theory/advanced-directions/constrained-observation-formalism.md`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/overview/proof-status-map.md`
+- `docs/finalization/theorem-spine-final.md`
+- `docs/finalization/no-go-spine-final.md`
+- `docs/theory/advanced-directions/constrained-observation-formalism.md`
+- `docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md`
+- `docs/overview/proof-status-map.md`
 
 ### Major methods/validation assets
 
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/fiber_limits.py`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/decision_layer.py`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/structural_information.py`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/scripts/research/run_structural_information_harness.py`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/unified-recoverability/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/structural-information-theory/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/tests/math/`
+- `src/ocp/fiber_limits.py`
+- `src/ocp/decision_layer.py`
+- `src/ocp/structural_information.py`
+- `scripts/research/run_structural_information_harness.py`
+- `data/generated/unified-recoverability/`
+- `data/generated/structural-information-theory/`
+- `tests/math/`
 
 ### Where strongest recent hardening results currently live
 
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/research-program/structural-information-theory/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/structural-information-theory/`
+- `docs/research-program/structural-information-theory/`
+- `data/generated/structural-information-theory/`
 
 ### Where framework/interpretive materials are concentrated
 
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/unifying_theory/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/meta_theory/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/physics/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/papers/unifying_theory_framework*.md`
+- `docs/unifying_theory/`
+- `docs/meta_theory/`
+- `docs/physics/`
+- `papers/unifying_theory_framework*.md`
 
 ### Where audit/governance materials are concentrated
 
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/repo_cleanup/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/falsification/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/validation/`
-- `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/research-program/` (mixed with technical results)
+- `docs/repo_cleanup/`
+- `docs/falsification/`
+- `docs/validation/`
+- `docs/research-program/` (mixed with technical results)
 
 ## 3. Functional Layer Classification
 
