@@ -1,19 +1,13 @@
-# Unifying Theory Layer Index
+# Unifying Theory Layer (Legacy Framework Lane)
 
-## Canonical final set
+Status: **non-canonical framework archive**.
 
-- `final_theory_identity.md`
-- `theorem_hierarchy_final.md`
-- `final_universal_core_theorems.md`
-- `branch_limited_strengthening_final.md`
-- `final_theory_refinement_master_report.md`
-- `one_page_summary.md`
-- `best_next_theorem_target.md`
+This folder is retained for provenance and reviewer traceability. It is not a routing authority for theorem-core or restricted-result claims.
 
-## Supporting analyses
+Use active routing instead:
+- `docs/overview/repo-authority-map.md`
+- `docs/theorem-core/README.md`
+- `docs/restricted-results/README.md`
+- `docs/meta-governance/README.md`
 
-All other files in this folder are retained as supporting derivation/audit material.
-
-## Paper output
-
-- `papers/unifying_theory_framework_final.md`
+Framework material here may remain useful as interpretation or historical synthesis, but it must not override branch-limited theorem status.

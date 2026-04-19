@@ -2,5 +2,5 @@
 
 Canonical navigation:
 - `branches/README.md`
-- `docs/research-program/branch_navigation_map.md`
+- `docs/overview/repo-authority-map.md`
 - `docs/overview/main-contributions.md`

@@ -1,6 +1,9 @@
 # Legacy Meta-Theory Archive (Supporting)
 
 This directory is retained as historical/supporting material from exploratory passes.
+It is not a canonical routing layer.
+
+Active routing is in `docs/overview/repo-authority-map.md`.
 
 Canonical active branch identity is now:
 - **Descriptor-Fiber Anti-Classifier Branch**

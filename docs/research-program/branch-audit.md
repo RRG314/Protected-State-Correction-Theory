@@ -6,7 +6,7 @@ The repository has one foundation and several strengthening lanes. The foundatio
 
 The highest-value branches are the foundational OCP spine, the constrained-observation recoverability lane, the fiber impossibility lane, the restricted positive design lane, the invariant/augmentation lane, and the CFD/MHD domain branches. These lanes are retained as front-door surfaces because they add theorem leverage, falsification leverage, or reliable design diagnostics.
 
-The descriptor-fiber quantitative lane is active and useful but explicitly branch-limited. It improves classification on supported witness catalogs and should not be read as a universal classifier. The TSIT and quantum lanes are treated as adjacent quantitative/design extensions with strict overlap controls. They remain useful where scoped, but they are not core replacement narratives.
+The Descriptor-fiber anti-classifier branch is active and useful but explicitly branch-limited. It improves classification on supported witness catalogs and should not be read as a universal classifier. The TSIT and quantum lanes are treated as adjacent quantitative/design extensions with strict overlap controls. They remain useful where scoped, but they are not core replacement narratives.
 
 Exploratory process bundles and repeated integration logs are retained for provenance in archive locations, not as canonical reading paths. This is deliberate: branch clarity is stronger when entry surfaces emphasize stable theorems, no-go boundaries, and reproducible artifacts.
 

@@ -1,6 +1,9 @@
 # Repository Cleanup and Integration Index
 
-This folder contains the non-destructive cleanup/professionalization package.
+Status: **legacy governance archive (non-canonical)**.
+
+This folder contains historical cleanup/professionalization materials retained for provenance.
+Current canonical routing is in `docs/overview/repo-authority-map.md`.
 
 ## Core outputs
 

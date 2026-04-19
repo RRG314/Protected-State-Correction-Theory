@@ -5,22 +5,27 @@ This file is the canonical onboarding entry for serious readers.
 ## First Read (in order)
 
 1. `README.md` for scope, status, and repository identity.
-2. `docs/finalization/architecture-final.md` for the program architecture.
-3. `docs/finalization/theorem-spine-final.md` for promoted positive results.
-4. `docs/finalization/no-go-spine-final.md` for promoted limits and failure modes.
+2. `docs/overview/repo-authority-map.md` for the active six-layer architecture.
+3. `docs/theorem-core/architecture-final.md` for the program architecture.
+4. `docs/theorem-core/theorem-spine-final.md` for promoted theorem-core results.
+5. `docs/theorem-core/no-go-spine-final.md` for promoted limits and failure modes.
 
 After that first pass, choose the lane that matches your goal:
 
-- Theory-first: `docs/repo_cleanup/canonical_reading_paths.md` (Theory-First Path)
-- Paper-first: `papers/recoverability_paper_final.md`
-- Workbench-first: `docs/workbench/index.html`
-- Validation-first: `docs/validation/master_validation_report.md`
+- Restricted-results-first (strongest contribution lane): `docs/restricted-results/README.md`
+- Strongest paper lane direct path: `docs/restricted-results/strongest-paper-lane.md`
+- Methods-first: `docs/methods-diagnostics/README.md`
+- Validation-first: `docs/validation-evidence/README.md`
+- Physics translation first: `docs/physics-translation/README.md`
+- Governance/audit first: `docs/meta-governance/README.md`
 
-## Core Navigation Maps
+## Canonical Routing
 
-- `docs/repo_cleanup/canonical_document_map.md`
+- `docs/overview/repo-authority-map.md`
+- `branches/README.md`
 - `docs/overview/proof-status-map.md`
-- `docs/repo_cleanup/companion_repo_map.md`
+
+Legacy maps in `docs/repo_cleanup/` are preserved for provenance only.
 
 ## Terminology and Notation
 

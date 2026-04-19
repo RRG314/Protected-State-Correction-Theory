@@ -4,7 +4,7 @@ This page summarizes the strongest current contributions and where they live in 
 
 ## Core theorem and no-go spine
 
-The core OCP architecture and its promoted theorem/no-go statements are in `docs/finalization/`. The canonical entry files are `architecture-final.md`, `theorem-spine-final.md`, and `no-go-spine-final.md`, with paper-level presentation in `papers/ocp_core_paper.md`.
+The core OCP architecture and its promoted theorem/no-go statements are in `docs/theorem-core/`. The canonical entry files are `architecture-final.md`, `theorem-spine-final.md`, and `no-go-spine-final.md`, with paper-level presentation in `papers/ocp_core_paper.md`.
 
 ## Constrained observation and recoverability
 
@@ -16,11 +16,11 @@ The fiber branch provides the cleanest impossibility and opposite-verdict famili
 
 ## Positive recoverability and augmentation design
 
-The restricted positive package is documented in `docs/research-program/positive_class_definitions.md`, `positive_theorem_candidates.md`, `positive_no_go_boundaries.md`, and `positive_recoverability_master_report.md`.
+The restricted positive package is documented in `docs/research-program/positive_class_definitions.md`, `positive_theorem_candidates.md`, `positive_no_go_boundaries.md`, and `positive_recoverability_master_report.md` and is routed through `docs/restricted-results/README.md`.
 
 ## Invariant and augmentation program
 
-Current invariant results are organized in `docs/research-program/invariant_*` files, centered on `CID`, `delta_free`, `delta_C`, and descriptor-lift diagnostics. The main synthesis is `invariant_formalization_and_bh_placement_master_report.md`.
+Current invariant and diagnostic results are organized in `docs/research-program/invariant_*` files, centered on `CID`, `delta_free`, `delta_C`, and descriptor-lift diagnostics. Methods-first routing is in `docs/methods-diagnostics/README.md`.
 
 ## CFD and MHD domain branches
 
@@ -32,4 +32,4 @@ The workbench is a theorem-linked analysis surface. Start with `docs/app/workben
 
 ## Physics extensions
 
-Physics notes are branch-limited extensions. Quantum and BH/cosmology materials are kept with explicit status labels in `docs/physics/` and are not promoted to core theorem spine without separate support.
+Physics notes are branch-limited extensions. Quantum and BH/cosmology materials are kept with explicit status labels in `docs/physics/` and are not promoted to core theorem spine without separate support. The canonical translation lane is `docs/physics-translation/README.md`.

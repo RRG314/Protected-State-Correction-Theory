@@ -57,6 +57,16 @@ The repo is organized as a branch-first research program:
 - [Physics extension branch](./branches/09-physics-extension/README.md)
 - [Workbench and discovery systems](./branches/10-workbench-and-discovery-systems/README.md)
 
+## Canonical Documentation Routing
+
+- [Single authority map](./docs/overview/repo-authority-map.md)
+- [Theorem core lane](./docs/theorem-core/README.md)
+- [Restricted results lane](./docs/restricted-results/README.md)
+- [Methods and diagnostics lane](./docs/methods-diagnostics/README.md)
+- [Validation and evidence lane](./docs/validation-evidence/README.md)
+- [Physics translation lane](./docs/physics-translation/README.md)
+- [Meta-governance lane](./docs/meta-governance/README.md)
+
 ## Workbench
 
 The workbench is an interface for testing recoverability conditions, diagnosing structural failure, and applying supported repair operations. It is tied to the theorem layer and benchmark catalogs; it is not treated as an independent source of mathematical claims.
@@ -73,6 +83,7 @@ Typical uses include recoverability diagnosis for a fixed measurement design, mi
 
 - [Main contributions](./docs/overview/main-contributions.md)
 - [Papers index](./papers/README.md)
+- Descriptor-fiber anti-classifier branch paper: [papers/descriptor-fiber-anti-classifier-branch.md](./papers/descriptor-fiber-anti-classifier-branch.md)
 
 ## License
 

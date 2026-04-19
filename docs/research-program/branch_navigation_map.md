@@ -3,6 +3,7 @@
 Date: 2026-04-18
 
 Primary public branch entry path: `branches/`
+Canonical doc routing map: `docs/overview/repo-authority-map.md`
 
 ## Branch index
 
