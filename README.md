@@ -1,5 +1,10 @@
 # Protected-State Correction and Recoverability
 
+[![Release](https://img.shields.io/github/v/release/RRG314/Protected-State-Correction-Theory?display_name=tag)](https://github.com/RRG314/Protected-State-Correction-Theory/releases)
+[![License: MIT](https://img.shields.io/github/license/RRG314/Protected-State-Correction-Theory)](./LICENSE)
+[![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
+[![Program Scope](https://img.shields.io/badge/Scope-Branch--first%20%7C%20Theorem--first-1f6feb)](./branches/README.md)
+
 _Program identity: Protected-State Correction Theory (OCP)._ 
 
 This repository studies one recurring technical question across several fields:

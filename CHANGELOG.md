@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.1.0 — 2026-04-18
+
+Expansion and structural consolidation release.
+
+This version adds substantial new theorem/discovery material while reorganizing the repository into a clearer branch-first structure for public reading.
+
+Main release moves:
+- expanded constrained-observation, context-sensitive recoverability, positive design, and invariant/augmentation lanes
+- expanded CFD bounded-domain and MHD closure/obstruction branch material
+- added scoped quantum-alignment and BH/cosmology placement audits as narrow physics extension content
+- reorganized documentation around branch landing pages and canonical contribution paths
+- demoted process-heavy internal pass logs from front-door navigation to archive paths
+- normalized major public docs to a consistent theorem-first research tone
+
+Release notes:
+- `docs/releases/v1.1.0.md`
+
 ## v1.0.0 — 2026-04-13
 
 Initial public research-program release.
