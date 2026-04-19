@@ -1,11 +1,11 @@
 # Theorem Core
 
-This lane holds adopted backbone and theorem-spine anchors.
+This lane holds the backbone statements the rest of the repo depends on.
 
-Use this lane for:
-- formal backbone definitions and theorem spine,
-- no-go spine anchors,
-- architecture and terminology anchors.
+Use this lane when you need to answer:
+- what is assumed,
+- what is proved,
+- what boundary conditions are attached to each promoted theorem.
 
 Canonical files:
 - `architecture-final.md`
@@ -14,4 +14,6 @@ Canonical files:
 - `operator-spine-final.md`
 - `naming-and-terminology.md`
 
-Known-overlap positioning is mandatory at theorem entry points. Novelty claims belong in `docs/restricted-results/`.
+Reading rule:
+- treat these as adopted backbone and spine anchors,
+- treat novelty claims as branch-limited unless promoted with explicit scope in `docs/restricted-results/`.

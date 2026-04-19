@@ -1,16 +1,27 @@
 # Strongest Publishable Lane
 
-Current strongest publishable lane:
-- restricted fiber/recoverability no-go theorems (`OCP-049` to `OCP-053`),
-- descriptor-fiber anti-classifier diagnostics,
-- explicit witness/evidence artifacts.
+The strongest lane right now is the restricted fiber/no-go package plus descriptor-fiber diagnostics.
 
-Primary entry points:
+## Core result set
+
+- `OCP-049` to `OCP-053` (restricted anti-classifier and instability theorems)
+- descriptor-fiber diagnostics tied to witness catalogs
+- generated artifacts that reproduce opposite-verdict families
+
+## Why this lane is strong
+
+It has three things at once:
+- theorem statements with explicit family scope,
+- counterexample-driven falsification pressure,
+- executable evidence in stable artifact paths.
+
+## Start here
+
 - `docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md`
 - `docs/restricted-results/descriptor-fiber-anti-classifier/overview.md`
 - `papers/descriptor-fiber-anti-classifier-branch.md`
 - `data/generated/unified-recoverability/`
 
-Scope guardrail:
-- branch-limited only,
-- no universal information theory claims.
+## Scope boundary
+
+This lane is intentionally restricted. It does not claim a universal theory of information or a universal classifier.

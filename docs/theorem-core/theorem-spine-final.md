@@ -1,19 +1,47 @@
 # Final Theorem Spine
 
-This document records the promoted positive theorem spine and keeps each item tied to explicit scope.
+This file lists the promoted positive theorems and keeps each one tied to scope.
 
-The exact finite-dimensional anchor consists of `OCP-002 (OCP-T1)` for exact orthogonal projection recovery, `OCP-019 (OCP-T5)` for exact sector recovery under declared orthogonality/distinguishability assumptions, and `OCP-016 (OCP-T4)` for the rank lower bound in exact linear correction.
+## Exact and asymptotic backbone
 
-The asymptotic generator anchor consists of `OCP-013 (OCP-T3)` for invariant-split generators, `OCP-014 (OCP-C2)` for the self-adjoint PSD decay corollary, and `OCP-004 (OCP-T2)` for the continuous damping bridge.
+`OCP-002`, `OCP-019`, and `OCP-016` anchor exact finite-dimensional recovery on declared classes.
+`OCP-013`, `OCP-014`, and `OCP-004` anchor asymptotic generator behavior.
 
-The bounded-domain positive statement currently promoted is `OCP-044 (OCP-T7)`, which is proved on a supported finite-mode boundary-compatible Hodge class. It is a narrow exact result and should not be read as a full bounded-domain closure theorem.
+Why this matters: these theorems define the baseline architecture used by later branches.
 
-The constrained-observation recoverability block includes `OCP-030` (observation-fiber exactness), `OCP-031` (restricted-linear kernel/row-space exactness), `OCP-043` (collision-gap threshold law), `OCP-045` (minimal augmentation), and `OCP-046` (exact-regime stability envelope).
+## Bounded-domain positive result
 
-The target-hierarchy positive anchor is `OCP-048`, which shows detectable-only structure through target coarsening on supported families.
+`OCP-044` is promoted as a restricted bounded-domain exactness theorem on a finite-mode, boundary-compatible Hodge class.
 
-The descriptor-fiber quantitative layer is retained as branch-limited: it contributes DFMI/IDELB/CL diagnostics and finite-catalog theorem support, but it is not promoted as a universal theorem family.
+Assumptions: boundary-compatible basis and declared protected class.
+Applies to: that restricted class only.
+Why this matters: it gives one honest positive bounded-domain result without claiming full closure theory.
 
-Claims not promoted into this spine include universal amount-only classifiers, universal scalar capacity laws, unrestricted bounded-domain exactness, and broad cross-branch unification claims.
+## Constrained-observation block
 
-Read this file together with `docs/finalization/no-go-spine-final.md`; the promoted positive statements are interpreted jointly with the promoted failure boundaries.
+Promoted results:
+- `OCP-030`: observation-fiber exactness.
+- `OCP-031`: restricted linear kernel and row-space exactness criterion.
+- `OCP-043`: collision-gap threshold law on declared families.
+- `OCP-045`: minimal augmentation law.
+- `OCP-046`: exact-regime stability envelope.
+
+Why this matters: this block gives a practical decision path from diagnosis to augmentation.
+
+## Target-hierarchy anchor
+
+`OCP-048` shows that weaker targets can remain exactly recoverable when stronger targets fail on the same record map.
+
+Why this matters: it explains why target choice can change verdicts even when the measurement setup is fixed.
+
+## Descriptor-fiber quantitative layer
+
+`DFMI`, `IDELB`, and `CL` are kept as branch-limited diagnostics with artifact-backed support.
+They are not promoted as universal theorem families.
+
+## Not promoted
+
+The spine excludes universal amount-only classifiers, universal scalar capacity laws, unrestricted bounded-domain exactness claims, and broad cross-branch universal narratives.
+
+Read together with:
+- `docs/theorem-core/no-go-spine-final.md`

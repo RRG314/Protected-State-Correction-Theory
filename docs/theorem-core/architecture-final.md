@@ -1,32 +1,39 @@
 # Final Architecture
 
-The repository is organized as a branch-first research program with one stable theorem backbone and several scoped extension lanes. The architecture is designed to keep assumptions visible, so each promoted claim can be traced to a declared family and an explicit failure boundary.
+The repo is organized around one stable core and several branch-limited lanes.
 
-The top level has three layers. The foundation layer contains exact projector/sector structure, asymptotic generator structure, and canonical no-go constraints. The branch-strengthening layer develops constrained observation, fiber-based impossibility, augmentation design, invariants, and domain-sensitive PDE branches. The tooling layer exposes these results through workbench and benchmark surfaces without changing claim status.
+The core gives the shared mathematical language: exact recovery, asymptotic recovery, and explicit no-go boundaries. Branches then add stronger results on narrower families.
 
-This architecture is intentionally not a single-law architecture. The same mathematical language is reused across branches, but promotion is branch-limited and evidence-labeled.
+Tooling and apps come after theorem status, not before it. Workbench output is evidence only when it links back to theorem or validation anchors.
 
-## Foundation layer
+## Layer 1: theorem backbone
 
-The foundation combines finite-dimensional exact anchors, continuous asymptotic anchors, and no-go constraints. These provide the default interpretation frame for later branches.
-
-Core references:
-- `docs/finalization/theorem-spine-final.md`
-- `docs/finalization/no-go-spine-final.md`
+This layer contains the promoted theorem and no-go spine:
+- `docs/theorem-core/theorem-spine-final.md`
+- `docs/theorem-core/no-go-spine-final.md`
 - `papers/ocp_core_paper.md`
 
-## Branch-strengthening layer
+## Layer 2: restricted strengthening lanes
 
-The strongest strengthening lanes currently are constrained-observation recoverability, fiber/anti-classifier structure, restricted positive recoverability and augmentation, invariant and context-coherence analysis, bounded-domain CFD behavior, and MHD closure/obstruction analysis. Each lane is useful because it stays explicit about admissible classes and transfer limits.
+These lanes add branch-limited structure, such as constrained observation, fiber impossibility, augmentation design, context-sensitive diagnostics, and PDE-domain limits.
 
-## Tooling and validation layer
+## Layer 3: methods and validation
 
-The workbench and discovery systems are operational interfaces for theorem-linked diagnostics, regime comparison, and supported repairs. They are not treated as theorem generators. Tool output is interpreted through the same status map used in the branch docs.
+Methods and diagnostics live in `docs/methods-diagnostics/`.
+Validation and artifact trust paths live in `docs/validation-evidence/`.
 
-## Architectural nonclaims
+## Practical reading order
 
-The architecture does not assert a universal scalar recoverability law, a universal bounded-domain projector law, or a universal cross-branch invariant replacing fiber/row-space exactness. Those statements are either disproved, unsupported, or still open.
+1. theorem spine
+2. no-go spine
+3. one restricted branch you care about
+4. corresponding methods and validation artifacts
 
-## Final statement
+## Nonclaims that shape this architecture
 
-The repository should be read as a disciplined program: stable theorem/no-go backbone first, scoped branch extensions second, and tooling third. The branch boundaries are part of the mathematics, not editorial overhead.
+The architecture does not claim:
+- one universal scalar recoverability invariant,
+- one universal bounded-domain projector law,
+- one cross-branch law that removes branch assumptions.
+
+Those are either disproved, unsupported, or still open.

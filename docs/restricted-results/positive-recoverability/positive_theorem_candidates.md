@@ -1,124 +1,105 @@
 # Positive Theorem Candidates
 
-Status labels used:
-- `PROVED`
-- `PROVED ON SUPPORTED FAMILY`
-- `KNOWN / REFRAMED`
-- `VALIDATED / NUMERICAL ONLY`
-- `CONDITIONAL`
-- `DISPROVED`
-- `OPEN`
+This file summarizes the strongest positive candidates on the restricted context-linear class.
 
-Primary evidence:
+## Status vocabulary
+
+`PROVED`, `PROVED ON SUPPORTED FAMILY`, `KNOWN / REFRAMED`, `VALIDATED / NUMERICAL ONLY`, `CONDITIONAL`, `DISPROVED`, `OPEN`.
+
+Primary evidence artifacts:
 - `data/generated/positive_framework/positive_witness_catalog.csv`
 - `data/generated/positive_framework/positive_counterexample_catalog.csv`
 - `data/generated/context_sensitive_recoverability/agreement_operator_witness_catalog.csv`
 
-## PT-1 Characterization Theorem (CORS)
+## PT-1: CORS characterization
 
-Statement:
-For finite linear context system `(L,{M_c})`, let `G = Q M_1` be the agreement-lift matrix. Then
-`shared_exact(L,{M_c})` iff `row(L) subseteq row(G)`.
+What it says:
+Shared exact recoverability is equivalent to compatibility row-space inclusion on the declared class.
 
-Status:
-- `PROVED ON RESTRICTED CLASS`.
+Assumptions:
+Finite-dimensional linear context model.
 
-Classification:
-- `KNOWN / REFRAMED` mathematically,
-- `PLAUSIBLY DISTINCT` as architecture packaging.
+Where it applies:
+Declared context-linear family only.
 
-Failure boundary:
-- any positive free defect `rank([G;L]) - rank(G) > 0`.
-
-## PT-2 Strong Sufficiency Theorem (Compatibility Architecture)
-
-Statement:
-If a system is compatibility-organized (`row(L) subseteq row(G)`), then exact shared recoverability is guaranteed.
+Why it matters:
+Turns shared recoverability into a direct compatibility test.
 
 Status:
-- `PROVED ON RESTRICTED CLASS`.
+`PROVED ON RESTRICTED CLASS`; mathematically mostly `KNOWN / REFRAMED`.
+
+## PT-2: Compatibility sufficiency
+
+What it says:
+If compatibility holds, shared exact recoverability follows.
 
 Evidence:
-- all CORS-positive witness families (`70`) were exact in this pass.
+All CORS-positive generated witness families were exact in this pass.
 
-Weakening that fails:
-- replacing compatibility by amount-only descriptors fails (`45` descriptor collisions).
-
-## PT-3 Minimality Theorem (Free Completion Size)
-
-Statement:
-Let `r_free^* = rank([G;L]) - rank(G)`. Then:
-1. augmentation with fewer than `r_free^*` arbitrary shared rows cannot guarantee exactness,
-2. augmentation with `r_free^*` rows from residual target component restores exactness.
+Why it matters:
+Gives a direct design criterion.
 
 Status:
-- `PROVED ON RESTRICTED CLASS`.
+`PROVED ON RESTRICTED CLASS`.
 
-Classification:
-- `PLAUSIBLY DISTINCT` branch-limited repair theorem.
+## PT-3: Minimal free completion size
 
-## PT-4 Constrained Augmentation Theorem
+What it says:
+`r_free*` is both a lower bound and an achievable completion size for unrestricted shared augmentation.
 
-Statement:
-For declared candidate library `C`, define
-`delta_C = rank([G;C;L]) - rank([G;C])`.
-Then full-library constrained completion is feasible iff `delta_C = 0`.
+Why it matters:
+It gives a concrete augmentation target instead of trial-and-error sensor addition.
 
 Status:
-- `PROVED ON RESTRICTED CLASS`.
+`PROVED ON RESTRICTED CLASS`.
 
-Classification:
-- `PLAUSIBLY DISTINCT` constrained-design certificate.
+## PT-4: Constrained augmentation criterion
 
-Weakening that fails:
-- using only `library_rank_gain` as criterion is insufficient (counterexamples survive).
+What it says:
+`delta_C = 0` is the exact feasibility test for completion from a declared candidate library.
 
-## PT-5 Context-Consistency Promotion Theorem (Scoped)
-
-Statement:
-Local exactness plus compatibility coherence implies shared exactness.
-
-Formal version:
-If `forall c: row(L) subseteq row(M_c)` and `row(L) subseteq row(G)`, then `shared_exact`.
+Why it matters:
+Library rank gain alone can look promising while completion is still impossible.
 
 Status:
-- `PROVED ON RESTRICTED CLASS`.
+`PROVED ON RESTRICTED CLASS`.
 
-Classification:
-- `KNOWN / REFRAMED` with branch utility.
+## PT-5: Context-consistency promotion
 
-## PT-6 Descriptor-Lift Theorem Candidate
+What it says:
+Local exactness plus global compatibility coherence implies shared exactness.
 
-Statement:
-Amount-only signatures fail to classify shared exactness, but amount signature plus compatibility-lift quantities (`CID`, `r_free^*`) separates opposite-verdict pairs on the supported generated family.
-
-Status:
-- `PROVED ON SUPPORTED FAMILY`.
-
-Evidence:
-- `45` same-amount opposite-verdict pairs,
-- `45/45` separated by `CID` and `r_free^*`.
-
-Boundary:
-- this is finite-family evidence, not universal classifier theorem.
-
-## PT-7 Robustness Theorem Candidate
-
-Candidate:
-Margin-based perturbation stability for shared exactness.
+Why it matters:
+Explains the local-success/global-failure split.
 
 Status:
-- `CONDITIONAL` / `OPEN` in this pass.
+`PROVED ON RESTRICTED CLASS`; mostly `KNOWN / REFRAMED` structure.
 
-Reason:
-- drift studies show fragility can dominate; no clean universal epsilon-gamma law established across generated family classes.
+## PT-6: Descriptor-lift separation on supported families
 
-## Positive theorem extraction verdict
+What it says:
+Amount-only signatures can collide on opposite verdicts, while descriptor-lift quantities separate those collisions on the supported generated families.
 
-Strongest pushable theorem cluster now:
-1. compatibility characterization/sufficiency (PT-1/PT-2),
-2. minimal free completion law (PT-3),
-3. constrained-library completion criterion (PT-4),
-4. finite-family descriptor-lift gain (PT-6).
+Evidence in this pass:
+45 opposite-verdict same-amount pairs, all separated by `CID` and `r_free*`.
 
-Anything broader should remain conditional.
+Why it matters:
+Shows diagnostic value beyond amount summaries, without universal claims.
+
+Status:
+`PROVED ON SUPPORTED FAMILY`.
+
+## PT-7: Robustness candidate
+
+Candidate claim:
+Margin-based perturbation stability above exact factorization core.
+
+Current result:
+No clean universal law survived across generated family classes.
+
+Status:
+`CONDITIONAL / OPEN`.
+
+## Practical take-away
+
+The strongest positive cluster is PT-1 through PT-4, with PT-6 as supported-family diagnostic reinforcement.
