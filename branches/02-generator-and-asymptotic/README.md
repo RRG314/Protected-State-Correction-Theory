@@ -1,4 +1,4 @@
-# Branch 02 — Generator and Asymptotic
+# Branch 02 - Generator and Asymptotic
 
 This branch studies correction by evolution rather than one-step projection. The main question is when a generator suppresses disturbance asymptotically while preserving the protected component.
 

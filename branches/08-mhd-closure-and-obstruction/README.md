@@ -1,4 +1,4 @@
-# Branch 08 — MHD Closure and Obstruction
+# Branch 08 - MHD Closure and Obstruction
 
 This branch tracks where MHD correction/closure structure fits the OCP framework and where it does not. The useful split is between exact projection-style cleaning and asymptotic suppression-style cleaning.
 

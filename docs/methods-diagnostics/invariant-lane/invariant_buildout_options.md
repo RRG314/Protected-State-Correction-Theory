@@ -3,7 +3,7 @@
 Status: `EXPLORATION / NON-PROMOTED`  
 Date: 2026-04-18
 
-## Option A — Theorem Note (highest priority)
+## Option A - Theorem Note (highest priority)
 
 Target:
 - Consolidate exact and supported-family invariant theorems into one invariant spine note.
@@ -17,7 +17,7 @@ Contents:
 Readiness:
 - `READY` for draft theorem note with strict scope labels.
 
-## Option B — Quantitative Invariant Paper Candidate
+## Option B - Quantitative Invariant Paper Candidate
 
 Target:
 - Publish a scoped quantitative package centered on CL + `delta_C` + context-gap anomalies.
@@ -30,7 +30,7 @@ Needs before submission:
 Readiness:
 - `CONDITIONAL`.
 
-## Option C — Design Framework Module
+## Option C - Design Framework Module
 
 Target:
 - Invariant-driven design checklist for recoverability planning.
@@ -45,7 +45,7 @@ Proposed checks:
 Readiness:
 - `READY` as internal design framework.
 
-## Option D — Workbench Diagnostic Layer
+## Option D - Workbench Diagnostic Layer
 
 Target:
 - Add invariant dashboard outputs (CID, context gap, CL, `delta_free`, `delta_C`, stress flags).
@@ -56,7 +56,7 @@ Readiness:
 Caution:
 - keep labels explicit: `EXPLORATION / NON-PROMOTED`.
 
-## Option E — Archive-only candidates
+## Option E - Archive-only candidates
 
 Candidates:
 - broad alignment-only descriptors without additive theorem power

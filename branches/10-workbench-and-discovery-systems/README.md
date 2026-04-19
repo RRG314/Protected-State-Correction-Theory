@@ -1,4 +1,4 @@
-# Branch 10 — Workbench and Discovery Systems
+# Branch 10 - Workbench and Discovery Systems
 
 This branch covers the repository’s interactive analysis and discovery tooling. The tools are designed to test and apply existing theorem/validation structure, not to generate unscoped claims.
 

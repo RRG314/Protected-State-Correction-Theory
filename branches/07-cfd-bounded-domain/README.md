@@ -1,4 +1,4 @@
-# Branch 07 — CFD Bounded Domain
+# Branch 07 - CFD Bounded Domain
 
 This branch studies projection-based recoverability in CFD with explicit separation between periodic and bounded domains. The distinction matters because boundary structure changes the protected class.
 

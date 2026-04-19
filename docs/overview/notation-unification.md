@@ -16,7 +16,7 @@ Status: Canonical notation reference
 | `D` | disturbance/ambiguity family |
 | `~` | nuisance equivalence (e.g., symmetry quotient) |
 
-Universal core exactness statement (on `A`):
+Backbone exactness statement (on `A`):
 - exact recoverability iff `T` is constant on fibers of `M`
 - equivalent factorization: `T = R ∘ M` on `A`
 
