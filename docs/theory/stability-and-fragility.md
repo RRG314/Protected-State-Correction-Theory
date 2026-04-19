@@ -5,10 +5,10 @@
 This layer tests whether exact recoverability is robust under perturbation, family enlargement, mismatch, and noise. It is falsification-first and branch-scoped.
 
 Primary sources:
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`src/ocp/fiber_limits.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/fiber_limits.py)
-- [`data/generated/next-phase/fragility_rank_deficient.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_rank_deficient.csv)
-- [`data/generated/next-phase/fragility_full_rank.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_full_rank.csv)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`src/ocp/fiber_limits.py`](../../src/ocp/fiber_limits.py)
+- [`data/generated/next-phase/fragility_rank_deficient.csv`](../../data/generated/next-phase/fragility_rank_deficient.csv)
+- [`data/generated/next-phase/fragility_full_rank.csv`](../../data/generated/next-phase/fragility_full_rank.csv)
 
 ## Promoted Results
 
@@ -24,8 +24,8 @@ Observed and verified law:
 - residual follows `epsilon / sqrt(1 + epsilon^2)` in the canonical witness.
 
 Evidence:
-- math test: [`tests/math/test_next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/tests/math/test_next_phase.py)
-- artifact: [`fragility_rank_deficient.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_rank_deficient.csv)
+- math test: [`tests/math/test_next_phase.py`](../../tests/math/test_next_phase.py)
+- artifact: [`fragility_rank_deficient.csv`](../../data/generated/next-phase/fragility_rank_deficient.csv)
 
 ### STAB-2: Local robustness in full-information exact class
 Status: `PROVED` (restricted-linear full-rank class).
@@ -34,7 +34,7 @@ If `rank(O)=dim(F)`, exact recoverability persists under sufficiently small pert
 
 Evidence:
 - `first_failure_epsilon = None` on canonical full-rank sweep.
-- artifact: [`fragility_full_rank.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/fragility_full_rank.csv)
+- artifact: [`fragility_full_rank.csv`](../../data/generated/next-phase/fragility_full_rank.csv)
 
 ### STAB-3: Family-enlargement false-positive law
 Status: `PROVED` (`OCP-052`).

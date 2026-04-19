@@ -1,0 +1,5 @@
+theorem_id,name,status_label,failure_mode,action
+ST-7,Continuity-aware stability theorem above factorization core,OPEN,not currently promoted,demote or keep open
+GRAV-T2,strict target-coarsening threshold order,DISPROVED,ordering failed under tested degradations,replace with weaker coarsening theorem
+UNIV-SCALAR,universal scalar invariant,DISPROVED,cross-domain collapse and anti-classifier counterexamples,drop
+SDS-CORE,SDS as theorem core,ANALOGY ONLY,engineering layer without core theorem mapping,keep as implementation layer only

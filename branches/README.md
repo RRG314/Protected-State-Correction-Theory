@@ -4,6 +4,9 @@ This directory is the public entry point for the research program. Each branch R
 
 The branches are arranged so readers can start from the core theorem spine and then move into branch-limited recoverability, design, and physics extensions without flattening everything into one narrative.
 
+Canonical doc routing for cross-branch materials is maintained in:
+- `docs/overview/repo-authority-map.md`
+
 - [00 Core OCP](./00-core-ocp/README.md)
 - [01 Exact Projector and Sector](./01-exact-projector-and-sector/README.md)
 - [02 Generator and Asymptotic](./02-generator-and-asymptotic/README.md)

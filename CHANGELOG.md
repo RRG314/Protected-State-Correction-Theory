@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.2.0 — 2026-04-19
+
+Push-readiness, architecture hardening, and release-surface cleanup.
+
+This version prepares the repository for a clean public review path after the major expansion work in `v1.1.0`. The focus is structural clarity, claim-scope discipline, and portable documentation.
+
+Main release moves:
+- finalized six-layer documentation architecture and canonical routing
+- separated known backbone, restricted results, methods, validation, physics translation, and governance surfaces
+- internalized process-heavy pass artifacts under explicit non-canonical lanes
+- normalized active docs to a consistent research-writing style
+- added live-vs-local and push-readiness audit artifacts for reviewer-facing release control
+- removed machine-specific absolute repo paths from active public docs
+
+Release notes:
+- `docs/releases/v1.2.0.md`
+
 ## v1.1.0 — 2026-04-18
 
 Expansion and structural consolidation release.

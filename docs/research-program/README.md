@@ -1,14 +1,34 @@
-# Research Program Docs
+# Research Program Reports (Public Supporting Lane)
 
-This folder contains branch-level reports, theorem-formalization notes, falsification logs, and placement decisions. It is organized to support the branch READMEs, not to replace them.
+This folder keeps active supporting reports that are still used by scripts, tests, and branch integration checks.
 
-For first-pass reading, start with the branch map in `branches/` and then use the master reports in this folder for deeper status detail. The strongest current cross-branch summaries are:
+It is not a canonical authority lane. Canonical routing is in:
 
-- `invariant_formalization_and_bh_placement_master_report.md`
-- `invariant_discovery_master_report.md`
-- `positive_recoverability_master_report.md`
-- `context_sensitive_recoverability_master_report.md`
-- `full_system_clear_results_master_report.md`
-- `branch-audit.md`
+- `docs/overview/repo-authority-map.md`
+- `docs/theorem-core/`
+- `docs/restricted-results/`
+- `docs/methods-diagnostics/`
+- `docs/validation-evidence/`
 
-Process-heavy pass logs were moved to `archive/internal-process/docs-research-program/` so the active folder stays focused on reusable technical content.
+## What is kept here
+
+- Branch audits and navigation support:
+  - `branch-audit.md`
+  - `branch_navigation_map.md`
+- Descriptor-fiber branch integration documents used by tests:
+  - `descriptor-fiber-anti-classifier-branch-overview.md`
+  - `descriptor-fiber-anti-classifier-branch-status.md`
+  - `descriptor-fiber-anti-classifier-branch-integration-report.md`
+- Script-generated exploration reports that remain part of validation workflows:
+  - `indistinguishability_exploration.md`
+  - `major_expansion_candidate_report.md`
+  - `full_cross_domain_exploration_report.md`
+  - `context_invariant_recoverability_*.md`
+  - `theorem-normalization-report.md`
+
+## What is not kept here
+
+One-pass planning and process-heavy material was moved to:
+
+- `docs/meta-governance/internal/research-program-passes/`
+- `archive/internal-process/docs-research-program/`

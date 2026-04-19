@@ -1,0 +1,5 @@
+lane,target,flow_values,monotone_nondecreasing,status
+synthetic_flow,binary,"[0.0, 0.0, 0.25]",1,PROVED_SANITY
+blackhole_hawking_surrogate,coarse_thermodynamic,"[{""noise"": 0.0, ""mean_defect"": 0.10566666666666664}, {""noise"": 0.1, ""mean_defect"": 0.16712666666666665}, {""noise"": 0.2, ""mean_defect"": 0.22270666666666664}]",1,VALIDATED_SURROGATE
+blackhole_hawking_surrogate,medium_summary,"[{""noise"": 0.0, ""mean_defect"": 0.3976}, {""noise"": 0.1, ""mean_defect"": 0.43446400000000013}, {""noise"": 0.2, ""mean_defect"": 0.463136}]",1,VALIDATED_SURROGATE
+blackhole_hawking_surrogate,fine_micro_label,"[{""noise"": 0.0, ""mean_defect"": 0.47000000000000003}, {""noise"": 0.1, ""mean_defect"": 0.47600000000000003}, {""noise"": 0.2, ""mean_defect"": 0.48199999999999993}]",1,VALIDATED_SURROGATE

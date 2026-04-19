@@ -27,7 +27,7 @@ The workbench lives in:
 Run:
 
 ```bash
-cd '/Users/stevenreid/Documents/New project/repos/ocp-research-program'
+cd '.'
 ./scripts/validate/run_all.sh
 ```
 

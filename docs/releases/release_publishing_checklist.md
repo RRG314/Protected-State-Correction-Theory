@@ -14,6 +14,7 @@ This checklist is for publishing a clean GitHub release from this repository.
 Run:
 
 ```bash
+source .venv/bin/activate
 python3 scripts/validate/check_links.py
 python3 scripts/validate/check_naming.py
 python3 scripts/validate/check_workbench_static.py
@@ -22,18 +23,28 @@ python3 scripts/validate/check_workbench_static.py
 Optional full test pass:
 
 ```bash
-pytest -q
+bash scripts/validate/run_all.sh
 ```
 
-## 3) Tag and push
+## 3) Push branch and open PR
 
 ```bash
+git push origin steven/push-cleanup-audit
+```
+
+Open a PR from the release branch into `main`. Merge only after review.
+
+## 4) Tag and push after merge
+
+```bash
+git switch main
+git pull --ff-only origin main
 git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin main
 git push origin vX.Y.Z
 ```
 
-## 4) Publish on GitHub Releases
+## 5) Publish on GitHub Releases
 
 1. Open the repository Releases page.
 2. Create a new release from tag `vX.Y.Z`.
@@ -42,7 +53,7 @@ git push origin vX.Y.Z
 5. Mark as latest release.
 6. Publish.
 
-## 5) Post-release checks
+## 6) Post-release checks
 
 1. Confirm release badge shows the new version.
 2. Confirm `docs/releases/README.md` links correctly.

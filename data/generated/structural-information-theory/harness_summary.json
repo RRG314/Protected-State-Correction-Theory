@@ -1,0 +1,23 @@
+{
+  "datasets_scored": [
+    "ocp_rank_witness",
+    "information_real_system",
+    "gravity_recoverability",
+    "gravity_blackhole_only"
+  ],
+  "anti_classifier_survivors": [
+    "ocp_rank_witness",
+    "information_real_system",
+    "gravity_recoverability",
+    "gravity_blackhole_only"
+  ],
+  "independent_out_of_family_survivors": [
+    "information_real_system"
+  ],
+  "stability_all_bounds_hold": true,
+  "monotonicity_failures": [],
+  "notes": [
+    "Decision regret is a restricted compression-regret proxy, not a full Blackwell deficiency computation.",
+    "Coarse-graining monotonicity is theorem-grade for finite sigma-algebra coarsening and validated on surrogate trends where available."
+  ]
+}

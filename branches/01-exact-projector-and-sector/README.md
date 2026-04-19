@@ -1,4 +1,4 @@
-# Branch 01 — Exact Projector and Sector
+# Branch 01 - Exact Projector and Sector
 
 This branch covers the exact finite-dimensional lane, including projector-based correction and exact sector/QEC-style structure. It is where one-step exact recovery is characterized under explicit compatibility assumptions.
 

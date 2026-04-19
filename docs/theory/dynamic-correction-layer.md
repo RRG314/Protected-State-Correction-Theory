@@ -5,10 +5,10 @@
 This layer addresses time-dependent recovery/suppression: finite-time impossibility, asymptotic correction rates, and repeated-observation threshold behavior.
 
 Primary sources:
-- [`src/ocp/continuous.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/continuous.py)
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`data/generated/next-phase/dynamic_accumulation.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/dynamic_accumulation.csv)
-- [`data/generated/next-phase/generator_dynamics.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/generator_dynamics.csv)
+- [`src/ocp/continuous.py`](../../src/ocp/continuous.py)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`data/generated/next-phase/dynamic_accumulation.csv`](../../data/generated/next-phase/dynamic_accumulation.csv)
+- [`data/generated/next-phase/generator_dynamics.csv`](../../data/generated/next-phase/generator_dynamics.csv)
 
 ## Promoted Dynamic Statements
 
@@ -28,7 +28,7 @@ Status: `VALIDATED` (explicit branch witness).
 In the canonical accumulation family, exact recoverability appears only after the 4th observation block. Before that, row-space residual remains positive.
 
 Evidence:
-- `exact_threshold_step = 4` in [`dynamic_accumulation.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/dynamic_accumulation.csv).
+- `exact_threshold_step = 4` in [`dynamic_accumulation.csv`](../../data/generated/next-phase/dynamic_accumulation.csv).
 
 ### DYN-4: Generator rate tracking bound
 Status: `VALIDATED` (canonical branch witness).
@@ -39,7 +39,7 @@ For canonical flow witness:
 - disturbance-to-bound ratio decreases from `1.0` to about `0.708` over `t in [0,3]`.
 
 Evidence:
-- [`generator_dynamics.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/generator_dynamics.csv).
+- [`generator_dynamics.csv`](../../data/generated/next-phase/generator_dynamics.csv).
 
 ## Disproved/Unresolved Dynamic Narratives
 

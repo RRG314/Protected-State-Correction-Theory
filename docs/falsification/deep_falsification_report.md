@@ -12,20 +12,20 @@ Date: 2026-04-16/17
 
 ## Outcomes
 
-### F1 — Soliton anomaly overpromotion
+### F1 - Soliton anomaly overpromotion
 - result: blocked.
 - status: `REJECTED` for OCP theorem promotion.
 - note: anomaly lanes remain in soliton repo.
 
-### F2 — Broad OCP-soliton unification
+### F2 - Broad OCP-soliton unification
 - result: blocked.
 - status: `ANALOGY ONLY`.
 
-### F3 — Direct linear augmentation transfer
+### F3 - Direct linear augmentation transfer
 - result: blocked.
 - status: `REJECTED`.
 
-### F4 — Structure-over-amount restricted analogues
+### F4 - Structure-over-amount restricted analogues
 - result: retained only as branch-limited overlap.
 - status: `CONDITIONAL` / `PROVED ON SUPPORTED FAMILY` where appropriate.
 

@@ -5,9 +5,9 @@
 This layer extends binary exact/impossible outputs with computable quantities for restricted-linear and validated finite families. It is operator-first and branch-scoped.
 
 Primary implementation and artifacts:
-- [`src/ocp/next_phase.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/next_phase.py)
-- [`data/generated/next-phase/next_phase_summary.json`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/next_phase_summary.json)
-- [`data/generated/next-phase/quantitative_profiles.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/quantitative_profiles.csv)
+- [`src/ocp/next_phase.py`](../../src/ocp/next_phase.py)
+- [`data/generated/next-phase/next_phase_summary.json`](../../data/generated/next-phase/next_phase_summary.json)
+- [`data/generated/next-phase/quantitative_profiles.csv`](../../data/generated/next-phase/quantitative_profiles.csv)
 
 ## Candidate Quantities
 
@@ -60,7 +60,7 @@ Exact cases with full coefficient rank (`rank(OF)=dim(F)`) remain robust under t
 
 ## Benchmarked Witness Table
 
-Canonical quantitative profiles from [`quantitative_profiles.csv`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/next-phase/quantitative_profiles.csv):
+Canonical quantitative profiles from [`quantitative_profiles.csv`](../../data/generated/next-phase/quantitative_profiles.csv):
 
 | Case | Exact | `r_row` | `theta_def` | `gamma` | `delta` | Class |
 | --- | --- | --- | --- | --- | --- | --- |

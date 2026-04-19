@@ -69,6 +69,6 @@ Workbench evidence tags may additionally use:
 ## Canonical Cross-References
 
 - `docs/overview/notation-unification.md`
-- `docs/unifying_theory/final_theory_identity.md`
-- `docs/unifying_theory/theorem_hierarchy_final.md`
-- `docs/repo_cleanup/canonical_document_map.md`
+- `docs/overview/repo-authority-map.md`
+- `docs/theorem-core/theorem-spine-final.md`
+- `docs/theorem-core/no-go-spine-final.md`

@@ -16,7 +16,7 @@ Quick full-image page:
 ## Regeneration
 
 Entry point:
-- [`scripts/visuals/generate_visuals.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/scripts/visuals/generate_visuals.py)
+- [`scripts/visuals/generate_visuals.py`](../../scripts/visuals/generate_visuals.py)
 
 Run:
 ```bash
@@ -24,21 +24,21 @@ PYTHONPATH=src uv run --with matplotlib --with pillow python scripts/visuals/gen
 ```
 
 Outputs:
-- figures and animations: [`docs/visuals/generated/`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated)
-- data summary used by all figures: [`data/generated/visuals/visual_summary.json`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/visuals/visual_summary.json)
-- generation manifest: [`docs/visuals/generated/manifest.json`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/manifest.json)
+- figures and animations: [`docs/visuals/generated/`](generated)
+- data summary used by all figures: [`data/generated/visuals/visual_summary.json`](../../data/generated/visuals/visual_summary.json)
+- generation manifest: [`docs/visuals/generated/manifest.json`](generated/manifest.json)
 
 ## Validation
 
 Math correctness tests:
-- [`tests/math/test_visuals.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/tests/math/test_visuals.py)
+- [`tests/math/test_visuals.py`](../../tests/math/test_visuals.py)
 
 Generated-artifact consistency tests:
-- [`tests/examples/test_visuals_generated_consistency.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/tests/examples/test_visuals_generated_consistency.py)
-- [`tests/examples/test_visual_gallery_integrity.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/tests/examples/test_visual_gallery_integrity.py)
+- [`tests/examples/test_visuals_generated_consistency.py`](../../tests/examples/test_visuals_generated_consistency.py)
+- [`tests/examples/test_visual_gallery_integrity.py`](../../tests/examples/test_visual_gallery_integrity.py)
 
 Gallery/media integrity checker:
-- [`scripts/validate/check_visual_gallery.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/scripts/validate/check_visual_gallery.py)
+- [`scripts/validate/check_visual_gallery.py`](../../scripts/validate/check_visual_gallery.py)
 
 Run:
 ```bash
@@ -58,10 +58,10 @@ python scripts/validate/check_visual_gallery.py
 
 ### A. Core Geometry Of Recovery
 Files:
-- [`A_core_geometry_2d.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/A_core_geometry_2d.svg)
-- [`A_core_geometry_2d.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/A_core_geometry_2d.png)
-- [`A_core_geometry_3d.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/A_core_geometry_3d.svg)
-- [`A_core_geometry_3d.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/A_core_geometry_3d.png)
+- [`A_core_geometry_2d.svg`](generated/A_core_geometry_2d.svg)
+- [`A_core_geometry_2d.png`](generated/A_core_geometry_2d.png)
+- [`A_core_geometry_3d.svg`](generated/A_core_geometry_3d.svg)
+- [`A_core_geometry_3d.png`](generated/A_core_geometry_3d.png)
 
 Status:
 - exact examples (2D exact split, 2D misaligned orthogonal-projector failure, 3D overlap non-identifiability).
@@ -74,9 +74,9 @@ Math source:
 
 ### B. Fiber-Collapse Visualization
 Files:
-- [`B_fiber_bipartite.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/B_fiber_bipartite.svg)
-- [`B_fiber_partition_tree.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/B_fiber_partition_tree.svg)
-- [`B_fiber_table_heatmap.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/B_fiber_table_heatmap.svg)
+- [`B_fiber_bipartite.svg`](generated/B_fiber_bipartite.svg)
+- [`B_fiber_partition_tree.svg`](generated/B_fiber_partition_tree.svg)
+- [`B_fiber_table_heatmap.svg`](generated/B_fiber_table_heatmap.svg)
 - plus PNG versions in the same folder.
 
 Status:
@@ -92,9 +92,9 @@ The visuals correspond directly to the theorem pattern: exact recoverability iff
 
 ### C. Exact vs Impossible Transition
 Files:
-- [`C_transition_keyframes.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/C_transition_keyframes.svg)
-- [`C_exact_vs_impossible_transition.gif`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/C_exact_vs_impossible_transition.gif)
-- [`C_exact_vs_impossible_transition.mp4`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/C_exact_vs_impossible_transition.mp4)
+- [`C_transition_keyframes.svg`](generated/C_transition_keyframes.svg)
+- [`C_exact_vs_impossible_transition.gif`](generated/C_exact_vs_impossible_transition.gif)
+- [`C_exact_vs_impossible_transition.mp4`](generated/C_exact_vs_impossible_transition.mp4)
 
 Status:
 - exact finite-dimensional parametric family.
@@ -105,8 +105,8 @@ Math source:
 
 ### D. Same-Rank Insufficiency
 Files:
-- [`D_same_rank_insufficiency.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/D_same_rank_insufficiency.svg)
-- [`D_same_rank_insufficiency.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/D_same_rank_insufficiency.png)
+- [`D_same_rank_insufficiency.svg`](generated/D_same_rank_insufficiency.svg)
+- [`D_same_rank_insufficiency.png`](generated/D_same_rank_insufficiency.png)
 
 Status:
 - exact witness from canonical same-rank counterexample (`OCP-047`/`OCP-049` lane).
@@ -117,8 +117,8 @@ Math source:
 
 ### E. Minimal Augmentation
 Files:
-- [`E_minimal_augmentation.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/E_minimal_augmentation.svg)
-- [`E_minimal_augmentation.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/E_minimal_augmentation.png)
+- [`E_minimal_augmentation.svg`](generated/E_minimal_augmentation.svg)
+- [`E_minimal_augmentation.png`](generated/E_minimal_augmentation.png)
 
 Status:
 - exact restricted-linear augmentation witness (`OCP-045` lane).
@@ -130,8 +130,8 @@ Math source:
 
 ### F. Periodic Exact vs Bounded-Domain Failure
 Files:
-- [`F_periodic_vs_bounded.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/F_periodic_vs_bounded.svg)
-- [`F_periodic_vs_bounded.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/F_periodic_vs_bounded.png)
+- [`F_periodic_vs_bounded.svg`](generated/F_periodic_vs_bounded.svg)
+- [`F_periodic_vs_bounded.png`](generated/F_periodic_vs_bounded.png)
 
 Status:
 - exact branch + no-go branch visualized from canonical formulas.
@@ -143,8 +143,8 @@ Math source:
 
 ### G. Recoverability Threshold Surfaces
 Files:
-- [`G_threshold_surfaces.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/G_threshold_surfaces.svg)
-- [`G_threshold_surfaces.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/G_threshold_surfaces.png)
+- [`G_threshold_surfaces.svg`](generated/G_threshold_surfaces.svg)
+- [`G_threshold_surfaces.png`](generated/G_threshold_surfaces.png)
 
 Status:
 - exact/validated branch surfaces.
@@ -155,8 +155,8 @@ Math source:
 
 ### H. Cross-System Structural Map
 Files:
-- [`H_cross_system_structural_map.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/H_cross_system_structural_map.svg)
-- [`H_cross_system_structural_map.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/H_cross_system_structural_map.png)
+- [`H_cross_system_structural_map.svg`](generated/H_cross_system_structural_map.svg)
+- [`H_cross_system_structural_map.png`](generated/H_cross_system_structural_map.png)
 
 Status:
 - schematic (explicitly labeled schematic).
@@ -169,8 +169,8 @@ What is schematic:
 
 ### I. Alignment Landscape
 Files:
-- [`I_alignment_landscape.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/I_alignment_landscape.svg)
-- [`I_alignment_landscape.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/I_alignment_landscape.png)
+- [`I_alignment_landscape.svg`](generated/I_alignment_landscape.svg)
+- [`I_alignment_landscape.png`](generated/I_alignment_landscape.png)
 
 Status:
 - exact finite-dimensional sweep.
@@ -181,8 +181,8 @@ Math source:
 
 ### J. Perturbation Fragility
 Files:
-- [`J_perturbation_fragility.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/J_perturbation_fragility.svg)
-- [`J_perturbation_fragility.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/J_perturbation_fragility.png)
+- [`J_perturbation_fragility.svg`](generated/J_perturbation_fragility.svg)
+- [`J_perturbation_fragility.png`](generated/J_perturbation_fragility.png)
 
 Status:
 - exact local perturbation family.
@@ -193,8 +193,8 @@ Math source:
 
 ### K. Family-Enlargement Failure
 Files:
-- [`K_family_enlargement_failure.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/K_family_enlargement_failure.svg)
-- [`K_family_enlargement_failure.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/K_family_enlargement_failure.png)
+- [`K_family_enlargement_failure.svg`](generated/K_family_enlargement_failure.svg)
+- [`K_family_enlargement_failure.png`](generated/K_family_enlargement_failure.png)
 
 Status:
 - exact witness (false positive under family enlargement).
@@ -205,8 +205,8 @@ Math source:
 
 ### L. Dynamic Rate Layer
 Files:
-- [`L_dynamic_rate_layer.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/L_dynamic_rate_layer.svg)
-- [`L_dynamic_rate_layer.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/L_dynamic_rate_layer.png)
+- [`L_dynamic_rate_layer.svg`](generated/L_dynamic_rate_layer.svg)
+- [`L_dynamic_rate_layer.png`](generated/L_dynamic_rate_layer.png)
 
 Status:
 - exact/validated finite-history + observer-rate outputs.
@@ -217,8 +217,8 @@ Math source:
 
 ### M. Augmentation Direction Scan
 Files:
-- [`M_augmentation_direction_scan.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/M_augmentation_direction_scan.svg)
-- [`M_augmentation_direction_scan.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/M_augmentation_direction_scan.png)
+- [`M_augmentation_direction_scan.svg`](generated/M_augmentation_direction_scan.svg)
+- [`M_augmentation_direction_scan.png`](generated/M_augmentation_direction_scan.png)
 
 Status:
 - exact restricted-linear one-row augmentation scan.
@@ -230,8 +230,8 @@ Math source:
 
 ### N. Periodic vs Bounded Contamination Sweep
 Files:
-- [`N_periodic_bounded_contamination_sweep.svg`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/N_periodic_bounded_contamination_sweep.svg)
-- [`N_periodic_bounded_contamination_sweep.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/N_periodic_bounded_contamination_sweep.png)
+- [`N_periodic_bounded_contamination_sweep.svg`](generated/N_periodic_bounded_contamination_sweep.svg)
+- [`N_periodic_bounded_contamination_sweep.png`](generated/N_periodic_bounded_contamination_sweep.png)
 
 Status:
 - validated contamination-parameter sweep.
@@ -242,8 +242,8 @@ Math source:
 
 ### O. Contact Sheet And Atlas
 Files:
-- [`O_visual_contact_sheet.png`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/O_visual_contact_sheet.png)
-- [`visual-atlas.pdf`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated/visual-atlas.pdf)
+- [`O_visual_contact_sheet.png`](generated/O_visual_contact_sheet.png)
+- [`visual-atlas.pdf`](generated/visual-atlas.pdf)
 
 Status:
 - exact render bundle (composed from generated panels; no hand editing).
@@ -257,6 +257,6 @@ Status:
 ## Source Data Layer
 
 All figure data is computed in:
-- [`src/ocp/visuals.py`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/src/ocp/visuals.py)
+- [`src/ocp/visuals.py`](../../src/ocp/visuals.py)
 
 This module is designed so tests can validate the math independent of plotting libraries.

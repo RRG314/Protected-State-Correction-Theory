@@ -6,6 +6,18 @@ Formal branch note for the **Constrained-Observation Recoverability** lane insid
 
 This document is intentionally narrower than the branch overview. It is meant to state the mathematical objects cleanly enough that theorem statements, no-go statements, and computational tests can all point to the same definitions.
 
+## Literature overlap and claim boundary
+
+- Known backbone:
+  - exact recoverability via factorization/fiber constancy (Doob-Dynkin/sufficiency-style logic),
+  - observability/identifiability in restricted linear systems,
+  - inverse-problem stability language.
+- Repo-distinct scope:
+  - branch-limited witness theorems (`OCP-049` to `OCP-053`),
+  - executable anti-classifier diagnostics on declared classes.
+- Nonclaim:
+  - this document does not claim a new universal theorem replacing those literatures.
+
 ## 1. Scope
 
 The branch studies when a constrained record preserves enough information to recover a **protected variable**. The point is not to replace the repository's existing correction theorems. The point is to add an observation layer in front of them.
@@ -78,7 +90,7 @@ p(x) = R(M(x)) = R(M(x')) = p(x').
 
 ### Status note
 
-This criterion is likely standard. It is kept because it is the correct branch backbone and because all later no-go and stability statements reduce to it.
+This criterion is known backbone. It is kept because all later no-go and restricted stability statements reduce to it.
 
 ## 4. Approximate Recoverability
 
@@ -236,6 +248,19 @@ For a record level `O_r`, define the **structured collision gap**
 ```
 
 This is the largest protected-variable difference that can survive inside an exact-record collision while staying inside the admissible coefficient box.
+
+## Citation anchors for overlap-critical claims
+
+- Factorization/sufficiency context:
+  - Doob-Dynkin learning formulation: <https://arxiv.org/abs/1801.00974>
+  - Blackwell experiment comparison: <https://digicoll.lib.berkeley.edu/record/112749/files/math_s2_article-08.pdf>
+  - Sufficient subalgebras and relative entropy (quantum/statistical sufficiency): <https://math.bme.hu/~petz/pdf/29suff.pdf>
+- Observability/identifiability context:
+  - Structural identifiability: <https://www.sciencedirect.com/science/article/abs/pii/002555647090132X>
+  - Global identifiability: <https://www.sciencedirect.com/science/article/pii/0005109894900299>
+  - Nonlinear observability: <https://doi.org/10.1109/TAC.1977.1101601>
+- Irreversibility/erasure boundary context:
+  - Landauer (logical irreversibility): <https://www.cs.princeton.edu/courses/archive/fall06/cos576/papers/landauer61.pdf>
 
 ### Proposition 8.3: Restricted-Linear Gap Criterion
 

@@ -1,0 +1,10 @@
+item_id,item_name,nearest_known_analogue,overlap_level,novelty_status,claim_as_original,citation_urgency,keep_demote_cut
+ST-1,Exact recoverability iff factorization/fiber constancy,Doob-Dynkin/sufficiency/factorization,VHIGH,KNOWN REFORMULATION,no,critical,keep_as_known_backbone
+ST-2,No amount-only exact classifier on restricted witness classes,Blackwell-style insufficiency and identifiability limits,HIGH,PLAUSIBLY DISTINCT RESTRICTED RESULT,only_restricted,critical,keep
+ST-3,Compatibility augmentation lowers IDELB,decision-diagnostic augmentation patterns,MEDIUM,CLEARLY NEW ONLY ON DECLARED WITNESS CLASS,only_restricted,high,keep
+ST-4,Family-enlargement fragility,model misspecification and OOD fragility,HIGH,PLAUSIBLY DISTINCT RESTRICTED RESULT,only_restricted,high,keep
+ST-5,Model-mismatch instability lower bound,robust ID mismatch theory,HIGH,PLAUSIBLY DISTINCT RESTRICTED RESULT,only_restricted,high,keep
+ST-6,Compatibility/degradation trend,channel degradation monotonic heuristics,HIGH,SPECULATIVE BUT TESTABLE,no_universal,medium,demote_to_validated_surrogate
+ST-7,Restricted linear perturbation stability bound,linear perturbation/observer sensitivity,MEDIUM,PLAUSIBLY DISTINCT RESTRICTED RESULT,only_restricted,high,keep
+ST-8,Physics irreversibility translation,Landauer/entropy/coarse-graining context,HIGH,CONDITIONAL,no,high,conditional_only
+SDS,Engineering motif promoted to theorem core,engineering workflow motifs,N/A,ANALOGY ONLY,no,low,cut_from_theorem_core

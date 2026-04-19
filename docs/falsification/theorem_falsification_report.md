@@ -14,7 +14,7 @@ This report records theorem-level and branch-level attacks across branches A-K u
 
 Wolfram tooling was checked and unavailable locally (`wolframscript: command not found`), so symbolic verification remained Python/SymPy/NumPy based.
 
-## Branch A — Exact finite-dimensional projector
+## Branch A - Exact finite-dimensional projector
 
 Claims attacked: `OCP-001`, `OCP-002`, `OCP-003`, `OCP-016`.
 
@@ -29,7 +29,7 @@ Result:
 Status changes:
 - none.
 
-## Branch B — Sector / QEC
+## Branch B - Sector / QEC
 
 Claims attacked: `OCP-005`, `OCP-017`, `OCP-019`, `OCP-021`.
 
@@ -45,7 +45,7 @@ Result:
 Status changes:
 - none.
 
-## Branch C — Periodic Helmholtz / Leray
+## Branch C - Periodic Helmholtz / Leray
 
 Claims attacked: `OCP-006`, `OCP-027`.
 
@@ -60,7 +60,7 @@ Result:
 Status changes:
 - `OCP-027` demoted from `PROVED` to `PROVED ON SUPPORTED FAMILY`.
 
-## Branch D — Bounded-domain / Hodge / CFD
+## Branch D - Bounded-domain / Hodge / CFD
 
 Claims attacked: `OCP-023`, `OCP-028`, `OCP-029`, `OCP-044`.
 
@@ -77,7 +77,7 @@ Result:
 Status changes:
 - `OCP-044` demoted from `PROVED` to `PROVED ON SUPPORTED FAMILY`.
 
-## Branch E — Asymptotic generator
+## Branch E - Asymptotic generator
 
 Claims attacked: `OCP-004`, `OCP-013`, `OCP-014`, `OCP-015`, `OCP-020`.
 
@@ -90,7 +90,7 @@ Result:
 Status changes:
 - none.
 
-## Branch F — Constrained-observation / PVRT
+## Branch F - Constrained-observation / PVRT
 
 Claims attacked: `OCP-030..043`.
 
@@ -106,7 +106,7 @@ Result:
 Status changes:
 - none.
 
-## Branch G — Restricted-linear anti-classifier / augmentation
+## Branch G - Restricted-linear anti-classifier / augmentation
 
 Claims attacked: `OCP-045`, `OCP-046`, `OCP-047`.
 
@@ -123,7 +123,7 @@ Result:
 Status changes:
 - none.
 
-## Branch H — Fiber-based recoverability / impossibility
+## Branch H - Fiber-based recoverability / impossibility
 
 Claims attacked: `OCP-048..053`.
 
@@ -140,7 +140,7 @@ Result:
 Status changes:
 - none.
 
-## Branch I — Workbench / Structural Discovery / Discovery Mixer
+## Branch I - Workbench / Structural Discovery / Discovery Mixer
 
 Claims attacked: `WB-001` and module-label/status consistency claims.
 
@@ -162,7 +162,7 @@ Post-repair result:
 - JS consistency tests pass.
 - validation-consistency examples pass.
 
-## Branch J — Physics extension / bridges
+## Branch J - Physics extension / bridges
 
 Claims attacked: `OCP-022`, `OCP-024`, `OCP-025`, `OCP-026`, plus alignment of bridge wording.
 
@@ -177,7 +177,7 @@ Result:
 Status changes:
 - `OCP-022` demoted from `PROVED` to `PROVED ON SUPPORTED FAMILY`.
 
-## Branch K — Meta-theory / descriptor-fiber extraction
+## Branch K - Meta-theory / descriptor-fiber extraction
 
 Claims attacked: `META-001` and meta-layer promotion language.
 

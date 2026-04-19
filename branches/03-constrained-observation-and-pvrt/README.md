@@ -1,4 +1,4 @@
-# Branch 03 — Constrained Observation and PVRT
+# Branch 03 - Constrained Observation and PVRT
 
 This branch develops target recoverability when only constrained records are available. It formalizes when a target can be reconstructed exactly from observation fibers and when observation structure is insufficient.
 

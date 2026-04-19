@@ -1,30 +1,25 @@
 # Start Here
 
-This file is the canonical onboarding entry for serious readers.
+## Reading Path
 
-## First Read (in order)
+1. [README](../../README.md)
+2. [Repo authority map](./repo-authority-map.md)
+3. [Theorem spine](../theorem-core/theorem-spine-final.md)
+4. [No-go spine](../theorem-core/no-go-spine-final.md)
+5. [Strongest paper lane](../restricted-results/strongest-paper-lane.md)
 
-1. `README.md` for scope, status, and repository identity.
-2. `docs/finalization/architecture-final.md` for the program architecture.
-3. `docs/finalization/theorem-spine-final.md` for promoted positive results.
-4. `docs/finalization/no-go-spine-final.md` for promoted limits and failure modes.
+This sequence covers repository scope, promoted theorem and no-go statements, and the strongest branch-limited result lane.
 
-After that first pass, choose the lane that matches your goal:
+## Lane Routing
 
-- Theory-first: `docs/repo_cleanup/canonical_reading_paths.md` (Theory-First Path)
-- Paper-first: `papers/recoverability_paper_final.md`
-- Workbench-first: `docs/workbench/index.html`
-- Validation-first: `docs/validation/master_validation_report.md`
+- Theorem assumptions and promoted statements: [theorem core](../theorem-core/README.md)
+- Branch-limited contribution packages: [restricted results](../restricted-results/README.md)
+- Quantitative diagnostics (`CID`, `DFMI`, `IDELB`, `CL`): [methods and diagnostics](../methods-diagnostics/README.md)
+- Reproducibility and artifact traceability: [validation and evidence](../validation-evidence/README.md)
+- Physics-facing interpretation with explicit non-claims: [physics translation](../physics-translation/README.md)
+- Overlap, citation, and claim-scope governance: [meta-governance](../meta-governance/README.md)
 
-## Core Navigation Maps
+## Scope Calibration
 
-- `docs/repo_cleanup/canonical_document_map.md`
-- `docs/overview/proof-status-map.md`
-- `docs/repo_cleanup/companion_repo_map.md`
-
-## Terminology and Notation
-
-Use these when moving across branch documents:
-
-- `docs/overview/terminology-unification.md`
-- `docs/overview/notation-unification.md`
+- Same-rank records can produce opposite exact-recovery verdicts.
+- Periodic projection logic can fail in bounded domains when boundary compatibility is not satisfied.

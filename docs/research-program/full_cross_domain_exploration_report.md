@@ -23,11 +23,11 @@ For each lane, we applied:
 
 ### Highest-Value Surviving Lanes
 
-- `Causal inference / invariant prediction` — `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
-- `Network information theory / multi-terminal settings` — `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
-- `Willems’ fundamental lemma / data-driven control` — `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
-- `Quantum Fisher information / Cramér-Rao structure` — `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
-- `Magnetic reconnection extension` — `KEEP AS CONDITIONAL EXPLORATION` (VALIDATED)
+- `Causal inference / invariant prediction`: `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
+- `Network information theory / multi-terminal settings`: `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
+- `Willems’ fundamental lemma / data-driven control`: `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
+- `Quantum Fisher information / Cramér-Rao structure`: `KEEP AS CONDITIONAL EXPLORATION` (CONDITIONAL)
+- `Magnetic reconnection extension`: `KEEP AS CONDITIONAL EXPLORATION` (VALIDATED)
 
 ## Per-Lane Findings
 
@@ -473,10 +473,9 @@ Scores (0-5): theorem=1, no-go=1, anomaly=0, pattern=1, compatibility=3, cost=3,
 
 ## Artifact Outputs
 
-- `data/generated/discovery/cross_domain_lane_scorecard.csv`
-- `data/generated/discovery/cross_domain_anomaly_catalog.csv`
-- `data/generated/discovery/cross_domain_summary.json`
+- `data/generated/docs/meta-governance/internal/discovery-notes/cross_domain_lane_scorecard.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/cross_domain_anomaly_catalog.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/cross_domain_summary.json`
 - `docs/research-program/full_cross_domain_exploration_report.md`
 
 > All outputs are exploratory and non-promoted.
-

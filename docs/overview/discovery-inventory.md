@@ -52,4 +52,4 @@ This inventory records the local material used to build the OCP research program
 - Why it mattered: Cross-system analogy layer; useful for provenance, but not promoted as theorem-level by itself.
 
 ## Machine-Readable Artifact
-- CSV inventory: `/Users/stevenreid/Documents/New project/repos/ocp-research-program/data/generated/inventories/discovery_inventory.csv`
+- CSV inventory: `data/generated/inventories/discovery_inventory.csv`

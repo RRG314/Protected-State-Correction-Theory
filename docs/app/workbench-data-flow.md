@@ -1,14 +1,14 @@
 # Workbench Data Flow
 
 ## Primary flow
-1. The user edits a scenario in `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/app.js`.
-2. `app.js` updates the scenario through `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioStore.js`.
-3. `scenarioStore.js` sanitizes and persists the scenario through `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioSerialization.js`.
-4. `scenarioStore.js` calls `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/analysisDispatcher.js`.
-5. `analysisDispatcher.js` routes to the appropriate engine entrypoint in `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/compute.js` or `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/discoveryMixer.js`.
+1. The user edits a scenario in `docs/workbench/app.js`.
+2. `app.js` updates the scenario through `docs/workbench/lib/app/scenarioStore.js`.
+3. `scenarioStore.js` sanitizes and persists the scenario through `docs/workbench/lib/app/scenarioSerialization.js`.
+4. `scenarioStore.js` calls `docs/workbench/lib/app/analysisDispatcher.js`.
+5. `analysisDispatcher.js` routes to the appropriate engine entrypoint in `docs/workbench/lib/compute.js` or `docs/workbench/lib/discoveryMixer.js`.
 6. Engine modules return structured analysis objects.
 7. `app.js` renders those results into lab-specific UI and shared context panels.
-8. Export actions call `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioExports.js` so exports are based on structured results, not scraped UI text.
+8. Export actions call `docs/workbench/lib/app/scenarioExports.js` so exports are based on structured results, not scraped UI text.
 
 ## Share-state flow
 - Scenario state is encoded with `encodeShareState`.
@@ -16,8 +16,8 @@
 - Reload and hash changes hydrate via `store.hydrateFromHash(...)`.
 
 ## Validation surface flow
-- Generated repo-side validation data is loaded through `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/data/validationSnapshot.js`.
-- The benchmark console consumes that structured snapshot through `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/engine/benchmarkConsole.js`.
+- Generated repo-side validation data is loaded through `docs/workbench/lib/data/validationSnapshot.js`.
+- The benchmark console consumes that structured snapshot through `docs/workbench/lib/engine/benchmarkConsole.js`.
 - The UI reads the benchmark result object instead of reading raw generated files directly.
 
 ## Export flow

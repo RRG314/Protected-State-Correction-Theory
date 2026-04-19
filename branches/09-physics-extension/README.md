@@ -1,4 +1,4 @@
-# Branch 09 — Physics Extension
+# Branch 09 - Physics Extension
 
 This branch contains narrow physics extensions connected to recoverability language. It is intentionally separate from the core theorem spine.
 

@@ -73,6 +73,32 @@ For the repository citation itself, use:
 - Alberti, G. S., Capdeboscq, Y., and Privat, Y. (2020). *On the Randomised Stability Constant for Inverse Problems*. *Mathematical Models and Methods in Applied Sciences* 30(5), 965--995. DOI: [10.1142/S0218202520500208](https://doi.org/10.1142/S0218202520500208)
 - Villaverde, A. F., Tsiantis, N., and Banga, J. R. (2019). *Full Observability and Estimability of Uncertain Dynamical Systems*. *Nature Communications* 10, 1061. DOI: [10.1038/s41467-019-08828-7](https://doi.org/10.1038/s41467-019-08828-7)
 
+## Sufficiency, Factorization, and Experiment Comparison (Overlap-Critical)
+
+- Blackwell, D. (1951). *Comparison of Experiments*. Proceedings of the 2nd Berkeley Symposium. [PDF](https://digicoll.lib.berkeley.edu/record/112749/files/math_s2_article-08.pdf)
+- Taraldsen, G. (2018). *Optimal Learning from the Doob-Dynkin Lemma*. arXiv: [1801.00974](https://arxiv.org/abs/1801.00974)
+- Petz, D. (1986). *Sufficient Subalgebras and the Relative Entropy of States of a von Neumann Algebra*. [PDF](https://math.bme.hu/~petz/pdf/29suff.pdf)
+- Harremoës, P. and Vignat, C. (2017). *Coarse-graining and the Blackwell order*. arXiv: [1701.07602](https://arxiv.org/abs/1701.07602)
+
+## Identifiability and Observability (Overlap-Critical)
+
+- Bellman, R. and Åström, K. J. (1970). *On structural identifiability*. *Mathematical Biosciences* 7, 329--339. [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/002555647090132X)
+- Ljung, L. and Glad, T. (1994). *On global identifiability for arbitrary model parametrizations*. *Automatica* 30(2), 265--276. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/0005109894900299)
+- Hermann, R. and Krener, A. J. (1977). *Nonlinear controllability and observability*. *IEEE Transactions on Automatic Control* 22(5), 728--740. DOI: [10.1109/TAC.1977.1101601](https://doi.org/10.1109/TAC.1977.1101601)
+- Kalman, R. E. (1960). *A New Approach to Linear Filtering and Prediction Problems*. *Transactions of the ASME--Journal of Basic Engineering*. [PDF mirror](https://www.cs.unc.edu/~welch/kalman/media/pdf/Kalman1960.pdf)
+
+## Thermodynamic Irreversibility Boundary
+
+- Landauer, R. (1961). *Irreversibility and Heat Generation in the Computing Process*. *IBM Journal of Research and Development* 5(3), 183--191. [PDF mirror](https://www.cs.princeton.edu/courses/archive/fall06/cos576/papers/landauer61.pdf)
+- Bérut, A. et al. (2012). *Experimental verification of Landauer's principle linking information and thermodynamics*. *Nature* 483, 187--189. [Nature](https://www.nature.com/articles/nature10872)
+
+## Gravity-Information Context (for scope, not novelty claims)
+
+- Bekenstein, J. D. (1973). *Black Holes and Entropy*. *Physical Review D* 7, 2333--2346. [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333)
+- Hawking, S. W. (1975). *Particle creation by black holes*. *Communications in Mathematical Physics* 43, 199--220. [OSTI entry](https://www.osti.gov/biblio/4006691-particle-creation-black-holes)
+- Page, D. N. (1993). *Average entropy of a subsystem*. *Physical Review Letters* 71, 1291--1294. [PubMed](https://pubmed.ncbi.nlm.nih.gov/10055503/)
+- Ryu, S. and Takayanagi, T. (2006). *Holographic derivation of entanglement entropy from AdS/CFT*. arXiv: [hep-th/0603001](https://arxiv.org/abs/hep-th/0603001)
+
 ## Internal Provenance
 
 The strongest local sources that directly shaped this repository are listed in:

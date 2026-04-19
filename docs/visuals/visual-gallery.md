@@ -3,7 +3,7 @@
 This page embeds the full generated visual set in one place.
 
 Source folder:
-- [`docs/visuals/generated/`](/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/visuals/generated)
+- [`docs/visuals/generated/`](generated)
 
 ## A. Core Geometry Of Recovery
 

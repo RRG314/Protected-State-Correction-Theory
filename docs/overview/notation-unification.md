@@ -16,7 +16,7 @@ Status: Canonical notation reference
 | `D` | disturbance/ambiguity family |
 | `~` | nuisance equivalence (e.g., symmetry quotient) |
 
-Universal core exactness statement (on `A`):
+Backbone exactness statement (on `A`):
 - exact recoverability iff `T` is constant on fibers of `M`
 - equivalent factorization: `T = R ∘ M` on `A`
 
@@ -74,5 +74,6 @@ Rule: never overload `delta` in one theorem statement without explicit qualifica
 ## Canonical Cross-References
 
 - `docs/overview/terminology-unification.md`
-- `docs/unifying_theory/master_object_language.md`
-- `docs/unifying_theory/definitions_and_assumptions.md`
+- `docs/overview/repo-authority-map.md`
+- `docs/theorem-core/theorem-spine-final.md`
+- `docs/restricted-results/README.md`

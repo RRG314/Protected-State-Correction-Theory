@@ -1,0 +1,10 @@
+source_path,decision,destination_path,notes
+/Users/stevenreid/Documents/New project/docs/research-program/structural_information_theory_comprehensive_report.md,INTEGRATE,docs/research-program/structural-information-theory/external-imports/structural_information_theory_comprehensive_report.md,Authoritative completion report
+/Users/stevenreid/Documents/New project/docs/research-program/adversarial_originality_overlap_usefulness_audit.md,INTEGRATE,docs/research-program/structural-information-theory/external-imports/adversarial_originality_overlap_usefulness_audit.md,Authoritative overlap baseline
+/Users/stevenreid/Documents/New project/data/generated/theory_completion,INTEGRATE,data/imported/structural-information-theory,Generated completion artifacts
+/Users/stevenreid/Documents/New project/data/generated/information_research/real_system_metrics.csv,INTEGRATE,data/imported/structural-information-theory/real_system_metrics.csv,Real-system witness metrics
+/Users/stevenreid/Documents/New project/data/generated/information_research/high_pressure_summary.json,INTEGRATE,data/imported/structural-information-theory/high_pressure_summary.json,High-pressure summary
+/Users/stevenreid/Documents/New project/data/generated/gravity_recoverability/gravity_recoverability_metrics.csv,INTEGRATE,data/imported/structural-information-theory/gravity_recoverability_metrics.csv,Gravity lane metrics
+/Users/stevenreid/Documents/New project/data/generated/gravity_recoverability/gravity_theorem_checks.json,INTEGRATE,data/imported/structural-information-theory/gravity_theorem_checks.json,Gravity theorem checks
+/Users/stevenreid/Documents/New project/data/generated/gravity_recoverability/gravity_killer_pass.json,INTEGRATE,data/imported/structural-information-theory/gravity_killer_pass.json,Gravity killer pass
+/Users/stevenreid/Documents/New project/src/information_research/instruments,REFERENCE,src/ocp/structural_information.py,External reference only; OCP-local implementation written for this pass

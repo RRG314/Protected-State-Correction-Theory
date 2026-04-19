@@ -2,10 +2,10 @@
 
 ## Shared export pipeline
 The export path is now split into explicit layers:
-- scenario state and share-state serialization: `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioSerialization.js`
-- export builders: `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/app/scenarioExports.js`
-- export envelope shaping: `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/lib/domain/resultModel.js`
-- UI triggers: `/Users/stevenreid/Documents/New project/repos/ocp-research-program/docs/workbench/app.js`
+- scenario state and share-state serialization: `docs/workbench/lib/app/scenarioSerialization.js`
+- export builders: `docs/workbench/lib/app/scenarioExports.js`
+- export envelope shaping: `docs/workbench/lib/domain/resultModel.js`
+- UI triggers: `docs/workbench/app.js`
 
 ## Export rules
 - JSON exports include scenario state, active lab, result envelope, theorem/evidence level, and reproducibility metadata.

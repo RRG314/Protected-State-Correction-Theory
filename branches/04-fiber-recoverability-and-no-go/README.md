@@ -1,4 +1,4 @@
-# Branch 04 — Fiber Recoverability and No-Go
+# Branch 04 - Fiber Recoverability and No-Go
 
 This branch contains the strongest failure structure in the repository. It focuses on fiber-level indistinguishability, same-descriptor opposite-verdict constructions, and explicit anti-classifier results.
 

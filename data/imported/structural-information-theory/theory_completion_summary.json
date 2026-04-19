@@ -1,0 +1,146 @@
+{
+  "n_audit_claims": 83,
+  "status_counts": {
+    "PROVED": 55,
+    "CONDITIONAL": 13,
+    "VALIDATED": 6,
+    "ANALOGY ONLY": 4,
+    "DISPROVED": 4,
+    "OPEN": 1
+  },
+  "theory_role_counts": {
+    "useful and mathematically promotable": 54,
+    "already part of positive theory": 11,
+    "already part of negative theory": 10,
+    "useful but only as language": 4,
+    "dead end / collapse / duplicate / reformulation only": 4
+  },
+  "top_candidate_object": {
+    "candidate_object": "Fiber-Quotient Structural Object (FQSO)",
+    "definition_short": "Information = target-relevant distinction structure on record fibers / quotient classes.",
+    "axes_supported_count": 8,
+    "proved_or_validated_axes_hit": 7,
+    "coverage_ratio": 0.8888888888888888,
+    "proved_hit_ratio": 0.7777777777777778,
+    "computable_now": true,
+    "tautology_risk": "low",
+    "selection_rank": 0.8444444444444444
+  },
+  "strongest_surviving_theorems": [
+    {
+      "theorem_id": "ST-1",
+      "name": "Exact recoverability iff factorization/fiber-constancy on declared admissible family",
+      "assumptions": "Declared (A,T,M), exact deterministic recovery setting",
+      "status_label": "PROVED",
+      "evidence_anchor": "OCP-030 + unifying/meta internal reports",
+      "novelty": "known core, integrated scope package is repo-distinct"
+    },
+    {
+      "theorem_id": "ST-2",
+      "name": "No amount-only exact classifier on restricted finite witness classes",
+      "assumptions": "Finite witness class + descriptor-fiber quantization",
+      "status_label": "PROVED",
+      "evidence_anchor": "OCP-049/OCP-050 + gravity/info IDELB > 0",
+      "novelty": "restricted no-go package"
+    },
+    {
+      "theorem_id": "ST-3",
+      "name": "Compatibility augmentation lowers irreducible descriptor-only error bound",
+      "assumptions": "Declared witness classes with compatibility descriptors",
+      "status_label": "VALIDATED",
+      "evidence_anchor": "ablation CL_rel positive in gravity/info/ocp/synthetic cases",
+      "novelty": "restricted quantification law"
+    },
+    {
+      "theorem_id": "ST-4",
+      "name": "Family-enlargement false-positive fragility",
+      "assumptions": "Restricted-linear family inclusion F_s subset F_l",
+      "status_label": "PROVED",
+      "evidence_anchor": "OCP-052 + generated family_enlargement_false_positive.csv",
+      "novelty": "repo-new scoped theorem"
+    },
+    {
+      "theorem_id": "ST-5",
+      "name": "Model-mismatch instability lower bound",
+      "assumptions": "Canonical restricted-linear mismatch class",
+      "status_label": "PROVED",
+      "evidence_anchor": "OCP-053 + canonical_model_mismatch.csv",
+      "novelty": "repo-new scoped theorem"
+    },
+    {
+      "theorem_id": "ST-6",
+      "name": "Compatibility threshold under observation degradation",
+      "assumptions": "Restricted channel surrogate with explicit degradation parameter",
+      "status_label": "VALIDATED",
+      "evidence_anchor": "GRAV-T3 high noise-defect correlations",
+      "novelty": "restricted empirical threshold law"
+    }
+  ],
+  "top_ablation_lifts": [
+    {
+      "dataset": "ocp_rank_witness",
+      "n": 68,
+      "bins": 4,
+      "baseline_DFMI": 1.0,
+      "baseline_IDELB": 0.5,
+      "augmented_DFMI": 0.0,
+      "augmented_IDELB": 0.0,
+      "CL_abs": 0.5,
+      "CL_rel": 1.0,
+      "best_bal_acc_base": 0.5,
+      "best_bal_acc_aug": 0.7794117647058824
+    },
+    {
+      "dataset": "info_quantum",
+      "n": 14,
+      "bins": 3,
+      "baseline_DFMI": 0.125,
+      "baseline_IDELB": 0.07142857142857142,
+      "augmented_DFMI": 0.0,
+      "augmented_IDELB": 0.0,
+      "CL_abs": 0.07142857142857142,
+      "CL_rel": 1.0,
+      "best_bal_acc_base": 0.875,
+      "best_bal_acc_aug": 0.8125
+    },
+    {
+      "dataset": "info_hidden_inference",
+      "n": 140,
+      "bins": 4,
+      "baseline_DFMI": 0.32051282051282054,
+      "baseline_IDELB": 0.2,
+      "augmented_DFMI": 0.040983606557377046,
+      "augmented_IDELB": 0.03571428571428571,
+      "CL_abs": 0.1642857142857143,
+      "CL_rel": 0.8214285714285715,
+      "best_bal_acc_base": 0.5059523809523809,
+      "best_bal_acc_aug": 0.5595238095238095
+    },
+    {
+      "dataset": "gravity_quantum",
+      "n": 14,
+      "bins": 3,
+      "baseline_DFMI": 0.5,
+      "baseline_IDELB": 0.2857142857142857,
+      "augmented_DFMI": 0.07692307692307693,
+      "augmented_IDELB": 0.07142857142857142,
+      "CL_abs": 0.21428571428571427,
+      "CL_rel": 0.75,
+      "best_bal_acc_base": 0.625,
+      "best_bal_acc_aug": 0.7708333333333333
+    },
+    {
+      "dataset": "gravity_hidden_mass",
+      "n": 152,
+      "bins": 4,
+      "baseline_DFMI": 0.6818181818181818,
+      "baseline_IDELB": 0.18421052631578946,
+      "augmented_DFMI": 0.13333333333333333,
+      "augmented_IDELB": 0.07894736842105263,
+      "CL_abs": 0.10526315789473684,
+      "CL_rel": 0.5714285714285714,
+      "best_bal_acc_base": 0.7159420289855072,
+      "best_bal_acc_aug": 0.6688405797101449
+    }
+  ]
+}

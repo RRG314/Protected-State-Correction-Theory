@@ -1,36 +1,53 @@
 # Kept vs Rejected Physics Bridges
 
-## Kept
+This file separates physics links that are useful now from links that are still too broad.
 
-### 1. Maxwell / Coulomb-gauge projection
-- status: kept
-- fit: exact fit on projection-compatible domains
-- reason: there is a real projector, a real protected object, and a real disturbance class
+## Kept bridges
 
-### 2. Numerical-relativity constraint damping
-- status: kept
-- fit: conditional asymptotic fit
-- reason: the correction architecture is a real damping evolution on constraint-violating modes
+### Maxwell / Coulomb-gauge projection
 
-### 3. Continuous quantum error correction
-- status: kept
-- fit: conditional bridge
-- reason: it links the exact QEC anchor to continuous-time or feedback-driven correction without forcing false exactness
+Status: kept as a restricted theorem-linked mapping.
 
-## Rejected or Demoted
+Reason:
+There is an explicit projector, a declared protected quantity, and a clear disturbance class.
 
-### 1. Naive bounded-domain reuse of the periodic projector
-- status: rejected
-- reason: explicit counterexample shows divergence can be removed while the bounded protected class still fails because boundary data are not preserved
+### Numerical-relativity constraint damping
 
-### 2. Generic constrained Hamiltonian systems as an automatic OCP branch
-- status: rejected for now
-- reason: the repo does not yet have a canonical projector, recovery map, or stable correction operator in that level of generality
+Status: kept as a conditional asymptotic mapping.
 
-### 3. Physics-forward renaming of the whole theory
-- status: rejected
-- reason: the physics side is stronger than before, but the broadest honest public identity is still the theory-first title with a physics extension, not a physics-only title
+Reason:
+The correction architecture is a real damping evolution on constraint-violating modes.
 
-## Practical Conclusion
+### Continuous quantum error correction
 
-The physics extension is now real enough to keep and cite, but not broad enough to rename the entire theory around physics.
+Status: kept as a conditional bridge.
+
+Reason:
+It links the exact QEC anchor to continuous-time or feedback correction without forcing false exactness claims.
+
+## Rejected or demoted bridges
+
+### Naive bounded-domain reuse of periodic projector
+
+Status: rejected.
+
+Reason:
+Counterexamples show divergence can be removed while protected bounded-domain structure still fails because boundary compatibility is missing.
+
+### Generic constrained Hamiltonian systems as an automatic branch
+
+Status: rejected for now.
+
+Reason:
+No canonical projector, recovery map, or stable correction operator is established at that generality in this repo.
+
+### Physics-forward renaming of the whole theory
+
+Status: rejected.
+
+Reason:
+The physics lane is useful, but the core identity remains theorem-first with branch-limited physics extensions.
+
+## Practical conclusion
+
+Physics translation is worth keeping when it stays tied to explicit theorem assumptions and explicit nonclaims.

@@ -1,0 +1,9 @@
+theorem_id,name,assumptions,status_label,evidence_anchor,novelty
+ST-1,Exact recoverability iff factorization/fiber-constancy on declared admissible family,"Declared (A,T,M), exact deterministic recovery setting",PROVED,OCP-030 + unifying/meta internal reports,"known core, integrated scope package is repo-distinct"
+ST-2,No amount-only exact classifier on restricted finite witness classes,Finite witness class + descriptor-fiber quantization,PROVED,OCP-049/OCP-050 + gravity/info IDELB > 0,restricted no-go package
+ST-3,Compatibility augmentation lowers irreducible descriptor-only error bound,Declared witness classes with compatibility descriptors,VALIDATED,ablation CL_rel positive in gravity/info/ocp/synthetic cases,restricted quantification law
+ST-4,Family-enlargement false-positive fragility,Restricted-linear family inclusion F_s subset F_l,PROVED,OCP-052 + generated family_enlargement_false_positive.csv,repo-new scoped theorem
+ST-5,Model-mismatch instability lower bound,Canonical restricted-linear mismatch class,PROVED,OCP-053 + canonical_model_mismatch.csv,repo-new scoped theorem
+ST-6,Compatibility threshold under observation degradation,Restricted channel surrogate with explicit degradation parameter,VALIDATED,GRAV-T3 high noise-defect correlations,restricted empirical threshold law
+ST-7,Continuity-aware stability theorem above factorization core,Perturbation model for maps/targets/admissible-family geometry,OPEN,listed missing in invariant inventory + unifying open problems,missing core theorem piece
+ST-8,Physics irreversibility translation theorem (collapse/erasure),Declared physical map class with coarse-graining/erasure semantics,CONDITIONAL,MHD/CFD/gravity branch maps + info-theory links,branch-limited translation target

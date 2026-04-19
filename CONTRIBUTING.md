@@ -111,7 +111,7 @@ Please write in a way that is:
 ## Development Setup
 
 ```bash
-cd '/Users/stevenreid/Documents/New project/repos/ocp-research-program'
+cd "$(git rev-parse --show-toplevel)"
 uv sync
 ```
 
@@ -128,7 +128,7 @@ Unless explicitly stated otherwise, contributions submitted to this repository a
 Run the full validation suite before opening a pull request:
 
 ```bash
-cd '/Users/stevenreid/Documents/New project/repos/ocp-research-program'
+cd "$(git rev-parse --show-toplevel)"
 ./scripts/validate/run_all.sh
 ```
 

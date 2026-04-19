@@ -1,0 +1,6 @@
+candidate_object,definition_short,axes_supported_count,proved_or_validated_axes_hit,coverage_ratio,proved_hit_ratio,computable_now,tautology_risk,selection_rank
+Fiber-Quotient Structural Object (FQSO),Information = target-relevant distinction structure on record fibers / quotient classes.,8,7,0.8888888888888888,0.7777777777777778,True,low,0.8444444444444444
+Operator-Alignment Object,Information = row/kernel compatibility between record and target operators.,5,5,0.5555555555555556,0.5555555555555556,True,low,0.5555555555555556
+Distinction-Geometry Object,Information = geometry of preserved/collapsed distinctions with ambiguity metric.,4,4,0.4444444444444444,0.4444444444444444,partial,medium,0.4444444444444444
+Partition-Lattice Object,Information = partition refinement relation alone.,3,3,0.3333333333333333,0.3333333333333333,True,medium,0.3333333333333333
+Category-Like Factorization Object,Information = commutative-factorization morphism class without fixed numeric layer.,2,1,0.2222222222222222,0.1111111111111111,False,high,0.17777777777777778

@@ -1,35 +1,60 @@
 # Main Contributions
 
-This page summarizes the strongest current contributions and where they live in the repository.
+This map separates adopted backbone from branch-limited contribution lanes.
 
-## Core theorem and no-go spine
+## Foundational OCP Spine
 
-The core OCP architecture and its promoted theorem/no-go statements are in `docs/finalization/`. The canonical entry files are `architecture-final.md`, `theorem-spine-final.md`, and `no-go-spine-final.md`, with paper-level presentation in `papers/ocp_core_paper.md`.
+Theorem-core anchors are in `docs/theorem-core/`:
 
-## Constrained observation and recoverability
+- `architecture-final.md`
+- `theorem-spine-final.md`
+- `no-go-spine-final.md`
 
-The recoverability branch formalizes exactness under constrained records, restricted-linear criteria, and threshold/repair structure. The key docs are `docs/theorem-candidates/constrained-observation-theorems.md`, `docs/theorem-candidates/pvrt-theorem-spine.md`, and `papers/recoverability_paper_final.md`.
+These files define shared language and baseline assumptions.
 
-## Fiber no-go and anti-classifier structure
+## Descriptor-Fiber Quantitative Lane
 
-The fiber branch provides the cleanest impossibility and opposite-verdict families when amount-only descriptors are held fixed. Canonical documents are under `docs/fiber-based-recoverability-and-impossibility/`, with branch-level synthesis in `papers/descriptor-fiber-anti-classifier-branch.md`.
+The strongest current lane is the restricted fiber/no-go package with executable witnesses:
 
-## Positive recoverability and augmentation design
+- `docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md`
+- `docs/restricted-results/descriptor-fiber-anti-classifier/overview.md`
+- `papers/descriptor-fiber-anti-classifier-branch.md`
 
-The restricted positive package is documented in `docs/research-program/positive_class_definitions.md`, `positive_theorem_candidates.md`, `positive_no_go_boundaries.md`, and `positive_recoverability_master_report.md`.
+This lane establishes opposite exactness verdicts under matched amount descriptors.
 
-## Invariant and augmentation program
+## Constrained-Observation Theorem Lane
 
-Current invariant results are organized in `docs/research-program/invariant_*` files, centered on `CID`, `delta_free`, `delta_C`, and descriptor-lift diagnostics. The main synthesis is `invariant_formalization_and_bh_placement_master_report.md`.
+- `docs/theory/advanced-directions/constrained-observation-formalism.md`
+- `docs/theorem-candidates/constrained-observation-theorems.md`
+- `papers/recoverability_paper_final.md`
 
-## CFD and MHD domain branches
+## Positive Recoverability and Augmentation Lane
 
-The CFD branch separates periodic/Helmholtz exactness from bounded-domain/Hodge limits and repairable subfamilies. The MHD branch develops divergence-cleaning and closure/obstruction structure. Canonical docs live in `docs/cfd/`, `docs/mhd/`, and `papers/mhd_paper_upgraded.md`.
+- `docs/restricted-results/positive-recoverability/positive_class_definitions.md`
+- `docs/restricted-results/positive-recoverability/positive_theorem_candidates.md`
+- `docs/restricted-results/positive-recoverability/positive_no_go_boundaries.md`
 
-## Workbench and discovery systems
+## Methods and Diagnostics Lane
 
-The workbench is a theorem-linked analysis surface. Start with `docs/app/workbench-overview.md`, `docs/app/module-theory-map.md`, and `docs/app/benchmark-validation-console.md`, then use `docs/workbench/index.html` for the interface.
+- `docs/methods-diagnostics/metric-instrument-index.md`
+- `docs/methods-diagnostics/invariant-lane/`
+- `src/ocp/structural_information.py`
 
-## Physics extensions
+## Validation and Evidence Lane
 
-Physics notes are branch-limited extensions. Quantum and BH/cosmology materials are kept with explicit status labels in `docs/physics/` and are not promoted to core theorem spine without separate support.
+- `docs/overview/proof-status-map.md`
+- `docs/overview/claim-registry.md`
+- `docs/validation/master_validation_report.md`
+- `data/generated/unified-recoverability/`
+- `data/generated/structural-information-theory/`
+
+## Physics Translation Lane
+
+- `docs/physics-translation/README.md`
+- `docs/physics-translation/translation-status-map.md`
+- `docs/physics/`
+
+## Workbench Lane
+
+- `docs/app/workbench-overview.md`
+- `docs/workbench/index.html`

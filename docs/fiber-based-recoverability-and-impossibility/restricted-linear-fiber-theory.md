@@ -1,82 +1,84 @@
-# Restricted-Linear Fiber Theory
+# Restricted Linear Fiber Theory
+
+## Status and scope
+
+This file is theorem-grade on declared restricted linear families.
+
+Known backbone in this file:
+- factorization and fiber constancy logic,
+- kernel and row-space exactness criteria.
+
+Repo-specific contribution in this file:
+- executable witness packages (`OCP-049`, `OCP-050`, `OCP-052`, `OCP-053`),
+- branch-limited diagnostics tied to generated artifacts.
 
 ## Setup
 
-Take the restricted family
+We work on a restricted linear family:
 
 ```text
-x = F z,
-y = O F z,
-p(x) = L F z.
+x = Fz,
+y = OFz,
+p(x) = LFz.
 ```
 
-The coefficient-space fibers are affine slices:
-
-```text
-z + ker(O F).
-```
-
-Their dimension is
-
-```text
-dim ker(O F) = dim(z) - rank(O F).
-```
+In coefficient space, equal-record fibers are affine slices of the form `z + ker(OF)`.
 
 ## Exactness criterion
 
-Exact recoverability holds if and only if the target is constant on each affine fiber.
-In the restricted-linear class this is equivalent to:
+Exact target recovery is possible exactly when the target is constant on each record fiber.
+In the restricted linear class this is equivalent to:
 
 ```text
-ker(O F) ⊆ ker(L F)
+ker(OF) ⊆ ker(LF)
 ```
 
-and therefore to row-space inclusion:
+and equivalently:
 
 ```text
-row(L F) ⊆ row(O F).
+row(LF) ⊆ row(OF).
 ```
 
-## Fiber interpretation of key results
+This criterion is adopted backbone, not a new universal claim.
 
-- `OCP-045`: minimal augmentation theorem
-  - add enough new measurements to refine the fibers until `ker(O~ F) ⊆ ker(L F)`
-- `OCP-046`: exact-regime upper envelope
-  - once fibers are target-constant, the exact decoder lifts record noise to a controlled target bound
-- `OCP-047`: same-rank observation insufficiency
-  - two systems can have the same amount yet different fiber alignment with the target
-- `OCP-049`: no rank-only exact classifier theorem
-  - equal rank does not determine whether the fibers are target-constant
-- `OCP-050`: no fixed-library budget-only exact classifier theorem
-  - equal sensor budget in one fixed library still does not determine whether the fibers are target-constant
-- `OCP-051`: noisy weaker-versus-stronger separation theorem
-  - weak target fibers are already constant while strong target fibers remain mixed
-- `OCP-052`: family-enlargement false-positive theorem
-  - exactness on a smaller family can fail immediately when the enlarged family adds hidden target-changing directions inside the record kernel
+## Why fiber language helps here
 
-## Fiber refinement under augmentation
+The fiber view makes failure mode geometry visible.
+Two systems can share observation rank but have different target behavior inside `ker(OF)`. That is the core mechanism behind opposite exactness verdicts.
 
-Adding measurements shrinks `ker(O F)`.
-Exactness arrives exactly when the refined kernel stops carrying target variation.
-That is the fiber form of the design-engine story.
+## How key theorems fit this view
 
-## New canonical geometry and false-positive reports
+`OCP-045` (minimal augmentation): add rows until target variation inside the record kernel is removed.
 
-The local branch now stores executable restricted-linear witnesses through:
+`OCP-047`, `OCP-049`, `OCP-050`: amount-only descriptors can match while target behavior on fibers differs.
+
+`OCP-051`: a weaker target can be stable under noise while a stronger target remains impossible on the same record map.
+
+`OCP-052`: exactness on a narrow family can disappear after admissible-family enlargement.
+
+`OCP-053`: exactness on the true family does not guarantee robustness to model mismatch.
+
+## Concrete example
+
+Take two observation operators with the same rank. If the first one hides only target-neutral directions, exact recovery can hold. If the second hides a direction that changes the target, exact recovery fails. Rank did not change, but fiber alignment did.
+
+## Artifact-backed evidence
+
+Implementation and generated artifacts:
 - [`src/ocp/fiber_limits.py`](../../src/ocp/fiber_limits.py)
 - [`restricted_linear_fiber_geometry.csv`](../../data/generated/unified-recoverability/restricted_linear_fiber_geometry.csv)
 - [`family_enlargement_false_positive.csv`](../../data/generated/unified-recoverability/family_enlargement_false_positive.csv)
 - [`model_mismatch_stress.csv`](../../data/generated/unified-recoverability/model_mismatch_stress.csv)
 
-These reports are intentionally narrow.
-They classify or stress:
-- coefficient dimension,
-- observation rank,
-- affine fiber dimension,
-- exact versus target-mixed status,
-- row-space residual,
-- collision gap,
-- decoder drift under family enlargement,
-- decoder drift under nearby model mismatch.
+These artifacts are branch-limited. They support declared families only.
 
-They do **not** claim that fiber dimension alone classifies exactness.
+## Citation anchors for overlap-critical statements
+
+- Factorization/sufficiency backbone:
+  - Doob-Dynkin style factorization overview: <https://arxiv.org/abs/1801.00974>
+  - Blackwell comparison context: <https://digicoll.lib.berkeley.edu/record/112749/files/math_s2_article-08.pdf>
+  - Coarse-graining and Blackwell order: <https://arxiv.org/abs/1701.07602>
+- Identifiability/observability overlap:
+  - Structural identifiability: <https://www.sciencedirect.com/science/article/abs/pii/002555647090132X>
+  - Nonlinear observability: <https://doi.org/10.1109/TAC.1977.1101601>
+  - Kalman filtering baseline: <https://www.cs.unc.edu/~welch/kalman/media/pdf/Kalman1960.pdf>

@@ -2,26 +2,35 @@
 
 Date: 2026-04-17
 
-## Claims attacked
-1. rank-only / budget-only classification sufficiency,
-2. family-enlargement robustness,
-3. periodic refinement robustness,
-4. model-mismatch tolerance,
-5. nonlinear bridge promotion candidates.
+This report records the main claims that were attacked and the current outcome.
 
-## Survived
-- rank-only anti-classifier witnesses,
+## Claims attacked
+
+- rank-only and budget-only classifier sufficiency,
+- family-enlargement robustness,
+- periodic-refinement robustness,
+- model-mismatch tolerance,
+- nonlinear bridge promotion candidates.
+
+## Claims that survived attack
+
+- rank-only anti-classifier witness package,
 - family-enlargement false-positive package,
 - periodic refinement reversal package.
 
-## Narrowed
-- model-mismatch instability (`CONDITIONAL`),
-- nonlinear bridge motifs (`CONDITIONAL`).
+## Claims narrowed but not removed
 
-## Rejected for promotion
+- model-mismatch instability remains conditional,
+- nonlinear bridge motifs remain conditional.
+
+## Claims rejected for promotion
+
 - CGL random-superiority anomaly.
 
 ## Evidence locations
+
 - `data/generated/unified-recoverability/*.csv`
 - `data/generated/next-phase/*.csv`
 - `data/generated/discovery-portfolio/*.csv`
+
+Use this report with theorem status maps so each falsification outcome is read at the right scope.
