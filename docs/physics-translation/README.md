@@ -1,27 +1,28 @@
 # Physics Translation
 
-This lane handles physics-facing interpretation with strict claim boundaries.
+## Scope
 
-Use it when you want to map repo results into physics settings without promoting unsupported ontology claims.
+This lane contains physics-facing mappings with explicit theorem dependencies and scope boundaries.
 
-## What belongs here
+## Included Material
 
-- theorem-grade mappings with explicit assumptions,
+- theorem-grade mappings with stated assumptions,
 - validated branch-limited surrogate mappings,
-- demoted analogy-only notes.
+- analogy-only notes that are labeled as such.
 
-## Core files
+## Canonical Documents
 
 - `docs/physics/`
 - `docs/physics-translation/physics-placement-map.md`
 - `docs/physics-translation/translation-status-map.md`
-- `docs/meta-governance/structural-information-theory/05_physics_translation_theorem_boundary.md`
+- `docs/physics-translation/physics-translation-claim-scope.md`
 
-## Reading rule
+## Interpretation Rule
 
-Every translation statement should say:
-1. what theorem or result it depends on,
-2. what assumptions are imported,
-3. whether the status is theorem-grade, validated restricted, or analogy-only.
+Each translation statement should include:
+
+1. source theorem or result,
+2. imported assumptions,
+3. status class (`PROVED`, `VALIDATED`, `CONDITIONAL`, `OPEN`, `DISPROVED`, or `ANALOGY ONLY`).
 
 No file in this lane should claim a new ontology or a universal physics law.

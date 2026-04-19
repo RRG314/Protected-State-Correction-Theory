@@ -1,19 +1,17 @@
 # Theorem Core
 
-This lane holds the backbone statements the rest of the repo depends on.
+## Scope
 
-Use this lane when you need to answer:
-- what is assumed,
-- what is proved,
-- what boundary conditions are attached to each promoted theorem.
+This lane contains adopted backbone statements and promoted theorem/no-go spine documents used by downstream branches.
 
-Canonical files:
+## Canonical Documents
+
 - `architecture-final.md`
 - `theorem-spine-final.md`
 - `no-go-spine-final.md`
 - `operator-spine-final.md`
 - `naming-and-terminology.md`
 
-Reading rule:
-- treat these as adopted backbone and spine anchors,
-- treat novelty claims as branch-limited unless promoted with explicit scope in `docs/restricted-results/`.
+## Reading Discipline
+
+Read this lane as the shared formal base. Branch-level novelty claims are evaluated in `docs/restricted-results/` and remain branch-limited unless explicitly promoted with scope and status labels.

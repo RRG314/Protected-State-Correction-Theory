@@ -1,14 +1,10 @@
 # Validation and Evidence
 
-This lane answers one question: what evidence supports each promoted claim?
+## Scope
 
-Use it to trace theorem and diagnostic statements to:
-- proof/status registries,
-- witness catalogs,
-- falsification outputs,
-- generated artifacts used by tests and scripts.
+This lane maps promoted claims to proofs, witness catalogs, falsification outputs, generated artifacts, and reproducibility paths.
 
-## Core anchors
+## Canonical Anchors
 
 - `docs/overview/proof-status-map.md`
 - `docs/overview/claim-registry.md`
@@ -17,10 +13,10 @@ Use it to trace theorem and diagnostic statements to:
 - `data/generated/unified-recoverability/`
 - `data/generated/structural-information-theory/`
 
-## Practical reading order
+## Evidence Trace Protocol
 
-1. Check the claim/status entry.
-2. Open the corresponding witness or generated artifact.
-3. Check the test or script path that reproduces it.
+1. Locate claim/status entry.
+2. Open the linked witness or generated artifact.
+3. Check the script or test path used for reproduction.
 
-This lane is the trust surface for promoted statements.
+This lane is the verification surface for promoted statements.

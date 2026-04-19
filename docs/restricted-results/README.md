@@ -1,16 +1,16 @@
 # Restricted Results
 
-This lane contains the main contribution surface of the repo.
+## Scope
 
-Use it when you want branch-limited statements with clear assumptions, explicit scope, and artifact-backed evidence.
+This lane contains branch-limited contribution packages with explicit assumptions, scope, and evidence links.
 
-## What belongs here
+## Included Result Types
 
 - restricted theorem packages,
 - anti-classifier and incompatibility results on declared families,
-- augmentation, mismatch, and fragility results where assumptions are explicit.
+- augmentation, mismatch, and fragility results with explicit assumptions.
 
-## Main anchors
+## Canonical References
 
 - `docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md`
 - `docs/fiber-based-recoverability-and-impossibility/theorem-candidates.md`
@@ -20,10 +20,11 @@ Use it when you want branch-limited statements with clear assumptions, explicit 
 - `docs/theory/advanced-directions/constrained-observation-formalism.md`
 - `docs/restricted-results/positive-recoverability/`
 
-## Reading rule
+## Reading Discipline
 
-Every promoted result should answer four questions clearly:
-1. What does it claim?
-2. What assumptions are required?
-3. Where does it apply?
-4. Why does it matter in practice?
+For each promoted item, check four points:
+
+1. exact claim,
+2. required assumptions,
+3. applicability class,
+4. evidence path.

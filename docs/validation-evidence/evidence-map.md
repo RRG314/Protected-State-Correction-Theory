@@ -15,7 +15,7 @@ This map separates promoted evidence from exploratory outputs.
 
 Other `data/generated/*` folders are exploratory unless a theorem or status file promotes them explicitly.
 
-## How to interpret results
+## Interpretation Rule
 
 A promoted result should include:
 - a theorem or scoped claim statement,

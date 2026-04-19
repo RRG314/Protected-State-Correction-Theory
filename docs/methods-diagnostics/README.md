@@ -1,17 +1,19 @@
 # Methods and Diagnostics
 
-This lane explains how the repo measures recoverability behavior after theorem assumptions are fixed.
+## Scope
 
-These tools are useful when two systems look similar by rank, entropy, or measurement count, but behave differently on exact recovery.
+This lane specifies diagnostic tools used after theorem assumptions and admissible families are fixed.
 
-## What this lane contains
+The methods are designed for cases where rank, entropy, or measurement count agree, yet exact-recovery verdicts differ.
 
-- metric definitions with clear semantics,
-- harness specifications and ablations,
+## Contents
+
+- metric definitions with explicit semantics,
+- harness specifications and ablation protocols,
 - method comparisons against amount-only baselines,
-- implementation pointers for reproducible runs.
+- implementation anchors for reproducible runs.
 
-## Core implementation anchors
+## Core Implementation Anchors
 
 - `src/ocp/structural_information.py`
 - `src/ocp/fiber_limits.py`
@@ -19,13 +21,13 @@ These tools are useful when two systems look similar by rank, entropy, or measur
 - `docs/methods-diagnostics/invariant-lane/`
 - `data/generated/structural-information-theory/`
 
-## How to use this lane
+## Evaluation Protocol
 
-1. Pick a declared family and target.
-2. Run baseline checks (rank, count, standard descriptors).
-3. Run compatibility-oriented diagnostics.
-4. Compare whether diagnostics explain opposite-verdict cases that baseline amounts miss.
+1. Fix admissible family and target.
+2. Compute baseline descriptors (rank, counts, standard summaries).
+3. Compute compatibility-oriented diagnostics.
+4. Compare diagnostic behavior on opposite-verdict witness pairs.
 
-## Scope boundary
+## Status Boundary
 
-These methods are diagnostics by default. They become theorem claims only when promoted in `docs/restricted-results/` with explicit status.
+These tools are diagnostics by default. They are theorem claims only when promoted in `docs/restricted-results/` with explicit status.

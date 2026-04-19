@@ -1,25 +1,26 @@
 # Final No-Go Spine
 
-This file records the promoted impossibility boundaries. These are first-class results, not side notes.
+This file records promoted impossibility boundaries.
 
-## Core exact and continuous limits
+## Core Exact and Continuous Limits
 
-Promoted no-go anchors include:
+Promoted no-go anchors:
+
 - `OCP-003`: overlap-driven non-uniqueness.
 - `OCP-015`: mixing obstruction in linear flows.
 - `OCP-020`: no finite-time exact annihilation in smooth linear flows.
 - `OCP-021`: sector-overlap failure of unique exact detection.
 
-Why this matters: these results prevent overclaiming in exact or finite-time settings.
+These limits constrain exact and finite-time recovery claims.
 
-## PDE and boundary limits
+## PDE and Boundary Limits
 
 - `OCP-023`: naive periodic-projector transfer to bounded domains fails.
 - `OCP-028`: divergence-only bounded recovery is impossible for nontrivial protected classes.
 
-Why this matters: domain and boundary structure are part of recoverability, not implementation detail.
+These results make domain and boundary conditions part of theorem scope, not post hoc caveats.
 
-## Anti-classifier and fragility limits
+## Anti-Classifier and Fragility Limits
 
 - `OCP-047`: same-rank insufficiency.
 - `OCP-049`: no rank-only exact classifier.
@@ -27,13 +28,14 @@ Why this matters: domain and boundary structure are part of recoverability, not 
 - `OCP-052`: family-enlargement false positives.
 - `OCP-053`: model-mismatch instability.
 
-Why this matters: amount-only summaries can look sufficient while exact recovery still fails.
+These results show that amount-only descriptors can coincide while exact-recovery verdicts differ.
 
-## Scope guardrail
+## Scope Guardrail
 
 `OCP-009` remains unproved as a universal scalar capacity law and is not promoted.
 
-Practical interpretation:
+Interpretation rule:
+
 - do not classify recoverability by amount-only descriptors,
 - do not transfer periodic theorems to bounded settings without boundary checks,
 - do not assume decoders remain exact under family enlargement or model mismatch.
