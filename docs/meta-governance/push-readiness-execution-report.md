@@ -1,6 +1,6 @@
 # Push Readiness Execution Report
 
-Date: 2026-04-19  
+Date: 2026-04-19 (final pre-push refresh)
 Repository: `.`
 
 ## 1. Starting state
@@ -18,16 +18,18 @@ Repository: `.`
 
 - Branch: `steven/push-cleanup-audit`
 - Base reference for review: `origin/main` at `cf4e99ad4901edf3340f128c626dcd7fb0292f02`
-- Final HEAD after this pass: verify with `git rev-parse HEAD` immediately before push
+- Final HEAD after this pass: `1c952246f4036d13030cc0b5dc752f8ea7ab1f31`
 
 ## 3. Commit plan executed
 
 Existing clean push stack on this branch:
 
-1. `c027857` architecture moves/internalization bucket  
-2. `4fd61f6` canonical routing/public surface bucket  
-3. `3da3b9b` writing normalization bucket  
-4. reporting commits for live-vs-local and push-readiness documentation  
+1. `c027857` architecture moves/internalization bucket
+2. `4fd61f6` canonical routing/public surface bucket
+3. `3da3b9b` writing normalization bucket
+4. reporting commits for live-vs-local and push-readiness documentation
+5. `c3c9794` active-doc portability normalization (absolute path cleanup)
+6. `1c95224` release metadata preparation (`v1.2.0` note, changelog, citation, checklist)
 
 This pass actions:
 
@@ -40,6 +42,8 @@ This pass actions:
 - Architecture moves and internalization done in the existing branch commits
 - Canonical routing and public surface cleanup already committed
 - Writing normalization already committed
+- Active-doc portability cleanup already committed
+- Release metadata updates already committed (`v1.2.0` package)
 - Two governance-facing reports for review clarity:
   - `docs/meta-governance/live-deployed-vs-local-audit-report.md`
   - `docs/meta-governance/push-readiness-execution-report.md`
@@ -57,13 +61,13 @@ This pass actions:
 
 Commands run:
 
-1. `bash scripts/validate/run_all.sh` using system `python3`  
+1. `bash scripts/validate/run_all.sh` using system `python3`
    - Result: fail (`ModuleNotFoundError: No module named 'numpy'`)
-2. `source .venv/bin/activate && bash scripts/validate/run_all.sh`  
+2. `source .venv/bin/activate && bash scripts/validate/run_all.sh`
    - Result: pass
    - Node consistency tests: pass
    - Pytest: `203 passed`
-3. `git diff --check`  
+3. `git diff --check`
    - Result: pass
 
 Policy applied after validation:
@@ -76,6 +80,7 @@ Policy applied after validation:
 2. Rename-heavy architecture moves can still look noisy in GitHub review.
 3. Internal governance volume is substantial and may require reviewer orientation in the PR description.
 4. Validation must be run in `.venv` for reproducible success in this repo.
+5. Branch is still intentionally PR-first; do not tag from this branch before merge.
 
 ## 8. Final plain answer
 
@@ -85,4 +90,8 @@ It should not be pushed directly to `main`. It should go through a reviewed PR w
 
 A reviewer will see three main change classes: architecture/internalization, routing/public surface cleanup, and writing normalization. Generated churn is intentionally excluded.
 
-Final recommended manual check before push: `git status --short` and `git log --oneline origin/main..HEAD` to confirm only intended deltas are present.
+Final recommended manual checks before push:
+
+- `git status --short`
+- `git log --oneline origin/main..HEAD`
+- confirm release files are present: `docs/releases/v1.2.0.md`, `CHANGELOG.md`, `CITATION.cff`

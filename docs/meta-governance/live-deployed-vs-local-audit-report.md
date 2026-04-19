@@ -1,15 +1,15 @@
 # Live Deployed vs Local Audit Report
 
-Date: 2026-04-19  
-Repo: `RRG314/Protected-State-Correction-Theory`  
+Date: 2026-04-19 (final pre-push refresh)
+Repo: `RRG314/Protected-State-Correction-Theory`
 Local workspace: `.`
 
 ## Baseline
 
 - Live deployed baseline: `origin/main` at `cf4e99ad4901edf3340f128c626dcd7fb0292f02` (`v1.1.0`)
 - Local push-prep branch: `steven/push-cleanup-audit`
-- Snapshot reference commit (pre-reporting checkpoint): `3da3b9bb79502bc44f4d72441629fe294a46a029`
-- Divergence status: local branch is ahead of `origin/main` with no observed behind count during this audit pass
+- Snapshot reference commit (final pre-push checkpoint): `1c952246f4036d13030cc0b5dc752f8ea7ab1f31`
+- Divergence status: local branch is ahead of `origin/main` by 17 commits, behind by 0 at refresh time
 
 ## Commit Delta (local ahead stack)
 
@@ -26,14 +26,16 @@ Local workspace: `.`
 11. `4fd61f6` canonical routing/public surface cleanup commit
 12. `3da3b9b` writing normalization across active docs
 13. reporting commit(s) that add and refresh live-vs-local and push-readiness documentation
+14. `c3c9794` active-doc portability fix (machine-specific paths replaced with repo-relative references)
+15. `1c95224` release-prep updates (`v1.2.0` notes, changelog, checklist, citation metadata)
 
 ## Diff Scale vs Live
 
 `origin/main...HEAD` statistics:
 
-- 485 files changed (audit snapshot range)
-- 7361 insertions (audit snapshot range)
-- 1282 deletions (audit snapshot range)
+- 512 files changed (audit snapshot range)
+- 7654 insertions (audit snapshot range)
+- 1467 deletions (audit snapshot range)
 - status mix includes heavy rename volume (`R100=214`) plus additions and edits
 
 Top touched areas (by changed path count):
@@ -85,6 +87,17 @@ Representative move pattern:
 
 Difference:
 - Local branch has explicit provenance/evidence traces for imported theory-completion artifacts.
+
+### Example 5: Release metadata readiness
+
+- Live baseline release set stops at `v1.1.0`.
+- Local branch adds:
+  - `docs/releases/v1.2.0.md`
+  - `CHANGELOG.md` entry for `v1.2.0`
+  - `CITATION.cff` version aligned to `1.2.0`
+
+Difference:
+- Local branch is prepared for tag-and-release flow after PR merge.
 
 ## Current Push Readiness State
 
