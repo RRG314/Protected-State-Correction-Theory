@@ -1,36 +1,48 @@
 # Repo Authority Map
 
 Date: 2026-04-19
-Status: ACTIVE CANONICAL ROUTING
+Status: Active canonical routing
 
-This is the single authoritative routing map for documentation.
+Use this file as the routing authority for docs.
 
-## Routing Rules
+## Front door
 
-1. `README.md` and `branches/README.md` are the program front door.
-2. This file is the only canonical doc-level routing authority.
-3. Legacy maps in `docs/repo_cleanup/` are preserved for provenance but are not canonical.
-4. Scope labels remain mandatory: `PROVED`, `VALIDATED`, `CONDITIONAL`, `OPEN`, `DISPROVED`, `ANALOGY ONLY`.
+- `README.md` for project identity and practical scope.
+- `branches/README.md` for branch navigation.
 
-## Six-Layer Architecture
+## Six active lanes
 
-1. Known backbone and adopted foundations: `docs/theorem-core/`
-2. Restricted theorem results and core contributions: `docs/restricted-results/`
-3. Methods and diagnostics: `docs/methods-diagnostics/`
-4. Validation and evidence: `docs/validation-evidence/`
-5. Physics translation and interpretation: `docs/physics-translation/`
-6. Meta-governance, audits, and claim policy: `docs/meta-governance/`
+1. Known backbone and adopted foundations
+   - `docs/theorem-core/`
+2. Restricted theorem results and core contributions
+   - `docs/restricted-results/`
+3. Methods and diagnostics
+   - `docs/methods-diagnostics/`
+4. Validation and evidence
+   - `docs/validation-evidence/`
+5. Physics translation and interpretation boundary
+   - `docs/physics-translation/`
+6. Meta-governance and claim-scope policy
+   - `docs/meta-governance/`
 
-Historical and one-pass materials:
+Historical one-pass material:
 - `docs/archive/structured-passes/`
 
-## Fast Paths
+## Fast routes
 
-- Strongest theorem/no-go spine: `docs/theorem-core/`
-- Strongest restricted publishable lane: `docs/restricted-results/`
-- Reproducibility and proof status: `docs/validation-evidence/`
-- Claim discipline and overlap positioning: `docs/meta-governance/`
+For theorem/no-go anchors:
+- `docs/theorem-core/theorem-spine-final.md`
+- `docs/theorem-core/no-go-spine-final.md`
 
-## Legacy Compatibility Policy
+For the strongest publishable lane:
+- `docs/restricted-results/strongest-paper-lane.md`
 
-Legacy folders (`docs/finalization/`, `docs/research-program/`, `docs/unifying_theory/`, `docs/meta_theory/`, `docs/repo_cleanup/`) remain addressable for path stability, but they are not routing authorities unless explicitly linked from this map.
+For artifact-backed validation:
+- `docs/validation-evidence/evidence-map.md`
+
+For overlap, citation, and scope discipline:
+- `docs/meta-governance/README.md`
+
+## Legacy compatibility
+
+Legacy folders such as `docs/finalization/`, `docs/research-program/`, `docs/unifying_theory/`, `docs/meta_theory/`, and `docs/repo_cleanup/` remain addressable for old links. They are not routing authorities unless this map points to them.

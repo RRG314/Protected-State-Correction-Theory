@@ -5,86 +5,100 @@
 [![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
 [![Program Scope](https://img.shields.io/badge/Scope-Branch--first%20%7C%20Theorem--first-1f6feb)](./branches/README.md)
 
-_Program identity: Protected-State Correction Theory (OCP)._ 
+Program identity: Protected-State Correction Theory (OCP).
 
-This repository studies one recurring technical question across several fields:
+This repository studies one technical question:
 
-**when can a system remove unwanted components without disturbing what must be preserved?**
+**When can you recover the target you care about from the measurements you actually have?**
 
-That question appears in quantum error correction, control and observability, projection methods in CFD and MHD, and reconstruction from constrained measurements. The project isolates the shared structure behind those settings and states exact success and failure conditions with explicit scope.
+That question appears in several places: quantum error correction, partially observed control, CFD/MHD projection and closure, and restricted inverse problems.
 
-## Overview
+## What this repo does
 
-The program is theorem-first. For each branch, it defines a protected target, describes the disturbance or ambiguity class, and asks whether recovery from the available record is exact, impossible, or repairable by minimal augmentation. Whenever exact theorems are not available, results are labeled as restricted-family, validated, conditional, or open.
+The repo gives explicit success and failure criteria for recoverability on declared families. It treats recoverability as a compatibility problem between:
+- the observation map,
+- the target map,
+- and the admissible family.
 
-## Core Structure
+When exact recovery is impossible, the repo gives either a proof of impossibility or a minimal augmentation requirement.
 
-Most branches use four objects: a state space, a target map, a record map, and a correction or decoder map. The central question is whether the target factors through the record. In fiber language, exact recoverability holds exactly when the target is constant on observation fibers.
+## Known backbone vs repo contribution
 
-In the restricted linear setting with `x = Fz`, `y = OFz`, and target `LFz`, exact linear recovery exists if and only if
+Known backbone in the literature:
+- factorization and fiber constancy logic,
+- restricted linear kernel and row-space criteria,
+- standard identifiability and observability framing.
 
-$$
-\ker(OF) \subseteq \ker(LF)
-\quad\text{equivalently}\quad
-\operatorname{row}(LF) \subseteq \operatorname{row}(OF).
-$$
+What this repo contributes:
+- branch-limited no-go theorems with executable witness families,
+- anti-classifier results that rule out amount-only exact classifiers on declared classes,
+- minimal augmentation laws tied to concrete artifacts and tests,
+- reproducible diagnostics that separate descriptor amount from compatibility structure.
 
-When this fails, minimal free augmentation is
+## Strongest result right now
 
-$$
-\delta(O,L;F)=\operatorname{rank}\!\begin{bmatrix}OF\\LF\end{bmatrix}-\operatorname{rank}(OF).
-$$
+The strongest publishable lane is the restricted fiber and anti-classifier package (`OCP-049` to `OCP-053`) with reproducible witness artifacts.
 
-## Main Results
+Start here:
+- [Strongest paper lane](./docs/restricted-results/strongest-paper-lane.md)
+- [Restricted linear fiber theory](./docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md)
+- [Descriptor-fiber anti-classifier branch paper](./papers/descriptor-fiber-anti-classifier-branch.md)
 
-The repository combines positive and negative results. On supported classes, exact recoverability and minimal-repair laws are explicit. The no-go side is equally central: same rank or same measurement count does not guarantee recoverability, and no rank-only or fixed-budget exact classifier survives. This is why the program emphasizes compatibility structure over amount-only summaries.
+## Two concrete examples
 
-The current quantitative layer adds context-sensitive and descriptor-fiber diagnostics (`CID`, `delta_free`, `delta_C`, `DFMI`, `IDELB`, `CL`) where they improve classification on declared families.
+1. Same rank, opposite recoverability
+Two observation designs can have the same rank and the same measurement count, but one exactly recovers the target and the other does not. This is a direct witness against rank-only classification.
 
-## Branches
+2. Boundary-sensitive projection failure
+A periodic projector can remove divergence in a bounded domain but still fail target recovery because boundary compatibility is violated. The amount of observation did not change, but structural compatibility did.
 
-The repo is organized as a branch-first research program:
+## What this does in practice
 
+If you design a sensing or correction architecture, this repo helps you answer:
+- is exact recovery possible on my declared family,
+- if not, what exact obstruction causes failure,
+- what is the smallest augmentation that can fix it,
+- which diagnostics are useful and which are only amount summaries.
+
+## Where to go next
+
+If you want a fast orientation:
+- [Start here](./docs/overview/start-here.md)
+- [Repo authority map](./docs/overview/repo-authority-map.md)
+
+If you want theorem anchors:
+- [Theorem core lane](./docs/theorem-core/README.md)
+
+If you want branch-limited contribution results:
+- [Restricted results lane](./docs/restricted-results/README.md)
+
+If you want diagnostics and implementation details:
+- [Methods and diagnostics lane](./docs/methods-diagnostics/README.md)
+
+If you want validation and evidence:
+- [Validation and evidence lane](./docs/validation-evidence/README.md)
+
+If you want physics-facing interpretation with strict boundaries:
+- [Physics translation lane](./docs/physics-translation/README.md)
+
+If you want audits, overlap positioning, and claim policy:
+- [Meta-governance lane](./docs/meta-governance/README.md)
+
+## Branch map
+
+The repo is branch-first:
 - [Core OCP backbone](./branches/00-core-ocp/README.md)
 - [Exact projector and exact sector/QEC branch](./branches/01-exact-projector-and-sector/README.md)
 - [Asymptotic generator branch](./branches/02-generator-and-asymptotic/README.md)
-- [Constrained-observation and recoverability branch](./branches/03-constrained-observation-and-pvrt/README.md)
+- [Constrained observation and recoverability branch](./branches/03-constrained-observation-and-pvrt/README.md)
 - [Fiber-based recoverability and impossibility branch](./branches/04-fiber-recoverability-and-no-go/README.md)
-- [Restricted-linear augmentation/design branch](./branches/05-positive-recoverability-and-design/README.md)
+- [Restricted linear augmentation/design branch](./branches/05-positive-recoverability-and-design/README.md)
 - [Invariant and augmentation analysis branch](./branches/06-invariants-and-augmentation/README.md)
 - [Periodic/Helmholtz and bounded-domain/Hodge CFD branch](./branches/07-cfd-bounded-domain/README.md)
 - [MHD closure and obstruction branch](./branches/08-mhd-closure-and-obstruction/README.md)
 - [Physics extension branch](./branches/09-physics-extension/README.md)
 - [Workbench and discovery systems](./branches/10-workbench-and-discovery-systems/README.md)
 
-## Canonical Documentation Routing
-
-- [Single authority map](./docs/overview/repo-authority-map.md)
-- [Theorem core lane](./docs/theorem-core/README.md)
-- [Restricted results lane](./docs/restricted-results/README.md)
-- [Methods and diagnostics lane](./docs/methods-diagnostics/README.md)
-- [Validation and evidence lane](./docs/validation-evidence/README.md)
-- [Physics translation lane](./docs/physics-translation/README.md)
-- [Meta-governance lane](./docs/meta-governance/README.md)
-
-## Workbench
-
-The workbench is an interface for testing recoverability conditions, diagnosing structural failure, and applying supported repair operations. It is tied to the theorem layer and benchmark catalogs; it is not treated as an independent source of mathematical claims.
-
-## Scope
-
-Theorems are branch-limited by design. Exact results are proved on explicitly defined classes, broader claims are promoted only when they survive counterexample pressure, and exploratory physics extensions are kept separate from the core spine. The repository does not claim a universal recoverability law across all systems.
-
-## Use Cases
-
-Typical uses include recoverability diagnosis for a fixed measurement design, minimal augmentation planning, anti-classifier counterexample construction, bounded-domain projection failure analysis, and branch-limited physics interpretation where theorem status is explicit.
-
-## Papers and Contributions
-
-- [Main contributions](./docs/overview/main-contributions.md)
-- [Papers index](./papers/README.md)
-- Descriptor-fiber anti-classifier branch paper: [papers/descriptor-fiber-anti-classifier-branch.md](./papers/descriptor-fiber-anti-classifier-branch.md)
-
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).

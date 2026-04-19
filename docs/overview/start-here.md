@@ -1,35 +1,46 @@
 # Start Here
 
-This file is the canonical onboarding entry for serious readers.
+If you are new to this repo, read these in order.
 
-## First Read (in order)
+1. `README.md`
+2. `docs/overview/repo-authority-map.md`
+3. `docs/theorem-core/architecture-final.md`
+4. `docs/theorem-core/theorem-spine-final.md`
+5. `docs/theorem-core/no-go-spine-final.md`
 
-1. `README.md` for scope, status, and repository identity.
-2. `docs/overview/repo-authority-map.md` for the active six-layer architecture.
-3. `docs/theorem-core/architecture-final.md` for the program architecture.
-4. `docs/theorem-core/theorem-spine-final.md` for promoted theorem-core results.
-5. `docs/theorem-core/no-go-spine-final.md` for promoted limits and failure modes.
+That sequence gives you the project identity, the routing rules, and the strongest promoted theorem and no-go statements.
 
-After that first pass, choose the lane that matches your goal:
+## Choose your path
 
-- Restricted-results-first (strongest contribution lane): `docs/restricted-results/README.md`
-- Strongest paper lane direct path: `docs/restricted-results/strongest-paper-lane.md`
-- Methods-first: `docs/methods-diagnostics/README.md`
-- Validation-first: `docs/validation-evidence/README.md`
-- Physics translation first: `docs/physics-translation/README.md`
-- Governance/audit first: `docs/meta-governance/README.md`
+If you want the strongest restricted contribution now:
+- `docs/restricted-results/strongest-paper-lane.md`
 
-## Canonical Routing
-
-- `docs/overview/repo-authority-map.md`
-- `branches/README.md`
+If you want theorem and proof-status anchors:
+- `docs/theorem-core/README.md`
 - `docs/overview/proof-status-map.md`
 
-Legacy maps in `docs/repo_cleanup/` are preserved for provenance only.
+If you want diagnostics and metric details (`CID`, `DFMI`, `IDELB`, `CL`):
+- `docs/methods-diagnostics/README.md`
+- `docs/methods-diagnostics/metric-instrument-index.md`
 
-## Terminology and Notation
+If you want reproducibility and evidence artifacts:
+- `docs/validation-evidence/README.md`
+- `data/generated/unified-recoverability/`
+- `data/generated/structural-information-theory/`
 
-Use these when moving across branch documents:
+If you want physics-facing interpretation with explicit boundaries:
+- `docs/physics-translation/README.md`
 
-- `docs/overview/terminology-unification.md`
-- `docs/overview/notation-unification.md`
+If you want audits and claim-scope governance:
+- `docs/meta-governance/README.md`
+
+## Two quick examples to calibrate scope
+
+1. Same-rank sensor sets can give opposite exact-recovery verdicts.
+2. A periodic projector can fail in bounded domains when boundary compatibility is missing.
+
+These are not philosophical points. They are concrete witness families tied to tests and generated artifacts.
+
+## Compatibility note
+
+Legacy maps in `docs/repo_cleanup/` are kept for provenance and old links, but active routing is in `docs/overview/repo-authority-map.md`.
