@@ -1,0 +1,9 @@
+physics_topic,structural_mapping,evidence,status_label,scope_note
+measurement,record map M and induced fiber partition,OCP constrained observation + quantum lane + gravity hidden-mass,PROVED,exactness/no-go theorem power is direct under declared assumptions
+coarse_graining,target coarsening map q = phi o p and hierarchy split,OCP-048 + gravity lane surrogate thresholds,PROVED,strict threshold ordering is not universal; coarsening split itself is robust
+irreversibility,defect growth/plateau under information-losing transformations,gravity hawking surrogate + dynamics closure defects,VALIDATED,translation is branch-limited and surrogate-dependent
+landauer_erasure,erasure as controlled collapse of distinctions,information foundation map + no direct branch theorem,CONDITIONAL,"currently interpretive bridge, not a new theorem in this workspace"
+symmetry_orbit_loss,recoverability modulo nuisance equivalence classes,soliton symmetry non-identifiability internal reports,PROVED,needs wider continuous-family theorem closure
+boundary_domain_compatibility,exactness requires boundary-compatible architecture,OCP-023/OCP-028/OCP-044 + MHD obstruction lanes,PROVED,branch-limited but theorem-grade
+pde_closure_obstruction,closure defect as structural incompatibility,MHD-T/O/X branches + information dynamics lane,VALIDATED,full PDE dynamics theorem remains open
+sds_engineering_translation,theorem-linked implementation layer,meta/unifying reports + CFD relations,ANALOGY ONLY,kept outside theorem-core

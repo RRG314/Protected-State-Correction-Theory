@@ -1,0 +1,53 @@
+{
+  "K1_reduction_to_known": {
+    "status": "PARTIALLY_SURVIVES",
+    "note": "finite-fiber no-go logic is known; novelty is restricted gravitational real-data instantiation"
+  },
+  "K2_reparameterization": {
+    "status": "SURVIVES",
+    "IDELB_reparam": 0.18421052631578946,
+    "IDELB_baseline": 0.18421052631578946
+  },
+  "K3_dataset_artifact": {
+    "status": "SURVIVES",
+    "IDELB_subsample_min": 0.14150943396226415,
+    "IDELB_subsample_median": 0.1792452830188679
+  },
+  "K4_surrogate_channel_artifact": {
+    "status": "PARTIALLY_SURVIVES",
+    "note": "primary no-go does not rely on surrogate lane; surrogate contributes only coarsening/threshold support"
+  },
+  "K5_target_choice_triviality": {
+    "status": "SURVIVES",
+    "threshold_sweep": [
+      {
+        "q": 0.3,
+        "IDELB": 0.3026315789473684
+      },
+      {
+        "q": 0.4,
+        "IDELB": 0.3223684210526316
+      },
+      {
+        "q": 0.5,
+        "IDELB": 0.3026315789473684
+      },
+      {
+        "q": 0.6,
+        "IDELB": 0.3092105263157895
+      }
+    ]
+  },
+  "K6_cross_domain_transfer": {
+    "status": "PARTIALLY_SURVIVES",
+    "IDELB_quantum": 0.14285714285714285,
+    "IDELB_hawking_surrogate": 0.25925925925925924,
+    "IDELB_hidden_mass": 0.18421052631578946,
+    "note": "no-go strongest in hidden-mass real-data lane; weaker transfer outside declared class"
+  },
+  "survivor_labels": {
+    "restricted_hidden_mass_no_go": "SURVIVES",
+    "compatibility_augmented_reduction": "SURVIVES",
+    "universal_cross_domain_version": "COLLAPSES"
+  }
+}

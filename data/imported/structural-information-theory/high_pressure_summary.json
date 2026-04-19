@@ -1,0 +1,77 @@
+{
+  "n_rows": 162,
+  "battlefields": {
+    "hidden_inference": 140,
+    "quantum": 14,
+    "dynamics": 8
+  },
+  "real_data_rows": 140,
+  "anti_classifier": {
+    "quantum": {
+      "n": 14,
+      "threshold": 80.97609588358313,
+      "baseline": {
+        "n_samples": 14,
+        "n_fibers": 12,
+        "mixed_fibers": 0,
+        "DFMI": 0.0,
+        "IDELB": 0.0
+      },
+      "augmented": {
+        "n_samples": 14,
+        "n_fibers": 14,
+        "mixed_fibers": 0,
+        "DFMI": 0.0,
+        "IDELB": 0.0
+      },
+      "IDELB_lift": {
+        "CL_abs": 0.0,
+        "CL_rel": 0.0
+      }
+    },
+    "hidden_inference": {
+      "n": 140,
+      "threshold": 6.2491226394014,
+      "baseline": {
+        "n_samples": 140,
+        "n_fibers": 78,
+        "mixed_fibers": 25,
+        "DFMI": 0.32051282051282054,
+        "IDELB": 0.2
+      },
+      "augmented": {
+        "n_samples": 140,
+        "n_fibers": 122,
+        "mixed_fibers": 5,
+        "DFMI": 0.040983606557377046,
+        "IDELB": 0.03571428571428571
+      },
+      "IDELB_lift": {
+        "CL_abs": 0.1642857142857143,
+        "CL_rel": 0.8214285714285715
+      }
+    },
+    "dynamics": {
+      "n": 8,
+      "threshold": 3.71493930543697e-07,
+      "baseline": {
+        "n_samples": 8,
+        "n_fibers": 6,
+        "mixed_fibers": 2,
+        "DFMI": 0.3333333333333333,
+        "IDELB": 0.25
+      },
+      "augmented": {
+        "n_samples": 8,
+        "n_fibers": 8,
+        "mixed_fibers": 0,
+        "DFMI": 0.0,
+        "IDELB": 0.0
+      },
+      "IDELB_lift": {
+        "CL_abs": 0.25,
+        "CL_rel": 1.0
+      }
+    }
+  }
+}

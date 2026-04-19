@@ -1,0 +1,11 @@
+from_piece,to_piece,dependency_type,evidence_claims
+fiber_factorization,amount_no_go,collision/indistinguishability derives no-go,OCP-030; OCP-049; OCP-050
+fiber_factorization,operator_alignment,restricted-linear equivalence bridge,OCP-031
+operator_alignment,augmentation,row-space deficiency determines minimal augmentation,OCP-045
+operator_alignment,target_hierarchy,same record weaker/stronger split,OCP-041; OCP-048
+amount_no_go,capacity_quantification,descriptor-fiber invariants quantify irreducible error,META-001; GRAV-T1
+target_hierarchy,family_fragility,coarsening exactness can fail under family enlargement,OCP-052
+family_fragility,model_mismatch,enlargement and mismatch instability linked by decoder transfer failure,OCP-052; OCP-053
+fiber_factorization,symmetry_quotient,exactness modulo nuisance equivalence,META-BRANCH
+closure_obstruction,physics_translation,boundary/domain incompatibility as structural obstruction,OCP-023; OCP-028; MHD-T*
+engineering_layer,physics_translation,SDS/tooling are theorem-linked implementation layers only,META-SDS; CFD-SDS

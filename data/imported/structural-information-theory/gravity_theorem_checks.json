@@ -1,0 +1,63 @@
+{
+  "T1_no_amount_only_exact_classifier_hidden_mass": {
+    "baseline": {
+      "n_samples": 152,
+      "n_fibers": 22,
+      "mixed_fibers": 15,
+      "DFMI": 0.6818181818181818,
+      "IDELB": 0.18421052631578946
+    },
+    "augmented": {
+      "n_samples": 152,
+      "n_fibers": 90,
+      "mixed_fibers": 12,
+      "DFMI": 0.13333333333333333,
+      "IDELB": 0.07894736842105263
+    },
+    "lift": {
+      "CL_abs": 0.10526315789473684,
+      "CL_rel": 0.5714285714285714
+    }
+  },
+  "T2_target_coarsening_kstar_order": {
+    "0.0": {
+      "k_coarse": 2,
+      "k_medium": null,
+      "k_fine": null,
+      "ordering_holds": false
+    },
+    "0.1": {
+      "k_coarse": null,
+      "k_medium": null,
+      "k_fine": null,
+      "ordering_holds": false
+    },
+    "0.2": {
+      "k_coarse": null,
+      "k_medium": null,
+      "k_fine": null,
+      "ordering_holds": false
+    }
+  },
+  "T3_degradation_threshold_law_candidate": {
+    "noise_vs_compatibility_defect_corr": 0.9946041958854714,
+    "noise_vs_recoverability_defect_corr": 0.9995796018042907
+  },
+  "T4_model_mismatch_instability": {
+    "n_witnesses": 1,
+    "top_witnesses": [
+      {
+        "galaxy": "F579-V1",
+        "nfw_rmse": 3.910681044516737,
+        "burkert_rmse": 4.059879201748614,
+        "rmse_relative_gap": 0.038151451251968366,
+        "mass_rel_gap": 0.4260617658838664
+      }
+    ]
+  },
+  "T5_alignment_stronger_than_amount_candidate": {
+    "spearman_alignment_vs_neg_defect": 0.25962611970152905,
+    "spearman_entropy_vs_neg_defect": 0.2378854625550661,
+    "spearman_fisher_vs_neg_defect": -0.1584159374450008
+  }
+}
