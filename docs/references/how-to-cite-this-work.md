@@ -63,7 +63,7 @@ If you are discussing a standard external anchor, add the relevant outside citat
   author  = {Reid, Steven},
   title   = {Protected-State Correction Theory},
   year    = {2026},
-  version = {1.0.0},
+  version = {1.2.0},
   url     = {https://github.com/RRG314/Protected-State-Correction-Theory},
   note    = {Research program repository. ORCID: https://orcid.org/0009-0003-9132-3410}
 }
