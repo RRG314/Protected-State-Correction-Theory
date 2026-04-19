@@ -7,86 +7,68 @@
 
 Program identity: Protected-State Correction Theory (OCP).
 
-This repository studies one technical question:
+This repository develops a theorem-first program in protected-state correction and constrained-observation recoverability. The central object is a declared triple `(A, M, T)`: admissible family, record map, and target map. Recovery claims are accepted only with explicit family scope, assumptions, and reproducible evidence.
 
-**When can you recover the target you care about from the measurements you actually have?**
+## Scope
 
-That question appears in several places: quantum error correction, partially observed control, CFD/MHD projection and closure, and restricted inverse problems.
+The repository studies exact and approximate target recovery under partial or constrained records. The same formal question appears in QEC-style sector recovery, partially observed control, CFD/MHD projection and closure limits, and restricted inverse settings.
 
-## What this repo does
+## Adopted Backbone and Restricted Contributions
 
-The repo gives explicit success and failure criteria for recoverability on declared families. It treats recoverability as a compatibility problem between:
-- the observation map,
-- the target map,
-- and the admissible family.
+Adopted backbone:
 
-When exact recovery is impossible, the repo gives either a proof of impossibility or a minimal augmentation requirement.
+- factorization and fiber-constancy logic,
+- restricted linear row-space and kernel criteria,
+- standard observability and identifiability framing.
 
-## Known backbone vs repo contribution
+Restricted contributions:
 
-Known backbone in the literature:
-- factorization and fiber constancy logic,
-- restricted linear kernel and row-space criteria,
-- standard identifiability and observability framing.
-
-What this repo contributes:
 - branch-limited no-go theorems with executable witness families,
-- anti-classifier results that rule out amount-only exact classifiers on declared classes,
-- minimal augmentation laws tied to concrete artifacts and tests,
-- reproducible diagnostics that separate descriptor amount from compatibility structure.
+- anti-classifier results excluding amount-only exact classifiers on declared classes,
+- minimal augmentation laws linked to generated artifacts,
+- descriptor-fiber diagnostics that separate amount summaries from compatibility structure.
 
-## Strongest result right now
+## Current Strong Result
 
 The strongest publishable lane is the restricted fiber and anti-classifier package (`OCP-049` to `OCP-053`) with reproducible witness artifacts.
 
-Start here:
+Canonical starting set:
+
 - [Strongest paper lane](./docs/restricted-results/strongest-paper-lane.md)
 - [Restricted linear fiber theory](./docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md)
 - [Descriptor-fiber anti-classifier branch paper](./papers/descriptor-fiber-anti-classifier-branch.md)
 
-## Two concrete examples
+## Representative Witnesses
 
-1. Same rank, opposite recoverability
-Two observation designs can have the same rank and the same measurement count, but one exactly recovers the target and the other does not. This is a direct witness against rank-only classification.
+Same-rank opposite verdict:
+Two observation designs can share rank and measurement count while only one exactly recovers the target. This is a direct witness against rank-only classification.
 
-2. Boundary-sensitive projection failure
-A periodic projector can remove divergence in a bounded domain but still fail target recovery because boundary compatibility is violated. The amount of observation did not change, but structural compatibility did.
+Boundary-sensitive projection failure:
+A periodic projector can remove divergence in a bounded domain and still fail target recovery because boundary compatibility is violated.
 
-## What this does in practice
+## Repository Map
 
-If you design a sensing or correction architecture, this repo helps you answer:
-- is exact recovery possible on my declared family,
-- if not, what exact obstruction causes failure,
-- what is the smallest augmentation that can fix it,
-- which diagnostics are useful and which are only amount summaries.
+Canonical routing:
 
-## Where to go next
-
-If you want a fast orientation:
 - [Start here](./docs/overview/start-here.md)
 - [Repo authority map](./docs/overview/repo-authority-map.md)
+- [Figure Index (image center)](docs/visuals/figure-index.html)
+- [Visual Gallery](docs/visuals/visual-gallery.html)
 
-If you want theorem anchors:
+Primary lanes:
+
 - [Theorem core lane](./docs/theorem-core/README.md)
-
-If you want branch-limited contribution results:
 - [Restricted results lane](./docs/restricted-results/README.md)
-
-If you want diagnostics and implementation details:
 - [Methods and diagnostics lane](./docs/methods-diagnostics/README.md)
-
-If you want validation and evidence:
 - [Validation and evidence lane](./docs/validation-evidence/README.md)
-
-If you want physics-facing interpretation with strict boundaries:
+- [Professional validation surface](./docs/app/professional-validation-report.md)
 - [Physics translation lane](./docs/physics-translation/README.md)
-
-If you want audits, overlap positioning, and claim policy:
 - [Meta-governance lane](./docs/meta-governance/README.md)
 
-## Branch map
+## Branch Architecture
 
 The repo is branch-first:
+
 - [Core OCP backbone](./branches/00-core-ocp/README.md)
 - [Exact projector and exact sector/QEC branch](./branches/01-exact-projector-and-sector/README.md)
 - [Asymptotic generator branch](./branches/02-generator-and-asymptotic/README.md)

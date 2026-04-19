@@ -1,31 +1,34 @@
-# Research Program Docs
+# Research Program Reports (Public Supporting Lane)
 
-Status: **mixed-support lane (non-canonical)**.
+This folder keeps active supporting reports that are still used by scripts, tests, and branch integration checks.
 
-This folder contains branch-level reports, theorem-formalization notes, falsification logs, and placement decisions. It supports branch READMEs but is not a routing authority.
+It is not a canonical authority lane. Canonical routing is in:
 
-Canonical routing lives in:
 - `docs/overview/repo-authority-map.md`
-- `docs/theorem-core/README.md`
-- `docs/restricted-results/README.md`
-- `docs/methods-diagnostics/README.md`
-- `docs/validation-evidence/README.md`
-- `docs/physics-translation/README.md`
-- `docs/meta-governance/README.md`
+- `docs/theorem-core/`
+- `docs/restricted-results/`
+- `docs/methods-diagnostics/`
+- `docs/validation-evidence/`
 
-For first-pass reading, start with the branch map in `branches/` and then use the master reports in this folder for deeper status detail. The strongest current cross-branch summaries are:
+## What is kept here
 
-- `invariant_formalization_and_bh_placement_master_report.md`
-- `invariant_discovery_master_report.md`
-- `positive_recoverability_master_report.md`
-- `context_sensitive_recoverability_master_report.md`
-- `full_system_clear_results_master_report.md`
-- `branch-audit.md`
+- Branch audits and navigation support:
+  - `branch-audit.md`
+  - `branch_navigation_map.md`
+- Descriptor-fiber branch integration documents used by tests:
+  - `descriptor-fiber-anti-classifier-branch-overview.md`
+  - `descriptor-fiber-anti-classifier-branch-status.md`
+  - `descriptor-fiber-anti-classifier-branch-integration-report.md`
+- Script-generated exploration reports that remain part of validation workflows:
+  - `indistinguishability_exploration.md`
+  - `major_expansion_candidate_report.md`
+  - `full_cross_domain_exploration_report.md`
+  - `context_invariant_recoverability_*.md`
+  - `theorem-normalization-report.md`
 
-Current structural-information completion and hardening lane (canonical location moved):
+## What is not kept here
 
-- `docs/meta-governance/structural-information-theory/10_local_repo_hardening_master_report.md`
-- `docs/meta-governance/structural-information-theory/01_missing_pieces_closure_report.md`
-- `docs/meta-governance/structural-information-theory/07_adversarial_overlap_reaudit_updated_repo.md`
+One-pass planning and process-heavy material was moved to:
 
-Process-heavy pass logs were moved to `archive/internal-process/docs-research-program/` so the active folder stays focused on reusable technical content.
+- `docs/meta-governance/internal/research-program-passes/`
+- `archive/internal-process/docs-research-program/`

@@ -1,46 +1,25 @@
 # Start Here
 
-If you are new to this repo, read these in order.
+## Reading Path
 
-1. `README.md`
-2. `docs/overview/repo-authority-map.md`
-3. `docs/theorem-core/architecture-final.md`
-4. `docs/theorem-core/theorem-spine-final.md`
-5. `docs/theorem-core/no-go-spine-final.md`
+1. [README](../../README.md)
+2. [Repo authority map](./repo-authority-map.md)
+3. [Theorem spine](../theorem-core/theorem-spine-final.md)
+4. [No-go spine](../theorem-core/no-go-spine-final.md)
+5. [Strongest paper lane](../restricted-results/strongest-paper-lane.md)
 
-That sequence gives you the project identity, the routing rules, and the strongest promoted theorem and no-go statements.
+This sequence covers repository scope, promoted theorem and no-go statements, and the strongest branch-limited result lane.
 
-## Choose your path
+## Lane Routing
 
-If you want the strongest restricted contribution now:
-- `docs/restricted-results/strongest-paper-lane.md`
+- Theorem assumptions and promoted statements: [theorem core](../theorem-core/README.md)
+- Branch-limited contribution packages: [restricted results](../restricted-results/README.md)
+- Quantitative diagnostics (`CID`, `DFMI`, `IDELB`, `CL`): [methods and diagnostics](../methods-diagnostics/README.md)
+- Reproducibility and artifact traceability: [validation and evidence](../validation-evidence/README.md)
+- Physics-facing interpretation with explicit non-claims: [physics translation](../physics-translation/README.md)
+- Overlap, citation, and claim-scope governance: [meta-governance](../meta-governance/README.md)
 
-If you want theorem and proof-status anchors:
-- `docs/theorem-core/README.md`
-- `docs/overview/proof-status-map.md`
+## Scope Calibration
 
-If you want diagnostics and metric details (`CID`, `DFMI`, `IDELB`, `CL`):
-- `docs/methods-diagnostics/README.md`
-- `docs/methods-diagnostics/metric-instrument-index.md`
-
-If you want reproducibility and evidence artifacts:
-- `docs/validation-evidence/README.md`
-- `data/generated/unified-recoverability/`
-- `data/generated/structural-information-theory/`
-
-If you want physics-facing interpretation with explicit boundaries:
-- `docs/physics-translation/README.md`
-
-If you want audits and claim-scope governance:
-- `docs/meta-governance/README.md`
-
-## Two quick examples to calibrate scope
-
-1. Same-rank sensor sets can give opposite exact-recovery verdicts.
-2. A periodic projector can fail in bounded domains when boundary compatibility is missing.
-
-These are not philosophical points. They are concrete witness families tied to tests and generated artifacts.
-
-## Compatibility note
-
-Legacy maps in `docs/repo_cleanup/` are kept for provenance and old links, but active routing is in `docs/overview/repo-authority-map.md`.
+- Same-rank records can produce opposite exact-recovery verdicts.
+- Periodic projection logic can fail in bounded domains when boundary compatibility is not satisfied.

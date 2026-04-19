@@ -1,6 +1,9 @@
-# Next-Phase Paper Lanes (Archived)
+# Next-Phase Paper Lanes (Compatibility Redirect)
 
-This planning note was archived during reorganization.
+This file is kept so legacy references continue to resolve.
 
-- Archived file: `archive/internal-process/docs-research-program/next-phase-paper-lanes.md`
-- Current canonical public contribution view: [../../docs/overview/main-contributions.md](../../docs/overview/main-contributions.md)
+Canonical location:
+- [`docs/meta-governance/internal/research-program-passes/next-phase-paper-lanes.md`](../meta-governance/internal/research-program-passes/next-phase-paper-lanes.md)
+
+Public contribution map:
+- [`docs/overview/main-contributions.md`](../overview/main-contributions.md)
