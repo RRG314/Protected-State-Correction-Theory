@@ -44,6 +44,6 @@ Legacy label policy:
 
 ## Compatibility and Legacy Handling
 
-- `docs/meta_theory/` kept as supporting archive
+- `docs/meta-governance/internal/meta_theory/` kept as supporting archive
 - canonical path moved to descriptor-fiber branch docs
 - invariants script writes canonical output path plus legacy mirror during transition

@@ -32,7 +32,7 @@ Additional archive move:
 
 ## Kept but intentionally de-surfaced
 
-- `docs/repo_cleanup/*`
+- `docs/meta-governance/internal/repo_cleanup/*`
 - `papers/finalization/*`
 - `papers/style/*`
 - `papers/drafts/*`

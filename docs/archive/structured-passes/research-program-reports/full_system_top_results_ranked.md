@@ -3,7 +3,7 @@
 Status: ranked clear-new-results set after cross-corpus pressure testing.
 
 Machine-readable companion:
-- `data/generated/discovery/full_system_top_results_scorecard.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_top_results_scorecard.csv`
 
 ## 1) Strongest Theorem-Grade New Result
 

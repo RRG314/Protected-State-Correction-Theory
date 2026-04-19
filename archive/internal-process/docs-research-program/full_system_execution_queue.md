@@ -49,7 +49,7 @@ Status: operational queue derived from full-system ranking and proof-pressure ou
 
 ## Companion Machine-Readable Controls
 
-- `data/generated/discovery/full_system_top_results_scorecard.csv`
-- `data/generated/discovery/full_system_branch_action_matrix.csv`
-- `data/generated/discovery/full_system_priority_summary.json`
-- `data/generated/discovery/full_system_anomaly_catalog.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_top_results_scorecard.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_branch_action_matrix.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_priority_summary.json`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_anomaly_catalog.csv`

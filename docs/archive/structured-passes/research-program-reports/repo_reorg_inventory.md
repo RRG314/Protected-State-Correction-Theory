@@ -26,7 +26,7 @@ Supporting technical surfaces:
 
 1. `docs/research-program/` — large number of pass reports and branch analyses.
 2. `docs/fiber-based-recoverability-and-impossibility/` — deep lane-specific corpus.
-3. `docs/repo_cleanup/` — internal cleanup/process-heavy documentation.
+3. `docs/meta-governance/internal/repo_cleanup/` — internal cleanup/process-heavy documentation.
 4. `papers/` — canonical papers mixed with release/checklist/process notes.
 
 ## Canonical branch-support documents identified

@@ -71,7 +71,7 @@ Reduced root clutter:
 - Redundant process notes
 
 ### Kept but de-surfaced
-- Provenance/process-heavy folders (e.g., `docs/repo_cleanup/`, paper-production checklists)
+- Provenance/process-heavy folders (e.g., `docs/meta-governance/internal/repo_cleanup/`, paper-production checklists)
 
 ## Physics/BH placement outcome
 
@@ -109,4 +109,4 @@ Reduced root clutter:
 **Some deep historical materials remain scattered** in provenance folders by design; branch READMEs now point to canonical current docs.
 
 8. What is the next cleanup step after this reorg?  
-Consolidate `docs/repo_cleanup/` and remaining older pass bundles into a single provenance index under `archive/` with stable redirects.
+Consolidate `docs/meta-governance/internal/repo_cleanup/` and remaining older pass bundles into a single provenance index under `archive/` with stable redirects.

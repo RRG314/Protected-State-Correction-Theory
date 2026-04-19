@@ -3,10 +3,10 @@
 Status: full-corpus clear-new-results extraction pass (falsification-first).
 
 Operational artifacts generated in this pass:
-- `data/generated/discovery/full_system_top_results_scorecard.csv`
-- `data/generated/discovery/full_system_branch_action_matrix.csv`
-- `data/generated/discovery/full_system_priority_summary.json`
-- `data/generated/discovery/full_system_anomaly_catalog.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_top_results_scorecard.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_branch_action_matrix.csv`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_priority_summary.json`
+- `data/generated/docs/meta-governance/internal/discovery-notes/full_system_anomaly_catalog.csv`
 - `docs/research-program/full_system_execution_queue.md`
 
 ## Executive Summary

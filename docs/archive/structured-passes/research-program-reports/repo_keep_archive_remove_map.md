@@ -45,7 +45,7 @@ Moved folder:
 
 ## 3) Keep but remove from public-facing navigation
 
-- `docs/repo_cleanup/*` (retained for provenance, intentionally not front-door)
+- `docs/meta-governance/internal/repo_cleanup/*` (retained for provenance, intentionally not front-door)
 - legacy pass-specific geometry/soliton folders in `docs/research-program/*2026-04-16*/`
 - process/checklist/release scaffolding in `papers/finalization/`, `papers/style/`, `papers/drafts/`
 

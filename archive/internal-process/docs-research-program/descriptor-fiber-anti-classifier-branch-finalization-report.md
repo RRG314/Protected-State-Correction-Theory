@@ -31,8 +31,8 @@ Placement:
 - `docs/app/descriptor-fiber-anti-classifier-branch-workbench-consistency-report.md`
 - `docs/app/image_and_figure_surface_audit.md`
 - `docs/validation/descriptor-fiber-anti-classifier-branch-validation-results.md`
-- `docs/repo_cleanup/descriptor-fiber-anti-classifier-branch-change-log.md`
-- `docs/repo_cleanup/github_sync_and_layout_report.md`
+- `docs/meta-governance/internal/repo_cleanup/descriptor-fiber-anti-classifier-branch-change-log.md`
+- `docs/meta-governance/internal/repo_cleanup/github_sync_and_layout_report.md`
 
 ## 4. Files Updated (Key)
 
@@ -48,7 +48,7 @@ Placement:
 - `docs/research-program/final-theory-status-decision.md`
 - `docs/app/module-theory-map.md`
 - `docs/app/workbench-overview.md`
-- `docs/meta_theory/README.md`
+- `docs/meta-governance/internal/meta_theory/README.md`
 - `papers/meta_theory_real_addition.md`
 - `papers/meta_theory_interaction_and_limits.md`
 - `scripts/report/compute_meta_theory_invariants.py`

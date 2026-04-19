@@ -95,7 +95,7 @@ The rewrite reinforces these as canonical public surfaces:
 
 ## Remaining inconsistencies
 
-1. The repository still contains a large long-tail of historical and process-adjacent markdown files (especially under `docs/research-program/`, `discovery/`, and some `docs/app/` audits) that keep older list-heavy style.
+1. The repository still contains a large long-tail of historical and process-adjacent markdown files (especially under `docs/research-program/`, `docs/meta-governance/internal/discovery-notes/`, and some `docs/app/` audits) that keep older list-heavy style.
 2. Some auxiliary paper production files in `papers/finalization/`, `papers/style/`, and `papers/formats/` remain workflow-oriented rather than reader-oriented.
 3. Several CSV/JSON-backed discovery reports are intentionally terse and machine-oriented; they were not rewritten as prose documents.
 

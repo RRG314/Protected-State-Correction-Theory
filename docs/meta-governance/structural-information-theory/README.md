@@ -1,23 +1,12 @@
-# Structural Information Theory Lane
+# Structural Information Theory Hardening Records
 
-Active local hardening outputs for the theorem-first/falsification-first completion pass.
+This lane is now internal and preserved for provenance only.
 
-Start here:
-- `10_local_repo_hardening_master_report.md`
+Internal location:
+- `docs/meta-governance/internal/structural-information-theory/`
 
-Core phase outputs:
-- `00_missing_work_integration_map.md`
-- `01_missing_pieces_closure_report.md`
-- `02_formal_positive_theory_draft.md`
-- `03_unified_cross_domain_harness_report.md`
-- `07_adversarial_overlap_reaudit_updated_repo.md`
-- `08_citation_claim_scope_correction_report.md`
-- `09_rewrite_needed_report.md`
-
-Imported authoritative guides:
-- `external-imports/structural_information_theory_comprehensive_report.md`
-- `external-imports/adversarial_originality_overlap_usefulness_audit.md`
-
-Generated data for this lane:
-- `data/generated/structural-information-theory/`
-- `data/imported/structural-information-theory/`
+Public governance entry points:
+- `docs/meta-governance/README.md`
+- `docs/meta-governance/current-repo-structure-audit-for-rewrite.md`
+- `docs/meta-governance/restructure-execution-report.md`
+- `docs/meta-governance/document-cleanup-and-push-shaping-report.md`
