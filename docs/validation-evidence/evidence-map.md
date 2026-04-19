@@ -1,6 +1,9 @@
 # Evidence Map
 
-Canonical validation and status anchors:
+This map separates promoted evidence from exploratory outputs.
+
+## Promoted canonical evidence
+
 - `docs/overview/proof-status-map.md`
 - `docs/overview/claim-registry.md`
 - `docs/validation/master_validation_report.md`
@@ -8,6 +11,15 @@ Canonical validation and status anchors:
 - `data/generated/unified-recoverability/`
 - `data/generated/structural-information-theory/`
 
-Tiering:
-- promoted theorem-linked evidence lives in the two canonical generated folders above,
-- other generated folders are exploratory unless explicitly promoted.
+## Exploratory by default
+
+Other `data/generated/*` folders are exploratory unless a theorem or status file promotes them explicitly.
+
+## How to interpret results
+
+A promoted result should include:
+- a theorem or scoped claim statement,
+- a reproducible artifact path,
+- a test or script pathway.
+
+If one of those is missing, treat the result as provisional.

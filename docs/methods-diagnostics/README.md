@@ -1,19 +1,31 @@
 # Methods and Diagnostics
 
-This lane contains instrumentation and diagnostic methodology.
+This lane explains how the repo measures recoverability behavior after theorem assumptions are fixed.
 
-Use this lane for:
-- metric definitions and estimator assumptions,
-- harness design and ablations,
-- method comparisons against entropy/MI/Fisher/rank baselines,
-- implementation-facing diagnostics.
+These tools are useful when two systems look similar by rank, entropy, or measurement count, but behave differently on exact recovery.
 
-Primary implementation anchors:
+## What this lane contains
+
+- metric definitions with clear semantics,
+- harness specifications and ablations,
+- method comparisons against amount-only baselines,
+- implementation pointers for reproducible runs.
+
+## Core implementation anchors
+
 - `src/ocp/structural_information.py`
 - `src/ocp/fiber_limits.py`
 - `scripts/research/run_structural_information_harness.py`
-- `data/generated/structural-information-theory/`
 - `docs/methods-diagnostics/invariant-lane/`
-- `docs/methods-diagnostics/positive_framework_buildout_options.md`
+- `data/generated/structural-information-theory/`
 
-Methods are not theorem-core unless explicitly promoted in `docs/restricted-results/` with theorem status.
+## How to use this lane
+
+1. Pick a declared family and target.
+2. Run baseline checks (rank, count, standard descriptors).
+3. Run compatibility-oriented diagnostics.
+4. Compare whether diagnostics explain opposite-verdict cases that baseline amounts miss.
+
+## Scope boundary
+
+These methods are diagnostics by default. They become theorem claims only when promoted in `docs/restricted-results/` with explicit status.

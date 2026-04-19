@@ -1,16 +1,27 @@
 # Physics Translation
 
-This lane contains physics-facing translation and boundary statements.
+This lane handles physics-facing interpretation with strict claim boundaries.
 
-Use this lane for:
+Use it when you want to map repo results into physics settings without promoting unsupported ontology claims.
+
+## What belongs here
+
 - theorem-grade mappings with explicit assumptions,
 - validated branch-limited surrogate mappings,
-- analogy-only notes explicitly demoted.
+- demoted analogy-only notes.
 
-Primary sources:
+## Core files
+
 - `docs/physics/`
 - `docs/physics-translation/physics-placement-map.md`
 - `docs/physics-translation/translation-status-map.md`
 - `docs/meta-governance/structural-information-theory/05_physics_translation_theorem_boundary.md`
 
-No ontology claims are promoted here. Physics language must preserve theorem status and nonclaims.
+## Reading rule
+
+Every translation statement should say:
+1. what theorem or result it depends on,
+2. what assumptions are imported,
+3. whether the status is theorem-grade, validated restricted, or analogy-only.
+
+No file in this lane should claim a new ontology or a universal physics law.
