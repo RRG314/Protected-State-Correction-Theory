@@ -1,5 +1,11 @@
 # Restricted-Linear Fiber Theory
 
+## Scope label and overlap note
+
+- Status: theorem-grade on declared restricted linear families.
+- Known backbone: factorization/fiber constancy and kernel/row-space criteria are classical in sufficiency/identifiability/observability language.
+- Repo-distinct contribution: executable finite witness packages (`OCP-049`/`OCP-050`/`OCP-052`/`OCP-053`) and descriptor-fiber diagnostics on declared classes.
+
 ## Setup
 
 Take the restricted family
@@ -36,6 +42,8 @@ and therefore to row-space inclusion:
 ```text
 row(L F) ⊆ row(O F).
 ```
+
+This criterion should be read as known backbone (factorization/sufficiency and restricted linear identifiability), not as a new universal theorem.
 
 ## Fiber interpretation of key results
 
@@ -80,3 +88,14 @@ They classify or stress:
 - decoder drift under nearby model mismatch.
 
 They do **not** claim that fiber dimension alone classifies exactness.
+
+## Citation anchors for overlap-critical statements
+
+- Factorization/sufficiency backbone:
+  - Doob-Dynkin style factorization (overview): <https://arxiv.org/abs/1801.00974>
+  - Comparison of statistical experiments (Blackwell order context): <https://digicoll.lib.berkeley.edu/record/112749/files/math_s2_article-08.pdf>
+  - Coarse-graining and Blackwell order: <https://arxiv.org/abs/1701.07602>
+- Identifiability/observability overlap:
+  - Structural identifiability: <https://www.sciencedirect.com/science/article/abs/pii/002555647090132X>
+  - Nonlinear observability: <https://doi.org/10.1109/TAC.1977.1101601>
+  - Kalman filtering baseline context: <https://www.cs.unc.edu/~welch/kalman/media/pdf/Kalman1960.pdf>

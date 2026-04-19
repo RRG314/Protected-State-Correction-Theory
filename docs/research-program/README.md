@@ -11,4 +11,10 @@ For first-pass reading, start with the branch map in `branches/` and then use th
 - `full_system_clear_results_master_report.md`
 - `branch-audit.md`
 
+Current structural-information completion and hardening lane:
+
+- `structural-information-theory/10_local_repo_hardening_master_report.md`
+- `structural-information-theory/01_missing_pieces_closure_report.md`
+- `structural-information-theory/07_adversarial_overlap_reaudit_updated_repo.md`
+
 Process-heavy pass logs were moved to `archive/internal-process/docs-research-program/` so the active folder stays focused on reusable technical content.
