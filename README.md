@@ -7,7 +7,7 @@
 
 This repository develops a theorem-first recoverability program for declared triples `(A, M, T)` of admissible family, record map, and target map. The core criterion is exact target recoverability under constrained observation, with explicit failure and minimal-augmentation structure on declared classes.
 
-Strongest current contribution: restricted anti-classifier results (`OCP-049` to `OCP-053`) that rule out amount-only exact classification on supported families using executable witness catalogs.
+Strongest current contribution: a restricted information-regime package that combines static exactness boundaries, dynamic transform-class laws, nonlinear survive/fail splits, and external-data scalar nonreducibility evidence (`OCP-054` to `OCP-063`).
 
 Adopted backbone is stated as known: factorization and fiber-constancy logic, restricted-linear row-space/kernel criteria, and standard observability/identifiability framing. Promoted novelty is branch-limited and labeled by scope.
 
@@ -19,6 +19,7 @@ The program treats exactness, impossibility, and repair under constrained record
 
 - [Theorem spine](./docs/theorem-core/theorem-spine-final.md)
 - [No-go spine](./docs/theorem-core/no-go-spine-final.md)
+- [Final information regime map](./docs/meta-governance/final-information-regime-map.md)
 - [Strongest restricted lane](./docs/restricted-results/strongest-paper-lane.md)
 - [Restricted linear fiber theory](./docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md)
 - [Descriptor-fiber branch paper](./papers/descriptor-fiber-anti-classifier-branch.md)

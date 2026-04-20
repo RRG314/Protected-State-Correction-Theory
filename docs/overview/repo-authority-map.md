@@ -23,6 +23,7 @@ Historical one-pass material remains in `docs/archive/structured-passes/`.
 
 - Theorem/no-go spines: `docs/theorem-core/theorem-spine-final.md`, `docs/theorem-core/no-go-spine-final.md`
 - Strongest restricted lane: `docs/restricted-results/strongest-paper-lane.md`
+- Final regime map: `docs/meta-governance/final-information-regime-map.md`
 - Evidence routing: `docs/validation-evidence/evidence-map.md`
 - Governance routing: `docs/meta-governance/README.md`
 

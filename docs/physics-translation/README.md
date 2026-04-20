@@ -12,10 +12,10 @@ This lane contains physics-facing mappings with explicit theorem dependencies an
 
 ## Canonical Documents
 
-- `docs/physics/`
-- `docs/physics-translation/physics-placement-map.md`
+- `docs/physics-translation/canonical-physics-translation-boundary.md`
 - `docs/physics-translation/translation-status-map.md`
-- `docs/physics-translation/physics-translation-claim-scope.md`
+- `docs/theorem-core/theorem-spine-final.md`
+- `docs/theorem-core/no-go-spine-final.md`
 
 ## Interpretation Rule
 
