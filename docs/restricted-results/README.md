@@ -17,6 +17,10 @@ This lane contains branch-limited contribution packages with explicit assumption
 - `docs/restricted-results/descriptor-fiber-anti-classifier/overview.md`
 - `docs/restricted-results/descriptor-fiber-anti-classifier/status.md`
 - `docs/restricted-results/descriptor-fiber-anti-classifier/integration-report.md`
+- `docs/restricted-results/regime-maps/static-algebraic-regime-map.md`
+- `docs/restricted-results/regime-maps/dynamic-compositional-regime-map.md`
+- `docs/restricted-results/regime-maps/nonlinear-representational-regime-map.md`
+- `docs/restricted-results/regime-maps/data-inference-external-regime-map.md`
 - `docs/theory/advanced-directions/constrained-observation-formalism.md`
 - `docs/restricted-results/positive-recoverability/`
 

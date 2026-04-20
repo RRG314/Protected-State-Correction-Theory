@@ -95,10 +95,14 @@ Candidate claim:
 Margin-based perturbation stability above exact factorization core.
 
 Current result:
-No clean universal law survived across generated family classes.
+- Restricted stability law is proved on the declared finite-dimensional linear box class with fixed decoder and bounded perturbation operator.
+- Full-column-rank perturbation margin now gives an explicit sufficient threshold:
+  if baseline exactness holds and `sigma_min(O F) > ||Delta F||_2`, exactness survives the perturbation.
+- Rank-deficient exact classes remain arbitrarily fragile under transverse perturbations.
+- Universal branch-agnostic robustness remains open.
 
 Status:
-`CONDITIONAL / OPEN`.
+`PROVED ON RESTRICTED CLASS` + `OPEN` for universal extension.
 
 ## Practical take-away
 

@@ -219,6 +219,34 @@ T(O F z) = L F z.
 
 This is well-defined because equality of `O F z` values implies the difference lies in `ker(O F)`, hence also in `ker(L F)`. Extend `T` linearly to `K` on the ambient observation space.
 
+### Primitive-object closure on the same class
+
+For the bounded coefficient family
+
+```text
+A_B = {F z : ||z||_∞ ≤ B},   B > 0,
+```
+
+define the restricted primitive object
+
+```text
+I_B = (A_B, M, p, Pi_M, Pi_p, C_{M,p}).
+```
+
+On this class, exactness of `I_B` is equivalent to Proposition 8.1:
+
+```text
+ker(O F) ⊂ ker(L F)
+  ⇔ linear exact decoder exists
+  ⇔ p is fiber-constant on M fibers
+  ⇔ κ_{M,p}(0)=0 on A_B.
+```
+
+Promoted claim ID: `OCP-054`.
+
+This equivalence is implemented and checked in
+`src/ocp/structural_information.py::primitive_object_ocp_equivalence_certificate`.
+
 ### Stability margin
 
 A useful restricted margin is
@@ -377,6 +405,60 @@ This is a useful negative result rather than a novelty claim. It survives becaus
 ### Status note
 
 The criterion is linear-algebraically standard. It is still worth keeping because it is the cleanest precise bridge from the branch to functional observability and restricted recovery.
+
+### Proposition 8.6: Primitive-Object Exactness Is Invariant Under Invertible Reparameterization
+
+Let `x = F z` be a restricted-linear family and let `Q` be invertible. Define the reparameterized family by
+
+```text
+x = F Q u.
+```
+
+For fixed `M(x)=O x` and `p(x)=L x`, exact primitive-object verdicts are identical for `F` and `F Q`.
+
+Equivalent statement:
+
+```text
+ker(O F) ⊂ ker(L F)   ⇔   ker(O F Q) ⊂ ker(L F Q).
+```
+
+Reason:
+`Q` invertible means `h -> Q h` is a bijection on coefficient directions, so kernel inclusion and fiber collisions are transported without loss.
+
+Status:
+- `PROVED` on restricted-linear class with executable checks in
+  `src/ocp/structural_information.py::primitive_object_reparameterization_certificate`.
+
+### Proposition 8.7: Full-Column-Rank Perturbation Robustness Threshold
+
+Let baseline exactness hold on `x = F z` with `M(x)=O x`, `p(x)=L x`, and assume `O F` has full column rank with smallest singular value `sigma_min > 0`.
+
+For perturbation `O' = O + Delta`, if
+
+```text
+||Delta F||_2 < sigma_min,
+```
+
+then `O' F` remains full-column-rank and exact recoverability is preserved.
+
+Status:
+- `PROVED` on the declared restricted-linear class.
+- Implemented in `perturbation_robustness_certificate`.
+
+Boundary:
+- if `rank(O F) < dim(z)`, arbitrarily small transverse perturbations can break exactness (fragility regime).
+
+### Proposition 8.8: Nonlinear Post-Composition Boundary
+
+Let `M : A -> Y` and `p : A -> P` be fixed.
+For any post-map `phi : Y -> Y'`:
+
+1. if `phi` is injective on `M(A)`, exact recoverability of `p` from `M` is equivalent to exact recoverability from `phi o M`;
+2. if `phi` is non-injective on `M(A)`, exactness can fail by new record collisions.
+
+Status:
+- `PROVED` on finite/restricted families through explicit injective (`y -> y^3`) and non-injective (`y -> y^2`) witness checks in
+  `postcomposition_exactness_report`.
 
 ## 9. Record Complexity and Threshold Families
 

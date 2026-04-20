@@ -22,11 +22,23 @@ Promoted results:
 
 - `OCP-030`: observation-fiber exactness.
 - `OCP-031`: restricted linear kernel and row-space exactness criterion.
+- `OCP-054`: primitive-object equivalence closure on restricted linear box families.
+- `OCP-059`: primitive-object exactness invariance under invertible reparameterization.
 - `OCP-043`: collision-gap threshold law on declared families.
 - `OCP-045`: minimal augmentation law.
 - `OCP-046`: exact-regime stability envelope.
+- `OCP-060`: full-column-rank perturbation robustness threshold.
 
 Together, this block provides the operational chain from diagnosis to augmentation on restricted classes.
+
+## Dynamic Restricted Law
+
+- `OCP-055`: target-independent garbling MMSE monotonicity on the declared finite binary-target class.
+- `OCP-057`: finite multivalued target garbling MMSE monotonicity.
+- `OCP-058`: binary symmetric garbling semigroup MMSE envelope.
+- `OCP-063`: binary symmetric garbling horizon threshold law.
+
+This dynamic law is promoted only with its explicit garbling assumptions.
 
 ## Target-Hierarchy Anchor
 

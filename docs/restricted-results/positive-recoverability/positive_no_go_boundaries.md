@@ -19,6 +19,7 @@ Evidence:
 
 Boundary lesson:
 - any positive framework without compatibility lift is incomplete.
+- finite amount-code exact-classifier boundary is now explicit in `OCP-062`.
 
 ## PN-2 Model-Mismatch Boundary
 
@@ -60,11 +61,13 @@ Statement:
 Linear positive architecture theorems do not automatically transfer to nonlinear measurement maps.
 
 Status:
-- `OPEN` as general theorem,
-- nonlinear collision toy demonstrates boundary.
+- `PROVED` as a boundary no-go via explicit nonlinear counterexample family,
+- restricted positive subclass survives for injective record post-compositions,
+- extension to broad nonlinear theorem classes remains `OPEN`.
 
 Evidence:
 - `4` nonlinear sign-collision rows (`y=x^2`, target `x`).
+- injective-postcomposition finite-family equivalence checks (`y -> y^3`) in structural-information tests.
 
 ## PN-6 Trivial-Class Prevention Boundary
 

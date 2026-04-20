@@ -98,6 +98,71 @@ ker(O F) ⊂ ker(L F).
 
 **Standardness:** almost certainly standard linear algebra.
 
+### COR-P4b: Primitive-Object Equivalence On Restricted Linear Box Families
+
+Promoted claim ID: `OCP-054`.
+
+Let the admissible family be
+
+```text
+A_B = {F z : ||z||_∞ ≤ B},   B > 0
+```
+
+with
+
+```text
+M(x)=O x,   p(x)=L x.
+```
+
+Define the primitive object
+
+```text
+I_B = (A_B, M, p, Pi_M, Pi_p, C_{M,p})
+```
+
+and write its exactness indicator as fiber constancy (`p` constant on `M` fibers), equivalently collapse modulus `κ_{M,p}(0)=0`.
+
+Then the following are equivalent:
+
+1. `ker(O F) ⊂ ker(L F)`.
+2. There exists linear `K` with `K O F = L F`.
+3. `p` is constant on `M` fibers on `A_B`.
+4. Primitive-object exactness holds on `I_B` (`κ_{M,p}(0)=0`).
+
+If `ker(O F) ⊄ ker(L F)`, there exists `h in ker(O F)` with `L F h != 0`. Scaling `h` into `||h||_∞ ≤ 2B` yields a same-record, different-target witness in `A_B`, so primitive-object exactness fails.
+
+**Status:** proved on the declared restricted-linear class with executable certificates in `src/ocp/structural_information.py::primitive_object_ocp_equivalence_certificate`.
+
+**Value:** closes the primitive-object gap by showing the object is mathematically equivalent to the OCP-030/OCP-031 exactness core on supported families rather than decorative notation.
+
+### COR-P4c: Invertible Reparameterization Invariance
+
+Let `Q` be invertible and reparameterize `x = F z` as `x = F Q u`.
+For fixed record/target maps, exactness verdicts are invariant:
+
+```text
+ker(O F) ⊂ ker(L F)  ⇔  ker(O F Q) ⊂ ker(L F Q).
+```
+
+**Status:** proved on restricted-linear families with executable checks.
+
+**Value:** separates structural exactness from coordinate artifacts in admissible parameterizations.
+
+### COR-P4d: Full-Rank Perturbation Threshold
+
+Assume baseline exactness and full column rank of `O F` with margin `sigma_min`.
+If perturbation satisfies
+
+```text
+||Delta F||_2 < sigma_min,
+```
+
+then exactness survives for `O' = O + Delta`.
+
+**Status:** proved on restricted-linear class.
+
+**Value:** sharpens PT-7 from qualitative robustness wording to an explicit threshold.
+
 ### COR-P5: Restricted Observation Rank Lower Bound
 
 Under the same setup,

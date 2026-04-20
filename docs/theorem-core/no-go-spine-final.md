@@ -27,6 +27,9 @@ These results make domain and boundary conditions part of theorem scope, not pos
 - `OCP-050`: no fixed-library budget-only exact classifier.
 - `OCP-052`: family-enlargement false positives.
 - `OCP-053`: model-mismatch instability.
+- `OCP-056`: no broad dynamic monotonicity without target-independent garbling assumptions.
+- `OCP-061`: non-injective nonlinear post-composition can destroy exactness.
+- `OCP-062`: mixed amount-code collisions are decisive exact-classifier no-go witnesses.
 
 These results show that amount-only descriptors can coincide while exact-recovery verdicts differ.
 
