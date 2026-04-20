@@ -95,6 +95,7 @@ Observed result after README contract fix:
 
 Notes:
 - `run_all.sh` regenerates many artifacts. Non-canonical churn should be discarded before push; canonical structural-information evidence files included in this branch remain tracked by design.
+- Some imported external source files include upstream trailing whitespace in raw `.data` and `.names` content. `git diff --check` will flag these lines; this is source-fidelity noise, not a branch regression.
 
 ## 7. Final Plain Answer
 This branch materially improves the live repo for the information-mapping program and is structured for PR-style review. It includes the strongest missing theorem/evidence upgrades and leaves out process clutter and archive-heavy noise. It is suitable for a later push after a final pre-push check confirms the working tree is clean and only intended files remain staged.
