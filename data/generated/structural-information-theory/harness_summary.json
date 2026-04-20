@@ -3,15 +3,114 @@
     "ocp_rank_witness",
     "information_real_system",
     "gravity_recoverability",
-    "gravity_blackhole_only"
+    "gravity_blackhole_only",
+    "external_uci_wine_quality",
+    "external_uci_magic_gamma",
+    "external_uci_ionosphere",
+    "external_uci_spambase",
+    "external_uci_sonar",
+    "external_uci_wdbc"
   ],
   "anti_classifier_survivors": [
     "ocp_rank_witness",
     "information_real_system",
     "gravity_recoverability",
-    "gravity_blackhole_only"
+    "gravity_blackhole_only",
+    "external_uci_wine_quality",
+    "external_uci_magic_gamma",
+    "external_uci_ionosphere",
+    "external_uci_spambase",
+    "external_uci_sonar",
+    "external_uci_wdbc"
   ],
   "independent_out_of_family_survivors": [
+    "information_real_system",
+    "external_uci_wine_quality",
+    "external_uci_magic_gamma",
+    "external_uci_ionosphere",
+    "external_uci_spambase",
+    "external_uci_sonar",
+    "external_uci_wdbc"
+  ],
+  "decision_risk_improved_datasets": [
+    "ocp_rank_witness",
+    "information_real_system",
+    "gravity_recoverability",
+    "gravity_blackhole_only",
+    "external_uci_wine_quality",
+    "external_uci_magic_gamma",
+    "external_uci_ionosphere",
+    "external_uci_spambase",
+    "external_uci_sonar",
+    "external_uci_wdbc"
+  ],
+  "amount_scalar_nonreducible_datasets": [
+    "ocp_rank_witness",
+    "information_real_system",
+    "gravity_recoverability",
+    "gravity_blackhole_only",
+    "external_uci_wine_quality",
+    "external_uci_magic_gamma",
+    "external_uci_ionosphere",
+    "external_uci_spambase",
+    "external_uci_sonar",
+    "external_uci_wdbc"
+  ],
+  "dynamic_restricted_law_survivors": [
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling",
+    "target_independent_garbling_multivalued",
+    "bsc_semigroup_closed_form"
+  ],
+  "dynamic_law_counterexamples": [
+    "target_dependent_transition_counterexample"
+  ],
+  "dynamic_classification": {
+    "target_independent_markov_garbling": {
+      "monotonicity_status": "WORKS",
+      "convergence_status": "PARTIAL_VALIDATION",
+      "horizon_status": "N/A"
+    },
+    "target_independent_multivalued_garbling": {
+      "monotonicity_status": "WORKS",
+      "convergence_status": "ANALYTIC_INSTANCE_ONLY",
+      "horizon_status": "N/A"
+    },
+    "bsc_target_independent_semigroup": {
+      "monotonicity_status": "WORKS",
+      "convergence_status": "WORKS_TO_0.25",
+      "horizon_status": "WORKS_EXPLICIT"
+    },
+    "contractive_symmetric_markov_subset": {
+      "monotonicity_status": "WORKS",
+      "convergence_status": "WORKS_NUMERICAL",
+      "horizon_status": "PARTIAL"
+    },
+    "target_dependent_or_adversarial_transforms": {
+      "monotonicity_status": "FAILS",
+      "convergence_status": "NO_GENERAL_LAW",
+      "horizon_status": "NO_GENERAL_LAW"
+    }
+  },
+  "dynamic_horizon_threshold_failures": [],
+  "static_boundary_cases": [
+    "noninvertible_reparameterization",
+    "target_postcomposition_noninjective"
+  ],
+  "nonlinear_fail_cases": [
+    "noninjective_even_square",
+    "noninjective_abs",
+    "monotone_saturation_clip",
+    "quantization_threshold"
+  ],
+  "practical_scalar_outperforms_datasets": [
+    "external_uci_magic_gamma",
+    "gravity_recoverability",
     "information_real_system"
   ],
   "stability_all_bounds_hold": true,

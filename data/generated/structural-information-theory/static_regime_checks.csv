@@ -1,0 +1,5 @@
+case_id,assumption_class,works,fails,boundary_note,status
+invertible_reparameterization,restricted_linear_invertible_Q,1,0,invariance guaranteed only for invertible Q,PROVED_RESTRICTED
+noninvertible_reparameterization,restricted_linear_rank_deficient_Q,0,1,no invariance guarantee under noninvertible Q,BOUNDARY_ONLY
+target_postcomposition_injective,finite_target_injective_map_on_support,1,0,injective target map preserves exactness class,PROVED_RESTRICTED
+target_postcomposition_noninjective,finite_target_noninjective_coarsening,1,0,noninjective target coarsening can convert nonexact fine target to exact coarse target,NO_GO_BOUNDARY

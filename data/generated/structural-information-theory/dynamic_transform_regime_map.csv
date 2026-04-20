@@ -1,0 +1,6 @@
+transform_class,monotonicity_status,convergence_status,horizon_status,evidence_rows,notes
+target_independent_markov_garbling,WORKS,PARTIAL_VALIDATION,N/A,7,Finite binary records across internal and external lanes.
+target_independent_multivalued_garbling,WORKS,ANALYTIC_INSTANCE_ONLY,N/A,1,Finite-valued target under squared-loss MMSE.
+bsc_target_independent_semigroup,WORKS,WORKS_TO_0.25,WORKS_EXPLICIT,1,Closed-form branch with explicit horizon thresholds.
+contractive_symmetric_markov_subset,WORKS,WORKS_NUMERICAL,PARTIAL,3,"Validated on epsilon in {0.1, 0.2, 0.3} from perfect-observation BSC flow."
+target_dependent_or_adversarial_transforms,FAILS,NO_GENERAL_LAW,NO_GENERAL_LAW,1,Explicit one-step contradiction to broad monotonicity.

@@ -1,0 +1,9 @@
+map_case,map_class,injective_on_support,exact_before,exact_after,equivalence_holds,status,break_step
+injective_monotone_exp,injective_monotone,1,1,1,1,SURVIVES,
+injective_monotone_cubic,injective_monotone,1,1,1,1,SURVIVES,
+injective_monotone_tanh,locally_invertible_monotone,1,1,1,1,SURVIVES,
+noninjective_even_square,noninjective,0,1,0,0,FAILS,
+noninjective_abs,noninjective,0,1,0,0,FAILS,
+monotone_saturation_clip,monotone_noninjective,0,1,0,0,FAILS,
+quantization_threshold,structured_nonlinear_quantization,-1,1,0,0,FAILS_AT_THRESHOLD,1.5
+target_coarsening_abs,target_postcomposition,0,0,1,0,COARSENING_CONVERTS_TO_EXACT,

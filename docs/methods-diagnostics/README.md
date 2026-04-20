@@ -12,6 +12,8 @@ The methods are designed for cases where rank, entropy, or measurement count agr
 - harness specifications and ablation protocols,
 - method comparisons against amount-only baselines,
 - implementation anchors for reproducible runs.
+- decision-risk comparison artifact summary:
+  `docs/methods-diagnostics/decision-baseline-pressure.md`.
 
 ## Core Implementation Anchors
 
