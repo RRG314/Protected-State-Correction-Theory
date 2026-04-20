@@ -147,7 +147,7 @@ def node_query(lab: str, config: dict[str, Any]) -> dict[str, Any]:
 
 
 def run_tool_qualification() -> dict[str, Any]:
-    subprocess.run(['python3', str(TOOL_QUALIFICATION)], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, str(TOOL_QUALIFICATION)], cwd=ROOT, check=True)
     return json.loads(TOOL_SUMMARY_JSON.read_text(encoding='utf-8'))
 
 

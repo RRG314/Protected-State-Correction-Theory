@@ -2,28 +2,36 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
-python3 scripts/search/build_inventory.py
-python3 scripts/report/build_claim_registry.py
-python3 scripts/report/build_system_report.py
-PYTHONPATH=src python3 scripts/compare/run_operator_examples.py
-PYTHONPATH=src python3 scripts/compare/run_recoverability_examples.py
-PYTHONPATH=src python3 scripts/compare/run_fiber_recoverability_examples.py
-PYTHONPATH=src python3 scripts/compare/run_decision_layer_examples.py
-PYTHONPATH=src python3 scripts/compare/run_next_phase_examples.py
-PYTHONPATH=src python3 scripts/compare/run_design_examples.py
-PYTHONPATH=src python3 scripts/compare/run_structural_discovery_examples.py
-PYTHONPATH=src python3 scripts/compare/run_discovery_mixer_examples.py
+
+if [ -x ".venv/bin/python" ]; then
+  PYTHON_BIN=".venv/bin/python"
+else
+  PYTHON_BIN="python3"
+fi
+
+"$PYTHON_BIN" scripts/search/build_inventory.py
+"$PYTHON_BIN" scripts/report/build_claim_registry.py
+"$PYTHON_BIN" scripts/report/build_system_report.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_operator_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_recoverability_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_fiber_recoverability_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_decision_layer_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_next_phase_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_design_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_structural_discovery_examples.py
+PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_discovery_mixer_examples.py
 if command -v node >/dev/null 2>&1; then
   node scripts/compare/build_workbench_examples.mjs
-  PYTHONPATH=src python3 scripts/compare/run_professional_validation_audit.py
+  PYTHONPATH=src "$PYTHON_BIN" scripts/compare/run_professional_validation_audit.py
   node --test tests/consistency/*.test.mjs
 fi
-python3 scripts/validate/check_links.py
-python3 scripts/validate/check_naming.py
-python3 scripts/validate/check_visual_gallery.py
-python3 scripts/validate/check_workbench_static.py
+"$PYTHON_BIN" scripts/validate/check_links.py
+"$PYTHON_BIN" scripts/validate/check_naming.py
+"$PYTHON_BIN" scripts/validate/check_claim_scope.py
+"$PYTHON_BIN" scripts/validate/check_visual_gallery.py
+"$PYTHON_BIN" scripts/validate/check_workbench_static.py
 if command -v uv >/dev/null 2>&1; then
   PYTHONPATH=src uv run --with pytest python -m pytest -q
 else
-  PYTHONPATH=src python3 -m pytest -q
+  PYTHONPATH=src "$PYTHON_BIN" -m pytest -q
 fi
