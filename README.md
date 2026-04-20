@@ -5,7 +5,7 @@
 [![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Protected-State-Correction-Theory/docs/workbench/)
 [![Program Scope](https://img.shields.io/badge/Scope-Branch--first%20%7C%20Theorem--first-1f6feb)](./branches/README.md)
 
-This repository develops a theorem-first recoverability program for declared triples `(A, M, T)` of admissible family, record map, and target map. The core criterion is exact target recoverability under constrained observation, with explicit failure and minimal-augmentation structure on declared classes.
+This repository develops protected-state correction and constrained-observation recoverability through a theorem-first program over declared triples `(A, M, T)` of admissible family, record map, and target map. The core criterion is exact target recoverability under constrained observation, with explicit failure and minimal-augmentation structure on declared classes.
 
 Strongest current contribution: a restricted information-regime package that combines static exactness boundaries, dynamic transform-class laws, nonlinear survive/fail splits, and external-data scalar nonreducibility evidence (`OCP-054` to `OCP-063`).
 
@@ -22,7 +22,10 @@ The program treats exactness, impossibility, and repair under constrained record
 - [Final information regime map](./docs/meta-governance/final-information-regime-map.md)
 - [Strongest restricted lane](./docs/restricted-results/strongest-paper-lane.md)
 - [Restricted linear fiber theory](./docs/fiber-based-recoverability-and-impossibility/restricted-linear-fiber-theory.md)
-- [Descriptor-fiber branch paper](./papers/descriptor-fiber-anti-classifier-branch.md)
+- [Descriptor-fiber anti-classifier branch paper](./papers/descriptor-fiber-anti-classifier-branch.md)
+- [Professional validation report](./docs/app/professional-validation-report.md)
+- [Figure Index (image center)](docs/visuals/figure-index.html)
+- [Visual Gallery](docs/visuals/visual-gallery.html)
 
 Representative witnesses retained as active evidence:
 - same-rank opposite-verdict constructions against rank-only language,
